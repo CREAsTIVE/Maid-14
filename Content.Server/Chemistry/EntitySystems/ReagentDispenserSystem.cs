@@ -129,10 +129,12 @@ namespace Content.Server.Chemistry.EntitySystems
             return null;
         }
 
-        private HashSet<ReagentId> GetInventory(Entity<ReagentDispenserComponent> dispenserEnt)
+        private IEnumerable<ReagentId> GetInventory(Entity<ReagentDispenserComponent> dispenserEnt)
         {
-            var inventory = new HashSet<ReagentId>();
+            var inventory = new HashSet<string>();
             var dispenserComponent = dispenserEnt.Comp;
+
+            // Collect reagents from items provided by SolutionContainerManager; TODO: include parent
             if (TryComp<StorageFillComponent>(dispenserEnt, out var storageFillComp))
             {
                 foreach (var item in storageFillComp.Contents)
@@ -163,7 +165,7 @@ namespace Content.Server.Chemistry.EntitySystems
                                 continue;
 
                             // Finded!
-                            inventory.Add(new(reagentId.Value, null));
+                            inventory.Add(reagentId.Value);
                         }
                     }
                 }
@@ -179,7 +181,7 @@ namespace Content.Server.Chemistry.EntitySystems
             {
                 foreach (var reagentId in packPrototype.Inventory)
                 {
-                    inventory.Add(new(reagentId, null));
+                    inventory.Add(reagentId);
                 }
             }
 
@@ -191,11 +193,11 @@ namespace Content.Server.Chemistry.EntitySystems
             {
                 foreach (var reagentId in emagPackPrototype.Inventory)
                 {
-                    inventory.Add(new(reagentId, null));
+                    inventory.Add(reagentId);
                 }
             }
 
-            return inventory;
+            return inventory.Select(id => new ReagentId(id, null));
         }
 
         private void OnSetDispenseAmountMessage(Entity<ReagentDispenserComponent> reagentDispenser, ref ReagentDispenserSetDispenseAmountMessage message)
