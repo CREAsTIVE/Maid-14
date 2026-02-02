@@ -112,11 +112,6 @@
     sprite: Structures/smalldispensers.rsi
     drawdepth: SmallObjects
     state: soda
-  - type: Storage
-    openOnActivate: false
-    whitelist:
-      tags:
-      - DrinkBottle
   - type: StorageFill
     contents:
     - id: DrinkCoconutWaterJug

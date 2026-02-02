@@ -102,10 +102,6 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-    - 0,0,19,5
   - type: ReagentDispenser
     beakerSlot:
       whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
@@ -119,7 +115,6 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       beakerSlot: !type:ContainerSlot
-      storagebase: !type:Container
   - type: StaticPrice
     price: 1000
   - type: WiresPanel

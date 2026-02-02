@@ -46,26 +46,34 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                            Access="Public"
                            Columns="3" />
         </ScrollContainer>
-        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left">
-            <Button Name="ClearButton"
-                    Access="Public"
-                    Text="{Loc 'reagent-dispenser-window-clear-button'}"
-                    StyleClasses="OpenRight" />
-            <Button Name="EjectButton"
-                    Access="Public"
-                    Text="{Loc 'reagent-dispenser-window-eject-button'}"
-                    StyleClasses="OpenLeft" />
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <BoxContainer Orientation="Vertical" VerticalAlignment="Bottom">
+                <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Button Name="ClearButton"
+                            Access="Public"
+                            Text="{Loc 'reagent-dispenser-window-clear-button'}"
+                            StyleClasses="OpenRight" />
+                    <Button Name="EjectButton"
+                            Access="Public"
+                            Text="{Loc 'reagent-dispenser-window-eject-button'}"
+                            StyleClasses="OpenLeft" />
+                </BoxContainer>
+                <BoxContainer HorizontalAlignment="Left">
+                    <Label Name="ContainerInfoName"
+                           Access="Public"
+                           Text=""/>
+                    <Control MinSize="10 0"/>
+                    <Label Name="ContainerInfoFill"
+                           Access="Public"
+                           Text=""
+                           StyleClasses="LabelSubText" />
+                </BoxContainer>
+            </BoxContainer>
+            <Control HorizontalExpand="True"/>
+            <SpriteView Name="View"
+                        Scale="4 4"/>
         </BoxContainer>
-        <BoxContainer HorizontalAlignment="Left">
-            <Label Name="ContainerInfoName"
-                   Access="Public"
-                   Text=""/>
-            <Control MinSize="10 0"/>
-            <Label Name="ContainerInfoFill"
-                   Access="Public"
-                   Text=""
-                   StyleClasses="LabelSubText" />
-        </BoxContainer>
+        
         <BoxContainer HorizontalExpand="True"
                       VerticalExpand="True"
                       Orientation="Horizontal">
@@ -87,10 +95,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 </PanelContainer>
             </ScrollContainer>
             <Control MinSize="5 0"/>
-            <SpriteView Name="View" 
-                        Scale="4 4"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Top"/>
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

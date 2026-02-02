@@ -81,25 +81,11 @@ namespace Content.Shared.Chemistry
     [Serializable, NetSerializable]
     public sealed class ReagentDispenserDispenseReagentMessage : BoundUserInterfaceMessage
     {
-        public readonly ItemStorageLocation StorageLocation;
+        public readonly ReagentId ReagentId;
 
-        public ReagentDispenserDispenseReagentMessage(ItemStorageLocation storageLocation)
+        public ReagentDispenserDispenseReagentMessage(ReagentId storageLocation)
         {
-            StorageLocation = storageLocation;
-        }
-    }
-
-    /// <summary>
-    ///     Message sent by the user interface to ask the reagent dispenser to eject a container
-    /// </summary>
-    [Serializable, NetSerializable]
-    public sealed class ReagentDispenserEjectContainerMessage : BoundUserInterfaceMessage
-    {
-        public readonly ItemStorageLocation StorageLocation;
-
-        public ReagentDispenserEjectContainerMessage(ItemStorageLocation storageLocation)
-        {
-            StorageLocation = storageLocation;
+            ReagentId = storageLocation;
         }
     }
 
@@ -141,11 +127,11 @@ namespace Content.Shared.Chemistry
         /// <summary>
         /// A list of the reagents which this dispenser can dispense.
         /// </summary>
-        public readonly List<ReagentInventoryItem> Inventory;
+        public readonly List<ReagentId> Inventory;
 
         public readonly ReagentDispenserDispenseAmount SelectedDispenseAmount;
 
-        public ReagentDispenserBoundUserInterfaceState(ContainerInfo? outputContainer, NetEntity? outputContainerEntity, List<ReagentInventoryItem> inventory, ReagentDispenserDispenseAmount selectedDispenseAmount)
+        public ReagentDispenserBoundUserInterfaceState(ContainerInfo? outputContainer, NetEntity? outputContainerEntity, List<ReagentId> inventory, ReagentDispenserDispenseAmount selectedDispenseAmount)
         {
             OutputContainer = outputContainer;
             OutputContainerEntity = outputContainerEntity;

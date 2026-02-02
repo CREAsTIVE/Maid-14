@@ -111,11 +111,6 @@
     sprite: Structures/smalldispensers.rsi
     drawdepth: SmallObjects
     state: booze
-  - type: Storage
-    openOnActivate: false
-    whitelist:
-      tags:
-      - DrinkBottle
   - type: StorageFill
     contents:
     - id: DrinkAleBottleFullGrowler
