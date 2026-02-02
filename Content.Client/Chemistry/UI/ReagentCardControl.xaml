@@ -19,7 +19,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                               VerticalExpand="True"
                               HorizontalExpand="True"
                               Margin="-5 0 0 0">
-                    <Label Name="ReagentNameLabel" />
+                    <Label Name="ReagentNameLabel" HorizontalAlignment="Center" />
                 </BoxContainer>
             </BoxContainer>
         </Button>

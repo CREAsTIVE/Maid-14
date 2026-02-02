@@ -21,10 +21,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                       xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
                       xmlns:ui="clr-namespace:Content.Client.Chemistry.UI"
                       Title="{Loc 'reagent-dispenser-bound-user-interface-title'}"
-                      MinSize="600 300"
+                      MinSize="450 300"
                       SetSize="800 500">
     <BoxContainer Orientation="Vertical" Margin="5">
-        <BoxContainer Orientation="Horizontal" MinWidth="170">
+        <BoxContainer Orientation="Horizontal">
             <Label Text="{Loc 'reagent-dispenser-window-amount-to-dispense-label'}"
                    Margin="5"/>
             <ui:ButtonGrid
@@ -37,18 +37,14 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 RadioGroup="True">
             </ui:ButtonGrid>
         </BoxContainer>
-        <ScrollContainer HScrollEnabled="False"
-                         MinHeight="50"
-                         SizeFlagsStretchRatio="2.5">
-            <GridContainer Name="ReagentList"
+        <GridContainer Name="ReagentList"
                            HorizontalExpand="True"
-                           VerticalExpand="True"
                            Access="Public"
-                           Columns="3" />
-        </ScrollContainer>
+                           Columns="4" />
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-            <BoxContainer Orientation="Vertical" VerticalAlignment="Bottom">
-                <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left">
+            <BoxContainer Orientation="Vertical">
+                <Control VerticalExpand="True"/>
+                <BoxContainer Orientation="Horizontal">
                     <Button Name="ClearButton"
                             Access="Public"
                             Text="{Loc 'reagent-dispenser-window-clear-button'}"
@@ -58,10 +54,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                             Text="{Loc 'reagent-dispenser-window-eject-button'}"
                             StyleClasses="OpenLeft" />
                 </BoxContainer>
-                <BoxContainer HorizontalAlignment="Left">
+                <BoxContainer>
                     <Label Name="ContainerInfoName"
                            Access="Public"
-                           Text=""/>
+                           Text="{Loc 'reagent-dispenser-window-no-container-loaded-text'}"/>
                     <Control MinSize="10 0"/>
                     <Label Name="ContainerInfoFill"
                            Access="Public"
@@ -69,9 +65,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                            StyleClasses="LabelSubText" />
                 </BoxContainer>
             </BoxContainer>
-            <Control HorizontalExpand="True"/>
             <SpriteView Name="View"
-                        Scale="4 4"/>
+                        Scale="2 2"/>
         </BoxContainer>
         
         <BoxContainer HorizontalExpand="True"
@@ -90,7 +85,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                   HorizontalExpand="True"
                                   VerticalExpand="True"
                                   Margin="5">
-                        <Label Text="{Loc 'reagent-dispenser-window-no-container-loaded-text'}" />
                     </BoxContainer>
                 </PanelContainer>
             </ScrollContainer>

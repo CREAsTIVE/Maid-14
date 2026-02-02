@@ -127,9 +127,8 @@ namespace Content.Client.Chemistry.UI
 
             if (state.OutputContainer is null)
             {
-                ContainerInfoName.Text = "";
+                ContainerInfoName.Text = Loc.GetString("reagent-dispenser-window-no-container-loaded-text");
                 ContainerInfoFill.Text = "";
-                ContainerInfo.Children.Add(new Label { Text = Loc.GetString("reagent-dispenser-window-no-container-loaded-text") });
                 return;
             }
 
