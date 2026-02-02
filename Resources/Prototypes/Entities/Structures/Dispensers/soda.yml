@@ -112,27 +112,9 @@
     sprite: Structures/smalldispensers.rsi
     drawdepth: SmallObjects
     state: soda
-  - type: StorageFill
-    contents:
-    - id: DrinkCoconutWaterJug
-    - id: DrinkCoffeeJug
-    - id: DrinkColaBottleFull
-    - id: DrinkCreamCartonXL
-    - id: DrinkDrGibbJug
-    - id: DrinkEnergyDrinkJug
-    - id: DrinkGreenTeaJug
-    - id: DrinkIceJug
-    - id: DrinkJuiceLimeCartonXL
-    - id: DrinkJuiceOrangeCartonXL
-    - id: DrinkLemonLimeJug
-    - id: DrinkRootBeerJug
-    - id: DrinkSodaWaterBottleFull
-    - id: DrinkSpaceMountainWindBottleFull
-    - id: DrinkSpaceUpBottleFull
-    - id: DrinkSugarJug
-    - id: DrinkTeaJug
-    - id: DrinkTonicWaterBottleFull
-    - id: DrinkWaterMelonJuiceJug
+  - type: ReagentDispenser
+    pack: SodaDispenserInventory
+    emagPack: SodaDispenserEmagInventory
   - type: Transform
     noRot: false
   - type: Machine
@@ -144,5 +126,5 @@
 
 - type: entity
   parent: SodaDispenser
-  id: SodaDispenserEmpty
+  id: SodaDispenserEmpty # Exists for backwards compatibility
   suffix: Empty
