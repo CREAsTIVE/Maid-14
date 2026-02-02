@@ -109,15 +109,6 @@ namespace Content.Shared.Chemistry
     }
 
     [Serializable, NetSerializable]
-    public sealed class ReagentInventoryItem(ItemStorageLocation storageLocation, string reagentLabel, FixedPoint2 quantity, Color reagentColor)
-    {
-        public ItemStorageLocation StorageLocation = storageLocation;
-        public string ReagentLabel = reagentLabel;
-        public FixedPoint2 Quantity = quantity;
-        public Color ReagentColor = reagentColor;
-    }
-
-    [Serializable, NetSerializable]
     public sealed class ReagentDispenserBoundUserInterfaceState : BoundUserInterfaceState
     {
         public readonly ContainerInfo? OutputContainer;

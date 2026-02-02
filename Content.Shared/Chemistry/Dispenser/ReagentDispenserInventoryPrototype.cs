@@ -12,7 +12,7 @@ namespace Content.Shared.Chemistry.Dispenser
 {
     /// <summary>
     /// Is simply a list of reagents defined in yaml. This can then be set as a
-    /// reagent despenser <c>pack</c> value (also in yaml),
+    /// reagent dispenser <c>pack</c> value (also in yaml),
     /// to define which reagents it's able to dispense. Based off of how vending
     /// machines define their inventory.
     /// </summary>

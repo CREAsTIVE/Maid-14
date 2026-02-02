@@ -60,6 +60,7 @@ using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Sequence;
 using Robust.Shared.Serialization.Markdown.Value;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Content.Server.Chemistry.EntitySystems
@@ -216,7 +217,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 return;
 
             // sollution is not null because [NotNullWhen(true)]
-            _solutionContainerSystem.TryAddReagent(solution ?? throw new(), reagentId.Prototype, (int) reagentDispenser.Comp.DispenseAmount, out var dispensed);
+            _solutionContainerSystem.TryAddReagent(solution ?? throw new UnreachableException(), reagentId.Prototype, (int) reagentDispenser.Comp.DispenseAmount, out var dispensed);
 
             UpdateUiState(reagentDispenser);
             ClickSound(reagentDispenser);

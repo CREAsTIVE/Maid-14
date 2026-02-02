@@ -78,8 +78,6 @@
     interfaces:
       enum.ReagentDispenserUiKey.Key:
         type: ReagentDispenserBoundUserInterface
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
   - type: Anchorable
   - type: Pullable
   - type: Damageable
