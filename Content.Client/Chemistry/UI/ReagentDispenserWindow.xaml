@@ -44,7 +44,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
             <BoxContainer Orientation="Vertical">
                 <Control VerticalExpand="True"/>
-                <BoxContainer Orientation="Horizontal">
+                <BoxContainer Orientation="Horizontal" Margin="0 0 20 0">
                     <Button Name="ClearButton"
                             Access="Public"
                             Text="{Loc 'reagent-dispenser-window-clear-button'}"
@@ -62,11 +62,17 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     <Label Name="ContainerInfoFill"
                            Access="Public"
                            Text=""
-                           StyleClasses="LabelSubText" />
+                           StyleClasses="LabelSubText"/>
                 </BoxContainer>
             </BoxContainer>
             <SpriteView Name="View"
                         Scale="2 2"/>
+            <Control HorizontalExpand="True"/>
+            <BoxContainer Name="ChargeAmount" Orientation="Horizontal">
+                <Label Text="{Loc 'reagent-dispenser-window-charge-amount'}"/>
+                <Label Text=": "/>
+                <Label Name="ChargeAmountLabel" Text="0"/>
+            </BoxContainer>
         </BoxContainer>
         
         <BoxContainer HorizontalExpand="True"

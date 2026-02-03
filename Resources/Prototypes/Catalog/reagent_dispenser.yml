@@ -1,58 +1,58 @@
 - type: reagentDispenserInventory
   id: ChemDispenserStandardInventory
   inventory:
-  - Aluminium
-  - Carbon
-  - Chlorine
-  - Copper
-  - Ethanol
-  - Fluorine
-  - Sugar
-  - Hydrogen
-  - Iodine
-  - Iron
-  - Lithium
-  - Mercury
-  - Nitrogen
-  - Oxygen
-  - Phosphorus
-  - Potassium
-  - Radium
-  - Silicon
-  - Sodium
-  - Sulfur
+    Aluminium: 10
+    Carbon: 10
+    Chlorine: 10
+    Copper: 10
+    Ethanol: 10
+    Fluorine: 10
+    Sugar: 10
+    Hydrogen: 10
+    Iodine: 10
+    Iron: 10
+    Lithium: 10
+    Mercury: 10
+    Nitrogen: 10
+    Oxygen: 10
+    Phosphorus: 10
+    Potassium: 10
+    Radium: 10
+    Silicon: 10
+    Sodium: 10
+    Sulfur: 10
 
 - type: reagentDispenserInventory
   id: ChemDispenserEmaggedInventory
   inventory: ##Feel free to change this to something more interesting when more chems are added
-  - Napalm
-  - Toxin
-  - Epinephrine
-  - Ultravasculine
+    Napalm: 30
+    Toxin: 30
+    Epinephrine: 30
+    Ultravasculine: 30
 
 
 - type: reagentDispenserInventory
   id: SodaDispenserInventory
   inventory:
-  - Ice
-  - Coffee
-  - Cream
-  - Tea
-  - GreenTea
-  - IcedTea
-  - IcedGreenTea
-  - Cola
-  - SpaceMountainWind
-  - DrGibb
-  - RootBeer
-  - SpaceUp
-  - TonicWater
-  - SodaWater
-  - LemonLime
-  - Sugar
-  - JuiceOrange
-  - JuiceLime
-  - JuiceWatermelon
+    Ice: 5
+    Coffee: 5
+    Cream: 5
+    Tea: 5
+    GreenTea: 5
+    IcedTea: 5
+    IcedGreenTea: 5
+    Cola: 5
+    SpaceMountainWind: 5
+    DrGibb: 5
+    RootBeer: 5
+    SpaceUp: 5
+    TonicWater: 5
+    SodaWater: 5
+    LemonLime: 5
+    Sugar: 5
+    JuiceOrange: 5
+    JuiceLime: 5
+    JuiceWatermelon: 5
   ###Hacked
   #- Fourteen Loko
   #- GrapeSoda
@@ -60,25 +60,25 @@
 - type: reagentDispenserInventory
   id: SodaDispenserEmagInventory
   inventory:
-    - FourteenLoko
-    - Ephedrine
-    - Histamine
+    FourteenLoko: 15
+    Ephedrine: 15
+    Histamine: 15
 
 - type: reagentDispenserInventory
   id: BoozeDispenserInventory
   inventory:
-  - Beer
-  - CoffeeLiqueur
-  - Whiskey
-  - Wine
-  - Vodka
-  - Gin
-  - Rum
-  - Tequila
-  - Vermouth
-  - Cognac
-  - Ale
-  - Mead
+    Beer: 5
+    CoffeeLiqueur: 5
+    Whiskey: 5
+    Wine: 5
+    Vodka: 5
+    Gin: 5
+    Rum: 5
+    Tequila: 5
+    Vermouth: 5
+    Cognac: 5
+    Ale: 5
+    Mead: 5
   ###Hacked
   #- Goldschlager
   #- Patron
@@ -88,7 +88,7 @@
 - type: reagentDispenserInventory
   id: BoozeDispenserEmagInventory
   inventory:
-    - AtomicBomb
-    - Ethanol
-    - Iron
+    AtomicBomb: 15
+    Ethanol: 15
+    Iron: 15
 

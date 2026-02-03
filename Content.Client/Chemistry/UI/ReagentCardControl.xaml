@@ -15,11 +15,15 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 StyleClasses="ButtonSquare"
                 Margin="-1 0 0 0">
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-                <BoxContainer Orientation="Vertical"
+                <BoxContainer Orientation="Horizontal"
                               VerticalExpand="True"
                               HorizontalExpand="True"
-                              Margin="-5 0 0 0">
-                    <Label Name="ReagentNameLabel" HorizontalAlignment="Center" />
+                              Margin="0 0 0 0">
+                    <Control HorizontalExpand="True"/>
+                    <Label Name="ReagentNameLabel" VerticalAlignment="Center" />
+                    <Control MinSize="5 0"/>
+                    <Label Name="ReagentCostLabel" StyleClasses="LabelSubText" VerticalAlignment="Bottom"/>
+                    <Control HorizontalExpand="True"/>
                 </BoxContainer>
             </BoxContainer>
         </Button>

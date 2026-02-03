@@ -114,6 +114,11 @@
   - type: ReagentDispenser
     pack: BoozeDispenserInventory
     emagPack: BoozeDispenserEmagInventory
+  - type: LimitedCharges
+    maxCharges: 1000
+    lastCharges: 1000
+  - type: AutoRecharge
+    rechargeDuration: 0.1
   - type: Transform
     noRot: false
   - type: Machine
@@ -129,3 +134,6 @@
   id: BoozeDispenserEmpty # Exists for backwards compatibility
   suffix: Empty
   parent: BoozeDispenser
+  components:
+  - type: LimitedCharges
+    lastCharges: 0 # Doesn't work

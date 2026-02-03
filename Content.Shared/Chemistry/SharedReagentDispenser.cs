@@ -13,9 +13,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Charges.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Storage;
 using Robust.Shared.Serialization;
+using Robust.Shared.Toolshed.TypeParsers.Math;
 
 namespace Content.Shared.Chemistry
 {
@@ -83,9 +85,9 @@ namespace Content.Shared.Chemistry
     {
         public readonly ReagentId ReagentId;
 
-        public ReagentDispenserDispenseReagentMessage(ReagentId storageLocation)
+        public ReagentDispenserDispenseReagentMessage(ReagentId reagentId)
         {
-            ReagentId = storageLocation;
+            ReagentId = reagentId;
         }
     }
 
@@ -112,22 +114,30 @@ namespace Content.Shared.Chemistry
     public sealed class ReagentDispenserBoundUserInterfaceState : BoundUserInterfaceState
     {
         public readonly ContainerInfo? OutputContainer;
-
         public readonly NetEntity? OutputContainerEntity;
 
         /// <summary>
-        /// A list of the reagents which this dispenser can dispense.
+        /// A list of the reagents which this dispenser can dispense and their cost.
         /// </summary>
-        public readonly List<ReagentId> Inventory;
+        public readonly List<(ReagentId reagent, int cost)> Inventory;
 
         public readonly ReagentDispenserDispenseAmount SelectedDispenseAmount;
 
-        public ReagentDispenserBoundUserInterfaceState(ContainerInfo? outputContainer, NetEntity? outputContainerEntity, List<ReagentId> inventory, ReagentDispenserDispenseAmount selectedDispenseAmount)
+        public readonly int? Charges; // TODO: pass Charge Component instead, so we don't calculate charges
+
+        public ReagentDispenserBoundUserInterfaceState(
+            ContainerInfo? outputContainer,
+            NetEntity? outputContainerEntity,
+            List<(ReagentId reagent, int cost)> inventory,
+            ReagentDispenserDispenseAmount selectedDispenseAmount,
+            int? charges
+        )
         {
             OutputContainer = outputContainer;
             OutputContainerEntity = outputContainerEntity;
             Inventory = inventory;
             SelectedDispenseAmount = selectedDispenseAmount;
+            Charges = charges;
         }
     }
 

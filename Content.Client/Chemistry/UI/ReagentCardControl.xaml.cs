@@ -17,14 +17,16 @@ namespace Content.Client.Chemistry.UI;
 public sealed partial class ReagentCardControl : Control
 {
     public ReagentId ReagentId { get; private init; }
+    public int Cost { get; private set; }
     public Action<ReagentId>? OnPressed;
 
-    public ReagentCardControl(ReagentId reagentId, ReagentPrototype? prototype)
+    public ReagentCardControl(ReagentId reagentId, ReagentPrototype? prototype, int cost)
     {
         RobustXamlLoader.Load(this);
 
         ReagentId = reagentId;
         ReagentNameLabel.Text = prototype?.LocalizedName ?? Loc.GetString("reagent-dispenser-window-reagent-name-not-found-text");
         MainButton.OnPressed += args => OnPressed?.Invoke(ReagentId);
+        ReagentCostLabel.Text = cost.ToString();
     }
 }

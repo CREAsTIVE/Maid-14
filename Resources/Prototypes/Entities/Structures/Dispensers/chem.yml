@@ -54,6 +54,11 @@
   - type: ReagentDispenser
     pack: ChemDispenserStandardInventory
     emagPack: ChemDispenserEmaggedInventory
+  - type: LimitedCharges
+    maxCharges: 1000
+    lastCharges: 0 # Doesn't work
+  - type: AutoRecharge
+    rechargeDuration: 0.1
   - type: Sprite
     sprite: Structures/dispensers.rsi
     state: industrial-working
@@ -94,6 +99,9 @@
         - MachineLayer
 
 - type: entity
-  id: ChemDispenser # Exists for backward compatibility
+  id: ChemDispenser
   suffix: Filled
   parent: ChemDispenserEmpty
+  components:
+  - type: LimitedCharges
+    lastCharges: 1000

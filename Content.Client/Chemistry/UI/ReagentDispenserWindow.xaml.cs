@@ -70,7 +70,7 @@ namespace Content.Client.Chemistry.UI
         /// Update the button grid of reagents which can be dispensed.
         /// </summary>
         /// <param name="inventory">Reagents which can be dispensed by this dispenser</param>
-        public void UpdateReagentsList(List<ReagentId> inventory)
+        public void UpdateReagentsList(List<(ReagentId reagent, int cost)> inventory, int amount)
         {
             if (ReagentList == null)
                 return;
@@ -81,7 +81,11 @@ namespace Content.Client.Chemistry.UI
 
             var reagentPrototypes = inventory
                 // Convert reagentId[] to (reagentId, prototype)[]
-                .Select(reagent => (reagent, prototype: _prototypeManager.TryIndex(reagent.Prototype, out ReagentPrototype? prototype) ? prototype : null))
+                .Select(reagentPair => (
+                    reagentPair.reagent,
+                    prototype: _prototypeManager.TryIndex(reagentPair.reagent.Prototype, out ReagentPrototype? prototype) ? prototype : null,
+                    reagentPair.cost
+                ))
                 .ToList(); // Copy, but should be fine since there not that much reagents
 
             // Sort reagents by name
@@ -89,7 +93,7 @@ namespace Content.Client.Chemistry.UI
 
             foreach (var item in reagentPrototypes)
             {
-                var card = new ReagentCardControl(item.reagent, item.prototype);
+                var card = new ReagentCardControl(item.reagent, item.prototype, item.cost * amount);
                 card.OnPressed += OnDispenseReagentButtonPressed;
                 ReagentList.Children.Add(card);
             }
@@ -103,7 +107,7 @@ namespace Content.Client.Chemistry.UI
         {
             var castState = (ReagentDispenserBoundUserInterfaceState) state;
             UpdateContainerInfo(castState);
-            UpdateReagentsList(castState.Inventory);
+            UpdateReagentsList(castState.Inventory, (int) castState.SelectedDispenseAmount);
 
             _entityManager.TryGetEntity(castState.OutputContainerEntity, out var outputContainerEnt);
             View.SetEntity(outputContainerEnt);
@@ -113,6 +117,13 @@ namespace Content.Client.Chemistry.UI
             EjectButton.Disabled = castState.OutputContainer is null;
 
             AmountGrid.Selected = ((int)castState.SelectedDispenseAmount).ToString();
+
+            // Show charge amount
+            ChargeAmount.Visible = castState.Charges is not null;
+            if (castState.Charges is not null)
+            {
+                ChargeAmountLabel.Text = castState.Charges.ToString();
+            }
         }
 
         /// <summary>

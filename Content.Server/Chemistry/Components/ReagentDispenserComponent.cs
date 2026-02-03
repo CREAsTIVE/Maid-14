@@ -80,6 +80,12 @@ namespace Content.Server.Chemistry.Components
         [ViewVariables(VVAccess.ReadWrite)]
         public ReagentDispenserDispenseAmount DispenseAmount = ReagentDispenserDispenseAmount.U10;
 
+        /// <summary>
+        /// Used for reagents that got collected from <see cref="StorageFillComponent"/>
+        /// </summary>
+        [DataField("defaultReagentCost")]
+        public int DefaultReagentCost = 30;
+
         [DataField("pack", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentDispenserInventoryPrototype>))]
         [ViewVariables(VVAccess.ReadWrite)]
         public string? PackPrototypeId = default!;

@@ -34,8 +34,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Server.Charges;
 using Content.Server.Chemistry.Components;
 using Content.Server.Hands.Systems;
+using Content.Shared.Charges.Components;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -51,6 +53,7 @@ using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
 using JetBrains.Annotations;
+using JetBrains.FormatRipper.MachO;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -60,6 +63,7 @@ using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Sequence;
 using Robust.Shared.Serialization.Markdown.Value;
+using Robust.Shared.Utility;
 using System.Diagnostics;
 using System.Linq;
 
@@ -80,6 +84,7 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly OpenableSystem _openable = default!;
         [Dependency] private readonly HandsSystem _handsSystem = default!;
+        [Dependency] private readonly ChargesSystem _chargesSystem = default!;
 
         public override void Initialize()
         {
@@ -98,20 +103,51 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ReagentDispenserComponent, MapInitEvent>(OnMapInit, before: new[] { typeof(ItemSlotsSystem) });
         }
 
-        private void SubscribeUpdateUiState<T>(Entity<ReagentDispenserComponent> ent, ref T ev)
+        private float _updateTimer = 0f;
+        public override void Update(float frameTime)
         {
-            UpdateUiState(ent);
+            base.Update(frameTime);
+
+            _updateTimer += frameTime;
+            if (_updateTimer >= 1f)
+            {
+                _updateTimer = 0f;
+                var query = EntityQueryEnumerator<ReagentDispenserComponent, UserInterfaceComponent, LimitedChargesComponent>();
+
+                while (query.MoveNext(out var uid, out var reagentDispenserComp, out var uiComp, out var charges))
+                {
+                    UpdateUiState(uid, reagentDispenserComp);
+                }
+            }
         }
 
-        private void UpdateUiState(Entity<ReagentDispenserComponent> reagentDispenser)
+        private void SubscribeUpdateUiState<T>(Entity<ReagentDispenserComponent> ent, ref T ev)
         {
-            var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenser, SharedReagentDispenser.OutputSlotName);
+            UpdateUiState(ent.Owner, ent.Comp);
+        }
+
+        private void UpdateUiState(EntityUid reagentDispenserEnt, ReagentDispenserComponent reagentDispenserComp)
+        {
+            var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenserEnt, SharedReagentDispenser.OutputSlotName);
             var outputContainerInfo = BuildOutputContainerInfo(outputContainer);
 
-            var inventory = GetInventory(reagentDispenser).ToList(); // TODO: Another copy, optimize
+            var inventory = GetInventory(reagentDispenserEnt, reagentDispenserComp).ToList(); // TODO: Another copy, optimize
 
-            var state = new ReagentDispenserBoundUserInterfaceState(outputContainerInfo, GetNetEntity(outputContainer), inventory, reagentDispenser.Comp.DispenseAmount);
-            _userInterfaceSystem.SetUiState(reagentDispenser.Owner, ReagentDispenserUiKey.Key, state);
+            int? charges = null;
+            if (TryComp(reagentDispenserEnt, out LimitedChargesComponent? comp))
+            {
+                charges = _chargesSystem.GetCurrentCharges(reagentDispenserEnt);
+            }
+
+            var state = new ReagentDispenserBoundUserInterfaceState(
+                outputContainerInfo,
+                GetNetEntity(outputContainer),
+                inventory,
+                reagentDispenserComp.DispenseAmount,
+                charges
+            );
+
+            _userInterfaceSystem.SetUiState(reagentDispenserEnt, ReagentDispenserUiKey.Key, state);
         }
 
         private ContainerInfo? BuildOutputContainerInfo(EntityUid? container)
@@ -130,10 +166,9 @@ namespace Content.Server.Chemistry.EntitySystems
             return null;
         }
 
-        private IEnumerable<ReagentId> GetInventory(Entity<ReagentDispenserComponent> dispenserEnt)
+        private IEnumerable<(ReagentId reagent, int cost)> GetInventory(EntityUid dispenserEnt, ReagentDispenserComponent dispenserComp)
         {
-            var inventory = new HashSet<string>();
-            var dispenserComponent = dispenserEnt.Comp;
+            var inventory = new Dictionary<string, int>();
 
             // Collect reagents from items provided by SolutionContainerManager; TODO: include parent
             if (TryComp<StorageFillComponent>(dispenserEnt, out var storageFillComp))
@@ -157,7 +192,7 @@ namespace Content.Server.Chemistry.EntitySystems
                         if (!solution.TryGet<SequenceDataNode>("reagents", out var reagents))
                             continue;
 
-                        foreach(var maybeReagent in reagents)
+                        foreach (var maybeReagent in reagents)
                         {
                             if (!(maybeReagent is MappingDataNode reagent))
                                 continue;
@@ -166,7 +201,7 @@ namespace Content.Server.Chemistry.EntitySystems
                                 continue;
 
                             // Finded!
-                            inventory.Add(reagentId.Value);
+                            inventory.Add(reagentId.Value, dispenserComp.DefaultReagentCost);
                         }
                     }
                 }
@@ -176,50 +211,78 @@ namespace Content.Server.Chemistry.EntitySystems
             // Collect reagents from packs:
 
             if (
-                dispenserComponent.PackPrototypeId is not null
-                && _prototypeManager.TryIndex(dispenserComponent.PackPrototypeId, out ReagentDispenserInventoryPrototype? packPrototype)
+                 dispenserComp.PackPrototypeId is not null
+                && _prototypeManager.TryIndex(dispenserComp.PackPrototypeId, out ReagentDispenserInventoryPrototype? packPrototype)
             )
             {
                 foreach (var reagentId in packPrototype.Inventory)
                 {
-                    inventory.Add(reagentId);
+                    inventory.Add(reagentId.Key, reagentId.Value);
                 }
             }
 
             if (
                 HasComp<EmaggedComponent>(dispenserEnt)
-                && dispenserComponent.EmagPackPrototypeId is not null
-                && _prototypeManager.TryIndex(dispenserComponent.EmagPackPrototypeId, out ReagentDispenserInventoryPrototype? emagPackPrototype)
+                &&  dispenserComp.EmagPackPrototypeId is not null
+                && _prototypeManager.TryIndex(dispenserComp.EmagPackPrototypeId, out ReagentDispenserInventoryPrototype? emagPackPrototype)
             )
             {
                 foreach (var reagentId in emagPackPrototype.Inventory)
                 {
-                    inventory.Add(reagentId);
+                    inventory.Add(reagentId.Key, reagentId.Value);
                 }
             }
 
-            return inventory.Select(id => new ReagentId(id, null));
+            return inventory.Select(pair => (new ReagentId(pair.Key, null), pair.Value));
         }
 
         private void OnSetDispenseAmountMessage(Entity<ReagentDispenserComponent> reagentDispenser, ref ReagentDispenserSetDispenseAmountMessage message)
         {
             reagentDispenser.Comp.DispenseAmount = message.ReagentDispenserDispenseAmount;
-            UpdateUiState(reagentDispenser);
+            UpdateUiState(reagentDispenser.Owner, reagentDispenser.Comp);
             ClickSound(reagentDispenser);
         }
 
         private void OnDispenseReagentMessage(Entity<ReagentDispenserComponent> reagentDispenser, ref ReagentDispenserDispenseReagentMessage message)
         {
             var reagentId = message.ReagentId;
+            var reagentDispenserComp = reagentDispenser.Comp;
 
             var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenser, SharedReagentDispenser.OutputSlotName);
             if (outputContainer is not { Valid: true } || !_solutionContainerSystem.TryGetFitsInDispenser(outputContainer.Value, out var solution, out _))
                 return;
 
-            // sollution is not null because [NotNullWhen(true)]
-            _solutionContainerSystem.TryAddReagent(solution ?? throw new UnreachableException(), reagentId.Prototype, (int) reagentDispenser.Comp.DispenseAmount, out var dispensed);
+            // Check if we even can dispense that
+            var inventory = GetInventory(reagentDispenser.Owner, reagentDispenser.Comp);
+            if (!inventory.TryFirstOrNull(data => data.reagent == reagentId, out var inventoryElement))
+                return;
 
-            UpdateUiState(reagentDispenser);
+            var singleCost = inventoryElement?.cost ?? 1; // "?? 1" should be unreachable
+
+            float requestedDispenseAmount = (int) reagentDispenserComp.DispenseAmount;
+
+            // How much would be dispensed (less then required, if there not enough charges)
+            float totalDispenseAmount = requestedDispenseAmount;
+
+            bool hasCharges;
+            if (hasCharges = TryComp(reagentDispenser.Owner, out LimitedChargesComponent? charges))
+            {
+                var avalaibleCharges = _chargesSystem.GetCurrentCharges(reagentDispenser.Owner);
+
+                totalDispenseAmount = requestedDispenseAmount;
+                if (requestedDispenseAmount * singleCost > avalaibleCharges)
+                    totalDispenseAmount = avalaibleCharges / singleCost;
+            }
+
+            // sollution is not null because [NotNullWhen(true)]
+            _solutionContainerSystem.TryAddReagent(solution ?? throw new UnreachableException(), reagentId.Prototype, totalDispenseAmount, out var dispensed);
+
+            if (hasCharges && dispensed > float.Epsilon)
+            {
+                _chargesSystem.AddCharges(reagentDispenser.Owner, -((int) (MathF.Ceiling((float) dispensed * singleCost) + float.Epsilon))); // Ceil dispensed amount up (should be safe)
+            }
+
+            UpdateUiState(reagentDispenser.Owner, reagentDispenser.Comp);
             ClickSound(reagentDispenser);
         }
 
@@ -230,7 +293,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 return;
 
             _solutionContainerSystem.RemoveAllSolution(solution.Value);
-            UpdateUiState(reagentDispenser);
+            UpdateUiState(reagentDispenser.Owner, reagentDispenser.Comp);
             ClickSound(reagentDispenser);
         }
 

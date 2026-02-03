@@ -24,7 +24,7 @@ namespace Content.Shared.Chemistry.Dispenser
         public string ID { get; private set; } = default!;
 
         // TODO use ReagentId
-        [DataField("inventory", customTypeSerializer: typeof(PrototypeIdListSerializer<ReagentPrototype>))]
-        public List<string> Inventory = new();
+        [DataField("inventory")]
+        public Dictionary<string, int> Inventory = new();
     }
 }

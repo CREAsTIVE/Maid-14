@@ -115,6 +115,11 @@
   - type: ReagentDispenser
     pack: SodaDispenserInventory
     emagPack: SodaDispenserEmagInventory
+  - type: LimitedCharges
+    maxCharges: 1000
+    lastCharges: 1000
+  - type: AutoRecharge
+    rechargeDuration: 0.1
   - type: Transform
     noRot: false
   - type: Machine
@@ -128,3 +133,6 @@
   parent: SodaDispenser
   id: SodaDispenserEmpty # Exists for backwards compatibility
   suffix: Empty
+  components:
+  - type: LimitedCharges
+    lastCharges: 0 # Doesn't work
