@@ -17,7 +17,6 @@ namespace Content.Client.Chemistry.UI;
 public sealed partial class ReagentCardControl : Control
 {
     public ReagentId ReagentId { get; private init; }
-    public int Cost { get; private set; }
     public Action<ReagentId>? OnPressed;
 
     public ReagentCardControl(ReagentId reagentId, ReagentPrototype? prototype, int cost)

@@ -201,7 +201,7 @@ namespace Content.Server.Chemistry.EntitySystems
                                 continue;
 
                             // Finded!
-                            inventory.Add(reagentId.Value, dispenserComp.DefaultReagentCost);
+                            inventory[reagentId.Value] = dispenserComp.DefaultReagentCost;
                         }
                     }
                 }
@@ -217,7 +217,7 @@ namespace Content.Server.Chemistry.EntitySystems
             {
                 foreach (var reagentId in packPrototype.Inventory)
                 {
-                    inventory.Add(reagentId.Key, reagentId.Value);
+                    inventory[reagentId.Key] = reagentId.Value;
                 }
             }
 
@@ -229,7 +229,7 @@ namespace Content.Server.Chemistry.EntitySystems
             {
                 foreach (var reagentId in emagPackPrototype.Inventory)
                 {
-                    inventory.Add(reagentId.Key, reagentId.Value);
+                    inventory[reagentId.Key] = reagentId.Value;
                 }
             }
 
