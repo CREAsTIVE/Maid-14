@@ -112,6 +112,33 @@
     sprite: Structures/smalldispensers.rsi
     drawdepth: SmallObjects
     state: soda
+## Maid START PR №21
+#  - type: Storage
+#    openOnActivate: false
+#    whitelist:
+#      tags:
+#      - DrinkBottle
+#  - type: StorageFill
+#    contents:
+#    - id: DrinkCoconutWaterJug
+#    - id: DrinkCoffeeJug
+#    - id: DrinkColaBottleFull
+#    - id: DrinkCreamCartonXL
+#    - id: DrinkDrGibbJug
+#    - id: DrinkEnergyDrinkJug
+#    - id: DrinkGreenTeaJug
+#    - id: DrinkIceJug
+#    - id: DrinkJuiceLimeCartonXL
+#    - id: DrinkJuiceOrangeCartonXL
+#    - id: DrinkLemonLimeJug
+#    - id: DrinkRootBeerJug
+#    - id: DrinkSodaWaterBottleFull
+#    - id: DrinkSpaceMountainWindBottleFull
+#    - id: DrinkSpaceUpBottleFull
+#    - id: DrinkSugarJug
+#    - id: DrinkTeaJug
+#    - id: DrinkTonicWaterBottleFull
+#    - id: DrinkWaterMelonJuiceJug
   - type: ReagentDispenser
     pack: SodaDispenserInventory
     emagPack: SodaDispenserEmagInventory
@@ -120,6 +147,7 @@
     lastCharges: 1000
   - type: AutoRecharge
     rechargeDuration: 0.1
+## Maid END
   - type: Transform
     noRot: false
   - type: Machine
@@ -131,8 +159,10 @@
 
 - type: entity
   parent: SodaDispenser
-  id: SodaDispenserEmpty # Exists for backwards compatibility
+  id: SodaDispenserEmpty
   suffix: Empty
   components:
+## Maid START PR №21
   - type: LimitedCharges
-    lastCharges: 0 # Doesn't work
+    lastCharges: 0 # Doesn't work, search for comment in PR 21 for more info
+# Maid END

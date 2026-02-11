@@ -60,7 +60,7 @@ using Content.Server.Chemistry.EntitySystems;
 using Content.Shared.Chemistry;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Content.Shared.Chemistry.Dispenser;
+using Content.Shared.Chemistry.Dispenser; // Maid PR №21
 
 namespace Content.Server.Chemistry.Components
 {
@@ -80,6 +80,8 @@ namespace Content.Server.Chemistry.Components
         [ViewVariables(VVAccess.ReadWrite)]
         public ReagentDispenserDispenseAmount DispenseAmount = ReagentDispenserDispenseAmount.U10;
 
+        // Maid START PR №21
+
         /// <summary>
         /// Used for reagents that got collected from <see cref="StorageFillComponent"/>
         /// </summary>
@@ -93,5 +95,7 @@ namespace Content.Server.Chemistry.Components
         [DataField("emagPack", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentDispenserInventoryPrototype>))]
         [ViewVariables(VVAccess.ReadWrite)]
         public string? EmagPackPrototypeId = default!;
+
+        // Maid END
     }
 }

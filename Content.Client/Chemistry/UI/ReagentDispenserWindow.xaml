@@ -14,7 +14,7 @@ SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
-
+<!-- Maid START PR №21 -->
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
@@ -98,3 +98,4 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>
+<!-- Maid END-->

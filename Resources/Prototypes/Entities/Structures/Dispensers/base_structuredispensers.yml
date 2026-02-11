@@ -78,6 +78,8 @@
     interfaces:
       enum.ReagentDispenserUiKey.Key:
         type: ReagentDispenserBoundUserInterface
+#      enum.StorageUiKey.Key: # Maid PR №21
+#        type: StorageBoundUserInterface # Maid PR №21
   - type: Anchorable
   - type: Pullable
   - type: Damageable
@@ -100,6 +102,12 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
+# Maid START PR №21
+#  - type: Storage
+#    maxItemSize: Normal
+#    grid:
+#    - 0,0,19,5
+# Maid END
   - type: ReagentDispenser
     beakerSlot:
       whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
@@ -113,6 +121,7 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       beakerSlot: !type:ContainerSlot
+      # storagebase: !type:Container # Maid PR №21
   - type: StaticPrice
     price: 1000
   - type: WiresPanel

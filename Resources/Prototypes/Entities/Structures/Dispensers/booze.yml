@@ -111,6 +111,26 @@
     sprite: Structures/smalldispensers.rsi
     drawdepth: SmallObjects
     state: booze
+## Maid START PR №21
+#  - type: Storage
+#    openOnActivate: false
+#    whitelist:
+#      tags:
+#      - DrinkBottle
+#  - type: StorageFill
+#    contents:
+#    - id: DrinkAleBottleFullGrowler
+#    - id: DrinkBeerGrowler
+#    - id: DrinkCoffeeLiqueurBottleFull
+#    - id: DrinkCognacBottleFull
+#    - id: DrinkGinBottleFull
+#    - id: DrinkMeadJug
+#    - id: DrinkRumBottleFull
+#    - id: DrinkTequilaBottleFull
+#    - id: DrinkVermouthBottleFull
+#    - id: DrinkVodkaBottleFull
+#    - id: DrinkWhiskeyBottleFull
+#    - id: DrinkWineBottleFull
   - type: ReagentDispenser
     pack: BoozeDispenserInventory
     emagPack: BoozeDispenserEmagInventory
@@ -119,6 +139,7 @@
     lastCharges: 1000
   - type: AutoRecharge
     rechargeDuration: 0.1
+## Maid END
   - type: Transform
     noRot: false
   - type: Machine
@@ -131,9 +152,15 @@
     stealGroup: BoozeDispenser
 
 - type: entity
-  id: BoozeDispenserEmpty # Exists for backwards compatibility
+  id: BoozeDispenserEmpty
   suffix: Empty
   parent: BoozeDispenser
   components:
+## Maid START PR №21
+#  - type: Storage
+#    whitelist:
+#      tags:
+#      - DrinkBottle
   - type: LimitedCharges
-    lastCharges: 0 # Doesn't work
+    lastCharges: 0 # Doesn't work, search for comment in PR 21 for more info
+## Maid END

@@ -12,12 +12,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Charges.Components;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Storage;
 using Robust.Shared.Serialization;
-using Robust.Shared.Toolshed.TypeParsers.Math;
+
+// Maid START PR №21
 
 namespace Content.Shared.Chemistry
 {
@@ -123,7 +121,7 @@ namespace Content.Shared.Chemistry
 
         public readonly ReagentDispenserDispenseAmount SelectedDispenseAmount;
 
-        public readonly int? Charges; // TODO: pass Charge Component instead, so we don't calculate charges
+        public readonly int? Charges;
 
         public ReagentDispenserBoundUserInterfaceState(
             ContainerInfo? outputContainer,
@@ -147,3 +145,5 @@ namespace Content.Shared.Chemistry
         Key
     }
 }
+
+// Maid END
