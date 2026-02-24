@@ -33,6 +33,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Server.Charges;
 using Content.Server.Chemistry.Components;
 using Content.Server.Hands.Systems;
@@ -96,23 +97,9 @@ namespace Content.Server.Chemistry.EntitySystems
 
             SubscribeLocalEvent<ReagentDispenserComponent, MapInitEvent>(OnMapInit, before: new[] { typeof(ItemSlotsSystem) });
         }
-
-        private float _updateTimer = 0f;
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
-
-            _updateTimer += frameTime;
-            if (_updateTimer >= 1f)
-            {
-                _updateTimer = 0f;
-                var query = EntityQueryEnumerator<ReagentDispenserComponent, UserInterfaceComponent, LimitedChargesComponent>();
-
-                while (query.MoveNext(out var uid, out var reagentDispenserComp, out var uiComp, out var charges))
-                {
-                    UpdateUiState(uid, reagentDispenserComp);
-                }
-            }
         }
 
         private void SubscribeUpdateUiState<T>(Entity<ReagentDispenserComponent> ent, ref T ev)
@@ -163,45 +150,6 @@ namespace Content.Server.Chemistry.EntitySystems
         private IEnumerable<(ReagentId reagent, int cost)> GetInventory(EntityUid dispenserEnt, ReagentDispenserComponent dispenserComp)
         {
             var inventory = new Dictionary<string, int>();
-
-            // Collect reagents from items provided by SolutionContainerManager; TODO: include parent
-            if (TryComp<StorageFillComponent>(dispenserEnt, out var storageFillComp))
-            {
-                foreach (var item in storageFillComp.Contents)
-                {
-                    if (!_prototypeManager.TryIndex(item.PrototypeId, out EntityPrototype? entityPrototype))
-                        continue;
-
-                    if (!entityPrototype.Components.TryGetValue("SolutionContainerManager", out var data))
-                        continue;
-
-                    if (!data.Mapping.TryGet<MappingDataNode>("solutions", out var solutions))
-                        continue;
-
-                    foreach (var maybeSolution in solutions.Values)
-                    {
-                        if (!(maybeSolution is MappingDataNode solution))
-                            continue;
-
-                        if (!solution.TryGet<SequenceDataNode>("reagents", out var reagents))
-                            continue;
-
-                        foreach (var maybeReagent in reagents)
-                        {
-                            if (!(maybeReagent is MappingDataNode reagent))
-                                continue;
-
-                            if (!reagent.TryGet<ValueDataNode>("ReagentId", out var reagentId))
-                                continue;
-
-                            // Finded!
-                            inventory[reagentId.Value] = dispenserComp.DefaultReagentCost;
-                        }
-                    }
-                }
-
-            }
-
             // Collect reagents from packs:
 
             if (
@@ -258,8 +206,8 @@ namespace Content.Server.Chemistry.EntitySystems
             // How much would be dispensed (less then required, if there not enough charges)
             float totalDispenseAmount = requestedDispenseAmount;
 
-            bool hasCharges;
-            if (hasCharges = TryComp(reagentDispenser.Owner, out LimitedChargesComponent? charges))
+            bool hasChargesComponent = TryComp(reagentDispenser.Owner, out LimitedChargesComponent? charges);
+            if (hasChargesComponent)
             {
                 var avalaibleCharges = _chargesSystem.GetCurrentCharges(reagentDispenser.Owner);
 
@@ -271,9 +219,9 @@ namespace Content.Server.Chemistry.EntitySystems
             // sollution is not null because [NotNullWhen(true)]
             _solutionContainerSystem.TryAddReagent(solution ?? throw new UnreachableException(), reagentId.Prototype, totalDispenseAmount, out var dispensed);
 
-            if (hasCharges && dispensed > float.Epsilon)
+            if (hasChargesComponent && dispensed > float.Epsilon)
             {
-                _chargesSystem.AddCharges(reagentDispenser.Owner, -((int) (MathF.Ceiling((float) dispensed * singleCost) + float.Epsilon))); // Ceil dispensed amount up (should be safe)
+                _chargesSystem.AddCharges(reagentDispenser.Owner, -((int) (MathF.Ceiling((float) dispensed * singleCost))));
             }
 
             UpdateUiState(reagentDispenser.Owner, reagentDispenser.Comp);
