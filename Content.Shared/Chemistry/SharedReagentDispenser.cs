@@ -108,6 +108,7 @@ namespace Content.Shared.Chemistry
         U100 = 100,
     }
 
+
     [Serializable, NetSerializable]
     public sealed class ReagentDispenserBoundUserInterfaceState : BoundUserInterfaceState
     {
@@ -121,21 +122,21 @@ namespace Content.Shared.Chemistry
 
         public readonly ReagentDispenserDispenseAmount SelectedDispenseAmount;
 
-        public readonly int? Charges;
+        public readonly NetEntity? ChargesContainerEntity;
 
         public ReagentDispenserBoundUserInterfaceState(
             ContainerInfo? outputContainer,
             NetEntity? outputContainerEntity,
             List<(ReagentId reagent, int cost)> inventory,
             ReagentDispenserDispenseAmount selectedDispenseAmount,
-            int? charges
+            NetEntity? charges
         )
         {
             OutputContainer = outputContainer;
             OutputContainerEntity = outputContainerEntity;
             Inventory = inventory;
             SelectedDispenseAmount = selectedDispenseAmount;
-            Charges = charges;
+            ChargesContainerEntity = charges;
         }
     }
 

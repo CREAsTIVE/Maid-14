@@ -114,18 +114,12 @@ namespace Content.Server.Chemistry.EntitySystems
 
             var inventory = GetInventory(reagentDispenserEnt, reagentDispenserComp).ToList(); // TODO: Another copy, optimize
 
-            int? charges = null;
-            if (TryComp(reagentDispenserEnt, out LimitedChargesComponent? comp))
-            {
-                charges = _chargesSystem.GetCurrentCharges(reagentDispenserEnt);
-            }
-
             var state = new ReagentDispenserBoundUserInterfaceState(
                 outputContainerInfo,
                 GetNetEntity(outputContainer),
                 inventory,
                 reagentDispenserComp.DispenseAmount,
-                charges
+                GetNetEntity(reagentDispenserEnt)
             );
 
             _userInterfaceSystem.SetUiState(reagentDispenserEnt, ReagentDispenserUiKey.Key, state);
