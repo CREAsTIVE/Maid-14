@@ -22,8 +22,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                               Margin="0 0 0 0">
                     <Control HorizontalExpand="True"/>
                     <Label Name="ReagentNameLabel" VerticalAlignment="Center" />
-                    <Control MinSize="5 0"/>
-                    <Label Name="ReagentCostLabel" StyleClasses="LabelSubText" VerticalAlignment="Bottom"/>
+                    <BoxContainer Name="ReagentCostControl" Orientation="Horizontal">
+                        <Control MinSize="5 0"/>
+                        <Label Name="ReagentCostLabel" StyleClasses="LabelSubText" VerticalAlignment="Bottom"/>
+                    </BoxContainer>
                     <Control HorizontalExpand="True"/>
                 </BoxContainer>
             </BoxContainer>

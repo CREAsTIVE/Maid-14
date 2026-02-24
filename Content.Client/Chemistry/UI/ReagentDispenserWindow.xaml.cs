@@ -91,7 +91,7 @@ namespace Content.Client.Chemistry.UI
         /// Update the button grid of reagents which can be dispensed.
         /// </summary>
         /// <param name="inventory">Reagents which can be dispensed by this dispenser</param>
-        public void UpdateReagentsList(List<(ReagentId reagent, int cost)> inventory, int amount)
+        public void UpdateReagentsList(List<(ReagentId reagent, int cost)> inventory, int amount, bool showPrices)
         {
             if (ReagentList == null)
                 return;
@@ -114,7 +114,7 @@ namespace Content.Client.Chemistry.UI
 
             foreach (var item in reagentPrototypes)
             {
-                var card = new ReagentCardControl(item.reagent, item.prototype, item.cost * amount);
+                var card = new ReagentCardControl(item.reagent, item.prototype, showPrices ? item.cost * amount : 0);
                 card.OnPressed += OnDispenseReagentButtonPressed;
                 ReagentList.Children.Add(card);
             }
@@ -127,17 +127,6 @@ namespace Content.Client.Chemistry.UI
         public void UpdateState(BoundUserInterfaceState state)
         {
             var castState = (ReagentDispenserBoundUserInterfaceState) state;
-            UpdateContainerInfo(castState);
-            UpdateReagentsList(castState.Inventory, (int) castState.SelectedDispenseAmount);
-
-            _entityManager.TryGetEntity(castState.OutputContainerEntity, out var outputContainerEnt);
-            View.SetEntity(outputContainerEnt);
-
-            // Disable the Clear & Eject button if no beaker
-            ClearButton.Disabled = castState.OutputContainer is null;
-            EjectButton.Disabled = castState.OutputContainer is null;
-
-            AmountGrid.Selected = ((int) castState.SelectedDispenseAmount).ToString();
 
             // Show charge amount
             ChargeAmount.Visible = false;
@@ -157,6 +146,18 @@ namespace Content.Client.Chemistry.UI
                     ChargeAmountLabel.Text = _chargesSystem.GetCurrentCharges(_chargesEntity.Value).ToString();
                 }
             }
+
+            UpdateContainerInfo(castState);
+            UpdateReagentsList(castState.Inventory, (int) castState.SelectedDispenseAmount, _chargesEntity?.Comp1 is not null);
+
+            _entityManager.TryGetEntity(castState.OutputContainerEntity, out var outputContainerEnt);
+            View.SetEntity(outputContainerEnt);
+
+            // Disable the Clear & Eject button if no beaker
+            ClearButton.Disabled = castState.OutputContainer is null;
+            EjectButton.Disabled = castState.OutputContainer is null;
+
+            AmountGrid.Selected = ((int) castState.SelectedDispenseAmount).ToString();
         }
 
         /// <summary>

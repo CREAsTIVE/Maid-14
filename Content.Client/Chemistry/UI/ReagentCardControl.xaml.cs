@@ -28,7 +28,12 @@ public sealed partial class ReagentCardControl : Control
         ReagentId = reagentId;
         ReagentNameLabel.Text = prototype?.LocalizedName ?? Loc.GetString("reagent-dispenser-window-reagent-name-not-found-text");
         MainButton.OnPressed += args => OnPressed?.Invoke(ReagentId);
+
         ReagentCostLabel.Text = cost.ToString();
+        if (cost == 0)
+        {
+            ReagentCostControl.Visible = false;
+        }
     }
 }
 
