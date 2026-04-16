@@ -147,6 +147,7 @@
     lastCharges: 1000
   - type: AutoRecharge
     rechargeDuration: 0.1
+    requirePower: true
 ## Maid END
   - type: Transform
     noRot: false

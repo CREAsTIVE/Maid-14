@@ -135,7 +135,7 @@ public abstract class SharedChargesSystem : EntitySystem
             action.Comp1.LastCharges = action.Comp1.MaxCharges;
         }
         // If it has auto-recharge then make up the difference.
-        else if (Resolve(action.Owner, ref action.Comp2, false))
+        else if (Resolve(action.Owner, ref action.Comp2, false) /*MAID PR 21*/&& action.Comp2.Enabled/*END*/)
         {
             var duration = action.Comp2.RechargeDuration;
             var diff = (_timing.CurTime - action.Comp1.LastUpdate);
@@ -214,7 +214,7 @@ public abstract class SharedChargesSystem : EntitySystem
     [Pure]
     public TimeSpan GetNextRechargeTime(Entity<LimitedChargesComponent?, AutoRechargeComponent?> entity)
     {
-        if (!Resolve(entity.Owner, ref entity.Comp1, ref entity.Comp2, false))
+        if (!Resolve(entity.Owner, ref entity.Comp1, ref entity.Comp2, false) /*MAID PR 21*/|| !entity.Comp2.Enabled/*END*/)
         {
             return TimeSpan.Zero;
         }
@@ -247,7 +247,7 @@ public abstract class SharedChargesSystem : EntitySystem
 
         var calculated = 0;
 
-        if (Resolve(entity.Owner, ref entity.Comp2, false) && entity.Comp2.RechargeDuration.TotalSeconds != 0.0)
+        if (Resolve(entity.Owner, ref entity.Comp2, false) && entity.Comp2.RechargeDuration.TotalSeconds != 0.0 /*MAID PR 21*/ && entity.Comp2.Enabled /*END*/)
         {
             calculated = (int)((_timing.CurTime - entity.Comp1.LastUpdate).TotalSeconds / entity.Comp2.RechargeDuration.TotalSeconds);
         }

@@ -69,6 +69,7 @@
     lastCharges: 0 # Doesn't work, search for comment in PR 21 for more info
   - type: AutoRecharge
     rechargeDuration: 0.1
+    requirePower: true
 ## Maid END
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver

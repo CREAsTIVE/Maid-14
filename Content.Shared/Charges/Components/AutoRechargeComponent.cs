@@ -16,4 +16,12 @@ public sealed partial class AutoRechargeComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public TimeSpan RechargeDuration = TimeSpan.FromSeconds(90);
+
+    // MAID PR 21
+    [DataField("requirePower"), AutoNetworkedField]
+    public bool RequirePower = false;
+
+    [DataField, AutoNetworkedField]
+    public bool Enabled = true;
+    // MAID PR 21 END
 }
