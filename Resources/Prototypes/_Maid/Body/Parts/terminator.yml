@@ -1,0 +1,133 @@
+- type: entity
+  abstract: true
+  parent: BasePartInorganic
+  id: PartTerminatorBase # TODO: Rename to BasePartTerminator
+  name: nt-800 body part
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Terminator/parts.rsi
+  - type: Icon
+    sprite: Mobs/Species/Terminator/parts.rsi
+  - type: BodyPart
+    species: Terminator
+  - type: StaticPrice
+    price: 200
+  - type: Damageable
+    damageModifierSet: Cybernetic
+
+- type: entity
+  parent: [PartTerminatorBase, BaseChestInorganic]
+  id: ChestTerminator
+  name: nt-800 chest
+  components:
+  - type: Sprite
+    state: chest_m
+  - type: Icon
+    state: chest_m
+
+- type: entity
+  parent: [PartTerminatorBase, BaseGroinInorganic]
+  id: GroinTerminator
+  name: nt-800 groin
+  components:
+  - type: Sprite
+    state: groin_m
+  - type: Icon
+    state: groin_m
+
+- type: entity
+  parent: [PartTerminatorBase, BaseHead]
+  id: HeadTerminator
+  name: nt-800 skull
+  description: Its red eyes have powered down... for now.
+  components:
+  - type: Sprite
+    state: skull_icon
+  - type: Icon
+    state: skull_icon
+  - type: StaticPrice
+    price: 2000
+  - type: Tag
+    tags:
+    - MindTransferTarget
+    - Head
+
+- type: entity
+  parent: [PartTerminatorBase, BaseLeftArm]
+  id: LeftArmTerminator
+  name: left nt-800 arm
+  components:
+  - type: Sprite
+    state: l_arm
+  - type: Icon
+    state: l_arm
+
+- type: entity
+  parent: [PartTerminatorBase, BaseRightArm]
+  id: RightArmTerminator
+  name: right nt-800 arm
+  components:
+  - type: Sprite
+    state: r_arm
+  - type: Icon
+    state: r_arm
+
+- type: entity
+  parent: [PartTerminatorBase, BaseLeftHand]
+  id: LeftHandTerminator
+  name: left nt-800 hand
+  components:
+  - type: Sprite
+    state: l_hand
+  - type: Icon
+    state: l_hand
+
+- type: entity
+  parent: [PartTerminatorBase, BaseRightHand]
+  id: RightHandTerminator
+  name: right nt-800 hand
+  components:
+  - type: Sprite
+    state: r_hand
+  - type: Icon
+    state: r_hand
+
+- type: entity
+  parent: [PartTerminatorBase, BaseLeftLeg]
+  id: LeftLegTerminator
+  name: left nt-800 leg
+  components:
+  - type: Sprite
+    state: l_leg
+  - type: Icon
+    state: l_leg
+
+- type: entity
+  parent: [PartTerminatorBase, BaseRightLeg]
+  id: RightLegTerminator
+  name: right nt-800 leg
+  components:
+  - type: Sprite
+    state: r_leg
+  - type: Icon
+    state: r_leg
+
+- type: entity
+  parent: [PartTerminatorBase, BaseLeftFoot]
+  id: LeftFootTerminator
+  name: left nt-800 foot
+  components:
+  - type: Sprite
+    state: l_foot
+  - type: Icon
+    state: l_foot
+
+- type: entity
+  parent: [PartTerminatorBase, BaseRightFoot]
+  id: RightFootTerminator
+  name: right nt-800 foot
+  components:
+  - type: Sprite
+    state: r_foot
+  - type: Icon
+    state: r_foot

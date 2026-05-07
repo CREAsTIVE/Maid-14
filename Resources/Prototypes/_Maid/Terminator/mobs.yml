@@ -1,0 +1,175 @@
+- type: entity
+  abstract: true
+  id: MobTerminatorBase
+  components:
+  - type: ZombieImmune
+  - type: FlashImmunity
+
+- type: entity
+  parent: [MobHuman, MobTerminatorBase]
+  id: MobHumanTerminator
+  name: exterminator
+  components:
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.1
+  - type: Stamina
+    decay: 6
+    cooldown: 1
+    critThreshold: 400
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
+    - Stutter
+    - BloodLoss
+    - Electrocution
+    - SlurredSpeech
+    - RatvarianLanguage
+    - PressureImmunity
+    - Muted
+    - ForcedSleep
+    - StaminaModifier
+    - RadiationProtection
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: TransferMindOnGib
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: Flammable
+    damage:
+      types:
+        Heat: 6.0
+  - type: Temperature
+    heatDamageThreshold: 390
+    coldDamageThreshold: 240
+  - type: Damageable
+    damageModifierSet: CyberneticFlesh
+  - type: Body
+    prototype: TerminatorFlesh
+    requiredLegs: 2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 100
+      behaviors:
+      - !type:PopupBehavior
+        popup: terminator-endoskeleton-burn-popup
+        popupType: LargeCaution
+      - !type:GibBehavior
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PopupBehavior
+        popup: terminator-endoskeleton-gib-popup
+        popupType: LargeCaution
+      - !type:GibBehavior
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      70: 0.8
+      90: 0.6
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 10
+        Structural: 10
+  - type: RandomHumanoidAppearance
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - Unimplantable
+
+- type: entity
+  parent:
+  - BaseMob
+  - MobCombat
+  - MobDamageable
+  - MobSiliconBase
+  - MobTerminatorBase
+  id: MobTerminatorEndoskeleton
+  name: nt-800 "exterminator" endoskeleton
+  description: The inner powerhouse of Susnet's infiltrator androids.
+  components:
+  - type: HumanoidAppearance
+    species: Terminator
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.5
+    baseSprintSpeed: 3.0
+  - type: Sprite
+    sprite: Mobs/Species/Terminator/parts.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 500
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: Repairable
+    doAfterDelay: 15
+    allowSelfRepair: false
+  - type: Body
+    prototype: TerminatorEndoskeleton
+    requiredLegs: 2
+  - type: Organ
+  - type: Brain
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechSounds: Pai
+  - type: Damageable
+    damageModifierSet: Cybernetic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound: /Audio/Effects/bone_rattle.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          HeadTerminator:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Flammable
+    fireSpread: true
+    canResistFire: true
+    damage:
+      types:
+        Heat: 0
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 15
+        Structural: 5
+  - type: Puller
+    needsHands: false
+  - type: Prying
+    pryPowered: true
+    force: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - MindTransferTarget
+    - Unimplantable

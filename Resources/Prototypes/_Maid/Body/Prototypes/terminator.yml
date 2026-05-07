@@ -1,0 +1,93 @@
+- type: body
+  id: TerminatorFlesh
+  name: exterminator
+  root: chest
+  slots:
+    head:
+      part: HeadHuman
+      connections:
+      - chest
+      organs:
+        brain: MobTerminatorEndoskeleton
+    chest:
+      part: ChestHuman
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head
+    groin:
+      part: GroinHuman
+      connections:
+      - right leg
+      - left leg
+    right arm:
+      part: RightArmHuman
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmHuman
+      connections:
+      - left hand
+    right hand:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
+    right leg:
+      part: RightLegHuman
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegHuman
+      connections:
+      - left foot
+    right foot:
+      part: RightFootHuman
+    left foot:
+      part: LeftFootHuman
+
+- type: body
+  id: TerminatorEndoskeleton
+  name: terminator endoskeleton
+  root: chest
+  slots:
+    head:
+      part: HeadTerminator
+      connections:
+      - chest
+    chest:
+      part: ChestTerminator
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head
+    groin:
+      part: GroinTerminator
+      connections:
+      - right leg
+      - left leg
+    right arm:
+      part: RightArmTerminator
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmTerminator
+      connections:
+      - left hand
+    right hand:
+      part: RightHandTerminator
+    left hand:
+      part: LeftHandTerminator
+    right leg:
+      part: RightLegTerminator
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegTerminator
+      connections:
+      - left foot
+    right foot:
+      part: RightFootTerminator
+    left foot:
+      part: LeftFootTerminator
