@@ -10,6 +10,9 @@
   id: MobHumanTerminator
   name: exterminator
   components:
+  - type: AutoImplant
+    implants:
+    - MicroBombImplant
   - type: Barotrauma
     damage:
       types:
@@ -101,6 +104,9 @@
   name: nt-800 "exterminator" endoskeleton
   description: The inner powerhouse of Susnet's infiltrator androids.
   components:
+  - type: AutoImplant
+    implants:
+    - MicroBombImplant
   - type: HumanoidAppearance
     species: Terminator
   - type: MovementSpeedModifier
