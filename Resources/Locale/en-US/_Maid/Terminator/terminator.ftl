@@ -19,3 +19,5 @@ ghost-role-information-exterminator-rules = You are an antagonist and may kill a
 
 roles-antag-terminator-name = Exterminator
 roles-antag-terminator-objective = Kill the target at all costs, the future depends on it.
+
+terminator-overheat-popup = Your internal systems start to overheat!

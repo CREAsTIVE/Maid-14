@@ -1,0 +1,30 @@
+- type: entity
+  parent: BaseSubdermalImplant
+  id: TerminatorOverheatImplant
+  name: overheat implant
+  description: This implant rapidly overheats the user's body upon activation or upon death.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantationTimeMultiplier: 4
+    permanent: true
+    implantAction: ActionActivateTerminatorOverheat
+  - type: TriggerImplantAction
+  - type: AddComponentsOnTrigger
+    target: ImplantedEntity
+    removeExisting: false
+    components:
+    - type: HeatOverTime
+      heat: 500
+      fireStacks: 0.5
+      interval: 1
+      ignoreHeatResistance: true
+      fireProtectionPenetration: 1
+      multiplierIncrease: 1
+  - type: PopupOnTrigger
+    target: ImplantedEntity
+    popup: terminator-overheat-popup
+  - type: Tag
+    tags:
+    - SubdermalImplant
+    - HideContextMenu

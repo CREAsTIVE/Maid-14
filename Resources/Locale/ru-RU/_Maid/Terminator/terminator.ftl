@@ -19,3 +19,4 @@ ghost-role-information-exterminator-rules = Вы антагонист и мож�
 
 roles-antag-terminator-name = Истребитель
 roles-antag-terminator-objective = Убейте цель любой ценой, от этого зависит будущее.
+terminator-overheat-popup = Ваши внутренности начинают нагреваться!

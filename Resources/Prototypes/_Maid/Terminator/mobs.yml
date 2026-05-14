@@ -12,7 +12,7 @@
   components:
   - type: AutoImplant
     implants:
-    - MicroBombImplant
+    - TerminatorOverheatImplant
   - type: Barotrauma
     damage:
       types:
