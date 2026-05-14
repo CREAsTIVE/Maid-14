@@ -53,7 +53,7 @@
     heatDamageThreshold: 390
     coldDamageThreshold: 240
   - type: Damageable
-    damageModifierSet: CyberneticFlesh
+    damageModifierSet: TerminatorFlesh
   - type: Body
     prototype: TerminatorFlesh
     requiredLegs: 2
@@ -142,7 +142,7 @@
   - type: Speech
     speechSounds: Pai
   - type: Damageable
-    damageModifierSet: Cybernetic
+    damageModifierSet: TerminatorCybernetic
   - type: Destructible
     thresholds:
     - trigger:

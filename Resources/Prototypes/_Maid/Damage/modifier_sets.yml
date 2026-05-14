@@ -1,5 +1,5 @@
 - type: damageModifierSet
-  id: CyberneticFlesh
+  id: TerminatorFlesh
   coefficients:
     Blunt: 1.0
     Slash: 1.0
@@ -11,10 +11,8 @@
     Poison: 0.0
     Cellular: 0.0
 
-# TODO: Temporary from porting
-
 - type: damageModifierSet
-  id: Cybernetic
+  id: TerminatorCybernetic
   coefficients:
     Blunt: 0.8
     Slash: 0.3

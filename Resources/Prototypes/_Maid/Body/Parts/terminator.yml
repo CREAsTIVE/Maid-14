@@ -13,7 +13,7 @@
   - type: StaticPrice
     price: 200
   - type: Damageable
-    damageModifierSet: Cybernetic
+    damageModifierSet: TerminatorCybernetic
 
 - type: entity
   parent: [PartTerminatorBase, BaseChestInorganic]
