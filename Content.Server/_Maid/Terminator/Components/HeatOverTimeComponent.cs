@@ -25,7 +25,7 @@ public sealed partial class HeatOverTimeComponent : Component
     public float MultiplierIncrease { get; set; }
 
     [DataField]
-    public float Multiplier { get; set; }
+    public float Multiplier { get; set; } = 1f;
 
     [DataField]
     public float FireProtectionPenetration { get; set; }
