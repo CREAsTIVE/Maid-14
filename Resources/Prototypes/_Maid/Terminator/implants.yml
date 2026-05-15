@@ -11,7 +11,6 @@
     implantAction: ActionActivateTerminatorOverheat
   - type: TriggerImplantAction
   - type: AddComponentsOnTrigger
-    target: ImplantedEntity
     removeExisting: false
     components:
     - type: HeatOverTime
@@ -22,7 +21,6 @@
       fireProtectionPenetration: 1
       multiplierIncrease: 1
   - type: PopupOnTrigger
-    target: ImplantedEntity
     popup: terminator-overheat-popup
   - type: Tag
     tags:

@@ -25,7 +25,6 @@
     - TerminateObjective
     - ShutDownObjective
   - type: TerminatorRule
-    BriefingSound: /Audio/Ambience/Antag/traitor_start.ogg
     targetBlacklist:
       components:
       - AntagImmune
