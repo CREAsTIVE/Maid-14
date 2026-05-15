@@ -39,6 +39,9 @@
       pickPlayer: false
       mindRoles:
       - MindRoleTerminator
+      briefing:
+        text: terminator-role-greeting
+        color: red
   - type: Tag
     tags:
     - MidroundAntag
