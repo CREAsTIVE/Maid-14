@@ -106,7 +106,7 @@
   components:
   - type: AutoImplant
     implants:
-    - MicroBombImplant
+    - TerminatorSelfExplodeImplant
   - type: HumanoidAppearance
     species: Terminator
   - type: MovementSpeedModifier
@@ -128,7 +128,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead
+      100: Dead
   - type: Repairable
     doAfterDelay: 15
     allowSelfRepair: false
@@ -143,12 +143,19 @@
     speechSounds: Pai
   - type: Damageable
     damageModifierSet: TerminatorCybernetic
+  - type: Explosive
+    explosionType: Minibomb
+    totalIntensity: 20
+    intensitySlope: 5
+    maxIntensity: 10
+    canCreateVacuum: false
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 100
       behaviors:
+      - !type:ExplodeBehavior
       - !type:PlaySoundBehavior
         sound: /Audio/Effects/bone_rattle.ogg
       - !type:SpawnEntitiesBehavior
