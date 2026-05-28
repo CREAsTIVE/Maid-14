@@ -63,7 +63,12 @@
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
     layers:
-    - state: ert_security
+    - state: centcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: IdCard
     jobTitle: job-name-hecu
     jobIcon: JobIconNanotrasen
@@ -84,7 +89,11 @@
   - type: Sprite
     layers:
     - state: centcom
-    - state: idcentcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: Item
     heldPrefix:
   - type: PresetIdCard
@@ -102,7 +111,11 @@
   - type: Sprite
     layers:
     - state: centcom
-    - state: idcentcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: Item
     heldPrefix:
   - type: PresetIdCard
@@ -120,7 +133,11 @@
   - type: Sprite
     layers:
     - state: centcom
-    - state: idcentcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: Item
     heldPrefix:
   - type: PresetIdCard
@@ -194,7 +211,12 @@
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
     layers:
-    - state: ert_security
+    - state: centcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: PresetIdCard
     job: NavyCaptain
 
@@ -208,7 +230,12 @@
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
     layers:
-    - state: ert_security
+    - state: centcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: PresetIdCard
     job: NavyOfficer
 
@@ -222,7 +249,12 @@
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
     layers:
-    - state: ert_security
+    - state: centcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: PresetIdCard
     job: SpecialOperationsOfficer
 
@@ -236,7 +268,12 @@
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
     layers:
-    - state: ert_security
+    - state: centcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: PresetIdCard
     job: Inspector
 
@@ -250,7 +287,12 @@
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
     layers:
-    - state: ert_security
+    - state: centcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: IdCard
     jobTitle: job-name-diplomat
     jobIcon: JobIconNanotrasen
