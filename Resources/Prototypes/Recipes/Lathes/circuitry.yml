@@ -32,7 +32,7 @@
 - type: latheRecipe
   parent: [ BaseCheapElectronicsRecipe, BaseCircuitryRecipeCategory ]
   id: FirelockElectronics
-  icon: { sprite: Structures/Doors/Airlocks/Standard/firelock.rsi, state: closed } # Goobstation
+  icon: { sprite: _Maid/Structures/Doors/Airlocks/Standard/firelock.rsi, state: closed } # Goobstation # Maid
   result: FirelockElectronics
 
 - type: latheRecipe
