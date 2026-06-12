@@ -744,17 +744,19 @@
   - type: Clothing
     sprite: _Maid/Clothing/Uniforms/Jumpsuit/security.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-        color: "#C12D30"
-        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
-      - state: overlay-inhand-left
-      right:
-      - state: inhand-right
-        color: "#C12D30"
-        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
-      - state: overlay-inhand-right
+# MAID BEGIN sec jumpsuit ERROR model
+#    inhandVisuals:
+#      left:
+#      - state: inhand-left
+#        color: "#C12D30"
+#        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
+#      - state: overlay-inhand-left
+#      right:
+#      - state: inhand-right
+#        color: "#C12D30"
+#        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
+#      - state: overlay-inhand-right
+# MAID END
 
 - type: entity
   parent: ClothingUniformBase
@@ -800,17 +802,19 @@
   - type: Clothing
     sprite: _Maid/Clothing/Uniforms/Jumpsuit/warden.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-        color: "#C12D30"
-        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
-      - state: overlay-inhand-left
-      right:
-      - state: inhand-right
-        color: "#C12D30"
-        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
-      - state: overlay-inhand-right
+# MAID BEGIN jumpsuit fix
+#    inhandVisuals:
+#      left:
+#      - state: inhand-left
+#        color: "#C12D30"
+#        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
+#      - state: overlay-inhand-left
+#      right:
+#      - state: inhand-right
+#        color: "#C12D30"
+#        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
+#      - state: overlay-inhand-right
+# MAID END
 
 - type: entity
   parent: ClothingUniformBase

@@ -129,6 +129,8 @@
     StealSupermatterSliverObjective: 0.5 # Goobstation - supermatter
     LawbringerStealObjective: 0.5 # Goobstation
     GeminiProjectorStealObjective: 0.5 # Goobstation
+#    ExecutiveBriefcaseStealObjective: 0.5 # Goobstation #Maid
+    JusticeStealObjective: 0.5 # Goobstation
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
@@ -144,7 +146,7 @@
   id: TraitorObjectiveGroupState
   weights:
     EscapeShuttleObjective: 1
-    DieObjective: 0.05
+    DieObjective: 0.1 #Maid
     HijackShuttleObjective: 0.02 # Goobstation - reenable hijack
 
 - type: weightedRandom

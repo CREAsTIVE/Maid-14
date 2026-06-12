@@ -13,12 +13,14 @@ SPDX-License-Identifier: MIT
     StyleClasses="AngleRect">
 
     <!-- Main Container -->
-    <BoxContainer Orientation="Vertical"
+    <!-- MAID cargo ui fix -->
+    <BoxContainer Orientation="Horizontal"
                   HorizontalExpand="True"
                   SeparationOverride="6"
                   Margin="-4">
 
-        <Control Margin="-6">
+        <!-- MAID cargo ui fix
+        <Control Margin="-6"> 
             <PanelContainer StyleClasses="WindowHeadingBackground" />
 
             <BoxContainer Margin="6 2">
@@ -28,14 +30,17 @@ SPDX-License-Identifier: MIT
                        StyleClasses="LabelKeyText"/>
             </BoxContainer>
         </Control>
+        -->
 
+        <!-- MAID cargo ui fix -->
         <PanelContainer Name="Stride"
                         Access="Public"
                         StyleClasses="LowDivider"
-                        Margin="-6 0" />
+                        Margin="-3 0" /> 
 
         <!-- Info -->
-        <BoxContainer>
+        <!-- MAID cargo ui fix -->
+        <BoxContainer HorizontalExpand="True"> 
             <TextureRect Name="Icon"
                          Access="Public"
                          MinSize="32 32"
@@ -50,6 +55,12 @@ SPDX-License-Identifier: MIT
                           HorizontalExpand="True"
                           VerticalExpand="True">
 
+                <!-- MAID cargo ui fix -->
+                <Label Name="Title"
+                       Access="Public"
+                       MaxHeight="28"
+                       StyleClasses="LabelKeyText"/>
+                
                 <RichTextLabel Name="ProductName"
                        Access="Public"
                        HorizontalExpand="True"
@@ -65,11 +76,14 @@ SPDX-License-Identifier: MIT
             </BoxContainer>
         </BoxContainer>
 
+        <!-- MAID cargo ui fix
         <PanelContainer StyleClasses="LowDivider" Margin="-6 0"/>
+        -->
 
         <!-- Buttons -->
         <!-- Btn's position hardcoded (args.Button.Parent?.Parent?.Parent type) in CargoConsoleBUI 158 & 166 line -->
-        <BoxContainer>
+        <!-- MAID cargo ui fix -->
+        <BoxContainer Orientation="Vertical">
             <Button Name="Approve"
                     Access="Public"
                     Text="{Loc 'cargo-console-menu-order-row-button-approve'}"

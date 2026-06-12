@@ -403,7 +403,7 @@
       5: Dead # Goob edit
   - type: Stamina
     critThreshold: 10
-    animationThreshold: 5 # Goob edit
+    animationThreshold: 1
   - type: DamageStateVisuals
     states:
       Alive:
@@ -779,9 +779,9 @@
     allowMovement: true
     name: ghost-role-information-mothroach-name
     description: ghost-role-information-mothroach-description
-    rules: ghost-role-information-freeagent-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
     mindRoles:
-    - MindRoleGhostRoleFreeAgentHarmless
+    - MindRoleGhostRoleSentientAnimal # Goobstation Sentient Animal PR
   - type: Fixtures
     fixtures:
       fix1:
@@ -1369,10 +1369,10 @@
     growthDelay: 20
   - type: ExaminableHunger
   - type: Wooly
-  - type: Food
+  - type: Edible
+    destroyOnEmpty: false
     solution: wool
     requiresSpecialDigestion: true
-    # Wooly prevents eating wool deleting the goat so its fine
     requireDead: false
   - type: FlavorProfile
     flavors:
@@ -1583,7 +1583,7 @@
     prob: 0.25
     name: ghost-role-information-kangaroo-name
     description: ghost-role-information-kangaroo-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Vocal
     sounds:
@@ -1780,7 +1780,6 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
-  - type: LayingDown # Goobstation
   - type: Vocal # Goobstation
     sounds:
       Male: MonkeyMode
@@ -1791,7 +1790,8 @@
     hasPainScreams: false
     threshold: 70
     cap: 140
-
+  - type: Crawler
+  - type: DiseaseCarrier # Goobstation
 
 - type: entity
   name: monkey
@@ -1810,17 +1810,17 @@
     understands:
     - Monkey
     - Kobold
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-primate
+#  - type: SentienceTarget
+    #flavorKind: station-event-random-sentience-flavor-primate
   - type: AlwaysRevolutionaryConvertible
   - type: GhostRole
     prob: 0.05
     makeSentient: true
     name: ghost-role-information-monkey-name
     description: ghost-role-information-monkey-description
-    rules: ghost-role-information-freeagent-rules # Goobstation - - remove: 1984
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleSentientAnimal # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Skinnable # Goobstation - Fuck pun-pun
   - type: Clumsy
@@ -1974,7 +1974,7 @@
     makeSentient: true
     name: ghost-role-information-kobold-name
     description: ghost-role-information-kobold-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
 
 - type: entity
   name: kobold
@@ -2043,6 +2043,7 @@
   description: Squeak!
   components:
   - type: VentCrawler # goobstation - Ventcrawl
+    enterDelay: 0.5
   - type: Body
     prototype: Mouse
   - type: GhostRole
@@ -2051,9 +2052,9 @@
     allowMovement: true
     name: ghost-role-information-mouse-name
     description: ghost-role-information-mouse-description
-    rules: ghost-role-information-freeagent-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
     mindRoles:
-    - MindRoleGhostRoleFreeAgentHarmless
+    - MindRoleGhostRoleSentientAnimal # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Speech
     speechSounds: Squeak
@@ -2212,30 +2213,15 @@
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
   - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/mouse.rsi
-      state: dead-0
     entries:
-      burger:
-        name: food-sequence-burger-content-rat
-      taco:
-        name: food-sequence-content-rat
-      skewer:
-        name: food-sequence-content-rat
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-rat
+      Taco: RatTaco
+      Burger: RatBurger
+      Skewer: RatSkewer
   # <Goobstation>
   - type: NightVision
     color: "#808080"
     activateSound: null
     deactivateSound: null
-  - type: EggLayer
-    eggSpawn:
-    - id: MobMouse
-    hungerUsage: 20
-    eggLayAction: MouseMultiply
-    hungerRequired: true
   - type: GibThisGuy
     ocNames:
     - Gallagin
@@ -2244,7 +2230,7 @@
   - type: Stamina
     critThreshold: 20
     animationThreshold: 10 # Goob edit
-  - type: LayingDown
+  - type: Crawler
   - type: NPCRetaliation
     attackMemoryLength: 5 # stop caring fast if you don't keep hitting
   - type: GroupRetaliation
@@ -2255,7 +2241,15 @@
     - Mousemind
   - type: FaxSlip
     slipChance: 0.3
-  # </Goobstation>
+  # does not infect you unless the mouse has any diseases, which it doesn't by default
+  - type: DiseaseOnHit
+    spreadParams:
+      chance: 0.05 # 1984 lower chance for normal mice so creating the turboplague horde is not as strong
+      power: 1
+      spreadType: Blood
+  - type: DiseaseCarrier
+    effectImmune: true
+  - type: ShowDiseaseIcons # they sense it
   - type: Destructible # Shitmed Change
     thresholds:
     - trigger:
@@ -2266,6 +2260,7 @@
       - !type:GibBehavior
         gibContents: Skip
         recursive: false
+  # </Goobstation>
 
 - type: entity
   parent: MobMouse
@@ -2327,10 +2322,6 @@
   - type: Item
     size: Tiny
     heldPrefix: 1
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/mouse.rsi
-      state: dead-1
 
 - type: entity
   parent: MobMouse
@@ -2360,10 +2351,6 @@
   - type: Item
     size: Tiny
     heldPrefix: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/mouse.rsi
-      state: dead-2
 
 - type: entity
   name: cancer mouse
@@ -2577,6 +2564,7 @@
 - type: entity
   parent: [ SimpleMobBase, FlyingMobBase ]
   id: MobParrotBase
+  name: parrot
   abstract: true
   description: Infiltrates your domain, spies on you, and somehow still a cool pet.
   components:
@@ -2658,7 +2646,6 @@
     bloodMaxVolume: 50
 
 - type: entity
-  name: parrot
   parent: MobParrotBase
   id: MobParrot
   components:
@@ -2779,7 +2766,8 @@
   - type: Item
     size: Normal
     sprite: Mobs/Animals/grenadepenguin.rsi
-  - type: OnUseTimerTrigger
+  - type: TriggerOnUse
+  - type: TimerTrigger
     delay: 10
     beepSound:
       path: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg #funny sfx use
@@ -2792,6 +2780,8 @@
     intensitySlope: 20
     totalIntensity: 225
   - type: ExplodeOnTrigger
+    keysIn:
+    - timer
   - type: Destructible
     thresholds:
     - trigger:
@@ -3290,6 +3280,7 @@
   - type: HTN
     rootTask:
       task: RuminantHostileCompound
+  - type: MessyDrinker
   - type: Tag
     tags:
     - VimPilot
@@ -3341,6 +3332,7 @@
       gender: epicene
   - type: MobPrice
     price: 200
+  - type: MessyDrinker
 
 - type: entity
   parent: MobCorgiBase
@@ -3846,7 +3838,7 @@
     allowMovement: true
     name: ghost-role-information-hamster-name
     description: ghost-role-information-hamster-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: SmallMob
@@ -3982,15 +3974,6 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/hamster.rsi
-      state: dead-0
-    entries:
-      burger:
-        name: food-sequence-burger-content-hamster
-      taco:
-        name: food-sequence-content-hamster
   - type: Destructible
     thresholds:
     - trigger:
@@ -4081,6 +4064,10 @@
   id: MobDionaNymph
   description: It's like a cat, only.... branch-ier.
   components:
+  # Goobstation - Diona nymphs can also see through kudzu.
+  - type: SeeOverLayer
+    layers:
+    - kudzu
   - type: Sprite
     drawdepth: Mobs
     layers:

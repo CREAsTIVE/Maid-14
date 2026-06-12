@@ -155,6 +155,12 @@
   supervisors: job-supervisors-captain
   #canBeAntag: false
   antagAdvantage: 75 # Goobstation
+  guides: # goobstation
+  - Engineering
+#  - ChiefEngineerSOP # Maid
+#  - EngineeringSOP # Maid
+  - Command
+#  - EmergenciesSOP # Maid
   access:
   - Maintenance
   - Engineering

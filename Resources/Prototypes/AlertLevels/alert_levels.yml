@@ -119,7 +119,7 @@
       color: Red
       emergencyLightColor: Red
       forceEnableEmergencyLights: true
-      shuttleTime: 600 #No reduction in time as we don't have swiping for red alert like in /tg/. Shuttle times are intended to create friction, so having a way to brainlessly bypass that would be dumb.
+      shuttleTime: 300 # MAID recall rebalance
     gamma:
       announcement: alert-level-gamma-announcement
       selectable: false
@@ -142,7 +142,7 @@
       color: DarkRed
       emergencyLightColor: Orange
       forceEnableEmergencyLights: true
-      shuttleTime: 1200
+      shuttleTime: 300 # MAID reacll rebalance
     epsilon:
       announcement: alert-level-epsilon-announcement
       selectable: false
@@ -172,5 +172,15 @@
       disableSelection: true
       color: CadetBlue
       emergencyLightColor: CadetBlue
+      forceEnableEmergencyLights: true
+      shuttleTime: 600
+    honk: # Goobstation
+      announcement: alert-level-honk-announcement
+      selectable: false
+      emagSelectable: true
+      sound:
+        path: /Audio/Items/bikehorn.ogg
+      color: Magenta
+      emergencyLightColor: Magenta
       forceEnableEmergencyLights: true
       shuttleTime: 600

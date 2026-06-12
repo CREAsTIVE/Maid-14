@@ -22,6 +22,7 @@
   - NetworkConfigurator
   - Signaller
   - SprayPainter
+  - GeigerCounter #Goob station
   - SprayPainterAmmo
   - FlashlightLantern
   - HandheldGPSBasic
@@ -57,11 +58,13 @@
   - CellRechargerCircuitboard
   - WeaponCapacitorRechargerCircuitboard
   - FreezerElectronics
+  - CameraElectronics # goob
 
 - type: latheRecipePack
   id: EngineeringBoardsStatic
   recipes:
   - SpaceHeaterMachineCircuitBoard
+  - CondenserMachineCircuitBoard # Goob
 
 ## Dynamic
 

@@ -5,14 +5,18 @@ using Content.Server.SurveillanceCamera;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
+using Content.Server.Atmos;
 using Content.Shared.Interaction;
 using Content.Shared.Physics;
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
+using Content.Shared.Atmos;
 using Robust.Server.GameObjects;
 using Robust.Shared.Spawners;
+using Robust.Shared.Physics.Events;
+using Content.Goobstation.Shared.Contraband;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 
@@ -50,6 +54,10 @@ public sealed class SlasherIncorporealCameraSystem : EntitySystem
         SubscribeLocalEvent<SlasherIncorporealCameraCheckEvent>(OnCameraCheck);
         SubscribeLocalEvent<SlasherIncorporealComponent, EventHorizonAttemptConsumeEntityEvent>(OnSingularityAttemptConsume);
         SubscribeLocalEvent<SlasherIncorporealComponent, SlasherIncorporealEnteredEvent>(OnIncorporealEntered);
+        SubscribeLocalEvent<SlasherIncorporealComponent, IgnitedEvent>(OnIgnited);
+        SubscribeLocalEvent<SlasherIncorporealComponent, TileFireEvent>(OnTileFire);
+
+        SubscribeLocalEvent<ContrabandDetectorComponent, PreventCollideEvent>(OnContrabandDetectorPreventCollide);
     }
 
     private void OnCameraCheck(ref SlasherIncorporealCameraCheckEvent args)
@@ -87,9 +95,7 @@ public sealed class SlasherIncorporealCameraSystem : EntitySystem
     {
         // Extinguish any fires on the slasher
         if (TryComp<FlammableComponent>(ent, out var flammable))
-        {
             _flammable.Extinguish(ent, flammable);
-        }
 
         DisableLightsInArea(ent);
     }
@@ -100,9 +106,7 @@ public sealed class SlasherIncorporealCameraSystem : EntitySystem
 
         // Get all entities in range and disable their lights
         foreach (var light in _lookup.GetEntitiesInRange(mapCoords, ent.Comp.LightDisableRange))
-        {
             TryDisableLight(light);
-        }
     }
 
     private void TryDisableLight(EntityUid uid)
@@ -147,5 +151,26 @@ public sealed class SlasherIncorporealCameraSystem : EntitySystem
             timedDespawn.Lifetime = 0;
             return;
         }
+    }
+
+    private void OnIgnited(EntityUid uid, SlasherIncorporealComponent comp, ref IgnitedEvent args)
+    {
+        if (comp.IsIncorporeal)
+            if (TryComp<FlammableComponent>(uid, out var flammable))
+                _flammable.Extinguish(uid, flammable);
+    }
+
+    private void OnTileFire(EntityUid uid, SlasherIncorporealComponent comp, ref TileFireEvent args)
+    {
+        if (comp.IsIncorporeal)
+            if (TryComp<FlammableComponent>(uid, out var flammable) && flammable.FireStacks > 0)
+                _flammable.SetFireStacks(uid, 0, flammable);
+    }
+
+    private void OnContrabandDetectorPreventCollide(EntityUid uid, ContrabandDetectorComponent component, ref PreventCollideEvent args)
+    {
+        if (TryComp<SlasherIncorporealComponent>(args.OtherEntity, out var slasherComp) &&
+            slasherComp.IsIncorporeal)
+            args.Cancelled = true;
     }
 }

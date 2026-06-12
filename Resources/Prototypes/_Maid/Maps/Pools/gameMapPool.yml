@@ -1,13 +1,11 @@
 - type: gameMapPool
   id: MaidStationMapPool
   maps:
-  # Standard
-  - Bagel
-#  - Box
-  - Meta
-  - Kettle
   # Maid
-  - WonderBox
+  - WonderBoxMaid
   - BoxMaid
   - TriumphMaid
-  - Atom
+  - AtomMaid
+  - ScoupidiaMaid
+  - KettleMaid
+  - BagelMaid

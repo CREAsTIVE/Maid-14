@@ -28,10 +28,13 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanimaid
     id: CommandMaidPDA
-    gloves: ClothingHandsGlovesJanitor
+    gloves: ClothingHandsGlovesLatex
     ears: ClothingHeadsetCommandService
+    eyes: ClothingEyesGlassesCommand
     belt: ClothingBeltJanitorFilled
-    shoes: ClothingShoesGaloshes
+    shoes: ClothingShoesBootsJackGaloshes
+  inhand:
+  - AdvMopItem
 
 - type: chameleonOutfit
   id: CommandMaidChameleonOutfit
@@ -39,6 +42,8 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanimaid
     id: CommandMaidPDA
-    gloves: ClothingHandsGlovesJanitor
+    gloves: ClothingHandsGlovesLatex
     ears: ClothingHeadsetCommandService
-    shoes: ClothingShoesGaloshes
+    eyes: ClothingEyesGlassesCommand
+    belt: ClothingBeltJanitor
+    shoes: ClothingShoesBootsJackGaloshes

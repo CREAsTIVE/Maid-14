@@ -176,7 +176,7 @@ public sealed partial class CCVars
     ///     ex. a call time of 10min and turning point of 0.5 means the shuttle cannot be recalled after 5 minutes.
     /// </summary>
     public static readonly CVarDef<float> EmergencyRecallTurningPoint =
-        CVarDef.Create("shuttle.recall_turning_point", 0.5f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.recall_turning_point", 90f, CVar.SERVERONLY); // MAID recall rebalance (now stored in seconds, when after)
 
     /// <summary>
     ///     Time in minutes after round start to auto-call the shuttle. Set to zero to disable.

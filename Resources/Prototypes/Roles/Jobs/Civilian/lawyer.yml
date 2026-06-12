@@ -76,6 +76,9 @@
   startingGear: LawyerGear
   icon: "JobIconLawyer"
   supervisors: job-supervisors-hop
+  guides: # goobstation
+  - SpaceLaw
+#  - LegalSOP # Maid
   access:
   - Service
   - Lawyer

@@ -74,6 +74,7 @@
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
   supervisors: job-supervisors-hop
+  guides: [ Chaplain ] # goobstation
   access:
   - Chapel
   - Maintenance
@@ -97,6 +98,7 @@
     - ChaplainUndeterminedBible
     - RubberStampChaplain
     - Nullrod
+    - ArmamentsBeacon # Goobstation
 
 - type: chameleonOutfit
   id: ChaplainChameleonOutfit
@@ -108,4 +110,3 @@
     neck: ClothingNeckStoleChaplain
     outerClothing: ClothingOuterPlagueSuit
     gloves: ClothingHandsGlovesColorBlack
-

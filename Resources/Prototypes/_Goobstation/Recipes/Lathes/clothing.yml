@@ -52,3 +52,13 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpsuitCasualSyndicate
   result: ClothingUniformJumpsuitCasualSyndicate
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitReporterGoob
+  result: ClothingUniformJumpsuitReporter
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtReporterGoob
+  result: ClothingUniformJumpskirtReporter

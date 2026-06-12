@@ -1,0 +1,66 @@
+- type: gameMap
+  id: ScoupidiaMaid
+  mapName: 'Scoupidia Station'
+  mapPath: /Maps/_Maid/ScoupidiaMaid.yml
+  minPlayers: 20
+  stations:
+    ScoupidiaMaidStation:
+      stationProto: StandardNanotrasenStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: '{0} Scoupidia Station {1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: 'TG'
+      - type: StationEmergencyShuttle
+        emergencyShuttlePath: /Maps/Shuttles/emergency_box.yml
+      - type: StationJobs
+        availableJobs:
+          #service
+          Captain: [ 1, 1 ]
+          HeadOfPersonnel: [ 1, 1 ]
+          Bartender: [ 2, 2 ]
+          Botanist: [ 3, 3 ]
+          Chef: [ 2, 2 ]
+          Janitor: [ 2, 3 ]
+          Chaplain: [ 1, 1 ]
+          Librarian: [ 1, 2 ]
+          Reporter: [ 1, 1 ]
+          ServiceWorker: [ 2, 4 ]
+          #engineering
+          ChiefEngineer: [ 1, 1 ]
+          AtmosphericTechnician: [ 3, 3 ]
+          StationEngineer: [ 6, 8 ]
+          TechnicalAssistant: [ 2, 2 ]
+          #medical
+          ChiefMedicalOfficer: [ 1, 1 ]
+          Chemist: [ 3, 3 ]
+          MedicalDoctor: [ 4, 4 ]
+          Paramedic: [ 3, 3 ]
+          MedicalIntern: [ 2, 2 ]
+          Psychologist: [ 1, 1 ]
+          #science
+          ResearchDirector: [ 1, 1 ]
+          Scientist: [ 4, 5 ]
+          ResearchAssistant: [ 2, 2 ]
+          #security
+          HeadOfSecurity: [ 1, 1 ]
+          Warden: [ 1, 1 ]
+          SecurityOfficer: [ 6, 6 ]
+          Detective: [ 1, 1 ]
+          SecurityCadet: [ 2, 2 ]
+          Lawyer: [ 2, 2 ]
+          Brigmedic: [ 1, 1 ]
+          #supply
+          Quartermaster: [ 1, 1 ]
+          SalvageSpecialist: [ 3, 3 ]
+          CargoTechnician: [ 3, 5 ]
+          #civilian
+          Passenger: [ -1, -1 ]
+          Clown: [ 1, 1 ]
+          Mime: [ 1, 1 ]
+          Musician: [ 1, 1 ]
+          Boxer: [ 1, 1 ]
+          #silicon
+          StationAi: [ 1, 1 ]
+          Borg: [ 3, 3 ]

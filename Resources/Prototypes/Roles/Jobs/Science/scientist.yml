@@ -80,6 +80,7 @@
   startingGear: ScientistGear
   icon: "JobIconScientist"
   supervisors: job-supervisors-rd
+  guides: [ Science ] # goobstation
   access:
   - Research
   - Maintenance

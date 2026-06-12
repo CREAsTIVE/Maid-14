@@ -1,0 +1,15 @@
+- type: gameMap
+  id: CentcommMaid
+  isGrid: true # Did you know that centcomm is the only "game map" that isn't actually a map? Send help.
+  mapName: 'Central Command'
+  mapPath: /Maps/_Maid/CentcommMaid.yml
+  minPlayers: 10
+  stations:
+    CentcommMaid:
+      stationProto: NanotrasenCentralCommand
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: '{0} Central Command {1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: 'TG'

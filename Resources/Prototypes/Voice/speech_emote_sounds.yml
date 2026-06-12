@@ -97,8 +97,8 @@
       collection: Hew
     Gasp:
       collection: MaleGasp
-    DefaultDeathgasp:
-      collection: MaleDeathGasp
+#    DefaultDeathgasp: # MAID feat no deathgasps
+#      collection: MaleDeathGasp # MAID feat no deathgasps
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg
     Surprised: # Goob
@@ -143,8 +143,8 @@
       collection: Hew
     Gasp:
       collection: FemaleGasp
-    DefaultDeathgasp:
-      collection: FemaleDeathGasp
+#    DefaultDeathgasp: # MAID feat no deathgasps
+#      collection: FemaleDeathGasp # MAID feat no deathgasps
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg
     Surprised: # Goob
@@ -187,10 +187,10 @@
       collection: Weh
     Hew:
       collection: Hew
-    Gasp:
-      collection: MaleGasp
-    DefaultDeathgasp:
-      collection: MaleDeathGasp
+#    Gasp: # MAID feat no animal gasps
+#      collection: MaleGasp # MAID feat no animal gasps
+#    DefaultDeathgasp: # MAID feat no deathgasps
+#      collection: MaleDeathGasp # MAID feat no deathgasps
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg ## GOOB CONTENT END
 
@@ -217,8 +217,8 @@
       collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: MaleGasp
-    DefaultDeathgasp:
-      collection: DeathGasp
+#    DefaultDeathgasp: # MAID feat no deathgasps
+#      collection: DeathGasp # MAID feat no deathgasps
     # Floof
     Yip:
       collection: Yip
@@ -229,6 +229,12 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Sigh: # Goob
+      collection: MaleSigh
+    Cough: # Goob
+      collection: MaleCoughs
+    Yawn: # Goob
+      collection: MaleYawn
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -253,8 +259,8 @@
       collection: CatMeows # Goobstation - effect standardization
     Gasp:
       collection: FemaleGasp
-    DefaultDeathgasp:
-      collection: FemaleDeathGasp
+#    DefaultDeathgasp: # MAID feat no deathgasps
+#      collection: FemaleDeathGasp # MAID feat no deathgasps
     # Floof
     Yip:
       collection: Yip
@@ -265,6 +271,12 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Sigh: # Goob
+      collection: FemaleSigh
+    Cough: # Goob
+      collection: FemaleCoughs
+    Yawn: # Goob
+      collection: FemaleYawn
 
 - type: emoteSounds
   id: MaleSlime
@@ -309,8 +321,8 @@
       collection: Hew
     Gasp:
       collection: MaleGasp
-    DefaultDeathgasp:
-      collection: MaleDeathGasp
+#    DefaultDeathgasp: # MAID feat no deathgasps
+#      collection: MaleDeathGasp # MAID feat no deathgasps
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
@@ -361,8 +373,8 @@
       collection: Hew
     Gasp:
       collection: FemaleGasp
-    DefaultDeathgasp:
-      collection: FemaleDeathGasp
+#    DefaultDeathgasp: # MAID feat no deathgasps
+#      collection: FemaleDeathGasp # MAID feat no deathgasps
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
@@ -443,6 +455,16 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Crying: #goob
+      collection: Dionacry
+    Whistle: #goob
+      collection: Dionawhistle
+    Cough: #goob
+      collection: Dionacough
+    Yawn: #goob
+      collection: Dionayawn
+    Sigh: #goob
+      collection: Dionasigh
   params:
     variation: 0.125
 
@@ -513,8 +535,8 @@
       collection: Hew
     Gasp:
       collection: MaleGasp
-    DefaultDeathgasp:
-      collection: MaleDeathGasp
+#    DefaultDeathgasp: # MAID feat no deathgasps
+#      collection: MaleDeathGasp # MAID feat no deathgasps
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg
     Surprised: # Goob
@@ -560,8 +582,8 @@
       collection: Hew
     Gasp:
       collection: FemaleGasp
-    DefaultDeathgasp:
-      collection: FemaleDeathGasp
+#    DefaultDeathgasp: # MAID feat no deathgasps
+#      collection: FemaleDeathGasp # MAID feat no deathgasps
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg
     Surprised: # Goob
@@ -813,6 +835,8 @@
   params:
     variation: 0.05
   sounds:
+    Scream:
+      collection: XenoborgScream
     Laugh:
       collection: XenoborgLaugh
     Beep:
@@ -1010,7 +1034,7 @@
       collection: Hew
     Honk:
       collection: BikeHorn
-    Gasp:
-      collection: MaleGasp
+#    Gasp: # MAID feat no animal gasps
+#      collection: MaleGasp # MAID feat no animal gasps
     DefaultDeathgasp:
       collection: WawaDeath

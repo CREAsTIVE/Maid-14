@@ -151,6 +151,12 @@
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
   canBeAntag: false
+  guides: # goobstation
+  - SpaceLaw
+#  - LegalSOP # Maid
+  - Security
+#  - WardenSOP # Maid
+  - KravMaga
   access:
   - Security
   - Brig
@@ -170,7 +176,7 @@
 - type: startingGear
   id: WardenGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesGlassesSecurityContraDetect # Goobstation
     id: WardenPDA
     ears: ClothingHeadsetAltWarden # Goobstation
     pocket1: WeaponPistolMk58

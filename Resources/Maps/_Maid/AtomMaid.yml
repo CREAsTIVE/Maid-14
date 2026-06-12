@@ -189,7 +189,7 @@ entities:
     - type: MaterialStorage
       storage: {}
     - type: BecomesStation
-      id: AtomStation
+      id: AtomMaidStation
     - type: SpreaderGrid
     - type: Shuttle
       dampingModifier: 0.25

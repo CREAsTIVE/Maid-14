@@ -85,6 +85,8 @@ public partial class NavMapControl : MapGridControl
     protected float ThinWallThickness = 0.165f;
     protected float ThinDoorThickness = 0.30f;
 
+    private const int MaxVertsPerBatch = 2048; // Maid
+
     // Local variables
     private float _updateTimer = 1.0f;
     private Dictionary<Color, Color> _sRGBLookUp = new();
@@ -249,6 +251,9 @@ public partial class NavMapControl : MapGridControl
                 if (!blip.Selectable)
                     continue;
 
+                if (currentEntity == NetEntity.Invalid || !EntManager.EntityExists(blip.Coordinates.EntityId)) // Maid
+                    continue;
+
                 var currentDistance = (_transformSystem.ToMapCoordinates(blip.Coordinates).Position - worldPosition).Length();
 
                 if (closestDistance < currentDistance || currentDistance * MinimapScale > MaxSelectableDistance)
@@ -358,31 +363,36 @@ public partial class NavMapControl : MapGridControl
         // Draw map lines
         if (TileLines.Any())
         {
+            // MAID EDIT START
             var lines = new ValueList<Vector2>(TileLines.Count * 2);
-
             foreach (var (o, t) in TileLines)
             {
-                var origin = ScalePosition(o - offsetVec);
-                var terminus = ScalePosition(t - offsetVec);
-
-                lines.Add(origin);
-                lines.Add(terminus);
+                lines.Add(ScalePosition(o - offsetVec));
+                lines.Add(ScalePosition(t - offsetVec));
             }
 
-            if (lines.Count > 0)
-                handle.DrawPrimitives(DrawPrimitiveTopology.LineList, lines.Span, wallsRGB);
+            var span = lines.Span;
+            for (var i = 0; i < span.Length; i += MaxVertsPerBatch)
+            {
+                var count = Math.Min(MaxVertsPerBatch, span.Length - i);
+                DebugTools.Assert(count % 2 == 0, "NavMap line batch has odd vertex count; a line pair would be silently dropped.");
+
+                if (count % 2 != 0)
+                    break;
+                var batch = span.Slice(i, count);
+                handle.DrawPrimitives(DrawPrimitiveTopology.LineList, batch, wallsRGB);
+            }
+            // MAID EDIT END
         }
 
         // Draw map rects
         if (TileRects.Any())
         {
             var rects = new ValueList<Vector2>(TileRects.Count * 8);
-
             foreach (var (lt, rb) in TileRects)
             {
                 var leftTop = ScalePosition(lt - offsetVec);
                 var rightBottom = ScalePosition(rb - offsetVec);
-
                 var rightTop = new Vector2(rightBottom.X, leftTop.Y);
                 var leftBottom = new Vector2(leftTop.X, rightBottom.Y);
 
@@ -396,8 +406,20 @@ public partial class NavMapControl : MapGridControl
                 rects.Add(leftTop);
             }
 
-            if (rects.Count > 0)
-                handle.DrawPrimitives(DrawPrimitiveTopology.LineList, rects.Span, wallsRGB);
+            // MAID EDIT START
+            var span = rects.Span;
+            for (var i = 0; i < span.Length; i += MaxVertsPerBatch)
+            {
+                var count = Math.Min(MaxVertsPerBatch, span.Length - i);
+                DebugTools.Assert(count % 2 == 0,
+                    "NavMap rect batch has odd vertex count; a line pair would be silently dropped.");
+
+                if (count % 2 != 0)
+                    break;
+                var batch = span.Slice(i, count);
+                handle.DrawPrimitives(DrawPrimitiveTopology.LineList, batch, wallsRGB);
+            }
+            // MAID EDIT END
         }
 
         // Invoke post wall drawing action
@@ -432,6 +454,9 @@ public partial class NavMapControl : MapGridControl
                 continue;
 
             if (blip.Texture == null)
+                continue;
+
+            if (!EntManager.EntityExists(blip.Coordinates.EntityId)) // Maid
                 continue;
 
             var mapPos = _transformSystem.ToMapCoordinates(blip.Coordinates);

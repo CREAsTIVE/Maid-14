@@ -80,6 +80,7 @@
   startingGear: StationEngineerGear
   icon: "JobIconStationEngineer"
   supervisors: job-supervisors-ce
+  guides: [ Engineering ] # goobstation
   access:
   - Maintenance
   - Engineering

@@ -283,7 +283,7 @@
 
 - type: entity
   id: BaseLathe
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseAutomatedMachine ] # Goob: Automation
   abstract: true
   name: lathe
   components:
@@ -766,7 +766,6 @@
     - ScienceExplosives
     - GrenadeTriggersStatic
     - SecurityWeaponsStaticGoob
-    - SecurityWeaponsNonEmaggableStaticGoob
     dynamicPacks:
     - SalvageSecurityBoards
     - SalvageSecurityWeapons
@@ -903,7 +902,7 @@
     stealGroup: MedicalTechFabCircuitboard
 
 - type: entity
-  parent: BaseLathe
+  parent: [BaseLatheLube, BaseSiloUtilizer] #Goob edit
   id: UniformPrinter
   name: uniform printer
   description: Prints new or replacement uniforms.

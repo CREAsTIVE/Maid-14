@@ -58,6 +58,7 @@ jobs:
         run: |
           git add *.yml
           git commit -m "${{ vars.CHANGELOG_MESSAGE }} (#${{ env.PR_NUMBER }})"
+          git pull --rebase origin ${{ vars.CHANGELOG_BRANCH }}
           git push
         shell: bash
         continue-on-error: true

@@ -2,7 +2,7 @@
   id: BoxMaid
   mapName: 'BoxMaid Station'
   mapPath: /Maps/_Maid/BoxMaid.yml
-  minPlayers: 10
+  minPlayers: 1
   stations:
     BoxMaid:
       stationProto: StandardNanotrasenStation

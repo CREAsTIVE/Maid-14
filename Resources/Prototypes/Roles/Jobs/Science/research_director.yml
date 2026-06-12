@@ -155,6 +155,11 @@
   supervisors: job-supervisors-captain
   canBeAntag: true # Maid
   antagAdvantage: 75 # Goobstation
+  guides: # goobstation
+  - Science
+  - Command
+#  - ResearchDirectorSOP # Maid
+#  - ScienceSOP # Maid
   access:
   - Research
   - Command
@@ -162,7 +167,7 @@
   - ResearchDirector
   - Brig
   - Cryogenics
-  - External # goobstation
+  - External # Goobstation
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

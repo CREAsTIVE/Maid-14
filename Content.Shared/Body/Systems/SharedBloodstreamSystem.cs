@@ -30,6 +30,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
+using Content.Shared.EntityEffects.Effects;
 
 namespace Content.Shared.Body.Systems;
 
@@ -55,8 +56,8 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
 
         SubscribeLocalEvent<BloodstreamComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BloodstreamComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
-        //SubscribeLocalEvent<BloodstreamComponent, ReactionAttemptEvent>(OnReactionAttempt); // Goobstation - moved to Server
-        //SubscribeLocalEvent<BloodstreamComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnReactionAttempt); // Goobstation - moved to Server
+        SubscribeLocalEvent<BloodstreamComponent, ReactionAttemptEvent>(OnReactionAttempt);
+        SubscribeLocalEvent<BloodstreamComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnReactionAttempt);
         SubscribeLocalEvent<BloodstreamComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<BloodstreamComponent, HealthBeingExaminedEvent>(OnHealthBeingExamined);
         SubscribeLocalEvent<BloodstreamComponent, BeingGibbedEvent>(OnBeingGibbed);
@@ -116,7 +117,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
 
                 _damageableSystem.TryChangeDamage(uid, amt,
                     ignoreResistances: false, interruptsDoAfters: false,
-                    splitDamage: SplitDamageBehavior.SplitEnsureAll, targetPart: TargetBodyPart.Vital); // Goobstation
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll, targetPart: TargetBodyPart.All);
 
                 // Apply dizziness as a symptom of bloodloss.
                 // The effect is applied in a way that it will never be cleared without being healthy.
@@ -152,9 +153,6 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             }
 
             // Shitmed Change Start
-            if (!_consciousness.TryGetNerveSystem(uid, out var nerveSys))
-                continue;
-
             var total = FixedPoint2.Zero;
             foreach (var (bodyPart, _) in _body.GetBodyChildren(uid))
             {
@@ -165,7 +163,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
                         continue;
 
                     total += bleeds.BleedingAmount;
-                    totalPartBleeds = bleeds.BleedingAmount; // Goobstation
+                    totalPartBleeds += bleeds.BleedingAmount; // Goobstation
                 }
 
                 if (TryComp<WoundableComponent>(bodyPart, out var woundable)) // Goobstation
@@ -177,26 +175,30 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             var missingBlood = bloodstream.BloodMaxVolume - bloodstream.BloodSolution.Value.Comp.Solution.Volume;
 
             bloodstream.BleedAmountFromWounds = (float) total; // why was it ever divided by 4? Goobstation
-            if (!_consciousness.SetConsciousnessModifier(
-                    uid,
-                    nerveSys.Value,
-                    -missingBlood / 4,
-                    identifier: "Bleeding",
-                    type: ConsciousnessModType.Pain))
+
+            if (_consciousness.TryGetNerveSystem(uid, out var nerveSys))
             {
-                _consciousness.AddConsciousnessModifier(
-                    uid,
-                    nerveSys.Value,
-                    -missingBlood / 4,
-                    identifier: "Bleeding",
-                    type: ConsciousnessModType.Pain);
+                if (!_consciousness.SetConsciousnessModifier(
+                        uid,
+                        nerveSys.Value,
+                        -missingBlood / 4,
+                        identifier: "Bleeding",
+                        type: ConsciousnessModType.Pain))
+                {
+                    _consciousness.AddConsciousnessModifier(
+                        uid,
+                        nerveSys.Value,
+                        -missingBlood / 4,
+                        identifier: "Bleeding",
+                        type: ConsciousnessModType.Pain);
+                }
             }
             // Shitmed Change End
             // Goobstation start
             bloodstream.BleedAmount = bloodstream.BleedAmountFromWounds + bloodstream.BleedAmountNotFromWounds;
             bloodstream.BleedAmount = Math.Clamp(bloodstream.BleedAmount, 0, bloodstream.MaxBleedAmount);
 
-            DirtyField(uid, bloodstream, nameof(BloodstreamComponent.BleedAmount));
+            DirtyFields(uid, bloodstream, null, nameof(BloodstreamComponent.BleedAmount), nameof(BloodstreamComponent.BleedAmountFromWounds));
 
             if (bloodstream.BleedAmount == 0)
                 _alertsSystem.ClearAlert(uid, bloodstream.BleedingAlert);
@@ -232,8 +234,6 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             entity.Comp.TemporarySolution = null;
     }
 
-    // Goob edit - ported these 2 events to Server since we don't have predicted EntityEffects yet
-    /*
     private void OnReactionAttempt(Entity<BloodstreamComponent> ent, ref ReactionAttemptEvent args)
     {
         if (args.Cancelled)
@@ -270,7 +270,6 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
 
         OnReactionAttempt(ent, ref args.Event);
     }
-    */
 
     private void OnDamageChanged(Entity<BloodstreamComponent> ent, ref DamageChangedEvent args)
     {
@@ -519,10 +518,10 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         // Goobstation start
         ent.Comp.BleedAmountNotFromWounds += amount;
 
-        if (ent.Comp.BleedAmountNotFromWounds <= 0 && TryComp<BodyComponent>(ent, out var body)
+        if (amount <= 0 && TryComp<BodyComponent>(ent, out var body)
             && body.BodyType == BodyType.Complex)
         {
-            _wound.TryHealMostSevereBleedingWoundables(ent, -ent.Comp.BleedAmountNotFromWounds, out var _);
+            _wound.TryHealMostSevereBleedingWoundables(ent, -amount, out var _);
         }
 
         // Clamp minimum bleed to zero

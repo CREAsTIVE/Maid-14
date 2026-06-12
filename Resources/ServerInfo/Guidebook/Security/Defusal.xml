@@ -38,7 +38,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Чтобы взвести бомбу, вы можете либо [color=yellow]кликнуть правой кнопкой мыши[/color] и выбрать [color=yellow]Начать обратный отсчёт[/click], либо [color=yellow]альт-кликнуть[/color] по бомбе. После этого она начнет пикать.
 
   ## Таймер
-  Бомба имеет ограниченное время, минимум [protodata="SyndicateBomb" comp="OnUseTimerTrigger" member="ShortestDelayOption"/] секунд и максимум [protodata="SyndicateBomb" comp="OnUseTimerTrigger" member="LongestDelayOption"/] секунд. Вы можете просмотреть таймер, осмотрев бомбу, если только провод Proceed не перерезан. Как только таймер достигнет нуля, бомба взорвется.
+  Бомба имеет ограниченное время, минимум [protodata="SyndicateBomb" comp="TimerTrigger" member="ShortestDelayOption"/] секунд и максимум [protodata="SyndicateBomb" comp="TimerTrigger" member="LongestDelayOption"/] секунд. Вы можете просмотреть таймер, осмотрев бомбу, если только провод Proceed не перерезан. Как только таймер достигнет нуля, бомба взорвется.
 
   ## Болты
   По умолчанию, как только бомба взведена, она прикручивается к земле. Вы должны найти провод BOLT и перерезать его, чтобы отключить болты, после чего вы можете открутить её и выбросить в космос.

@@ -75,3 +75,32 @@
       BorgArm:
         amount: 1
         defaultPrototype: LeftArmBorg
+
+- type: entity
+  id: VirologyServerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: virology server machine board
+  description: A machine printed circuit board for a virology server.
+  components:
+    - type: MachineBoard
+      prototype: VirologyServer
+      stackRequirements:
+        Steel: 1
+        Cable: 2
+
+- type: entity  # Food synthesizer
+  parent: BaseMachineCircuitboard
+  id: ServiceEnergyChemMachineCircuitboard
+  name: energy food synthesizer machine board
+  description: A machine printed circuit board for a energy food synthesizer.
+  components:
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: ServiceEnergyChemDispenser
+    stackRequirements:
+      Manipulator: 3
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker

@@ -527,6 +527,12 @@
     energy: 1.5
     color: "#4faffb"
   - type: Fauna # Lavaland Change
+  - type: Stealth #Maid edit start
+    enabledOnDeath: false
+    maxVisibility: 1.2
+  - type: StealthOnMove
+    passiveVisibilityRate: -0.25
+    movementVisibilityRate: 0.25 #Maid edit end
 
 - type: entity
   id: MobCobraSpaceSalvage
@@ -709,7 +715,7 @@
   - type: GhostRole
     name: ghost-role-information-snailspeed-name
     description: ghost-role-information-snailspeed-description
-    rules: ghost-role-information-freeagent-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -738,7 +744,7 @@
   - type: GhostRole
     name: ghost-role-information-snoth-name
     description: ghost-role-information-snoth-description
-    rules: ghost-role-information-freeagent-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]

@@ -23,15 +23,17 @@ SPDX-License-Identifier: MIT
 
         <TabContainer Name="TabContainer" VerticalExpand="True">
           <!-- Sub-Main Container -->
-          <BoxContainer Orientation="Horizontal"
+          <!-- MAID cargo ui fix -->
+          <BoxContainer Orientation="Vertical"
               VerticalExpand="True"
               Margin="8 4 8 6">
 
               <!-- Left Part -->
+              <!-- MAID cargo ui fix -->
               <BoxContainer Orientation="Vertical"
                   SeparationOverride="4"
                   Margin="0 0 8 0"
-                  HorizontalExpand="True">
+                  VerticalExpand="True">
 
                   <!-- Info -->
                   <BoxContainer Orientation="Vertical">
@@ -74,14 +76,20 @@ SPDX-License-Identifier: MIT
                   <!-- Search -->
                   <BoxContainer Orientation="Horizontal"
                       Margin="0 2 0 0">
+                      <!-- MAID cargo ui fix -->
+                      <OptionButton Name="Categories"
+                          Prefix="{Loc 'cargo-console-menu-categories-label'}"
+                          StyleClasses="OpenLeft"/>
 
                       <LineEdit Name="SearchBar"
                           PlaceHolder="{Loc 'cargo-console-menu-search-bar-placeholder'}"
                           HorizontalExpand="True" />
-
+                      
+                      <!-- MAID cargo ui fix
                       <OptionButton Name="Categories"
                           Prefix="{Loc 'cargo-console-menu-categories-label'}"
                           StyleClasses="OpenLeft"/>
+                      -->
                   </BoxContainer>
 
                   <!-- Product list -->
@@ -103,9 +111,10 @@ SPDX-License-Identifier: MIT
               <PanelContainer StyleClasses="LowDivider" Margin="0 -8"/>
 
               <!-- Right Part -->
+              <!-- MAID cargo ui fix -->
               <BoxContainer Orientation="Vertical"
                   SizeFlagsStretchRatio="0.8"
-                  HorizontalExpand="True"
+                  VerticalExpand="True"
                   Name="RightPart">
 
                   <!-- Requests Part -->
