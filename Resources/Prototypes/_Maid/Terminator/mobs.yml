@@ -40,7 +40,9 @@
     allowedStates:
     - Alive
     - Dead
-  - type: TransferMindOnGib
+  - type: SpawnOnGib
+    prototype: MobTerminatorEndoskeleton
+    transferMind: true
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -95,7 +97,7 @@
 
 - type: entity
   parent:
-  - BaseMob
+  - SimpleMobBase
   - MobCombat
   - MobDamageable
   - MobSiliconBase
@@ -107,13 +109,15 @@
   - type: AutoImplant
     implants:
     - TerminatorSelfExplodeImplant
-  - type: HumanoidAppearance
-    species: Terminator
   - type: MovementSpeedModifier
-    baseWalkSpeed: 1.5
-    baseSprintSpeed: 3.0
+    baseWalkSpeed: 2.0
+    baseSprintSpeed: 3.2
   - type: Sprite
-    sprite: Mobs/Species/Terminator/parts.rsi
+    drawdepth: Mobs
+    layers:
+      - map: [ "movement" ]
+        state: full
+        sprite: Mobs/Species/Terminator/parts.rsi
   - type: Fixtures
     fixtures:
       fix1:
@@ -132,11 +136,6 @@
   - type: Repairable
     doAfterDelay: 15
     allowSelfRepair: false
-  - type: Body
-    prototype: TerminatorEndoskeleton
-    requiredLegs: 2
-  - type: Organ
-  - type: Brain
   - type: TypingIndicator
     proto: robot
   - type: Speech
@@ -166,12 +165,17 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Flammable
-    fireSpread: true
+    fireSpread: false
     canResistFire: true
     damage:
       types:
         Heat: 0
   - type: MeleeWeapon
+    animation: WeaponArcPunch
+    wideAnimation: WeaponArcThrust
+    сlickDamageModifier: 1.5
+    altDisarm: false
+    angle: 20
     damage:
       types:
         Blunt: 15
@@ -186,3 +190,23 @@
     - DoorBumpOpener
     - MindTransferTarget
     - Unimplantable
+
+
+- type: entity
+  parent: BaseItem
+  id: HeadTerminator
+  name: nt-800 skull
+  description: Its red eyes have powered down... for now.
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Terminator/parts.rsi
+      state: skull_icon
+    - type: Icon
+      sprite: Mobs/Species/Terminator/parts.rsi
+      state: skull_icon
+    - type: StaticPrice
+      price: 4000
+    - type: Tag
+      tags:
+        - MindTransferTarget
+        - Head
