@@ -1,6 +1,7 @@
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Implants.Components;
 using Content.Shared.Popups;
+using Content.Shared.Trigger;
 
 namespace Content.Server._Maid.Triggers.EntitySystems;
 

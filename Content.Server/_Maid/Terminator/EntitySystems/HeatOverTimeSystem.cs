@@ -3,6 +3,7 @@ using Content.Server._Maid.Terminator.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Temperature.Systems;
+using Content.Shared.Atmos.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Maid.Terminator.EntitySystems;
@@ -28,27 +29,27 @@ public sealed class HeatOverTimeSystem : EntitySystem
     public override void Update(float frameTime)
     {
         var currentTime = _timing.CurTime;
-        var query = EntityQueryEnumerator<HeatOverTimeComponent>();
+        var query = EntityQueryEnumerator<HeatOverTimeComponent, FlammableComponent>();
 
-        while (query.MoveNext(out var uid, out var component))
+        while (query.MoveNext(out var uid, out var heatOverTimeComponent, out var flammableComponent))
         {
-            if (component.Interval <= TimeSpan.Zero)
+            if (heatOverTimeComponent.Interval <= TimeSpan.Zero)
                 continue;
 
-            while (currentTime >= component.NextTickTime)
+            while (currentTime >= heatOverTimeComponent.NextTickTime)
             {
-                _temperature.ChangeHeat(uid, component.Heat * component.Multiplier, component.IgnoreHeatResistance);
-                if (component.FireStacks > 0f)
+                _temperature.ChangeHeat(uid, heatOverTimeComponent.Heat * heatOverTimeComponent.Multiplier, heatOverTimeComponent.IgnoreHeatResistance);
+                if (heatOverTimeComponent.FireStacks > 0f)
                 {
                     _flammable.AdjustFireStacks(uid,
-                        component.FireStacks * component.Multiplier,
+                        heatOverTimeComponent.FireStacks * heatOverTimeComponent.Multiplier,
                         null,
                         true,
-                        component.FireProtectionPenetration);
+                        heatOverTimeComponent.FireProtectionPenetration);
                 }
 
-                component.Multiplier += component.MultiplierIncrease;
-                component.NextTickTime += component.Interval;
+                heatOverTimeComponent.Multiplier += heatOverTimeComponent.MultiplierIncrease;
+                heatOverTimeComponent.NextTickTime += heatOverTimeComponent.Interval;
             }
         }
     }

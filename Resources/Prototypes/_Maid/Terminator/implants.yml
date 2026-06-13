@@ -9,9 +9,10 @@
     implantationTimeMultiplier: 4
     permanent: true
     implantAction: ActionActivateTerminatorOverheat
-  - type: TriggerImplantAction
+  - type: TriggerOnActivateImplant
   - type: AddComponentsOnTrigger
     removeExisting: false
+    targetUser: true
     components:
     - type: HeatOverTime
       heat: 500
@@ -39,7 +40,7 @@
     implantationTimeMultiplier: 4
     permanent: true
     implantAction: ActionActivateMicroBomb
-  - type: TriggerImplantAction
+  - type: TriggerOnActivateImplant
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: MicroBomb
