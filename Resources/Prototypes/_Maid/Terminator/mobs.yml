@@ -180,7 +180,6 @@
   - type: MeleeWeapon
     animation: WeaponArcPunch
     wideAnimation: WeaponArcThrust
-    сlickDamageModifier: 1.5
     altDisarm: false
     angle: 20
     damage:
