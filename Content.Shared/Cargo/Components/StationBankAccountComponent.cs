@@ -13,10 +13,12 @@ public sealed partial class StationBankAccountComponent : Component
 {
     /// <summary>
     /// The account that receives funds by default
+    /// We keep account for coloring.
     /// </summary>
     [DataField, AutoNetworkedField]
     public ProtoId<CargoAccountPrototype> PrimaryAccount = "Cargo";
 
+    /*
     /// <summary>
     /// When giving funds to a particular account, the proportion of funds they should receive compared to remaining accounts.
     /// </summary>
@@ -56,6 +58,12 @@ public sealed partial class StationBankAccountComponent : Component
         { "Security",    0.20 },
         { "Service",     0.20 },
     };
+    */
+    /// <summary>
+    /// Simple amount of money instead of balance nonsense
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int Balance = 2000 + 1000 * 5;
 
     /// <summary>
     /// How much the bank balance goes up per second, every Delay period. Rounded down when multiplied.
@@ -80,4 +88,4 @@ public sealed partial class StationBankAccountComponent : Component
 /// Broadcast and raised on station ent whenever its balance is updated.
 /// </summary>
 [ByRefEvent]
-public readonly record struct BankBalanceUpdatedEvent(EntityUid Station, Dictionary<ProtoId<CargoAccountPrototype>, int> Balance);
+public readonly record struct BankBalanceUpdatedEvent(EntityUid Station, /*Dictionary<ProtoId<CargoAccountPrototype>, int>*/int Balance);

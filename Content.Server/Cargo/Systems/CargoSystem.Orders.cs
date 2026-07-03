@@ -694,7 +694,7 @@ namespace Content.Server.Cargo.Systems
 
         public bool TryAddOrder(EntityUid dbUid, ProtoId<CargoAccountPrototype> account, CargoOrderData data, StationCargoOrderDatabaseComponent component)
         {
-            component.Orders[account].Add(data);
+            component.Orders.Add(data);
             UpdateOrders(dbUid);
             return true;
         }
@@ -706,12 +706,12 @@ namespace Content.Server.Cargo.Systems
             return ++orderDB.NumOrdersCreated;
         }
 
-        public void RemoveOrder(EntityUid dbUid, ProtoId<CargoAccountPrototype> account, int index, StationCargoOrderDatabaseComponent orderDB)
+        public void RemoveOrder(EntityUid dbUid/*, ProtoId<CargoAccountPrototype> account */, int index, StationCargoOrderDatabaseComponent orderDB)
         {
-            var sequenceIdx = orderDB.Orders[account].FindIndex(order => order.OrderId == index);
+            var sequenceIdx = orderDB.Orders.FindIndex(order => order.OrderId == index);
             if (sequenceIdx != -1)
             {
-                orderDB.Orders[account].RemoveAt(sequenceIdx);
+                orderDB.Orders.RemoveAt(sequenceIdx);
             }
             UpdateOrders(dbUid);
         }
@@ -726,20 +726,20 @@ namespace Content.Server.Cargo.Systems
 
         private static bool PopFrontOrder(StationCargoOrderDatabaseComponent orderDB, ProtoId<CargoAccountPrototype> account, [NotNullWhen(true)] out CargoOrderData? orderOut)
         {
-            var orderIdx = orderDB.Orders[account].FindIndex(order => order.Approved);
+            var orderIdx = orderDB.Orders.FindIndex(order => order.Approved);
             if (orderIdx == -1)
             {
                 orderOut = null;
                 return false;
             }
 
-            orderOut = orderDB.Orders[account][orderIdx];
+            orderOut = orderDB.Orders[orderIdx];
             orderOut.NumDispatched++;
 
             if (orderOut.NumDispatched >= orderOut.OrderQuantity)
             {
                 // Order is complete. Remove from the queue.
-                orderDB.Orders[account].RemoveAt(orderIdx);
+                orderDB.Orders.RemoveAt(orderIdx);
             }
             return true;
         }

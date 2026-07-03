@@ -23,15 +23,18 @@ namespace Content.Shared.Cargo.Components;
 [Access(typeof(SharedCargoSystem))]
 public sealed partial class CargoOrderConsoleComponent : Component
 {
+    /*
     /// <summary>
     /// The account that this console pulls from for ordering.
     /// </summary>
     [DataField]
     public ProtoId<CargoAccountPrototype> Account = "Cargo";
+    */
 
     [DataField]
     public SoundSpecifier ErrorSound = new SoundCollectionSpecifier("CargoError");
 
+    /*
     /// <summary>
     /// Sound made when <see cref="TransferUnbounded"/> is toggled.
     /// </summary>
@@ -73,6 +76,7 @@ public sealed partial class CargoOrderConsoleComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan UnboundedAccountActionDelay = TimeSpan.FromSeconds(10);
+    */
 
     /// <summary>
     /// The stack representing cash dispensed on withdrawals.
@@ -92,17 +96,21 @@ public sealed partial class CargoOrderConsoleComponent : Component
         "SalvageJobRewardMAX",
     };
 
+    /*
     /// <summary>
     /// Access needed to toggle the limit on this console.
     /// </summary>
     [DataField]
     public HashSet<ProtoId<AccessLevelPrototype>> RemoveLimitAccess = new();
+    */
 
+    /*
     /// <summary>
     /// Radio channel on which order approval announcements are transmitted
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<RadioChannelPrototype> AnnouncementChannel = "Supply";
+    */
 
     /// <summary>
     /// Secondary radio channel which always receives order announcements.

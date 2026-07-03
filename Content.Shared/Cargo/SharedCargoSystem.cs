@@ -33,6 +33,7 @@ public abstract class SharedCargoSystem : EntitySystem
         Dirty(ent);
     }
 
+    /*
     /// <summary>
     /// For a given station, retrieves the balance in a specific account.
     /// </summary>
@@ -63,6 +64,15 @@ public abstract class SharedCargoSystem : EntitySystem
             distribution[account] = existing + remaining * percentage;
         }
         return distribution;
+    }
+    */
+    
+    public int GetBalance(Entity<StationBankAccountComponent?> station)
+    {
+        if (!Resolve(station, ref station.Comp))
+            return 0;
+
+        return station.Comp.Balance;
     }
 }
 

@@ -88,22 +88,26 @@ namespace Content.Client.Cargo.UI
 
             if (entMan.TryGetComponent<CargoOrderConsoleComponent>(owner, out var orderConsole))
             {
+                /*
                 var accountProto = _protoManager.Index(orderConsole.Account);
                 AccountNameLabel.Text = Loc.GetString("cargo-console-menu-account-name-format",
                     ("color", accountProto.Color),
                     ("name", Loc.GetString(accountProto.Name)),
                     ("code", Loc.GetString(accountProto.Code)));
+
                 // Goobstation start - Cargo UI
                 AccountNameLabelFundsTransfer.Text = Loc.GetString("cargo-console-menu-account-name-format",
                     ("color", accountProto.Color),
                     ("name", Loc.GetString(accountProto.Name)),
                     ("code", Loc.GetString(accountProto.Code)));
                 // END
+                */
             }
 
             TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-orders"));
             TabContainer.SetTabTitle(1, Loc.GetString("cargo-console-menu-tab-title-funds"));
 
+            /*
             ActionOptions.OnItemSelected += idx =>
             {
                 ActionOptions.SelectId(idx.Id);
@@ -128,6 +132,8 @@ namespace Content.Client.Cargo.UI
             {
                 OnToggleUnboundedLimit?.Invoke(a);
             };
+            
+            */
         }
 
         private void OnCategoryItemSelected(OptionButton.ItemSelectedEventArgs args)
@@ -316,6 +322,7 @@ namespace Content.Client.Cargo.UI
             }
         }
 
+        /*
         public void PopulateAccountActions()
         {
             if (!_entityManager.TryGetComponent<StationBankAccountComponent>(_station, out var bank) ||
@@ -338,6 +345,7 @@ namespace Content.Client.Cargo.UI
                 i++;
             }
         }
+        */
 
         public void UpdateStation(EntityUid station)
         {
@@ -354,8 +362,9 @@ namespace Content.Client.Cargo.UI
                 return;
             }
 
-            var balance = _cargoSystem.GetBalanceFromAccount((_station.Value, bankAccount), orderConsole.Account);
+            var balance = _cargoSystem.GetBalance((_station.Value, bankAccount)); // .GetBalanceFromAccount((_station.Value, bankAccount), orderConsole.Account);
             PointsLabel.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balance));
+            /*
             PointsLabelFundsTransfer.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balance)); // Goobstation
             TransferLimitLabel.Text = Loc.GetString("cargo-console-menu-account-action-transfer-limit-amount", ("amount", Math.Floor(balance * orderConsole.TransferLimit))); // Goobstation
 
@@ -363,6 +372,7 @@ namespace Content.Client.Cargo.UI
             AccountActionButton.Disabled = TransferSpinBox.Value <= 0 ||
                                            TransferSpinBox.Value > bankAccount.Accounts[orderConsole.Account] * orderConsole.TransferLimit ||
                                            _timing.CurTime < orderConsole.NextAccountActionTime;
+            */
 
             RightPart.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip; // Goobstation
         }

@@ -165,18 +165,20 @@ public sealed partial class CargoSystem : SharedCargoSystem
         UpdateBounty();
     }
 
+    /*
     public void UpdateBankAccount(
         Entity<StationBankAccountComponent?> ent,
         int balanceAdded,
-        ProtoId<CargoAccountPrototype> account,
+        // ProtoId<CargoAccountPrototype> account,
         bool dirty = true)
     {
         UpdateBankAccount(
             ent,
             balanceAdded,
-            new Dictionary<ProtoId<CargoAccountPrototype>, double> { {account, 1} },
+            // new Dictionary<ProtoId<CargoAccountPrototype>, double> { {account, 1} },
             dirty: dirty);
     }
+    */
 
     /// <summary>
     /// Adds or removes funds from the <see cref="StationBankAccountComponent"/>.
@@ -189,17 +191,20 @@ public sealed partial class CargoSystem : SharedCargoSystem
     public void UpdateBankAccount(
         Entity<StationBankAccountComponent?> ent,
         int balanceAdded,
-        Dictionary<ProtoId<CargoAccountPrototype>, double> accountDistribution,
+        // Dictionary<ProtoId<CargoAccountPrototype>, double> accountDistribution,
         bool dirty = true)
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
 
+        /*
         foreach (var (account, percent) in accountDistribution)
         {
             var accountBalancedAdded = (int) Math.Round(percent * balanceAdded);
             ent.Comp.Accounts[account] += accountBalancedAdded;
         }
+        */
+        ent.Comp.Balance += balanceAdded;
 
         var ev = new BankBalanceUpdatedEvent(ent, ent.Comp.Accounts);
         RaiseLocalEvent(ent, ref ev, true);

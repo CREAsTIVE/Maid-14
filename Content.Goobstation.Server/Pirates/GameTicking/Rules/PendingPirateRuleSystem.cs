@@ -64,7 +64,7 @@ public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPira
 
                 if (_cargo.TryGetOrderDatabase(station, out var cargoDb) && pending.Order != null)
                 {
-                    _cargo.RemoveOrder(station.Value, bank.PrimaryAccount, pending.Order.OrderId, cargoDb);
+                    _cargo.RemoveOrder(station.Value/*, bank.PrimaryAccount*/, pending.Order.OrderId, cargoDb);
                 }
 
                 SendAnnouncement((uid, pending), AnnouncementType.Arrival);
@@ -95,7 +95,7 @@ public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPira
             if (!TryComp<StationBankAccountComponent>(station, out var bank))
                 return;
 
-            var balance = _cargo.GetBalanceFromAccount((station.Value, bank), bank.PrimaryAccount);
+            var balance = _cargo.GetBalance((station.Value, bank)); // FromAccount((station.Value, bank), bank.PrimaryAccount);
             price = _rand.Next((int) (balance * 0.75f), (int) (balance * 1.25f));
 
             var orderId = CargoSystem.GenerateOrderId(cargoDb) + 1984;

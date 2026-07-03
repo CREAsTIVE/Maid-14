@@ -155,12 +155,12 @@ SPDX-License-Identifier: MIT
               </BoxContainer>
           </BoxContainer>
           <!-- Funds tab -->
+          <!-- MAID BEING no funds -->
+          <!--
           <BoxContainer Orientation="Vertical" Margin="8 4 8 6">
-                    <!-- Info -->
             <BoxContainer Orientation="Vertical">
                       <GridContainer Columns="3">
 
-                          <!-- Account -->
                           <Label Text="{Loc 'cargo-console-menu-account-name-label'}"
                               StyleClasses="LabelKeyText" />
 
@@ -170,7 +170,6 @@ SPDX-License-Identifier: MIT
                               Text="{Loc 'cargo-console-menu-account-name-none-text'}"
                               Margin="4 0"/>
 
-                          <!-- Balance -->
                           <Label Text="{Loc 'cargo-console-menu-points-label'}"
                               StyleClasses="LabelKeyText"/>
 
@@ -212,22 +211,20 @@ SPDX-License-Identifier: MIT
                   <SpinBox Name="TransferSpinBox" MinWidth="100" Value="10"/>
               </BoxContainer>
                 <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" VerticalAlignment="Bottom" Margin="8">
-                    <!-- Left button -->
                     <Button Name="AccountLimitToggleButton"
                             Text="{Loc 'cargo-console-menu-toggle-account-lock-button'}"
                             MinHeight="45"
                             MinWidth="120"/>
 
-                    <!-- Spacer takes all remaining space -->
                     <Control HorizontalExpand="True"/>
 
-                    <!-- Right button -->
                     <Button Name="AccountActionButton"
                             Text="{Loc 'cargo-console-menu-account-action-button'}"
                             MinHeight="45"
                             MinWidth="120"/>
                 </BoxContainer>
           </BoxContainer>
+          -->
         </TabContainer>
 
         <!-- Footer -->

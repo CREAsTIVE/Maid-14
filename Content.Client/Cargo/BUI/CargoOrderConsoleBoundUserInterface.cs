@@ -147,7 +147,7 @@ namespace Content.Client.Cargo.BUI
             _menu.PopulateProducts();
             _menu.PopulateCategories();
             _menu.PopulateOrders(orders);
-            _menu.PopulateAccountActions();
+            // _menu.PopulateAccountActions();
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)
@@ -160,7 +160,7 @@ namespace Content.Client.Cargo.BUI
 
             OrderCapacity = cState.Capacity;
             OrderCount = cState.Count;
-            BankBalance = _cargoSystem.GetBalanceFromAccount(station, orderConsole.Account);
+            BankBalance = _cargoSystem.GetBalance(station); // .GetBalanceFromAccount(station, orderConsole.Account);
 
             AccountName = cState.Name;
 

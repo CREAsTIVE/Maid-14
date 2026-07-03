@@ -30,12 +30,16 @@ public sealed partial class StationCargoOrderDatabaseComponent : Component
     [DataField]
     public int Capacity = 20;
 
-    [ViewVariables]
-    public IEnumerable<CargoOrderData> AllOrders => Orders.SelectMany(p => p.Value);
+    [ViewVariables] public IEnumerable<CargoOrderData> AllOrders => Orders;
 
+    /*
     [DataField]
     public Dictionary<ProtoId<CargoAccountPrototype>, List<CargoOrderData>> Orders = new();
+    */
 
+    [DataField] 
+    public List<CargoOrderData> Orders = new();
+ 
     /// <summary>
     /// Used to determine unique order IDs
     /// </summary>
