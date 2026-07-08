@@ -379,7 +379,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 0
+        Heat: 1 # Maid
     soundHit:
       collection: WeakHit
     forceSound: true
