@@ -67,7 +67,6 @@ entities:
     - type: MetaData
       name: NT Escape Pod
     - type: Transform
-
     - type: ProtectedGrid
     - type: EscapePod
     - type: MapGrid
