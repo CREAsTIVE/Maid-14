@@ -95,7 +95,7 @@
   - type: Repairable
     doAfterDelay: 30 # you can heal the mothership core, but it takes a while
 #  - type: DamagedSiliconAccent #Maid
-    enableChargeCorruption: false
+#    enableChargeCorruption: false #Maid
   - type: Explosive
     explosionType: Default
     maxIntensity: 100
