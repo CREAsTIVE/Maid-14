@@ -345,7 +345,7 @@
     sounds:
       Unsexed: UnisexSilicon
     wilhelmProbability: 0
-  - type: DamagedSiliconAccent
+#  - type: DamagedSiliconAccent #Maid
   - type: UnblockableSpeech
   - type: FootstepModifier
     footstepSoundCollection:
@@ -705,7 +705,7 @@
     sounds:
       Unsexed: UnisexSiliconXenoborg
     wilhelmProbability: 0
-  - type: DamagedSiliconAccent
+#  - type: DamagedSiliconAccent #Maid
   - type: UnblockableSpeech
   - type: FootstepModifier
     footstepSoundCollection:

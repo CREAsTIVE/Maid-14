@@ -172,7 +172,7 @@
           variation: 0.250
   - type: ItemToggleHot
   - type: ItemToggleSize
-    activatedSize: Huge
+    activatedSize: Ginormous #Maid
   - type: ItemTogglePointLight
     toggleableVisualsColorModulatesLights: true
   - type: ItemToggleMeleeWeapon
