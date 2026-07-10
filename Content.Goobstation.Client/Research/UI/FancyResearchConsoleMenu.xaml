@@ -11,7 +11,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                       xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client"
                       xmlns:goob="clr-namespace:Content.Goobstation.Client.Research.UI"
                       Title="{Loc 'research-console-menu-title'}"
-                      SetSize="1260 850">
+                      SetSize="1290 850">
     <BoxContainer Orientation="Vertical"
                   HorizontalExpand="True"
                   VerticalExpand="True">
@@ -37,7 +37,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                           VerticalExpand="True"
                           HorizontalExpand="True"
                           SizeFlagsStretchRatio="3"
-                          Margin="0 0 0 10">
+                           Margin="10 10 10 10">
                 <PanelContainer Name="ResearchesContainer" VerticalExpand="True" HorizontalExpand="True">
                     <PanelContainer.PanelOverride>
                         <gfx:StyleBoxFlat BackgroundColor="#000000FF" />
@@ -54,13 +54,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                             <!-- There lives all of technologies -->
                         </goob:ResearchesContainerPanel>
                     </AnimatedTextureRect>
-                    <Button Name="RecenterButton" Text="{Loc 'research-console-menu-recenter-button'}" MinHeight="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5 -5"/>
+                    <Button Name="RecenterButton" Text="{Loc 'research-console-menu-recenter-button'}" MinHeight="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="-1 -1"/>
                 </PanelContainer>
             </BoxContainer>
             <PanelContainer SizeFlagsStretchRatio="2">
-                <PanelContainer.PanelOverride>
-                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
-                </PanelContainer.PanelOverride>
                 <BoxContainer Name="InfoContainer"
                     Orientation="Vertical"
                     VerticalExpand="True"
