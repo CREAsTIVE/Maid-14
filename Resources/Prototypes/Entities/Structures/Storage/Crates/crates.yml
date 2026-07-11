@@ -105,9 +105,9 @@
   name: freezer
   components:
   - type: Icon
-    sprite: _Maid/Structures/Storage/Crates/freezer.rsi #Maid
+    sprite: Structures/Storage/Crates/freezer.rsi
   - type: Sprite
-    sprite: _Maid/Structures/Storage/Crates/freezer.rsi #Maid
+    sprite: Structures/Storage/Crates/freezer.rsi
   - type: AntiRottingContainer
   - type: ExplosionResistance
     damageCoefficient: 0.50
@@ -125,9 +125,9 @@
   name: hydroponics crate
   components:
   - type: Icon
-    sprite: _Maid/Structures/Storage/Crates/hydroponics.rsi #Maid
+    sprite: Structures/Storage/Crates/hydroponics.rsi
   - type: Sprite
-    sprite: _Maid/Structures/Storage/Crates/hydroponics.rsi #Maid
+    sprite: Structures/Storage/Crates/hydroponics.rsi
 
 - type: entity
   parent: CratePlastic
@@ -135,9 +135,9 @@
   name: medical crate
   components:
   - type: Icon
-    sprite: _Maid/Structures/Storage/Crates/medical.rsi #Maid
+    sprite: Structures/Storage/Crates/medical.rsi
   - type: Sprite
-    sprite: _Maid/Structures/Storage/Crates/medical.rsi #Maid
+    sprite: Structures/Storage/Crates/medical.rsi
 
 - type: entity
   parent: CrateGenericSteel
@@ -146,9 +146,9 @@
   description: Is not actually lead lined. Do not store your plutonium in this.
   components:
   - type: Icon
-    sprite: _Maid/Structures/Storage/Crates/radiation.rsi #Maid
+    sprite: Structures/Storage/Crates/radiation.rsi
   - type: Sprite
-    sprite: _Maid/Structures/Storage/Crates/radiation.rsi #Maid
+    sprite: Structures/Storage/Crates/radiation.rsi
 
 - type: entity
   parent: CratePlastic
@@ -166,9 +166,9 @@
   name: electrical crate
   components:
   - type: Icon
-    sprite: _Maid/Structures/Storage/Crates/electrical.rsi #Maid
+    sprite: Structures/Storage/Crates/electrical.rsi
   - type: Sprite
-    sprite: _Maid/Structures/Storage/Crates/electrical.rsi #Maid
+    sprite: Structures/Storage/Crates/electrical.rsi
 
 - type: entity
   parent: CrateGenericSteel
@@ -176,9 +176,9 @@
   name: engineering crate
   components:
   - type: Icon
-    sprite: _Maid/Structures/Storage/Crates/engineering.rsi #Maid
+    sprite: Structures/Storage/Crates/engineering.rsi
   - type: Sprite
-    sprite: _Maid/Structures/Storage/Crates/engineering.rsi #Maid
+    sprite: Structures/Storage/Crates/engineering.rsi
 
 - type: entity
   parent: CrateGenericSteel
@@ -196,9 +196,9 @@
   name: surgery crate
   components:
   - type: Icon
-    sprite: _Maid/Structures/Storage/Crates/surgery.rsi #Maid
+    sprite: Structures/Storage/Crates/surgery.rsi 
   - type: Sprite
-    sprite: _Maid/Structures/Storage/Crates/surgery.rsi #Maid
+    sprite: Structures/Storage/Crates/surgery.rsi
 
 - type: entity
   parent: CrateGeneric
@@ -261,9 +261,9 @@
   name: secgear crate
   components:
   - type: Icon
-    sprite: _Maid/Structures/Storage/Crates/sec_gear.rsi #Maid
+    sprite: Structures/Storage/Crates/sec_gear.rsi
   - type: Sprite
-    sprite: _Maid/Structures/Storage/Crates/sec_gear.rsi #Maid
+    sprite: Structures/Storage/Crates/sec_gear.rsi
   - type: AccessReader
     access: [["Security"]]
 
@@ -273,9 +273,9 @@
   name: secure engineering crate
   components:
   - type: Icon
-    sprite: _Maid/Structures/Storage/Crates/engicrate_secure.rsi #Maid
+    sprite: Structures/Storage/Crates/engicrate_secure.rsi
   - type: Sprite
-    sprite: _Maid/Structures/Storage/Crates/engicrate_secure.rsi #Maid
+    sprite: Structures/Storage/Crates/engicrate_secure.rsi
   - type: AccessReader
     access: [["Engineering"]]
 
@@ -285,9 +285,9 @@
   name: secure medical crate
   components:
   - type: Icon
-    sprite: _Maid/Structures/Storage/Crates/medicalcrate_secure.rsi #Maid
+    sprite: Structures/Storage/Crates/medicalcrate_secure.rsi
   - type: Sprite
-    sprite: _Maid/Structures/Storage/Crates/medicalcrate_secure.rsi #Maid
+    sprite: Structures/Storage/Crates/medicalcrate_secure.rsi
   - type: AccessReader
     access: [["Medical"]]
 
@@ -297,9 +297,9 @@
   name: secure chemistry crate
   components:
     - type: Icon
-      sprite: _Maid/Structures/Storage/Crates/chemcrate_secure.rsi #Maid
+      sprite: Structures/Storage/Crates/chemcrate_secure.rsi
     - type: Sprite
-      sprite: _Maid/Structures/Storage/Crates/chemcrate_secure.rsi #Maid
+      sprite: Structures/Storage/Crates/chemcrate_secure.rsi
     - type: AccessReader
       access: [["Chemistry"]]
 
@@ -309,9 +309,9 @@
   name: private crate
   components:
   - type: Icon
-    sprite: _Maid/Structures/Storage/Crates/privatecrate_secure.rsi #Maid
+    sprite: Structures/Storage/Crates/privatecrate_secure.rsi
   - type: Sprite
-    sprite: _Maid/Structures/Storage/Crates/privatecrate_secure.rsi #Maid
+    sprite: Structures/Storage/Crates/privatecrate_secure.rsi
 
 - type: entity
   parent: CrateBaseSecure
@@ -343,9 +343,9 @@
   name: secure crate
   components:
     - type: Icon
-      sprite: _Maid/Structures/Storage/Crates/secure.rsi #Maid
+      sprite: Structures/Storage/Crates/secure.rsi
     - type: Sprite
-      sprite: _Maid/Structures/Storage/Crates/secure.rsi #Maid
+      sprite: Structures/Storage/Crates/secure.rsi
 
 - type: entity
   parent: CrateBaseSecure
@@ -353,9 +353,9 @@
   name: secure hydroponics crate
   components:
   - type: Icon
-    sprite: _Maid/Structures/Storage/Crates/hydro_secure.rsi #Maid
+    sprite: Structures/Storage/Crates/hydro_secure.rsi
   - type: Sprite
-    sprite: _Maid/Structures/Storage/Crates/hydro_secure.rsi #Maid
+    sprite: Structures/Storage/Crates/hydro_secure.rsi
   - type: AccessReader
     access: [["Hydroponics"]]
 
@@ -393,7 +393,7 @@
   description: An armory access locked crate for storing contraband confiscated from suspects or prisoners.
   components:
   - type: Sprite
-    sprite: _Maid/Structures/Storage/Crates/sec_gear.rsi #Maid
+    sprite: Structures/Storage/Crates/sec_gear.rsi
   - type: AccessReader
     access: [["Armory"]]
 
@@ -403,9 +403,9 @@
   name: command crate
   components:
   - type: Icon
-    sprite: _Maid/Structures/Storage/Crates/command.rsi #Maid
+    sprite: Structures/Storage/Crates/command.rsi
   - type: Sprite
-    sprite: _Maid/Structures/Storage/Crates/command.rsi #Maid
+    sprite: Structures/Storage/Crates/command.rsi
   - type: AccessReader
     access: [["Command"]]
 
@@ -899,9 +899,9 @@
   description: A dark steel crate with red bands and a letter S embossed on the front.
   components:
   - type: Icon
-    sprite: _Maid/Structures/Storage/Crates/syndicate.rsi #Maid
+    sprite: Structures/Storage/Crates/syndicate.rsi
   - type: Sprite
-    sprite: _Maid/Structures/Storage/Crates/syndicate.rsi #Maid
+    sprite: Structures/Storage/Crates/syndicate.rsi
 
 - type: entity
   parent: [StructureWheeled, CrateBaseWeldable]

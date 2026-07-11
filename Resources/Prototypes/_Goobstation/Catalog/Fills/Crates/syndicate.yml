@@ -113,11 +113,11 @@
   description: Contains a Syndicate bundle. Which one is yet to be determined.
   components:
   - type: Icon
-    sprite: _Maid/Structures/Storage/Crates/syndicate.rsi #Maid
+    sprite: Structures/Storage/Crates/syndicate.rsi
     state: icon
   - type: Sprite
     noRot: true
-    sprite: _Maid/Structures/Storage/Crates/syndicate.rsi #Maid
+    sprite: Structures/Storage/Crates/syndicate.rsi
     layers:
     - state: icon
   - type: SetSelector

@@ -1505,7 +1505,7 @@
       collection: Punch
     damage:
       types:
-        Blunt: 30 # Goob edit
+        Blunt: 25 #Maid
     animation: WeaponArcFist
   - type: NPCRetaliation
   - type: FactionException
