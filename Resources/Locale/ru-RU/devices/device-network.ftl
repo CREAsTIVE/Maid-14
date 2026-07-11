@@ -4,7 +4,7 @@ device-frequency-prototype-name-suit-sensors = Сенсоры костюмов
 device-frequency-prototype-name-crew-monitor = Монитор экипажа
 device-frequency-prototype-name-lights = Умное освещение
 device-frequency-prototype-name-mailing-units = Почтовый блок
-device-frequency-prototype-name-pdas = КПК
+device-frequency-prototype-name-pdas = ПДА
 device-frequency-prototype-name-fax = Факс
 device-frequency-prototype-name-basic-device = Базовые устройства
 device-frequency-prototype-name-cyborg-control = Управление боргами
@@ -14,8 +14,8 @@ device-frequency-prototype-name-turret-control = Управление охран
 
 ## camera frequencies
 
-device-frequency-prototype-name-xenoborg = Xenoborg
-device-frequency-prototype-name-mothership = Mothership
+device-frequency-prototype-name-xenoborg = Ксеноборг
+device-frequency-prototype-name-mothership = Материнский корабль
 device-frequency-prototype-name-surveillance-camera-test = Тест подсети
 device-frequency-prototype-name-surveillance-camera-engineering = Камеры (Инженерный)
 device-frequency-prototype-name-surveillance-camera-security = Камеры (Охрана)
@@ -47,6 +47,6 @@ device-address-examine-message = Адрес устройства: { $address }.
 device-net-id-private = Частные
 device-net-id-wired = Проводные
 device-net-id-wireless = Беспроводные
-device-net-id-apc = ЛКП
+device-net-id-apc = АПЦ
 device-net-id-atmos-devices = Атмос-устройства
 device-net-id-reserved = Резерв

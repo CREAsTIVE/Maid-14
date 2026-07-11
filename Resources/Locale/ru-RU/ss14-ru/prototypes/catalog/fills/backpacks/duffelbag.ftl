@@ -72,3 +72,7 @@ ent-ClothingBackpackDuffelSyndicateFilledStarterKit = базовый компл�
 ent-ClothingBackpackDuffelSyndicateDecoyKitFilled = { ent-ClothingBackpackDuffelSyndicate }
     .desc = { ent-ClothingBackpackDuffelSyndicate.desc }
     .suffix = набор обманок
+
+ent-ClothingBackpackDuffelAcolyteBundle = набор брони аколита
+    .desc = Содержит броню аколита — обязательный атрибут любого лидера культа.
+

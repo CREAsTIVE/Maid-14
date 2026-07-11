@@ -78,3 +78,24 @@ signal-port-name-rad-low = Низкий
 signal-port-description-rad-low = Выдает сигнал HIGH, если емкость заполнена менее чем на 66%, в остальных случаях - LOW.
 signal-port-name-rad-full = Полный
 signal-port-description-rad-full = Выдает сигнал HIGH, если емкость заполнена более чем на 66%, в остальных случаях - LOW.
+
+signal-port-name-powered = Питание
+signal-port-description-powered = Этот порт получает значение HIGH или LOW в зависимости от того, включено или выключено питание машины.
+
+signal-port-name-plumbing-input = Трубопровод: Ввод
+signal-port-description-plumbing-input = Слот автоматизации трубопровода для закачки жидкостей.
+
+signal-port-name-plumbing-output = Трубопровод: Вывод
+signal-port-description-plumbing-output = Слот автоматизации трубопровода для выкачки жидкостей.
+
+signal-port-name-plumbing-dispenser = Трубопровод: Дозатор
+signal-port-description-plumbing-dispenser = Слот автоматизации трубопровода для закачки или выкачки жидкостей из стакана дозатора.
+
+signal-port-name-lathe-print = Печать последнего рецепта
+signal-port-description-lathe-print = Сигнальный порт, который печатает последний установленный рецепт при активации.
+
+signal-port-name-alt-interact = Режим альтернативного взаимодействия
+signal-port-description-alt-interact = Сигнальный порт для переключения режима альтернативного взаимодействия или установки значения HIGH/LOW.
+
+signal-port-name-automation-slot-bottles = Предмет: Слот бутылок
+signal-port-description-automation-slot-bottles = Слот автоматизации для бутылки с таблетками или жидкостью ChemMaster.

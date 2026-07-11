@@ -71,6 +71,8 @@
   startingGear: AtmosphericTechnicianGear
   icon: "JobIconAtmosphericTechnician"
   supervisors: job-supervisors-ce
+  guides: # goobstation
+  - Atmospherics
   access:
   - Maintenance
   - Engineering

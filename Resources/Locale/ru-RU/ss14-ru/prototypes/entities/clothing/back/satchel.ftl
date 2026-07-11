@@ -25,7 +25,7 @@ ent-ClothingBackpackSatchelSecurity = сумка охраны
 ent-ClothingBackpackSatchelBrigmedic = сумка бригмедика
     .desc = Стерильная сумка для медицинских нужд.
 ent-ClothingBackpackSatchelCaptain = сумка капитана
-    .desc = Это особая сумка, изготовленная исключительно для офицеров Nanotrasen.
+    .desc = Это особая сумка, изготовленная исключительно для офицеров Нанотрейзен.
 ent-ClothingBackpackSatchelHydroponics = сумка ботаника
     .desc = Сумка, изготовленная только из натуральных волокон.
 ent-ClothingBackpackSatchelCargo = сумка грузчика
@@ -34,3 +34,7 @@ ent-ClothingBackpackSatchelSalvage = сумка утилизатора
     .desc = Прочная сумка для хранения добычи.
 ent-ClothingBackpackSatchelHolding = бездонная сумка
     .desc = Сумка, открывающаяся в локальный карман блюспейса.
+
+ent-ClothingBackpackSatchelAdmin = администраторский рюкзак
+    .desc = Если вы это видите, нет, не видите.
+

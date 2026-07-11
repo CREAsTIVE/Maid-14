@@ -1,8 +1,6 @@
 - type: gameMapPool
   id: MaidStationMapPool
   maps:
-  # Standard
-  - Meta
   # Maid
   - WonderBoxMaid
   - BoxMaid

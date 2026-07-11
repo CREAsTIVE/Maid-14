@@ -1230,9 +1230,11 @@
   components:
   - type: PriorityDock
     tag: DockArrivals
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsExternal ]
+# MAID BEGIN arrival shuttle rework
+#  - type: ContainerFill
+#    containers:
+#      board: [ DoorElectronicsExternal ]
+# MAID END arrival shuttle rework
 
 - type: entity
   parent: AirlockGlassShuttle

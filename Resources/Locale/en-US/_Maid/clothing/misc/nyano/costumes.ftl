@@ -1,0 +1,14 @@
+ent-ClothingUniformMNKOfficeSkirt = MNK office skirt
+    .desc = An MNK outfit within office dress code.
+ent-ClothingUniformMNKUnderGarment = MNK under garment
+    .desc = MNK ensured comfort for the important bits.
+ent-ClothingUniformMNKGymBra = MNK gym bra
+    .desc = Maximum performance with MNK sweat blockers.
+ent-ClothingUniformMNKDressBlack = MNK black dress
+    .desc = A sleek black dress sporting a MNK window.
+ent-ClothingUniformMNKBlackOveralls = MNK black overalls
+    .desc = A comfy undershirt and thick black MNK overalls.
+ent-ClothingUniformMNKBlackShoulder = MNK exposed shoulders
+    .desc = A MNK outfit with exposed shoulders.
+ent-ClothingUniformMNKTracksuitBlack = MNK black tracksuit
+    .desc = A set of light MNK athletic clothing.

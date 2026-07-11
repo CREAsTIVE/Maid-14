@@ -70,6 +70,10 @@
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
   supervisors: job-supervisors-engineering
+  guides: # goobstation
+  - Construction
+  - Power
+  - Networking
   access:
   - Maintenance
   - Engineering

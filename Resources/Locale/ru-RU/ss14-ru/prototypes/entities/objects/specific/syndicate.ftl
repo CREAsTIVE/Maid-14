@@ -38,3 +38,7 @@ ent-BaseUplinkRadioDebug = { ent-BaseUplinkRadio }
 
 # Corvax-HiddenDesc-End
 
+
+ent-BaseUplinkContractor = контракторский аплинк
+    .desc = Ручной терминал, предоставляющий доступ к магазину гильдии и доске заказов.
+

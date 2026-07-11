@@ -1,0 +1,2 @@
+
+ent-MobShadowling = Урист МакСлинг

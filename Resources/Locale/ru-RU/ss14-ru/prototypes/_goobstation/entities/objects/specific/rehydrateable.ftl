@@ -30,3 +30,7 @@ ent-ShadowkinCube = шедоукиный кубик
     .desc = { ent-MonkeyCube.desc }
 ent-ChitinidCube = хитинидовый кубик
     .desc = { ent-MonkeyCube.desc }
+
+ent-FeroxiCube = кубик ферокси
+    .desc = Просто добавь воды!
+

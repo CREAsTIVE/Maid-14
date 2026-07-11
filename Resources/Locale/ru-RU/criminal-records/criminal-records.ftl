@@ -1,8 +1,8 @@
 criminal-records-console-window-title = Консоль криминальных записей
-criminal-records-console-records-list-title = Члены экипажа
-criminal-records-console-select-record-info = Выбрать запись.
+criminal-records-console-records-list-title = Экипаж
+criminal-records-console-select-record-info = Выберите запись.
 criminal-records-console-no-records = Записи не найдены!
-criminal-records-console-no-record-found = Записи о выбранном сотруднике не найдены.
+criminal-records-console-no-record-found = Не найдены записи для указанного члена экипажа.
 criminal-records-console-flavor-left = Сперва арест! Затем вопросы.
 criminal-records-console-flavor-right = v2.1
 criminal-records-console-show-all = Все
@@ -11,16 +11,16 @@ criminal-records-console-show-all = Все
 
 criminal-records-console-status = Статус
 criminal-records-status-none = Нет
-criminal-records-status-wanted = Разыскивается
-criminal-records-status-detained = Под арестом
-criminal-records-status-suspected = Подозревается
+criminal-records-status-wanted = В розыске
+criminal-records-status-detained = Под стражей
+criminal-records-status-suspected = Подозреваемый
 criminal-records-status-discharged = Освобождён
-criminal-records-status-paroled = Освобождён по УДО
-criminal-records-console-wanted-reason = Причина розыска
+criminal-records-status-paroled = Условно-досрочно освобождён
+criminal-records-console-wanted-reason = [color=gray]Причина розыска[/color]
 criminal-records-status-dangerous = Опасен
 criminal-records-status-search = Пропал
 criminal-records-status-perma = Пермабриг
-criminal-records-console-suspected-reason = Причина подозрения
+criminal-records-console-suspected-reason = [color=gray]Причина подозрения[/color]
 criminal-records-console-reason = Причина
 criminal-records-console-search-reason = Причина поиска
 criminal-records-console-dangerous-reason = Причина

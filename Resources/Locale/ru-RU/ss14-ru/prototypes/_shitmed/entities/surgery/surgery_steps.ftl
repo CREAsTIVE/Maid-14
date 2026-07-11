@@ -68,3 +68,20 @@ ent-SurgeryStepInsertStomach = Добавить желудок
     .desc = { ent-SurgeryStepInsertOrgan.desc }
 ent-SurgeryStepSealOrganWound = Закупорить раны
     .desc = { ent-SurgeryStepBase.desc }
+ent-SurgeryStepInsertAugmentArm = Установить улучшение руки
+
+ent-SurgeryStepInsertAugmentPowerCellCharger = Установить зарядное устройство
+
+ent-SurgeryStepInsertAugmentPowerCellSlot = Установить слот батареи
+
+ent-SurgeryStepInsertPump = Установить насос
+
+ent-SurgeryStepLobotomize = Лоботомировать пациента
+
+ent-SurgeryStepMendBrainTissue = Восстановить ткань мозга
+
+ent-SurgeryStepSealBones = Закрыть кости
+
+ent-SurgeryStepSealRibcage = Закрыть грудную клетку
+
+ent-SurgeryStepSealSkull = Закрыть череп

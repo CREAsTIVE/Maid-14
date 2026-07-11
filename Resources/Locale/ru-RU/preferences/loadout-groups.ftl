@@ -1,7 +1,7 @@
 # Errors
 loadout-group-species-restriction = Этот предмет недоступен для вашей текущей расы.
 # Miscellaneous
-loadout-group-trinkets = Безделушки
+loadout-group-trinkets = Побрякушки
 loadout-group-glasses = Очки
 loadout-group-backpack = Рюкзак
 loadout-group-instruments = Инструменты
@@ -100,7 +100,7 @@ loadout-group-station-engineer-outerclothing = Инженер, верхняя о
 loadout-group-station-engineer-shoes = Инженер, обувь
 loadout-group-station-engineer-id = Инженер, ID
 loadout-group-atmospheric-technician-jumpsuit = Атмосферный техник, комбинезон
-loadout-group-atmospheric-technician-head = Atmospheric Technician head
+loadout-group-atmospheric-technician-head = Атмосферный техник, голова
 loadout-group-atmospheric-technician-backpack = Атмосферный техник, рюкзак
 loadout-group-atmospheric-technician-outerclothing = Атмосферный техник, верхняя одежда
 loadout-group-atmospheric-technician-shoes = Атмосферный техник, обувь

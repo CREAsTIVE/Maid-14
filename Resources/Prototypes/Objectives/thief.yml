@@ -109,7 +109,7 @@
   id: BaseThiefStealObjective
   components:
   - type: StealCondition
-    verifyMapExistence: false
+    verifyMapExistence: true # MAID steal objective check
     descriptionText: objective-condition-thief-description
     checkStealAreas: true
 
@@ -284,6 +284,7 @@
   components:
   - type: StealCondition
     stealGroup: WantedListCartridge
+    verifyMapExistence: false # MAID steal objective check
   - type: Objective
     difficulty: 1
 
@@ -306,6 +307,7 @@
     job: MedicalDoctor
   - type: StealCondition
     stealGroup: MedicalTechFabCircuitboard
+    verifyMapExistence: false # MAID steal objective check
   - type: Objective
     difficulty: 1
 
@@ -339,6 +341,7 @@
     job: StationEngineer
   - type: StealCondition
     stealGroup: AmePartFlatpack
+    verifyMapExistence: false # MAID steal objective check
   - type: Objective
     difficulty: 1
 
@@ -361,6 +364,7 @@
     job: CargoTechnician
   - type: StealCondition
     stealGroup: CargoShuttleConsoleCircuitboard
+    verifyMapExistence: false # MAID steal objective check
   - type: Objective
     difficulty: 0.7
 

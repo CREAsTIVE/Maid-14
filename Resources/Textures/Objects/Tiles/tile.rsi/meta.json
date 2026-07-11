@@ -277,9 +277,6 @@
             "name": "monofloor"
         },
         {
-            "name": "wood"
-        },
-        {
             "name": "arcadeblue"
         },
         {
@@ -332,9 +329,6 @@
         },
         {
             "name": "gratingmaintfloor"
-        },
-        {
-            "name": "woodpatternfloor"
         },
         {
             "name": "astrograss"
@@ -519,14 +513,6 @@
             "directions": 4
         },
         {
-            "name": "wood-inhand-right",
-            "directions": 4
-        },
-        {
-            "name": "wood-inhand-left",
-            "directions": 4
-        },
-        {
             "name": "generic-inhand-right",
             "directions": 4
         },
@@ -549,9 +535,6 @@
         {
             "name": "hydro-inhand-left",
             "directions": 4
-        },
-        {
-            "name": "wood-large"
         },
         {
             "name": "asteroid"

@@ -1,2 +1,2 @@
-ent-ActionActivateMedigunUber = activate-medigun-uber-action-name
-    .desc = activate-medigun-uber-action-desc
+ent-ActionActivateMedigunUber = Активировать Убер Заряд
+    .desc = Режим убер лечит цели быстрее, но действует только 10 секунд и быстрее расходует заряд батареи.

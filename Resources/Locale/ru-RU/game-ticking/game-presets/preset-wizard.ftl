@@ -26,8 +26,8 @@ survivor-round-end-alive-on-shuttle-count =
 
 ## Wizard
 
-objective-issuer-swf = [color=turquoise]Федерация космических волшебников[/color]
-wizard-round-end-name = волшебник
+objective-issuer-swf = [color=turquoise]Федерация космических магов[/color]
+wizard-round-end-name = маг
 
 ## TODO: Wizard Apprentice (Coming sometime post-wizard release)
 

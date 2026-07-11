@@ -23,3 +23,7 @@ ent-HoloprojectorSecurity = проектор голобарьера
 ent-HoloprojectorSecurityEmpty = { ent-HoloprojectorSecurity }
     .suffix = Пустой
     .desc = { ent-HoloprojectorSecurity.desc }
+
+ent-HoloprojectorClownBorg = проектор голошкурки
+    .desc = Проектор голошкурки, создающий скользкую банановую кожуру из твёрдого света. Он перезаряжается, чтобы веселье никогда не кончалось!
+

@@ -14,6 +14,9 @@ devil-true-name-heard = Произнесение { $speaker } истинного
 devil-true-name-heard-chaplain = Священные слова { $speaker }, произнесённые с истинным именем, жгут душу { $target }.
 objective-condition-contract-title = Собери души
 objective-condition-contract-description = Собери как можно больше душ.
+
+objective-condition-weight-title = Заключай выгодные сделки.
+objective-condition-weight-description = Следи, чтобы сделки приносили тебе максимальную выгоду.
 hand-shake-prompt-verb = Предложить руку { $target }
 hand-shake-accept-verb = Пожать руку { $target }
 handshake-success = Пожав руку { $user }, ты чувствуешь лёгкость в душе.

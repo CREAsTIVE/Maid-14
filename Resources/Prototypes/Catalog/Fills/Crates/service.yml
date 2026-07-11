@@ -370,8 +370,10 @@
           prob: 0.03
         - id: MobMouse
           prob: 0.05
-        - id: MobLootbug # Goobstation
-          prob: 0.02
+        # MAID BEGIN useless roles
+        # - id: MobLootbug # Goobstation
+        #   prob: 0.02
+        # MAID END useless roles
           # Food Packaging
         - id: FoodPacketBoritosTrash
           prob: 0.1
@@ -443,7 +445,7 @@
         amount: 2
       - id: BoxCandleSmall
         amount: 2
-        
+
 
 - type: entity
   id: CrateHolySupplies
@@ -469,4 +471,3 @@
     contents:
     - id: BoxLightbulbColorfulMixed
     - id: BoxLighttubeColorfulMixed
-

@@ -613,25 +613,6 @@
 #    node: steeltile
 
 - type: entity
-  name: wood floor
-  parent: FloorTileItemBase
-  id: FloorTileItemWood
-  components:
-  - type: Sprite
-    state: wood
-  - type: Item
-    heldPrefix: wood
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorWood
-  - type: Stack
-    stackType: FloorTileWood
-  - type: Construction
-    graph: TileWood
-    node: woodtile
-
-- type: entity
   name: techmaint floor
   parent: FloorTileItemSteel
   id: FloorTileItemTechmaint
@@ -1525,22 +1506,6 @@
     stackType: FloorTileSnow
 
 - type: entity
-  name: wood pattern floor
-  parent: FloorTileItemBase
-  id: FloorTileItemWoodPattern
-  components:
-  - type: Sprite
-    state: woodpatternfloor
-  - type: Item
-    heldPrefix: wood
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorWoodTile
-  - type: Stack
-    stackType: FloorTileWoodPattern
-
-- type: entity
   id: FloorTileItemFlesh
   parent: FloorTileItemBase
   name: flesh floor
@@ -1743,26 +1708,6 @@
     - FloorAstroAsteroidSandBorderless
   - type: Stack
     stackType: FloorTileAstroAsteroidSand
-
-- type: entity
-  name: large wood floor
-  parent: FloorTileItemBase
-  id: FloorTileItemWoodLarge
-  components:
-  - type: Sprite
-    state: wood-large
-  - type: Item
-    heldPrefix: wood
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorWoodLarge
-  - type: Stack
-    stackType: FloorTileWoodLarge
-  - type: Construction
-    graph: TileWoodLarge
-    node: woodtilelarge
-
 # Marble
 
 - type: entity

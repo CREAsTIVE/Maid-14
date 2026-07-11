@@ -151,6 +151,11 @@
   supervisors: job-supervisors-captain
   canBeAntag: true
   antagAdvantage: 75 # Goobstation
+  guides: # goobstation
+  - Cargo
+#  - QuartermasterSOP # Maid
+#  - CargoSOP # Maid
+  - Command
   access:
   - Cargo
   - Salvage

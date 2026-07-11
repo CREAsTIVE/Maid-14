@@ -1,4 +1,4 @@
-ent-ActionStartFishing = action-fishing-start
-    .desc = action-fishing-start-desc
-ent-ActionStopFishing = action-fishing-stop
-    .desc = action-fishing-stop-desc
+ent-ActionStartFishing = Забросить приманку
+    .desc = Забросьте приманку с удочки, чтобы попытаться что-нибудь поймать!
+ent-ActionStopFishing = Намотать удочку
+    .desc = Намотайте леску, чтобы подтянуть то, что клюнуло, или прекратить рыбалку.

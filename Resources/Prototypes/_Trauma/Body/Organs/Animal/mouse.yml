@@ -15,6 +15,8 @@
       eggSpawn:
       - id: MobMouse
       hungerUsage: 20
+      eggLayCooldownMin: 180 # MAID mouse breeding
+      eggLayCooldownMax: 360 # MAID mouse breeding
       eggLayAction: MouseMultiply
       hungerRequired: true
   - type: EggSack # only for surgery whitelist, doesn't do anything

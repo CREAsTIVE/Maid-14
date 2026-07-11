@@ -16,7 +16,7 @@
     integrityThresholds:
       Normal: 28
       Damaged: 16
-      Destroyed: 0  
+      Destroyed: 0
     onAdd:
     - type: BreathingImmunity
 
@@ -31,12 +31,12 @@
     integrityThresholds:
       Normal: 21
       Damaged: 12
-      Destroyed: 0  
+      Destroyed: 0
     onAdd:
     - type: PressureImmunity
 
 - type: entity
-  parent: OrganAnimalHeart
+  parent: [ OrganAnimalHeart, BaseMajorContraband ]
   id: OrganGoliathHeart
   name: goliath heart
   components:
@@ -88,13 +88,13 @@
   name: cobra gland
   components:
   - type: Organ
-    onAdd:
-    - type: Stealth
-      enabledOnDeath: false
-      maxVisibility: 1.2
-    - type: StealthOnMove
-      passiveVisibilityRate: -0.25
-      movementVisibilityRate: 0.25
+#    onAdd:  #Maid edit start
+#    - type: Stealth
+#      enabledOnDeath: false
+#      maxVisibility: 1.2
+#    - type: StealthOnMove
+#      passiveVisibilityRate: -0.25
+#      movementVisibilityRate: 0.25 #Maid edit end
   - type: Sprite
     sprite: _Shitmed/Mobs/Species/Space/Cobra/organs.rsi
     state: heart-on

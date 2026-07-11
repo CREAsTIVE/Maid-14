@@ -217,7 +217,6 @@
     - id: ClothingUniformJumpsuitCaptain
     # - id: ClothingEyesGlassesCommand
     # - id: HeadSkeleton # A skull to accompany your skeleton crew
-#    - id: SecondSkinSecurity # Goobstation
 #      conditions:
 #      - !type:PlayerCountCondition
 #        max: 15 #Maid edit end
@@ -349,6 +348,8 @@
     - id: ClothingUniformJumpsuitChiefEngineer
     - id: ClothingShoesColorBrown
     # Goobstation V
+    - id: SupermatterComputerCircuitboard
+    - id: BaseHandheldStationMapSupermatterCe
     # - id: BaseHandheldStationMapPowerCe
     - id: EngineeringTechFabCircuitboard
 #    - id: CartridgeRocketSingularityBuster
@@ -435,6 +436,9 @@
     - id: ClothingBackpackDuffelSurgeryFilled
     # Shitmed
     - id: MedicalBiofabricatorFlatpack
+    # Virology
+    - id: DiseaseDiagnoserFlatPack
+    - id: VaccinatorFlatPack
     # Goobstation End
 
 # Hardsuit table, used for suit storage as well
@@ -497,6 +501,7 @@
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
     - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
     # - id: ClothingBeltGeminiHoloProjector # Goobstation - Who better to do science with than yourself? #Maid
+    - id: XenobiologyBountyComputerCircuitboard # Goobstation
     # - id: MMI # Goobstation #Maid
 
 # Hardsuit table, used for suit storage as well
@@ -552,7 +557,7 @@
     - id: ClothingOuterCoatHoSTrench
     - id: ClothingShoesBootsJack
     - id: DoorRemoteSecurity
-    - id: HoloprojectorSecurity
+    #- id: HoloprojectorSecurity Goob, you have one in the belt
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
     - id: ClothingUniformJumpsuitHoSGrey #Maid edit start
@@ -568,8 +573,7 @@
     # - id: ComputerCargoRequestSecurityFlatpack # Goobstation
     # - id: WantedListCartridge # Maid
     # - id: DrinkHosFlask # Maid
-    # - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp
-#    - id: SecondSkinSecurity # Goobstation #Maid edit end
+    # - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp#Maid edit end
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -622,4 +626,3 @@
     - id: SpaceCash1000
     - id: BeachBall
     - id: BikeHorn
-

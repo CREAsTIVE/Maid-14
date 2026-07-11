@@ -66,3 +66,13 @@ reagent-effect-condition-guidebook-internals =
         [true] использует дыхательную маску
        *[false] дышит атмосферным газом
     }
+
+reagent-effect-condition-guidebook-blood-reagent-threshold =
+    { $max ->
+        [2147483648] в крови имеется по крайней мере { NATURALFIXED($min, 2) } ед. { $reagent }
+       *[other]
+            { $min ->
+                [0] в крови имеется не более { NATURALFIXED($max, 2) } ед. { $reagent }
+               *[other] в крови имеется от { NATURALFIXED($min, 2) } до { NATURALFIXED($max, 2) } ед. { $reagent }
+            }
+    }

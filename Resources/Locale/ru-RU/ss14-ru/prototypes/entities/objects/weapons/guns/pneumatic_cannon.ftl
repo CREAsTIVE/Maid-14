@@ -8,3 +8,7 @@ ent-WeaponImprovisedPneumaticCannonGun = { ent-WeaponImprovisedPneumaticCannon }
 ent-WeaponImprovisedPneumaticCannonAdmeme = { ent-WeaponImprovisedPneumaticCannonGun }
     .suffix = Адмемы
     .desc = { ent-WeaponImprovisedPneumaticCannonGun.desc }
+
+ent-BorgLauncherCreamPie = экспериментальная пирожномётная пушка
+    .desc = Доставьте щедрую порцию крема прямо команде! Автоматически выпекает пирожки со временем.
+

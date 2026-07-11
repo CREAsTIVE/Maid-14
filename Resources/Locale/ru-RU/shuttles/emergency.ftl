@@ -1,5 +1,6 @@
 # Commands
 
+
 ## Delay shuttle round end
 
 emergency-shuttle-command-round-desc = Останавливает таймер окончания раунда, когда эвакуационный шаттл покидает гиперпространство.
@@ -48,3 +49,16 @@ emergency-shuttle-ui-remaining = Осталось: { $remaining }
 # Map Misc.
 map-name-centcomm = Центральное командование
 map-name-terminal = Терминал прибытия
+
+# Commands
+## Delay shuttle round end
+cmd-delayroundend-desc = Останавливает таймер завершения раунда после выхода шаттла из гиперпространства.
+cmd-delayroundend-help = Использование: delayroundend
+
+## Dock emergency shuttle
+cmd-dockemergencyshuttle-desc = Вызывает эвакуационный шаттл и стыкует его со станцией... если возможно.
+cmd-dockemergencyshuttle-help = Использование: dockemergencyshuttle
+
+## Launch emergency shuttle
+cmd-launchemergencyshuttle-desc = Запускает эвакуационный шаттл досрочно, если возможно.
+cmd-launchemergencyshuttle-help = Использование: launchemergencyshuttle

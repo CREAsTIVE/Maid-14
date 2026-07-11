@@ -1,4 +1,4 @@
-ammonia-smell = Что-то резко попахивает!!
+ammonia-smell = Что-то дурно попахивает!
 perishable-1 = [color=green]{ CAPITALIZE(OBJECT($target)) } тело выглядит ещё свежим.[/color]
 perishable-2 = [color=orangered]{ CAPITALIZE(OBJECT($target)) } тело выглядит не особо свежим.[/color]
 perishable-3 = [color=red]{ CAPITALIZE(OBJECT($target)) } тело выглядит совсем не свежим.[/color]

@@ -300,7 +300,7 @@
     maxIntensity: 0.01
     intensitySlope: 1
     totalIntensity: 0.01
-  - type: SoundOnTrigger
+  - type: EmitSoundOnTrigger
     sound:
       collection: Explosion
 
@@ -743,6 +743,70 @@
         acts: [ "Destruction" ]
 
 - type: entity
+  parent: BasePlushie
+  id: PlushieTheHolyCrusader
+  name: Holy Crusader plush
+  description: "The Holiest guy you will Ever meet"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_holy
+  - type: Clothing
+    quickEquip: true
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    equippedPrefix: plushieholy
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/Effects/holy.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/holy.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/holy.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/holy.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/holy.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Effects/holy.ogg
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: Appearance
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Voodoo
+    targetName: John Tydes
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 90
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
   parent: BaseItem
   id: DiscoBeachBall
   name: disco beach ball
@@ -995,3 +1059,26 @@
   parent: PlushieLouie
   id: EvilPlushieLouie
   suffix: Evil
+
+- type: entity
+  parent: BaseItem
+  id: ToyBladeEldritch
+  name: toy blade
+  description: A plastic yellow crescent blade, decorated with an ornamental eye. You feel like you're being watched...
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Blades/eldrich_blade-toy.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.5
+    wideAnimationRotation: -125
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Heretic/Blades/eldrich_blade-toy-inhands.rsi
+
+

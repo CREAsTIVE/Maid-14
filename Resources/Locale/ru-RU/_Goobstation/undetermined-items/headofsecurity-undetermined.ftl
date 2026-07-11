@@ -14,9 +14,3 @@ selectable-set-hos-rifle-name = X-8 «Чистильщик»
 selectable-set-hos-rifle-description =
     Тщательно спроектированная винтовка, стреляющая чистой плазмой.
     Низкая скорострельность, высокий урон.
-selectable-set-hos-sword-name = DT-2 «Правосудие»
-selectable-set-hos-sword-description = Меч с множеством боевых режимов, исключительно универсален.
-selectable-set-hos-lawbringer-name = Законодатель
-selectable-set-hos-lawbringer-description = Чрезмерно замудрённый пистолет с множеством режимов стрельбы, исключительно универсален.
-selectable-set-hos-utility-name = Набор Утилит
-selectable-set-hos-utility-description = Включает множество полезных предметов: усовершенствованные термальные очки, улучшенный скафандр и продвинутые сапоги.

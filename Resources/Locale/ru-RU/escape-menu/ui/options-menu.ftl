@@ -7,16 +7,16 @@ ui-options-tab-graphics = Графика
 ui-options-tab-controls = Управление
 ui-options-tab-audio = Аудио
 ui-options-tab-network = Сеть
-ui-options-tab-misc = Основные
-ui-options-apply = Сохранить и применить
-ui-options-reset-all = Сброс изменений
-ui-options-default = Сброс к настройкам по умолчанию
+ui-options-tab-misc = Общие
+ui-options-apply = Применить
+ui-options-reset-all = Сбросить всё
+ui-options-default = По-умолчанию
 ui-options-value-percent = { TOSTRING($value, "P0") }
 
 # Misc/General menu
 
 ui-options-discordrich = Включить Discord Rich Presence
-ui-options-general-ui-style = Стиль UI
+ui-options-general-ui-style = Стиль интерфейса
 ui-options-general-discord = Discord
 ui-options-general-cursor = Курсор
 ui-options-general-speech = Речь
@@ -26,8 +26,8 @@ ui-options-general-accessibility = Доступность
 ## Audio menu
 
 ui-options-master-volume = Основная громкость:
-ui-options-midi-volume = Громкость MIDI (Муз. инструменты):
-ui-options-ambient-music-volume = Громкость музыки окружения:
+ui-options-midi-volume = MIDI (Инструменты) громкость:
+ui-options-ambient-music-volume = Громкость эмбиента:
 ui-options-ambience-volume = Громкость окружения:
 ui-options-lobby-volume = Громкость лобби и окончания раунда:
 ui-options-interface-volume = Громкость интерфейса:
@@ -45,7 +45,7 @@ ui-options-interface-label = Интерфейс
 
 ## Graphics menu
 
-ui-options-show-held-item = Показать удерживаемый элемент рядом с курсором
+ui-options-show-held-item = Показать удерживаемый элемент рядом с курсором?
 ui-options-auto-fill-highlights = Автозаполнение выделений чата от информации о персонаже
 ui-options-highlights-color = Цвет выделений:
 ui-options-highlights-color-example = Это выделенный текст!
@@ -390,3 +390,9 @@ ui-options-enable-overlay-starting-job = Показывать начальную
 ui-options-overlay-merge-distance = Stack merge distance
 ui-options-overlay-ghost-fade-distance = Дальность затухания наложения призрака от мыши
 ui-options-overlay-ghost-hide-distance = Дальность скрытия наложения призрака от мыши
+
+ui-options-filter-label = Фильтр масштабирования:
+ui-options-filter-nearest = Ближайший (без сглаживания)
+ui-options-filter-bilinear = Билинейный (со сглаживанием)
+ui-options-highlight-volume = Громкость звука при упоминании:
+ui-options-highlight-sound = Воспроизводить звук при упоминании

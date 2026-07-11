@@ -40,8 +40,6 @@ ent-FloorTileItemSteelPavement = стальная тротуарная плит�
     .desc = { ent-FloorTileItemSteel.desc }
 ent-FloorTileItemSteelPavementVertical = стальная вертикальная тротуарная плитка
     .desc = { ent-FloorTileItemSteel.desc }
-ent-FloorTileItemWood = деревянный пол
-    .desc = { ent-FloorTileItemBase.desc }
 ent-FloorTileItemWhiteOffset = cмещённая белая стальная плитка
     .desc = { ent-FloorTileItemWhite.desc }
 ent-FloorTileItemWhiteDiagonalMini = белая стальная диагональная мини плитка
@@ -177,8 +175,6 @@ ent-FloorTileItemGrassJungle = плитка травы джунглей
     .desc = { ent-FloorTileItemBase.desc }
 ent-FloorTileItemSnow = плитка снега
     .desc = { ent-FloorTileItemBase.desc }
-ent-FloorTileItemWoodPattern = деревянный узорчатый пол
-    .desc = { ent-FloorTileItemBase.desc }
 ent-FloorTileItemFlesh = пол из плоти
     .desc = { ent-FloorTileItemBase.desc }
 ent-FloorTileItemSteelMaint = стальной технический пол
@@ -201,5 +197,19 @@ ent-FloorTileItemAstroAsteroidSand = астро-песок астероида
     .desc = Искусственный песок. К счастью, он не такой крупнозернистый, как настоящий.
 ent-FloorTileItemAstroAsteroidSandBorderless = безграничный астро-песок астероида
     .desc = Искусственный песок. К счастью, он не такой крупнозернистый, как настоящий.
-ent-FloorTileItemWoodLarge = большой деревянный пол
-    .desc = { ent-FloorTileItemBase.desc }
+
+ent-FloorTileItemDarkMarble = плитка тёмного мрамора
+    .desc = Обтёсанный, отполированный квадрат из лучшего Космического Мрамора. Лучше не потерять.
+
+ent-FloorTileItemPlasmaMarble = плазмомраморная плитка
+    .desc = Обтёсанный, отполированный квадрат из лучшего Космического Мрамора. С плазменной пропиткой для дополнительной... особенности.
+
+ent-FloorTileItemTechmaintDark = тёмный техмейнт пол
+    .desc = Пол был создан для того, чтобы держать это, а не тебя.
+
+ent-FloorTileItemUraniumMarble = урановая мраморная плитка
+    .desc = Обтёсанный, отполированный квадрат из лучшего Космического Мрамора. С ураном для дополнительной крутости! Каламбур!
+
+ent-FloorTileItemWhiteMarble = плитка белого мрамора
+    .desc = Обтёсанный, отполированный квадрат из лучшего Космического Мрамора. Лучше не потерять.
+

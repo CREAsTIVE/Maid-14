@@ -20,14 +20,6 @@
   objectType: Item
 
 - type: construction
-  id: TileWood
-  graph: TileWood
-  startNode: start
-  targetNode: woodtile
-  category: construction-category-tiles
-  objectType: Item
-
-- type: construction
   id: TileBrassFilled
   graph: TilesBrass
   startNode: start
@@ -68,9 +60,65 @@
   objectType: Item
 
 - type: construction
+  id: TileWood
+  graph: TileWood
+  startNode: start
+  targetNode: woodtile
+  category: construction-category-tiles
+  objectType: Item
+
+- type: construction
+  id: TileWoodPattern
+  graph: TileWoodPattern
+  startNode: start
+  targetNode: woodtilepattern
+  category: construction-category-tiles
+  objectType: Item
+
+- type: construction
   id: TileWoodLarge
   graph: TileWoodLarge
   startNode: start
   targetNode: woodtilelarge
+  category: construction-category-tiles
+  objectType: Item
+
+- type: construction
+  id: TileWoodParquet
+  graph: TileWoodParquet
+  startNode: start
+  targetNode: woodtileparquet
+  category: construction-category-tiles
+  objectType: Item
+#lightwood
+- type: construction
+  id: TileWoodBright
+  graph: TileWoodBright
+  startNode: start
+  targetNode: woodtilebright
+  category: construction-category-tiles
+  objectType: Item
+
+- type: construction
+  id: TileWoodPatternBright
+  graph: TileWoodPatternBright
+  startNode: start
+  targetNode: woodtilepatternbright
+  category: construction-category-tiles
+  objectType: Item
+
+- type: construction
+  id: TileWoodLargeBright
+  graph: TileWoodLargeBright
+  startNode: start
+  targetNode: woodtilelargebright
+  category: construction-category-tiles
+  objectType: Item
+
+- type: construction
+  id: TileWoodParquetBright
+  graph: TileWoodParquetBright
+  startNode: start
+  targetNode: woodtileparquetbright
   category: construction-category-tiles
   objectType: Item

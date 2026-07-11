@@ -847,6 +847,10 @@
         damage:
           types:
             Caustic: 0.3
+      # Goobstation
+      - !type:DiseaseProgressChange
+        affectedType: OwnCells
+        progressModifier: -0.07 # anti-cancer
 
 - type: reagent
   id: PolypyryliumOligomers
@@ -905,6 +909,7 @@
     Medicine:
       effects:
         - !type:CureZombieInfection
+          cureCriticalZombies: true # Goob
           conditions:
             - !type:ReagentThreshold
               min: 10
@@ -922,6 +927,7 @@
       effects:
         - !type:CureZombieInfection
           innoculate: true
+          cureCriticalZombies: true # Goob
           conditions:
             - !type:ReagentThreshold
               min: 5
@@ -1132,6 +1138,10 @@
             Blunt: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
             Slash: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
             Piercing: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
+      - !type:ImmunityModifier #Goobstation
+        gainRateModifier: 0.0011 #3x stronger than Immurin
+        strengthModifier: 0.0088888888888 #Twice as strong
+        statusLifetime: 3
 
 - type: reagent
   id: Ultravasculine
@@ -1710,6 +1720,10 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:HealthChange #Goobstation
+        damage:
+          types:
+            Radiation: -0.25 #Goobend
       - !type:GenericStatusEffect
         key: RadiationProtection
         component: RadiationProtection

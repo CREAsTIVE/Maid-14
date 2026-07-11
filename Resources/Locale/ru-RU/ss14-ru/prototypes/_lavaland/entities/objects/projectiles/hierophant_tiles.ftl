@@ -1,2 +1,2 @@
 
-
+ent-LavalandHierophantSquareSafe = квадрат иерофанта

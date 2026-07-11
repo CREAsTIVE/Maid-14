@@ -81,8 +81,3 @@ ent-ClothingUnderwearTopBraStriped = бра
 
 ent-ClothingUnderwearTopBraTubetop = бра
     .desc = Трубчатый...
-
-ent-ClothingUnderwearTopBraCow = бра
-    .desc = Му-ууу.
-
-

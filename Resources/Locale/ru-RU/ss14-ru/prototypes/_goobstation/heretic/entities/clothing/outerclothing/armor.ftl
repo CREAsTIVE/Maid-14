@@ -14,3 +14,7 @@ ent-ClothingOuterArmorHereticBlade = { ent-ClothingOuterArmorHeretic }
     .desc = { ent-ClothingOuterArmorHeretic.desc }
 ent-ClothingOuterArmorCloakVoid = плащ пустоты
     .desc = Черный, как смола, не отражающий свет. Рунические символы выгравированы по всей поверхности. С каждой вспышкой ты теряешь понимание того, что видишь.
+
+ent-ClothingOuterArmorHereticCosmos = зловещая броня
+    .desc = Потрёпанный, пыльный комплект одеяний. Внутри выстроились странные глаза.
+

@@ -60,7 +60,7 @@
     Urn: 5
 #    SpectralLocator: 1 #Maid
 #    TemplarArmor: 1 #goob #Maid
-    ClothingHeadHelmetTemplar: 2 #goob
+    ClothingHeadHelmetTemplar: 1 #goob
 #    ClothingOuterClownPriest: 1 #goob #Maid
 #    MonkRobes: 1 #goob #Maid
 #    ClothingHeadHatImam: 1 #goob #Maid
@@ -71,8 +71,6 @@
     ToyFigurineChaplain: 1
     ClothingNeckScarfStripedBlack: 3
   emaggedInventory:
-    ClothingHeadHelmetCult: 1 #Goob station
-    ClothingOuterArmorCult: 1 #Goob station
     ClothingOuterRobesCult: 3
     ClothingHeadHatHoodCulthood: 3
     ClothingShoesCult: 4

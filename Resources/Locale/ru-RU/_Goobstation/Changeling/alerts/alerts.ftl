@@ -7,8 +7,20 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 alerts-changeling-chemicals-name = Химикаты
-alerts-changeling-chemicals-desc = Трать химикаты, чтобы использовать способности. Постепенно восстанавливаются.
+alerts-changeling-chemicals-desc = Наши химикаты.
 alerts-changeling-biomass-name = Биомасса
 alerts-changeling-biomass-desc = Это твоё здоровье. Если достигнет 0 — [color=red]конец игры[/color]. Поглощай гуманоидов, чтобы восстановить часть биомассы.
 alerts-changeling-fleshmend-name = Восстановить плоть
 alerts-changeling-fleshmend-desc = Ушибы быстро залечиваются! Ожоги и удушье лечатся медленнее. [color=red]Исцеление прекратится после поджога.[/color]
+
+alerts-changeling-adrenaline-name = Резервы адреналина
+alerts-changeling-adrenaline-desc =
+    Оглушения, сбивания с ног и большинство методов обездвиживания не действуют!
+
+alerts-changeling-panacea-name = Анатомическая панацея
+alerts-changeling-panacea-desc =
+    Нефизический урон исцеляется! Болезни, химикаты и воздействие наркотиков очищаются. [color=red]Эффект прекратится, если вы в огне или мертвы.[/color]
+
+alerts-changeling-voidadapt-name = Адаптация к вакууму
+alerts-changeling-voidadapt-desc =
+    Адаптация к экстремальным условиям. [color=yellow]Восстановление химикатов снижено на 25%[/color]. [color=red]Эффект прекратится, если вы в огне.[/color]

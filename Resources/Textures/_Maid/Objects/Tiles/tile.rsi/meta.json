@@ -1,0 +1,51 @@
+ {
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "spraited by Discord @ozzi.daydream",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+        {
+            "name": "wood_bright"
+        },
+        {
+            "name": "wood_parquet_bright"
+        },
+        {
+            "name": "wood_pattern_bright"
+        },
+        {
+            "name": "wood_large_bright"
+        },
+        {
+            "name": "wood-inhand-left_bright",
+            "directions": 4
+        },
+        {
+            "name": "wood-inhand-right_bright",
+            "directions": 4
+        },
+        {
+            "name": "wood"
+        },
+        {
+            "name": "wood_parquet"
+        },
+        {
+            "name": "wood_pattern"
+        },
+        {
+            "name": "wood_large"
+        },
+        {
+            "name": "wood-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "wood-inhand-right",
+            "directions": 4
+        }
+    ]
+ }

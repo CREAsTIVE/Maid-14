@@ -23,3 +23,9 @@ trait-tile-movement-desc = Ты всегда в гармонии со своим
 trait-movement-impaired-name = Нарушение походки
 trait-movement-impaired-desc = Похоже, ты не можешь нормально ходить без посторонней помощи. Трость включена.
 movement-impaired-trait-examined = [color=yellow]{ CAPITALIZE(SUBJECT($target)) } слегка хромает. Похоже, { SUBJECT($target) } с трудом передвигается без посторонней помощи[/color]
+
+trait-social-anxiety-name = Социальная тревожность
+trait-social-anxiety-disc = У тебя сильная социальная тревожность, тебя пугают проявления нежности, такие как объятия.
+
+trait-deaf-name = Глухота
+trait-deaf-disc = Ты полностью глух, ты ничего не слышишь, даже себя!

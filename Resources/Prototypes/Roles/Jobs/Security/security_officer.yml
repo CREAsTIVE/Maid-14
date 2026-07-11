@@ -101,6 +101,12 @@
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
   canBeAntag: false
+  guides: # goobstation
+  - Security
+#  - LegalSOP # Maid
+#  - OfficerCadetSOP # Maid
+  - CorporateJudo
+#  - AlertLevels # Maid
   access:
   - Security
   - Brig

@@ -12,7 +12,7 @@
 chat-speech-verb-name-vulpkanin = Вульпканин
 chat-speech-verb-vulpkanin-1 = рычит
 chat-speech-verb-vulpkanin-2 = лает
-chat-speech-verb-vulpkanin-3 = rurs
+chat-speech-verb-vulpkanin-3 = урчит
 chat-speech-verb-vulpkanin-4 = тявкает
 chat-speech-verb-name-felinid = Фелинид
 chat-speech-verb-felinid-1 = мрао
@@ -34,3 +34,10 @@ chat-speech-verb-chitinid-1 = щёлкает
 chat-speech-verb-chitinid-2 = стрекочет
 chat-speech-verb-chitinid-3 = шипит
 chat-speech-verb-chitinid-4 = жужжит
+
+chat-speech-verb-name-feroxi = Ферокси
+chat-speech-verb-feroxi-1 = булькает
+chat-speech-verb-feroxi-2 = плещется
+chat-speech-verb-feroxi-3 = скрежещет
+chat-speech-verb-feroxi-4 = рычит
+chat-emote-name-gnash = Скрежет

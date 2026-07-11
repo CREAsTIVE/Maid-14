@@ -7,3 +7,10 @@ ent-ClothingEyesHudChronoUnremoveable = { ent-ClothingEyesHudChrono }
     .desc = { ent-ClothingEyesHudChrono.desc }
 ent-ClothingEyesHudDiagnosticMedical = меддиагностический ХУД
     .desc = Отображение информации, объединяющее медицинские и диагностические данные.
+
+ent-ClothingEyesHudContractor = визор контрактора
+    .desc = Профессиональный дисплей гильдии, созданный для лучшего обнаружения гуманоидов и их последующего захвата.
+
+ent-ClothingEyesHudViro = вирусологический HUD
+    .desc = Медицинский HUD с расширенным сканированием заболеваний.
+

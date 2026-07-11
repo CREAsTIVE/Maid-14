@@ -26,7 +26,7 @@ job-name-deathsquad = агент Центком
 job-name-reporter = репортёр
 job-name-musician = музыкант
 job-name-librarian = библиотекарь
-job-name-lawyer = адвокат
+job-name-lawyer = юрист
 job-name-mime = мим
 job-name-ce = старший инженер
 job-name-janitor = уборщик
@@ -49,6 +49,12 @@ job-name-ertjanitor = уборщик ОБР
 job-name-boxer = боксёр
 job-name-zookeeper = зоотехник
 job-name-visitor = посетитель
+
+# event-restricted jobs
+job-name-command-maid = командная горничная
+job-name-party-maker = организатор вечеринок
+job-name-security-clown = клоун СБ
+
 # unused jobs
 # these are required for the agent ID job icon tooltips
 # I am keeping them for roleplaying opportunities
@@ -59,6 +65,7 @@ job-name-roboticist = робототехник
 job-name-syndicate = синдикат
 job-name-unknown = неизвестно
 job-name-virologist = вирусолог
+job-name-cluwne = клувень
 job-name-zombie = зомби
 # Job titles
 job-title-visitor = посетитель
@@ -69,7 +76,7 @@ JobAtmosphericTechnician = атмосферный техник
 JobBartender = бармен
 JobBorg = борг
 JobBotanist = ботаник
-JobBoxer = боксёр
+JobBoxer = боксер
 JobCaptain = капитан
 JobCargoTechnician = грузчик
 JobCentralCommandOfficial = представитель Центком
@@ -79,6 +86,7 @@ JobChemist = химик
 JobChiefEngineer = старший инженер
 JobChiefMedicalOfficer = главный врач
 JobClown = клоун
+JobCommandMaid = командная горничная
 JobDetective = детектив
 JobBrigmedic = бригмедик
 JobERTChaplain = священник ОБР
@@ -90,7 +98,7 @@ JobERTSecurity = офицер безопасности ОБР
 JobHeadOfPersonnel = глава персонала
 JobHeadOfSecurity = глава службы безопасности
 JobJanitor = уборщик
-JobLawyer = адвокат
+JobLawyer = юрист
 JobLibrarian = библиотекарь
 JobMedicalDoctor = врач
 JobMedicalIntern = интерн
@@ -98,6 +106,7 @@ JobMime = мим
 JobMusician = музыкант
 JobParamedic = парамедик
 JobPassenger = ассистент
+JobPartyMaker = организатор вечеринок
 JobPsychologist = психолог
 JobQuartermaster = квартирмейстер
 JobReporter = репортёр
@@ -106,6 +115,7 @@ JobResearchDirector = научный руководитель
 JobSalvageSpecialist = утилизатор
 JobScientist = учёный
 JobSecurityCadet = кадет СБ
+JobSecurityClown = клоун СБ
 JobSecurityOfficer = офицер СБ
 JobServiceWorker = сервисный работник
 JobStationAi = станционный ИИ

@@ -3,9 +3,9 @@ default-program-name = Программа
 notekeeper-program-name = Заметки
 nano-task-program-name = НаноДела
 news-read-program-name = Новости станции
-crew-manifest-program-name = Манифест экипажа
-crew-manifest-cartridge-loading = Загрузка...
-net-probe-program-name = Зонд сетей
+crew-manifest-program-name = Манифест персонала
+crew-manifest-cartridge-loading = Загрузка ...
+net-probe-program-name = Сетевой зонд
 net-probe-scan = Просканирован { $device }!
 net-probe-label-name = Название
 net-probe-label-address = Адрес
@@ -84,6 +84,10 @@ wanted-list-status-label = [color=darkgray]статус:[/color] { $status ->
         [detained] [color=#b18644]под арестом[/color]
         [paroled] [color=green]освобождён по УДО[/color]
         [discharged] [color=green]освобождён[/color]
+        [search] [color=#33cccc]в розыске[/color]
+        [perma] [color=#343434]пожизненное[/color]
+        [dangerous] [color=red]опасен[/color]
+        [demote] [color=red]понижение[/color]
        *[other] нет
     }
 wanted-list-history-table-time-col = Время

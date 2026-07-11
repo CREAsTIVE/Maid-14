@@ -82,6 +82,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Server._Maid.FasterThanLight.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Events;
@@ -435,7 +436,17 @@ public sealed partial class ShuttleSystem
 
         component = AddComp<FTLComponent>(uid);
         component.State = FTLState.Starting;
+        // MAID BEGIN custom arrivals sound
+
+        /*
         var audio = _audio.PlayPvs(_startupSound, uid);
+        */
+
+        var audio = TryComp(uid, out CustomFTLSoundComponent? customSoundComponent)
+                    && customSoundComponent.StartupSound is not null
+            ? _audio.PlayPvs(customSoundComponent.StartupSound, uid)
+            : _audio.PlayPvs(_startupSound, uid);
+        // MAID END
         _audio.SetGridAudio(audio);
         component.StartupStream = audio?.Entity;
 
@@ -469,7 +480,14 @@ public sealed partial class ShuttleSystem
         // Just so we don't clip
         if (fromMapUid != null && TryComp(comp.StartupStream, out AudioComponent? startupAudio))
         {
-            var clippedAudio = _audio.PlayStatic(_startupSound, Filter.Broadcast(),
+            // MAID BEGIN custom arrivals sound
+            var startupSound = TryComp(uid, out CustomFTLSoundComponent? customSoundComponent)
+                               && customSoundComponent.StartupSound is not null
+                ? customSoundComponent.StartupSound
+                : _startupSound;
+            // MAID END
+
+            var clippedAudio = _audio.PlayStatic(startupSound, Filter.Broadcast(), // MAID custom arrivals sound
                 new EntityCoordinates(fromMapUid.Value, _mapSystem.GetGridPosition(entity.Owner)), true, startupAudio.Params);
 
             _audio.SetPlaybackPosition(clippedAudio, entity.Comp1.StartupTime);
@@ -503,7 +521,17 @@ public sealed partial class ShuttleSystem
         RaiseLocalEvent(uid, ref ev, true);
 
         // Audio
+        // MAID BEGIN custom arrivals sound
+        /*
         var wowdio = _audio.PlayPvs(comp.TravelSound, uid);
+        */
+
+        var wowdio = TryComp(uid, out CustomFTLSoundComponent? customSound)
+                     && customSound.TravelSound is not null
+            ? _audio.PlayPvs(customSound.TravelSound, uid)
+            : _audio.PlayPvs(comp.TravelSound, uid);
+        // MAID END
+
         comp.TravelStream = wowdio?.Entity;
         _audio.SetGridAudio(wowdio);
     }
@@ -614,7 +642,15 @@ public sealed partial class ShuttleSystem
         _thruster.DisableLinearThrusters(entity.Comp2);
 
         comp.TravelStream = _audio.Stop(comp.TravelStream);
+        // MAID BEGIN custom arrivals sound
+        /*
         var audio = _audio.PlayPvs(_arrivalSound, uid);
+        */
+        var audio = TryComp(uid, out CustomFTLSoundComponent? customSoundComponent) &&
+                    customSoundComponent.ArrivalSound is not null
+            ? _audio.PlayPvs(customSoundComponent.ArrivalSound, uid)
+            : _audio.PlayPvs(_arrivalSound, uid);
+        // MAID END
         _audio.SetGridAudio(audio);
 
         if (TryComp<FTLDestinationComponent>(uid, out var dest))
@@ -697,11 +733,10 @@ public sealed partial class ShuttleSystem
         {
             foreach (var child in toKnock)
             {
-                if (!_statusQuery.TryGetComponent(child, out var status))
-                    continue;
+                _stuns.TryUpdateParalyzeDuration(child, _hyperspaceKnockdownTime);
 
                 // goob edit - stunmeta
-                _stuns.KnockdownOrStun(child, _hyperspaceKnockdownTime, true, status);
+                _stuns.KnockdownOrStun(child, _hyperspaceKnockdownTime);
 
                 // If the guy we knocked down is on a spaced tile, throw them too
                 if (grid != null)

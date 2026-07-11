@@ -7,8 +7,6 @@
 marking-MobIPCHeadDefault = Стандартный операционный монитор
 marking-MobIPCChestDefault = Стандартное шасси борга
 marking-MobIPCChestFemaleDefault = Стандартное шасси борга
-marking-MobIPCTorsoDefault = Стандартное роботическое шасси
-marking-MobIPCTorsoFemaleDefault = Стандартное роботическое шасси
 marking-MobIPCLArmDefault = Левая роботическая рука (стандарт)
 marking-MobIPCLHandDefault = Левая роботическая кисть (стандарт)
 marking-MobIPCLLegDefault = Левая роботическая нога (стандарт)

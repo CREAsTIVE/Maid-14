@@ -10,3 +10,18 @@ entity-spawn-window-override-menu-tooltip = Перезапись размеще�
 ## Console
 
 console-line-edit-placeholder = Введите сюда команду
+
+## OutputPanel
+
+output-panel-scroll-down-button-text = Прокрутить вниз
+
+## Common Used
+
+window-erase-button-text = Режим стирания
+window-search-bar-placeholder = Поиск
+window-clear-button = Очистить
+
+## TileSpawnWindow
+
+tile-spawn-window-title = Разместить тайлы
+tile-spawn-window-mirror-button-text = Зеркалировать тайлы

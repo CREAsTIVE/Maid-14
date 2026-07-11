@@ -12,3 +12,4 @@ store-heretic-path-void = Путь Пустоты
 store-heretic-path-rust = Путь Ржавчины
 store-heretic-path-blade = Путь Клинка
 store-heretic-path-side = Побочное Знание
+store-heretic-path-cosmos = Путь Космоса

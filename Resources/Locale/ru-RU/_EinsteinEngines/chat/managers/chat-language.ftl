@@ -24,6 +24,8 @@ chat-language-Xeeplian-name = Ксиплианский
 # Дополнительные языки
 
 chat-language-NalRasan-name = Наль'расаан
+chat-language-NewKinPidgin-name = Ка'ракк
+chat-language-Schechi-name = Шшечи
 chat-language-SiikTajr-name = Сиик'таджр
 chat-language-SiikMaas-name = Сиик'маас
 chat-language-YaSsa-name = Я'сса

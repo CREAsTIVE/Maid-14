@@ -1,5 +1,5 @@
 zombie-title = Зомби
-zombie-description = На станции появились ожившие мертвецы! Работайте сообща с другими членами экипажа, чтобы пережить эпидемию и защитить станцию.
+zombie-description = На станции появился вирус, способный оживлять мертвецов! Совместно с другими членами экипажа сдержите заражение и постарайтесь выжить.
 zombieteors-title = Зомбитеоры
 zombieteors-description = На станции во время катаклизмического метеоритного дождя появились зомби! Работайте вместе с членами экипажа и сделайте всё возможное, чтобы выжить!
 zombie-not-enough-ready-players = Недостаточно игроков готовы к игре! { $readyPlayersCount } игроков из необходимых { $minimumPlayers } готовы. Нельзя запустить пресет Зомби.
@@ -10,7 +10,7 @@ zombie-infection-warning = Вы чувствуете, как зомби-виру
 zombie-infection-underway = Ваша кровь начинает сгущаться
 zombie-alone = Вы чувствуете себя совершенно одиноким.
 zombie-shuttle-call = Мы зафиксировали, что зомби захватили станцию. Аварийный шаттл был отправлен для эвакуации оставшегося персонала.
-zombie-start-announcement = Confirmed outbreak of level 7 biological hazard aboard the station. All personnel must contain the outbreak.
+zombie-start-announcement = Подтверждена вспышка биологической опасности 7-го уровня на станции. Весь персонал должен сдержать вспышку.
 zombie-round-end-initial-count =
     { $initialCount ->
         [one] Единственным нулевым пациентом был:

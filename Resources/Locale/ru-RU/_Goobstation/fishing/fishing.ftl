@@ -3,7 +3,3 @@ fishing-progress-success = Вам удалось что-то вытащить!
 fishing-progress-fail = Не удалось поймать...
 fishing-progress-lost-rod = Вы потеряли контроль над { $ent }!
 fishing-progress-start = Вы чувствуете, как кто-то тянет за приманку!
-action-fishing-stop = Намотать удочку
-action-fishing-stop-desc = Намотайте леску, чтобы подтянуть то, что клюнуло, или прекратить рыбалку.
-action-fishing-start = Забросить приманку
-action-fishing-start-desc = Забросьте приманку с удочки, чтобы попытаться что-нибудь поймать!

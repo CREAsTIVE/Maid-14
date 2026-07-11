@@ -98,6 +98,13 @@
     - yells
     - yelled
     - yelling
+    - кричит # MAID ru emotes
+    - орёт # MAID ru emotes
+    - орет # MAID ru emotes
+    - вопит # MAID ru emotes
+    - визжит # MAID ru emotes
+    - заорал # MAID ru emotes
+    - заорала # MAID ru emotes
 
 - type: emote
   id: Laugh
@@ -124,6 +131,16 @@
     - chortle
     - chortles
     - chortling
+    - смеётся # MAID ru emotes
+    - смеется # MAID ru emotes
+    - хохочет # MAID ru emotes
+    - хихикает # MAID ru emotes
+    - усмехается # MAID ru emotes
+    - угорает # MAID ru emotes
+    - засмеялся # MAID ru emotes
+    - засмеялась # MAID ru emotes
+    - захихикал # MAID ru emotes
+    - захихикала # MAID ru emotes
 
 - type: emote
   id: Honk
@@ -159,6 +176,14 @@
     - sigh
     - sighs
     - sighed
+    - вздыхает # MAID ru emotes
+    - тяжело вздыхает # MAID ru emotes
+    - глубоко вздыхает # MAID ru emotes
+    - делает глубокий выдох # MAID ru emotes
+    - делает глубокий вдох # MAID ru emotes
+    - делает выдох # MAID ru emotes
+    - делает вдох # MAID ru emotes
+    - выдыхает # MAID ru emotes
 
 - type: emote
   id: Whistle
@@ -176,6 +201,11 @@
     - whistle
     - whistles
     - whistleblowing
+    - свистит # MAID ru emotes
+    - насвистывает # MAID ru emotes
+    - подсвистывает # MAID ru emotes
+    - засвистел # MAID ru emotes
+    - засвистела # MAID ru emotes
 
 - type: emote
   id: Crying
@@ -196,6 +226,15 @@
     - sob
     - sobs
     - sobbing
+    - плачет # MAID ru emotes
+    - рыдает # MAID ru emotes
+    - всхлипывает # MAID ru emotes
+    - всхлипнул # MAID ru emotes
+    - всхлипнула # MAID ru emotes
+    - заплакал # MAID ru emotes
+    - заплакала # MAID ru emotes
+    - зарыдал # MAID ru emotes
+    - зарыдала # MAID ru emotes
 
 - type: emote
   id: Squish
@@ -267,6 +306,10 @@
   chatTriggers:
    - click
    - clicks
+   - щёлкает # MAID ru emotes
+   - щелкает # MAID ru emotes
+   - щёлкнула # MAID ru emotes
+   - щёлкнул # MAID ru emotes
 
 # hand emotes
 - type: emote
@@ -285,6 +328,12 @@
     - claps
     - clapping
     - clapped
+    - хлопает # MAID ru emotes
+    - аплодирует # MAID ru emotes
+    - захлопал # MAID ru emotes
+    - захлопала # MAID ru emotes
+    - зааплодировал # MAID ru emotes
+    - зааплодировала # MAID ru emotes
 
 - type: emote
   id: Snap
@@ -349,6 +398,9 @@
   chatTriggers:
     - salute
     - salutes
+    - отдает честь # MAID ru emotes
+    - отдаёт честь # MAID ru emotes
+    - салютует # MAID ru emotes
 
 - type: emote
   id: Gasp
@@ -361,6 +413,7 @@
    - gasp
    - gasps
    - gasped
+   - задыхается # MAID ru emotes
 
 - type: emote
   id: DefaultDeathgasp

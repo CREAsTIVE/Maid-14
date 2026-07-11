@@ -16,7 +16,7 @@ monument-interface-glyphs-title = Глиф
 monument-interface-glyphs-button-scribe = Начертить глиф
 monument-interface-glyphs-button-unscribe = Стереть глиф
 # Influences
-monument-interface-influences-title = Influences
+monument-interface-influences-title = Влияния
 # Influences
 monument-interface-influences-unlocked = Разблокировано
 monument-interface-influences-locked = Заблокировано

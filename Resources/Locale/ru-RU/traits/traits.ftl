@@ -1,11 +1,11 @@
 trait-blindness-name = Слепота
-trait-blindness-desc = Вы совершенно слепы и не можете видеть дальше нескольких метров перед собой.
+trait-blindness-desc = Вы слепы, и не можете видеть дальше нескольких метров от себя.
 trait-narcolepsy-name = Нарколепсия
 trait-poor-vision-name = Близорукость
-trait-poor-vision-desc = Ваши глаза уже не те, что раньше, и вы с трудом видите предметы вдали без корректирующих очков.
+trait-poor-vision-desc = Ваши глаза уже не те, что раньше, вам трудно видеть предметы вдали без корректирующих очков.
 trait-narcolepsy-desc = Вас одолевают приступы сонливости
 trait-pacifist-name = Пацифист
-trait-pacifist-desc = Вы не можете нападать и причинять вред живым существам.
+trait-pacifist-desc = Вы не можете причинять вред любому живому существу.
 permanent-blindness-trait-examined = [color=lightblue]{ CAPITALIZE(POSS-ADJ($target)) } глаза остекленелые и расфокусированные. Не похоже, что { SUBJECT($target) } может хорошо вас видеть, если может вообще.[/color]
 trait-lightweight-name = Быстрое опьянение
 trait-lightweight-desc = Алкоголь оказывает на вас более сильное воздействие
@@ -45,3 +45,10 @@ trait-painnumbness-name = Невосприимчивость к боли
 trait-dementia-name = Деменция
 trait-dementia-desc = Я... э-э, о чем это я? Ах да! Ты иногда многое забываешь
 trait-painnumbness-desc = Вы не чувствуете боли и не осознаёте, насколько вы ранены.
+
+trait-british-name = Британский акцент
+trait-british-desc = Вы говорите правильно, в отличие от этих чёртовых янки.
+trait-monochromacy-name = Монохромазия
+trait-monochromacy-desc = У вас полная цветовая слепота: всё, что вы видите, варьируется от чёрного до белого.
+trait-newyork-name = Нью-йоркский акцент
+trait-newyork-desc = Вы говорите с густым нью-йоркским акцентом. Я, бля, тут иду!

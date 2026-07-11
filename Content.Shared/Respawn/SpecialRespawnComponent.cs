@@ -34,6 +34,12 @@ public sealed partial class SpecialRespawnComponent: Component
     [ViewVariables]
     [DataField("prototype", required:true, customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string Prototype = "";
+
+    // MAID BEGIN nuke disk respawn
+    [ViewVariables]
+    [DataField]
+    public string Tag = "any";
+    // MAID END
 }
 
 public sealed class SpecialRespawnSetupEvent : EntityEventArgs

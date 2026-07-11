@@ -1,5 +1,5 @@
 ent-MailBooksGuide = { ent-BaseMail }
-    .suffix = Guidebooks
+    .suffix = Путеводители
     .desc = { ent-BaseMail.desc }
 ent-MailBooksAuthor = { ent-BaseMail }
     .suffix = Авторские книги

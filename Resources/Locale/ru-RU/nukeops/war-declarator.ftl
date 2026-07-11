@@ -1,5 +1,5 @@
 war-declarator-not-working = Устройство пищит, но ничего не происходит...
-war-declarator-ui-header = Объявление войны
+war-declarator-ui-header = Объявление Войны
 war-declarator-ui-try-war-button = Попробовать объявить войну
 war-declarator-ui-war-button = ОБЪЯВИТЬ ВОЙНУ!
 war-declarator-conditions-small-crew = Недостаточно ядерных оперативников, чтобы объявить войну!

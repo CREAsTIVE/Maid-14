@@ -40,3 +40,10 @@ ent-WardrobeAtmosphericsFilled = { ent-WardrobeAtmospherics }
 ent-WardrobeEngineeringFilled = { ent-WardrobeEngineering }
     .desc = В этом шкафчике хранится форма для инженеров и социальной инженерии.
     .suffix = Заполненный
+
+ent-ClosetWallWardrobeAtmosphericsFilled = настенный атмосферный шкаф
+    .desc = Этот шкаф содержит униформу для атмосферных техников.
+
+ent-ClosetWallWardrobePrisonFilled = настенный тюремный шкаф
+    .desc = Стандартное хранилище Нанотрейзен, теперь на стенах.
+

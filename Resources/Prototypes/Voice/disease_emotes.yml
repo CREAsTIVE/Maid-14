@@ -30,13 +30,15 @@
   chatTriggers:
     - cough
     - coughs
-    - coughed 
+    - coughed
     - cough.
     - coughs.
     - coughed.
     - cough!
     - coughs!
     - coughed!
+    - кашляет # MAID ru emotes
+    - подкашливает # MAID ru emotes
 
 - type: emote
   id: CatMeow
@@ -77,6 +79,8 @@
   chatTriggers:
     - yawn
     - yawns
+    - зевает # MAID ru emotes
+    - широко зевает # MAID ru emotes
 
 - type: emote
   id: Snore

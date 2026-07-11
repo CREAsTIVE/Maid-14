@@ -55,3 +55,7 @@ ent-FoodDonutJellySlugcat = желейный слизнекотовый понч
 ent-FoodDonutPoison = { ent-FoodDonutPink }
     .desc = { ent-FoodDonutPink.desc }
     .suffix = Яд
+
+ent-FoodDonutJellyScurret = скарретный желейный пончик
+    .desc = В этом пончике нет дырок на случай, если появится подозрительный шест.
+

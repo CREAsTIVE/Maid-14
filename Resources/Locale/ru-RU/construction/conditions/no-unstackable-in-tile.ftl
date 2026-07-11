@@ -1,2 +1,2 @@
-construction-step-condition-no-unstackable-in-tile = Вы не можете расположить несколько устройств стопкой.
+construction-step-condition-no-unstackable-in-tile = Нельзя сделать стопку из похожих устройств.
 pipe-restrict-overlap-popup-blocked = { CAPITALIZE($pipe) } не помещается поверх других труб!

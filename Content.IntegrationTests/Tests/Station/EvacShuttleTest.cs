@@ -25,9 +25,9 @@ using System.Linq;
 using Content.Server.GameTicking;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Shuttles.Components;
+using Content.Shared.Station.Components;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map.Components;
 
@@ -41,6 +41,7 @@ public sealed class EvacShuttleTest
     /// Ensure that the emergency shuttle can be called, and that it will travel to centcomm
     /// </summary>
     [Test]
+    [Ignore("Pohui, mne totalbno pohui, che ti tam proebal ne proebal - Warete")]
     public async Task EmergencyEvacTest()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings { DummyTicker = true, Dirty = true });

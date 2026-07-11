@@ -82,6 +82,10 @@
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
   canBeAntag: false
+  guides: # goobstation
+  - Forensics
+  - Security
+#  - DetectiveSOP # Maid
   access:
   - Security
   - Brig

@@ -80,3 +80,16 @@ ent-FoodCakeSuppermatter = суперматерия
     .desc = Чрезвычайно плотная и мощная пища.
 ent-FoodCakeSuppermatterSlice = осколок суперматерии
     .desc = Одна порция мощи.
+
+ent-FoodCakeBerryDelight = ягодное наслаждение
+    .desc = Этот торт приближается.
+
+ent-FoodCakeBerryDelightSlice = кусочек ягодного наслаждения
+    .desc = Воткни вилку, твой голод в изоляции.
+
+ent-FoodCakeCotton = хлопковый торт
+    .desc = Торт с клетчаткой и комком ваты сверху.
+
+ent-FoodCakeCottonSlice = кусочек хлопкового торта
+    .desc = Кусочек хлопкового торта. Можешь просто облизать глазурь, ничего страшного.
+

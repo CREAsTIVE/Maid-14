@@ -12,3 +12,6 @@ possession-popup-others = Конечности { $target } искажаются 
 possession-popup-self = Твою душу силой вытаскивают из тела!
 possession-end-popup = { $target } бьётся в конвульсиях и падает на землю без сознания.
 possessed-component-examined = У тебя осталось { $timeremaining } секунд в этом теле.
+
+possession-fail-target-immune = Необычный барьер блокирует твою попытку овладеть телом!
+possession-fail-target-polymorphed = Эта форма слишком нестабильна для овладения!

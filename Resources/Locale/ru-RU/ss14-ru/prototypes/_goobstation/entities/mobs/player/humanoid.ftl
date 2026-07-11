@@ -50,3 +50,33 @@ ent-MobShadowkinRandom = Урист МакШэдоукин
 ent-MobChitinidRandom = Урист МакЖук
     .suffix = Случайная внешность
     .desc = { ent-MobChitinid.desc }
+
+ent-MobFeroxiRandom = Урист МакФин
+
+ent-RandomHumanoidSpawnerCBURNUnitNoReq = Стажёр агента ЦБУХ
+
+ent-RandomHumanoidSpawnerDeathSquadNoReq = Приспешник эскадрона смерти
+
+ent-RandomHumanoidSpawnerERTChaplainEVANoReq = Дьякон ОБР
+
+ent-RandomHumanoidSpawnerERTChaplainNoReq = Дьякон ОБР
+
+ent-RandomHumanoidSpawnerERTEngineerEVANoReq = Стажёр-инженер ОБР
+
+ent-RandomHumanoidSpawnerERTEngineerNoReq = Стажёр-инженер ОБР
+
+ent-RandomHumanoidSpawnerERTJanitorEVANoReq = Стажёр-уборщик ОБР
+
+ent-RandomHumanoidSpawnerERTJanitorNoReq = Стажёр-уборщик ОБР
+
+ent-RandomHumanoidSpawnerERTLeaderEVANoReq = Заместитель командира ОБР
+
+ent-RandomHumanoidSpawnerERTLeaderNoReq = Заместитель командира ОБР
+
+ent-RandomHumanoidSpawnerERTMedicalEVANoReq = Стажёр-медик ОБР
+
+ent-RandomHumanoidSpawnerERTMedicalNoReq = Стажёр-медик ОБР
+
+ent-RandomHumanoidSpawnerERTSecurityEVANoReq = Кадет службы безопасности ОБР
+
+ent-RandomHumanoidSpawnerERTSecurityNoReq = Кадет службы безопасности ОБР

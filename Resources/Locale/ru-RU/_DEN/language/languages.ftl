@@ -1,0 +1,1 @@
+language-Nehina-name = Нъехин

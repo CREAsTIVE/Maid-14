@@ -21,3 +21,7 @@ ent-DoorRemoteAll = супер-пульт от шлюзов
     .desc = { ent-DoorRemoteDefault.desc }
 ent-DoorRemoteXenoborg = пульт от шлюзов ксеноборгов
     .desc = { ent-DoorRemoteDefault.desc }
+
+ent-DoorRemoteCustom = отладочный дверной пульт
+    .desc = Устройство для дистанционного открытия и блокировки дверей. Эта продвинутая версия не имеет встроенного доступа, вместо этого наследуя ID доступ пользователя.
+

@@ -15,7 +15,7 @@ disposal-flush-verb-get-data-text = Смыть
 # state
 disposal-unit-state-Ready = Готов
 # Yes I want it to always say Pressurizing
-disposal-unit-state-Flushed = Нагнетание
+disposal-unit-state-Flushed = Герметизация
 disposal-unit-state-Pressurizing = Нагнетание
 # putting people in
 disposal-unit-being-inserted = { CAPITALIZE($user) } пытается затолкать вас в мусоропровод!

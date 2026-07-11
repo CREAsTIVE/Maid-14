@@ -166,6 +166,14 @@
   icon: "JobIconHeadOfSecurity"
   supervisors: job-supervisors-captain
   canBeAntag: false
+  guides: # goobstation
+  - Security
+  - SpaceLaw
+#  - LegalSOP # Maid
+  - Command
+#  - HeadOfSecuritySOP # Maid
+#  - SecuritySOP # Maid
+#  - AlertLevels # Maid
   access:
   - HeadOfSecurity
   - Command

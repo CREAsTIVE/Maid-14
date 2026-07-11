@@ -22,17 +22,11 @@ ent-ActionSpawnXenomorphEgg = Отложить яйцо (75)
 ent-ActionSpawnWallResin = Построить смоляную стену (50)
     .desc = Выделяют вязкую, пластичную смолу.
 
-ent-ActionSpawnResinMembrane = Построить смоляную мембрану (50)
-    .desc = Выделяют вязкую, пластичную смолу.
-
 ent-ActionSpawnResinNest = Построить смоляное гнездо (50)
     .desc = Выделяют вязкую, пластичную смолу.
 
 ent-ActionTailLash = Удар хвостом
     .desc = Ударь противника хвостом.
-
-ent-ActionAcid = Едкая кислота (200)
-    .desc = Покройте предмет кислотой, которая со временем его разрушит.
 
 ent-ActionJumpXenomorph = Прыжок
     .desc = Оглушите врагов быстрым прыжком.

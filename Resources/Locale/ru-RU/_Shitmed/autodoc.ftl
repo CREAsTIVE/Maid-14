@@ -67,3 +67,15 @@ autodoc-body-symmetry-None = Нет
 autodoc-body-symmetry-Left = Левая
 autodoc-body-symmetry-Right = Правая
 autodoc-submit = Отправить
+
+autodoc-error-reality-breaking = НАРУШЕНИЕ РЕАЛЬНОСТИ
+autodoc-error-step-invalid-Armor = КОНЕЧНОСТЬ ЗАБЛОКИРОВАНА ОДЕЖДОЙ
+autodoc-error-step-invalid-DoAfterFailed = ДЕЙСТВИЕ ЗАБЛОКИРОВАНО
+autodoc-error-step-invalid-MissingPreviousSteps = ПРЕДЫДУЩИЕ ШАГИ НЕ ВЫПОЛНЕНЫ
+autodoc-error-step-invalid-MissingSkills = БЛОКУ НЕ ХВАТАЕТ НАВЫКОВ
+autodoc-error-step-invalid-MissingTool = ОТСУТСТВУЕТ ПОДХОДЯЩИЙ ИНСТРУМЕНТ
+autodoc-error-step-invalid-NeedsOperatingTable = ОПЕРАЦИОННЫЙ СТОЛ ОТСУТСТВУЕТ
+autodoc-error-step-invalid-None = ВЫБРАННЫЙ ШАГ НЕВОЗМОЖЕН
+autodoc-error-step-invalid-StepCompleted = ШАГ УЖЕ ВЫПОЛНЕН
+autodoc-error-step-invalid-SurgeryInvalid = ПАЦИЕНТ НЕОПЕРАБЕЛЕН
+autodoc-error-step-invalid-ToolInvalid = ВЫБРАННЫЙ ИНСТРУМЕНТ НЕПРИГОДЕН

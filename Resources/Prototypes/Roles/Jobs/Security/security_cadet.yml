@@ -113,6 +113,10 @@
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security
   canBeAntag: false
+  guides: # goobstation
+  - Security
+#  - OfficerCadetSOP # Maid
+#  - SearchesSOP # Maid
   access:
   - Security
   - Brig

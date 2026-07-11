@@ -590,6 +590,7 @@
           volume: 1
           maxDistance: 20
           variation: 0.01
+  - type: SoundWhileAlive # MAID brullbar sound
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -822,4 +823,3 @@
       293: 0.8
       280: 0.6
       260: 0.4
-

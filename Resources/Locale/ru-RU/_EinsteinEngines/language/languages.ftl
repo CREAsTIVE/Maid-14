@@ -77,10 +77,6 @@ language-Kobold-name = Кобольд
 language-Kobold-description = Хсс!
 language-Hissing-name = Шипение
 language-Hissing-description = Хсс!
-language-Eldritch-name = Eldritch
-language-Eldritch-description =
-    A language that is considered to be long forgotten - now the only speakers of this profaned tongue of screeches and
-    mumbles are the followers of an ancient God of Blood.
 language-Penguin-name = Пингвин
 language-Penguin-description = Ваап!
 language-DroneTalk-name = Дрон
@@ -100,3 +96,21 @@ language-Shadowmind-name = Тенемыслие
 language-Shadowmind-description = Язык теневых существ. О нём мало что известно, кроме того, что Тралы способны его понимать.
 language-Qiilour-name = Киилур
 language-Qiilour-description = Родной и основной язык Ксельтий, на Киилуре в той или иной степени говорит почти каждый представитель вида. Это утончённый сплав нескольких древних наречий - таких как Теленарии, Воскарн и Древнексельтекский, - ныне утерянных в веках.
+
+# Ported from Floofstation:
+
+language-Schechi-name = Шшечи
+language-Schechi-description =
+    Язык ресоми, преимущественно состоящий из переднеязычных звуков без округления. Беглые носители звучат почти как пение птиц.
+
+language-NewKinPidgin-name = Ка'ракк
+language-NewKinPidgin-description =
+    Испорченный диалект, собранный низшими кастами воксов, искажённый до неузнаваемости.
+    Примитивная и неуклюжая попытка, породившая унылую, упрощённую пародию на их истинный язык,
+    но высшие касты воксов всё ещё способны уловить смысл в этих грубых подобиях.
+    Для всех остальных это звучит как хаотичный визг.
+
+language-Eldritch-name = Элдрич
+language-Eldritch-description =
+    Язык Древних, непостижимый для большинства смертных.
+    Говори на нём только шёпотом, ибо тени всегда слушают.

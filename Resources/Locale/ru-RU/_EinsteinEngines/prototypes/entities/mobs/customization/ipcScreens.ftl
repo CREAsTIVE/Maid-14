@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 marking-ScreenStatic = Помехи
 marking-ScreenBlue = Синий
-marking-ScreenBreakout = Breakout
+marking-ScreenBreakout = Прорыв
 marking-ScreenEight = Восьмёрка
 marking-ScreenGoggles = Очки
 marking-ScreenExclaim = Восклицание
@@ -32,7 +32,7 @@ marking-ScreenEyestall = Высокие глаза
 marking-ScreenEyesangry = Злые глаза
 marking-ScreenLoading = Загрузка…
 marking-ScreenWindowsxp = Ощущение
-marking-ScreenTetris = NT-блоки
+marking-ScreenTetris = НТ-блоки
 marking-ScreenTv = Телевизор
 marking-ScreenTextdrop = Текстопад
 marking-ScreenStars = Звёзды

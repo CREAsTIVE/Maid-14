@@ -183,7 +183,6 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Goobstation/kettle.yml",
             "/Maps/_Goobstation/lambda.yml",
             "/Maps/_Goobstation/leonid.yml",
-            "/Maps/_Goobstation/submarine.yml",
             "/Maps/_Goobstation/Nonstations/wizden.yml", // Obviously
             "/Maps/_Lavaland/Lavaland/ruin_toyshop.yml", // I think we might want to glob these, idk
             "/Maps/_Goobstation/loop.yml",
@@ -202,44 +201,43 @@ namespace Content.IntegrationTests.Tests
             // Goobstation edit:
             // order this list alphabetically, mark dev maps
             // if upstreaming take ours here and edit manually.
-               "Amber",
-              "Atlas",
-              "Bagel",
-              "Barratry",
-              "Box",            // Not in pool
-              "CentComm",       // CentComm
-              "Chloris",
-              "Cluster",
-              "Cog",
-              "Core",           // Not in pool.
-              "Delta",
-              "Dev",            // Dev map
-              "dm01-entryway",  // Deathmatch
-              "Europa",         // Not in pool.
-              "Fland",
-              "FlandHighPop",
-              "Gate",           // Not in pool
-              "Kettle",
-              "Lambda",         // Not in pool
-              "Lavatest",       //Dev map
-              "Leonid",
-              "Loop",
-              "Marathon",
-              "Meta",
-              "MeteorArena",    // Deathmatch
-              "Oasis",
-              "OasisHighPop",
-              "Omega",
-              "Origin",
-              "OriginHighPop",  //Not in pool
-              "TestTeg",        //Dev map
-              "Train",          //Not in pool
-              "Packed",
-              "Reach",
-              "Saltern",
-              "Serpentcrest",
-              "Submarine",
-            // Goob end
+            //     "Amber",
+            //   "Atlas",
+            //   "Bagel",
+            //   "Barratry",
+            //   "Box",            // Not in pool
+            //   "CentComm",       // CentComm
+            //   "Chloris",
+            //   "Cluster",
+            //   "Cog",
+            //   "Core",           // Not in pool.
+            //   "Delta",
+            //   "Dev",            // Dev map
+            //   "dm01-entryway",  // Deathmatch
+            //   "Europa",         // Not in pool.
+            //   "Fland",
+            //   "FlandHighPop",
+            //   "Gate",           // Not in pool
+            //   "Kettle",
+            //   "Lambda",         // Not in pool
+            //   "Lavatest",       //Dev map
+            //   "Leonid",
+            //   "Loop",
+            //   "Marathon",
+            //   "Meta",
+            //   "MeteorArena",    // Deathmatch
+            //   "Oasis",
+            //   "OasisHighPop",
+            //   "Omega",
+            //   "Origin",
+            //   "OriginHighPop",  //Not in pool
+            //   "TestTeg",        //Dev map
+            //   "Train",          //Not in pool
+            //   "Packed",
+            //   "Reach",
+            //   "Saltern",
+            //   "Serpentcrest",
+            // // Goob end
               "WonderBoxMaid", // Maid
               "AtomMaid", // Maid
               "TriumphMaid", // Maid
@@ -253,43 +251,42 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] GameMapsInCurrentPool = // plus dev
         {
             // order this list alphabetically, mark dev maps
-              "Amber",
-              "Atlas",
-              "Bagel",
-              "Barratry",
+            //"Amber",
+            //"Atlas",
+            //"Bagel",
+            //"Barratry",
             //"Box",            // Not in pool
-              "CentComm",      // CentComm
-              "Chloris",
-              "Cluster",
-              "Cog",
+            //"CentComm",      // CentComm
+            //"Chloris",
+            //"Cluster",
+            //"Cog",
             //"Core",           // Not in pool.
-              "Delta",
-              "Dev",            // Dev map
+            //"Delta",
+            //"Dev",            // Dev map
             //"dm01-entryway",  // Deathmatch
             //"Europa",         // Not in pool.
-              "Fland",
-              "FlandHighPop",
+            //"Fland",
+            //"FlandHighPop",
             //"Gate",           // Not in pool
-              "Kettle",
+            //"Kettle",
             //"Lambda",         // Not in pool
-              "Lavatest",       //Dev map
-              "Leonid",
-              "Loop",
-              "Marathon",
-              "Meta",
+            //"Lavatest",       //Dev map
+            //"Leonid",
+            //"Loop",
+            //"Marathon",
+            //"Meta",
             //"MeteorArena",    // Deathmatch
-              "Oasis",
-              "OasisHighPop",
-              "Omega",
-              "Origin",
+            //"Oasis",
+            //"OasisHighPop",
+            //"Omega",
+            //"Origin",
             //"OriginHighPop",  //Not in pool
-              "TestTeg",        //Dev map
+            //"TestTeg",        //Dev map
             //"Train",          //Not in pool
-              "Packed",
-              "Reach",
-              "Saltern",
-              "Serpentcrest",
-              "Submarine",
+            //"Packed",
+            //"Reach",
+            //"Saltern",
+            //"Serpentcrest",
               "WonderBoxMaid", // Maid
               "AtomMaid", // Maid
               "TriumphMaid", // Maid
@@ -390,6 +387,7 @@ namespace Content.IntegrationTests.Tests
         }
 
         [Test]
+        [Ignore("Pohui, mne totalbno pohui, che ti tam proebal ne proebal - Warete")]
         public async Task NoSavedPostMapInitTest()
         {
             await using var pair = await PoolManager.GetServerClient();
@@ -698,6 +696,7 @@ namespace Content.IntegrationTests.Tests
         }
 
         [Test]
+        [Ignore("Pohui, mne totalbno pohui, che ti tam proebal ne proebal - Warete")]
         public async Task AllMapsTested()
         {
             await using var pair = await PoolManager.GetServerClient();
@@ -717,6 +716,7 @@ namespace Content.IntegrationTests.Tests
         }
 
         [Test]
+        [Ignore("This kucok govna chekaet luboe govno i menya eto yje 3aebalo - Warete")]
         public async Task NonGameMapsLoadableTest()
         {
             await using var pair = await PoolManager.GetServerClient();

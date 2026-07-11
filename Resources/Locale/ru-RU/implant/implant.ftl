@@ -24,7 +24,7 @@ implanter-contained-implant-text = [color=green]{ $desc }[/color]
 
 ## Implant Popups
 
-scramble-implant-activated-popup = Ваша внешность преображается и меняется!
+scramble-implant-activated-popup = Ваша внешность меняется!
 
 ## Implant Messages
 

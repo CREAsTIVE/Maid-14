@@ -180,9 +180,9 @@ binds:
 #- function: Sprint
 #  type: State
 #  key: C # Maid - no sprint
-- function: ToggleStanding
-  type: State
-  key: R
+#- function: ToggleStanding
+#  type: State
+#  key: R
 - function: ResistGrab
   type: State
   key: B
@@ -673,6 +673,9 @@ binds:
 - function: Arcade3
   type: State
   key: Z
+- function: ToggleKnockdown
+  type: State
+  key: R
 - function: OpenAbilitiesMenu
   type: State
   key: K

@@ -199,7 +199,7 @@ ent-DefaultStationBeaconEVAStorage = { ent-DefaultStationBeacon }
     .suffix = Хранилище ЕВА
     .desc = { ent-DefaultStationBeacon.desc }
 ent-DefaultStationBeaconChapel = { ent-DefaultStationBeacon }
-    .suffix = Храм
+    .suffix = Церковь
     .desc = { ent-DefaultStationBeacon.desc }
 ent-DefaultStationBeaconLibrary = { ent-DefaultStationBeacon }
     .suffix = Библиотека
@@ -228,3 +228,88 @@ ent-DefaultStationBeaconEscapePod = { ent-DefaultStationBeacon }
 ent-DefaultStationBeaconVox = { ent-DefaultStationBeacon }
     .suffix = Вокс
     .desc = { ent-DefaultStationBeacon.desc }
+
+ent-DefaultStationBeaconCybersunRD = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconDonk = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconDonkFront = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconEscapePodE = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconEscapePodN = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconEscapePodNE = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconEscapePodNW = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconEscapePodS = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconEscapePodSE = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconEscapePodSW = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconEscapePodW = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconInterdyne = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconInterdyneFront = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconParamedic = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconSecurityCybersunLegal = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconSecurityGorlex = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconSecurityGorlexBreak = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconSecurityGorlexHos = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconSecurityGorlexOffice = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconShipyard = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconSolarsE = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconSolarsN = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconSolarsNE = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconSolarsNW = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconSolarsS = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconSolarsSE = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconSolarsSW = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+
+ent-DefaultStationBeaconSolarsW = станционный маяк
+    .desc = Маленькое устройство, передающее информацию на карты станции. Настраивается.
+

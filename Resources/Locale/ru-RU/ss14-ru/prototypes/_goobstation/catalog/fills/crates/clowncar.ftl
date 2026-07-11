@@ -7,3 +7,7 @@ ent-CrateFunClownCarCargo = ящик с клоунской машиной
 ent-CrateFunClownCarTesting = ящик с клоунской машиной
     .desc = Для проклятого клоуна.
     .suffix = Для тестирования
+
+ent-CrateFunClownCarNukieUplink = ящик с клоунской машиной
+    .desc = Содержит одну машину, клоун не входит в комплект.
+

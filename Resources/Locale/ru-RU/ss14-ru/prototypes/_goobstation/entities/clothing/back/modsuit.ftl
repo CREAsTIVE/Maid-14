@@ -38,3 +38,7 @@ ent-ClothingModsuitCaptain = контроллер скафандра MOD "Маг
 ent-ClothingModsuitCaptainPowerCell = { ent-ClothingModsuitCaptain }
     .suffix = батарея высокой ёмкости
     .desc = { ent-ClothingModsuitCaptain.desc }
+
+ent-ClothingModsuitStandardNoStorage = стандартный блок управления мод-костюма
+    .desc = Особый блок управления модульным костюмом, содержащий все необходимые части модульного скафандра.
+

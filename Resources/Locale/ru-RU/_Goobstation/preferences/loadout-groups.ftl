@@ -10,12 +10,12 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-loadout-group-ntr-head = Голова представителя Nanotrasen
-loadout-group-ntr-backpack = Рюкзак представителя Nanotrasen
-loadout-group-ntr-neck = Ожерелье представителя Nanotrasen
-loadout-group-ntr-jumpsuit = Комбинезон представителя Nanotrasen
-loadout-group-ntr-belt = Пояс представителя Nanotrasen
-loadout-group-ntr-shoes = Обувь представителя Nanotrasen
+loadout-group-ntr-head = Голова представителя Нанотрейзен
+loadout-group-ntr-backpack = Рюкзак представителя Нанотрейзен
+loadout-group-ntr-neck = Ожерелье представителя Нанотрейзен
+loadout-group-ntr-jumpsuit = Комбинезон представителя Нанотрейзен
+loadout-group-ntr-belt = Пояс представителя Нанотрейзен
+loadout-group-ntr-shoes = Обувь представителя Нанотрейзен
 loadout-group-bso-head = Голова офицера Синего Щита
 loadout-group-bso-backpack = Рюкзак офицера Синего Щита
 loadout-group-bso-jumpsuit = Комбинезон офицера Синего Щита
@@ -23,13 +23,13 @@ loadout-group-bso-mask = Маска офицера Синего Щита
 loadout-group-bso-outer = Броня офицера Синего Щита
 loadout-group-bso-neck = Ожерелье офицера Синего Щита
 loadout-group-bso-shoes = Обувь офицера Синего Щита
-loadout-group-nct-head = Голова тренера Nanotrasen
-loadout-group-nct-backpack = Рюкзак тренера Nanotrasen
-loadout-group-nct-jumpsuit = Комбинезон тренера Nanotrasen
-loadout-group-nct-outerclothing = Внешняя одежда тренера Nanotrasen
-loadout-group-nct-belt = Пояс тренера Nanotrasen
-loadout-group-nct-gloves = Перчатки тренера  Nanotrasen
-loadout-group-nct-shoes = Обувь тренера Nanotrasen
+loadout-group-nct-head = Голова тренера Нанотрейзен
+loadout-group-nct-backpack = Рюкзак тренера Нанотрейзен
+loadout-group-nct-jumpsuit = Комбинезон тренера Нанотрейзен
+loadout-group-nct-outerclothing = Внешняя одежда тренера Нанотрейзен
+loadout-group-nct-belt = Пояс тренера Нанотрейзен
+loadout-group-nct-gloves = Перчатки тренера  Нанотрейзен
+loadout-group-nct-shoes = Обувь тренера Нанотрейзен
 loadout-group-reporter-outerclothing = Внешняя одежда репортера
 loadout-group-security-neck = Ожерелье службы безопасности
 loadout-group-captain-mask = Маска капитана
@@ -42,3 +42,16 @@ loadout-group-brigmedic-outer = Бригмедик, верхняя одежда
 loadout-group-brigmedic-backpack = Бригмедик, рюкзак
 loadout-group-security-melee = Служба Безопасности, оружие ближнего боя
 loadout-group-animals = Животные
+
+loadout-group-roboticist-head = Роботехник, голова
+loadout-group-roboticist-jumpsuit = Роботехник, комбинезон
+loadout-group-roboticist-backpack = Роботехник, рюкзак
+loadout-group-roboticist-outerclothing = Роботехник, верхняя одежда
+loadout-group-roboticist-gloves = Роботехник, перчатки
+loadout-group-roboticist-shoes = Роботехник, обувь
+loadout-group-roboticist-id = Роботехник, ID
+
+loadout-group-virologist-jumpsuit = Вирусолог, комбинезон
+loadout-group-virologist-id = Вирусолог, ID
+loadout-group-virologist-backpack = Вирусолог, рюкзак
+loadout-group-virologist-outerclothing = Вирусолог, верхняя одежда

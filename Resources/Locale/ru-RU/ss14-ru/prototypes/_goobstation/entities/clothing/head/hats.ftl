@@ -1,7 +1,7 @@
 ent-ClothingHeadHatBeretEliteNavyOfficer = элитный берет офицера ЦентКом
-    .desc = Тёмно-синий берет с серебряным щитом сил безопасности Nanotrasen.
+    .desc = Тёмно-синий берет с серебряным щитом сил безопасности Нанотрейзен.
 ent-ClothingHeadHatBeretNavyOfficer = берет офицера ЦентКом
-    .desc = Чёрный берет с серебряным щитом сил безопасности Nanotrasen.
+    .desc = Чёрный берет с серебряным щитом сил безопасности Нанотрейзен.
 ent-ClothingHeadHatBeretNavyCaptain = берет капитана военно-космического флота
     .desc = Белый как крахмальная рубашка.
 ent-ClothingHeadHatBeretBlueshield = берет офицера Синего Щита
@@ -19,12 +19,22 @@ ent-ClothingHeadHatPropellerFlipped = шапка с пропеллером
 ent-ClothingHeadHatImam = головной убор имама
     .desc = Хвала Аллаху.
 ent-ClothingHeadHatTrainer = шапка наставника
-    .desc = Шапка, выданная карьерным тренерам Nanotrasen. Делает вас стильным.
+    .desc = Шапка, выданная карьерным тренерам Нанотрейзен. Делает вас стильным.
 ent-ClothingHeadBeretTrainer = берет наставника
-    .desc = Берет, выданный карьерным тренерам Nanotrasen. Делает вас стильным.
+    .desc = Берет, выданный карьерным тренерам Нанотрейзен. Делает вас стильным.
 ent-ClothingHeadHatBeretHeadOfSecurityAdvanced = парадный берет главы службы безопасности
     .desc = Особенно украшенный берет, предназначенный для начальника службы безопасности.
 ent-ClothingHeadHatBeretSeniorBotanist = ботанический берет
     .desc = Зелёный берет с маленьким синим цветком для опытных ботаников.
 ent-ClothingHeadSanabi = фуражка генерала бригадира
     .desc = Пахнет сталью.
+
+ent-ClothingHeadHatJanitorCap = уборщицкая фуражка
+    .desc = Экстравагантная фиолетовая фуражка только для ЛУЧШИХ работников уборки.
+
+ent-ClothingHeadHatTinfoilHat = фольгированная шляпа
+    .desc = Высокотехнологичный шлем из алюминиевой фольги.
+
+ent-ClothingHeadLehmin = лучшая шапка ГВ
+    .desc = Химия. Администрирование. Что-то ещё.
+

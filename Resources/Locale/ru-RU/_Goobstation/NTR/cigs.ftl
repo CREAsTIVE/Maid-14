@@ -1,0 +1,12 @@
+advertisement-cigs-deluxe-1 = СИГАРЕТЫ SMOKE KING С ФИЛЬТРОМ!!
+advertisement-cigs-deluxe-2 = ЗАЖИГАЙ LUCKY STRIKES!!
+advertisement-cigs-deluxe-3 = НАНОТРЕЙЗЕН — УДОВЛЕТВОРЕНИЕ!
+advertisement-cigs-deluxe-4 = PALL MALL — НАСЛАЖДЕНИЕ!!
+advertisement-cigs-deluxe-5 = ПОПРОБУЙ NANOLBORO BLUES!!
+advertisement-cigs-deluxe-6 = SPACE CAMEL С ФИЛЬТРОМ УЖЕ ЗДЕСЬ!!
+advertisement-cigs-deluxe-7 = НАСЛАДИСЬ ВКУСОМ KROMBACH!!
+advertisement-cigs-deluxe-8 = ПОПРОБУЙ EXECUTIVE FINESS!!
+advertisement-cigs-deluxe-9 = КАЧЕСТВО CHESTERFILLED!!
+advertisement-cigs-deluxe-10 = МЯГКОСТЬ OLD GOLD!!
+advertisement-cigs-deluxe-11 = СВЕЖЕСТЬ N&T!!
+advertisement-cigs-deluxe-12 = ПУСТЬ ЗНАЮТ, ЧТО ТЫ БОГАТ!!

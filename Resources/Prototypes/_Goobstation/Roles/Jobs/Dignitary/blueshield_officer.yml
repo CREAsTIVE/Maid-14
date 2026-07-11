@@ -48,6 +48,10 @@
 #      inverted: true
 #      species:
 #      - Felinid
+  guides:
+#  - BlueshieldOfficerSOP # Maid
+  - Command
+#  - Succession # Maid
   weight: 20
   startingGear: BlueshieldOfficerGear
   icon: "JobIconBlueshield"

@@ -2,12 +2,14 @@ delete-verb-get-data-text = Удалить
 edit-solutions-verb-get-data-text = Редактировать растворы
 explode-verb-get-data-text = Взорвать
 ahelp-verb-get-data-text = Написать
-admin-verbs-admin-logs-entity = Логи сущности
+admin-verbs-admin-logs-entity = Админ логи
 admin-verbs-teleport-to = Телепортироваться к
 admin-verbs-teleport-here = Телепортировать сюда
 admin-verbs-freeze = Заморозить
 admin-verbs-freeze-and-mute = Заморозить и заглушить
 admin-verbs-unfreeze = Разморозить
+admin-verbs-camera = Открыть камеру
+admin-verbs-camera-description = Открывает окно камеры, которое следит за выбранной сущностью.
 admin-verbs-erase = Стереть
 admin-verbs-erase-description =
     Удаляет игрока из раунда и манифеста членов экипажа, а также удаляет все его сообщения в чате.

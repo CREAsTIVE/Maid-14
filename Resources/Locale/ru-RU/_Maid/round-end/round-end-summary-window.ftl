@@ -1,7 +1,21 @@
 round-end-summary-window-station-report-tab-title = Отчет о работе станции
 no-station-report-summited = Отчет о работе станции не был представлен, НТР, назначенный вашей станции, был оштрафован на 2000 специальных сумм.
-round-end-summary-window-player-name-role = был {$role}, им был {$player}.
+round-end-summary-window-player-name-role = [color=gray]({$player})[/color] был в роли [color=orange]{$role}[/color].
 round-end-summary-window-player-name = Играл {$player}.
-round-end-summary-window-last-words = [italic][color=gray]"{$lastWords}"[/color][/italic]
+round-end-summary-window-last-words = [italic]"{$lastWords}"[/italic]
 round-end-summary-window-death = Они умерли {$severity} {$type} смертью.
 round-end-summary-window-death-unknown = Их тела не были найдены.
+round-end-summary-window-death-severity-catastrophic = катастрофической
+round-end-summary-window-death-severity-devastating = опустошающей
+round-end-summary-window-death-severity-agonizing = мучительной
+round-end-summary-window-death-severity-painful = болезненной
+round-end-summary-window-death-severity-brutal = жестокой
+round-end-summary-window-death-severity-tragic = трагической
+round-end-summary-window-death-type-fiery = огненной
+round-end-summary-window-death-type-crushing = сокрушительной
+round-end-summary-window-death-type-poisonous = отравляющей
+round-end-summary-window-death-type-suffocating = удушающей
+round-end-summary-window-death-type-twisted = извращённой
+round-end-summary-window-death-type-otherworldly = потусторонней
+round-end-summary-window-death-type-shocking = шокирующей
+round-end-summary-window-death-type-mysterious = загадочной

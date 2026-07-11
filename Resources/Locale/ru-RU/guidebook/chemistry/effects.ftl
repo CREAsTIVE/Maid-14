@@ -359,7 +359,7 @@ reagent-effect-guidebook-add-to-solution-reaction =
         [1] Заставляет
        *[other] заставляют
     } химикаты, применённые к объекту, добавиться во внутренний контейнер для растворов этого объекта
-reagent-effect-guidebook-artifact-durability-restore = Restores { $restored } durability in active alien artifact nodes.
+reagent-effect-guidebook-artifact-durability-restore = Восстанавливает { $restored } прочности активных узлов инопланетного артефакта.
 reagent-effect-guidebook-plant-attribute =
     { $chance ->
         [1] Изменяет
@@ -395,3 +395,19 @@ reagent-effect-guidebook-plant-seeds-remove =
         [1] Убирает
        *[other] убирают
     } семена из растения
+
+reagent-effect-guidebook-add-to-chemicals =
+    { $chance ->
+        [1] { $deltasign ->
+                [1] Добавляет
+               *[-1] Убирает
+            }
+       *[other]
+            { $deltasign ->
+                [1] добавляют
+               *[-1] убирают
+            }
+    } { NATURALFIXED($amount, 2) } ед. { $reagent } { $deltasign ->
+        [1] в
+       *[-1] из
+    } раствора

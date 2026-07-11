@@ -7,10 +7,10 @@ ent-SpawnPointLoneNukeOperativeToken = { ent-SpawnPointLoneNukeOperative }
 ent-SpawnPointGhostDerelictCyborgSyndicateToken = { ent-SpawnPointGhostDerelictCyborgSyndicate }
     .desc = { ent-SpawnPointGhostDerelictCyborgSyndicate.desc }
 ent-SpawnPointGhostBinglePrimeToken = { ent-SpawnPointGhostBinglePrime }
-    .suffix = Prime
+    .suffix = Прайм
     .desc = { ent-SpawnPointGhostBinglePrime.desc }
-ent-SpawnPointGhostBlobRatToken = Mouse Blob Spawn Point
-    .suffix = Blob Ghostrole, Token
+ent-SpawnPointGhostBlobRatToken = Точка появления блоб-крысы
+    .suffix = Блоб, Призрачная роль, Токен
     .desc = { ent-SpawnPointGhostBlobRat.desc }
 ent-LoneAbductorSpawnerToken = { ent-LoneAbductorSpawner }
     .desc = { ent-LoneAbductorSpawner.desc }
@@ -18,3 +18,14 @@ ent-SpawnPointWizardToken = { ent-SpawnPointWizard }
     .desc = { ent-SpawnPointWizard.desc }
 ent-AncientRogueKingToken = { ent-CMMobXenoRogueKingSentient }
     .desc = { ent-CMMobXenoRogueKingSentient.desc }
+
+ent-ContractorTokenSpawner = точка спавна призрачной роли
+
+
+ent-HasturToken = точка появления призрачной роли
+    .desc = { "" }
+
+ent-SpawnPointLaughterDemonToken = { ent-BaseAntagSpawner }
+
+ent-SpawnPointSlaughterDemonToken = { ent-BaseAntagSpawner }
+ent-WraithToken = { ent-BaseAntagSpawner }

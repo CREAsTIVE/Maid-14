@@ -22,3 +22,19 @@ ent-DebugAPC = { ent-BaseAPC }
 ent-DebugPowerReceiver = power receiver
     .suffix = DEBUG
     .desc = { "" }
+
+ent-DebugAPCRecharging = ИБП
+    .desc = Терминал управления электрическими системами зоны.
+
+ent-DebugSMESRecharging = СМЭС
+    .desc = Высокоёмкостное сверхпроводящее устройство хранения магнитной энергии (СМЭС).
+
+ent-DebugSubstationRecharging = подстанция
+    .desc = Понижает напряжение подаваемого электричества.
+
+ent-DebugSubstationWall = настенная подстанция
+    .desc = Подстанция, разработанная для компактных шаттлов и помещений.
+
+ent-DebugSubstationWallRecharging = настенная подстанция
+    .desc = Подстанция, разработанная для компактных шаттлов и помещений.
+

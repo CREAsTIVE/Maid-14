@@ -3,8 +3,8 @@ marking-TattooNightlingChest-tattoo_nightling = Татуировка, грудь
 marking-TattooHiveChest = Татуировка, спина (Улей)
 marking-TattooSilverburghLeftLeg-tattoo_silverburgh_l_leg = Татуировка, левая нога (Силвербург)
 marking-TattooSilverburghRightLeg-tattoo_silverburgh_r_leg = Татуировка, правая нога (Силвербург)
-marking-TattooNanotrasenChest-tattoo_nanotrasen_chest = Татуировка, грудь (Nanotrasen)
-marking-TattooNanotrasenChest = Татуировка, грудь (Nanotrasen)
+marking-TattooNanotrasenChest-tattoo_nanotrasen_chest = Татуировка, грудь (Нанотрейзен)
+marking-TattooNanotrasenChest = Татуировка, грудь (Нанотрейзен)
 marking-TattooNightlingChest = Татуировка, грудь (Найтлинг)
 marking-TattooCampbellLeftArm-tattoo_campbell_l_arm = Татуировка, левая рука (Кэмпбелль)
 marking-TattooCampbellRightArm-tattoo_campbell_r_arm = Татуировка, правая рука (Кэмпбелль)
@@ -34,3 +34,25 @@ marking-TattooEyeLeftGlowy = Свечение Левый Глаз
 marking-TattooEyeMothRight = Правый Глаз
 marking-TattooEyeMothLeft-tattoo_eye_moth_l = Левый Глаз
 marking-TattooEyeMothLeft = Левый Глаз
+
+marking-TattooEyeVoxRight-tattoo_eye_vox_r = Правый глаз
+marking-TattooEyeVoxRight = Правый глаз
+marking-TattooEyeVoxLeft-tattoo_eye_vox_l = Левый глаз
+marking-TattooEyeVoxLeft = Левый глаз
+
+marking-TattooEyeshadowUpper-tattoo_eyeshadow_upper = Тени (верхние)
+marking-TattooEyeshadowUpper = Тени (верхние)
+marking-TattooEyeshadowLower-tattoo_eyeshadow_lower = Тени (нижние)
+marking-TattooEyeshadowLower = Тени (нижние)
+marking-TattooEyeshadowLowerReptilian-tattoo_eyeshadow_lower_reptilian = Тени (нижние, рептилия)
+marking-TattooEyeshadowLowerReptilian = Тени (нижние, рептилия)
+
+marking-TattooEyeshadowVoxSmall-tattoo_eyeshadow_small = Тени (маленькие)
+marking-TattooEyeshadowVoxSmall = Тени (маленькие)
+marking-TattooEyeshadowVoxMedium-tattoo_eyeshadow_medium = Тени (средние)
+marking-TattooEyeshadowVoxMedium = Тени (средние)
+marking-TattooEyeshadowVoxLarge-tattoo_eyeshadow_Large = Тени (большие)
+marking-TattooEyeshadowVoxLarge = Тени (большие)
+
+marking-TattooVoxTailRing-tattoo_vox_tail_ring = Кольцо на хвосте
+marking-TattooVoxTailRing = Кольцо на хвосте

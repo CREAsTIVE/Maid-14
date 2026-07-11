@@ -77,7 +77,7 @@ public class MapLoadBenchmark
         PoolManager.Shutdown();
     }
 
-    public static readonly string[] MapsSource = { "Empty", "Saltern", "Box", "Bagel", "Dev", "CentComm", "Atlas", "Core", "TestTeg", "Packed", "Origin", "Omega", "Cluster", "Reach", "Meta", "Marathon", "Europa", "MeteorArena", "Fland", "Oasis", "FlandHighPop", "OasisHighPop", "OriginHighPop", "Barratry", "Kettle", "Submarine", "Lambda", "Leonid", "Delta", "Amber", "Chloris", "Cog", "Serpentcrest", "WonderBoxMaid", "AtomMaid", "BoxMaid", "TriumphMaid", "BagelMaid", "KettleMaid", "ScoupidiaMaid", "CentcommMaid" };
+    public static readonly string[] MapsSource = { /*"Empty", "Saltern", "Box", "Bagel", "Dev", "CentComm", "Atlas", "Core", "TestTeg", "Packed", "Origin", "Omega", "Cluster", "Reach", "Meta", "Marathon", "Europa", "MeteorArena", "Fland", "Oasis", "FlandHighPop", "OasisHighPop", "OriginHighPop", "Barratry", "Kettle", "Lambda", "Leonid", "Delta", "Amber", "Chloris", "Cog", "Serpentcrest",*/ "WonderBoxMaid", "AtomMaid", "BoxMaid", "TriumphMaid", "BagelMaid", "KettleMaid", "ScoupidiaMaid", "CentcommMaid" };
 
     [ParamsSource(nameof(MapsSource))]
     public string Map;

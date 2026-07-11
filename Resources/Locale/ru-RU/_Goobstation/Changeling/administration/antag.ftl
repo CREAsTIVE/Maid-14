@@ -4,5 +4,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-admin-verb-make-changeling = Превратить цель в генокрада.
-admin-verb-text-make-changeling = Сделать Генокрадом
+admin-verb-make-changeling = Сделать цель генокрадом.
+admin-verb-text-make-changeling = Сделать генокрадом

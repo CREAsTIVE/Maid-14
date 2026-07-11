@@ -13,3 +13,13 @@ stack-bingle-tile =
         [1] бингл плитка
        *[other] бингл плитки
     }
+
+stack-hex-nut = hex { $amount ->
+    [1] гайка
+   *[other] гаек
+}
+
+stack-screw = { $amount ->
+    [1] винт
+   *[other] винтов
+}

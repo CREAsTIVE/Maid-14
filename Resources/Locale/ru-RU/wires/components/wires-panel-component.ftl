@@ -1,2 +1,40 @@
-wires-panel-component-on-examine-open = [color=lightgray]Техническая панель[/color] [color=red]открыта[/color].
-wires-panel-component-on-examine-closed = [color=lightgray]Техническая панель[/color] [color=darkgreen]закрыта[/color].
+wires-panel-component-on-examine-open = [color=lightgray]Панель технического обслуживания[/color] [color=red]открыта[/color].
+wires-panel-component-on-examine-closed = [color=lightgray]Панель технического обслуживания[/color] [color=darkgreen]закрыта[/color].
+
+wire-name-color-red = Красный
+wire-name-color-blue = Синий
+wire-name-color-green = Зелёный
+wire-name-color-orange = Оранжевый
+wire-name-color-brown = Коричневый
+wire-name-color-gold = Золотой
+wire-name-color-gray = Серый
+wire-name-color-cyan = Голубой
+wire-name-color-navy = Тёмно-синий
+wire-name-color-purple = Пурпурный
+wire-name-color-pink = Розовый
+wire-name-color-fuchsia = Фуксия
+
+wire-letter-name-alpha = Alpha
+wire-letter-name-beta = Beta
+wire-letter-name-gamma = Gamma
+wire-letter-name-delta = Delta
+wire-letter-name-epsilon = Epsilon
+wire-letter-name-zeta = Zeta
+wire-letter-name-eta = Eta
+wire-letter-name-theta = Theta
+wire-letter-name-iota = Iota
+wire-letter-name-kappa = Kappa
+wire-letter-name-lambda = Lambda
+wire-letter-name-mu = Mu
+wire-letter-name-nu = Nu
+wire-letter-name-xi = Xi
+wire-letter-name-omicron = Omicron
+wire-letter-name-pi = Pi
+wire-letter-name-rho = Rho
+wire-letter-name-sigma = Sigma
+wire-letter-name-tau = Tau
+wire-letter-name-upsilon = Upsilon
+wire-letter-name-phi = Phi
+wire-letter-name-chi = Chi
+wire-letter-name-psi = Psi
+wire-letter-name-omega = Omega

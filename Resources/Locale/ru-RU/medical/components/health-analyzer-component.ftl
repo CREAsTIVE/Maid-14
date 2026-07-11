@@ -1,5 +1,5 @@
-health-analyzer-window-no-patient-data-text = Нет данных о пациенте.
-health-analyzer-window-entity-unknown-text = неизвестно
+health-analyzer-window-no-patient-data-text = Пациент отсутствует
+health-analyzer-window-entity-unknown-text = неизвестный
 health-analyzer-window-entity-unknown-species-text = Негуманоид
 health-analyzer-window-entity-unknown-value-text = Н/Д
 health-analyzer-window-entity-alive-text = Жив

@@ -14,3 +14,6 @@ ent-ClothingModsuitBootsResearchDirector = ботинки скафандра MOD
     .desc = Не спасут от скольжения по собственной крови, когда голокарп летит за тобой.
 ent-ClothingModsuitBootsCaptain = ботинки скафандра MOD "Магнат"
     .desc = Эти ботинки разработаны самим МАЙКЛОМ ДЖОРДАНОМ и выкованы из древних сплавов, чувак.
+
+ent-ClothingShoesModsuitBase = предмет
+

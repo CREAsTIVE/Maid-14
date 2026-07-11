@@ -35,3 +35,10 @@ research-technology-mag-fed-sniper = Снайперские винтовки с 
 research-technology-mag-fed-lmg = Ручные пулемёты с энергоячейками
 research-technology-restraint = Технологии ограничителей
 research-technology-advanced-power-generation = Продвинутый генератор
+
+research-technology-extended-communication = Улучшенные коммуникации
+research-technology-plumbing = Трубопроводные технологии
+research-technology-service-energy-chem = Органический электросинтез
+research-technology-xeno-compatibility = Ксено-совместимость
+research-technology-xenobag-holding = Блюспейсовое ксенобиологическое оборудование
+research-technology-xenobiology = Ксенобиологическое оборудование

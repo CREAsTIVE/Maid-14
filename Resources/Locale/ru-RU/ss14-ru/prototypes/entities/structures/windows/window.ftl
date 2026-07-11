@@ -13,3 +13,5 @@ ent-WindowFrostedDirectional = направленное матовое окно
 ent-WindowDiagonal = { ent-Window }
     .suffix = Диагональ
     .desc = { ent-Window.desc }
+ent-TintedWindowTransparent = тонированное окно
+    .desc = Умное тонированное окно с возможностью переключения состояния.

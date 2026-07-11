@@ -5,8 +5,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-ghost-role-information-onestar-mecha-name = Мех OneStar
-ghost-role-information-onestar-mecha-description = Ты — конец этой станции.
+ghost-role-information-onestar-mecha-name = Меха Звёздочка
+ghost-role-information-onestar-mecha-description = Вы - экспериментальный механизм, созданный неизвестно кем, все, что вы знаете, это то, что у вас есть оружие и вы обнаруживаете поблизости мясистые движущиеся цели...
 ghost-role-information-drone-name = Обслуживающий дрон
 # Goobstation
 ghost-role-information-drone-description = Поддерживай станцию. Игнорируй всех, кроме дронов. Используй +/+d для общения в Дроновом разуме.

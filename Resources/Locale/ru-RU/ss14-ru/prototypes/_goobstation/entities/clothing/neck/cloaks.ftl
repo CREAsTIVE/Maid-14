@@ -8,3 +8,7 @@ ent-ClothingNeckCloakCarpAlt = карповый плащ
     .desc = Ограничено для внеземных существ. Это значит — не для тебя.
 ent-ClothingNeckCloakSanabi = плащ генерала бригадира
     .desc = Потрёпанный, но внушительный плащ, который носят элитные воины.
+
+ent-ClothingNeckCloakVetCap = плащ капитана-ветерана
+    .desc = Плащ ауры капитана.
+

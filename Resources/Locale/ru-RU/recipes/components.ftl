@@ -3,5 +3,5 @@ construction-graph-component-door-electronics-circuit-board = консольна
 construction-graph-component-flash = вспышка
 construction-graph-component-second-flash = вторая вспышка
 construction-graph-component-power-cell = батарейка
-construction-graph-component-apc-electronics = микросхема ЛКП
+construction-graph-component-apc-electronics = микросхема АПЦ
 construction-graph-component-payload-trigger = триггер

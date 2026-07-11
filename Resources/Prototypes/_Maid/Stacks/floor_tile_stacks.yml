@@ -9,3 +9,39 @@
   name: stack-wood-pattern-floor
   spawn: FloorTileItemWoodBrightPattern
   maxCount: 30
+
+- type: stack
+  id: FloorTileWoodBrightLarge
+  name: stack-wood-floor-bright-large
+  spawn: FloorTileItemWoodBrightLarge
+  maxCount: 30
+
+- type: stack
+  id: FloorTileWoodBrightParquet
+  name: stack-wood-floor-bright-parquet
+  spawn: FloorTileItemWoodBrightParquet
+  maxCount: 30
+
+- type: stack
+  id: FloorTileWoodParquet
+  name: stack-wood-floor-parquet
+  spawn: FloorTileItemWoodParquet1
+  maxCount: 30
+
+- type: stack
+  id: FloorTileWoodLarge
+  name: stack-large-wood-floor
+  spawn: FloorTileItemWoodLarge
+  maxCount: 30
+
+- type: stack
+  id: FloorTileWood
+  name: stack-wood-floor
+  spawn: FloorTileItemWood
+  maxCount: 30
+
+- type: stack
+  id: FloorTileWoodPattern
+  name: stack-wood-pattern-floor
+  spawn: FloorTileItemWoodPattern
+  maxCount: 30

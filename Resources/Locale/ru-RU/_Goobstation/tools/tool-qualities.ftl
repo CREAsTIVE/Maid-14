@@ -8,3 +8,6 @@ tool-quality-axing-name = Рубка
 tool-quality-axing-tool-name = Пожарный топор
 tool-quality-painting-name = Окрашивание
 tool-quality-painting-tool-name = Краскопульт
+
+tool-quality-hammering-name = Ковка
+tool-quality-hammering-tool-name = Молот

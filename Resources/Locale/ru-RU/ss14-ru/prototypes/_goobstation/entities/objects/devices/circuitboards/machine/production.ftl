@@ -10,3 +10,14 @@ ent-TeslaCoilCircuitboard = катушка теслы (машинная плат
     .desc = { ent-BaseMachineCircuitboard.desc }
 ent-RadiationCollectorCircuitboard = коллектор радиации (машинная плата)
     .desc = { ent-BaseMachineCircuitboard.desc }
+
+ent-ERTTechFabCircuitboard = плата техфаба ERT
+    .desc = Печатная плата для техфаба ERT.
+
+ent-EnergyChemDispenserMachineCircuitboard = плата энергетического химического диспенсера
+    .desc = Печатная плата для энергетического химического диспенсера.
+
+ent-PlumbingPumpCircuitboard = плата жидкостного насоса
+
+ent-TelecomTransmitterCircuitboard = плата ретранслятора связи
+    .desc = Печатная плата для ретранслятора связи.

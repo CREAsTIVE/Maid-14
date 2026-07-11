@@ -8,3 +8,7 @@ ent-LavalandHierophantDamageField = { "" }
 ent-LavalandHierophantChaser = след
     .suffix = НЕ МАППИТЬ
     .desc = { "" }
+
+ent-MobHierophant = иерофант
+    .desc = Огромная металлическая булава, висящая в воздухе, будто ожидая. Она заставит тебя плясать под свою дудку.
+

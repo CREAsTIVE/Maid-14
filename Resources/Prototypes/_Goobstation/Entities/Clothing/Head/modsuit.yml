@@ -38,7 +38,6 @@
       - state: equipped-HEAD
       head-vox:
       - state: equipped-HEAD-vox
-      
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -61,6 +60,7 @@
     - Snout
     - HeadTop
     - HeadSide
+  - type: FaceHuggerBlocker
 
 - type: entity
   abstract: true
@@ -138,8 +138,8 @@
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
-    radius: 3
-    energy: 2
+    radius: 5
+    energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
     netsync: true
@@ -693,6 +693,8 @@
         Shock: 0.75
         Caustic: 0.25
         Radiation: 0.01
+  - type: EyeProtection
+  - type: FlashImmunity
   - type: ComponentToggler
     components:
     - type: BreathMask

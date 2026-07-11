@@ -1,0 +1,18 @@
+station-report-text =
+    {"["}color=#1b67a5]░░██░░ [head=2]Официальный документ[/head]
+    ▀████▀ [head=3]Тема: Отчёт станции[/head]
+    ▄█▀▀█▄ [head=3]Проверяющий: Представитель Нанотрейзен[/head]
+    {"["}/color]──────────────────────────────────────────
+    • [color=#9fed58][bold]Общий отчёт[/bold][/color]
+    >[mono][/mono]
+    • [color=#ff5c5c][bold]Отдел безопасности[/bold][/color]
+    >[mono][/mono]
+    • [color=#d28150][bold]Отдел логистики[/bold][/color]
+    >[mono][/mono]
+    • [color=#f2e052][bold]Инженерный отдел[/bold][/color]
+    >[mono][/mono]
+    • [color=#5b97bc][bold]Медицинский отдел[/bold][/color]
+    >[mono][/mono]
+    • [color=#c96dbf][bold]Научный отдел[/bold][/color]
+    >[mono][/mono]
+    Подписано: [color=Green]Имя представителя Нанотрейзен[/color]

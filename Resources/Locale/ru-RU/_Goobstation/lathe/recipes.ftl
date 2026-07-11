@@ -1,0 +1,20 @@
+lathe-recipe-BaseTranslatorImplanter-name = имплантер переводчика
+
+lathe-recipe-BasicGalaticCommonTranslatorImplanter-subname = базовый имплант универсального переводчика
+lathe-recipe-AdvancedGalaticCommonTranslatorImplanter-subname = продвинутый имплант универсального переводчика
+lathe-recipe-BubblishTranslatorImplanter-subname = имплант переводчика языка Бабблиш
+lathe-recipe-NekomimeticTranslatorImplanter-subname = имплант переводчика некомиметического
+lathe-recipe-DraconicTranslatorImplanter-subname = имплант переводчика драконьего
+lathe-recipe-CanilunztTranslatorImplanter-subname = имплант переводчика канилунцт
+lathe-recipe-SolCommonTranslatorImplanter-subname = имплант переводчика сол-коммон
+lathe-recipe-ChittinTranslatorImplanter-subname = имплант переводчика хитина
+lathe-recipe-RootSpeakTranslatorImplanter-subname = имплант переводчика языка корней
+lathe-recipe-MofficTranslatorImplanter-subname = имплант переводчика моффик
+lathe-recipe-ValyrianStandardTranslatorImplanter-subname = имплант переводчика валирийского стандартного
+lathe-recipe-SiikMaasTranslatorImplanter-subname = имплант переводчика сиик'маас
+lathe-recipe-MarishTranslatorImplanter-subname = имплант переводчика мариш
+lathe-recipe-SchechiTranslatorImplanter-subname = имплант переводчика схечи
+lathe-recipe-NewKinPidginTranslatorImplanter-subname = имплант переводчика ка'ракк
+lathe-recipe-ChevalTranslatorImplanter-subname = имплант переводчика лошадиного
+lathe-recipe-YowKriolTranslatorImplanter-subname = имплант переводчика yow kriol
+lathe-recipe-SignTranslatorImplanter-subname = имплант переводчика жестов

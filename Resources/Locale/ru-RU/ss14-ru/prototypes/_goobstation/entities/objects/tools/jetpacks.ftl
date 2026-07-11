@@ -3,3 +3,10 @@ ent-JetpackChrono = футуристичный джетпак
 ent-JetpackChronoUnremoveable = { ent-JetpackChrono }
     .suffix = Несъёмный
     .desc = { ent-JetpackChrono.desc }
+
+ent-JetpackContractor = контракторский реактивный ранец
+    .desc = Реактивный ранец. Вмещает 5 л газа.
+
+ent-JetpackContractorFilled = контракторский реактивный ранец
+    .desc = Реактивный ранец. Вмещает 5 л газа.
+

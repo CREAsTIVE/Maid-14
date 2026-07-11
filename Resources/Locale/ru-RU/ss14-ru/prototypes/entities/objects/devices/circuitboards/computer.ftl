@@ -93,3 +93,5 @@ ent-RoboticsConsoleCircuitboard = консоль управления робот
     .desc = Консольная плата для консоли управления робототехникой.
 ent-StationAiUploadCircuitboard = консоль загрузки ИИ (консольная плата)
     .desc = Консольная плата для консоли загрузки ИИ.
+ent-SupermatterComputerCircuitboard = плата консоли суперматерии
+    .desc = Печатная плата для консоли мониторинга суперматерии.

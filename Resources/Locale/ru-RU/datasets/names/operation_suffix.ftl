@@ -98,5 +98,5 @@ names-operation-suffix-dataset-97 = Могила
 names-operation-suffix-dataset-98 = Ящик для Инструментов
 names-operation-suffix-dataset-99 = Труба
 names-operation-suffix-dataset-100 = Паразит
-names-operation-suffix-dataset-101 = Волшебник
+names-operation-suffix-dataset-101 = Маг
 names-operation-suffix-dataset-102 = Дерево

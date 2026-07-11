@@ -428,3 +428,46 @@ cmd-vfs_ls-help =
     vfs_list /Assemblies
 cmd-vfs_ls-err-args = Нужен ровно 1 аргумент.
 cmd-vfs_ls-hint-path = <path>
+
+cmd-hint-float = [число]
+
+cmd-parse-failure-enum = {$arg} не является перечислением {$enum}.
+cmd-parse-failure-grid = {$arg} не является валидной сеткой.
+cmd-parse-failure-cultureinfo = «{$arg}» не является валидным CultureInfo.
+cmd-parse-failure-session = Нет сессии с именем пользователя: {$username}
+
+cmd-cvar_subs-desc = Выводит подписки OnValueChanged для CVar.
+cmd-cvar_subs-help = Использование: cvar_subs <имя>
+cmd-cvar_subs-invalid-args = Необходимо указать ровно один аргумент.
+cmd-cvar_subs-arg-name = <имя>
+
+cmd-savemap-error = Не удалось сохранить карту! Подробности в логе сервера.
+
+cmd-showrot-desc = Показывает поворот всех сущностей на экране.
+cmd-showrot-help = Использование: showrot
+
+cmd-showvel-desc = Показывает локальную скорость всех сущностей на экране.
+cmd-showvel-help = Использование: showvel
+
+cmd-showangvel-desc = Показывает угловую скорость всех сущностей на экране.
+cmd-showangvel-help = Использование: showangvel
+
+cmd-vvread-help = Использование: vvread <путь>
+
+cmd-reloadtiletextures-desc = Перезагружает атлас текстур тайлов для горячей перезагрузки спрайтов тайлов.
+cmd-reloadtiletextures-help = Использование: reloadtiletextures
+
+cmd-audio_length-desc = Показывает длительность аудиофайла.
+cmd-audio_length-help = Использование: audio_length { cmd-audio_length-arg-file-name }
+cmd-audio_length-arg-file-name = <имя файла>
+
+## PVS
+cmd-pvs-override-info-desc = Выводит информацию о PVS-переопределениях, связанных с сущностью.
+cmd-pvs-override-info-empty = Сущность {$nuid} не имеет PVS-переопределений.
+cmd-pvs-override-info-global = Сущность {$nuid} имеет глобальное переопределение.
+cmd-pvs-override-info-clients = Сущность {$nuid} имеет переопределение сессии для {$clients}.
+
+cmd-localization_set_culture-desc = Устанавливает DefaultCulture для клиентского LocalizationManager.
+cmd-localization_set_culture-help = Использование: localization_set_culture <cultureName>
+cmd-localization_set_culture-culture-name = <cultureName>
+cmd-localization_set_culture-changed = Локализация изменена на { $code } ({ $nativeName } / { $englishName })

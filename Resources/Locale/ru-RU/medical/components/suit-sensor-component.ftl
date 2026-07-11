@@ -1,7 +1,7 @@
 ## Modes
 
 suit-sensor-mode-off = Выкл.
-suit-sensor-mode-binary = Бинарные
+suit-sensor-mode-binary = Бинарный
 suit-sensor-mode-vitals = Здоровье
 suit-sensor-mode-cords = Координаты
 

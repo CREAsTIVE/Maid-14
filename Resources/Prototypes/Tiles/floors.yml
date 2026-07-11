@@ -375,27 +375,6 @@
   tileRipResistance: 80
 
 - type: tile
-  id: FloorWood
-  name: tiles-wood
-  sprite: /Textures/_Maid/Tiles/wood.png # Maid
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepWood
-  barestepSounds:
-    collection: BarestepWood
-  itemDrop: FloorTileItemWood
-  heatCapacity: 10000
-  tileRipResistance: 80
-
-- type: tile
   id: FloorWhite
   name: tiles-white-floor
   sprite: /Textures/_Maid/Tiles/white.png # Maid
@@ -2049,7 +2028,7 @@
   footstepSounds:
     collection: FootstepBlood
   itemDrop: FloorTileItemFlesh
-  friction: 0.25 #slippy
+  #friction: 0.25 #slippy Goob station change, no longer slippery
   heatCapacity: 10000
   tileRipResistance: 80
 
@@ -2084,51 +2063,6 @@
   itemDrop: FloorTileItemGratingMaint
   heatCapacity: 10000
   tileRipResistance: 225
-
-- type: tile
-  id: FloorWoodTile
-  name: tiles-wood2
-  sprite: /Textures/_Maid/Tiles/wood_tile.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepWood
-  barestepSounds:
-    collection: BarestepWood
-  itemDrop: FloorTileItemWoodPattern
-  heatCapacity: 10000
-  tileRipResistance: 75
-
-- type: tile
-  id: FloorBrokenWood
-  name: tiles-wood3
-  sprite: /Textures/_Maid/Tiles/wood_broken.png
-  variants: 7
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepWood
-  barestepSounds:
-    collection: BarestepWood
-  itemDrop: MaterialWoodPlank1
-  heatCapacity: 10000
-  tileRipResistance: 60
 
 - type: tile
   id: FloorWebTile
@@ -2300,27 +2234,6 @@
   deconstructTools: [ Prying ]
   itemDrop: FloorTileItemAstroAsteroidSand
   weather: false
-
-- type: tile
-  id: FloorWoodLarge
-  name: tiles-wood-large
-  sprite: /Textures/_Maid/Tiles/wood_large.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepWood
-  barestepSounds:
-    collection: BarestepWood
-  itemDrop: FloorTileItemWoodLarge
-  heatCapacity: 10000
-  tileRipResistance: 100
 
 - type: tile
   id: FloorWhiteMarble

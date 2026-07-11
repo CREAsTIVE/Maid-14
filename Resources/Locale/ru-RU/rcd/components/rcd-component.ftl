@@ -6,11 +6,11 @@ rcd-component-examine-build-details = Выбран режим строитель
 ### Interaction Messages
 
 # Mode change
-rcd-component-change-mode = РСУ переключён в режим '{ $mode }'.
-rcd-component-change-build-mode = РСУ переключён в режим строительства. Строится { $name }.
+rcd-component-change-mode = РЦД переключён в режим '{ $mode }'.
+rcd-component-change-build-mode = РЦД переключён в режим строительства. Строится { $name }.
 # Ammo count
-rcd-component-no-ammo-message = В РСУ закончились заряды!
-rcd-component-insufficient-ammo-message = В РСУ не хватает зарядов!
+rcd-component-no-ammo-message = В РЦД закончились заряды!
+rcd-component-insufficient-ammo-message = В РЦД не хватает зарядов!
 # Deconstruction
 rcd-component-tile-indestructible-message = Эта клетка не может быть демонтирова!
 rcd-component-deconstruct-target-not-on-whitelist-message = Вы не можете демонтировать это!
@@ -35,10 +35,13 @@ rcd-component-lighting = Освещение
 
 ### Prototype names (note: constructable items will be puralized)
 
-rcd-component-piping = Piping
-rcd-component-atmosphericutility = Atmospheric Utility
-rcd-component-pumps = Pumps & Valves
-rcd-component-vents = Vents
+rcd-component-piping = Трубы
+rcd-component-atmosphericutility = Атмосферное оборудование
+rcd-component-pumps = Насосы и Клапаны
+rcd-component-vents = Вентиляции
 rcd-component-deconstruct = демонтаж
 rcd-component-floor-steel = стальной пол
 rcd-component-plating = корпусное покрытие
+
+rcd-component-deconstruct-target-no-access = У вас нет доступа для демонтажа этого!
+rcd-component-deconstruct-target-is-bolted = Болты механизма препятствуют демонтажу!

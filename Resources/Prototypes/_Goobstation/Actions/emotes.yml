@@ -27,6 +27,8 @@
   - does a flip
   - does a flip.
   - does a flip!
+  - делает сальто # MAID ru emotes
+  - кувыркается # MAID ru emotes
   event: !type:AnimationFlipEmoteEvent
 
 - type: emote
@@ -70,6 +72,9 @@
   - spins
   - spins.
   - spins!
+  - крутится # MAID ru emotes
+  - кружится # MAID ru emotes
+  - вращается # MAID ru emotes
   event: !type:AnimationSpinEmoteEvent
 
 - type: emote
@@ -81,4 +86,7 @@
   - jumps
   - jumps.
   - jumps!
+  - прыгает # MAID ru emotes
+  - подпрыгивает # MAID ru emotes
+  - подскакивает # MAID ru emotes
   event: !type:AnimationJumpEmoteEvent

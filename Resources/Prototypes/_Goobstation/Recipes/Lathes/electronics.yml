@@ -91,26 +91,40 @@
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: PlumbingPumpCircuitboard
+  result: PlumbingPumpCircuitboard
   icon:
     sprite: _Goobstation/Structures/Machines/Plumbing/liquid_pump.rsi
     state: icon
-  result: PlumbingPumpCircuitboard
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
+  id: TeslaCoilCircuitboard
+  result: TeslaCoilCircuitboard
   icon:
     sprite:  Structures/Power/Generation/Tesla/coil.rsi
     state: coil
-  id: TeslaCoilCircuitboard
-  result: TeslaCoilCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+  icon:
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_processor.rsi
+    state: processor
+  id: SlimeGrinderMachineCircuitboard
+  result: SlimeGrinderMachineCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseResearchComputerRecipeCategory ]
+  icon: _Goobstation/Structures/Machines/Icons/Computers/xenobiology.png
+  id: XenobiologyBountyComputerCircuitboard
+  result: XenobiologyBountyComputerCircuitboard
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
+  id: RadiationCollectorCircuitboard
+  result: RadiationCollectorCircuitboard
   icon:
     sprite:  Structures/Power/Generation/Singularity/collector.rsi
     state: ca_on
-  id: RadiationCollectorCircuitboard
-  result: RadiationCollectorCircuitboard
 
 - type: latheRecipe
   parent: [ BaseEngineeringMachineRecipeCategory ]
@@ -125,3 +139,9 @@
     sprite:  _Goobstation/Structures/Machines/comms_transmitter.rsi
     state: base
   result: TelecomTransmitterCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseElectronicsRecipe, BaseCircuitryRecipeCategory ]
+  id: CameraElectronics
+  icon: { sprite: Structures/Wallmounts/camera.rsi, state: cameracase }
+  result: CameraElectronics

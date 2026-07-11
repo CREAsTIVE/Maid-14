@@ -1,0 +1,12 @@
+ent-WallRockAndesiteGibtonite = андезит
+    .desc = Сдерживает воздух внутри и серую волну снаружи.
+ent-WallRockBasaltGibtonite = базальт
+    .desc = Сдерживает воздух внутри и серую волну снаружи.
+ent-WallRockChromiteGibtonite = хромит
+    .desc = Сдерживает воздух внутри и серую волну снаружи.
+ent-WallRockGibtonite = порода
+    .desc = Сдерживает воздух внутри и серую волну снаружи.
+ent-WallRockSandGibtonite = песчаник
+    .desc = Сдерживает воздух внутри и серую волну снаружи.
+ent-WallRockSnowGibtonite = сугроб
+    .desc = Сдерживает воздух внутри и серую волну снаружи.

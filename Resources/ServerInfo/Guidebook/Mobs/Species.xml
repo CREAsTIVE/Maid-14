@@ -15,7 +15,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <Document>
   # Расы
 
-  Нанотразен нанимает разнообразные разумные виды.
+  Нанотрейзен нанимает разнообразные разумные виды.
 
   <Box>
     <GuideEntityEmbed Entity="MobArachnid" Caption="Arachnid"/>
@@ -41,6 +41,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="MobYowie" Caption="Yowie"/>
     <GuideEntityEmbed Entity="MobChitinid" Caption="Chitinid"/>
     <GuideEntityEmbed Entity="MobFeroxi" Caption="Feroxi"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="MobShadowkin" Caption="Shadowkin"/>
   </Box>
 
 </Document>

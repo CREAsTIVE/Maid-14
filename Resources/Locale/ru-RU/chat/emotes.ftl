@@ -16,7 +16,7 @@ chat-emote-name-salute = Отдать честь
 chat-emote-name-gasp = Задыхаться
 chat-emote-name-deathgasp = Предсм. хрип
 chat-emote-name-weh = Вех
-chat-emote-name-hew = Hew
+chat-emote-name-hew = Хев
 chat-emote-name-sneeze = Чихание
 chat-emote-name-cough = Кашель
 chat-emote-name-monkeyscreeches = Визг обезьяны
@@ -35,8 +35,6 @@ chat-emote-name-robotbeep = Робот
 # Shadowkin
 chat-emote-name-mars = Марс
 chat-emote-name-wurble = Воркотание
-# Vulp
-chat-emote-name-tailwag = Вилять хвостом
 # Felinid / Tajaran
 chat-emote-name-meow = Мяукать
 chat-emote-name-mew = Мявкать
@@ -60,10 +58,11 @@ chat-emote-msg-snap = щёлкает {POSS-ADJ($entity)} пальцами.
 chat-emote-msg-salute = отдает честь.
 chat-emote-msg-deathgasp = отключается и бессильно падает, {POSS-ADJ($entity)} глаза становятся пустыми и безжизненными...
 chat-emote-msg-deathgasp-monkey = издаёт последний визг, после чего падает и замирает...
+chat-emote-msg-deathgasp-scurret = издаёт последнее «ва» и замирает...
 chat-emote-msg-deathgasp-silicon = отключается и бессильно падает, {POSS-ADJ($entity)} огни растворяются в темноте...
 chat-emote-msg-buzz = жужжит!
 chat-emote-msg-weh = вех!
-chat-emote-msg-hew = hews!
+chat-emote-msg-hew = хев!
 chat-emote-msg-chirp = чирикает!
 chat-emote-msg-beep = издает бип.
 chat-emote-msg-boop = издает буп.
@@ -80,5 +79,4 @@ chat-emote-msg-cathisses = шипит.
 chat-emote-msg-monkeyscreeches = визжит!
 chat-emote-msg-yawn = зевает.
 chat-emote-msg-snore = храпит.
-chat-emote-msg-tailwag = виляет хвостом.
 chat-emote-msg-gasp = задыхается.

@@ -39,3 +39,7 @@ ent-ClothingHandsKnucklesQuartermaster = гравированный кастет
     .suffix = НЕ МАППИТЬ
 ent-ClothingHandsKnuckleBoneCrushers = дробители костей
     .desc = Благословлены богами, чтобы разбивать всех непокорных.
+
+ent-ClothingHandsGlovesGuerrilla = партизанские перчатки
+    .desc = Высококачественные синдикатные боевые перчатки, хороши для захвата и поглощения электрических разрядов. Кажется, работают на телекристаллах.
+

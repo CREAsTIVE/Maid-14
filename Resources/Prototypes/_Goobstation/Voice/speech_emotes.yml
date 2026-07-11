@@ -125,6 +125,8 @@
   chatTriggers:
     - gulps
     - gulp
+    - глотает # MAID ru emotes
+    - сглатывает # MAID ru emotes
 
 - type: emote
   id: Surprised

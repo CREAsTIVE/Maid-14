@@ -90,10 +90,12 @@ liar-word-33 = делает
 liar-word-replacement-33 = не делает
 
 liar-word-34 = сделал
+liar-word-34-2 = делал
 liar-word-35 = сделала
 liar-word-36 = сделало
 liar-word-37 = сделали
 liar-word-replacement-34 = не сделал
+liar-word-replacement-34-2 = не делал
 liar-word-replacement-35 = не сделала
 liar-word-replacement-36 = не сделало
 liar-word-replacement-37 = не сделали

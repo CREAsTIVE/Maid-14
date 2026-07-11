@@ -1,0 +1,67 @@
+# Scurrets from Planet Wawa have two parts to their name - a 'chosen' and 'qualitative' name.
+
+# The chosen name is picked by the scurret themselves,
+# encompassing a trait or value they hold themselves
+# to or have a high value for. Scurrets sometimes change this
+# name to denote an important moment in their life.
+
+# It appears to be common for scurret sets to share the same
+# chosen name, with the gaining of a pup's own chosen name
+# signalling their transition to adulthood in the community.
+
+# Given the scurret language is untranslated, these names are
+# usually guessed via charades or Pictionary.
+
+# When all else fails, to NT and her crews, Wa is as good a name as any.
+
+names-scurret-first-dataset-1 = Ва
+names-scurret-first-dataset-2 = Спокойствие
+names-scurret-first-dataset-3 = Довольство
+names-scurret-first-dataset-4 = Терпение
+names-scurret-first-dataset-5 = Расслабленность
+names-scurret-first-dataset-6 = Безмятежность
+names-scurret-first-dataset-7 = Блаженство
+names-scurret-first-dataset-8 = Рвение
+names-scurret-first-dataset-9 = Счастье
+names-scurret-first-dataset-10 = Вдохновение
+names-scurret-first-dataset-11 = Живость
+names-scurret-first-dataset-12 = Игривость
+names-scurret-first-dataset-13 = Сияние
+names-scurret-first-dataset-14 = Яркость
+names-scurret-first-dataset-15 = Храбрость
+names-scurret-first-dataset-16 = Умелость
+names-scurret-first-dataset-17 = Уверенность
+names-scurret-first-dataset-18 = Отвага
+names-scurret-first-dataset-19 = Гордость
+names-scurret-first-dataset-20 = Доблесть
+names-scurret-first-dataset-21 = Забота
+names-scurret-first-dataset-22 = Сострадание
+names-scurret-first-dataset-23 = Эмпатия
+names-scurret-first-dataset-24 = Сила
+names-scurret-first-dataset-25 = Свобода
+names-scurret-first-dataset-26 = Удача
+names-scurret-first-dataset-27 = Достоинство
+names-scurret-first-dataset-28 = Благословение
+names-scurret-first-dataset-29 = Везучесть
+names-scurret-first-dataset-30 = Доверие
+names-scurret-first-dataset-31 = Быстрота
+names-scurret-first-dataset-32 = Энергичность
+names-scurret-first-dataset-33 = Мудрость
+names-scurret-first-dataset-34 = Бдительность
+names-scurret-first-dataset-35 = Воодушевление
+names-scurret-first-dataset-36 = Внимательность
+names-scurret-first-dataset-37 = Выживание
+names-scurret-first-dataset-38 = Медитация
+names-scurret-first-dataset-39 = Охота
+names-scurret-first-dataset-40 = Наблюдение
+names-scurret-first-dataset-41 = Отдых
+names-scurret-first-dataset-42 = Доставка
+names-scurret-first-dataset-43 = Плавание
+names-scurret-first-dataset-44 = Раскачивание
+names-scurret-first-dataset-45 = Взрыв
+names-scurret-first-dataset-46 = Романтика
+names-scurret-first-dataset-47 = Дальновидность
+names-scurret-first-dataset-48 = Верность
+names-scurret-first-dataset-49 = Любознательность
+# After consulting with lawyers, NT added this one to the dictionary.
+names-scurret-first-dataset-50 = Юридически Отличительный

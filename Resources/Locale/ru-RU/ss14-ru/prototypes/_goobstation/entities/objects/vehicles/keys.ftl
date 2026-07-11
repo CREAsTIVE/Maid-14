@@ -8,3 +8,5 @@ ent-VehicleKeyATV = ключи от квадроцикла
     .desc = Думаешь это просто один ключ? КВАДроцикл, а "quad" это четыре!
 ent-VehicleKeyJanicart = ключи от уборочной машины
     .desc = Интересный дизайн.
+ent-VehicleKeyForklift = ключи от автопогрузчика
+    .desc = Ключи к погрузчику!

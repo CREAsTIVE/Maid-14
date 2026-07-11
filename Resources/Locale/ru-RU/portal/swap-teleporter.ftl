@@ -14,3 +14,5 @@ swap-teleporter-examine-time-remaining =
         [few] секунды.
        *[other] секунд.
     }[/color]
+
+swap-teleporter-popup-teleport-fail = {CAPITALIZE(THE($entity))} словно ничего не делает...

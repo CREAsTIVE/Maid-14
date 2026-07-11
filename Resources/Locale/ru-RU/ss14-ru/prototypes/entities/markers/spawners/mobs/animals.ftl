@@ -1,2 +1,1 @@
-
-
+ent-SpawnMobMoproach = спавнер мопрака

@@ -4,5 +4,5 @@ rcd-ammo-component-on-examine =
         [few] заряда
        *[other] зарядов
     }.
-rcd-ammo-component-after-interact-full = РСУ полон!
-rcd-ammo-component-after-interact-refilled = Вы пополняете РСУ.
+rcd-ammo-component-after-interact-full = РЦД полон!
+rcd-ammo-component-after-interact-refilled = Вы пополняете РЦД.

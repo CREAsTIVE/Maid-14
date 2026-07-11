@@ -64,3 +64,7 @@ ent-BoxSurvivalSlotsSyndicatePlasma = { ent-BoxSurvivalSlotsSyndicate }
 ent-BoxMimeSlotsPlasma = { ent-BoxSurvivalSlots }
     .suffix = Мим, Плазма
     .desc = { ent-BoxSurvivalSlots.desc }
+
+ent-BoxSurvivalSlotsSilicon = аварийная коробка для кремниевых
+    .desc = Коробка с базовыми инструментами для самостоятельного ремонта.
+

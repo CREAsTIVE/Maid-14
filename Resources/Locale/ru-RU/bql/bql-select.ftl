@@ -1,8 +1,8 @@
 cmd-bql_select-desc = Show results of a BQL query in a client-side window
 cmd-bql_select-help =
-    Usage: bql_select <bql query>
-    The opened window allows you to teleport to or view variables the resulting entities.
-cmd-bql_select-err-server-shell = Cannot be executed from server shell
+    Usage: bql_select <bql запрос>
+    Открывшееся окно позволяет телепортироваться или просматривать переменные получившихся сущностей.
+cmd-bql_select-err-server-shell = Невозможно выполнить из оболочки сервера
 cmd-bql_select-err-rest = Warning: unused part after BQL query: "{ $rest }"
 ui-bql-results-title = BQL results
 ui-bql-results-vv = VV

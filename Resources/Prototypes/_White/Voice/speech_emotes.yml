@@ -22,6 +22,8 @@
   chatMessages: [ "chat-emote-msg-nod" ]
   chatTriggers:
     - nods
+    - кивает # MAID ru emotes
+    - кивнул # MAID ru emotes
 
 - type: emote
   id: ShakeHead
@@ -29,6 +31,14 @@
   chatMessages: [ "chat-emote-msg-shake-head" ]
   chatTriggers:
     - shakes head
+    - качает головой # MAID ru emotes
+    - мотает головой # MAID ru emotes
+    - замотал головой # MAID ru emotes
+    - замотала головой # MAID ru emotes
+    - помотал головой # MAID ru emotes
+    - помотала головой # MAID ru emotes
+    - покачал головой # MAID ru emotes
+    - покачала головой # MAID ru emotes
 
 - type: emote
   id: Frown
@@ -36,6 +46,10 @@
   chatMessages: [ "chat-emote-msg-frown" ]
   chatTriggers:
     - frowns
+    - хмурится # MAID ru emotes
+    - прищуривается # MAID ru emotes
+    - нахмурился # MAID ru emotes
+    - нахмурилась # MAID ru emotes
 
 - type: emote
   id: Smile
@@ -43,3 +57,9 @@
   chatMessages: [ "chat-emote-msg-smile" ]
   chatTriggers:
     - smiles
+    - улыбается # MAID ru emotes
+    - лыбится # MAID ru emotes
+    - заулыбался # MAID ru emotes
+    - заулыбалась # MAID ru emotes
+    - ухмыльнулся # MAID ru emotes
+    - ухмыльнулась # MAID ru emotes

@@ -1,30 +1,51 @@
-ent-ChronoPDA = КПК будущего
-    .desc = Мощный квантовый компьютер, замаскированный для маскировки под обычный КПК.
-ent-GmanPDA = странный КПК
+ent-ChronoPDA = ПДА будущего
+    .desc = Мощный квантовый компьютер, замаскированный для маскировки под обычный ПДА.
+ent-GmanPDA = странный ПДА
     .desc = Ваш разум не может до конца постичь это.
-ent-HelldiverPDA = КПК спасателя
+ent-HelldiverPDA = ПДА спасателя
     .desc = Пахнет трупами насекомых и андроидов.
-ent-HecuPDA = КПК HECU
+ent-HecuPDA = ПДА HECU
     .desc = Пахнет порохом.
-ent-BlueshieldPDA = КПК синего щита
+ent-BlueshieldPDA = ПДА синего щита
     .desc = На лицевой стороне выгравирован серебряный щит Синего щита.
-ent-DeathsquadPDA = КПК эксадрона смерти
+ent-DeathsquadPDA = ПДА эксадрона смерти
     .desc = Рвите и метайте всех и вся, пока все не будет готово.
-ent-NanotrasenRepresentativePDA = КПК представителя Nanotrasen
+ent-NanotrasenRepresentativePDA = ПДА представителя Нанотрейзен
     .desc = Дьявол кроется в деталях.
-ent-TrainerPDA = КПК наставника
-    .desc = Стандартный КПК наставника Nanotrasen
-ent-NavyCaptainPDA = КПК капитана ВКС
+ent-TrainerPDA = ПДА наставника
+    .desc = Стандартный ПДА наставника Нанотрейзен
+ent-NavyCaptainPDA = ПДА капитана ВКС
     .desc = Дьявол кроется в деталях.
-ent-NavyOfficerPDA = КПК офицера ЦК
+ent-NavyOfficerPDA = ПДА офицера ЦК
     .desc = { ent-NavyCaptainPDA.desc }
-ent-SpecialOperationsOfficerPDA = КПК офицера специальных операций.
+ent-SpecialOperationsOfficerPDA = ПДА офицера специальных операций.
     .desc = { ent-NavyCaptainPDA.desc }
-ent-DiplomatPDA = КПК дипломата.
+ent-DiplomatPDA = ПДА дипломата.
     .desc = { ent-NavyCaptainPDA.desc }
-ent-InspectorPDA = КПК ревизора.
+ent-InspectorPDA = ПДА ревизора.
     .desc = { ent-NavyCaptainPDA.desc }
-ent-SyndiPDANukie = КПК синдиката
+ent-SyndiPDANukie = ПДА синдиката
     .desc = Ладно, пришло время стать продуктивным рабоч... о, круто, я плохой парень, пришло время убивать всех!
-ent-HighCommandPDA = КПК офицера Синдиката
-    .desc = Обычный КПК синдиката, украшенный позолоченными символами. Его владелец явно занимает более высокое положение.
+ent-HighCommandPDA = ПДА офицера Синдиката
+    .desc = Обычный ПДА синдиката, украшенный позолоченными символами. Его владелец явно занимает более высокое положение.
+
+ent-CommandMaidIDCard = ID карта командной горничной
+    .desc = Карта, необходимая для доступа к различным зонам на станции.
+
+ent-CommandMaidPDA = ПДА командной горничной
+    .desc = Пахнет отбеливателем.
+
+
+ent-PartyMakerIDCard = ID-карта организатора вечеринок
+    .desc = Карта, необходимая для доступа в различные зоны на станции.
+
+ent-PartyMakerPDA = ПДА организатора вечеринок
+    .desc = Лучший помощник для организации вечеринок.
+
+ent-RoboticistPDA = ПДА роботехника
+    .desc = Он покрыт несбывшимися амбициями.
+
+ent-SecurityClownPDA = ПДА клоуна-офицера
+    .desc = У кого в службе безопасности розовый ПДА?
+ent-VirologistPDA = ПДА вирусолога
+    .desc = Вы не уверены, безопасно ли к нему прикасаться.

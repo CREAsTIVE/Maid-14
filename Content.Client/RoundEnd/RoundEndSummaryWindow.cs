@@ -85,7 +85,7 @@ namespace Content.Client.RoundEnd
             var roundEndTabs = new TabContainer();
             roundEndTabs.AddChild(MakeRoundEndSummaryTab(gm, roundEnd, roundTimeSpan, roundId));
             roundEndTabs.AddChild(MakePlayerManifestTab(info));
-            roundEndTabs.AddChild(MakeStationReportTab()); //goob
+            // roundEndTabs.AddChild(MakeStationReportTab()); //goob // MAID round end manifest
 
             Contents.AddChild(roundEndTabs);
 
@@ -171,13 +171,14 @@ namespace Content.Client.RoundEnd
             {
                 var panel = new PanelContainer
                 {
-                    StyleClasses = { StyleNano.StyleClassBackgroundBaseDark },
-                    Margin = new Thickness(0, 0, 0, 6)
+                    // StyleClasses = { StyleNano.StyleClassBackgroundBaseDark }, // MAID round end manifest
+                    Margin = new Thickness(0, 0, 0, 3)
                 };
 
                 var hBox = new BoxContainer
                 {
                     Orientation = LayoutOrientation.Horizontal,
+                    VerticalAlignment = VAlignment.Center, // MAID round end manifest
                     VerticalExpand = true
                 };
 
@@ -187,7 +188,7 @@ namespace Content.Client.RoundEnd
                     {
                         OverrideDirection = Direction.South,
                         VerticalAlignment = VAlignment.Center,
-                        SetSize = new Vector2(64, 64),
+                        SetSize = new Vector2(32, 32), // MAID round end manifest
                         VerticalExpand = true,
                         Stretch = SpriteView.StretchMode.Fill,
                         Margin = new Thickness(3, 0, 3, 0)
@@ -197,13 +198,14 @@ namespace Content.Client.RoundEnd
                 var textVBox = new BoxContainer
                 {
                     Orientation = LayoutOrientation.Vertical,
-                    VerticalExpand = true,
+                    // VerticalExpand = true, // MAID round end manifest
                     SeparationOverride = 2,
                 };
 
                 var playerTitleBox = new BoxContainer
                 {
                     Orientation = LayoutOrientation.Horizontal,
+                    VerticalAlignment = VAlignment.Center, // MAID round end manifest
                 };
 
                 var playerInfoText = new RichTextLabel
@@ -216,18 +218,18 @@ namespace Content.Client.RoundEnd
                 {
                     var playerNameText = new Label
                     {
-                        VerticalAlignment = VAlignment.Bottom,
-                        StyleClasses = { StyleNano.StyleClassLabelHeading },
+                        VerticalAlignment = VAlignment.Center, // MAID round end manifest
+                        // StyleClasses = { StyleNano.StyleClassLabelSubText }, // MAID round end manifest
                         Margin = new Thickness(0, 0, 6, 0),
                         Text = playerInfo.PlayerICName
                     };
                     playerTitleBox.AddChild(playerNameText);
 
                     var role = Loc.GetString(playerInfo.Role);
-                    var playerRoleText = new Label
+                    var playerRoleText = new RichTextLabel // MAID round end manifest
                     {
-                        VerticalAlignment = VAlignment.Bottom,
-                        StyleClasses = { StyleNano.StyleClassLabelSubText },
+                        VerticalAlignment = VAlignment.Center, // MAID round end manifest
+                        // StyleClasses = { StyleNano.StyleClassLabelSubText }, // MAID round end manifest
                         Text = Loc.GetString("round-end-summary-window-player-name",
                             ("player", playerInfo.PlayerOOCName))
                     };
@@ -247,6 +249,7 @@ namespace Content.Client.RoundEnd
                     var playerLastWordsText = new RichTextLabel
                     {
                         VerticalAlignment = VAlignment.Center,
+                        // StyleClasses = { StyleNano.StyleClassLabelSubText }, // MAID round end manifest
                         VerticalExpand = true,
                     };
 
@@ -267,7 +270,7 @@ namespace Content.Client.RoundEnd
                     VerticalExpand = true,
                 };
 
-                textVBox.AddChild(deathLabel);
+                // textVBox.AddChild(deathLabel); MAID round end manifest // MAID round end manifest
 
                 if (playerInfo.EntMobState == MobState.Dead
                     && playerInfo.DamagePerGroup.Values.Any(v => v > 0))
@@ -298,10 +301,18 @@ namespace Content.Client.RoundEnd
                         _ => "mysterious",
                     };
 
+                    // MAID BEGIN round end manifest
+                    /*
                     deathLabel.SetMarkup(
                         Loc.GetString("round-end-summary-window-death",
                             ("severity", severityAdj),
                             ("type", typeAdj)));
+                    */
+                    deathLabel.SetMarkup(
+                        Loc.GetString("round-end-summary-window-death",
+                            ("severity", Loc.GetString($"round-end-summary-window-death-severity-{severityAdj}")),
+                            ("type", Loc.GetString($"round-end-summary-window-death-type-{typeAdj}"))));
+                    // MAID END round end manifest
 
                     var damageTable = new GridContainer
                     {
@@ -354,7 +365,7 @@ namespace Content.Client.RoundEnd
                         damageTable.AddChild(damagePanel);
                     }
 
-                    textVBox.AddChild(damageTable);
+                    // textVBox.AddChild(damageTable); // MAID round end manifest
                 }
                 else if (playerInfo.EntMobState == MobState.Invalid)
                 {

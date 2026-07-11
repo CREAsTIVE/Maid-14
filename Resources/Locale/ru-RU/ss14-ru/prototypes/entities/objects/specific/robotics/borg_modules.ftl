@@ -56,7 +56,7 @@ ent-BorgModuleAdvancedTool = продвинутый инструментальн
     .desc = { ent-BaseBorgModule.desc }
 ent-BorgModuleConstruction = строительный модуль борга
     .desc = { ent-BaseBorgModule.desc }
-ent-BorgModuleRCD = РСУ-модуль борга
+ent-BorgModuleRCD = РЦД-модуль борга
     .desc = { ent-BaseBorgModule.desc }
 ent-BorgModuleTopicals = модуль борга наружных препаратов
     .desc = { ent-BaseBorgModuleMedical.desc }
@@ -134,3 +134,11 @@ ent-BorgModuleSurgery = хирургический модуль борга
     .desc = { ent-BaseBorgModuleMedical.desc }
 ent-BorgModuleAdvancedSurgery = продвинутый хирургический модуль борга
     .desc = { ent-BaseBorgModuleMedical.desc }
+
+ent-BorgModuleAdvancedClowning = продвинутый клоунский киборг-модуль
+    .desc = Продвинутый сервисный модуль только для самых глупых киборгов! Встроенная печь, автоматически выпекающая пирожки, голопроектор кожуры и гудок.
+
+ent-XenoborgModuleSuperCloakDevice = модуль маскировки ксеноборга
+    .desc = Модуль с устройством, позволяющим ксеноборгам становиться по-настоящему невидимыми на меньшее время.
+ent-MothershipModule = модуль материнского корабля
+    .desc = Модуль, помогающий ядрам материнского корабля и устанавливающий другие модули.

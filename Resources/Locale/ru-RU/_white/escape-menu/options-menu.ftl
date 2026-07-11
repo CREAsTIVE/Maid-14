@@ -4,13 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 ui-options-log-in-chat = Включить логи действий в чате
-
-ui-options-function-auto-get-up = Автоматически вставать после падения
-
+ui-options-function-auto-get-up = Автоматически вставать при падении
 ui-options-emotes-menu = Тип меню эмоций:
-
 ui-options-function-open-emotions-menu = Открыть меню эмоций
-
 ui-options-emotes-menu-style-window = Окно
-
 ui-options-emotes-menu-style-radial = Радиальное
+
+ui-options-hud-theme-xenomorph = Ксеноморф

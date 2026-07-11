@@ -1,0 +1,1 @@
+ent-SpawnMobGoidaBot = спавнер гойдабота

@@ -1,0 +1,2 @@
+ghost-role-information-rothulk-name = Гнилой Громила
+ghost-role-information-rothulk-description = Призванный Рейфом, ты — жалкая мерзость из грязи и слизи. Уничтожай всё на своём пути и умри во взрыве славного токсина.

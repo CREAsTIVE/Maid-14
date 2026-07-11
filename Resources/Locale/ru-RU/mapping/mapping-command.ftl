@@ -1,5 +1,5 @@
 cmd-mapping-desc = Создаёт или загружает карту и телепортирует вас на неё.
-cmd-mapping-help = Использование: mapping [MapID] [Path] [Grid]
+cmd-mapping-help = Использование: mapping [MapID] [Path]
 cmd-mapping-server = Только игроки могут использовать эту команду.
 cmd-mapping-error = При создании новой карты произошла ошибка.
 cmd-mapping-try-grid = Не удалось загрузить файл как карту. Попытка загрузки файла как грид...

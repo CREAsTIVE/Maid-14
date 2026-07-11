@@ -1,3 +1,3 @@
 ent-WeaponMechIndustrialKineticAccelerator = протокинетический ускоритель
-    .desc = Fires huge damage kinetic bolts at a medium range.
+    .desc = Выстреливает кинетическими болтами с огромным уроном на средней дистанции.
     .suffix = Оружие меха, Оружие, Промышленное, Протокинетический ускоритель

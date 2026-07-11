@@ -82,6 +82,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Managers;
@@ -95,6 +97,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Respawn;
 
@@ -108,6 +111,7 @@ public sealed class SpecialRespawnSystem : SharedSpecialRespawnSystem
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!; // MAID nuke disk respawn
 
     public override void Initialize()
     {
@@ -176,6 +180,12 @@ public sealed class SpecialRespawnSystem : SharedSpecialRespawnSystem
         if (!_proto.HasIndex(component.Prototype))
             return;
 
+        if (TryFindRespawnTarget(component.Tag, out var targetCoords)) // MAID nuke disk respawn
+        {
+            Respawn(uid, component.Prototype, targetCoords.Value); // MAID nuke disk respawn
+            return; // MAID nuke disk respawn
+        }
+
         if (TryFindRandomTile(entityGridUid.Value, entityMapUid.Value, 10, out var coords))
             Respawn(uid, component.Prototype, coords);
 
@@ -209,6 +219,27 @@ public sealed class SpecialRespawnSystem : SharedSpecialRespawnSystem
             Respawn(uid, component.Prototype, pos);
         }
     }
+
+    // MAID BEGIN nuke disk respawn
+    private bool TryFindRespawnTarget(string componentTag, [NotNullWhen(true)] out EntityCoordinates? pos)
+    {
+        var respawnPoints = _entityManager
+            .EntityQuery<SpecialRespawnTargetComponent>()
+            .Where(comp => comp.Tag == componentTag)
+            .ToList();
+
+        respawnPoints.Sort((a, b) => b.Priority - a.Priority); // From highest to smallest
+
+        if (!respawnPoints.TryFirstOrDefault(out var respawnPoint))
+        {
+            pos = null;
+            return false;
+        }
+
+        pos = Comp<TransformComponent>(respawnPoint.Owner).Coordinates;
+        return true;
+    }
+    // MAID END
 
     /// <summary>
     /// Respawn the entity and log it.

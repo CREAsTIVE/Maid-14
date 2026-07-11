@@ -78,3 +78,47 @@ ent-SurgeryRemoveEyes = Удаление глаз
     .desc = { ent-SurgeryBase.desc }
 ent-SurgeryInsertEyes = Вставка глаз
     .desc = { ent-SurgeryBase.desc }
+ent-SurgeryCloseIncisionChest = Закрыть разрез
+    .desc = Закрыть разрез на грудной клетке.
+
+ent-SurgeryCloseIncisionHead = Закрыть разрез
+    .desc = Закрыть разрез на голове.
+
+ent-SurgeryInsertArmAugment = Вставить улучшение руки
+    .desc = Установить кибернетическое улучшение в руку.
+
+ent-SurgeryInsertPowerCellCharger = Вставить внутреннее зарядное устройство
+    .desc = Установить внутреннее зарядное устройство для батареи.
+
+ent-SurgeryInsertPowerCellSlot = Вставить слот для батареи
+    .desc = Установить слот для батареи.
+
+ent-SurgeryInsertPump = Вставить насос
+    .desc = Установить насос.
+
+ent-SurgeryLobotomize = Лоботомия
+    .desc = Провести лоботомию пациента.
+
+ent-SurgeryMendBrainTissue = Восстановить ткань мозга
+    .desc = Восстановить повреждённую ткань мозга.
+
+ent-SurgeryOpenArmAugment = Вскрыть полость для улучшения руки
+    .desc = Подготовить полость для установки улучшения руки.
+
+ent-SurgeryOpenPowerCellCharger = Вскрыть полость для зарядного устройства
+    .desc = Подготовить полость для установки зарядного устройства.
+
+ent-SurgeryOpenPowerCellSlot = Вскрыть полость для слота батареи
+    .desc = Подготовить полость для установки слота батареи.
+
+ent-SurgeryRemoveArmAugment = Удалить улучшение руки
+    .desc = Удалить кибернетическое улучшение из руки.
+
+ent-SurgeryRemovePowerCellCharger = Удалить внутреннее зарядное устройство
+    .desc = Удалить внутреннее зарядное устройство.
+
+ent-SurgeryRemovePowerCellSlot = Удалить слот для батареи
+    .desc = Удалить слот для батареи.
+
+ent-SurgeryRemovePump = Удалить насос
+    .desc = Удалить насос.

@@ -30,3 +30,11 @@ ent-BulletPistolSilver = пуля (.45 серебряная)
     .desc = { ent-BaseBullet.desc }
 ent-BulletFlock = шоковый болт
     .desc = { ent-BaseBullet.desc }
+
+ent-BulletMime = пуля (тихая)
+    .desc = Если вы это видите, вы, вероятно, мертвы!
+
+
+ent-ProjectileMonkeyDart = дротик, брошенный обезьяной
+    .desc = Если ты это видишь, ты, вероятно, мёртв!
+

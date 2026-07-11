@@ -27,23 +27,6 @@
       entity: FloorTileItemSteel
 
 - type: constructionGraph
-  id: TileWood
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: woodtile
-          completed:
-            - !type:SetStackCount
-              amount: 4
-          steps:
-            # Needs StackType ID
-            - material: WoodPlank
-              amount: 1
-    - node: woodtile
-      entity: FloorTileItemWood
-
-- type: constructionGraph
   id: TilesBrass
   start: start
   graph:
@@ -63,10 +46,10 @@
           steps:
             - material: Brass
               amount: 1
-    
+
     - node: filledPlate
       entity: FloorTileItemBrassFilled
-      
+
     - node: reebe
       entity: FloorTileItemBrassReebe
 
@@ -119,6 +102,39 @@
       entity: FloorTileItemFlesh
 
 - type: constructionGraph
+  id: TileWood
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: woodtile
+          completed:
+            - !type:SetStackCount
+              amount: 4
+          steps:
+            # Needs StackType ID
+            - material: WoodPlank
+              amount: 2
+    - node: woodtile
+      entity: FloorTileItemWood
+
+- type: constructionGraph
+  id: TileWoodPattern
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: woodtilepattern
+          completed:
+            - !type:SetStackCount
+              amount: 4
+          steps:
+            - material: WoodPlank
+              amount: 2
+    - node: woodtilepattern
+      entity: FloorTileItemWoodPattern
+
+- type: constructionGraph
   id: TileWoodLarge
   start: start
   graph:
@@ -133,3 +149,86 @@
               amount: 2
     - node: woodtilelarge
       entity: FloorTileItemWoodLarge
+
+- type: constructionGraph
+  id: TileWoodParquet
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: woodtileparquet
+          completed:
+            - !type:SetStackCount
+              amount: 4
+          steps:
+            # Needs StackType ID
+            - material: WoodPlank
+              amount: 2
+    - node: woodtileparquet
+      entity: FloorTileItemWoodParquet1
+#lightwood
+- type: constructionGraph
+  id: TileWoodBright
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: woodtilebright
+          completed:
+            - !type:SetStackCount
+              amount: 4
+          steps:
+            # Needs StackType ID
+            - material: WoodPlank
+              amount: 2
+    - node: woodtilebright
+      entity: FloorTileItemWoodBright
+
+- type: constructionGraph
+  id: TileWoodPatternBright
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: woodtilepatternbright
+          completed:
+            - !type:SetStackCount
+              amount: 4
+          steps:
+            - material: WoodPlank
+              amount: 2
+    - node: woodtilepatternbright
+      entity: FloorTileItemWoodBrightPattern
+
+- type: constructionGraph
+  id: TileWoodLargeBright
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: woodtilelargebright
+          completed:
+            - !type:SetStackCount
+              amount: 4
+          steps:
+            - material: WoodPlank
+              amount: 2
+    - node: woodtilelargebright
+      entity: FloorTileItemWoodBrightLarge
+
+- type: constructionGraph
+  id: TileWoodParquetBright
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: woodtileparquetbright
+          completed:
+            - !type:SetStackCount
+              amount: 4
+          steps:
+            # Needs StackType ID
+            - material: WoodPlank
+              amount: 2
+    - node: woodtileparquetbright
+      entity: FloorTileItemWoodBrightParquet

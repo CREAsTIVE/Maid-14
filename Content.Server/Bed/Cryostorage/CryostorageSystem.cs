@@ -63,6 +63,7 @@ using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Mind.Components;
+using Content.Shared.Respawn;
 using Content.Shared.StationRecords;
 using Content.Shared.UserInterface;
 using Robust.Server.Audio;
@@ -259,6 +260,7 @@ public sealed class CryostorageSystem : SharedCryostorageSystem
             }
         }
 
+        RespawnSpecialItemsInCryostorage(ent); // MAID cryo nuke disk
         comp.AllowReEnteringBody = false;
         _transform.SetParent(ent, PausedMap.Value);
         cryostorageComponent.StoredPlayers.Add(ent);
@@ -290,6 +292,30 @@ public sealed class CryostorageSystem : SharedCryostorageSystem
             playDefaultSound: false
         );
     }
+
+    // MAID BEGIN cryo nuke disk
+    private void RespawnSpecialItemsInCryostorage(EntityUid uid)
+    {
+        var query = EntityQueryEnumerator<SpecialRespawnComponent, TransformComponent>();
+        while (query.MoveNext(out var specialUid, out _, out var specialXform))
+        {
+            var parent = specialXform.ParentUid;
+            while (parent.IsValid() && parent != specialUid)
+            {
+                if (parent == uid)
+                {
+                    QueueDel(specialUid);
+                    break;
+                }
+
+                if (!TryComp(parent, out TransformComponent? parentXform))
+                    break;
+
+                parent = parentXform.ParentUid;
+            }
+        }
+    }
+    // MAID END cryo nuke disk
 
     private void HandleCryostorageReconnection(Entity<CryostorageContainedComponent> entity)
     {

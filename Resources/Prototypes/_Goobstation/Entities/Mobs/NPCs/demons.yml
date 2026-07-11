@@ -78,8 +78,9 @@
     radius: 1.5
     energy: 12.5
     color: "#793a80"
-  - type: Megafauna
-    loot: AnomalyCoreShadow
+  - type: SpawnLootOnDeath
+    table:
+      id: AnomalyCoreShadow
 
 - type: entity
   name: ???
@@ -113,8 +114,9 @@
   - type: Damageable
     damageContainer: ManifestedSpirit
     damageModifierSet: ManifestedSpirit
-  - type: Megafauna
-    loot: DiamondOre1
+  - type: SpawnLootOnDeath
+    table:
+      id: DiamondOre1Unprocessed
 
 - type: entity
   name: glutton

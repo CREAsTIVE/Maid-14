@@ -156,6 +156,12 @@
       inverted: false
       species:
       - Human
+  guides: # goobstation
+  - Command
+#  - Succession # Maid
+#  - StandardProceduresSOP # Maid
+#  - HeadOfPersonnelSOP # Maid
+  - Writing
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
@@ -203,6 +209,7 @@
     #gloves: ClothingHandsGlovesHop
     ears: ClothingHeadsetAltCommand
     belt: BoxFolderClipboard
+    eyes: ClothingEyesHudCommand
   storage:
     back:
     - Flash
@@ -218,4 +225,3 @@
     mask: ClothingMaskNeckGaiterRed
     neck: ClothingNeckCloakHop
     outerClothing: ClothingOuterWinterHoP
-

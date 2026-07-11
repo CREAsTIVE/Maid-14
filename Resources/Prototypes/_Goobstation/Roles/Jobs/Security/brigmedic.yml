@@ -19,6 +19,10 @@
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
   canBeAntag: true # Maid
+  guides:
+  - MedicalDoctor
+#  - BrigmedicSOP # Maid
+  - Medicine
   access:  # EE parity, make corpsman able function.
   - Security
   - Brig

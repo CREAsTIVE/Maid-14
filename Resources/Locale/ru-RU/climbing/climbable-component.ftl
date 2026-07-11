@@ -1,7 +1,7 @@
 ### UI
 
 # Verb name for climbing
-comp-climbable-verb-climb = Взобраться
+comp-climbable-verb-climb = Забраться
 
 ### Interaction Messages
 

@@ -1,31 +1,199 @@
 - type: entity
-  name: wood floor
+  name: wood floor bright
   parent: FloorTileItemBase
   id: FloorTileItemWoodBright
   components:
   - type: Sprite
-    state: wood
+    sprite: _Maid/Objects/Tiles/tile.rsi
+    state: wood_bright
   - type: Item
-    heldPrefix: wood
+    sprite: _Maid/Objects/Tiles/tile.rsi
+    inhandVisuals:
+     left:
+     - state: wood-inhand-left_bright
+     right:
+     - state: wood-inhand-right_bright
   - type: FloorTile
     outputs:
       - Plating
       - FloorWoodBright
   - type: Stack
     stackType: FloorTileWoodBright
+  - type: Construction
+    graph: TileWoodBright
+    node: woodtilebright
 
 - type: entity
-  name: wood pattern floor
+  name: wood floor pattern bright
   parent: FloorTileItemBase
   id: FloorTileItemWoodBrightPattern
   components:
   - type: Sprite
-    state: woodpatternfloor
+    sprite: _Maid/Objects/Tiles/tile.rsi
+    state: wood_pattern_bright
   - type: Item
-    heldPrefix: wood
+    sprite: _Maid/Objects/Tiles/tile.rsi
+    inhandVisuals:
+     left:
+     - state: wood-inhand-left_bright
+     right:
+     - state: wood-inhand-right_bright
   - type: FloorTile
     outputs:
       - Plating
       - FloorWoodBrightTile
   - type: Stack
     stackType: FloorTileWoodBrightPattern
+  - type: Construction
+    graph: TileWoodPatternBright
+    node: woodtilepatternbright
+
+- type: entity
+  name: wood floor large bright
+  parent: FloorTileItemBase
+  id: FloorTileItemWoodBrightLarge
+  components:
+  - type: Sprite
+    sprite: _Maid/Objects/Tiles/tile.rsi
+    state: wood_large_bright
+  - type: Item
+    sprite: _Maid/Objects/Tiles/tile.rsi
+    inhandVisuals:
+     left:
+     - state: wood-inhand-left_bright
+     right:
+     - state: wood-inhand-right_bright
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorWoodBrightLarge
+  - type: Stack
+    stackType: FloorTileWoodBrightLarge
+  - type: Construction
+    graph: TileWoodLargeBright
+    node: woodtilelargebright
+
+- type: entity
+  name: wood floor parquet bright
+  parent: FloorTileItemBase
+  id: FloorTileItemWoodBrightParquet
+  components:
+  - type: Sprite
+    sprite: _Maid/Objects/Tiles/tile.rsi
+    state: wood_parquet_bright
+  - type: Item
+    sprite: _Maid/Objects/Tiles/tile.rsi
+    inhandVisuals:
+     left:
+     - state: wood-inhand-left_bright
+     right:
+     - state: wood-inhand-right_bright
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorWoodBrightParquet
+  - type: Stack
+    stackType: FloorTileWoodBrightParquet
+  - type: Construction
+    graph: TileWoodParquetBright
+    node: woodtileparquetbright
+#darkwood
+- type: entity
+  name: wood floor
+  parent: FloorTileItemBase
+  id: FloorTileItemWood
+  components:
+  - type: Sprite
+    sprite: _Maid/Objects/Tiles/tile.rsi
+    state: wood
+  - type: Item
+    sprite: _Maid/Objects/Tiles/tile.rsi
+    inhandVisuals:
+     left:
+     - state: wood-inhand-left
+     right:
+     - state: wood-inhand-right
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorWood
+  - type: Stack
+    stackType: FloorTileWood
+  - type: Construction
+    graph: TileWood
+    node: woodtile
+
+- type: entity
+  name: wood pattern floor
+  parent: FloorTileItemBase
+  id: FloorTileItemWoodPattern
+  components:
+  - type: Sprite
+    sprite: _Maid/Objects/Tiles/tile.rsi
+    state: wood_pattern
+  - type: Item
+    sprite: _Maid/Objects/Tiles/tile.rsi
+    inhandVisuals:
+     left:
+     - state: wood-inhand-left
+     right:
+     - state: wood-inhand-right
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorWoodTile
+  - type: Stack
+    stackType: FloorTileWoodPattern
+  - type: Construction
+    graph: TileWoodPattern
+    node: woodtilepattern
+
+- type: entity
+  name: large wood floor
+  parent: FloorTileItemBase
+  id: FloorTileItemWoodLarge
+  components:
+  - type: Sprite
+    sprite: _Maid/Objects/Tiles/tile.rsi
+    state: wood_large
+  - type: Item
+    sprite: _Maid/Objects/Tiles/tile.rsi
+    inhandVisuals:
+     left:
+     - state: wood-inhand-left
+     right:
+     - state: wood-inhand-right
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorWoodLarge
+  - type: Stack
+    stackType: FloorTileWoodLarge
+  - type: Construction
+    graph: TileWoodLarge
+    node: woodtilelarge
+
+- type: entity
+  name: wood floor parquet
+  parent: FloorTileItemBase
+  id: FloorTileItemWoodParquet1
+  components:
+  - type: Sprite
+    sprite: _Maid/Objects/Tiles/tile.rsi
+    state: wood_parquet
+  - type: Item
+    sprite: _Maid/Objects/Tiles/tile.rsi
+    inhandVisuals:
+     left:
+     - state: wood-inhand-left
+     right:
+     - state: wood-inhand-right
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorWoodParquet1
+  - type: Stack
+    stackType: FloorTileWoodParquet
+  - type: Construction
+    graph: TileWoodParquet
+    node: woodtileparquet

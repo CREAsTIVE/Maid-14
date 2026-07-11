@@ -34,3 +34,7 @@ ent-MailCrayons = { ent-BaseMail }
 ent-MailLowMoney = { ent-BaseMail }
     .suffix = Деньги
     .desc = { ent-BaseMail.desc }
+
+ent-MobMousePlague = мышь
+    .desc = Писк!
+

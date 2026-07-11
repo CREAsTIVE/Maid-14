@@ -267,12 +267,6 @@
   maxCount: 30
 
 - type: stack
-  id: FloorTileWood
-  name: stack-wood-floor
-  spawn: FloorTileItemWood
-  maxCount: 30
-
-- type: stack
   id: FloorTileTechmaint
   name: stack-techmaint-floor
   spawn: FloorTileItemTechmaint
@@ -657,12 +651,6 @@
   maxCount: 30
 
 - type: stack
-  id: FloorTileWoodPattern
-  name: stack-wood-pattern-floor
-  spawn: FloorTileItemWoodPattern
-  maxCount: 30
-
-- type: stack
   id: FloorTileFlesh
   name: stack-flesh-floor
   spawn: FloorTileItemFlesh
@@ -721,12 +709,6 @@
   id: FloorTileAstroAsteroidSand
   name: stack-asteroid-astro-sand-floor
   spawn: FloorTileItemAstroAsteroidSand
-  maxCount: 30
-
-- type: stack
-  id: FloorTileWoodLarge
-  name: stack-large-wood-floor
-  spawn: FloorTileItemWoodLarge
   maxCount: 30
 
 - type: stack

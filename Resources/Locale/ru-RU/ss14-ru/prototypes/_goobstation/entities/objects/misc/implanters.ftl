@@ -69,3 +69,11 @@ ent-AntagImplanterHeretic = { ent-BaseImplantOnlyImplanterCentcomm }
 ent-AntagImplanterSpaceNinja = { ent-BaseImplantOnlyImplanterCentcomm }
     .suffix = Антагонист, Космический ниндзя
     .desc = { ent-BaseImplantOnlyImplanterCentcomm.desc }
+
+ent-ClumsyImplanter = синдикатный имплантер
+    .desc = Компактный одноразовый шприц, предназначенный для инъекций подкожных имплантов. Не забудьте протереть его мылом или тряпкой для удаления остатков ДНК после использования!
+
+ent-RedspaceLifelineImplanter = имплантер краснокосмической линии жизни
+    .desc = Компактный одноразовый шприц, предназначенный исключительно для введения подкожных имплантов. Не забудьте протереть его мылом или тряпкой, чтобы удалить остатки ДНК после использования!
+ent-XenoCompatibilityImplanter = { ent-Implanter }
+    .desc = { ent-Implanter.desc }

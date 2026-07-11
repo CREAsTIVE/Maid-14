@@ -4,3 +4,7 @@ ent-ClothingHeadHatHoodWinterBso = капюшон зимней куртки бл
     .desc = { ent-ClothingHeadHatHoodWinterBase.desc }
 ent-ClothingHeadHatHoodWinterCapFancy = капюшон зимней куртки капитана
     .desc = { ent-ClothingHeadHatHoodWinterBase.desc }
+
+ent-ClothingHeadHatHoodHereticCostume = оккультный капюшон
+    .desc = Рваный, пыльный капюшон. Внутри выстроились размытые глаза.
+

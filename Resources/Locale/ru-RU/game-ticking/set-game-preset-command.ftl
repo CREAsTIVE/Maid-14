@@ -1,4 +1,4 @@
-set-game-preset-command-description = Установить игровой пресет для текущего раунда.
+set-game-preset-command-description = Устанавливает пресет на раунд.
 set-game-preset-command-help-text = setgamepreset <id>
 set-game-preset-preset-error = Не удаётся найти игровой пресет "{ $preset }"
 set-game-preset-optional-argument-not-integer = If argument 2 is provided it must be a number.

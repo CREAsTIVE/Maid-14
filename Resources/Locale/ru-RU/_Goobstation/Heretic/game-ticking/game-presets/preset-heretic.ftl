@@ -44,3 +44,19 @@ ghostrole-prophet-desc = Помогай своему призывателю до
 ghostrole-stalker-desc = Помогай своему призывателю достичь вознесения. Телепортируйся и саботируй освещение экипажа.
 ghostrole-rustwalker-desc = Помогай своему призывателю достичь вознесения. Распространяй ржавчину повсюду.
 ghostrole-ghoul-rules = Ты — [color=red][bold]Командный антагонист[/bold][/color] вместе с тем, кто тебя призвал, и прочими древними силами.
+
+ghostrole-fire-shark-name = Огненная акула
+ghostrole-fire-shark-desc = Помогай своему призывателю достичь вознесения. Сжигай своих жертв.
+ghostrole-flesh-mimic-name = Плотевой мимик
+ghostrole-flesh-mimic-desc = Помогай своему призывателю достичь вознесения. Имей в виду, что ты умираешь со временем.
+ghostrole-stargazer-name = Звездочёт
+ghostrole-stargazer-desc = Помогай своему призывателю сеять хаос повсюду.
+
+heretic-ghoul-briefing-start =
+    Ты был вызван в этот мир {CAPITALIZE(THE($ent))}!
+heretic-ghoul-briefing-start-noname =
+    Ты был призван в этот мир тёмными силами.
+heretic-ghoul-briefing-end =
+    Повинуйся приказам своих хозяев несмотря ни на что.
+
+    Используй клавишу +m в чате для доступа к Связи Мансуса.

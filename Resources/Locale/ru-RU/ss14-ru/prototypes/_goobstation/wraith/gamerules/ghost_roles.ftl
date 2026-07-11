@@ -1,0 +1,1 @@
+ent-SpawnPointGhostWraith = { ent-BaseAntagSpawner }

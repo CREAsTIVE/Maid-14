@@ -63,3 +63,153 @@
   itemDrop: MaterialWoodPlank1
   heatCapacity: 10000
   tileRipResistance: 60
+
+- type: tile
+  id: FloorWoodBrightLarge
+  name: tiles-wood-bright-large
+  sprite: /Textures/_Maid/Tiles/wood_bright_large.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepWood
+  barestepSounds:
+    collection: BarestepWood
+  itemDrop: FloorTileItemWoodBrightLarge
+  heatCapacity: 10000
+  tileRipResistance: 80
+
+- type: tile
+  id: FloorWoodBrightParquet
+  name: tiles-wood-bright-parquet
+  sprite: /Textures/_Maid/Tiles/wood_bright_parquet_tile.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepWood
+  barestepSounds:
+    collection: BarestepWood
+  itemDrop: FloorTileItemWoodBrightParquet
+  heatCapacity: 10000
+  tileRipResistance: 80
+
+- type: tile
+  id: FloorWoodParquet1
+  name: tiles-wood-parquet1
+  sprite: /Textures/_Maid/Tiles/wood_parquet_tile.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepWood
+  barestepSounds:
+    collection: BarestepWood
+  itemDrop: FloorTileItemWoodParquet1
+  heatCapacity: 10000
+  tileRipResistance: 80
+
+- type: tile
+  id: FloorWoodLarge
+  name: tiles-wood-large
+  sprite: /Textures/_Maid/Tiles/wood_large.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepWood
+  barestepSounds:
+    collection: BarestepWood
+  itemDrop: FloorTileItemWoodLarge
+  heatCapacity: 10000
+  tileRipResistance: 80
+
+- type: tile
+  id: FloorWood
+  name: tiles-wood
+  sprite: /Textures/_Maid/Tiles/wood.png # Maid
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepWood
+  barestepSounds:
+    collection: BarestepWood
+  itemDrop: FloorTileItemWood
+  heatCapacity: 10000
+  tileRipResistance: 80
+
+- type: tile
+  id: FloorWoodTile
+  name: tiles-wood2
+  sprite: /Textures/_Maid/Tiles/wood_tile.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepWood
+  barestepSounds:
+    collection: BarestepWood
+  itemDrop: FloorTileItemWoodPattern
+  heatCapacity: 10000
+  tileRipResistance: 75
+
+- type: tile
+  id: FloorBrokenWood
+  name: tiles-wood3
+  sprite: /Textures/_Maid/Tiles/wood_broken.png
+  variants: 7
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepWood
+  barestepSounds:
+    collection: BarestepWood
+  itemDrop: MaterialWoodPlank1
+  heatCapacity: 10000
+  tileRipResistance: 60

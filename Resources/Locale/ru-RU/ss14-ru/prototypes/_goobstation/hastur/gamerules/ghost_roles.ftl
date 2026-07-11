@@ -1,0 +1,1 @@
+ent-SpawnPointGhostHastur = { ent-BaseAntagSpawner }

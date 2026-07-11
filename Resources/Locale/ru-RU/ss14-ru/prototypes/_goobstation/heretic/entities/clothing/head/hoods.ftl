@@ -10,3 +10,7 @@ ent-ClothingHeadHatHoodHereticBlade = { ent-ClothingHeadHatHoodHeretic }
     .desc = { ent-ClothingHeadHatHoodHeretic.desc }
 ent-ClothingHeadHatHoodVoidCloakHeretic = капюшон пустоты
     .desc = Черный, как деготь, не отражающий света. Снаружи выгравированы рунические символы. С каждым вспышком вы теряете понимание увиденного.
+
+ent-ClothingHeadHatHoodHereticCosmos = зловещий капюшон
+    .desc = Рваный, пыльный капюшон. Внутри выстроились странные глаза.
+

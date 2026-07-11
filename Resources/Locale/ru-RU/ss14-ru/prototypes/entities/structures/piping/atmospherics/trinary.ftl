@@ -1,7 +1,7 @@
 ent-GasTrinaryBase = { ent-GasPipeBase }
     .desc = { ent-GasPipeBase.desc }
 ent-GasTrinaryFlippedBase = { "" }
-    .suffix = Flipped
+    .suffix = Перевёрнутый
     .desc = { "" }
 ent-GasFilterBase = { ent-GasTrinaryBase }
     .desc = { ent-GasTrinaryBase.desc }

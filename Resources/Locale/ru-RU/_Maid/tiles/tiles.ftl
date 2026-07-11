@@ -1,3 +1,10 @@
 tiles-wood-bright = светлый деревянный пол
 tiles-wood-bright2 = светлый деревянный узорчатый пол
-tiles-wood-bright3 = пол сломанный светлый деревянный
+tiles-wood-bright3 = светлый деревянный сломанный пол
+tiles-wood-bright-large = светлый деревянный большой пол
+tiles-wood-bright-parquet = светлый деревянный паркет
+tiles-wood-parquet1 = деревянный паркет
+tiles-wood = деревянный пол
+tiles-wood2 = деревянный узорчатый пол
+tiles-wood3 = деревянный сломанный пол
+tiles-wood-large = деревянный большой пол

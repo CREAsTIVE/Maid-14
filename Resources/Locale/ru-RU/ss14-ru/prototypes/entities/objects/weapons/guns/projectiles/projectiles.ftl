@@ -110,3 +110,10 @@ ent-BulletLaserSpreadNarrow = узкий лазерный залп
     .desc = { ent-BulletLaser.desc }
 ent-BulletDisablerSmgSpread = оглушающий лазерный залп
     .desc = { ent-BulletDisablerSmg.desc }
+
+ent-BulletChargeGlaive = кровавый болт
+    .desc = Помечает цель для дополнительного урона.
+
+ent-BulletTaserSuper = тазерный болт
+    .desc = Если вы это видите, вас, вероятно, застанили.
+

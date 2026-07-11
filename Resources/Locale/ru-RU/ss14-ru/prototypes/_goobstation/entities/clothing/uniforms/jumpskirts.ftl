@@ -1,6 +1,6 @@
 ent-CentcomAgentSkirt = юбка агента ЦентКом
     .desc = Юбка, которую носит юридическая команда ЦентКом. Пахнет сгоревшим кофе.
-ent-ClothingUniformJumpskirtNanotrasenRepresentative = юбка представителя Nanotrasen
+ent-ClothingUniformJumpskirtNanotrasenRepresentative = юбка представителя Нанотрейзен
     .desc = Чёрная юбка, которую носят официальные лица.
 ent-ClothingUniformJumpskirtBlueshieldOfficer = юбка-сарафан офицера Синего Щита
     .desc = Серо-голубой короткий сарафан с коротким рукавом из прочного материала. Стандартное снаряжение Синего Щита.
@@ -9,4 +9,8 @@ ent-ClothingUniformSkirtMailCarrier = юбка-сарафан почтальон
 ent-ClothingUniformJumpskirtReporter = платье репортёра
     .desc = Вычурное чёрное платье, созданное чтобы привлечь внимание как можно большего количества людей.
 ent-ClothingUniformJumpskirtTrainer = юбка-сарафан NCT
-    .desc = Юбка-сарафан, выданная тренерам карьеры Nanotrasen. Наполняет чувством гордости.
+    .desc = Юбка-сарафан, выданная тренерам карьеры Нанотрейзен. Наполняет чувством гордости.
+
+ent-ClothingUniformJumpskirtCommandMaid = командно-горничная униформа
+    .desc = Стильная униформа горничной, специально разработанная для элитных командных горничных. Сочетает профессионализм с ноткой элегантности.
+

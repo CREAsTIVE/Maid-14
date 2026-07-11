@@ -1,7 +1,7 @@
 # Generic
 lathe-category-circuitry = Электроника
 lathe-category-clothing = Одежда
-lathe-category-lights = Лампы
+lathe-category-lights = Освещение
 lathe-category-machines = Машины
 lathe-category-parts = Компоненты
 lathe-category-tiles = Плитка
@@ -27,7 +27,7 @@ lathe-category-maints = Техи
 lathe-category-steel = Стальная
 lathe-category-white = Белая
 lathe-category-wood = Деревянная
-lathe-category-marble = Marble
+lathe-category-marble = Мрамор
 # Science
 lathe-category-mechs = Мехи
 lathe-category-modules = Модули

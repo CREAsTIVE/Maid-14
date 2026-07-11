@@ -345,6 +345,9 @@
     layers:
       - state: green
       - state: captain
+  - type: SpecialRespawnTarget # MAID nuke disk respawn
+    tag: NukeDisk # MAID nuke disk respawn
+    priority: 0 # MAID nuke disk respawn
 
 - type: entity
   id: SpawnPointHeadOfPersonnel

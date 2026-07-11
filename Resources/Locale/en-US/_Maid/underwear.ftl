@@ -1,0 +1,10 @@
+loadout-group-sex-restriction = This item is not available for your sex.
+loadout-group-socks-underwear = socks
+loadout-group-default-white-underwear = underwear
+loadout-group-default-captain-underwear = captain's underwear
+loadout-group-default-ce-underwear = chief engineer's underwear
+loadout-group-default-cmo-underwear = chief medical officer's underwear
+loadout-group-default-hop-underwear = head of personnel's underwear
+loadout-group-default-hos-underwear = head of security's underwear
+loadout-group-default-qm-underwear = quartermaster's underwear
+loadout-group-default-rd-underwear = research director's underwear

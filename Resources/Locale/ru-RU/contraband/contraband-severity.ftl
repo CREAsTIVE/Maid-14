@@ -11,3 +11,4 @@ contraband-examinable-verb-text = Легальность
 contraband-examinable-verb-message = Проверить легальность этого предмета.
 contraband-department-plural = { $department }
 contraband-job-plural = { $job }
+contraband-examine-text-Clown = [color=yellow]Эта вещь принадлежит клоуну, верни её, пока он не расстроился.[/color]

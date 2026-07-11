@@ -21,3 +21,6 @@ ent-HeatExchanger = радиатор
 ent-HeatExchangerBend = { ent-HeatExchanger }
     .suffix = Угол
     .desc = { ent-HeatExchanger.desc }
+
+ent-GasPressureRegulator = регулятор давления на входе
+    .desc = Клапан, выпускающий газ, когда давление на входе превышает определённый порог.
