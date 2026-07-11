@@ -82088,8 +82088,6 @@ entities:
       pos: 88.5,-27.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 27021
       - 27019

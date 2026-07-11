@@ -129989,7 +129989,7 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - invalid
+          - null
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -130027,7 +130027,7 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - invalid
+          - null
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -130065,7 +130065,7 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - invalid
+          - null
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -130211,7 +130211,7 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - invalid
+          - null
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -203088,8 +203088,6 @@ entities:
       pos: -5.5,133.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 366
     - type: AtmosPipeColor
@@ -203100,8 +203098,6 @@ entities:
       pos: -5.5,128.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 366
     - type: AtmosPipeColor
@@ -203889,8 +203885,6 @@ entities:
       pos: -1.5,101.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 367
     - type: AtmosPipeColor
@@ -206067,8 +206061,6 @@ entities:
       pos: -3.5,133.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 366
     - type: AtmosPipeColor
@@ -206079,8 +206071,6 @@ entities:
       pos: -3.5,128.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 366
     - type: AtmosPipeColor
@@ -267543,8 +267533,6 @@ entities:
       pos: -52.5,50.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
   - uid: 39577
     components:
     - type: Transform
@@ -267875,8 +267863,6 @@ entities:
       pos: -46.5,46.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
 - proto: SurveillanceCameraRouterMedical
   entities:
   - uid: 39620
