@@ -431,7 +431,7 @@
     denyState: deny-unshaded
   - type: Sprite
     noRot: true
-    sprite: _Maid/Structures/Machines/VendingMachines/laptop.rsi
+    sprite: _Maid/Structures/Machines/VendingMachines/laptop.rsi #Maid
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1231,7 +1231,7 @@
   - type: SpeakOnUIClosed
     pack: SecTechGoodbyes
   - type: Sprite
-    sprite: _Maid/Structures/Machines/VendingMachines/security.rsi
+    sprite: _Maid/Structures/Machines/VendingMachines/security.rsi #Maid
     noRot: true
     layers:
     - state: "off"

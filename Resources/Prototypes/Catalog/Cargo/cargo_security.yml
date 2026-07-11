@@ -48,7 +48,7 @@
 - type: cargoProduct
   id: SecurityNonLethal
   icon:
-    sprite: _Maid/Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Battery/disabler.rsi #Maid
     state: icon
   product: CrateSecurityNonlethal
   cost: 4000
@@ -98,7 +98,7 @@
 - type: cargoProduct
   id: SecurityNonlethalThrowables
   icon:
-    sprite: _Maid/Objects/Weapons/Grenades/stingergrenade.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/stingergrenade.rsi #Maid
     state: icon
   product: CrateSecNonlethalThrowables
   cost: 2500

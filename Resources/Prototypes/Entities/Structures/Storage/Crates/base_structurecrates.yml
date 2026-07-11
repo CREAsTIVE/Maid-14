@@ -80,7 +80,7 @@
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: paper
-      sprite: _Maid/Structures/Storage/Crates/labels.rsi
+      sprite: _Maid/Structures/Storage/Crates/labels.rsi #Maid
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: InteractionOutline
   - type: Physics
@@ -187,7 +187,7 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: _Maid/Structures/Storage/Crates/labels.rsi
+      sprite: _Maid/Structures/Storage/Crates/labels.rsi #Maid
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Damageable

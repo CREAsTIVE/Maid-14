@@ -133,10 +133,10 @@
   abstract: true
   components:
     - type: Sprite
-      sprite: _Maid/Objects/Weapons/Melee/shields.rsi
+      sprite: _Maid/Objects/Weapons/Melee/shields.rsi #Maid
       state: riot-icon
     - type: Item
-      sprite: _Maid/Objects/Weapons/Melee/shields.rsi
+      sprite: _Maid/Objects/Weapons/Melee/shields.rsi #Maid
       size: Ginormous
       heldPrefix: riot
     - type: Blocking

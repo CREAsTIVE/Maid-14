@@ -27,7 +27,7 @@
     - Future
     - Syndicate
   - type: Sprite
-    sprite: Objects/Devices/encryption_keys.rsi
+    sprite: _Maid/Objects/Devices/encryption_keys.rsi #Maid
     layers:
     - state: crypt_silver
     - state: nano_label

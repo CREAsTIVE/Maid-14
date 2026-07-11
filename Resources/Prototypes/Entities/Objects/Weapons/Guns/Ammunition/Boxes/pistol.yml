@@ -55,7 +55,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi #Maid
   - type: MagazineVisuals
     magState: mag
     steps: 3

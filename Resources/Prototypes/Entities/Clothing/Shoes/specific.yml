@@ -163,9 +163,9 @@
   description: Rubber boots.
   components:
   - type: Sprite
-    sprite: _Maid/Clothing/Shoes/Specific/galoshes.rsi
+    sprite: _Maid/Clothing/Shoes/Specific/galoshes.rsi #Maid
   - type: Clothing
-    sprite: _Maid/Clothing/Shoes/Specific/galoshes.rsi
+    sprite: _Maid/Clothing/Shoes/Specific/galoshes.rsi #Maid
   - type: NoSlip
   - type: SlowedOverSlippery
     slowdownModifier: 0.7

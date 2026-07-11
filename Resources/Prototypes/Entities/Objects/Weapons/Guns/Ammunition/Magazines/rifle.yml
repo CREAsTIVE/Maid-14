@@ -43,7 +43,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi #Maid
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]

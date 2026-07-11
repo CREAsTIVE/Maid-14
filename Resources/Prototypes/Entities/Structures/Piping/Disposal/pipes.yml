@@ -108,7 +108,7 @@
   components:
   - type: Sprite
     drawdepth: ThickPipe
-    sprite: _Maid/Structures/Piping/disposal.rsi
+    sprite: _Maid/Structures/Piping/disposal.rsi #Maid
     visible: false
   - type: Appearance
   - type: Visibility

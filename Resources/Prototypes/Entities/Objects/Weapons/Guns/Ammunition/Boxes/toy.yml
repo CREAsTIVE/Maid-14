@@ -79,7 +79,7 @@
     proto: CartridgeCap
     capacity: 20
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi #Maid
     layers:
       - state: capbase
         map: ["enum.GunVisualLayers.Base"]

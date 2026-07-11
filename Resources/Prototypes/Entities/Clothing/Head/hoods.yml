@@ -275,9 +275,9 @@
   description: A hood of the hazmat suit, designed for protection from high radioactivity.
   components:
   - type: Sprite
-    sprite: _Maid/Clothing/Head/Hoods/rad.rsi
+    sprite: _Maid/Clothing/Head/Hoods/rad.rsi #Maid
   - type: Clothing
-    sprite: _Maid/Clothing/Head/Hoods/rad.rsi
+    sprite: _Maid/Clothing/Head/Hoods/rad.rsi #Maid
   - type: Armor
     coverage:
     - Head

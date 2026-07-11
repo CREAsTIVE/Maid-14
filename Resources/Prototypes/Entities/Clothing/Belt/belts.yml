@@ -502,9 +502,9 @@
   description: Perfect for holding various equipment for medical emergencies.
   components:
   - type: Sprite
-    sprite: _Maid/Clothing/Belt/emt.rsi
+    sprite: _Maid/Clothing/Belt/emt.rsi #Maid
   - type: Clothing
-    sprite: _Maid/Clothing/Belt/emt.rsi
+    sprite: _Maid/Clothing/Belt/emt.rsi #Maid
 
 - type: entity
   parent: ClothingBeltStorageBase

@@ -27,7 +27,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi #Maid
     layers:
     - state: base-b
       map: ["enum.GunVisualLayers.Base"]

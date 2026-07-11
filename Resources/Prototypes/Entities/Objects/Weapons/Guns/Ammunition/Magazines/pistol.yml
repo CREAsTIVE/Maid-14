@@ -59,7 +59,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi #Maid
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -92,7 +92,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_high_capacity_mag.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_high_capacity_mag.rsi #Maid
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -125,7 +125,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi #Maid
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -153,7 +153,7 @@
       tags:
       - CartridgePistol
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi #Maid
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]

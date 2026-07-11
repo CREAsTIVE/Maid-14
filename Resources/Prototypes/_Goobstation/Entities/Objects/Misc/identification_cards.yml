@@ -61,7 +61,7 @@
   name: HECU ID card
   components:
   - type: Sprite
-    sprite: _Maid/Objects/Misc/id_cards.rsi
+    sprite: _Maid/Objects/Misc/id_cards.rsi #Maid
     layers:
     - state: centcom
     - state: departmenthead
@@ -209,7 +209,7 @@
   name: Navy Captain's ID card
   components:
   - type: Sprite
-    sprite: _Maid/Objects/Misc/id_cards.rsi
+    sprite: _Maid/Objects/Misc/id_cards.rsi #Maid
     layers:
     - state: centcom
     - state: departmenthead
@@ -228,7 +228,7 @@
   name: Navy Officer's ID card
   components:
   - type: Sprite
-    sprite: _Maid/Objects/Misc/id_cards.rsi
+    sprite: _Maid/Objects/Misc/id_cards.rsi #Maid
     layers:
     - state: centcom
     - state: departmenthead
@@ -247,7 +247,7 @@
   name: Special Operations Officer's ID card
   components:
   - type: Sprite
-    sprite: _Maid/Objects/Misc/id_cards.rsi
+    sprite: _Maid/Objects/Misc/id_cards.rsi #Maid
     layers:
     - state: centcom
     - state: departmenthead
@@ -266,7 +266,7 @@
   name: inspector's ID card
   components:
   - type: Sprite
-    sprite: _Maid/Objects/Misc/id_cards.rsi
+    sprite: _Maid/Objects/Misc/id_cards.rsi #Maid
     layers:
     - state: centcom
     - state: departmenthead
@@ -285,7 +285,7 @@
   name: Diplomat's ID card
   components:
   - type: Sprite
-    sprite: _Maid/Objects/Misc/id_cards.rsi
+    sprite: _Maid/Objects/Misc/id_cards.rsi #Maid
     layers:
     - state: centcom
     - state: departmenthead

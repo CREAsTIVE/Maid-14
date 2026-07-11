@@ -25,7 +25,7 @@
 - type: latheRecipe
   parent: [ BaseElectronicsRecipe, BaseCircuitryRecipeCategory ]
   id: MailingUnitElectronics
-  icon: { sprite: _Maid/Structures/Piping/disposal.rsi, state: mailing } # Goobstation
+  icon: { sprite: _Maid/Structures/Piping/disposal.rsi, state: mailing } # Goobstation #Maid
   result: MailingUnitElectronics
 
 # Airtight

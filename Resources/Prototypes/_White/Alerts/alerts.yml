@@ -1,7 +1,7 @@
 - type: alert
   id: RecentlyBlocked
   icons:
-  - sprite: /Textures/_Maid/Objects/Weapons/Melee/shields.rsi
+  - sprite: /Textures/_Maid/Objects/Weapons/Melee/shields.rsi #Maid
     state: buckler-icon
   name: alerts-blocked-name
   description: alerts-blocked-desc

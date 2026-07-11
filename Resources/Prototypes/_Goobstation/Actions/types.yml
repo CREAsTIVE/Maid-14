@@ -63,7 +63,7 @@
   - type: Action
     useDelay: 30
     icon:
-      sprite: _Maid/Objects/Weapons/Grenades/smoke.rsi
+      sprite: _Maid/Objects/Weapons/Grenades/smoke.rsi #Maid
       state: icon
 
 - type: entity

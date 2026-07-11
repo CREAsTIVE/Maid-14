@@ -1092,7 +1092,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: butterfly
-      sprite: _Maid/Mobs/Animals/butterfly.rsi
+      sprite: _Maid/Mobs/Animals/butterfly.rsi #Maid
   - type: Fixtures
     fixtures:
       fix1:

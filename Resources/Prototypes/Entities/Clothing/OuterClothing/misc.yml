@@ -107,9 +107,9 @@
   description: An apron-jacket used by a high class chef.
   components:
   - type: Sprite
-    sprite: _Maid/Clothing/OuterClothing/Misc/chef.rsi
+    sprite: _Maid/Clothing/OuterClothing/Misc/chef.rsi #Maid
   - type: Clothing
-    sprite: _Maid/Clothing/OuterClothing/Misc/chef.rsi
+    sprite: _Maid/Clothing/OuterClothing/Misc/chef.rsi #Maid
 
 - type: entity
   parent: ClothingOuterBase

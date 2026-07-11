@@ -19,7 +19,7 @@
   description: When powered and filled with encryption keys it allows radio headset communication.
   components:
   - type: Sprite
-    sprite: _Maid/Structures/Machines/telecomms.rsi
+    sprite: _Maid/Structures/Machines/telecomms.rsi #Maid
     snapCardinals: true
     layers:
     - state: telecom-nopower
@@ -53,7 +53,7 @@
     - state: telecom-open
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: ItemMapper
-    sprite: _Maid/Structures/Machines/telecomms.rsi
+    sprite: _Maid/Structures/Machines/telecomms.rsi #Maid
     mapLayers:
       variant-nokey:
         whitelist:

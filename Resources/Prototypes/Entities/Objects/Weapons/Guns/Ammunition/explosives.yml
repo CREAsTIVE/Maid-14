@@ -130,7 +130,7 @@
     proto: BulletRocket
     deleteOnSpawn: true
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi #Maid
     state: rpg
   - type: StaticPrice
     price: 20
@@ -150,7 +150,7 @@
       proto: BulletWeakRocket
       deleteOnSpawn: true
     - type: Sprite
-      sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi #Maid
       state: frag
     - type: StaticPrice
       price: 20
@@ -167,7 +167,7 @@
       proto: BulletSingularityBusterRocket
       deleteOnSpawn: true
     - type: Sprite
-      sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi #Maid
       state: buster
     - type: Tag
       tags:
@@ -196,7 +196,7 @@
   - type: CartridgeAmmo
     proto: BulletGrenadeBaton
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi #Maid
     layers:
     - state: baton
       map: ["enum.AmmoVisualLayers.Base"]
@@ -217,7 +217,7 @@
   - type: CartridgeAmmo
     proto: BulletGrenadeBlast
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi #Maid
     layers:
     - state: blast
       map: ["enum.AmmoVisualLayers.Base"]
@@ -234,7 +234,7 @@
   - type: CartridgeAmmo
     proto: BulletGrenadeFlash
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi #Maid
     layers:
     - state: flash
       map: ["enum.AmmoVisualLayers.Base"]
@@ -255,7 +255,7 @@
   - type: CartridgeAmmo
     proto: BulletGrenadeFrag
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi #Maid
     layers:
     - state: frag
       map: ["enum.AmmoVisualLayers.Base"]
@@ -272,7 +272,7 @@
   - type: CartridgeAmmo
     proto: BulletGrenadeCleanade
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi #Maid
     layers:
     - state: cleanade
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -289,7 +289,7 @@
   - type: CartridgeAmmo
     proto: BulletGrenadeEMP
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi #Maid
     layers:
     - state: emp
       map: ["enum.AmmoVisualLayers.Base"]
@@ -327,7 +327,7 @@
     proto: BulletCannonBall
     deleteOnSpawn: true
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi #Maid
     state: ball
 
 - type: entity
@@ -340,7 +340,7 @@
     proto: PelletGrapeshotSpread
     deleteOnSpawn: true
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi #Maid
     state: grapeshot
 
 - type: entity
@@ -353,5 +353,5 @@
     proto: PelletGlassSpread
     deleteOnSpawn: true
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi #Maid
     state: glassshot
