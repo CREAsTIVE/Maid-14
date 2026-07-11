@@ -828,7 +828,7 @@
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
   components:
   - type: Sprite
-    sprite: _Maid/Objects/Weapons/Guns/Battery/disabler.rsi #Maid
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -836,7 +836,7 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Clothing
-    sprite: _Maid/Objects/Weapons/Guns/Battery/disabler.rsi #Maid
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
     quickEquip: false
     slots:
       - suitStorage

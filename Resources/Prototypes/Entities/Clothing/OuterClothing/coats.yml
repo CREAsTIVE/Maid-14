@@ -150,9 +150,9 @@
   description: An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business.
   components:
   - type: Sprite
-    sprite: _Maid/Clothing/OuterClothing/Coats/detective.rsi #Maid
+    sprite: Clothing/OuterClothing/Coats/detective.rsi
   - type: Clothing
-    sprite: _Maid/Clothing/OuterClothing/Coats/detective.rsi #Maid
+    sprite: Clothing/OuterClothing/Coats/detective.rsi
   - type: StorageFill
     contents:
     - id: SmokingPipeFilledTobacco

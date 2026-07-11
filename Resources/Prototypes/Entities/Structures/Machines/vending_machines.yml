@@ -1231,7 +1231,7 @@
   - type: SpeakOnUIClosed
     pack: SecTechGoodbyes
   - type: Sprite
-    sprite: _Maid/Structures/Machines/VendingMachines/security.rsi #Maid
+    sprite: Structures/Machines/VendingMachines/security.rsi
     noRot: true
     layers:
     - state: "off"
