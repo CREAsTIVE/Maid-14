@@ -43,7 +43,7 @@
   name: selectable-set-thief-breacher-name
   description: selectable-set-thief-breacher-description
   sprite:
-    sprite: Objects/Tools/jaws_of_life.rsi
+    sprite: _Maid/Objects/Tools/jaws_of_life.rsi
     state: jaws_pry
   content:
   - WelderIndustrialAdvanced
@@ -483,7 +483,7 @@
   name: selectable-set-paramedic-voidsuit-name
   description: selectable-set-paramedic-voidsuit-desc
   sprite:
-    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+    sprite: _Maid/Clothing/OuterClothing/Hardsuits/paramed.rsi
     state: icon
   content:
   - ClothingOuterHardsuitVoidParamed

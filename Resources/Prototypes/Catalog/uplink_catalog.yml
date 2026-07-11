@@ -662,7 +662,7 @@
   id: UplinkPistol9mmMagazine
   name: uplink-pistol-magazine-name
   description: uplink-pistol-magazine-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red-icon }
+  icon: { sprite: /Textures/_Maid/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red-icon }
   productEntity: MagazinePistol
   cost:
     Telecrystal: 2 # goob - Ammo should be cheap.
@@ -674,7 +674,7 @@
   id: UplinkMagazinePistolSubMachineGun
   name: uplink-pistol-magazine-c20r-name
   description: uplink-pistol-magazine-c20r-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
+  icon: { sprite: /Textures/_Maid/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
   productEntity: MagazinePistolSubMachineGun
   cost:
     Telecrystal: 5 # goob - Ammo should be cheap. 96 dmg per TC.
@@ -686,7 +686,7 @@
   id: UplinkMagazinePistolCaselessRifle
   name: uplink-pistol-magazine-caseless-name
   description: uplink-pistol-magazine-caseless-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
+  icon: { sprite: /Textures/_Maid/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
   productEntity: MagazinePistolCaselessRifle
   cost:
     Telecrystal: 3 # goob
@@ -941,7 +941,7 @@
   id: UplinkHeadsetEncryptionKey
   name: uplink-encryption-key-name
   description: uplink-encryption-key-desc
-  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+  icon: { sprite: /Textures/_Maid/Objects/Devices/encryption_keys.rsi, state: synd_label }
   productEntity: EncryptionKeySyndie # One for the price of one, but cheaper
   cost:
     Telecrystal: 3 # goob
@@ -958,7 +958,7 @@
 #  id: UplinkBinaryTranslatorKey
 #  name: uplink-binary-translator-key-name
 #  description: uplink-binary-translator-key-desc
-#  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: ai_label }
+#  icon: { sprite: /Textures/_Maid/Objects/Devices/encryption_keys.rsi, state: ai_label }
 #  productEntity: EncryptionKeyBinarySyndicate
 #  cost:
 #    Telecrystal: 5 # goob
@@ -1528,7 +1528,7 @@
   id: UplinkRadioImplanter
   name: uplink-radio-implanter-name
   description: uplink-radio-implanter-desc
-  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+  icon: { sprite: /Textures/_Maid/Objects/Devices/encryption_keys.rsi, state: synd_label }
   productEntity: RadioImplanter
   cost:
     Telecrystal: 7 # goob - Syndicate Radio Price Adjust

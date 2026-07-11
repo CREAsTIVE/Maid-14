@@ -910,7 +910,7 @@
   id: UplinkSmokeImplanter
   name: uplink-smoke-implant-name
   description: uplink-smoke-implant-desc
-  icon: { sprite: /Textures/Objects/Weapons/Grenades/smoke.rsi, state: icon }
+  icon: { sprite: /Textures/_Maid/Objects/Weapons/Grenades/smoke.rsi, state: icon }
   productEntity: SmokeImplanter
   cost:
     Telecrystal: 10
@@ -956,7 +956,7 @@
   id: UplinkBinaryImplant
   name: uplink-binary-implant-name
   description: uplink-binary-implant-desc
-  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: ai_label }
+  icon: { sprite: /Textures/_Maid/Objects/Devices/encryption_keys.rsi, state: ai_label }
   productEntity: BinaryImplanter
   cost:
     Telecrystal: 5 # goob
@@ -1108,7 +1108,7 @@
   id: UplinkGrenadeBlast
   name: uplink-blast-grenade-name
   description: uplink-blast-grenade-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi, state: blast }
+  icon: { sprite: /Textures/_Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi, state: blast }
   productEntity: GrenadeBlast
   cost:
     Telecrystal: 12 # Buying granades this way is ~14% cheaper than getting them from china-lake bundles
@@ -1119,7 +1119,7 @@
   id: UplinkGrenadeFrag
   name: uplink-frag-grenade-name
   description: uplink-frag-grenade-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi, state: frag }
+  icon: { sprite: /Textures/_Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi, state: frag }
   productEntity: GrenadeFrag
   cost:
     Telecrystal: 12 # Buying granades this way is ~14% cheaper than getting them from china-lake bundles
@@ -1163,7 +1163,7 @@
   id: UplinkMagazineLightRifleBox
   name: uplink-l6-box-name
   description: uplink-l6-box-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_box.rsi, state: base }
+  icon: { sprite: /Textures/_Maid/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_box.rsi, state: base }
   productEntity: MagazineLightRifleBox
   cost:
     Telecrystal: 20
@@ -1196,7 +1196,7 @@
 #  id: UplinkHighCaliberBox
 #  name: uplink-high-caliber-box-name
 #  description: uplink-high-caliber-box-desc
-#  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
+#  icon: { sprite: /Textures/_Maid/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
 #  productEntity: MagazineBoxHighCaliber
 #  cost:
 #    Telecrystal: 40 # ammo should be a big cost for this
@@ -1241,7 +1241,7 @@
   id: UplinkHighCapacityMagazinePistol
   name: uplink-highcap-pistol-mag-name
   description: uplink-highcap-pistol-mag-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_high_capacity_mag.rsi, state: base }
+  icon: { sprite: /Textures/_Maid/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_high_capacity_mag.rsi, state: base }
   productEntity: MagazinePistolHighCapacity
   cost:
     Telecrystal: 3
@@ -1278,7 +1278,7 @@
   id: UplinkMagazinePistolCaselessRifleSAPHE
   name: uplink-pistol-magazine-caseless-saphe-name
   description: uplink-pistol-magazine-caseless-saphe-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: base }
+  icon: { sprite: /Textures/_Maid/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: base }
   productEntity: MagazinePistolCaselessRifleSAPHE
   cost:
     Telecrystal: 5 # 23 damage but ~1/3 of a rifle magazine and semi armor piercing, remember the damage is 13 pierce 10.5 explosive

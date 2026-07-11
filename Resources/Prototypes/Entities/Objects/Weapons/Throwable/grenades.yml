@@ -130,7 +130,7 @@
   id: GrenadeBase
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/grenade.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/grenade.rsi
     layers:
     - state: icon
       map: ["enum.TriggerVisualLayers.Base"]
@@ -204,7 +204,7 @@
   id: GrenadeFlashBang
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/flashbang.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/flashbang.rsi
   - type: FlashOnTrigger
     range: 7
   - type: SoundOnTrigger
@@ -429,7 +429,7 @@
   id: NuclearGrenade
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/nukenade.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/nukenade.rsi
   - type: OnUseTimerTrigger
     delay: 5
   - type: ExplodeOnTrigger
@@ -459,7 +459,7 @@
   id: ModularGrenade
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/modular.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/modular.rsi
     layers:
     - state: empty
       map: [ "enum.ConstructionVisuals.Layer" ]
@@ -507,7 +507,7 @@
   id: EmpGrenade
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/empgrenade.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/empgrenade.rsi
   - type: EmpOnTrigger
     range: 5.5
     energyConsumption: 50000
@@ -553,7 +553,7 @@
   description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/smoke.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/smoke.rsi
   - type: SmokeOnTrigger
     duration: 30
     spreadAmount: 50
@@ -588,7 +588,7 @@
   description: A riot control tear gas grenade. Causes irritation, pain and makes you cry your eyes out.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/tear_gas.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/tear_gas.rsi
   - type: SmokeOnTrigger
     duration: 10
     spreadAmount: 30
@@ -656,7 +656,7 @@
   id: GrenadeDummy
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/grenade.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/grenade.rsi
   - type: DeleteOnTrigger
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect

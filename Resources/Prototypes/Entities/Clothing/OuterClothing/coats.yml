@@ -150,9 +150,9 @@
   description: An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/detective.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/detective.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/detective.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/detective.rsi
   - type: StorageFill
     contents:
     - id: SmokingPipeFilledTobacco
@@ -323,9 +323,9 @@
   description: A suit that protects against minor chemical spills.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/labcoat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/labcoat.rsi
   - type: Armor
     coverage:
     - Chest
@@ -349,9 +349,9 @@
   description: A suit that protects against minor chemical spills. Has an orange stripe on the shoulder.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_chem.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/labcoat_chem.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_chem.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/labcoat_chem.rsi
   - type: Armor
     coverage:
     - Chest
@@ -375,9 +375,9 @@
   description: A suit that protects against bacteria and viruses. Has an green stripe on the shoulder.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_viro.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/labcoat_viro.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_viro.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/labcoat_viro.rsi
   - type: Armor
     coverage:
     - Chest
@@ -401,9 +401,9 @@
   description: A suit that protects against minor chemical spills. Has an blue stripe on the shoulder.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_gene.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/labcoat_gene.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_gene.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/labcoat_gene.rsi
   - type: Armor
     coverage:
     - Chest
@@ -427,9 +427,9 @@
   description: Custom made blue lab coat for the Chief Medical Officer, offers improved protection against chemical spills and minor cuts.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_cmo.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/labcoat_cmo.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_cmo.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/labcoat_cmo.rsi
   - type: Armor
     coverage:
     - Chest
@@ -481,9 +481,9 @@
   description: More like an eccentric coat than a labcoat. Helps pass off bloodstains as part of the aesthetic. Comes with red shoulder pads.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_robo.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/labcoat_robo.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_robo.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/labcoat_robo.rsi
   - type: Armor
     coverage:
     - Chest
@@ -681,9 +681,9 @@
   description: A suit that protects against minor chemical spills. Has a purple collar and wrist trims.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_senior_researcher.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/labcoat_senior_researcher.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_senior_researcher.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/labcoat_senior_researcher.rsi
   - type: Armor
     coverage:
     - Chest
@@ -707,9 +707,9 @@
   description: A suit that protects against minor chemical spills. Has light blue sleeves and an orange waist trim.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_senior_physician.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/labcoat_senior_physician.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_senior_physician.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/labcoat_senior_physician.rsi
   - type: Armor
     coverage:
     - Chest

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/d917f4c2a088419d5c3aec7656b7ff8cebd1822e idcluwne made by brainfood1183 (github) for ss14, idbrigmedic made by PuroSlavKing (Github), pirate made by brainfood1183 (github)",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/d917f4c2a088419d5c3aec7656b7ff8cebd1822e idcluwne made by brainfood1183 (github) for ss14, idbrigmedic made by PuroSlavKing (Github), pirate made by brainfood1183 (github), idadmin made by Arimah (github), idvisitor by IProduceWidgets (Github), idintern-service by spanky-spanky (Github), Chemist made by Lehmin for Goobstation, idpartymaker idsecurityclown idcommandmaid by lzk228 (github), wizard and idwizard by ScarKy0",
   "size": {
     "x": 32,
     "y": 32
@@ -12,6 +12,171 @@
     },
     {
       "name": "centcom"
+    },
+    {
+      "name": "admin"
+    },
+    {
+      "name": "assistant"
+    },
+    {
+      "name": "atmospherictechnician"
+    },
+    {
+      "name": "bartender"
+    },
+    {
+      "name": "black"
+    },
+    {
+      "name": "botanist"
+    },
+    {
+      "name": "boxer"
+    },
+    {
+      "name": "captain"
+    },
+    {
+      "name": "cargotechnician"
+    },
+    {
+      "name": "carp"
+    },
+    {
+      "name": "cc"
+    },
+    {
+      "name": "chaplain"
+    },
+    {
+      "name": "chemist"
+    },
+    {
+      "name": "clown"
+    },
+    {
+      "name": "cook"
+    },
+    {
+      "name": "curator"
+    },
+    {
+      "name": "death"
+    },
+    {
+      "name": "department"
+    },
+    {
+      "name": "departmenthead"
+    },
+    {
+      "name": "detective"
+    },
+    {
+      "name": "flame"
+    },
+    {
+      "name": "geneticist"
+    },
+    {
+      "name": "gladiator"
+    },
+    {
+      "name": "gold"
+    },
+    {
+      "name": "headofpersonnel"
+    },
+    {
+      "name": "janitor"
+    },
+    {
+      "name": "lawyer"
+    },
+    {
+      "name": "mailcarrier"
+    },
+    {
+      "name": "martialartist"
+    },
+    {
+      "name": "medicaldoctor"
+    },
+    {
+      "name": "mime"
+    },
+    {
+      "name": "musician"
+    },
+    {
+      "name": "orange"
+    },
+    {
+      "name": "paramedic"
+    },
+    {
+      "name": "passenger"
+    },
+    {
+      "name": "pirate"
+    },
+    {
+      "name": "prisoner"
+    },
+    {
+      "name": "prisonguard"
+    },
+    {
+      "name": "psychologist"
+    },
+    {
+      "name": "rainbow"
+    },
+    {
+      "name": "roboticist"
+    },
+    {
+      "name": "rpg"
+    },
+    {
+      "name": "scientist"
+    },
+    {
+      "name": "securityofficer"
+    },
+    {
+      "name": "senior"
+    },
+    {
+      "name": "shaftminer"
+    },
+    {
+      "name": "silver"
+    },
+    {
+      "name": "stationengineer"
+    },
+    {
+      "name": "subdepartment"
+    },
+    {
+      "name": "syndicate"
+    },
+    {
+      "name": "syndie"
+    },
+    {
+      "name": "visitor"
+    },
+    {
+      "name": "warden"
+    },
+    {
+      "name": "wizard"
+    },
+    {
+      "name": "zookeeper"
     },
     {
       "name": "ert_chaplain"
@@ -32,10 +197,7 @@
       "name": "ert_security"
     },
     {
-      "name": "gold"
-    },
-    {
-      "name": "idpassenger"
+      "name": "idadmin"
     },
     {
       "name": "idatmospherictechnician"
@@ -48,6 +210,9 @@
     },
     {
       "name": "idboxer"
+    },
+    {
+      "name": "idbrigmedic"
     },
     {
       "name": "idcaptain"
@@ -74,6 +239,12 @@
       "name": "idclown"
     },
     {
+      "name": "idcluwne"
+    },
+    {
+      "name": "idcommandmaid"
+    },
+    {
       "name": "idcook"
     },
     {
@@ -92,7 +263,22 @@
       "name": "idheadofsecurity"
     },
     {
-      "name": "idbrigmedic"
+      "name": "idinspector"
+    },
+    {
+      "name": "idintern-cadet"
+    },
+    {
+      "name": "idintern-med"
+    },
+    {
+      "name": "idintern-sci"
+    },
+    {
+      "name": "idintern-service"
+    },
+    {
+      "name": "idintern-tech"
     },
     {
       "name": "idjanitor"
@@ -107,19 +293,28 @@
       "name": "idmime"
     },
     {
+      "name": "idmusician"
+    },
+    {
       "name": "idparamedic"
     },
     {
-      "name": "idpsychologist"
+      "name": "idpartymaker"
     },
     {
-      "name": "idreporter"
+      "name": "idpassenger"
     },
     {
       "name": "idprisoner"
     },
     {
+      "name": "idpsychologist"
+    },
+    {
       "name": "idquartermaster"
+    },
+    {
+      "name": "idreporter"
     },
     {
       "name": "idresearchdirector"
@@ -131,7 +326,22 @@
       "name": "idscientist"
     },
     {
+      "name": "idsecurityclown"
+    },
+    {
       "name": "idsecurityofficer"
+    },
+    {
+      "name": "idseniorengineer"
+    },
+    {
+      "name": "idseniorofficer"
+    },
+    {
+      "name": "idseniorphysician"
+    },
+    {
+      "name": "idseniorresearcher"
     },
     {
       "name": "idshaftminer"
@@ -146,34 +356,16 @@
       "name": "idvirologist"
     },
     {
+      "name": "idvisitor"
+    },
+    {
       "name": "idwarden"
     },
     {
-      "name": "idmusician"
+      "name": "idwizard"
     },
     {
       "name": "idzookeeper"
-    },
-    {
-      "name": "idintern-sci"
-    },
-    {
-      "name": "idintern-cadet"
-    },
-    {
-      "name": "idintern-med"
-    },
-    {
-      "name": "idintern-service"
-    },
-    {
-      "name": "idintern-tech"
-    },
-    {
-      "name": "orange"
-    },
-    {
-      "name": "pirate"
     },
     {
       "name": "prisoner_001"
@@ -195,30 +387,6 @@
     },
     {
       "name": "prisoner_007"
-    },
-    {
-      "name": "silver"
-    },
-    {
-      "name": "syndie"
-    },
-    {
-      "name": "idcluwne"
-    },
-    {
-      "name": "idseniorengineer"
-    },
-    {
-      "name": "idseniorresearcher"
-    },
-    {
-      "name": "idseniorphysician"
-    },
-    {
-      "name": "idseniorofficer"
-    },
-    {
-      "name": "idinspector"
     },
     {
       "name": "gold-inhand-left",
@@ -258,6 +426,14 @@
     },
     {
       "name": "blue-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "green-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "green-inhand-right",
       "directions": 4
     }
   ]

@@ -90,7 +90,7 @@
     - Zombie
     - InitialInfected
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Maid/Interface/Misc/job_icons.rsi
     state: Zombie
 
 - type: factionIcon
@@ -102,7 +102,7 @@
     - InitialInfected
     - Zombie
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Maid/Interface/Misc/job_icons.rsi
     state: InitialInfected
 
 - type: factionIcon
@@ -114,7 +114,7 @@
       - ShowAntagIcons
       - Revolutionary
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Maid/Interface/Misc/job_icons.rsi
     state: Revolutionary
 
 - type: factionIcon
@@ -126,7 +126,7 @@
       - ShowAntagIcons
       - Revolutionary
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Maid/Interface/Misc/job_icons.rsi
     state: HeadRevolutionary
 
 - type: factionIcon
@@ -134,6 +134,6 @@
   priority: 0
   locationPreference: Left
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Maid/Interface/Misc/job_icons.rsi
     state: Syndicate
   hideOnStealth: false

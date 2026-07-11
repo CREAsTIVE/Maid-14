@@ -58,7 +58,7 @@
   description: Nothing to see here, please disperse.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/stingergrenade.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/stingergrenade.rsi
     layers:
     - state: icon
       map: ["enum.TriggerVisualLayers.Base"]

@@ -16,9 +16,6 @@
       ]
     },
     {
-      "name": "icon"
-    },
-    {
       "name": "butterfly",
       "directions": 4,
       "delays": [

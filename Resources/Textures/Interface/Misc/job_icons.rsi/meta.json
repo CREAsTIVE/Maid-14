@@ -210,12 +210,6 @@
         },
         {
             "name": "SecurityClown"
-        },
-        {
-            "name": "CustomId"
-        },
-        {
-            "name": "Inspector"
         }
     ]
 }

@@ -33,7 +33,7 @@
   description: A grenade that releases Space Glue foam.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/smoke.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/smoke.rsi
   - type: SmokeOnTrigger
     duration: 5
     spreadAmount: 25

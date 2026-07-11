@@ -36,7 +36,7 @@
         path: /Audio/_Goobstation/Items/handling/component_drop.ogg
     # Goobstation edit end
     - type: Sprite
-      sprite: Objects/Misc/stock_parts.rsi
+      sprite: _Maid/Objects/Misc/stock_parts.rsi
     - type: Item
       size: Tiny
     - type: Stack

@@ -215,7 +215,7 @@
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Maid/Structures/Storage/Crates/labels.rsi
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Construction
     graph: WebStructures
@@ -423,7 +423,7 @@
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Maid/Structures/Storage/Crates/labels.rsi
       offset: "-0.25,0.625"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Icon
@@ -478,7 +478,7 @@
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Maid/Structures/Storage/Crates/labels.rsi
       offset: "0.0,0.125"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Icon
@@ -587,7 +587,7 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Maid/Structures/Storage/Crates/labels.rsi
       offset: "-0.46875,0.03125"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: OverrideSell
@@ -617,7 +617,7 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Maid/Structures/Storage/Crates/labels.rsi
       offset: "-0.46875,0.03125"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: OverrideSell
@@ -647,7 +647,7 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Maid/Structures/Storage/Crates/labels.rsi
       offset: "-0.46875,0.03125"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: OverrideSell
@@ -677,7 +677,7 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Maid/Structures/Storage/Crates/labels.rsi
       offset: "-0.46875,0.03125"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: OverrideSell
@@ -707,7 +707,7 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Maid/Structures/Storage/Crates/labels.rsi
       offset: "-0.46875,0.03125"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: OverrideSell
@@ -732,7 +732,7 @@
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Maid/Structures/Storage/Crates/labels.rsi
       offset: "0.0,-0.09375"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Icon
@@ -828,7 +828,7 @@
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Maid/Structures/Storage/Crates/labels.rsi
       offset: "-0.28125,0.625"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Icon
@@ -885,7 +885,7 @@
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Maid/Structures/Storage/Crates/labels.rsi
       offset: "-0.3125,0.5625"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Icon
@@ -920,7 +920,7 @@
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Maid/Structures/Storage/Crates/labels.rsi
       offset: "0.0,0.03125"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Paintable
@@ -946,7 +946,7 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Maid/Structures/Storage/Crates/labels.rsi
       offset: "0.0,0.03125"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: AccessReader

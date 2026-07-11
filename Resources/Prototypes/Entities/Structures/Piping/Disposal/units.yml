@@ -39,7 +39,7 @@
   - type: Climbable
     vaultable: false
   - type: Sprite
-    sprite: Structures/Piping/disposal.rsi
+    sprite: _Maid/Structures/Piping/disposal.rsi
     layers:
     - state: condisposal
       map: [ "enum.DisposalUnitVisualLayers.Unanchored" ]
@@ -126,7 +126,7 @@
   name: disposal unit
   components:
   - type: Sprite
-    sprite: Structures/Piping/disposal.rsi
+    sprite: _Maid/Structures/Piping/disposal.rsi
     snapCardinals: true
   - type: Construction
     graph: DisposalMachine
@@ -153,7 +153,7 @@
   description: A pneumatic mail delivery unit.
   components:
   - type: Sprite
-    sprite: Structures/Piping/disposal.rsi
+    sprite: _Maid/Structures/Piping/disposal.rsi
     snapCardinals: true
     layers:
       - state: conmailing

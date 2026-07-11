@@ -36,7 +36,7 @@
 - type: cargoProduct
   id: LivestockButterfly
   icon:
-    sprite: Mobs/Animals/butterfly.rsi
+    sprite: _Maid/Mobs/Animals/butterfly.rsi
     state: icon
   product: CrateNPCButterflies
   cost: 4400

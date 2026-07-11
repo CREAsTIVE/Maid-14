@@ -76,7 +76,7 @@
                 sprite: Objects/Misc/module.rsi
                 state: id_mod
               guideIconParts:
-                sprite: Objects/Misc/stock_parts.rsi
+                sprite: _Maid/Objects/Misc/stock_parts.rsi
                 state: scan_module
           steps:
             - tool: Screwing

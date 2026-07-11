@@ -1063,9 +1063,9 @@
   description: This hat emphasizes that you are THE LAW.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/warden.rsi
+    sprite: _Maid/Clothing/Head/Hats/warden.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/warden.rsi
+    sprite: _Maid/Clothing/Head/Hats/warden.rsi
   - type: StealTarget
     stealGroup: ClothingHeadHatWarden
   - type: Armor # Goob

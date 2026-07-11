@@ -97,7 +97,7 @@
   id: CaptainIDCard
   name: steal-target-groups-captain-id-card
   sprite:
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _Maid/Objects/Misc/id_cards.rsi
     state: ert_commander #no one will know the difference.
 
 - type: stealTargetGroup
@@ -162,7 +162,7 @@
   id: EncryptionKey
   name: steal-target-groups-encryption-keys
   sprite:
-    sprite: Objects/Devices/encryption_keys.rsi
+    sprite: _Maid/Objects/Devices/encryption_keys.rsi
     state: crypt_gray
 
 - type: stealTargetGroup
@@ -176,7 +176,7 @@
   id: IDCard
   name: steal-target-groups-id-cards
   sprite:
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _Maid/Objects/Misc/id_cards.rsi
     state: default
 
 - type: stealTargetGroup
@@ -220,14 +220,14 @@
   id: ClothingHeadHatWarden
   name: steal-target-groups-clothing-head-hat-warden
   sprite:
-    sprite: Clothing/Head/Hats/warden.rsi
+    sprite: _Maid/Clothing/Head/Hats/warden.rsi
     state: icon
 
 - type: stealTargetGroup
   id: ClothingOuterHardsuitVoidParamed
   name: steal-target-groups-clothing-outer-hardsuit-void-paramed
   sprite:
-    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+    sprite: _Maid/Clothing/OuterClothing/Hardsuits/paramed.rsi
     state: icon
 
 - type: stealTargetGroup

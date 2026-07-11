@@ -1011,9 +1011,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team. # Goob edit
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/ERThelmets/ertleader.rsi
+    sprite: _Maid/Clothing/Head/Hardsuits/ERThelmets/ertleader.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/ERThelmets/ertleader.rsi
+    sprite: _Maid/Clothing/Head/Hardsuits/ERThelmets/ertleader.rsi
   - type: PointLight
     color: "#addbff"
 
@@ -1039,9 +1039,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team. # Goob edit
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi
+    sprite: _Maid/Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi
+    sprite: _Maid/Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi
   - type: PointLight
     color: "#f4ffad"
   - type: EyeProtection # goob
@@ -1054,9 +1054,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team. # Goob edit
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
+    sprite: _Maid/Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
+    sprite: _Maid/Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
   - type: PointLight
     color: "#adffec"
 
@@ -1068,9 +1068,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team. # Goob edit
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/ERThelmets/ertsecurity.rsi
+    sprite: _Maid/Clothing/Head/Hardsuits/ERThelmets/ertsecurity.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/ERThelmets/ertsecurity.rsi
+    sprite: _Maid/Clothing/Head/Hardsuits/ERThelmets/ertsecurity.rsi
   - type: PointLight
     color: "#ffadc6"
 
@@ -1082,9 +1082,9 @@
   description: A special hardsuit helmet worn by members of an emergency response team. # Goob edit
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
+    sprite: _Maid/Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
+    sprite: _Maid/Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
 

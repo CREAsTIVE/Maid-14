@@ -263,7 +263,7 @@
   description: "A suit that protects against radiation. The label reads, 'Made with lead. Please do not consume insulation.'"
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/rad.rsi
+    sprite: _Maid/Clothing/OuterClothing/Suits/rad.rsi
   - type: Armor
     coverage:
     - Chest
@@ -279,7 +279,7 @@
         Heat: 0.85
         Radiation: 0.01
   - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/rad.rsi
+    sprite: _Maid/Clothing/OuterClothing/Suits/rad.rsi
     clothingType: suit # WD EDIT
   - type: GroupExamine
   - type: ToggleableClothing # Goobstation - Modsuits change
