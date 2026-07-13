@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseItem
+  id: JudgeHammer
+  name: Молоток судьи.
+  description: Порядок, порядок! Никаких бомб в здании моего суда.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Misc/gavel_hammer.rsi
+    state: icon
+  - type: Item
+    sprite: _White/Objects/Misc/gavel_hammer.rsi
+    size: Small
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_White/Object/Misc/gavel.ogg
+  - type: UseDelay
+    delay: 2
+  - type: MeleeWeapon
+    animationRotation: 225
+    wideAnimationRotation: 135
+    canBeBlocked: false
+    soundHit:
+      path: /Audio/_White/Object/Misc/gavel.ogg
+    damage:
+      types:
+        Blunt: 0
