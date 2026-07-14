@@ -12,12 +12,12 @@ SPDX-License-Identifier: MIT
             SetSize="400 400"
             MinSize="400 400">
     <TabContainer Name="MasterTabContainer">
-        <BoxContainer Name="Scanner" Access="Public"
+        <BoxContainer Name="Scanner"
                       Orientation="Vertical"
                       VerticalExpand="True"
                       HorizontalExpand="True"
                       MinSize="100 150">
-            <PanelContainer Margin="5 5 5 5" VerticalExpand="True" StyleClasses="Inset">
+            <PanelContainer VerticalExpand="True" StyleClasses="Inset">
                 <BoxContainer Name="GeneticScannerContents" Margin="5 5 5 5" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
                     <Label HorizontalAlignment="Center" Text="{Loc 'cloning-console-window-scanner-details-label'}" />
                     <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True">
@@ -43,7 +43,8 @@ SPDX-License-Identifier: MIT
                     <Label HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Loc 'cloning-console-window-scanner-far-label'}" />
                 </BoxContainer>
             </PanelContainer>
-            <PanelContainer Margin="5 5 5 5" VerticalExpand="True" StyleClasses="Inset">
+            <Control MinSize="50 5" />
+            <PanelContainer VerticalExpand="True" StyleClasses="Inset">
                 <BoxContainer Name="CloningPodContents" Margin="5 5 5 5" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
                     <Label HorizontalAlignment="Center" Text="{Loc 'cloning-console-window-pod-details-label'}" />
                     <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">

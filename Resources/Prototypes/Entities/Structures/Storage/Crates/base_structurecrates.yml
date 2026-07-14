@@ -172,10 +172,10 @@
   - type: LockVisuals
   - type: AccessReader
   - type: Icon
-    sprite: Structures/Storage/Crates/secure.rsi
+    sprite: _Maid/Structures/Storage/Crates/secure.rsi #Maid
     state: icon
   - type: Sprite
-    sprite: Structures/Storage/Crates/secure.rsi
+    sprite: _Maid/Structures/Storage/Crates/secure.rsi #Maid
     layers:
     - state: base
     - state: closed

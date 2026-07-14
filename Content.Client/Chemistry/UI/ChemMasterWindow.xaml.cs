@@ -180,8 +180,7 @@ namespace Content.Client.Chemistry.UI
             // Ensure the Panel Info is updated, including UI elements for Buffer Volume, Output Container and so on
             UpdatePanelInfo(castState);
 
-            var vol = castState.BufferCurrentVolume?.Int() ?? 0;
-            BufferCurrentVolume.Text = $" {Loc.GetString("reagent-dispenser-window-quantity-label-text", ("quantity", vol))}";
+            BufferCurrentVolume.Text = $" {castState.BufferCurrentVolume?.Int() ?? 0}u";
 
             InputEjectButton.Disabled = castState.InputContainerInfo is null;
             OutputEjectButton.Disabled = castState.OutputContainerInfo is null;
@@ -282,7 +281,7 @@ namespace Content.Client.Chemistry.UI
             bufferHBox.AddChild(bufferLabel);
             var bufferVol = new Label
             {
-                Text = Loc.GetString("reagent-dispenser-window-quantity-label-text", ("quantity", state.BufferCurrentVolume?.Int() ?? 0)),
+                Text = $"{state.BufferCurrentVolume}u",
                 StyleClasses = { StyleNano.StyleClassLabelSecondaryColor }
             };
             bufferHBox.AddChild(bufferVol);
@@ -343,7 +342,6 @@ namespace Content.Client.Chemistry.UI
             }
 
             // Name of the container and its fill status (Ex: 44/100u)
-            var volUnit = Loc.GetString("chem-master-window-volume-unit");
             control.Children.Add(new BoxContainer
             {
                 Orientation = LayoutOrientation.Horizontal,
@@ -352,9 +350,7 @@ namespace Content.Client.Chemistry.UI
                     new Label { Text = $"{info.DisplayName}: " },
                     new Label
                     {
-                        Text = addReagentButtons
-                            ? $"{info.CurrentVolume}/{info.MaxVolume} {volUnit}"
-                            : $"{info.CurrentVolume}/{info.MaxVolume}",
+                        Text = $"{info.CurrentVolume}/{info.MaxVolume}",
                         StyleClasses = { StyleNano.StyleClassLabelSecondaryColor }
                     }
                 }
@@ -390,7 +386,9 @@ namespace Content.Client.Chemistry.UI
         private Control BuildReagentRow(Color reagentColor, int rowCount, string name, ReagentId reagent, FixedPoint2 quantity, bool isBuffer, bool addReagentButtons)
         {
             //Colors rows and sets fallback for reagentcolor to the same as background, this will hide colorPanel for entities hopefully
-            var currentRowColor = (rowCount % 2 == 1) ? StyleNano.FancyTreeOddRowColor : StyleNano.FancyTreeEvenRowColor;
+            var rowColor1 = Color.FromHex("#1B1B1E");
+            var rowColor2 = Color.FromHex("#202025");
+            var currentRowColor = (rowCount % 2 == 1) ? rowColor1 : rowColor2;
             if ((reagentColor == default(Color))|(!addReagentButtons))
             {
                 reagentColor = currentRowColor;
@@ -406,10 +404,10 @@ namespace Content.Client.Chemistry.UI
                 {
                     new Label { Text = $"{name}: " },
                     new Label
-                {
-                    Text = Loc.GetString("reagent-dispenser-window-quantity-label-text", ("quantity", quantity)),
-                    StyleClasses = { StyleNano.StyleClassLabelSecondaryColor }
-                },
+                    {
+                        Text = $"{quantity}u",
+                        StyleClasses = { StyleNano.StyleClassLabelSecondaryColor }
+                    },
 
                     // Padding
                     new Control { HorizontalExpand = true },

@@ -130,7 +130,7 @@
   description: A large duffel bag for holding extra medical related goods.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Duffels/brigmedic.rsi
+    sprite: _Maid/Clothing/Back/Duffels/brigmedic.rsi #Maid
 
 - type: entity
   parent: ClothingBackpackDuffel

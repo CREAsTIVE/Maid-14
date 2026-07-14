@@ -27,6 +27,3 @@ reagent-dispenser-window-no-container-loaded-text = No container loaded.
 reagent-dispenser-window-reagent-name-not-found-text = Reagent name not found
 reagent-dispenser-window-unknown-reagent-text = Unknown reagent
 reagent-dispenser-window-quantity-label-text = {$quantity}u
-reagent-dispenser-window-energy-cost-label = {$cost}J/u
-reagent-dispenser-window-energy-unit = J
-reagent-dispenser-window-battery = Battery:

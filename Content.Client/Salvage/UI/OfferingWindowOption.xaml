@@ -9,8 +9,7 @@ SPDX-License-Identifier: MIT
                 xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                 HorizontalExpand="True"
                 Name="BigPanel"
-                Margin="5 0"
-                StyleClasses="MaidTexturedBackground">
+                Margin="5 0">
     <BoxContainer Orientation="Vertical"
                   Margin="5 5">
         <!-- Title box -->

@@ -134,56 +134,57 @@
   special: # Goobstation
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
-#Maid edit start
+
 - type: startingGear
   id: ERTLeaderGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTLeader
     back: ClothingBackpackERTLeader
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     head: ClothingHeadHelmetERTLeader
+    neck: ExecutiveIDCard # Goobstation - Executive Access!
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolN1984
+    belt: ClothingBeltAssaultFilled # Goobstation
+    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives". Is never used anywhere else.
     pocket2: FlashlightSeclite
   storage:
     back:
-    - WeaponDisabler
-    - MedicatedSuture
-    - RegenerativeMesh
+    # - WeaponDisabler - Redundant. It spawns in secbelts now.
+    - MedkitCombatFilled # Goobstation - No reason not to.
     - BoxZiptie
     - CrowbarRed
-    - MagazineMagnum
+    - ERTSecurityUndeterminedWeapon
+    # - MagazineMagnum - No need
 
 - type: startingGear
   id: ERTLeaderGearEVA
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTLeader
     back: ClothingBackpackERTLeader
-    shoes: ClothingShoesBootsMagAdv
+    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
+    neck: ExecutiveIDCard # Goobstation - Executive Access!
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTLeader
-    suitstorage: AirTankFilled
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolN1984
+    belt: ClothingBeltAssaultFilled # Goobstation
+    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives". Is never used anywhere else.
     pocket2: FlashlightSeclite
   storage:
     back:
-    - WeaponDisabler
-    - MedicatedSuture
-    - RegenerativeMesh
+    # - WeaponDisabler - Redundant. It spawns in secbelts now.
+    - MedkitCombatFilled # Goobstation - No reason not to.
     - BoxZiptie
     - CrowbarRed
-    - MagazineMagnum
-#Maid edit end
+    - ERTSecurityUndeterminedWeapon
+    # Goobstation - MagazineMagnum
+
 - type: chameleonOutfit
   id: ERTLeaderChameleonOutfit
   job: ERTLeader
@@ -218,22 +219,22 @@
     - type: CanEnchant #GoobStation
   - !type:AddImplantSpecial
      implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
-#Maid edit start
+
 - type: startingGear
   id: ERTChaplainGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTChaplain
     back: ClothingBackpackERTChaplain
-    shoes: ClothingShoesLeather
+    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     head: ClothingHeadHatFez
     eyes: ClothingEyesGlasses
     neck: ClothingNeckStoleChaplain
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
     id: ERTChaplainPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltStorageWaistbag
-    pocket1: Flare
+    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
     pocket2: DrinkWaterBottleFull
   storage:
     back:
@@ -249,20 +250,19 @@
     - FoodBakedBunHotX
     - Nullrod # Goobstation
     - Lighter
-#    - ExecutiveIDCard # Goobstation - Executive Access!
+    - ExecutiveIDCard # Goobstation - Executive Access!
 
 - type: startingGear
   id: ERTChaplainGearEVA
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTChaplain
     back: ClothingBackpackERTChaplain
-    shoes: ClothingShoesBootsMagAdv
+    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlasses
     neck: ClothingNeckStoleChaplain
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTChaplain
-    suitstorage: AirTankFilled
     id: ERTChaplainPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltStorageWaistbag
@@ -283,8 +283,8 @@
     - FoodBakedBunHotX
     - Lighter
     - Nullrod # Goobstation
-#    - ExecutiveIDCard # Goobstation - Executive Access!
-#Maid edit end
+    - ExecutiveIDCard # Goobstation - Executive Access!
+
 - type: chameleonOutfit
   id: ERTChaplainChameleonOutfit
   job: ERTChaplain
@@ -316,21 +316,22 @@
   special: # Goobstation
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
-#Maid edit start
+
 - type: startingGear
   id: ERTEngineerGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTEngineer
     back: ClothingBackpackERTEngineer
-    shoes: ClothingShoesBootsWork
+    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     head: ClothingHeadHelmetERTEngineer
+    neck: ExecutiveIDCard # Goobstation - Executive Access!
     eyes: ClothingEyesGlassesMeson
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
     id: ERTEngineerPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltChiefEngineerFilled
-    pocket1: Flare
+    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
     pocket2: GasAnalyzer
   storage:
     back:
@@ -350,12 +351,12 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTEngineer
     back: ClothingBackpackERTEngineer
-    shoes: ClothingShoesBootsMagAdv
+    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
+    neck: ExecutiveIDCard # Goobstation - Executive Access!
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesMeson
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTEngineer
-    suitstorage: AirTankFilled
     id: ERTEngineerPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltChiefEngineerFilled
@@ -373,7 +374,7 @@
     - SheetPlasteel
     - SheetSteel
     - SheetGlass
-#Maid edit end
+
 - type: chameleonOutfit
   id: ERTEngineerChameleonOutfit
   job: ERTEngineer
@@ -403,56 +404,57 @@
   special: # Goobstation
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm]
-#Maid edit start
+
 - type: startingGear
   id: ERTSecurityGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
     back: ClothingBackpackERTSecurity
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     head: ClothingHeadHelmetERTSecurity
+    neck: ExecutiveIDCard # Goobstation - Executive Access!
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolMk58
+    belt: ClothingBeltAssaultFilled # Goobstation
+    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
     pocket2: FlashlightSeclite
   storage:
     back:
-    - WeaponDisabler
-    - MedicatedSuture
-    - RegenerativeMesh
+    # - WeaponDisabler - Redundant. It spawns in secbelts now.
+    - MedkitCombatFilled # Goobstation - No reason not to.
     - BoxZiptie
     - CrowbarRed
-    - MagazinePistol
+    - ERTSecurityUndeterminedWeapon
+   # - MagazinePistol
 
 - type: startingGear
   id: ERTSecurityGearEVA
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
     back: ClothingBackpackERTSecurity
-    shoes: ClothingShoesBootsMag
+    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     mask: ClothingMaskGasERT
+    neck: ExecutiveIDCard # Goobstation - Executive Access!
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTSecurity
-    suitstorage: AirTankFilled
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolMk58
+    belt: ClothingBeltAssaultFilled # Goobstation
+    pocket1: WeaponPulsePistol # Death to Crew aligned Ballistics
     pocket2: FlashlightSeclite
   storage:
     back:
-    - WeaponDisabler
-    - MedicatedSuture
-    - RegenerativeMesh
+    # - WeaponDisabler - Redundant. It spawns in secbelts now.
+    - MedkitCombatFilled # Goobstation - No reason not to.
     - BoxZiptie
     - CrowbarRed
-    - MagazinePistol
-#Maid edit end
+    - ERTSecurityUndeterminedWeapon
+   # - MagazinePistol
+
 # Every time an admin spawns a lecter ERT instead of an annie ert i lose a part of my soul. USE THE DAMN GUN MADE FOR THE ERTS, OR SPAWN THE OTHER PROTO. THIS IS REDUNDANT!!
 # - type: startingGear
 #   id: ERTSecurityGearEVALecter
@@ -509,56 +511,63 @@
   special: # Goobstation
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
-#Maid edit start
+
 - type: startingGear
   id: ERTMedicalGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTMedic
     back: ClothingBackpackERTMedical
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     head: ClothingHeadHelmetERTMedic
-    eyes: ClothingEyesHudMedical
+    neck: ExecutiveIDCard # Goobstation - Executive Access!
+    eyes: ClothingEyesGlassesMedSec # Goobstation
     gloves: ClothingHandsGlovesNitrile
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
     id: ERTMedicPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltMedicalFilled
+    belt: ClothingBeltSecurityWebbingFilledMedical # Fancier
     pocket1: Flare
+    pocket2: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
   storage:
     back:
-    - BoxSurvivalMedical
-    - Hypospray
+    - CentCommHypo
     - MedkitAdvancedFilled
     - CrowbarRed
     - ChemistryBottleOmnizine
-    - ChemistryBottleEpinephrine
-    - ChemistryBottleEpinephrine
+    - JugOxandrolone
+    - JugSalicylicAcid
+    - ParamedHypo
+    - CartridgeAtropine
+    - CartridgeAtropine
+    - MedicalBeamGunBattery
 
 - type: startingGear
   id: ERTMedicalGearEVA
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTMedic
     back: ClothingBackpackERTMedical
-    shoes: ClothingShoesBootsMag
+    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesHudMedical
+    neck: ExecutiveIDCard # Goobstation - Executive Access!
+    eyes: ClothingEyesGlassesMedSec # Goobstation
     gloves: ClothingHandsGlovesNitrile
     outerClothing: ClothingOuterHardsuitERTMedical
-    suitstorage: AirTankFilled
     id: ERTMedicPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltMedicalFilled
-    pocket1: Flare
+    belt: ClothingBeltSecurityWebbingFilledMedical # Fancier
+    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
   storage:
     back:
-    - BoxSurvivalMedical
-    - Hypospray
+    - CentCommHypo
     - MedkitAdvancedFilled
     - CrowbarRed
-    - ChemistryBottleOmnizine
-    - ChemistryBottleEpinephrine
-    - ChemistryBottleEpinephrine
-#Maid edit end
+    - JugOxandrolone
+    - JugSalicylicAcid
+    - ParamedHypo
+    - CartridgeAtropine
+    - CartridgeAtropine
+    - MedicalBeamGunBattery
+
 - type: chameleonOutfit
   id: ERTMedicalChameleonOutfit
   job: ERTMedical
@@ -588,7 +597,7 @@
   special: # Goobstation
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm]
-#Maid edit start
+
 - type: startingGear
   id: ERTJanitorGear
   equipment:
@@ -596,12 +605,13 @@
     back: ClothingBackpackERTJanitor
     shoes: ClothingShoesGaloshes
     head: ClothingHeadHelmetERTJanitor
+    neck: ExecutiveIDCard # Goobstation - Executive Access!
     gloves: ClothingHandsGlovesColorPurple
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
     id: ERTJanitorPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltJanitorFilled
-    pocket1: Flare
+    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
   storage:
     back:
     - LightReplacer
@@ -616,15 +626,15 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTJanitor
     back: ClothingBackpackERTJanitor
-    shoes: ClothingShoesBootsMag
+    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     mask: ClothingMaskGasERT
+    neck: ExecutiveIDCard # Goobstation - Executive Access!
     gloves: ClothingHandsGlovesColorPurple
     outerClothing: ClothingOuterHardsuitERTJanitor
-    suitstorage: AirTankFilled
     id: ERTJanitorPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltJanitorFilled
-    pocket1: Flare
+    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
   storage:
     back:
     - LightReplacer
@@ -633,7 +643,7 @@
     - Soap
     - CrowbarRed
     - AdvMopItem
-#Maid edit end
+
 - type: chameleonOutfit
   id: ERTJanitorChameleonOutfit
   job: ERTJanitor

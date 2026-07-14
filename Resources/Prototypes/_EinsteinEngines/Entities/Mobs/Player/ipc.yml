@@ -180,7 +180,7 @@
         Blunt: -15
         Piercing: -15
         Slash: -15
-#  - type: DamagedSiliconAccent #Maid
+  - type: DamagedSiliconAccent
   - type: Uncloneable
   - type: OwnInteractionVerbs
     allowedVerbs: []

@@ -56,6 +56,7 @@ namespace Content.Goobstation.Client.Chemistry.UI
     public sealed partial class EnergyReagentDispenserWindow : FancyWindow
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!;
 
         private float _batteryCharge;
         private float _batteryMaxCharge;
@@ -107,6 +108,9 @@ namespace Content.Goobstation.Client.Chemistry.UI
             UpdateReagentsList(state.Inventory);
             UpdateBatteryPercent();
 
+            _entityManager.TryGetEntity(state.OutputContainerEntity, out var outputContainerEnt);
+            View.SetEntity(outputContainerEnt);
+
             ClearButton.Disabled = state.OutputContainer is null;
             EjectButton.Disabled = state.OutputContainer is null;
 
@@ -117,12 +121,18 @@ namespace Content.Goobstation.Client.Chemistry.UI
 
         private void UpdateBatteryPercent()
         {
-            BatteryProgressBar.Value = _batteryMaxCharge > 0
-                ? _batteryCharge / _batteryMaxCharge
+            var batteryPercent = _batteryMaxCharge > 0
+                ? _batteryCharge / _batteryMaxCharge * 100
                 : 0;
 
-            var energyUnit = Loc.GetString("reagent-dispenser-window-energy-unit");
-            BatteryStatusLabel.Text = $"{_batteryCharge,3:F0}/{_batteryMaxCharge,3:F0}{energyUnit}";
+            BatteryStatusLabel.Text = $"{_batteryCharge,3:F0}/{_batteryMaxCharge,3:F0} ({batteryPercent,3:F0}%)";
+            BatteryStatusLabel.StyleClasses.Clear();
+            BatteryStatusLabel.StyleClasses.Add(batteryPercent switch
+            {
+                > 60 => "Good",
+                > 30 => "Caution",
+                _ => "Danger",
+            });
         }
 
         private void UpdateContainerInfo(EnergyReagentDispenserBoundUserInterfaceState state)
@@ -137,9 +147,8 @@ namespace Content.Goobstation.Client.Chemistry.UI
                 return;
             }
 
-            ContainerInfoName.Text = $"{state.OutputContainer.DisplayName}: ";
-            var maxStr = Loc.GetString("reagent-dispenser-window-quantity-label-text", ("quantity", state.OutputContainer.MaxVolume));
-            ContainerInfoFill.Text = $"{state.OutputContainer.CurrentVolume}/{maxStr}";
+            ContainerInfoName.Text = state.OutputContainer.DisplayName;
+            ContainerInfoFill.Text = state.OutputContainer.CurrentVolume + "/" + state.OutputContainer.MaxVolume;
 
             foreach (var (reagent, quantity) in state.OutputContainer.Reagents!)
             {

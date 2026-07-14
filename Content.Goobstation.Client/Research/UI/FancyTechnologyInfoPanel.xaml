@@ -9,7 +9,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
          xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
          xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client"
          Margin="5"
-         MinWidth="500"
+         MinWidth="450"
          VerticalExpand="True"
          HorizontalExpand="True">
     <BoxContainer Orientation="Vertical"
@@ -65,7 +65,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                           Visible="False">
                 <Label Text="{Loc 'research-console-required-text'}"
                         HorizontalAlignment="Center"/>
-                <PanelContainer VerticalExpand="True" StyleClasses="MaidTexturedBackground">
+                <customControls:HSeparator StyleClasses="LowDivider"
+                        Margin="0 0 0 10"/>
+                <PanelContainer VerticalExpand="True">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#1B1B1E"/>
+                    </PanelContainer.PanelOverride>
                     <ScrollContainer
                         HScrollEnabled="False"
                         HorizontalExpand="True"
@@ -86,7 +91,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 Margin="5">
                 <Label Text="{Loc 'research-console-unlocks-text'}"
                         HorizontalAlignment="Center"/>
-                <PanelContainer VerticalExpand="True" StyleClasses="MaidTexturedBackground">
+                <customControls:HSeparator StyleClasses="LowDivider"
+                        Margin="0 0 0 10"/>
+                <PanelContainer VerticalExpand="True">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#1B1B1E"/>
+                    </PanelContainer.PanelOverride>
                     <ScrollContainer
                         HScrollEnabled="False"
                         HorizontalExpand="True"

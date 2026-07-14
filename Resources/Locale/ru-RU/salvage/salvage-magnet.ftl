@@ -4,7 +4,7 @@ salvage-system-announcement-spawn-no-debris-available = Нет обломков,
 salvage-system-announcement-arrived = Обломок был притянут для утилизации. Расчётное время удержания: { $timeLeft } секунд.
 salvage-asteroid-name = Астероид
 salvage-magnet-window-title = Магнит обломков
-salvage-expedition-window-progression = Время удержания
+salvage-expedition-window-progression = Прогресс
 salvage-magnet-resources =
     { $resource ->
         [OreIron] Железо

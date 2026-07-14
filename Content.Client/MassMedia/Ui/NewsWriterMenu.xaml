@@ -11,16 +11,20 @@ SPDX-License-Identifier: MIT
     xmlns:ui="clr-namespace:Content.Client.MassMedia.Ui"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     Title="{Loc 'news-write-ui-default-title'}"
-    MinSize="370 450"
-    SetSize="370 450">
+    MinSize="348 443"
+    SetSize="348 443">
 
     <ui:ArticleEditorPanel Name="ArticleEditorPanel" HorizontalAlignment="Left" VerticalExpand="True"
-                           MinWidth="510" MinHeight="370" Margin="0 0 0 30" Access="Public" Visible="False"/>
+                           MinWidth="410" MinHeight="370" Margin="0 0 0 30" Access="Public" Visible="False"/>
 
     <BoxContainer Orientation="Vertical" VerticalExpand="True">
         <Control VerticalExpand="True" HorizontalExpand="True" Margin="10 10 10 0">
-            <PanelContainer Name="MainPanel" HorizontalExpand="False" VerticalExpand="True" StyleClasses="MaidTransparentBackground"/>
-            <ScrollContainer Name="ArticleListScrollbar" HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="True" Margin="2 5">
+            <PanelContainer Name="MainPanel" HorizontalExpand="False" VerticalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#202020" />
+                </PanelContainer.PanelOverride>
+            </PanelContainer>
+            <ScrollContainer Name="ArticleListScrollbar" HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="True">
                 <BoxContainer Name="ArticlesContainer" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="6 6 6 6">
                 </BoxContainer>
             </ScrollContainer>
@@ -31,7 +35,7 @@ SPDX-License-Identifier: MIT
             </BoxContainer>
             <Control HorizontalExpand="True"/>
             <Control>
-                <Button Name="ButtonCreate" SetHeight="30" MinWidth="85" Text="{Loc news-write-ui-create-text}"/>
+                <Button Name="ButtonCreate" SetHeight="26" MinWidth="83" Text="{Loc news-write-ui-create-text}"/>
             </Control>
         </BoxContainer>
         <Control SetHeight="30" Margin="2 0 0 0">

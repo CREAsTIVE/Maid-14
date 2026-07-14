@@ -94,8 +94,8 @@
           temperature: 373.15
   - type: Repairable
     doAfterDelay: 30 # you can heal the mothership core, but it takes a while
-#  - type: DamagedSiliconAccent #Maid
-#    enableChargeCorruption: false #Maid
+  - type: DamagedSiliconAccent
+    enableChargeCorruption: false
   - type: Explosive
     explosionType: Default
     maxIntensity: 100

@@ -75,8 +75,8 @@
             - material: Plasteel
               amount: 1
               doAfter: 1
-#            - tool: Welding #Maid
-#              doAfter: 3 #Maid
+            - tool: Welding
+              doAfter: 3
 
         - to: TableGlass
           steps:
@@ -176,8 +176,8 @@
               prototype: SheetPlasteel1
               amount: 1
           steps:
-#            - tool: Welding #Maid
-#              doAfter: 3 #Maid
+            - tool: Welding
+              doAfter: 3
             - tool: Anchoring
               doAfter: 1
 

@@ -16,20 +16,23 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                 xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-                MinSize="600 550"
-                SetSize="700 585"
+                MinSize="620 670"
                 Title="{Loc 'chem-master-bound-user-interface-title'}">
     <TabContainer Name="Tabs" Margin="5 5 7 5">
-        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5" SeparationOverride="3">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5" SeparationOverride="10">
             <!-- Input container info -->
             <BoxContainer Orientation="Horizontal">
-                <Label Text="{Loc 'chem-master-window-container-label'}" Margin="5 0"/>
+                <Label Text="{Loc 'chem-master-window-container-label'}" />
                 <Control HorizontalExpand="True" />
-                <Button MinSize="80 0" Name="InputEjectButton" Access="Public" Text="{Loc 'chem-master-window-eject-button'}"  Margin="5 0"/>
+                <Button MinSize="80 0" Name="InputEjectButton" Access="Public" Text="{Loc 'chem-master-window-eject-button'}" />
             </BoxContainer>
 
-            <PanelContainer VerticalExpand="True" MinSize="0 200" StyleClasses="MaidTransparentBackground">
-                <ScrollContainer HorizontalExpand="True" MinSize="0 200" Margin="0 -3">
+            <PanelContainer VerticalExpand="True" MinSize="0 200">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
+
+                <ScrollContainer HorizontalExpand="True" MinSize="0 200">
                     <!-- Initially empty, when server sends state data this will have container contents and fill volume.-->
                     <BoxContainer Name="InputContainerInfo" Orientation="Vertical" Margin="4" HorizontalExpand="True">
                         <Label Text="{Loc 'chem-master-window-no-container-loaded-text'}" />
@@ -37,18 +40,25 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 </ScrollContainer>
             </PanelContainer>
 
+            <!-- Padding -->
+            <Control MinSize="0 10" />
+
             <!-- Buffer -->
-            <BoxContainer Orientation="Horizontal" MinSize="0 38">
-                <Label Text="{Loc 'chem-master-window-buffer-text'}" VerticalAlignment="Center" Margin="5 0"/>
+            <BoxContainer Orientation="Horizontal">
+                <Label Text="{Loc 'chem-master-window-buffer-text'}" />
                 <Control HorizontalExpand="True" />
-                <Button MinSize="80 0" Name="BufferTransferButton" Access="Public" Text="{Loc 'chem-master-window-transfer-button'}" ToggleMode="True" StyleClasses="OpenRight" VerticalAlignment="Center" Margin="1 0" />
-                <Button MinSize="80 0" Name="BufferSortButton" Access="Public" Text="{Loc 'chem-master-window-sort-type-none'}" StyleClasses="OpenBoth" VerticalAlignment="Center" Margin="1 0"/>
-                <Button MinSize="80 0" Name="BufferDiscardButton" Access="Public" Text="{Loc 'chem-master-window-discard-button'}" ToggleMode="True" StyleClasses="OpenLeft" VerticalAlignment="Center" Margin="1 0 5 0"/>
+                <Button MinSize="80 0" Name="BufferTransferButton" Access="Public" Text="{Loc 'chem-master-window-transfer-button'}" ToggleMode="True" StyleClasses="OpenRight" />
+                <Button MinSize="80 0" Name="BufferSortButton" Access="Public" Text="{Loc 'chem-master-window-sort-type-none'}" StyleClasses="OpenBoth" />
+                <Button MinSize="80 0" Name="BufferDiscardButton" Access="Public" Text="{Loc 'chem-master-window-discard-button'}" ToggleMode="True" StyleClasses="OpenLeft" />
             </BoxContainer>
 
             <!-- Buffer info -->
-            <PanelContainer VerticalExpand="True" MinSize="0 200" StyleClasses="MaidTransparentBackground">
-                <ScrollContainer HorizontalExpand="True" MinSize="0 200" Margin="0 -3">
+            <PanelContainer VerticalExpand="True" MinSize="0 200">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
+
+                <ScrollContainer HorizontalExpand="True" MinSize="0 200">
                     <!-- Buffer reagent list -->
                     <BoxContainer Name="BufferInfo" Orientation="Vertical" Margin="4" HorizontalExpand="True">
                         <Label Text="{Loc 'chem-master-window-buffer-empty-text'}" />
@@ -57,16 +67,20 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             </PanelContainer>
         </BoxContainer>
 
-        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5" SeparationOverride="3">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5" SeparationOverride="10">
             <!-- Output container info -->
             <BoxContainer Orientation="Horizontal">
-                <Label Text="{Loc 'chem-master-window-container-label'}" Margin="5 0"/>
+                <Label Text="{Loc 'chem-master-window-container-label'}" />
                 <Control HorizontalExpand="True" />
-                <Button MinSize="80 0" Name="OutputEjectButton" Access="Public" Text="{Loc 'chem-master-window-eject-button'}" Margin="5 0"/>
+                <Button MinSize="80 0" Name="OutputEjectButton" Access="Public" Text="{Loc 'chem-master-window-eject-button'}" />
             </BoxContainer>
 
-            <PanelContainer VerticalExpand="True" MinSize="0 200" StyleClasses="MaidTransparentBackground">
-                <ScrollContainer HorizontalExpand="True" MinSize="0 200" Margin="0 -3">
+            <PanelContainer VerticalExpand="True" MinSize="0 200">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
+
+                <ScrollContainer HorizontalExpand="True" MinSize="0 200">
                     <!-- Initially empty, when server sends state data this will have container contents and fill volume.-->
                     <BoxContainer Name="OutputContainerInfo" Orientation="Vertical" Margin="4" HorizontalExpand="True">
                         <Label Text="{Loc 'chem-master-window-no-container-loaded-text'}" />
@@ -74,19 +88,25 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 </ScrollContainer>
             </PanelContainer>
 
+            <!-- Padding -->
+            <Control MinSize="0 10" />
+
             <!-- Packaging -->
-            <BoxContainer Orientation="Horizontal" MinSize="0 38">
-                <Label Text="{Loc 'chem-master-window-packaging-text'}" VerticalAlignment="Center" Margin="5 0"/>
+            <BoxContainer Orientation="Horizontal">
+                <Label Text="{Loc 'chem-master-window-packaging-text'}" />
                 <Control HorizontalExpand="True"/>
-                <Label Text="{Loc 'chem-master-window-buffer-label'}" VerticalAlignment="Center" />
-                <Label Name="BufferCurrentVolume" StyleClasses="LabelSecondaryColor" VerticalAlignment="Center" Margin="1 0 5 0"/>
+                <Label Text="{Loc 'chem-master-window-buffer-label'}" />
+                <Label Name="BufferCurrentVolume" StyleClasses="LabelSecondaryColor" />
             </BoxContainer>
 
             <!-- Wrap the packaging info-->
-            <PanelContainer VerticalExpand="True" MinSize="0 200" StyleClasses="MaidTransparentBackground">
+            <PanelContainer>
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
+
                 <!-- Packaging Info -->
-                <ScrollContainer HorizontalExpand="True" MinSize="0 200" Margin="0 -3">
-                    <BoxContainer Orientation="Vertical" Margin="4" HorizontalExpand="True">
+                <BoxContainer Orientation="Vertical" Margin="4" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="5">
                     <!-- Label for output -->
                     <BoxContainer Orientation="Horizontal">
                         <Label Text="{Loc 'chem-master-current-text-label'}" />
@@ -120,8 +140,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                         <SpinBox MinSize="100 0" Name="BottleDosage" Access="Public" Value="0" />
                         <Button MinSize="80 0" Name="CreateBottleButton" Access="Public" Text="{Loc 'chem-master-window-create-button'}" />
                     </BoxContainer>
-                    </BoxContainer>
-                </ScrollContainer>
+                </BoxContainer>
             </PanelContainer>
         </BoxContainer>
     </TabContainer>

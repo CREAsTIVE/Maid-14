@@ -12,7 +12,6 @@
 
 ## UI
 cloning-console-window-title = Cloning Console
-cloning-console-window-tab-scanner = Scanner
 cloning-console-window-clone-button-text = Clone
 cloning-console-window-scanner-id = ID: [color=white]{$scannerOccupantName}[/color]
 cloning-console-window-pod-id = ID: [color=white]{$podOccupantName}[/color]

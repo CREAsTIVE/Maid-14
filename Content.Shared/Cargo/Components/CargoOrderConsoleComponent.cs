@@ -42,7 +42,7 @@ public sealed partial class CargoOrderConsoleComponent : Component
     /// If true, account transfers have no limit and a lower cooldown.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool TransferUnbounded = true; // MAID old funds
+    public bool TransferUnbounded;
 
     [ViewVariables]
     public float TransferLimit => TransferUnbounded ? 1 : BaseTransferLimit;
@@ -51,7 +51,7 @@ public sealed partial class CargoOrderConsoleComponent : Component
     /// The maximum percent of total funds that can be transferred or withdrawn in one action.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float BaseTransferLimit = 1f; // MAID old funds
+    public float BaseTransferLimit = 0.20f;
 
     /// <summary>
     /// The time at which account actions can be performed again.
@@ -72,7 +72,7 @@ public sealed partial class CargoOrderConsoleComponent : Component
     /// The minimum time between account actions when <see cref="TransferUnbounded"/> is true
     /// </summary>
     [DataField]
-    public TimeSpan UnboundedAccountActionDelay = TimeSpan.FromSeconds(1); // MAID old funds
+    public TimeSpan UnboundedAccountActionDelay = TimeSpan.FromSeconds(10);
 
     /// <summary>
     /// The stack representing cash dispensed on withdrawals.

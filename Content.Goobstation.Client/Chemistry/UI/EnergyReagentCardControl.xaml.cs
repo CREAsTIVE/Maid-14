@@ -29,7 +29,7 @@ public sealed partial class EnergyReagentCardControl : Control
         PowerCostPerUnit = item.PowerCostPerUnit;
         ColorPanel.PanelOverride = new StyleBoxFlat { BackgroundColor = item.ReagentColor };
         ReagentNameLabel.Text = item.ReagentLabel;
-        FillLabel.Text = Loc.GetString("reagent-dispenser-window-energy-cost-label", ("cost", item.PowerCostPerUnit));
+        FillLabel.Text = $"{item.PowerCostPerUnit}J/u";
 
         MainButton.OnPressed += args => OnPressed?.Invoke(ReagentId);
     }
