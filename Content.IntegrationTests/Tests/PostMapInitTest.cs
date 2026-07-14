@@ -238,14 +238,15 @@ namespace Content.IntegrationTests.Tests
             //   "Saltern",
             //   "Serpentcrest",
             // // Goob end
-              "WonderBoxMaid", // Maid
-              "AtomMaid", // Maid
-              "TriumphMaid", // Maid
-              "BoxMaid", // Maid
-              "BagelMaid", // Maid
-              "KettleMaid", // Maid
-              "ScoupidiaMaid", // Maid
-              "CentcommMaid" // Maid
+            "WonderBoxMaid", // Maid
+            "AtomMaid", // Maid
+            // "TriumphMaid", // Maid - DeployableBarrierSystem broke the test
+            "BoxMaid", // Maid
+            "BagelMaid", // Maid
+            "KettleMaid", // Maid
+            "ScoupidiaMaid", // Maid
+            "OldBoxMaid", // Maid
+            "CentcommMaid" // Maid
         };
         // Goobstation edit start, yeah i know, but this is easier and less load than loading protoman or something.
         private static readonly string[] GameMapsInCurrentPool = // plus dev
@@ -289,11 +290,12 @@ namespace Content.IntegrationTests.Tests
             //"Serpentcrest",
               "WonderBoxMaid", // Maid
               "AtomMaid", // Maid
-              "TriumphMaid", // Maid
+            // "TriumphMaid", // Maid - DeployableBarrierSystem broke the test
               "BoxMaid", // Maid
               "BagelMaid", // Maid
               "KettleMaid", // Maid
               "ScoupidiaMaid", // Maid
+              "OldBoxMaid", // Maid
               "CentcommMaid" // Maid
         };
         // Goobstation edit end

@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 264.0.0
+  engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/11/2025 21:53:56
+  time: 07/10/2026 09:28:42
   entityCount: 176
 maps: []
 grids:
@@ -227,7 +227,7 @@ entities:
       pos: 1.5,0.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -1529.0615
+      secondsUntilStateChange: -1757.5813
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -280,6 +280,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,11.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: AtmosDeviceFanDirectional
   entities:
   - uid: 7
@@ -700,12 +702,16 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.5,4.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
   - uid: 160
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 5.5,10.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: ClosetWallEmergencyN2FilledRandom
   entities:
   - uid: 145
@@ -714,6 +720,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,4.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: ComputerComms
   entities:
   - uid: 46
@@ -738,6 +746,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,-0.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: ExtinguisherCabinetFilled
   entities:
   - uid: 20
@@ -745,6 +755,8 @@ entities:
     - type: Transform
       pos: 3.5,0.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: FireAxeCabinetFilled
   entities:
   - uid: 81
@@ -752,6 +764,8 @@ entities:
     - type: Transform
       pos: 2.5,0.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: FirelockGlass
   entities:
   - uid: 161
@@ -785,6 +799,8 @@ entities:
     - type: Transform
       pos: 0.5,11.5
       parent: 1
+    - type: PowerSupplier
+      supplyRate: 60000
 - proto: GravityGeneratorMini
   entities:
   - uid: 98
@@ -870,6 +886,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,2.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: MaintenanceWeaponSpawner
   entities:
   - uid: 56
