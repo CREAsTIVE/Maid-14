@@ -31,7 +31,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: _Maid/Structures/Storage/Crates/generic.rsi #Maid
+        - sprite: Structures/Storage/Crates/generic.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
