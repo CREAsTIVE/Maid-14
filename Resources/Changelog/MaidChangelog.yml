@@ -673,3 +673,15 @@ Entries:
       message: Система баланса у каждого отдела убрана
   id: 59
   time: '2026-07-14T16:23:50.0000000+00:00'
+- author: Warete
+  changes:
+    - type: Add
+      message: Вариация старого Бокса (OldBox) - by Ozzi_
+    - type: Tweak
+      message: Правки Wonderbox'a - by pahan_chiiiil
+    - type: Tweak
+      message: Правки Triumph, Kettle, Bagel, Box и Atom - by Ozzi_
+    - type: Tweak
+      message: Правки Шаттлов эвакуации на картах - by Ozzi_
+  id: 60
+  time: '2026-07-14T17:28:01.0000000+00:00'
