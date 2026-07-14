@@ -17,3 +17,6 @@ reagent-dispenser-window-no-container-loaded-text = Контейнер не за
 reagent-dispenser-window-reagent-name-not-found-text = Имя реагента не найдено
 reagent-dispenser-window-unknown-reagent-text = Неизвестный реагент
 reagent-dispenser-window-quantity-label-text = { $quantity } ед.
+reagent-dispenser-window-energy-cost-label = {$cost} Дж/ед.
+reagent-dispenser-window-energy-unit = Дж
+reagent-dispenser-window-battery = Заряд:

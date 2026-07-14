@@ -35,7 +35,6 @@ public sealed partial class OfferingWindowOption : PanelContainer
         IoCManager.InjectDependencies(this);
 
         LayoutContainer.SetAnchorPreset(this, LayoutContainer.LayoutPreset.Wide);
-        BigPanel.PanelOverride = new StyleBoxFlat(new Color(30, 30, 34));
 
         ClaimButton.OnPressed += args =>
         {

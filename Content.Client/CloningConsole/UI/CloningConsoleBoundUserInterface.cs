@@ -13,6 +13,7 @@
 using JetBrains.Annotations;
 using Content.Shared.Cloning.CloningConsole;
 using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.CloningConsole.UI
 {
@@ -32,6 +33,7 @@ namespace Content.Client.CloningConsole.UI
 
             _window = this.CreateWindow<CloningConsoleWindow>();
             _window.Title = Loc.GetString("cloning-console-window-title");
+            TabContainer.SetTabTitle(_window.Scanner, Loc.GetString("cloning-console-window-tab-scanner"));
 
             _window.CloneButton.OnPressed += _ => SendMessage(new UiButtonPressedMessage(UiButton.Clone));
         }
