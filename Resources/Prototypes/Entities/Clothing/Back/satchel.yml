@@ -157,7 +157,7 @@
   description: A sterile satchel for medical related needs.
   components:
   - type: Sprite
-    sprite: _Maid/Clothing/Back/Satchels/brigmedic.rsi #Maid
+    sprite: Clothing/Back/Satchels/brigmedic.rsi
 
 - type: entity
   parent: [ClothingBackpackSatchel, BaseCommandContraband]
