@@ -20022,7 +20022,7 @@ entities:
           damping: 841.5418
           stiffness: 7553.662
     - type: BecomesStation
-      id: TriumphStation
+      id: TriumphMaidStation
     - type: ImplicitRoof
   - uid: 69325
     components:
@@ -129988,8 +129988,6 @@ entities:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - null
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -130026,8 +130024,6 @@ entities:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - null
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -130064,8 +130060,6 @@ entities:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - null
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -130210,8 +130204,6 @@ entities:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - null
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -219729,71 +219721,6 @@ entities:
     - type: Transform
       pos: -5.5,10.5
       parent: 69852
-- proto: GroundCannabis
-  entities:
-  - uid: 31968
-    components:
-    - type: Transform
-      pos: -158.55234,51.73573
-      parent: 2
-    - type: Physics
-      canCollide: False
-    - type: Stack
-      count: 30
-  - uid: 31969
-    components:
-    - type: Transform
-      parent: 31968
-    - type: Physics
-      canCollide: False
-  - uid: 31970
-    components:
-    - type: Transform
-      parent: 31968
-    - type: Physics
-      canCollide: False
-  - uid: 31971
-    components:
-    - type: Transform
-      parent: 31968
-    - type: Physics
-      canCollide: False
-  - uid: 31972
-    components:
-    - type: Transform
-      parent: 31968
-    - type: Physics
-      canCollide: False
-  - uid: 31973
-    components:
-    - type: Transform
-      parent: 31968
-    - type: Physics
-      canCollide: False
-  - uid: 31974
-    components:
-    - type: Transform
-      parent: 31968
-    - type: Physics
-      canCollide: False
-  - uid: 31975
-    components:
-    - type: Transform
-      parent: 31968
-    - type: Physics
-      canCollide: False
-  - uid: 31976
-    components:
-    - type: Transform
-      parent: 31968
-    - type: Physics
-      canCollide: False
-  - uid: 31977
-    components:
-    - type: Transform
-      parent: 31968
-    - type: Physics
-      canCollide: False
 - proto: GunSafe
   entities:
   - uid: 31978
@@ -275846,7 +275773,6 @@ entities:
         stash: !type:ContainerSlot
           showEnts: False
           occludes: True
-          ent: 31968
         disposals: !type:Container
           showEnts: False
           occludes: True
