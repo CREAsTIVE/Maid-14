@@ -101,7 +101,7 @@
   id: DraconicMunitions
   name: research-technology-draconic-munitions
   icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi #Maid
     state: incendiarydisplay
   discipline: Arsenal
   tier: 1

@@ -158,7 +158,7 @@
 - type: cargoProduct
   id: ServicePersonnel
   icon:
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _Maid/Objects/Misc/id_cards.rsi #Maid
     state: default
   product: CrateServicePersonnel
   cost: 1000

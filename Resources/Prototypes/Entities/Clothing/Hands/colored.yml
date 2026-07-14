@@ -423,9 +423,9 @@
   components:
   - type: FingerprintMask
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+    sprite: _Maid/Clothing/Hands/Gloves/Color/yellow.rsi #Maid
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+    sprite: _Maid/Clothing/Hands/Gloves/Color/yellow.rsi #Maid
   - type: Butcherable
     butcheringType: Knife
     spawned:

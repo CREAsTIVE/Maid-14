@@ -150,5 +150,5 @@
   layer: Mod
   isShaded: true
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Maid/Interface/Misc/job_icons.rsi #Maid
     state: MindShield

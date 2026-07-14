@@ -537,9 +537,9 @@
   description: Perfect for holding various equipment for medical emergencies.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/emt.rsi
+    sprite: _Maid/Clothing/Belt/emt.rsi #Maid
   - type: Clothing
-    sprite: Clothing/Belt/emt.rsi
+    sprite: _Maid/Clothing/Belt/emt.rsi #Maid
 
 - type: entity
   parent: ClothingBeltStorageBase

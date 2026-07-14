@@ -61,9 +61,14 @@
   name: HECU ID card
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _Maid/Objects/Misc/id_cards.rsi #Maid
     layers:
-    - state: ert_security
+    - state: centcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: IdCard
     jobTitle: job-name-hecu
     jobIcon: JobIconNanotrasen
@@ -84,7 +89,11 @@
   - type: Sprite
     layers:
     - state: centcom
-    - state: idcentcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: Item
     heldPrefix:
   - type: PresetIdCard
@@ -102,7 +111,11 @@
   - type: Sprite
     layers:
     - state: centcom
-    - state: idcentcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: Item
     heldPrefix:
   - type: PresetIdCard
@@ -120,7 +133,11 @@
   - type: Sprite
     layers:
     - state: centcom
-    - state: idcentcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: Item
     heldPrefix:
   - type: PresetIdCard
@@ -192,9 +209,14 @@
   name: Navy Captain's ID card
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _Maid/Objects/Misc/id_cards.rsi #Maid
     layers:
-    - state: ert_security
+    - state: centcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: PresetIdCard
     job: NavyCaptain
 
@@ -206,9 +228,14 @@
   name: Navy Officer's ID card
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _Maid/Objects/Misc/id_cards.rsi #Maid
     layers:
-    - state: ert_security
+    - state: centcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: PresetIdCard
     job: NavyOfficer
 
@@ -220,9 +247,14 @@
   name: Special Operations Officer's ID card
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _Maid/Objects/Misc/id_cards.rsi #Maid
     layers:
-    - state: ert_security
+    - state: centcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: PresetIdCard
     job: SpecialOperationsOfficer
 
@@ -234,9 +266,14 @@
   name: inspector's ID card
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _Maid/Objects/Misc/id_cards.rsi #Maid
     layers:
-    - state: ert_security
+    - state: centcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: PresetIdCard
     job: Inspector
 
@@ -248,9 +285,14 @@
   name: Diplomat's ID card
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _Maid/Objects/Misc/id_cards.rsi #Maid
     layers:
-    - state: ert_security
+    - state: centcom
+    - state: departmenthead
+      color: "#1B67A5"
+    - state: subdepartment
+      color: "#1B67A5"
+    - state: cc
   - type: IdCard
     jobTitle: job-name-diplomat
     jobIcon: JobIconNanotrasen

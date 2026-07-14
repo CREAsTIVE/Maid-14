@@ -57,7 +57,7 @@
   components:
   - type: Action
     icon:
-      sprite: Objects/Weapons/Grenades/empgrenade.rsi
+      sprite: _Maid/Objects/Weapons/Grenades/empgrenade.rsi #Maid
       state: icon
     itemIconStyle: BigAction
     priority: -13

@@ -130,7 +130,7 @@
   id: GrenadeBase
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/grenade.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/grenade.rsi #Maid
     layers:
     - state: icon
       map: ["enum.TriggerVisualLayers.Base"]
@@ -208,7 +208,7 @@
   id: GrenadeFlashBang
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/flashbang.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/flashbang.rsi #Maid
   - type: FlashOnTrigger
     keysIn:
     - timer
@@ -463,7 +463,7 @@
   id: NuclearGrenade
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/nukenade.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/nukenade.rsi #Maid
   - type: TimerTrigger
     delay: 5
   - type: ExplodeOnTrigger
@@ -496,7 +496,7 @@
   id: ModularGrenade
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/modular.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/modular.rsi #Maid
     layers:
     - state: empty
       map: [ "enum.ConstructionVisuals.Layer" ]
@@ -544,7 +544,7 @@
   id: EmpGrenade
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/empgrenade.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/empgrenade.rsi #Maid
   - type: EmpOnTrigger
     keysIn:
     - timer
@@ -596,7 +596,7 @@
   description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/smoke.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/smoke.rsi #Maid
   - type: SmokeOnTrigger
     keysIn:
     - timer
@@ -639,7 +639,7 @@
   description: A riot control tear gas grenade. Causes irritation, pain and makes you cry your eyes out.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/tear_gas.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/tear_gas.rsi #Maid
   - type: SmokeOnTrigger
     keysIn:
     - timer
@@ -715,7 +715,7 @@
   id: GrenadeDummy
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/grenade.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/grenade.rsi #Maid
   - type: DeleteOnTrigger
     keysIn:
     - timer

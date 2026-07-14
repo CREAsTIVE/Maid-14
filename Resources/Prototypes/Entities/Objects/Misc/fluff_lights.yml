@@ -162,7 +162,7 @@
   description: A light emitting device.
   components:
   - type: Sprite
-    sprite: Objects/Misc/Lights/lamp.rsi
+    sprite: _Maid/Objects/Misc/Lights/lamp.rsi #Maid
     layers:
       - state: lamp
         map: [ "base" ]
@@ -171,7 +171,7 @@
         visible: false
         map: [ "light" ]
   - type: Item
-    sprite: Objects/Misc/Lights/lamp.rsi
+    sprite: _Maid/Objects/Misc/Lights/lamp.rsi #Maid
   - type: HolidayVisuals
     holidays:
       festive:
@@ -224,11 +224,11 @@
       enum.HolidayVisuals.Holiday:
         base:
           festive:
-            sprite: Objects/Misc/Lights/lamp.rsi
+            sprite: _Maid/Objects/Misc/Lights/lamp.rsi #Maid
             state: christmaslamp
         light:
           festive:
-            sprite: Objects/Misc/Lights/lamp.rsi
+            sprite: _Maid/Objects/Misc/Lights/lamp.rsi #Maid
             state: christmaslamp-on
 
 - type: entity

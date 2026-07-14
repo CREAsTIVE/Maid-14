@@ -11,7 +11,7 @@
   - type: CartridgeAmmo
     proto: BulletGrenadeSpreadBeanbag
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi #Maid
     layers:
     - state: beanbag
       map: ["enum.AmmoVisualLayers.Base"]
@@ -33,7 +33,7 @@
   - type: CartridgeAmmo
     proto: BulletGrenadeSpreadBirdshot
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi #Maid
     layers:
     - state: frag
       map: ["enum.AmmoVisualLayers.Base"]
@@ -51,7 +51,7 @@
   - type: CartridgeAmmo
     proto: BulletGrenadeSlug
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi #Maid
     layers:
     - state: slug
       map: ["enum.AmmoVisualLayers.Base"]
@@ -75,7 +75,7 @@
   - type: CartridgeAmmo
     proto: BulletGrenadeSpread00Buckshot
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi #Maid
     layers:
     - state: frag
       map: ["enum.AmmoVisualLayers.Base"]
@@ -93,7 +93,7 @@
   - type: CartridgeAmmo
     proto: BulletGrenadeSpread0000Buckshot
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    sprite: _Maid/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi #Maid
     layers:
     - state: frag
       map: ["enum.AmmoVisualLayers.Base"]

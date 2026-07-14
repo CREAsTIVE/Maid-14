@@ -940,9 +940,9 @@
           32:
             sprite: Mobs/Animals/mothroach/displacement.rsi
             state: neck
-#  - type: EatToGrow # Goobstation Eat To Grow System #Maid edit start
+#  - type: EatToGrow # Goobstation Eat To Grow System edit start
 #    growth: 0.05
-#    maxGrowth: 2 #Maid edit end
+#    maxGrowth: 2 edit end
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
 # The white duck is more akin to a pekin or call duck.
@@ -1642,7 +1642,7 @@
     templateId: monkey
     speciesId: monkey
   - type: Deathgasp
-#    prototype: MonkeyDeathgasp #Maid
+#    prototype: MonkeyDeathgasp
   - type: Cuffable
   - type: RotationVisuals
     defaultRotation: 90
@@ -2038,7 +2038,7 @@
 
 - type: entity
   name: mouse
-  parent: SimpleMobBaseNoDeathgasp #Maid
+  parent: SimpleMobBaseNoDeathgasp
   id: MobMouse
   description: Squeak!
   components:
@@ -2104,7 +2104,7 @@
         layer:
         - SmallMobLayer
   - type: MobState
-#  - type: Deathgasp #Maid
+#  - type: Deathgasp
   - type: MobStateActions
     actions:
       Critical:

@@ -110,7 +110,7 @@
         - !type:DoActsBehavior
           acts: ["Destruction"]
     - type: Sprite
-      sprite: Structures/Doors/Airlocks/Standard/firelock.rsi
+      sprite: _Maid/Structures/Doors/Airlocks/Standard/firelock.rsi # Maid
       snapCardinals: true
       layers:
         - state: closed

@@ -98,14 +98,14 @@
 - type: cargoProduct
   id: SecurityNonlethalThrowables
   icon:
-    sprite: Objects/Weapons/Grenades/stingergrenade.rsi
+    sprite: _Maid/Objects/Weapons/Grenades/stingergrenade.rsi #Maid
     state: icon
   product: CrateSecNonlethalThrowables
   cost: 2500
   category: cargoproduct-category-name-security
   group: market
 
-#- type: cargoProduct #Maid edit start
+#- type: cargoProduct edit start
 #  id: SecurityGenPopCloset
 #  icon:
 #    sprite: _Maid/Structures/Storage/closet.rsi # Maid
@@ -113,4 +113,4 @@
 #  product: LockerPrisoner
 #  cost: 250
 #  category: cargoproduct-category-name-security
-#  group: market #Maid edit end
+#  group: market edit end

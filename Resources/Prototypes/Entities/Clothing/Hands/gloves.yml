@@ -274,9 +274,9 @@
   description: Thin sterile latex gloves. Basic PPE for any doctor.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/latex.rsi
+    sprite: _Maid/Clothing/Hands/Gloves/latex.rsi #Maid
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/latex.rsi
+    sprite: _Maid/Clothing/Hands/Gloves/latex.rsi #Maid
   - type: Fiber
     fiberMaterial: fibers-latex
   - type: FingerprintMask
@@ -288,9 +288,9 @@
   description: High-quality nitrile gloves. Expensive medical PPE.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/nitrile.rsi
+    sprite: _Maid/Clothing/Hands/Gloves/nitrile.rsi #Maid
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/nitrile.rsi
+    sprite: _Maid/Clothing/Hands/Gloves/nitrile.rsi #Maid
   - type: Fiber
     fiberMaterial: fibers-nitrile
   - type: FingerprintMask
@@ -598,9 +598,9 @@
   description: High-quality rubber gloves, squeaky to do some cleaning!
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/janitor.rsi
+    sprite: _Maid/Clothing/Hands/Gloves/janitor.rsi #Maid
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/janitor.rsi
+    sprite: _Maid/Clothing/Hands/Gloves/janitor.rsi #Maid
   - type: Fiber
     fiberMaterial: fibers-rubber
     fiberColor: fibers-yellow

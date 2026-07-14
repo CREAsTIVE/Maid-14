@@ -215,7 +215,7 @@
     itemIconStyle: BigAction
     priority: -20
     icon:
-      sprite: Objects/Weapons/Grenades/empgrenade.rsi
+      sprite: _Maid/Objects/Weapons/Grenades/empgrenade.rsi #Maid
       state: icon
 
 - type: entity
@@ -314,8 +314,8 @@
   description: Raise or lower your shield.
   components:
   - type: Action
-    icon: { sprite: Objects/Weapons/Melee/shields.rsi, state: teleriot-icon }
-    iconOn: { sprite: Objects/Weapons/Melee/shields.rsi, state: teleriot-on }
+    icon: { sprite: _Maid/Objects/Weapons/Melee/shields.rsi, state: teleriot-icon } #Maid
+    iconOn: { sprite: _Maid/Objects/Weapons/Melee/shields.rsi, state: teleriot-on } #Maid
 
 - type: entity
   parent: BaseMentalAction
@@ -441,7 +441,7 @@
 #   components:
 #   - type: Action
 #     icon:
-#       sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+#       sprite: _Maid/Clothing/OuterClothing/Hardsuits/paramed.rsi #Maid
 #       state: icon-siren
 #     useDelay: 1
 #     itemIconStyle: BigAction
