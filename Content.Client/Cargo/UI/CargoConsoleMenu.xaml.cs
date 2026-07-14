@@ -89,10 +89,12 @@ namespace Content.Client.Cargo.UI
             if (entMan.TryGetComponent<CargoOrderConsoleComponent>(owner, out var orderConsole))
             {
                 var accountProto = _protoManager.Index(orderConsole.Account);
-                AccountNameLabel.Text = Loc.GetString("cargo-console-menu-account-name-format",
+                // MAID BEGIN old funds 
+                /*AccountNameLabel.Text = Loc.GetString("cargo-console-menu-account-name-format",
                     ("color", accountProto.Color),
                     ("name", Loc.GetString(accountProto.Name)),
-                    ("code", Loc.GetString(accountProto.Code)));
+                    ("code", Loc.GetString(accountProto.Code)));*/
+                // MAID END
                 // Goobstation start - Cargo UI
                 AccountNameLabelFundsTransfer.Text = Loc.GetString("cargo-console-menu-account-name-format",
                     ("color", accountProto.Color),
@@ -101,9 +103,11 @@ namespace Content.Client.Cargo.UI
                 // END
             }
 
-            TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-orders"));
-            TabContainer.SetTabTitle(1, Loc.GetString("cargo-console-menu-tab-title-funds"));
-
+            // MAID BEGIN old funds 
+            // TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-orders"));
+            // TabContainer.SetTabTitle(1, Loc.GetString("cargo-console-menu-tab-title-funds"));
+            // MAID END
+            
             ActionOptions.OnItemSelected += idx =>
             {
                 ActionOptions.SelectId(idx.Id);
