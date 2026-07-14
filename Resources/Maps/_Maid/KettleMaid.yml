@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/08/2026 22:08:37
-  entityCount: 26342
+  time: 07/14/2026 15:40:10
+  entityCount: 26343
 maps:
 - 1
 grids:
@@ -143092,6 +143092,13 @@ entities:
     components:
     - type: Transform
       pos: -34.5,-18.5
+      parent: 2
+- proto: SpawnPointBrigmedic
+  entities:
+  - uid: 26343
+    components:
+    - type: Transform
+      pos: 51.5,-12.5
       parent: 2
 - proto: SpawnPointCaptain
   entities:
