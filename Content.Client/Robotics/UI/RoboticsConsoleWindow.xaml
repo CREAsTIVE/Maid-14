@@ -22,7 +22,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <PanelContainer StyleClasses="LowDivider" Margin="0 5 0 5"/>
 
         <!-- Selected borg info -->
-        <Label Name="SelectCyborg" Text="{Loc 'robotics-console-select-cyborg'}" HorizontalAlignment="Center"/>
+        <Label Name="SelectCyborg" Text="{Loc 'robotics-console-select-cyborg'}" HorizontalAlignment="Center" />
         <BoxContainer Name="BorgContainer" Orientation="Vertical" MaxHeight="200" Visible="False">
             <BoxContainer Margin="5 5 5 5" Orientation="Horizontal">
                 <PanelContainer VerticalExpand="True">

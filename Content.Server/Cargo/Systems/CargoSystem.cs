@@ -195,11 +195,19 @@ public sealed partial class CargoSystem : SharedCargoSystem
         if (!Resolve(ent, ref ent.Comp))
             return;
 
+        // MAID BEING old funds
+        if (!ent.Comp.Accounts.ContainsKey(ent.Comp.PrimaryAccount))
+            return;
+        
+        ent.Comp.Accounts[ent.Comp.PrimaryAccount] += balanceAdded;
+        /*
         foreach (var (account, percent) in accountDistribution)
         {
             var accountBalancedAdded = (int) Math.Round(percent * balanceAdded);
             ent.Comp.Accounts[account] += accountBalancedAdded;
         }
+        */
+        // MAID END
 
         var ev = new BankBalanceUpdatedEvent(ent, ent.Comp.Accounts);
         RaiseLocalEvent(ent, ref ev, true);

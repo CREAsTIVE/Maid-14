@@ -27,7 +27,7 @@ cargo-console-menu-order-row-alerts-requester-unknown = Неизвестно
 cargo-console-menu-orders-label = Заказы
 cargo-console-menu-order-reason-description = Причина: { $reason }
 cargo-console-menu-populate-categories-all-text = Все
-cargo-console-menu-populate-orders-cargo-order-row-product-name-text = { $orderRequester } со счёта [color={ $accountColor }]{ $account }[/color]
+cargo-console-menu-populate-orders-cargo-order-row-product-name-text = Заказал: { $orderRequester }
 cargo-console-menu-tab-title-orders = Заказы
 cargo-console-menu-tab-title-funds = Переводы
 cargo-console-menu-account-action-transfer-limit = Лимит перевода:
@@ -35,7 +35,7 @@ cargo-console-menu-account-action-transfer-limit-amount = ${$amount}
 cargo-console-menu-account-action-transfer-limit-unlimited-notifier = [color=gold](Безлимитно)[/color]
 cargo-console-menu-account-action-select = [bold]Действие аккаунта:[/bold]
 cargo-console-menu-account-action-amount = [bold]Сумма:[/bold] $
-cargo-console-menu-account-action-button = Перевести
+cargo-console-menu-account-action-button = Обналичить
 cargo-console-menu-toggle-account-lock-button = Переключить лимит перевода
 cargo-console-menu-account-action-option-withdraw = Обналичить
 cargo-console-menu-account-action-option-transfer = Перевести деньги на { $code }
@@ -49,7 +49,7 @@ cargo-console-insufficient-funds = Недостаточно средств (тр
 cargo-console-unfulfilled = Нет места для выполнения заказа
 cargo-console-trade-station = Отправлено на { $destination }
 cargo-console-unlock-approved-order-broadcast = [bold]Заказ на { $productName } x{ $orderAmount }[/bold], стоимостью [bold]{ $cost }[/bold], был одобрен [bold]{ $approver }[/bold]
-cargo-console-fund-withdraw-broadcast = [bold]{ $name } снял { $amount } кредитов с { $name1 } \[{ $code1 }\]
+cargo-console-fund-withdraw-broadcast = [bold]{ $name } снял { $amount } кредитов
 cargo-console-fund-transfer-broadcast = [bold]{ $name } перевёл { $amount } кредитов { $name1 } \[{ $code1 }\] на { $name2 } \[{ $code2 }\][/bold]
 cargo-console-fund-transfer-user-unknown = Неизвестно
 cargo-console-paper-reason-default = Отсутствует

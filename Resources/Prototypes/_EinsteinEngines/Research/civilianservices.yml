@@ -15,7 +15,6 @@
   tier: 2
   cost: 7500
   recipeUnlocks:
-  - BasicGalaticCommonTranslatorImplanter
   - CanilunztTranslator
   - BubblishTranslator
   - NekomimeticTranslator
@@ -27,7 +26,6 @@
   - ChittinTranslator
   - SiikMaasTranslator
   - MarishTranslator
-  - ChevalTranslatorImplanter
   - NewKinPidginTranslator
   - SchechiTranslator
   - GruntishTranslator
@@ -47,6 +45,9 @@
   tier: 3
   cost: 10000
   recipeUnlocks:
+  - AnimalTranslator
+  - XenoTranslator
+  - BasicGalaticCommonTranslatorImplanter
   - AdvancedGalaticCommonTranslatorImplanter
   - CanilunztTranslatorImplanter
   - BubblishTranslatorImplanter
@@ -59,10 +60,9 @@
   - ChittinTranslatorImplanter
   - SiikMaasTranslatorImplanter
   - MarishTranslatorImplanter
+  - ChevalTranslatorImplanter
   - SchechiTranslatorImplanter
   - NewKinPidginTranslatorImplanter
-  - AnimalTranslator
-  - XenoTranslator
   - GruntishTranslatorImplanter
   - YowKriolTranslatorImplanter # goob edit - yowie language
   - SignTranslatorImplanter # goob edit

@@ -26,6 +26,9 @@ public sealed partial class CargoSystem
 
     private void OnWithdrawFunds(Entity<CargoOrderConsoleComponent> ent, ref CargoConsoleWithdrawFundsMessage args)
     {
+        // MAID old funds
+        args.Account = null; // Always withdraw
+        
         if (_station.GetOwningStation(ent) is not { } station ||
             !TryComp<StationBankAccountComponent>(station, out var bank))
             return;
@@ -46,7 +49,7 @@ public sealed partial class CargoSystem
         }
 
         ent.Comp.NextAccountActionTime = Timing.CurTime + ent.Comp.AccountActionDelay;
-        UpdateBankAccount((station, bank), -args.Amount,  ent.Comp.Account, dirty: false);
+        UpdateBankAccount((station, bank), -args.Amount,  ent.Comp.Account, dirty: true); // MAID fix no update after withdraw
         _audio.PlayPvs(ApproveSound, ent);
 
         var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(ent, args.Actor);
