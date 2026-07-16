@@ -104,7 +104,13 @@ public sealed partial class UnPullOperator : HTNOperator
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
         if (_actionBlocker.CanInteract(owner, owner)) //prevents handcuffed monkeys from pulling etc.
-            _pulling.TryStopPull(owner, _pullableQuery.GetComponent(owner), owner);
+        // MAID BEGIN feat-pets-things
+        {
+            var component = _pullableQuery.GetComponent(owner);
+            if (!component.AiCantEscape)
+                _pulling.TryStopPull(owner, component, owner);
+        }
+        // MAID END feat-pets-things
     }
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)

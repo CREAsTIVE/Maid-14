@@ -146,6 +146,12 @@
   id: MobCorgiIan
   description: Favorite pet corgi.
   components:
+  # MAID BEGIN feat-pet-things
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Pets/corgi.rsi
@@ -202,6 +208,12 @@
   id: MobCorgiIanOld
   description: Still the favorite pet corgi. Love his wheels.
   components:
+  # MAID BEGIN feat-pet-things
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -227,6 +239,12 @@
   id: MobCorgiLisa
   description: Ian's favorite corgi.
   components:
+  # MAID BEGIN feat-pet-things
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -264,6 +282,12 @@
   id: MobCorgiMouse
   description: It's 100% a real hungry mouse.
   components:
+  # MAID BEGIN feat-pet-things
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -287,6 +311,12 @@
   id: MobCorgiIanPup
   description: Favourite puppy corgi. Awww.
   components:
+  # MAID BEGIN feat-pet-things
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: Grammar
     attributes:
       proper: true
@@ -311,6 +341,12 @@
   id: MobCatRuntime
   description: The cat who walks by himself.
   components:
+  # MAID BEGIN feat-pet-things
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: NpcFactionMember
     factions:
       - PetsNT
@@ -340,6 +376,12 @@
   parent: MobCatCalico
   description: Ask nicely, and maybe they'll give you one of their spare lives.
   components:
+  # MAID BEGIN feat-pet-things
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: NpcFactionMember
     factions:
       - PetsNT
@@ -366,6 +408,12 @@
   parent: MobCatCaracal
   description: He out here.
   components:
+  # MAID BEGIN feat-pet-things
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: Fixtures
     fixtures:
       fix1:
@@ -399,6 +447,12 @@
   id: MobBandito
   description: Just a silly little guy!
   components:
+  # MAID BEGIN feat-pet-things
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: Grammar
     attributes:
       proper: true
@@ -420,6 +474,12 @@
   id: MobBingus
   description: Bingus my beloved...
   components:
+  # MAID BEGIN feat-pet-things
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Pets/bingus.rsi
@@ -483,10 +543,12 @@
   id: MobMcGriff
   description: This dog can tell something smells around here, and that something is CRIME!
   components:
-  # MAID BEGIN animal pulling
+  # MAID BEGIN feat-pet-things
   - type: Puller
     needsHands: false
-  # MAID END animal pulling
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Pets/mcgriff.rsi
@@ -567,6 +629,12 @@
   id: MobPaperwork
   description: Took up a new job sorting books in the library after he got transferred from Space Station 13. He seems to be just as slow at this.
   components:
+  # MAID BEGIN feat-pet-things
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Pets/paperwork.rsi
@@ -607,10 +675,12 @@
   id: MobWalter
   description: He likes chems and treats. Walter.
   components:
-  # MAID BEGIN animal pulling
+  # MAID BEGIN feat-pet-things
   - type: Puller
     needsHands: false
-  # MAID END animal pulling
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Pets/walter.rsi
@@ -678,6 +748,12 @@
   id: MobPossumMorty
   description: The station's resident Didelphis virginiana. A sensitive but resilient kind of guy.
   components:
+  # MAID BEGIN feat-pet-things
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: InteractionPopup
     successChance: 1.0 # Hey, c'mon, this is Morty we're talking about here.
     interactSuccessString: petting-success-possum
@@ -708,6 +784,12 @@
   id: MobPossumMortyOld
   suffix: Old sprite
   components:
+  # MAID BEGIN feat-pet-things
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Animals/possum_old.rsi
@@ -727,6 +809,12 @@
   id: MobPossumPoppy
   description: It's an opossum, a small scavenging marsupial. It's wearing appropriate personal protective equipment.
   components:
+  # MAID BEGIN feat-pet-things
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: Grammar
     attributes:
       proper: true
@@ -750,10 +838,12 @@
   id: MobRaccoonMorticia
   description: A powerful creature of the night. Her eyeshadow is always on point.
   components:
-  # MAID BEGIN animal pulling
+  # MAID BEGIN feat-pet-things
   - type: Puller
     needsHands: false
-  # MAID END animal pulling
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: InteractionPopup
     successChance: 0.7
     interactSuccessString: petting-success-raccoon
@@ -782,6 +872,12 @@
   id: MobAlexander
   description: Chef's finest colleague.
   components:
+  # MAID BEGIN feat-pet-things
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: petting-success-pig
@@ -810,10 +906,12 @@
   id: MobFoxRenault
   description: The captain's trustworthy fox.
   components:
-  # MAID BEGIN animal pulling
+  # MAID BEGIN feat-pet-things
   - type: Puller
     needsHands: false
-  # MAID END animal pulling
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: petting-success-soft-floofy
@@ -850,10 +948,12 @@
   id: MobHamsterHamlet
   description: A grumpy, cute and fluffy hamster.
   components:
-  # MAID BEGIN animal pulling
+  # MAID BEGIN feat-pet-things
   - type: Puller
     needsHands: false
-  # MAID END animal pulling
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: Sprite
     drawdepth: SmallMobs
     sprite: Mobs/Pets/hamlet.rsi
@@ -916,10 +1016,12 @@
   id: MobSpiderShiva
   description: The first defender of the station.
   components:
-  # MAID BEGIN animal pulling
+  # MAID BEGIN feat-pet-things
   - type: Puller
     needsHands: false
-  # MAID END animal pulling
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: InteractionPopup
     successChance: 0.5 # spider is mean
     interactSuccessString: petting-success-tarantula
@@ -993,6 +1095,12 @@
   id: MobKangarooWillow
   description: Willow the boxing kangaroo.
   components:
+  # MAID BEGIN feat-pet-things
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
   - type: InteractionPopup
     successChance: 0.8
     interactSuccessString: petting-success-kangaroo
@@ -1169,6 +1277,12 @@
   id: MobCrabAtmos
   description: The noble and stalwart defender of Atmosia. Viva!
   components:
+  # MAID BEGIN feat-pet-things
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+    aiCantEscape: true
+  # MAID END feat-pet-things
 #  - type: GhostRole
 #    prob: 1
 #    makeSentient: true
