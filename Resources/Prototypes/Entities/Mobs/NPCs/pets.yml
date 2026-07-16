@@ -483,6 +483,10 @@
   id: MobMcGriff
   description: This dog can tell something smells around here, and that something is CRIME!
   components:
+  # MAID BEGIN animal pulling
+  - type: Puller
+    needsHands: false
+  # MAID END animal pulling
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Pets/mcgriff.rsi
@@ -603,6 +607,10 @@
   id: MobWalter
   description: He likes chems and treats. Walter.
   components:
+  # MAID BEGIN animal pulling
+  - type: Puller
+    needsHands: false
+  # MAID END animal pulling
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Pets/walter.rsi
@@ -742,6 +750,10 @@
   id: MobRaccoonMorticia
   description: A powerful creature of the night. Her eyeshadow is always on point.
   components:
+  # MAID BEGIN animal pulling
+  - type: Puller
+    needsHands: false
+  # MAID END animal pulling
   - type: InteractionPopup
     successChance: 0.7
     interactSuccessString: petting-success-raccoon
@@ -798,6 +810,10 @@
   id: MobFoxRenault
   description: The captain's trustworthy fox.
   components:
+  # MAID BEGIN animal pulling
+  - type: Puller
+    needsHands: false
+  # MAID END animal pulling
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: petting-success-soft-floofy
@@ -834,6 +850,10 @@
   id: MobHamsterHamlet
   description: A grumpy, cute and fluffy hamster.
   components:
+  # MAID BEGIN animal pulling
+  - type: Puller
+    needsHands: false
+  # MAID END animal pulling
   - type: Sprite
     drawdepth: SmallMobs
     sprite: Mobs/Pets/hamlet.rsi
@@ -896,6 +916,10 @@
   id: MobSpiderShiva
   description: The first defender of the station.
   components:
+  # MAID BEGIN animal pulling
+  - type: Puller
+    needsHands: false
+  # MAID END animal pulling
   - type: InteractionPopup
     successChance: 0.5 # spider is mean
     interactSuccessString: petting-success-tarantula
