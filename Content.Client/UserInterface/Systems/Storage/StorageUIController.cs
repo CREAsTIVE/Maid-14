@@ -119,9 +119,16 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
             OnPieceUnpressed(args, window, piece);
         };
 
+        // MAID BEGIN hamlet-inventory-fix
+        /*
         if (StaticStorageUIEnabled)
         {
             var hotbar = UIManager.GetActiveUIWidgetOrNull<HotbarGui>();
+        */
+        var hotbar = UIManager.GetActiveUIWidgetOrNull<HotbarGui>();
+        if (StaticStorageUIEnabled && hotbar is { Visible: true })
+        {
+        // MAID END hamlet-inventory-fix
             // this lambda handles the nested storage case
             // during nested storage, a parent window hides and a child window is
             // immediately inserted to the end of the list
