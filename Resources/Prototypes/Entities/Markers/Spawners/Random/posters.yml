@@ -26,7 +26,7 @@
   - type: Sprite
     layers:
       - state: red
-      - sprite: Structures/Wallmounts/posters.rsi
+      - sprite: _Maid/Structures/Wallmounts/posters.rsi # MAID
         state: random_anything
   - type: RandomSpawner
     offset: 0
@@ -46,19 +46,85 @@
   - type: Sprite
     layers:
       - state: red
-      - sprite: Structures/Wallmounts/posters.rsi
+      - sprite: _Maid/Structures/Wallmounts/posters.rsi # MAID
         state: random_contraband
   - type: RandomSpawner
     offset: 0
     prototypes:
+# MAID BEGIN old poster rotation
+#      - PosterContrabandFreeTonto
+#      - PosterContrabandAtmosiaDeclarationIndependence
+#      - PosterContrabandFunPolice
+#      - PosterContrabandRealExomorph
+#      - PosterContrabandSyndicateRecruitment
+#      - PosterContrabandClown
+#      - PosterContrabandSmoke
+#      - PosterContrabandGreyTide
+#      - PosterContrabandMissingGloves
+#      - PosterContrabandHackingGuide
+#      - PosterContrabandRIPBadger
+#      - PosterContrabandAmbrosiaVulgaris
+#      - PosterContrabandDonutCorp
+#      - PosterContrabandEAT
+#      - PosterContrabandTools
+#      - PosterContrabandPower
+#      - PosterContrabandSpaceCube
+#      - PosterContrabandCommunistState
+#      - PosterContrabandLamarr
+#      - PosterContrabandBorgFancy
+#      - PosterContrabandBorgFancyv2
+#      - PosterContrabandKosmicheskayaStantsiya
+#      - PosterContrabandRebelsUnite
+#      - PosterContrabandC20r
+#      - PosterContrabandHaveaPuff
+#      - PosterContrabandRevolver
+#      - PosterContrabandDDayPromo
+#      - PosterContrabandSyndicatePistol
+#      - PosterContrabandEnergySwords
+#      - PosterContrabandRedRum
+#      - PosterContrabandCC64KAd
+#      - PosterContrabandPunchShit
+#      - PosterContrabandTheGriffin
+#      - PosterContrabandFreeDrone
+#      - PosterContrabandRouny
+#      - PosterContrabandRobustSoftdrinks
+#      - PosterContrabandShamblersJuice
+#      - PosterContrabandPwrGame
+#      - PosterContrabandSunkist
+#      - PosterContrabandSpaceCola
+#      - PosterContrabandSpaceUp
+#      - PosterContrabandKudzu
+#      - PosterContrabandMaskedMen
+#      - PosterContrabandUnreadableAnnouncement
+#      - PosterContrabandFreeSyndicateEncryptionKey
+#      - PosterContrabandBountyHunters
+#      - PosterContrabandTheBigGasTruth
+#      - PosterContrabandWehWatches
+#      - PosterContrabandVoteWeh
+#      - PosterContrabandBeachStarYamamoto
+#      - PosterContrabandHighEffectEngineering
+#      - PosterContrabandNuclearDeviceInformational
+#      - PosterContrabandRevolt
+#      - PosterContrabandRise
+#      - PosterContrabandMoth
+#      - PosterContrabandCybersun600
+#      - PosterContrabandDonk
+#      - PosterContrabandEnlistGorlex
+#      - PosterContrabandInterdyne
+#      - PosterContrabandWaffleCorp
+#      - PosterContrabandMissingSpacepen
+#      - PosterContrabandExoAcid
+#      - PosterContrabandExoRun
+#      - PosterContrabandExoChomp
+#      - PosterContrabandGoobChuckler # Goobstation
+#      - PosterContrabandGoobYakub # Goobstation
+#      - PosterContrabandGoobRedFOSS # Goobstation
       - PosterContrabandFreeTonto
       - PosterContrabandAtmosiaDeclarationIndependence
-      - PosterContrabandFunPolice
-      - PosterContrabandRealExomorph
+      - PosterContrabandLustyExomorph
       - PosterContrabandSyndicateRecruitment
       - PosterContrabandClown
       - PosterContrabandSmoke
-      - PosterContrabandGreyTide
       - PosterContrabandMissingGloves
       - PosterContrabandHackingGuide
       - PosterContrabandRIPBadger
@@ -85,7 +151,7 @@
       - PosterContrabandPunchShit
       - PosterContrabandTheGriffin
       - PosterContrabandFreeDrone
-      - PosterContrabandRouny
+      - PosterContrabandBustyBackdoorExoBabes6
       - PosterContrabandRobustSoftdrinks
       - PosterContrabandShamblersJuice
       - PosterContrabandPwrGame
@@ -111,13 +177,7 @@
       - PosterContrabandEnlistGorlex
       - PosterContrabandInterdyne
       - PosterContrabandWaffleCorp
-      - PosterContrabandMissingSpacepen
-      - PosterContrabandExoAcid
-      - PosterContrabandExoRun
-      - PosterContrabandExoChomp
-      - PosterContrabandGoobChuckler # Goobstation
-      - PosterContrabandGoobYakub # Goobstation
-      - PosterContrabandGoobRedFOSS # Goobstation
+# MAID END old poster rotation
     chance: 1
 
 - type: entity
@@ -128,11 +188,81 @@
   - type: Sprite
     layers:
       - state: red
-      - sprite: Structures/Wallmounts/posters.rsi
+      - sprite: _Maid/Structures/Wallmounts/posters.rsi # MAID
         state: random_legit
   - type: RandomSpawner
     offset: 0
     prototypes:
+# MAID BEGIN old poster rotation
+#      - PosterLegitHereForYourSafety
+#      - PosterLegitNanotrasenLogo
+#      - PosterLegitCleanliness
+#      - PosterLegitHelpOthers
+#      - PosterLegitBuild
+#      - PosterLegitBlessThisSpess
+#      - PosterLegitScience
+#      - PosterLegitIan
+#      - PosterLegitObey
+#      - PosterLegitWalk
+#      - PosterLegitStateLaws
+#      - PosterLegitLoveIan
+#      - PosterLegitSpaceCops
+#      - PosterLegitUeNo
+#      - PosterLegitGetYourLEGS
+#      - PosterLegitDoNotQuestion
+#      - PosterLegitWorkForAFuture
+#      - PosterLegitSoftCapPopArt
+#      - PosterLegitSafetyInternals
+#      - PosterLegitSafetyEyeProtection
+#      - PosterLegitSafetyReport
+#      - PosterLegitReportCrimes
+#      - PosterLegitIonRifle
+#      - PosterLegitFoamForceAd
+#      - PosterLegitCohibaRobustoAd
+#      - PosterLegit50thAnniversaryVintageReprint
+#      - PosterLegitFruitBowl
+#      - PosterLegitPDAAd
+#      - PosterLegitEnlist
+#      - PosterLegitNanomichiAd
+#      - PosterLegit12Gauge
+#      - PosterLegitHighClassMartini
+#      - PosterLegitTheOwl
+#      - PosterLegitNoERP
+#      - PosterLegitCarbonDioxide
+#      - PosterLegitDickGumshue
+#      - PosterLegitThereIsNoGasGiant
+#      - PosterLegitJustAWeekAway
+#      - PosterLegitSecWatch
+#      - PosterLegitVacation
+#      - PosterLegitRenault
+#      - PosterLegitNTTGC
+#      - PosterLegitSafetyMothDelam
+#      - PosterLegitSafetyMothEpi
+#      - PosterLegitSafetyMothPiping
+#      - PosterLegitSafetyMothMeth
+#      - PosterLegitSafetyMothHardhat
+#      - PosterLegitSafetyMothSSD
+#      - PosterLegitGoobWorkHard # Goobstation
+#      - PosterLegitGoobMakeshift # Goobstation
+#      - PosterLegitGoobCan # Goobstation
+#      - PosterLegitGoobFaded # Goobstation
+#      - PosterLegitGoobCandle # Goobstation
+#      - PosterLegitGoobSuperMatter # Goobstation
+#      - PosterLegitGoobWatching # Goobstation
+#      - PosterLegitGoobSpaceAsshole # Goobstation
+#      - PosterLegitGoobSmokeBreak # Goobstation
+#      - PosterLegitGoobWallMeat # Goobstation
+#      - PosterLegitGoobCoolS # Goobstation
+#      - PosterLegitGoobBigBrotherAI # Goobstation
+#      - PosterLegitGoobDurkPlush # Goobstation
+#      - PosterLegitGoobWelderBomb # Goobstation
+#      - PosterLegitGoobLokoAdvertisement # Goobstation
+#      - PosterLegitGoobLouieVote # Goobstation
+#      - PosterLegitGoobSlowDownClown # Goobstation
+#      - PosterLegitGoobNTRAdvert # Goobstation
+#      - PosterLegitOppenhopper
+#      - PosterLegitTyrone
+#      - PosterLegitHelio
       - PosterLegitHereForYourSafety
       - PosterLegitNanotrasenLogo
       - PosterLegitCleanliness
@@ -161,45 +291,18 @@
       - PosterLegit50thAnniversaryVintageReprint
       - PosterLegitFruitBowl
       - PosterLegitPDAAd
-      - PosterLegitEnlist
       - PosterLegitNanomichiAd
       - PosterLegit12Gauge
       - PosterLegitHighClassMartini
       - PosterLegitTheOwl
-      - PosterLegitNoERP
       - PosterLegitCarbonDioxide
       - PosterLegitDickGumshue
       - PosterLegitThereIsNoGasGiant
       - PosterLegitJustAWeekAway
       - PosterLegitSecWatch
       - PosterLegitVacation
+      - PosterLegitPeriodicTable
       - PosterLegitRenault
       - PosterLegitNTTGC
-      - PosterLegitSafetyMothDelam
-      - PosterLegitSafetyMothEpi
-      - PosterLegitSafetyMothPiping
-      - PosterLegitSafetyMothMeth
-      - PosterLegitSafetyMothHardhat
-      - PosterLegitSafetyMothSSD
-      - PosterLegitGoobWorkHard # Goobstation
-      - PosterLegitGoobMakeshift # Goobstation
-      - PosterLegitGoobCan # Goobstation
-      - PosterLegitGoobFaded # Goobstation
-      - PosterLegitGoobCandle # Goobstation
-      - PosterLegitGoobSuperMatter # Goobstation
-      - PosterLegitGoobWatching # Goobstation
-      - PosterLegitGoobSpaceAsshole # Goobstation
-      - PosterLegitGoobSmokeBreak # Goobstation
-      - PosterLegitGoobWallMeat # Goobstation
-      - PosterLegitGoobCoolS # Goobstation
-      - PosterLegitGoobBigBrotherAI # Goobstation
-      - PosterLegitGoobDurkPlush # Goobstation
-      - PosterLegitGoobWelderBomb # Goobstation
-      - PosterLegitGoobLokoAdvertisement # Goobstation
-      - PosterLegitGoobLouieVote # Goobstation
-      - PosterLegitGoobSlowDownClown # Goobstation
-      - PosterLegitGoobNTRAdvert # Goobstation
-      - PosterLegitOppenhopper
-      - PosterLegitTyrone
-      - PosterLegitHelio
+# MAID END old poster rotation
     chance: 1
