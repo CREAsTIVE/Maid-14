@@ -44,3 +44,9 @@ zzzz-fmt-energy-watt-hours =
     }
 # Used internally by the PLAYTIME() function.
 zzzz-fmt-playtime = { $hours }ч { $minutes }м
+
+# Used internally by the FormatList() function.
+zzzz-fmt-list-two-and = { $first } и { $second }
+zzzz-fmt-list-many-and = { $start } и { $last }
+zzzz-fmt-list-two-or = { $first } или { $second }
+zzzz-fmt-list-many-or = { $start } или { $last }
