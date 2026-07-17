@@ -1,1 +1,1 @@
-suit-sensor-got-shocked = Датчики на { $suit } быстро меняются!
+suit-sensor-got-shocked = { CAPITALIZE($suit) } передаёт быстро меняющиеся сигналы датчиков
