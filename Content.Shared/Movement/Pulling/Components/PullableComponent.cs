@@ -122,6 +122,13 @@ public sealed partial class PullableComponent : Component
     [AutoNetworkedField, DataField]
     public bool PrevFixedRotation;
 
+    // MAID BEGIN feat-pet-things
+    /// <summary>
+    /// If true, this entity cant stop pull when controlled by AI.
+    /// </summary>
+    [AutoNetworkedField, DataField]
+    public bool AiCantEscape = false;
+    // MAID END feat-pet-things
 }
 
 public sealed partial class StopBeingPulledAlertEvent : BaseAlertEvent
