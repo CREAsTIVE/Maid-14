@@ -2564,6 +2564,7 @@
 - type: entity
   parent: VendingMachine
   id: VendingMachinePride
+  categories: [ HideSpawnMenu ] #MAID rem-no-pride
   name: Jolly-O-Mat #MAID rem-no-pride
   description: A vending machine containing pride.
   components:
