@@ -199,96 +199,96 @@
   groupBy: "smokeables"
 
 # Pins
-- type: loadout
-  id: ClothingNeckLGBTPin
-  storage:
-    back:
-    - ClothingNeckLGBTPin
-  groupBy: "pin"
+#- type: loadout #MAID rem-no-pride
+#  id: ClothingNeckLGBTPin #MAID rem-no-pride
+#  storage: #MAID rem-no-pride
+#    back: #MAID rem-no-pride
+#    - ClothingNeckLGBTPin #MAID rem-no-pride
+#  groupBy: "pin" #MAID rem-no-pride
 
-- type: loadout
-  id: ClothingNeckAllyPin
-  storage:
-    back:
-    - ClothingNeckAllyPin
-  groupBy: "pin"
+#- type: loadout #MAID rem-no-pride
+#  id: ClothingNeckAllyPin #MAID rem-no-pride
+#  storage: #MAID rem-no-pride
+#    back: #MAID rem-no-pride
+#    - ClothingNeckAllyPin #MAID rem-no-pride
+#  groupBy: "pin" #MAID rem-no-pride
 
-- type: loadout
-  id: ClothingNeckAromanticPin
-  storage:
-    back:
-    - ClothingNeckAromanticPin
-  groupBy: "pin"
+#- type: loadout #MAID rem-no-pride
+#  id: ClothingNeckAromanticPin #MAID rem-no-pride
+#  storage: #MAID rem-no-pride
+#    back: #MAID rem-no-pride
+#    - ClothingNeckAromanticPin #MAID rem-no-pride
+#  groupBy: "pin" #MAID rem-no-pride
 
-- type: loadout
-  id: ClothingNeckAsexualPin
-  storage:
-    back:
-    - ClothingNeckAsexualPin
-  groupBy: "pin"
+#- type: loadout #MAID rem-no-pride
+#  id: ClothingNeckAsexualPin #MAID rem-no-pride
+#  storage: #MAID rem-no-pride
+#    back: #MAID rem-no-pride
+#    - ClothingNeckAsexualPin #MAID rem-no-pride
+#  groupBy: "pin" #MAID rem-no-pride
 
-- type: loadout
-  id: ClothingNeckBisexualPin
-  storage:
-    back:
-    - ClothingNeckBisexualPin
-  groupBy: "pin"
+#- type: loadout #MAID rem-no-pride
+#  id: ClothingNeckBisexualPin #MAID rem-no-pride
+#  storage: #MAID rem-no-pride
+#    back: #MAID rem-no-pride
+#    - ClothingNeckBisexualPin #MAID rem-no-pride
+#  groupBy: "pin" #MAID rem-no-pride
 
-- type: loadout
-  id: ClothingNeckGayPin
-  storage:
-    back:
-    - ClothingNeckGayPin
-  groupBy: "pin"
+#- type: loadout #MAID rem-no-pride
+#  id: ClothingNeckGayPin #MAID rem-no-pride
+#  storage: #MAID rem-no-pride
+#    back: #MAID rem-no-pride
+#    - ClothingNeckGayPin #MAID rem-no-pride
+#  groupBy: "pin" #MAID rem-no-pride
 
-- type: loadout
-  id: ClothingNeckIntersexPin
-  storage:
-    back:
-    - ClothingNeckIntersexPin
-  groupBy: "pin"
+#- type: loadout #MAID rem-no-pride
+#  id: ClothingNeckIntersexPin #MAID rem-no-pride
+#  storage: #MAID rem-no-pride
+#    back: #MAID rem-no-pride
+#    - ClothingNeckIntersexPin #MAID rem-no-pride
+#  groupBy: "pin" #MAID rem-no-pride
 
-- type: loadout
-  id: ClothingNeckLesbianPin
-  storage:
-    back:
-    - ClothingNeckLesbianPin
-  groupBy: "pin"
+#- type: loadout #MAID rem-no-pride
+#  id: ClothingNeckLesbianPin #MAID rem-no-pride
+#  storage: #MAID rem-no-pride
+#    back: #MAID rem-no-pride
+#    - ClothingNeckLesbianPin #MAID rem-no-pride
+#  groupBy: "pin" #MAID rem-no-pride
 
-- type: loadout
-  id: ClothingNeckNonBinaryPin
-  storage:
-    back:
-    - ClothingNeckNonBinaryPin
-  groupBy: "pin"
+#- type: loadout #MAID rem-no-pride
+#  id: ClothingNeckNonBinaryPin #MAID rem-no-pride
+#  storage: #MAID rem-no-pride
+#    back: #MAID rem-no-pride
+#    - ClothingNeckNonBinaryPin #MAID rem-no-pride
+#  groupBy: "pin" #MAID rem-no-pride
 
-- type: loadout
-  id: ClothingNeckPansexualPin
-  storage:
-    back:
-    - ClothingNeckPansexualPin
-  groupBy: "pin"
+#- type: loadout #MAID rem-no-pride
+#  id: ClothingNeckPansexualPin #MAID rem-no-pride
+#  storage: #MAID rem-no-pride
+#    back: #MAID rem-no-pride
+#    - ClothingNeckPansexualPin #MAID rem-no-pride
+#  groupBy: "pin" #MAID rem-no-pride
 
-- type: loadout
-  id: ClothingNeckOmnisexualPin
-  storage:
-    back:
-    - ClothingNeckOmnisexualPin
-  groupBy: "pin"
+#- type: loadout #MAID rem-no-pride
+#  id: ClothingNeckOmnisexualPin #MAID rem-no-pride
+#  storage: #MAID rem-no-pride
+#    back: #MAID rem-no-pride
+#    - ClothingNeckOmnisexualPin #MAID rem-no-pride
+#  groupBy: "pin" #MAID rem-no-pride
 
-- type: loadout
-  id: ClothingNeckGenderqueerPin
-  storage:
-    back:
-    - ClothingNeckGenderqueerPin
-  groupBy: "pin"
+#- type: loadout #MAID rem-no-pride
+#  id: ClothingNeckGenderqueerPin #MAID rem-no-pride
+#  storage: #MAID rem-no-pride
+#    back: #MAID rem-no-pride
+#    - ClothingNeckGenderqueerPin #MAID rem-no-pride
+#  groupBy: "pin" #MAID rem-no-pride
 
-- type: loadout
-  id: ClothingNeckTransPin
-  storage:
-    back:
-    - ClothingNeckTransPin
-  groupBy: "pin"
+#- type: loadout #MAID rem-no-pride
+#  id: ClothingNeckTransPin #MAID rem-no-pride
+#  storage: #MAID rem-no-pride
+#    back: #MAID rem-no-pride
+#    - ClothingNeckTransPin #MAID rem-no-pride
+#  groupBy: "pin" #MAID rem-no-pride
 
 - type: loadout
   id: ClothingNeckAutismPin
@@ -304,26 +304,26 @@
     - ClothingNeckGoldAutismPin
   groupBy: "pin"
 
-- type: loadout
-  id: ClothingNeckAroacePin
-  storage:
-    back:
-    - ClothingNeckAroacePin
-  groupBy: "pin"
+#- type: loadout #MAID rem-no-pride
+#  id: ClothingNeckAroacePin #MAID rem-no-pride
+#  storage: #MAID rem-no-pride
+#    back: #MAID rem-no-pride
+#    - ClothingNeckAroacePin #MAID rem-no-pride
+#  groupBy: "pin" #MAID rem-no-pride
 
-- type: loadout
-  id: ClothingNeckPluralPin
-  storage:
-    back:
-    - ClothingNeckPluralPin
-  groupBy: "pin"
+#- type: loadout #MAID rem-no-pride
+#  id: ClothingNeckPluralPin #MAID rem-no-pride
+#  storage: #MAID rem-no-pride
+#    back: #MAID rem-no-pride
+#    - ClothingNeckPluralPin #MAID rem-no-pride
+#  groupBy: "pin" #MAID rem-no-pride
 
-- type: loadout
-  id: ClothingNeckGenderfluidPin
-  storage:
-    back:
-    - ClothingNeckGenderfluidPin
-  groupBy: "pin"
+#- type: loadout #MAID rem-no-pride
+#  id: ClothingNeckGenderfluidPin #MAID rem-no-pride
+#  storage: #MAID rem-no-pride
+#    back: #MAID rem-no-pride
+#    - ClothingNeckGenderfluidPin #MAID rem-no-pride
+#  groupBy: "pin" #MAID rem-no-pride
 
 # Canes
 # The white cane is intentionally not included here. Thats for the blind.

@@ -234,8 +234,8 @@
         orGroup: GiftPool
       - id: ViolaInstrument
         orGroup: GiftPool
-      - id: ClothingNeckCloakTrans
-        orGroup: GiftPool
+#      - id: ClothingNeckCloakTrans #MAID rem-no-pride
+#        orGroup: GiftPool #MAID rem-no-pride
       - id: ClothingNeckCloakAdmin
         orGroup: GiftPool
       - id: ToySkeleton

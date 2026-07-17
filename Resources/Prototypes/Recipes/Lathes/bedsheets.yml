@@ -105,10 +105,10 @@
   id: BedsheetNT
   result: BedsheetNT
 
-- type: latheRecipe
-  parent: BaseSpecifiedBedsheetRecipe
-  id: BedsheetRainbow
-  result: BedsheetRainbow
+#- type: latheRecipe #MAID rem-no-pride
+#  parent: BaseSpecifiedBedsheetRecipe #MAID rem-no-pride
+#  id: BedsheetRainbow #MAID rem-no-pride
+#  result: BedsheetRainbow #MAID rem-no-pride
 
 - type: latheRecipe
   parent: BaseSpecifiedBedsheetRecipe
