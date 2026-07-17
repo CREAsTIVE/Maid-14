@@ -7248,7 +7248,7 @@ entities:
     - type: Transform
       pos: -28.5,31.5
       parent: 1
-- proto: BedsheetRainbow
+- proto: BedsheetRed
   entities:
   - uid: 2420
     components:
@@ -29745,7 +29745,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingNeckTransPin
+- proto: ClothingNeckGoldAutismPin
   entities:
   - uid: 11220
     components:

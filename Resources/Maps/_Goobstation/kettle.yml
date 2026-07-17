@@ -18698,7 +18698,7 @@ entities:
     - type: Transform
       pos: 47.5,12.5
       parent: 2
-- proto: BedsheetRainbow
+- proto: BedsheetBlue
   entities:
   - uid: 1316
     components:
@@ -66957,21 +66957,21 @@ entities:
     - type: Transform
       pos: -30.605223,25.633827
       parent: 2
-- proto: ClothingNeckAromanticPin
+- proto: ClothingNeckGoldAutismPin
   entities:
   - uid: 10069
     components:
     - type: Transform
       pos: 29.412611,-17.30906
       parent: 2
-- proto: ClothingNeckAsexualPin
+- proto: ClothingNeckAutismPin
   entities:
   - uid: 10070
     components:
     - type: Transform
       pos: -0.7473192,-39.581512
       parent: 2
-- proto: ClothingNeckBisexualPin
+- proto: ClothingNeckGoldAutismPin
   entities:
   - uid: 10071
     components:
@@ -67011,21 +67011,21 @@ entities:
     - type: Transform
       pos: -9.457472,-8.396783
       parent: 2
-- proto: ClothingNeckIntersexPin
+- proto: ClothingNeckAutismPin
   entities:
   - uid: 10078
     components:
     - type: Transform
       pos: -28.35835,5.4578533
       parent: 2
-- proto: ClothingNeckLesbianPin
+- proto: ClothingNeckGoldAutismPin
   entities:
   - uid: 10079
     components:
     - type: Transform
       pos: 16.717562,29.681984
       parent: 2
-- proto: ClothingNeckLGBTPin
+- proto: ClothingNeckGoldAutismPin
   entities:
   - uid: 10080
     components:
@@ -67039,14 +67039,14 @@ entities:
     - type: Transform
       pos: 60.7447,-16.379261
       parent: 2
-- proto: ClothingNeckNonBinaryPin
+- proto: ClothingNeckAutismPin
   entities:
   - uid: 10082
     components:
     - type: Transform
       pos: -60.491737,42.509815
       parent: 2
-- proto: ClothingNeckPansexualPin
+- proto: ClothingNeckAutismPin
   entities:
   - uid: 10083
     components:
@@ -67098,7 +67098,7 @@ entities:
     - type: Transform
       pos: 28.513184,-28.418102
       parent: 2
-- proto: ClothingNeckTransPin
+- proto: ClothingNeckAutismPin
   entities:
   - uid: 10090
     components:

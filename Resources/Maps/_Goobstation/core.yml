@@ -21161,7 +21161,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 37.5,12.5
       parent: 2
-- proto: BedsheetRainbow
+- proto: BedsheetRed
   entities:
   - uid: 5878
     components:
@@ -61350,14 +61350,14 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingNeckAromanticPin
+- proto: ClothingNeckGoldAutismPin
   entities:
   - uid: 21450
     components:
     - type: Transform
       pos: -19.327265,17.651068
       parent: 2
-- proto: ClothingNeckAsexualPin
+- proto: ClothingNeckAutismPin
   entities:
   - uid: 5233
     components:
@@ -61392,14 +61392,14 @@ entities:
     - type: Transform
       pos: 27.4845,-46.404865
       parent: 2
-- proto: ClothingNeckLGBTPin
+- proto: ClothingNeckAutismPin
   entities:
   - uid: 5872
     components:
     - type: Transform
       pos: -53.645718,-60.37925
       parent: 2
-- proto: ClothingNeckNonBinaryPin
+- proto: ClothingNeckGoldAutismPin
   entities:
   - uid: 5103
     components:
@@ -103471,13 +103471,6 @@ entities:
       parent: 6997
     - type: Physics
       canCollide: False
-- proto: LGBTQHandyFlag
-  entities:
-  - uid: 17207
-    components:
-    - type: Transform
-      pos: 29.482407,-33.45202
-      parent: 2
 - proto: LiquidNitrogenCanister
   entities:
   - uid: 5722

@@ -61463,14 +61463,14 @@ entities:
     - type: Transform
       pos: -41.75516,14.452198
       parent: 2
-- proto: ClothingNeckAromanticPin
+- proto: ClothingNeckAutismPin
   entities:
   - uid: 9361
     components:
     - type: Transform
       pos: 83.621025,-13.51627
       parent: 2
-- proto: ClothingNeckBisexualPin
+- proto: ClothingNeckGoldAutismPin
   entities:
   - uid: 9362
     components:
@@ -61504,21 +61504,21 @@ entities:
     - type: Transform
       pos: -40.498245,-36.02266
       parent: 2
-- proto: ClothingNeckIntersexPin
+- proto: ClothingNeckAutismPin
   entities:
   - uid: 9366
     components:
     - type: Transform
       pos: -12.770909,19.336336
       parent: 2
-- proto: ClothingNeckLesbianPin
+- proto: ClothingNeckAutismPin
   entities:
   - uid: 9367
     components:
     - type: Transform
       pos: -10.308835,13.564301
       parent: 2
-- proto: ClothingNeckLGBTPin
+- proto: ClothingNeckAutismPin
   entities:
   - uid: 9368
     components:
@@ -61561,7 +61561,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingNeckNonBinaryPin
+- proto: ClothingNeckAutismPin
   entities:
   - uid: 9375
     components:
@@ -61630,7 +61630,7 @@ entities:
     - type: Transform
       pos: 19.387941,-50.49055
       parent: 2
-- proto: ClothingNeckTransPin
+- proto: ClothingNeckAutismPin
   entities:
   - uid: 9386
     components:
@@ -109818,13 +109818,6 @@ entities:
     components:
     - type: Transform
       pos: 21.334734,-11.3924055
-      parent: 2
-- proto: LGBTQHandyFlag
-  entities:
-  - uid: 16590
-    components:
-    - type: Transform
-      pos: -41.49743,-36.512333
       parent: 2
 - proto: LightBulb
   entities:

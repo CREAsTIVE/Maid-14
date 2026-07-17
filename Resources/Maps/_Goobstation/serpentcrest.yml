@@ -72841,7 +72841,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingNeckScarfStripedLesbianLong
+- proto: ClothingNeckScarfStripedBlack
   entities:
   - uid: 10495
     components:

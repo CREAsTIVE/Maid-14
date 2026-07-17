@@ -6347,7 +6347,7 @@ entities:
     - type: Transform
       pos: 3.506415,3.5395489
       parent: 2
-- proto: ClothingNeckLGBTPin
+- proto: ClothingNeckGoldAutismPin
   entities:
   - uid: 908
     components:

@@ -114599,14 +114599,14 @@ entities:
     - type: Transform
       pos: 25.318594,12.495754
       parent: 2
-- proto: ClothingNeckCloakAro
+- proto: ClothingNeckCloakMoth
   entities:
   - uid: 15278
     components:
     - type: Transform
       pos: 52.51675,-43.60295
       parent: 2
-- proto: ClothingNeckCloakBi
+- proto: ClothingNeckCloakMoth
   entities:
   - uid: 15279
     components:
@@ -114623,14 +114623,14 @@ entities:
     - type: Transform
       pos: -28.45767,-78.59287
       parent: 2
-- proto: ClothingNeckCloakEnby
+- proto: ClothingNeckCloakMoth
   entities:
   - uid: 15283
     components:
     - type: Transform
       pos: 51.558907,-13.44254
       parent: 2
-- proto: ClothingNeckCloakGay
+- proto: ClothingNeckCloakMoth
   entities:
   - uid: 15284
     components:
@@ -114661,7 +114661,7 @@ entities:
     - type: Transform
       pos: -58.15929,-44.15824
       parent: 2
-- proto: ClothingNeckCloakIntersex
+- proto: ClothingNeckCloakMoth
   entities:
   - uid: 15289
     components:

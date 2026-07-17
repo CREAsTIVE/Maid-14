@@ -34326,7 +34326,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 44.5,1.5
       parent: 2
-- proto: BedsheetRainbow
+- proto: BedsheetGrey
   entities:
   - uid: 2268
     components:

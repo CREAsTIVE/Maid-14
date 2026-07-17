@@ -32611,7 +32611,7 @@ entities:
     - type: Transform
       pos: 38.546867,-26.403046
       parent: 2
-- proto: ClothingNeckIntersexPin
+- proto: ClothingNeckGoldAutismPin
   entities:
   - uid: 5119
     components:
@@ -32678,7 +32678,7 @@ entities:
     - type: Transform
       pos: -14.6855755,-0.43132806
       parent: 2
-- proto: ClothingNeckTransPin
+- proto: ClothingNeckAutismPin
   entities:
   - uid: 5128
     components:
