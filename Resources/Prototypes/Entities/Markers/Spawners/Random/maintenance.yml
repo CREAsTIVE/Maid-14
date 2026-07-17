@@ -247,15 +247,15 @@
         - id: ClothingNeckCloakMoth
         - id: ClothingNeckCloakVoid
         - id: ClothingNeckCloakGoliathCloak
-        - id: ClothingNeckCloakAce
-        - id: ClothingNeckCloakAro
-        - id: ClothingNeckCloakAroace
-        - id: ClothingNeckCloakBi
-        - id: ClothingNeckCloakIntersex
-        - id: ClothingNeckCloakLesbian
-        - id: ClothingNeckCloakGay
-        - id: ClothingNeckCloakEnby
-        - id: ClothingNeckCloakPan
+#        - id: ClothingNeckCloakAce #MAID rem-no-pride
+#        - id: ClothingNeckCloakAro #MAID rem-no-pride
+#        - id: ClothingNeckCloakAroace #MAID rem-no-pride
+#        - id: ClothingNeckCloakBi #MAID rem-no-pride
+#        - id: ClothingNeckCloakIntersex #MAID rem-no-pride
+#        - id: ClothingNeckCloakLesbian #MAID rem-no-pride
+#        - id: ClothingNeckCloakGay #MAID rem-no-pride
+#        - id: ClothingNeckCloakEnby #MAID rem-no-pride
+#        - id: ClothingNeckCloakPan #MAID rem-no-pride
       - id: ToySkeleton
       - id: Basketball
       - id: Football
@@ -288,22 +288,22 @@
       # Pins
       - !type:GroupSelector
         children:
-        - id: ClothingNeckLGBTPin
-        - id: ClothingNeckAllyPin
-        - id: ClothingNeckAromanticPin
-        - id: ClothingNeckAsexualPin
-        - id: ClothingNeckAroacePin
-        - id: ClothingNeckBisexualPin
-        - id: ClothingNeckGayPin
-        - id: ClothingNeckIntersexPin
-        - id: ClothingNeckLesbianPin
-        - id: ClothingNeckNonBinaryPin
-        - id: ClothingNeckPansexualPin
-        - id: ClothingNeckPluralPin
-        - id: ClothingNeckOmnisexualPin
-        - id: ClothingNeckGenderqueerPin
-        - id: ClothingNeckGenderfluidPin
-        - id: ClothingNeckTransPin
+#        - id: ClothingNeckLGBTPin #MAID rem-no-pride
+#        - id: ClothingNeckAllyPin #MAID rem-no-pride
+#        - id: ClothingNeckAromanticPin #MAID rem-no-pride
+#        - id: ClothingNeckAsexualPin #MAID rem-no-pride
+#        - id: ClothingNeckAroacePin #MAID rem-no-pride
+#        - id: ClothingNeckBisexualPin #MAID rem-no-pride
+#        - id: ClothingNeckGayPin #MAID rem-no-pride
+#        - id: ClothingNeckIntersexPin #MAID rem-no-pride
+#        - id: ClothingNeckLesbianPin #MAID rem-no-pride
+#        - id: ClothingNeckNonBinaryPin #MAID rem-no-pride
+#        - id: ClothingNeckPansexualPin #MAID rem-no-pride
+#        - id: ClothingNeckPluralPin #MAID rem-no-pride
+#        - id: ClothingNeckOmnisexualPin #MAID rem-no-pride
+#        - id: ClothingNeckGenderqueerPin #MAID rem-no-pride
+#        - id: ClothingNeckGenderfluidPin #MAID rem-no-pride
+#        - id: ClothingNeckTransPin #MAID rem-no-pride
         - id: ClothingNeckAutismPin
     # Rare Group
     - !type:GroupSelector

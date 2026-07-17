@@ -101,9 +101,9 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingNeckLGBTPin
-        prob: 0.06
-        orGroup: dressermainloot
+#      - id: ClothingNeckLGBTPin #MAID rem-no-pride
+#        prob: 0.06 #MAID rem-no-pride
+#        orGroup: dressermainloot #MAID rem-no-pride
       - id: ClothingUniformJumpsuitColorGrey
         prob: 0.06
         orGroup: dressermainloot

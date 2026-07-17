@@ -34,6 +34,6 @@
         - BedsheetPurple
         - BedsheetGrey
         - BedsheetWhite
-        - BedsheetRainbow
+#        - BedsheetRainbow #MAID rem-no-pride
       chance: 0.97
       offset: 0
