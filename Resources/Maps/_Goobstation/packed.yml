@@ -11348,7 +11348,7 @@ entities:
     - type: Transform
       pos: 4.5,39.5
       parent: 2
-- proto: BedsheetGreen
+- proto: BedsheetRainbow
   entities:
   - uid: 671
     components:

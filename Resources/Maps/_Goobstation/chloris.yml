@@ -110877,7 +110877,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 51.513145,127.53845
       parent: 2
-- proto: ClothingNeckCloakMoth
+- proto: ClothingNeckCloakAroace
   entities:
   - uid: 17860
     components:
@@ -110895,7 +110895,7 @@ entities:
     - type: Transform
       pos: 127.50876,93.68136
       parent: 2
-- proto: ClothingNeckAutismPin
+- proto: ClothingNeckIntersexPin
   entities:
   - uid: 17869
     components:

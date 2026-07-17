@@ -65098,42 +65098,42 @@ entities:
     - type: Transform
       pos: -28.53385,-62.910625
       parent: 2
-- proto: ClothingNeckCloakMoth
+- proto: ClothingNeckCloakAce
   entities:
   - uid: 9294
     components:
     - type: Transform
       pos: 47.501015,-87.459625
       parent: 2
-- proto: ClothingNeckCloakMoth
+- proto: ClothingNeckCloakAro
   entities:
   - uid: 9295
     components:
     - type: Transform
       pos: 21.531446,-49.442505
       parent: 2
-- proto: ClothingNeckCloakMoth
+- proto: ClothingNeckCloakBi
   entities:
   - uid: 9296
     components:
     - type: Transform
       pos: -12.49191,15.529358
       parent: 2
-- proto: ClothingNeckCloakMoth
+- proto: ClothingNeckCloakEnby
   entities:
   - uid: 9297
     components:
     - type: Transform
       pos: 24.373571,-59.52213
       parent: 2
-- proto: ClothingNeckCloakMoth
+- proto: ClothingNeckCloakGay
   entities:
   - uid: 9298
     components:
     - type: Transform
       pos: 45.549652,7.560146
       parent: 2
-- proto: ClothingNeckCloakMoth
+- proto: ClothingNeckCloakIntersex
   entities:
   - uid: 9299
     components:
@@ -65147,7 +65147,7 @@ entities:
     - type: Transform
       pos: 44.536793,-50.46367
       parent: 2
-- proto: ClothingNeckCloakMoth
+- proto: ClothingNeckCloakPan
   entities:
   - uid: 9301
     components:
@@ -110505,6 +110505,13 @@ entities:
     components:
     - type: Transform
       pos: 19.770489,-6.2042084
+      parent: 2
+- proto: LGBTQHandyFlag
+  entities:
+  - uid: 15951
+    components:
+    - type: Transform
+      pos: 38.551476,-60.430798
       parent: 2
 - proto: LightBulbCrystalBlue
   entities:

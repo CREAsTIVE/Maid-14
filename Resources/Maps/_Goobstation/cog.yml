@@ -80905,7 +80905,7 @@ entities:
       rot: -6.283185307179586 rad
       pos: -50.5738,76.70312
       parent: 2
-- proto: ClothingNeckCloakMoth
+- proto: ClothingNeckCloakAce
   entities:
   - uid: 12817
     components:
@@ -146394,6 +146394,14 @@ entities:
     components:
     - type: Transform
       pos: 61.627953,47.602016
+      parent: 2
+- proto: LGBTQHandyFlag
+  entities:
+  - uid: 22302
+    components:
+    - type: Transform
+      rot: -12.566370614359172 rad
+      pos: -0.6024373,17.635342
       parent: 2
 - proto: LightBulbOld
   entities:

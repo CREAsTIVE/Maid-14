@@ -38214,7 +38214,7 @@ entities:
     - type: Transform
       pos: -0.98430085,-3.5043776
       parent: 2
-- proto: ClothingNeckCloakMoth
+- proto: ClothingNeckCloakGay
   entities:
   - uid: 11570
     components:
