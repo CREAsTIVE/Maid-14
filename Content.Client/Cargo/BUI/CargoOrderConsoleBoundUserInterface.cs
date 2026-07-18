@@ -147,7 +147,7 @@ namespace Content.Client.Cargo.BUI
             _menu.PopulateProducts();
             _menu.PopulateCategories();
             _menu.PopulateOrders(orders);
-            _menu.PopulateAccountActions();
+            // _menu.PopulateAccountActions(); // MAID old cargo ui
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)
