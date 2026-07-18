@@ -56,8 +56,8 @@ namespace Content.Client.Cargo.UI
         private readonly EntityQuery<StationBankAccountComponent> _bankQuery;
 
         public event Action<ButtonEventArgs>? OnItemSelected;
-        public event Action<ButtonEventArgs>? OnOrderApproved;
-        public event Action<ButtonEventArgs>? OnOrderCanceled;
+        public event Action<CargoOrderRow>? OnOrderApproved; // MAID old cargo ui
+        public event Action<CargoOrderRow>? OnOrderCanceled; // MAID old cargo ui
 
         public event Action<ProtoId<CargoAccountPrototype>?, int>? OnAccountAction;
 
@@ -328,11 +328,11 @@ namespace Content.Client.Cargo.UI
                     }
                 };
 
-                row.Cancel.OnPressed += (args) => { OnOrderCanceled?.Invoke(args); };
+                row.Cancel.OnPressed += (args) => OnOrderCanceled?.Invoke(row); // { OnOrderCanceled?.Invoke(args); }; // MAID old cargo UI
 
                 // TODO: Disable based on access.
                 row.SetApproveVisible(orderConsole.Mode != CargoOrderConsoleMode.SendToPrimary);
-                row.Approve.OnPressed += (args) => { OnOrderApproved?.Invoke(args); };
+                row.Approve.OnPressed += (args) => OnOrderApproved?.Invoke(row); // { OnOrderApproved?.Invoke(args); }; // MAID old cargo UI
                 Requests.AddChild(row);
             }
         }

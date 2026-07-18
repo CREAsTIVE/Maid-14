@@ -90,19 +90,24 @@ SPDX-License-Identifier: MIT
             </PanelContainer.PanelOverride>
             <ScrollContainer VerticalExpand="True">
                 <BoxContainer Orientation="Vertical">
+
                     <Label Text="{Loc 'cargo-console-menu-requests-label'}" />
                     <BoxContainer Name="Requests"
                                   Orientation="Vertical"
                                   VerticalExpand="True">
                         <!-- Requests are added here by code -->
                     </BoxContainer>
+
+                    <!--
                     <Label Text="{Loc 'cargo-console-menu-orders-label'}" />
                     <BoxContainer Name="Orders"
                                   Orientation="Vertical"
                                   StyleClasses="transparentItemList"
                                   VerticalExpand="True">
-                        <!-- Orders are added here by code -->
+
                     </BoxContainer>
+                    -->
+
                 </BoxContainer>
             </ScrollContainer>
         </PanelContainer>
