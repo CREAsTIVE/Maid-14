@@ -303,7 +303,7 @@ namespace Content.Client.Cargo.UI
                             "cargo-console-menu-populate-orders-cargo-order-row-product-name-text",
                             ("productName", productName), // MAID cargo old ui
                             ("orderAmount", order.OrderQuantity), // MAID cargo old ui
-                            ("orderPrice", order.Price), // MAID cargo old ui
+                            ("orderPrice", order.Price * order.OrderQuantity), // MAID cargo old ui
                             ("orderRequester", requester), // Goobstation
                             ("accountColor", account.Color),
                             ("account", Loc.GetString(account.Code)))
