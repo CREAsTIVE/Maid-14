@@ -367,6 +367,7 @@
 
 - type: entity
   id: BedsheetRainbow
+  categories: [ HideSpawnMenu ] #MAID rem-no-pride
   parent: BedsheetBase
   name: rainbow bedsheet
   components:

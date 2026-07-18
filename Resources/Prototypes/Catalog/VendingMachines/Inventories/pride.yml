@@ -14,45 +14,45 @@
 - type: vendingMachineInventory
   id: PrideDrobeInventory
   startingInventory:
-    ClothingNeckLGBTPin: 3
-    ClothingNeckAllyPin: 3
-    ClothingNeckAromanticPin: 3
-    ClothingNeckAsexualPin: 3
-    ClothingNeckAroacePin: 3
-    ClothingNeckBisexualPin: 3
-    ClothingNeckGayPin: 3
-    ClothingNeckIntersexPin: 3
-    ClothingNeckLesbianPin: 3
-    ClothingNeckNonBinaryPin: 3
-    ClothingNeckPansexualPin: 3
-    ClothingNeckPluralPin: 3
-    ClothingNeckOmnisexualPin: 3
-    ClothingNeckGenderqueerPin: 3
-    ClothingNeckGenderfluidPin: 3
-    ClothingNeckTransPin: 3
+#    ClothingNeckLGBTPin: 3 #MAID rem-no-pride
+#    ClothingNeckAllyPin: 3 #MAID rem-no-pride
+#    ClothingNeckAromanticPin: 3 #MAID rem-no-pride
+#    ClothingNeckAsexualPin: 3 #MAID rem-no-pride
+#    ClothingNeckAroacePin: 3 #MAID rem-no-pride
+#    ClothingNeckBisexualPin: 3 #MAID rem-no-pride
+#    ClothingNeckGayPin: 3 #MAID rem-no-pride
+#    ClothingNeckIntersexPin: 3 #MAID rem-no-pride
+#    ClothingNeckLesbianPin: 3 #MAID rem-no-pride
+#    ClothingNeckNonBinaryPin: 3 #MAID rem-no-pride
+#    ClothingNeckPansexualPin: 3 #MAID rem-no-pride
+#    ClothingNeckPluralPin: 3 #MAID rem-no-pride
+#    ClothingNeckOmnisexualPin: 3 #MAID rem-no-pride
+#    ClothingNeckGenderqueerPin: 3 #MAID rem-no-pride
+#    ClothingNeckGenderfluidPin: 3 #MAID rem-no-pride
+#    ClothingNeckTransPin: 3 #MAID rem-no-pride
     ClothingNeckAutismPin: 3
-    ClothingNeckGoldAutismPin: 3 # somehow we don't have this one in goob so I'm commenting this out
+#    ClothingNeckGoldAutismPin: 3 #MAID rem-no-pride
     PlushieSharkBlue: 2
     PlushieSharkPink: 2
     PlushieSharkGrey: 2
-    ClothingNeckScarfStripedAce: 2
-    ClothingNeckScarfStripedAro: 2
-    ClothingNeckScarfStripedAroace: 2
-    ClothingNeckScarfStripedBiSexual: 2
-    ClothingNeckScarfStripedGay: 2
-    ClothingNeckScarfStripedInter: 2
-    ClothingNeckScarfStripedLesbian: 2
-    ClothingNeckScarfStripedPan: 2
-    ClothingNeckScarfStripedNonBinary: 2
-    ClothingNeckScarfStripedRainbow: 2
-    ClothingNeckScarfStripedTrans: 2
+#    ClothingNeckScarfStripedAce: 2 #MAID rem-no-pride
+#    ClothingNeckScarfStripedAro: 2 #MAID rem-no-pride
+#    ClothingNeckScarfStripedAroace: 2 #MAID rem-no-pride
+#    ClothingNeckScarfStripedBiSexual: 2 #MAID rem-no-pride
+#    ClothingNeckScarfStripedGay: 2 #MAID rem-no-pride
+#    ClothingNeckScarfStripedInter: 2 #MAID rem-no-pride
+#    ClothingNeckScarfStripedLesbian: 2 #MAID rem-no-pride
+#    ClothingNeckScarfStripedPan: 2 #MAID rem-no-pride
+#    ClothingNeckScarfStripedNonBinary: 2 #MAID rem-no-pride
+#    ClothingNeckScarfStripedRainbow: 2 #MAID rem-no-pride
+#    ClothingNeckScarfStripedTrans: 2 #MAID rem-no-pride
     ClothingHeadHatXmasCrown: 2
-    BedsheetRainbow: 2
+#    BedsheetRainbow: 2 #MAID rem-no-pride
     ClothingMultipleHeadphones: 2
     ClothingHeadHatFlowerWreath: 2
     ClothingUniformColorRainbow: 2
     ClothingUnderSocksCoder: 2
     ClothingUnderSocksBee: 2
   contrabandInventory:
-    ClothingNeckScarfStripedLesbianLong: 2
+#    ClothingNeckScarfStripedLesbianLong: 2 #MAID rem-no-pride
     ClothingUniformJumpskirtColorRainbow: 2

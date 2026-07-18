@@ -186,22 +186,22 @@
   - CigPackBlack
   - CigarCase
   - CigarGold
-  - ClothingNeckLGBTPin
-  - ClothingNeckAllyPin
-  - ClothingNeckAromanticPin
-  - ClothingNeckAsexualPin
-  - ClothingNeckAroacePin
-  - ClothingNeckBisexualPin
-  - ClothingNeckGayPin
-  - ClothingNeckIntersexPin
-  - ClothingNeckLesbianPin
-  - ClothingNeckNonBinaryPin
-  - ClothingNeckPansexualPin
-  - ClothingNeckPluralPin
-  - ClothingNeckOmnisexualPin
-  - ClothingNeckGenderqueerPin
-  - ClothingNeckGenderfluidPin
-  - ClothingNeckTransPin
+#  - ClothingNeckLGBTPin #MAID rem-no-pride#
+#  - ClothingNeckAllyPin #MAID rem-no-pride#
+#  - ClothingNeckAromanticPin #MAID rem-no-pride#
+#  - ClothingNeckAsexualPin #MAID rem-no-pride#
+#  - ClothingNeckAroacePin #MAID rem-no-pride#
+#  - ClothingNeckBisexualPin #MAID rem-no-pride#
+#  - ClothingNeckGayPin #MAID rem-no-pride#
+#  - ClothingNeckIntersexPin #MAID rem-no-pride#
+#  - ClothingNeckLesbianPin #MAID rem-no-pride#
+#  - ClothingNeckNonBinaryPin #MAID rem-no-pride#
+#  - ClothingNeckPansexualPin #MAID rem-no-pride#
+#  - ClothingNeckPluralPin #MAID rem-no-pride#
+#  - ClothingNeckOmnisexualPin #MAID rem-no-pride#
+#  - ClothingNeckGenderqueerPin #MAID rem-no-pride#
+#  - ClothingNeckGenderfluidPin #MAID rem-no-pride#
+#  - ClothingNeckTransPin #MAID rem-no-pride
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
   - OffsetCane

@@ -1125,3 +1125,53 @@ GambamovCircuitBoard: null
 BulletDislippler: null
 ShrapnelPayload: null
 LockerDetectiveFilledHardsuit: LockerDetectiveFilled
+
+# 2026-07-18 Maid - Remove/Replace Pride items on maps
+LGBTQHandyFlag: null
+LGBTQFlag: null
+BedsheetRainbow: BedsheetBlue
+VendingMachinePride: null
+
+# Pins -> Autism Pins
+ClothingNeckLGBTPin: ClothingNeckAutismPin
+ClothingNeckAllyPin: ClothingNeckGoldAutismPin
+ClothingNeckAromanticPin: ClothingNeckAutismPin
+ClothingNeckAroacePin: ClothingNeckGoldAutismPin
+ClothingNeckAsexualPin: ClothingNeckAutismPin
+ClothingNeckBisexualPin: ClothingNeckGoldAutismPin
+ClothingNeckGayPin: ClothingNeckAutismPin
+ClothingNeckIntersexPin: ClothingNeckGoldAutismPin
+ClothingNeckLesbianPin: ClothingNeckAutismPin
+ClothingNeckNonBinaryPin: ClothingNeckGoldAutismPin
+ClothingNeckPansexualPin: ClothingNeckAutismPin
+ClothingNeckOmnisexualPin: ClothingNeckGoldAutismPin
+ClothingNeckGenderqueerPin: ClothingNeckAutismPin
+ClothingNeckGenderfluidPin: ClothingNeckGoldAutismPin
+ClothingNeckTransPin: ClothingNeckAutismPin
+ClothingNeckPluralPin: ClothingNeckGoldAutismPin
+
+# Scarves -> Safe Striped Scarves
+ClothingNeckScarfStripedAce: ClothingNeckScarfStripedBlack
+ClothingNeckScarfStripedAro: ClothingNeckScarfStripedGreen
+ClothingNeckScarfStripedAroace: ClothingNeckScarfStripedBlue
+ClothingNeckScarfStripedBiSexual: ClothingNeckScarfStripedPurple
+ClothingNeckScarfStripedGay: ClothingNeckScarfStripedOrange
+ClothingNeckScarfStripedInter: ClothingNeckScarfStripedPurple
+ClothingNeckScarfStripedLesbian: ClothingNeckScarfStripedRed
+ClothingNeckScarfStripedPan: ClothingNeckScarfStripedOrange
+ClothingNeckScarfStripedNonBinary: ClothingNeckScarfStripedPurple
+ClothingNeckScarfStripedRainbow: ClothingNeckScarfStripedPurple
+ClothingNeckScarfStripedTrans: ClothingNeckScarfStripedLightBlue
+ClothingNeckScarfStripedLesbianLong: ClothingNeckScarfStripedRed
+
+# Cloaks -> Moth Cloak
+ClothingNeckCloakAce: ClothingNeckCloakMoth
+ClothingNeckCloakAro: ClothingNeckCloakMoth
+ClothingNeckCloakAroace: ClothingNeckCloakMoth
+ClothingNeckCloakBi: ClothingNeckCloakMoth
+ClothingNeckCloakIntersex: ClothingNeckCloakMoth
+ClothingNeckCloakLesbian: ClothingNeckCloakMoth
+ClothingNeckCloakGay: ClothingNeckCloakMoth
+ClothingNeckCloakEnby: ClothingNeckCloakMoth
+ClothingNeckCloakPan: ClothingNeckCloakMoth
+ClothingNeckCloakTrans: ClothingNeckCloakMoth
