@@ -12,7 +12,7 @@
     size: Small
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/_White/Object/Misc/gavel.ogg
+      path: /Audio/_Maid/Items/JudgeHammer/gavel.ogg
   - type: UseDelay
     delay: 2
   - type: MeleeWeapon
