@@ -1,2 +1,2 @@
-ent-FloorTileItemWoodBright = Молоток судьи.
+ent-JudgeHammer = Молоток судьи.
     .desc =  Порядок, порядок! Никаких бомб в здании моего суда. 
