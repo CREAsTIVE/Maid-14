@@ -592,7 +592,7 @@ public sealed class ArrivalsSystem : EntitySystem
         _metaData.SetEntityName(mapUid, Loc.GetString("map-name-terminal"));
 
         EnsureComp<ArrivalsSourceComponent>(grid.Value);
-        EnsureComp<ProtectedGridComponent>(grid.Value);
+        // EnsureComp<ProtectedGridComponent>(grid.Value); // MAID arrivals rework 2
         EnsureComp<PreventPilotComponent>(grid.Value);
 
         // Setup planet arrivals if relevant
