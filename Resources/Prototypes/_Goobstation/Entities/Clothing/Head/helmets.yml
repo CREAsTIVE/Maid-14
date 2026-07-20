@@ -84,6 +84,8 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  - type: FoldableClothing
+    unfoldedHideLayers: [ ]
 
 - type: entity
   parent: [ ClothingHeadBase, BaseMajorContraband ]
