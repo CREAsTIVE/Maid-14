@@ -333,18 +333,38 @@ public sealed class RlCommand : ToolshedCommand
                         ctx.Restore(save);
                         return true;
                     }
+
+                    if (ctx.GenerateCompletions)
+                    {
+                        var prefixMatch = members.FirstOrDefault(m => m.Name.StartsWith(fieldPath.Path, StringComparison.OrdinalIgnoreCase));
+                        result = prefixMatch != null ? GetValueType(prefixMatch) : typeof(object);
+                        ctx.Restore(save);
+                        return true;
+                    }
                 }
             }
             else if (Toolshed.TryParse(ctx, out RlComponentFieldPath compPath))
             {
                 if (!RlCommand.TrySplitComponentFieldPath(compPath.Path, out var componentName, out var fieldName))
                 {
+                    if (ctx.GenerateCompletions)
+                    {
+                        result = typeof(object);
+                        ctx.Restore(save);
+                        return true;
+                    }
                     ctx.Restore(save);
                     return false;
                 }
 
                 if (!_factory.AllRegisteredTypes.TryFirstOrDefault(comp => _factory.GetComponentName(comp) == componentName, out var componentType))
                 {
+                    if (ctx.GenerateCompletions)
+                    {
+                        result = typeof(object);
+                        ctx.Restore(save);
+                        return true;
+                    }
                     ctx.Restore(save);
                     return false;
                 }
@@ -353,6 +373,13 @@ public sealed class RlCommand : ToolshedCommand
 
                 if (!members.TryFirstOrDefault(m => m.Name == fieldName, out var member))
                 {
+                    if (ctx.GenerateCompletions)
+                    {
+                        var prefixMatch = members.FirstOrDefault(m => m.Name.StartsWith(fieldName, StringComparison.OrdinalIgnoreCase));
+                        result = prefixMatch != null ? GetValueType(prefixMatch) : typeof(object);
+                        ctx.Restore(save);
+                        return true;
+                    }
                     ctx.Restore(save);
                     return false;
                 }
