@@ -100,7 +100,7 @@ public sealed class RlFieldPathTypeParser : TypeParser<RlFieldPath>
     }
 }
 
-public sealed class RlComponentFieldPathTypeParser : TypeParser<RlComponentFieldPath>
+public sealed class ReflComponentFieldPathTypeParser : TypeParser<RlComponentFieldPath>
 {
     [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IViewVariablesManager _vvm = default!;
@@ -139,7 +139,7 @@ public sealed class RlComponentFieldPathTypeParser : TypeParser<RlComponentField
         var word = ctx.GetWord(IsPath);
         word ??= "";
 
-        if (RlCommand.TrySplitComponentFieldPath(word, out var component, out var field))
+        if (ReflectionCommands.TrySplitComponentFieldPath(word, out var component, out var field))
         {
             if (!_factory.AllRegisteredTypes.TryFirstOrDefault(comp => _factory.GetComponentName(comp) == component, out var type))
             {
@@ -165,17 +165,16 @@ public sealed class RlComponentFieldPathTypeParser : TypeParser<RlComponentField
     }
 }
 
-[ToolshedCommand(Name = "reflect"), AdminCommand(AdminFlags.VarEdit)]
-public sealed class RlCommand : ToolshedCommand
+[ToolshedCommand(Name = "refl"), AdminCommand(AdminFlags.VarEdit)]
+public sealed class ReflectionCommands : ToolshedCommand
 {
     [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly IViewVariablesManager _vvm = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
     private static readonly Type[] Parsers = [typeof(RlOutputParser)];
     public override Type[] TypeParameterParsers => Parsers;
 
-    [CommandImplementation]
+    [CommandImplementation("crf")]
     public TOut? Read<TOut>(
         IInvocationContext ctx,
         [PipedArgument] EntityUid input,
@@ -184,7 +183,7 @@ public sealed class RlCommand : ToolshedCommand
         return EvaluateRl<TOut>(ctx, input, path.Path);
     }
 
-    [CommandImplementation]
+    [CommandImplementation("crf")]
     public IEnumerable<TOut?> Read<TOut>(
         IInvocationContext ctx,
         [PipedArgument] IEnumerable<EntityUid> input,
@@ -199,7 +198,7 @@ public sealed class RlCommand : ToolshedCommand
         }
     }
 
-    [CommandImplementation, TakesPipedTypeAsGeneric]
+    [CommandImplementation("crf"), TakesPipedTypeAsGeneric]
     public TOut? Read<TOut, TComponent>(
         IInvocationContext ctx,
         [PipedArgument] TComponent input,
@@ -209,7 +208,7 @@ public sealed class RlCommand : ToolshedCommand
         return EvaluateRl<TOut>(ctx, input, path.Path);
     }
 
-    [CommandImplementation, TakesPipedTypeAsGeneric]
+    [CommandImplementation("crf"), TakesPipedTypeAsGeneric]
     public IEnumerable<TOut?> Read<TOut, TComponent>(
         IInvocationContext ctx,
         [PipedArgument] IEnumerable<TComponent> input,
@@ -345,7 +344,7 @@ public sealed class RlCommand : ToolshedCommand
             }
             else if (Toolshed.TryParse(ctx, out RlComponentFieldPath compPath))
             {
-                if (!RlCommand.TrySplitComponentFieldPath(compPath.Path, out var componentName, out var fieldName))
+                if (!ReflectionCommands.TrySplitComponentFieldPath(compPath.Path, out var componentName, out var fieldName))
                 {
                     if (ctx.GenerateCompletions)
                     {
