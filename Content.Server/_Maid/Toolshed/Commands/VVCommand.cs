@@ -63,9 +63,6 @@ public sealed class RlFieldPathTypeParser : TypeParser<RlFieldPath>
         return true;
     }
 
-    private const BindingFlags MembersBindings =
-        BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
-
     public override CompletionResult TryAutocomplete(ParserContext ctx, CommandArgument? arg)
     {
         ctx.ConsumeWhitespace();
@@ -84,14 +81,22 @@ public sealed class RlFieldPathTypeParser : TypeParser<RlFieldPath>
         if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(IEnumerable<>))
             type = type.GenericTypeArguments[0];
 
-        var options = new VVListPathOptions();
-
-        var members = type.GetMembers(MembersBindings)
-            .Where(member => !ViewVariablesUtility.TryGetViewVariablesAccess(member, out var memberAccess) && options.MinimumAccess >= memberAccess) // Limit by VV access
-            .Where(member => member.Name.StartsWith(word))
+        var members = GetVvMembers(type)
+            .Where(member => member.Name.StartsWith(word, StringComparison.OrdinalIgnoreCase))
             .Select(member => new CompletionOption(member.Name));
 
         return CompletionResult.FromOptions(members);
+    }
+
+    public const BindingFlags DefaultBindings =
+        BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+
+    internal static IEnumerable<MemberInfo> GetVvMembers(Type type, BindingFlags bindings = DefaultBindings, VVListPathOptions? options = null)
+    {
+        options ??= new VVListPathOptions();
+        var minAccess = options.Value.MinimumAccess;
+        return type.GetMembers(bindings)
+            .Where(m => ViewVariablesUtility.TryGetViewVariablesAccess(m, out var memberAccess) && memberAccess >= minAccess);
     }
 }
 
@@ -104,9 +109,6 @@ public sealed class RlComponentFieldPathTypeParser : TypeParser<RlComponentField
     {
         return Rune.IsLetterOrDigit(c) || c == new Rune('/');
     }
-
-    private const BindingFlags MembersBindings =
-        BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 
     public override bool TryParse(ParserContext ctx, out RlComponentFieldPath result)
     {
@@ -137,34 +139,28 @@ public sealed class RlComponentFieldPathTypeParser : TypeParser<RlComponentField
         var word = ctx.GetWord(IsPath);
         word ??= "";
 
-        var wordParts = word.Split("/", 2);
-
-        if (wordParts.Length <= 1 && !word.Contains('/'))
+        if (RlCommand.TrySplitComponentFieldPath(word, out var component, out var field))
         {
-            var component = wordParts.Length >= 1 ? wordParts[0] : "";
-            var types = _factory.AllRegisteredTypes
-                .Select(type => $"{new CompletionOption(type.Name)}/");
-
-            return CompletionResult.FromOptions(types);
-        }
-        else
-        {
-            var component = wordParts[0];
-            if (!_factory.AllRegisteredTypes.TryFirstOrDefault(comp => comp.Name == component, out var type))
+            if (!_factory.AllRegisteredTypes.TryFirstOrDefault(comp => _factory.GetComponentName(comp) == component, out var type))
             {
                 return CompletionResult.FromHint($"Unknown type {component}");
             }
 
-            var field = wordParts[1]; // Should exist atp
-
-            var options = new VVListPathOptions();
-
-            var members = type.GetMembers(MembersBindings)
-                .Where(member => !ViewVariablesUtility.TryGetViewVariablesAccess(member, out var memberAccess) && options.MinimumAccess >= memberAccess) // Limit by VV access
-                .Where(member => member.Name.StartsWith(word))
-                .Select(member => new CompletionOption(member.Name));
+            var members = RlFieldPathTypeParser.GetVvMembers(type)
+                .Where(member => member.Name.StartsWith(field, StringComparison.OrdinalIgnoreCase))
+                .Select(member => new CompletionOption($"{component}/{member.Name}"));
 
             return CompletionResult.FromOptions(members);
+        }
+        else
+        {
+            var compPartial = word.EndsWith('/') ? word[..^1] : word;
+            var types = _factory.AllRegisteredTypes
+                .Select(type => _factory.GetComponentName(type))
+                .Where(name => name.StartsWith(compPartial, StringComparison.OrdinalIgnoreCase))
+                .Select(name => new CompletionOption($"{name}/", null, CompletionOptionFlags.PartialCompletion));
+
+            return CompletionResult.FromOptions(types);
         }
     }
 }
@@ -178,9 +174,6 @@ public sealed class RlCommand : ToolshedCommand
 
     private static readonly Type[] Parsers = [typeof(RlOutputParser)];
     public override Type[] TypeParameterParsers => Parsers;
-
-    private const BindingFlags MembersBindings =
-        BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 
     [CommandImplementation]
     public TOut? Read<TOut>(
@@ -199,8 +192,8 @@ public sealed class RlCommand : ToolshedCommand
     {
         foreach (var ent in input)
         {
-            // if (ctx.HasErrors)
-            //     yield break;
+            if (ctx.HasErrors)
+                yield break;
 
             yield return Read<TOut>(ctx, ent, path);
         }
@@ -225,27 +218,41 @@ public sealed class RlCommand : ToolshedCommand
     {
         foreach (var comp in input)
         {
-            // if (ctx.HasErrors)
-            //     yield break;
+            if (ctx.HasErrors)
+                yield break;
 
             yield return Read<TOut, TComponent>(ctx, comp, path);
         }
     }
 
+    internal static bool TrySplitComponentFieldPath(string path, [NotNullWhen(true)] out string? componentName, [NotNullWhen(true)] out string? fieldName)
+    {
+        componentName = null;
+        fieldName = null;
+
+        var parts = path.Split('/', 2);
+        if (parts.Length != 2)
+            return false;
+
+        componentName = parts[0];
+        fieldName = parts[1];
+        return true;
+    }
+
     private TOut? EvaluateRl<TOut>(IInvocationContext ctx, EntityUid entity, string fullPath)
     {
-        var parts = fullPath.Split('/', 2);
-        if (parts.Length != 2)
+        if (!TrySplitComponentFieldPath(fullPath, out var componentName, out var fieldName))
         {
             ctx.ReportError(new InvalidRlComponentError(fullPath));
+            return default;
         }
 
-        return EvaluateRl<TOut>(ctx, entity, parts[0], parts[1]);
+        return EvaluateRl<TOut>(ctx, entity, componentName, fieldName);
     }
 
     private TOut? EvaluateRl<TOut>(IInvocationContext ctx, EntityUid entity, string componentName, string fieldName)
     {
-        if (!_factory.AllRegisteredTypes.TryFirstOrDefault(comp => comp.Name == componentName, out var componentType))
+        if (!_factory.AllRegisteredTypes.TryFirstOrDefault(comp => _factory.GetComponentName(comp) == componentName, out var componentType))
         {
             ctx.ReportError(new InvalidRlComponentError(componentName));
             return default;
@@ -253,7 +260,7 @@ public sealed class RlCommand : ToolshedCommand
 
         if (!_entityManager.TryGetComponent(entity, componentType, out var component))
         {
-            ctx.ReportError(new InvalidRlComponentError(componentName)); // separate error? ignore?
+            ctx.ReportError(new InvalidRlComponentError(componentName));
             return default;
         }
 
@@ -272,14 +279,8 @@ public sealed class RlCommand : ToolshedCommand
 
     private TOut? EvaluateRl<TOut>(IInvocationContext ctx, IComponent component, string fieldName)
     {
-        var options = new VVListPathOptions();
+        var members = RlFieldPathTypeParser.GetVvMembers(component.GetType());
 
-        // TODO move into separate method
-        var members = component.GetType()
-            .GetMembers(MembersBindings)
-            .Where(m => !ViewVariablesUtility.TryGetViewVariablesAccess(m, out var memberAccess) && options.MinimumAccess >= memberAccess);
-
-        // TODO: optimize for iterable, get type and member once
         if (!members.TryFirstOrDefault(m => m.Name == fieldName, out var member))
         {
             ctx.ReportError(new InvalidRlFieldError(fieldName));
@@ -295,8 +296,6 @@ public sealed class RlCommand : ToolshedCommand
     public sealed class RlOutputParser : CustomTypeParser<Type>
     {
         [Dependency] private readonly IComponentFactory _factory = default!;
-        [Dependency] private readonly IViewVariablesManager _vvm = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
 
         private static Type GetValueType(MemberInfo member)
         {
@@ -326,33 +325,40 @@ public sealed class RlCommand : ToolshedCommand
             {
                 if (Toolshed.TryParse(ctx, out RlFieldPath fieldPath))
                 {
+                    var members = RlFieldPathTypeParser.GetVvMembers(type);
 
+                    if (members.TryFirstOrDefault(m => m.Name == fieldPath.Path, out var member))
+                    {
+                        result = GetValueType(member);
+                        ctx.Restore(save);
+                        return true;
+                    }
                 }
             }
             else if (Toolshed.TryParse(ctx, out RlComponentFieldPath compPath))
             {
-                // TODO: More shared logic, probably should be in one method, something like "(string component, string field) getParts"
-                var parts = compPath.Path.Split('/', 2);
-                if (parts.Length != 2)
+                if (!RlCommand.TrySplitComponentFieldPath(compPath.Path, out var componentName, out var fieldName))
+                {
+                    ctx.Restore(save);
                     return false;
+                }
 
-                var componentName = parts[0];
-                var fieldName = parts[1];
-
-                if (!_factory.AllRegisteredTypes.TryFirstOrDefault(comp => comp.Name == componentName, out var componentType))
+                if (!_factory.AllRegisteredTypes.TryFirstOrDefault(comp => _factory.GetComponentName(comp) == componentName, out var componentType))
+                {
+                    ctx.Restore(save);
                     return false;
+                }
 
-                var options = new VVListPathOptions();
+                var members = RlFieldPathTypeParser.GetVvMembers(componentType);
 
-                var members = componentType
-                    .GetMembers(MembersBindings)
-                    .Where(m => !ViewVariablesUtility.TryGetViewVariablesAccess(m, out var memberAccess) && options.MinimumAccess >= memberAccess);
-
-                // TODO: optimize for iterable, get type and member once
                 if (!members.TryFirstOrDefault(m => m.Name == fieldName, out var member))
+                {
+                    ctx.Restore(save);
                     return false;
+                }
 
                 result = GetValueType(member);
+                ctx.Restore(save);
                 return true;
             }
 
