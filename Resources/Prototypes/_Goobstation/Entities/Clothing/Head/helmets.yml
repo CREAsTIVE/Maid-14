@@ -84,7 +84,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: FoldableClothing
+  - type: FoldableClothing # Maid
     unfoldedHideLayers: [ ]
 
 - type: entity

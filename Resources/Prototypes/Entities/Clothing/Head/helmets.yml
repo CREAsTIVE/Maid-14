@@ -275,7 +275,7 @@
   #- type: HideLayerClothing  #Goobstation
   #  layers:
   #    Hair: HEAD
-  - type: FoldableClothing
+  - type: FoldableClothing # Maid
     unfoldedHideLayers: [ ]
 
 #Bombsuit Helmet
@@ -303,10 +303,8 @@
         Piercing: 0.9
   - type: HideLayerClothing
     layers:
-      #Hair: HEAD
-      Hair: NONE
-      Snout: HEAD
-  - type: FoldableClothing
+      Hair: NONE # Maid
+  - type: FoldableClothing # Maid
     unfoldedHideLayers: [ ]
 
 #Janitorial Bombsuit Helmet
