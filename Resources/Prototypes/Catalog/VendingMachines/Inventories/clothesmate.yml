@@ -56,7 +56,7 @@
     ClothingBackpackDuffel: 5
     ClothingBackpackSatchel: 3
     ClothingBackpackSatchelLeather: 2
-    ClothingBackpackMessenger: 5 # Frontier
+    #ClothingBackpackMessenger: 5 # Frontier
     ClothingRandomSpawner: 8
 #    ClothingUniformRandomShorts: 4 #Maid
     ClothingHeadHatBeret: 4
