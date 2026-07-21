@@ -73,14 +73,14 @@
     cost: 650
   - id: ClothingMaskWeldingGas
     cost: 750
-#  - id: SpaceCash5000
-#    cost: 750
+  - id: SpaceCash5000
+    cost: 2500
   - id: MiningDrill
     cost: 800
   - id: OreBagMagnetic
     cost: 800
   - id: SurvivalMedipen
-    cost: 2500
+    cost: 800
   - id: PKAUpgradeRange
     cost: 1000
   - id: PKAUpgradeFireRate
