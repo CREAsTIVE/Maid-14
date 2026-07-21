@@ -170,20 +170,28 @@ public sealed class ReflectionCommands : ToolshedCommand
 {
     [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IViewVariablesManager _vv = default!;
 
     private static readonly Type[] Parsers = [typeof(RlOutputParser)];
     public override Type[] TypeParameterParsers => Parsers;
 
-    [CommandImplementation("crf")]
+    [CommandImplementation("rcf")]
     public TOut? Read<TOut>(
         IInvocationContext ctx,
         [PipedArgument] EntityUid input,
         RlComponentFieldPath path)
     {
-        return EvaluateRl<TOut>(ctx, input, path.Path);
+        var res = EvaluateComponentMember(ctx, input, path.Path);
+        if (res is null)
+            return default;
+
+        if (GetValue(res.Value.Member, res.Value.Component) is TOut outVal)
+            return outVal;
+
+        return default;
     }
 
-    [CommandImplementation("crf")]
+    [CommandImplementation("rcf")]
     public IEnumerable<TOut?> Read<TOut>(
         IInvocationContext ctx,
         [PipedArgument] IEnumerable<EntityUid> input,
@@ -198,17 +206,24 @@ public sealed class ReflectionCommands : ToolshedCommand
         }
     }
 
-    [CommandImplementation("crf"), TakesPipedTypeAsGeneric]
+    [CommandImplementation("rcf"), TakesPipedTypeAsGeneric]
     public TOut? Read<TOut, TComponent>(
         IInvocationContext ctx,
         [PipedArgument] TComponent input,
         RlFieldPath path)
         where TComponent : class, IComponent
     {
-        return EvaluateRl<TOut>(ctx, input, path.Path);
+        var member = EvaluateComponentMember(ctx, input, path.Path);
+        if (member is null)
+            return default;
+
+        if (GetValue(member, input) is TOut outVal)
+            return outVal;
+
+        return default;
     }
 
-    [CommandImplementation("crf"), TakesPipedTypeAsGeneric]
+    [CommandImplementation("rcf"), TakesPipedTypeAsGeneric]
     public IEnumerable<TOut?> Read<TOut, TComponent>(
         IInvocationContext ctx,
         [PipedArgument] IEnumerable<TComponent> input,
@@ -221,6 +236,70 @@ public sealed class ReflectionCommands : ToolshedCommand
                 yield break;
 
             yield return Read<TOut, TComponent>(ctx, comp, path);
+        }
+    }
+
+    [CommandImplementation("wcf")]
+    public EntityUid Write<TValue>(
+        IInvocationContext ctx,
+        [PipedArgument] EntityUid input,
+        RlComponentFieldPath path,
+        TValue value)
+    {
+        var res = EvaluateComponentMember(ctx, input, path.Path);
+        if (res is null)
+            return input;
+
+        TrySetValue(ctx, res.Value.Member, res.Value.Component, value);
+        return input;
+    }
+
+    [CommandImplementation("wcf")]
+    public IEnumerable<EntityUid> Write<TValue>(
+        IInvocationContext ctx,
+        [PipedArgument] IEnumerable<EntityUid> input,
+        RlComponentFieldPath path,
+        TValue value)
+    {
+        foreach (var ent in input)
+        {
+            if (ctx.HasErrors)
+                yield break;
+
+            yield return Write(ctx, ent, path, value);
+        }
+    }
+
+    [CommandImplementation("wcf"), TakesPipedTypeAsGeneric]
+    public TComponent Write<TValue, TComponent>(
+        IInvocationContext ctx,
+        [PipedArgument] TComponent input,
+        RlFieldPath path,
+        TValue value)
+        where TComponent : class, IComponent
+    {
+        var member = EvaluateComponentMember(ctx, input, path.Path);
+        if (member is null)
+            return input;
+
+        TrySetValue(ctx, member, input, value);
+        return input;
+    }
+
+    [CommandImplementation("wcf"), TakesPipedTypeAsGeneric]
+    public IEnumerable<TComponent> Write<TValue, TComponent>(
+        IInvocationContext ctx,
+        [PipedArgument] IEnumerable<TComponent> input,
+        RlFieldPath path,
+        TValue value)
+        where TComponent : class, IComponent
+    {
+        foreach (var comp in input)
+        {
+            if (ctx.HasErrors)
+                yield break;
+
+            yield return Write(ctx, comp, path, value);
         }
     }
 
@@ -238,32 +317,49 @@ public sealed class ReflectionCommands : ToolshedCommand
         return true;
     }
 
-    private TOut? EvaluateRl<TOut>(IInvocationContext ctx, EntityUid entity, string fullPath)
+    private (MemberInfo Member, IComponent Component)? EvaluateComponentMember(IInvocationContext ctx, EntityUid entity, string fullPath)
     {
         if (!TrySplitComponentFieldPath(fullPath, out var componentName, out var fieldName))
         {
             ctx.ReportError(new InvalidRlComponentError(fullPath));
-            return default;
+            return null;
         }
 
-        return EvaluateRl<TOut>(ctx, entity, componentName, fieldName);
+        return EvaluateComponentMember(ctx, entity, componentName, fieldName);
     }
 
-    private TOut? EvaluateRl<TOut>(IInvocationContext ctx, EntityUid entity, string componentName, string fieldName)
+    private (MemberInfo Member, IComponent Component)? EvaluateComponentMember(IInvocationContext ctx, EntityUid entity, string componentName, string fieldName)
     {
         if (!_factory.AllRegisteredTypes.TryFirstOrDefault(comp => _factory.GetComponentName(comp) == componentName, out var componentType))
         {
             ctx.ReportError(new InvalidRlComponentError(componentName));
-            return default;
+            return null;
         }
 
         if (!_entityManager.TryGetComponent(entity, componentType, out var component))
         {
             ctx.ReportError(new InvalidRlComponentError(componentName));
-            return default;
+            return null;
         }
 
-        return EvaluateRl<TOut>(ctx, component, fieldName);
+        var member = EvaluateComponentMember(ctx, component, fieldName);
+        if (member is null)
+            return null;
+
+        return (member, component);
+    }
+
+    private MemberInfo? EvaluateComponentMember(IInvocationContext ctx, IComponent component, string fieldName)
+    {
+        var members = RlFieldPathTypeParser.GetVvMembers(component.GetType());
+
+        if (!members.TryFirstOrDefault(m => m.Name == fieldName, out var member))
+        {
+            ctx.ReportError(new InvalidRlFieldError(fieldName));
+            return null;
+        }
+
+        return member;
     }
 
     private static object? GetValue(MemberInfo member, object instance)
@@ -276,22 +372,31 @@ public sealed class ReflectionCommands : ToolshedCommand
         };
     }
 
-    private TOut? EvaluateRl<TOut>(IInvocationContext ctx, IComponent component, string fieldName)
+    private bool TrySetValue(IInvocationContext ctx, MemberInfo member, IComponent instance, object? value)
     {
-        var members = RlFieldPathTypeParser.GetVvMembers(component.GetType());
-
-        if (!members.TryFirstOrDefault(m => m.Name == fieldName, out var member))
+        switch (member)
         {
-            ctx.ReportError(new InvalidRlFieldError(fieldName));
-            return default;
+            case FieldInfo field:
+                // TODO: Check vv readwrite access
+                field.SetValue(instance, value);
+
+                _entityManager.Dirty(instance.Owner, instance);
+                return true;
+            case PropertyInfo property:
+                // TODO: Check vv readwrite access
+                if (!property.CanWrite)
+                {
+                    ctx.ReportError(new ReadOnlyRlFieldError(property.Name));
+                    return false;
+                }
+                property.SetValue(instance, value);
+
+                _entityManager.Dirty(instance.Owner, instance);
+                return true;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(member));
         }
-
-        if (GetValue(member, component) is TOut outVal)
-            return outVal;
-
-        return default;
     }
-
     public sealed class RlOutputParser : CustomTypeParser<Type>
     {
         [Dependency] private readonly IComponentFactory _factory = default!;
@@ -416,6 +521,18 @@ public record struct InvalidRlFieldError(string Name) : IConError
     public FormattedMessage DescribeInner()
     {
         return FormattedMessage.FromUnformatted($"Field '{Name}' not found.");
+    }
+
+    public string? Expression { get; set; }
+    public Vector2i? IssueSpan { get; set; }
+    public StackTrace? Trace { get; set; }
+}
+
+public record struct ReadOnlyRlFieldError(string Name) : IConError
+{
+    public FormattedMessage DescribeInner()
+    {
+        return FormattedMessage.FromUnformatted($"Field or property '{Name}' is read-only.");
     }
 
     public string? Expression { get; set; }
