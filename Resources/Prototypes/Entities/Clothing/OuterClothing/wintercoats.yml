@@ -205,9 +205,9 @@
   name: captain's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatcap.rsi
+    sprite: _Maid/Clothing/OuterClothing/WinterCoats/coatcap.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatcap.rsi
+    sprite: _Maid/Clothing/OuterClothing/WinterCoats/coatcap.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterCaptain
@@ -366,9 +366,9 @@
   description: A sturdy, utilitarian winter coat designed to protect a head of security from any brig-bound threats and hypothermic events.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
+    sprite: _Maid/Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
+    sprite: _Maid/Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterHOS
@@ -395,9 +395,9 @@
   description: A sturdy coat, a warm coat, but not an armored coat.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
+    sprite: _Maid/Clothing/OuterClothing/WinterCoats/coathos.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
+    sprite: _Maid/Clothing/OuterClothing/WinterCoats/coathos.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterHOS
@@ -575,9 +575,9 @@
   name: security winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatsec.rsi
+    sprite: _Maid/Clothing/OuterClothing/WinterCoats/coatsec.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatsec.rsi
+    sprite: _Maid/Clothing/OuterClothing/WinterCoats/coatsec.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterSec
@@ -610,9 +610,9 @@
   description: A sturdy, utilitarian winter coat designed to protect a warden from any brig-bound threats and hypothermic events.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
+    sprite: _Maid/Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
+    sprite: _Maid/Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterWarden
