@@ -64,10 +64,10 @@
     #Bola: 6 # Goob edit - already have energy bolas
     CombatKnife: 1 # Goob edit
     # Goobstation
-    PolymerBaton: 1
+#    PolymerBaton: 1 #Maid
 #    SpearTelescopic: 1 #Maid
     BolaEnergy: 5
-    PepperSpray: 3
+#    PepperSpray: 3 #Maid
 #    SecHypo: 2 #Maid
 #    CartridgeEpinephrine: 2 #Maid
 #    CartridgeSaline: 2 #Maid

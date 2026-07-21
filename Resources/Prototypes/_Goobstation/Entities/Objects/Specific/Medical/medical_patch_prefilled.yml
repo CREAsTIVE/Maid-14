@@ -110,8 +110,8 @@
   name: brute patch
   suffix: Bicaridine
   components:
-  - type: Label
-    currentLabel: Bicaridine 30u
+#  - type: Label #Maid
+#    currentLabel: Bicaridine 30u #Maid
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -126,8 +126,8 @@
   name: burn patch
   suffix: Dermaline
   components:
-  - type: Label
-    currentLabel: Dermaline 30u
+#  - type: Label #Maid
+#    currentLabel: Dermaline 30u #Maid
   - type: SolutionContainerManager
     solutions:
       drink:
