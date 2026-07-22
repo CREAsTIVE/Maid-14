@@ -41,10 +41,10 @@
   equipment:
     back: ClothingBackpackDuffelBrigmedic
 
-#- type: loadout
-#  id: BrigmedicMessenger
-#  equipment:
-#    back: ClothingBackpackMessengerBrigmedic
+- type: loadout
+  id: BrigmedicMessenger
+  equipment:
+    back: ClothingBackpackMessengerBrigmedic
 
 - type: loadout
   id: BrigmedicEnvirosuit
