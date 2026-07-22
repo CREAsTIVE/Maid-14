@@ -115,7 +115,7 @@
     MedicalPatchPrefilledDermaline: 3
     MedicalPatchBasic: 5 # so people don't rip clothes to get them shift start
     CigPackMedical: 2 # same as above
-    ParamedHypo: 2
+    # ParamedHypo: 2
     CartridgeSaline: 4
     CartridgeBicaridine: 4
     CartridgeDermaline: 4

@@ -867,7 +867,7 @@
     - EmptyMedkitsStatic
     - SurgeryStatic
     # Goobstation Packs
-    - ParamedHypoStatic
+#    - ParamedHypoStatic
     - MedicalPatchesStatic
     - SurgeryStaticGoob
     - MedicalVehiclesStatic
