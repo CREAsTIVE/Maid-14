@@ -447,7 +447,7 @@
     - SecurityAmmoStatic
     # Goobstation
     - SecurityWeaponsStaticGoob
-    - SecurityAmmoStaticGoob
+#    - SecurityAmmoStaticGoob #Maid
     - SyndicateAmmoLightStatic
     - ScienceExplosives
   - type: BlueprintReceiver
@@ -756,7 +756,7 @@
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
     # Goobstation
-    - SecurityAmmoStaticGoob
+#    - SecurityAmmoStaticGoob #Maid
     - SecurityEquipmentStaticGoob
     - SecurityHypoStatic
     - MechWeaponsSecurityStatic
@@ -824,7 +824,7 @@
       staticPacks:
       - SecurityAmmoStatic
       # Goobstation Packs
-      - SecurityAmmoStaticGoob
+#      - SecurityAmmoStaticGoob #Maid
     - type: EmagLatheRecipes # Goobstation Packs
       emagStaticPacks:
       - SyndicateAmmoLightStatic

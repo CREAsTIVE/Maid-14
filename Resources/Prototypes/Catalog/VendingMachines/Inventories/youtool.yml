@@ -35,11 +35,11 @@
   startingInventory:
     CableApcStack: 5
     Crowbar: 5
-    Welder: 4
-    Wirecutter: 4
-    Wrench: 4
-    Screwdriver: 4
-    trayScanner: 4
+    Welder: 2 #Maid
+    Wirecutter: 3 #Maid
+    Wrench: 3 #Maid
+    Screwdriver: 3 #Maid
+    trayScanner: 3 #Maid
     NetworkConfigurator: 3
     GasAnalyzer: 3
     FlashlightLantern: 5

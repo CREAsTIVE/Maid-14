@@ -12,12 +12,12 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ## Static
-- type: latheRecipePack
-  id: SecurityAmmoStaticGoob
-  recipes:
-  - MagazineBoxShotgunHighCaliber
-  - MagazineBoxShotgunSlugHighCaliber
-  - MagazineBoxShotgunPracticeHighCaliber
+#- type: latheRecipePack #Maid edit start
+#  id: SecurityAmmoStaticGoob
+#  recipes:
+#  - MagazineBoxShotgunHighCaliber
+#  - MagazineBoxShotgunSlugHighCaliber
+#  - MagazineBoxShotgunPracticeHighCaliber #Maid edit end
 
 - type: latheRecipePack
   id: SecurityEquipmentStaticGoob
@@ -55,7 +55,7 @@
   - MagazineLightRifle
   - MagazineMagnumEmpty
   - MagazineMagnum
-  - MagazineBoxShotgunHighCaliber
+#  - MagazineBoxShotgunHighCaliber #Maid
 
 ## Dynamic
 - type: latheRecipePack
@@ -78,9 +78,9 @@
   - EnergyMagRifleDisabler
   - EnergyMagRifleLethal
   - MagazineSmart
-  - MagazineBoxShotgunIncendiaryHighCaliber
-  - MagazineBoxShotgunBeanbagHighCaliber
-  - MagazineBoxShotgunUraniumHighCaliber
+#  - MagazineBoxShotgunIncendiaryHighCaliber #Maid edit start
+#  - MagazineBoxShotgunBeanbagHighCaliber
+#  - MagazineBoxShotgunUraniumHighCaliber #Maid edit end
   - PowerCellIRRevolver
   - PowerCellIonRevolver
   - PowerCellXrayRevolver

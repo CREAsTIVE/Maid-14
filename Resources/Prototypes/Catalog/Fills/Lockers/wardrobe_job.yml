@@ -24,20 +24,38 @@
   parent: WardrobePrison
   description: "Contains a selection of nice orange clothes for people enjoying their stay in the brig."
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillWardrobePrison
+  - type: StorageFill #Maid edit start
+    contents:
+      - id: ClothingUniformJumpsuitPrisoner
+        amount: 2
+      - id: ClothingUniformJumpskirtPrisoner
+        amount: 2
+      - id: ClothingShoesColorBlack
+        amount: 2
+      - id: ClothingMaskMuzzle
+#  - type: EntityTableContainerFill
+#    containers:
+#      entity_storage: !type:NestedSelector
+#        tableId: FillWardrobePrison #Maid edit end
 
 - type: entity
   id: ClosetWallWardrobePrisonFilled
   suffix: Filled
   parent: ClosetWallOrange
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillWardrobePrison
+  - type: StorageFill #Maid edit start
+    contents:
+      - id: ClothingUniformJumpsuitPrisoner
+        amount: 2
+      - id: ClothingUniformJumpskirtPrisoner
+        amount: 2
+      - id: ClothingShoesColorBlack
+        amount: 2
+      - id: ClothingMaskMuzzle
+#  - type: EntityTableContainerFill
+#    containers:
+#      entity_storage: !type:NestedSelector
+#        tableId: FillWardrobePrison #Maid edit end
 
 - type: entityTable
   id: FillWardrobePrison
@@ -307,7 +325,7 @@
     - id: ClothingBackpackSecurity
     - id: ClothingShoesBootsJack
     - id: ClothingEyesGlassesSunglasses
-    - id: ClothingHeadHelmetBasic
+    - id: ClothingHeadHelmetBasicAlt #Maid
     - id: ClothingOuterArmorBasic
     - id: ClothingUniformJumpskirtSec
 

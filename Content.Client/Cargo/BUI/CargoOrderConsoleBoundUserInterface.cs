@@ -147,7 +147,7 @@ namespace Content.Client.Cargo.BUI
             _menu.PopulateProducts();
             _menu.PopulateCategories();
             _menu.PopulateOrders(orders);
-            _menu.PopulateAccountActions();
+            // _menu.PopulateAccountActions(); // MAID old cargo ui
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)
@@ -201,17 +201,17 @@ namespace Content.Client.Cargo.BUI
             return true;
         }
 
-        private void RemoveOrder(ButtonEventArgs args)
+        private void RemoveOrder(CargoOrderRow row)
         {
-            if (args.Button.Parent?.Parent?.Parent is not CargoOrderRow row || row.Order == null) // Goobstation
+            if (row.Order == null) // Goobstation
                 return;
 
             SendMessage(new CargoConsoleRemoveOrderMessage(row.Order.OrderId));
         }
 
-        private void ApproveOrder(ButtonEventArgs args)
+        private void ApproveOrder(CargoOrderRow row)
         {
-            if (args.Button.Parent?.Parent?.Parent is not CargoOrderRow row || row.Order == null) // Goobstation
+            if (row.Order == null) // Goobstation
                 return;
 
             if (OrderCount >= OrderCapacity)

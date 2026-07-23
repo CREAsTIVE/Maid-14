@@ -61,9 +61,9 @@
     ClothingOuterWinterSec: 2
     ClothingOuterWinterSecArmored : 2 # Goobstation
     ClothingOuterArmorBasic: 2
-    ClothingOuterCoatAMG: 1 # Goobstation
+#    ClothingOuterCoatAMG: 1 # Goobstation #Maid
     ClothingNeckScarfStripedRed: 3
-    ClothingOuterArmorBasicSlim: 2
+#    ClothingOuterArmorBasicSlim: 2 #Maid
     ClothingEyesBlindfold: 1
     ClothingShoesBootsCombat: 1
     ClothingShoesBootsWinterSec: 2

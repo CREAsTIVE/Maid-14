@@ -111,7 +111,7 @@
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
   - MagazinePistolSubMachineGunIncendiary
-  - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
+#  - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation #Maid
   # - MagazineLightRifleIncendiary # Goobstation - remove light rifle
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
@@ -159,7 +159,7 @@
   - MagazineShotgunBeanbag
   - BoxShellTranquilizer
   - BoxBeanbag
-  - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
+#  - MagazineBoxShotgunBeanbagHighCaliber # Goobstation #Maid
   - WeaponDisabler
   - WeaponMechCombatDisabler # Goobstation
   # Goobstation R&D Console rework start
@@ -188,7 +188,7 @@
   # - MagazineBoxLightRifleUranium # Goobstation - remove light rifle
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
-  - MagazineBoxShotgunUraniumHighCaliber # Goobstation
+#  - MagazineBoxShotgunUraniumHighCaliber # Goobstation #Maid
   # Goobstation R&D Console rework start
   position: 3,2
   technologyPrerequisites:

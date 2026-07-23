@@ -102,14 +102,14 @@
     ClothingUniformJumpsuitHawaiRed: 2
     ClothingUniformJumpsuitHawaiYellow: 2
     ClothingUniformJumpsuitFlannel: 2
-    ClothingUniformJumpsuitCasualBlue: 2
-    ClothingUniformJumpskirtCasualBlue: 2
-    ClothingUniformJumpsuitCasualPurple: 2
-    ClothingUniformJumpskirtCasualPurple: 2
-    ClothingUniformJumpsuitCasualRed: 2
-    ClothingUniformJumpskirtCasualRed: 2
-    ClothingUniformJumpsuitCasualGreen: 2
-    ClothingUniformJumpskirtCasualGreen: 2
+#    ClothingUniformJumpsuitCasualBlue: 2 #Maid edit start
+#    ClothingUniformJumpskirtCasualBlue: 2
+#    ClothingUniformJumpsuitCasualPurple: 2
+#    ClothingUniformJumpskirtCasualPurple: 2
+#    ClothingUniformJumpsuitCasualRed: 2
+#    ClothingUniformJumpskirtCasualRed: 2
+#    ClothingUniformJumpsuitCasualGreen: 2
+#    ClothingUniformJumpskirtCasualGreen: 2 #Maid edit end
     # DO NOT ADD MORE, USE UNIFORM DYING
     ClothingShoesColorBlack: 8
     ClothingShoesColorBrown: 4
@@ -150,12 +150,12 @@
     ClothingUniformJumpskirtDressOpenShoulder: 1 # Goobstation
     ClothingShoesSandals: 1 # Goobstation
 #    ClothingOuterCoatBomberPunkRed: 3 # NF #Maid
-    ClothingOuterCoatJacketLeather: 3 # NF
-    ClothingOuterCoatJacketBiker: 3 # NF
+#    ClothingOuterCoatJacketLeather: 3 # NF #Maid
+#    ClothingOuterCoatJacketBiker: 3 # NF #Maid
 #    ClothingOuterCoatJacketJamrock: 3 # NF #Maid
 #    ClothingOuterCoatBomberAerostatic: 3 # NF #Maid
 #    ClothingOuterCoatJacketLettermanBlue: 3 # NF #Maid
-    ClothingOuterCoatJacketLettermanBrown: 3 # NF
+#    ClothingOuterCoatJacketLettermanBrown: 3 # NF #Maid
 #    ClothingOuterCoatJacketLettermanRed: 3 # NF #Maid
 #    ClothingOuterCoatJacketLettermanMagenta: 3 # NF #Maid
 #    ClothingOuterCoatBomberPinkSleeves: 3 # NF #Maid
