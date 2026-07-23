@@ -324,7 +324,7 @@
       runningState: icon
       staticPacks:
       - SecurityAmmoStatic
-      - SecurityAmmoStaticGoob
+#      - SecurityAmmoStaticGoob #Maid
       - ERTAmmoStaticGoob
       - SecurityHypoStatic
       - SecurityEquipmentStaticGoob

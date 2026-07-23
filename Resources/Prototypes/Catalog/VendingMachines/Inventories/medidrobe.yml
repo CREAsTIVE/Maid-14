@@ -26,6 +26,8 @@
 - type: vendingMachineInventory
   id: MediDrobeInventory
   startingInventory:
+    ClothingEyesHudMedical: 2 #Maid
+    ClothingEyesEyepatchHudMedical: 2 #Maid
     ClothingBackpackDuffelMedical: 4
     ClothingBackpackMedical: 4
     ClothingBackpackSatchelMedical: 4
@@ -49,6 +51,8 @@
     ClothingHeadHatSurgcapBlue: 4
     ClothingHeadHatSurgcapPurple: 4
     ClothingShoesBootsWinterMed: 2
+    NitrousOxideTankFilled: 2 #Maid
+    VehicleWheelchairFolded: 3 #Maid
   contrabandInventory:
     ClothingUniformJumpskirtOfLife: 1
     ToyFigurineMedicalDoctor: 1

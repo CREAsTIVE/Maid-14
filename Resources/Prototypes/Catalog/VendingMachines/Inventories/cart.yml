@@ -34,7 +34,7 @@
     RubberStampDenied: 1
     Paper: 10
     Envelope: 10
-    HandLabeler: 2
+#    HandLabeler: 2 #Maid
     EncryptionKeyCargo: 2
     EncryptionKeyEngineering: 2
     EncryptionKeyMedical: 2

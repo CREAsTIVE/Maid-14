@@ -27,12 +27,12 @@
   components:
   - type: StorageFill
     contents:
-      - id: DefibrillatorCompact
+#      - id: DefibrillatorCompact #Maid
       - id: EnergyScalpel
       - id: AdvancedRetractor
       - id: EnergyCautery
       - id: AdvancedBoneGel
-      - id: HandheldCrewMonitor
+#      - id: HandheldCrewMonitor #Maid
       - id: MedicatedSuture
       - id: RegenerativeMesh
       - id: Bloodpack

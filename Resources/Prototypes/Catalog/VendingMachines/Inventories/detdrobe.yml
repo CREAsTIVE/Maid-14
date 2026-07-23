@@ -59,7 +59,7 @@
     ClothingHandsGlovesColorBlack: 2
     ClothingHandsGlovesLatex: 2
     ClothingHeadsetAltSecurityRegular: 2 # Goobstation
-    ClothingHeadsetSecurity: 2
+#    ClothingHeadsetSecurity: 2 #Maid
   contrabandInventory:
     ToyFigurineDetective: 1
   emaggedInventory: # Goobstation
