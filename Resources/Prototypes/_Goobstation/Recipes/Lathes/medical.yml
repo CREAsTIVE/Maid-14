@@ -69,7 +69,7 @@
     Gold: 100
     Plasma: 100
 
-#- type: latheRecipe
+#- type: latheRecipe # Maid
 #  id: ParamedHypo
 #  result: ParamedHypo
 #  completetime: 3
