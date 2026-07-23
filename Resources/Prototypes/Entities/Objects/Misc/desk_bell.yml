@@ -26,7 +26,7 @@
       - Payload
   - type: InteractionPopup
     successChance: 1
-    interactSuccessString: DeskBell-RingText
+    interactSuccessString: DeskBell-RingText #Maid
     interactSuccessSound:
       collection: DeskBell
       params:

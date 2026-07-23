@@ -36,7 +36,7 @@
     cost: 100
   - id: CigarGold
     cost: 150
-#  - id: Soap
+#  - id: Soap # Maid
 #    cost: 200
   - id: SeismicCharge
     cost: 200
@@ -63,9 +63,9 @@
     cost: 550
   - id: MineralScanner
     cost: 550
-#  - id: MedkitBruteFilled
+#  - id: MedkitBruteFilled # Maid
 #    cost: 600
-#  - id: MedkitBurnFilled
+#  - id: MedkitBurnFilled # Maid
 #    cost: 600
   - id: DoubleEmergencyOxygenTankFilled
     cost: 650
@@ -74,7 +74,7 @@
   - id: ClothingMaskWeldingGas
     cost: 750
   - id: SpaceCash5000
-    cost: 2500
+    cost: 2500 # Maid
   - id: MiningDrill
     cost: 800
   - id: OreBagMagnetic
@@ -101,40 +101,40 @@
     cost: 1200
   - id: ClothingBackpackDuffelSalvageConscription
     cost: 1250
-#  - id: LuxuryMedipen
+#  - id: LuxuryMedipen # Maid
 #    cost: 1500
   - id: WeaponPlasmaCutter
     cost: 1500
   - id: BorgModuleAdvancedMining
     cost: 2000
-#  - id: ClothingHandsGlovesCombat
+#  - id: ClothingHandsGlovesCombat # Maid
 #    cost: 2000
   - id: OreBagOfHolding
     cost: 2000
-#  - id: ClothingNeckCloakHelldiver
+#  - id: ClothingNeckCloakHelldiver # Maid
 #    cost: 2000
-#  - id: ClothingShoesBootsMoon
+#  - id: ClothingShoesBootsMoon # Maid
 #    cost: 2000
-#  - id: ClothingShoesBootsJump
+#  - id: ClothingShoesBootsJump # Maid
 #    cost: 2000
   - id: ClothingOuterHardsuitSalvage
     cost: 2000
     #TODO: super resonator for 2500
   - id: ClothingOuterHardsuitLuxury
     cost: 3000 #still costs more than just buying it with spesos you got from vendor but whatever
-#  - id: MedkitCombatFilled
+#  - id: MedkitCombatFilled # Maid
 #    cost: 3000
-#  - id: ShelterCapsuleLuxury
+#  - id: ShelterCapsuleLuxury # Maid
 #    cost: 3000
   - id: ClothingEyesNightVisionGoggles
     cost: 3500
   - id: MiningDrillDiamond
     cost: 4000 #Mostly for flexing
-  - id: WeaponLaserGun
+  - id: WeaponLaserGun # Maid
     cost: 4500
 #  - id: ClothingNeckEnsembleSalvager #Earn. It.
 #    cost: 10000
-#  - id: CrateCargoClarkeAssembly
+#  - id: CrateCargoClarkeAssembly  # Maid
 #    cost: 12500 #TODO: Make modules real
   # TODO: luxury elite bar capsule for 10k
   # TODO: mining drone stuff

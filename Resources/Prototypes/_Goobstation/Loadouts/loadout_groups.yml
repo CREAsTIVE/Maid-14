@@ -914,7 +914,7 @@
   - NanotrasenRepresentativeBackpack
   - NanotrasenRepresentativeSatchel
   - NanotrasenRepresentativeDuffel
-#  - NanotrasenRepresentativeMessenger
+#  - NanotrasenRepresentativeMessenger  # Maid
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeJumpsuit
@@ -988,7 +988,7 @@
   - BlueshieldOfficerBackpack
   - BlueshieldOfficerSatchel
   - BlueshieldOfficerDuffel
-#  - BlueshieldOfficerMessenger
+#  - BlueshieldOfficerMessenger  # Maid
 
 - type: loadoutGroup
   id: BlueshieldOfficerJumpsuit
@@ -1411,7 +1411,7 @@
   - BrigmedicBackpack
   - BrigmedicSatchel
   - BrigmedicDuffel
-#  - BrigmedicMessenger
+#  - BrigmedicMessenger  # Maid
 
 - type: loadoutGroup
   id: BrigmedicEnvirohelm

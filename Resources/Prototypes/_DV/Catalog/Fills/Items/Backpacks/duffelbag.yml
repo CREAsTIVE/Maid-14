@@ -34,5 +34,6 @@
     - id: ClothingMaskGasExplorer
     - id: WeaponProtoKineticAccelerator
     - id: SurvivalKnife
-    - id: FlashlightLantern
+#   - id: FlashlightSeclite # Maid
+    - id: FlashlightLantern # Maid
     - id: LavalandJaunter
