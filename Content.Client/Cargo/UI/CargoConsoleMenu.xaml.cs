@@ -56,8 +56,8 @@ namespace Content.Client.Cargo.UI
         private readonly EntityQuery<StationBankAccountComponent> _bankQuery;
 
         public event Action<ButtonEventArgs>? OnItemSelected;
-        public event Action<ButtonEventArgs>? OnOrderApproved;
-        public event Action<ButtonEventArgs>? OnOrderCanceled;
+        public event Action<CargoOrderRow>? OnOrderApproved; // MAID old cargo ui
+        public event Action<CargoOrderRow>? OnOrderCanceled; // MAID old cargo ui
 
         public event Action<ProtoId<CargoAccountPrototype>?, int>? OnAccountAction;
 
@@ -89,29 +89,35 @@ namespace Content.Client.Cargo.UI
             if (entMan.TryGetComponent<CargoOrderConsoleComponent>(owner, out var orderConsole))
             {
                 var accountProto = _protoManager.Index(orderConsole.Account);
-                // MAID BEGIN old funds 
-                /*AccountNameLabel.Text = Loc.GetString("cargo-console-menu-account-name-format",
+                // MAID BEGIN old funds
+                /*
+                AccountNameLabel.Text = Loc.GetString("cargo-console-menu-account-name-format",
                     ("color", accountProto.Color),
                     ("name", Loc.GetString(accountProto.Name)),
-                    ("code", Loc.GetString(accountProto.Code)));*/
-                // MAID END
+                    ("code", Loc.GetString(accountProto.Code)));
+
                 // Goobstation start - Cargo UI
                 AccountNameLabelFundsTransfer.Text = Loc.GetString("cargo-console-menu-account-name-format",
                     ("color", accountProto.Color),
                     ("name", Loc.GetString(accountProto.Name)),
                     ("code", Loc.GetString(accountProto.Code)));
-                // END
+                */
+                // MAID END
             }
 
-            // MAID BEGIN old funds 
+            // MAID BEGIN old funds
             // TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-orders"));
             // TabContainer.SetTabTitle(1, Loc.GetString("cargo-console-menu-tab-title-funds"));
             // MAID END
-            
+
+            // MAID BEGIN old cargo ui
+            /*
             ActionOptions.OnItemSelected += idx =>
             {
                 ActionOptions.SelectId(idx.Id);
             };
+            */
+            // MAID END
 
             TransferSpinBox.IsValid = val =>
             {
@@ -124,14 +130,18 @@ namespace Content.Client.Cargo.UI
 
             AccountActionButton.OnPressed += _ =>
             {
-                var account = (ProtoId<CargoAccountPrototype>?) ActionOptions.SelectedMetadata;
+                var account = (ProtoId<CargoAccountPrototype>?) null; // ActionOptions.SelectedMetadata; // MAID old cargo ui
                 OnAccountAction?.Invoke(account, TransferSpinBox.Value);
             };
 
+            // MAID BEGIN old cargo ui
+            /*
             AccountLimitToggleButton.OnPressed += a =>
             {
                 OnToggleUnboundedLimit?.Invoke(a);
             };
+            */
+            // MAID END
         }
 
         private void OnCategoryItemSelected(OptionButton.ItemSelectedEventArgs args)
@@ -261,6 +271,8 @@ namespace Content.Client.Cargo.UI
 
                     // Goobstation start - Cargo UI
 
+                    // MAID BEGIN cargo old ui
+                    /*
                     Title =
                     {
                         Text = Loc.GetString(
@@ -278,6 +290,8 @@ namespace Content.Client.Cargo.UI
                             ContentMarginBottomOverride = 2,
                         },
                     },
+                    */
+                    // MAID END cargo old ui
 
                     // END
 
@@ -287,6 +301,9 @@ namespace Content.Client.Cargo.UI
                     {
                         Text = Loc.GetString(
                             "cargo-console-menu-populate-orders-cargo-order-row-product-name-text",
+                            ("productName", productName), // MAID cargo old ui
+                            ("orderAmount", order.OrderQuantity), // MAID cargo old ui
+                            ("orderPrice", order.Price * order.OrderQuantity), // MAID cargo old ui
                             ("orderRequester", requester), // Goobstation
                             ("accountColor", account.Color),
                             ("account", Loc.GetString(account.Code)))
@@ -311,15 +328,17 @@ namespace Content.Client.Cargo.UI
                     }
                 };
 
-                row.Cancel.OnPressed += (args) => { OnOrderCanceled?.Invoke(args); };
+                row.Cancel.OnPressed += (args) => OnOrderCanceled?.Invoke(row); // { OnOrderCanceled?.Invoke(args); }; // MAID old cargo UI
 
                 // TODO: Disable based on access.
                 row.SetApproveVisible(orderConsole.Mode != CargoOrderConsoleMode.SendToPrimary);
-                row.Approve.OnPressed += (args) => { OnOrderApproved?.Invoke(args); };
+                row.Approve.OnPressed += (args) => OnOrderApproved?.Invoke(row); // { OnOrderApproved?.Invoke(args); }; // MAID old cargo UI
                 Requests.AddChild(row);
             }
         }
 
+        // MAID BEGIN old cargo ui
+        /*
         public void PopulateAccountActions()
         {
             if (!_entityManager.TryGetComponent<StationBankAccountComponent>(_station, out var bank) ||
@@ -342,6 +361,8 @@ namespace Content.Client.Cargo.UI
                 i++;
             }
         }
+        */
+        // MAID END
 
         public void UpdateStation(EntityUid station)
         {
@@ -360,15 +381,15 @@ namespace Content.Client.Cargo.UI
 
             var balance = _cargoSystem.GetBalanceFromAccount((_station.Value, bankAccount), orderConsole.Account);
             PointsLabel.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balance));
-            PointsLabelFundsTransfer.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balance)); // Goobstation
-            TransferLimitLabel.Text = Loc.GetString("cargo-console-menu-account-action-transfer-limit-amount", ("amount", Math.Floor(balance * orderConsole.TransferLimit))); // Goobstation
+            // PointsLabelFundsTransfer.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balance)); // Goobstation // MAID old cargo ui
+            // TransferLimitLabel.Text = Loc.GetString("cargo-console-menu-account-action-transfer-limit-amount", ("amount", Math.Floor(balance * orderConsole.TransferLimit))); // Goobstation // // MAID old cargo ui
 
-            UnlimitedNotifier.Visible = orderConsole.TransferUnbounded;
+            // UnlimitedNotifier.Visible = orderConsole.TransferUnbounded; // MAID old cargo ui
             AccountActionButton.Disabled = TransferSpinBox.Value <= 0 ||
                                            TransferSpinBox.Value > bankAccount.Accounts[orderConsole.Account] * orderConsole.TransferLimit ||
                                            _timing.CurTime < orderConsole.NextAccountActionTime;
 
-            RightPart.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip; // Goobstation
+            // RightPart.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip; // Goobstation // MAID old cargo ui
         }
     }
 }
