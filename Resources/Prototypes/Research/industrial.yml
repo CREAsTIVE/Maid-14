@@ -338,7 +338,7 @@
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
-  - ClothingBackpackMessengerHolding # Frontier
+  #- ClothingBackpackMessengerHolding # Frontier # Maid
   # Goobstation R&D Console rework start
   position: 2,-7
   technologyPrerequisites:

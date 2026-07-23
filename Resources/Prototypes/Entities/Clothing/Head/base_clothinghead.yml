@@ -315,6 +315,11 @@
     - HeadTop
     - HeadSide
   - type: FaceHuggerBlocker # Goobstation
+  - type: HideClothingLayerClothing # Maid
+    hiddenSlots:
+    - mask
+    - ears
+    - eyes
 
 - type: entity
   abstract: true

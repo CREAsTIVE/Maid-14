@@ -212,9 +212,9 @@
   name: winter boots
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterboots.rsi
+    sprite: _Maid/Clothing/Shoes/Boots/winterboots.rsi # Maid
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterboots.rsi
+    sprite: _Maid/Clothing/Shoes/Boots/winterboots.rsi # Maid
 
 - type: entity
   parent: ClothingShoesBaseWinterBoots
@@ -222,9 +222,9 @@
   name: cargo winter boots
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootscargo.rsi
+    sprite: _Maid/Clothing/Shoes/Boots/winterbootscargo.rsi # Maid
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootscargo.rsi
+    sprite: _Maid/Clothing/Shoes/Boots/winterbootscargo.rsi # Maid
 
 - type: entity
   parent: ClothingShoesBaseWinterBoots
@@ -232,9 +232,9 @@
   name: engineering winter boots
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootsengi.rsi
+    sprite: _Maid/Clothing/Shoes/Boots/winterbootsengi.rsi # Maid
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootsengi.rsi
+    sprite: _Maid/Clothing/Shoes/Boots/winterbootsengi.rsi # Maid
 
 - type: entity
   parent: ClothingShoesBaseWinterBoots
@@ -242,9 +242,9 @@
   name: medical winter boots
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootsmed.rsi
+    sprite: _Maid/Clothing/Shoes/Boots/winterbootsmed.rsi # Maid
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootsmed.rsi
+    sprite: _Maid/Clothing/Shoes/Boots/winterbootsmed.rsi # Maid
 
 - type: entity
   parent: ClothingShoesBaseWinterBoots
@@ -252,9 +252,9 @@
   name: science winter boots
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootssci.rsi
+    sprite: _Maid/Clothing/Shoes/Boots/winterbootssci.rsi # Maid
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootssci.rsi
+    sprite: _Maid/Clothing/Shoes/Boots/winterbootssci.rsi # Maid
 
 - type: entity
   parent: [ClothingShoesBaseWinterBoots, ClothingSlotBase, BaseSecurityContraband] # Goob edit
@@ -262,9 +262,9 @@
   name: security winter boots
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootssec.rsi
+    sprite: _Maid/Clothing/Shoes/Boots/winterbootssec.rsi # Maid
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootssec.rsi
+    sprite: _Maid/Clothing/Shoes/Boots/winterbootssec.rsi # Maid
   - type: ItemSlots # Goobstation
     slots:
       item:
@@ -281,9 +281,9 @@
   description: Durable heavy boots, looks like merch from "Syndieland".
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootssyndicate.rsi
+    sprite: _Maid/Clothing/Shoes/Boots/winterbootssyndicate.rsi # Maid
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootssyndicate.rsi
+    sprite: _Maid/Clothing/Shoes/Boots/winterbootssyndicate.rsi # Maid
 
 - type: entity
   parent: ClothingShoesBaseWinterBoots
@@ -292,9 +292,9 @@
   description: Boots made out of dense webbing to help survive even the coldest of winters.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootsweb.rsi
+    sprite: _Maid/Clothing/Shoes/Boots/winterbootsweb.rsi # Maid
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootsweb.rsi
+    sprite: _Maid/Clothing/Shoes/Boots/winterbootsweb.rsi # Maid
   - type: FlavorProfile
     flavors:
       - cobwebs

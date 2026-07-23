@@ -8,7 +8,7 @@
 - type: vendingMachineInventory
   id: MailDrobeInventory
   startingInventory:
-    ClothingBackpackMessengerMailman: 2
+    #ClothingBackpackMessengerMailman: 2 # Maid
     ClothingUniformMailCarrier: 2
     ClothingUniformSkirtMailCarrier: 2
     ClothingHeadMailCarrier: 2

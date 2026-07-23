@@ -50,7 +50,7 @@
   table: !type:AllSelector
     children:
     - id: DefibrillatorCompact
-    - id: ParamedHypo
+    #- id: ParamedHypo # Maid
     - id: MedkitBSOFilled
     - id: MedkitBSOIPCFilled
     - id: FlippoLighterBlueshield

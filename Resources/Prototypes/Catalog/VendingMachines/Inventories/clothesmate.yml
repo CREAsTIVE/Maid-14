@@ -56,7 +56,7 @@
     ClothingBackpackDuffel: 5
     ClothingBackpackSatchel: 3
     ClothingBackpackSatchelLeather: 2
-    ClothingBackpackMessenger: 5 # Frontier
+    #ClothingBackpackMessenger: 5 # Frontier # Maid
     ClothingRandomSpawner: 8
 #    ClothingUniformRandomShorts: 4 #Maid
     ClothingHeadHatBeret: 4
@@ -95,6 +95,8 @@
     ClothingUniformJumpskirtColorDarkGreen: 2
     ClothingUniformJumpsuitColorTeal: 2
     ClothingUniformJumpskirtColorTeal: 2
+    ClothingUniformMNKOfficeSkirt: 2 # Maid
+    ClothingUniformMNKBlackOveralls: 2 #Maid
     ClothingUniformJumpsuitHawaiBlack: 2
     ClothingUniformJumpsuitHawaiBlue: 2
     ClothingUniformJumpsuitHawaiRed: 2

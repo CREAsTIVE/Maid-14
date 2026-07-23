@@ -68,7 +68,7 @@
     ClothingBackpackSalvage: 2
     ClothingBackpackSatchelSalvage: 2
     ClothingBackpackDuffelSalvage: 2
-    ClothingBackpackMessengerSalvage: 2
+    #ClothingBackpackMessengerSalvage: 2 # Maid
     ClothingHeadsetMining: 4
     ClothingOuterWinterMiner: 2
   emaggedInventory:

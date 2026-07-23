@@ -1,4 +1,4 @@
-ent-ClothingUniformMNKOfficeSkirt = МНК офисная юбка
+ent-ClothingUniformMNKOfficeSkirt = офисная юбка-комбинезон
     .desc = Образ от MNK, соответствующий офисному дресс-коду.
 ent-ClothingUniformMNKUnderGarment = МНК нижнее белье
     .desc = МНК уже обеспечила комфорт для важных деталей.
@@ -6,7 +6,7 @@ ent-ClothingUniformMNKGymBra = МНК cпортивный бюстгальтер
     .desc = Максимальная производительность с помощью блокаторов пота от МНК.
 ent-ClothingUniformMNKDressBlack = МНК чёрное платье
     .desc = Элегантное черное платье с вырезом от МНК.
-ent-ClothingUniformMNKBlackOveralls = МНК чёрный комбинезон
+ent-ClothingUniformMNKBlackOveralls = офисный комбинезон
     .desc = Удобная майка и плотный черный комбинезон от МНК.
 ent-ClothingUniformMNKBlackShoulder = МНК открытые плечи
     .desc = Костюм МНК с открытыми плечами.
