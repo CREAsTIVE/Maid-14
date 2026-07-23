@@ -43,6 +43,9 @@ public interface IStaticReflectionType
         if (type == typeof(EntityUid))
             return new StaticReflectionEntity(ctx);
 
+        if (typeof(IComponent).IsAssignableFrom(type))
+            return new StaticReflectionComponent(type, ctx);
+
         return new StaticReflectionAny(type, ctx);
     }
 
@@ -111,6 +114,77 @@ public sealed class StaticReflectionEntity(StaticReflectionTypeContext ctx) : St
     {
         return ctx.ComponentFactory.AllRegisteredTypes
             .Select(comp => new ComponentMember(comp, ctx));
+    }
+}
+
+public sealed class StaticReflectionComponent(Type type, StaticReflectionTypeContext ctx) : StaticReflectionType<IComponent>
+{
+    public override Type ObjectType { get; } = type;
+
+    private static object? GetValueFromMember(MemberInfo any, object parent)
+    {
+        return any switch
+        {
+            PropertyInfo property => property.GetValue(parent),
+            FieldInfo field => field.GetValue(parent),
+            _ => null,
+        };
+    }
+
+    private static Type GetMemberType(MemberInfo any)
+    {
+        return any switch
+        {
+            PropertyInfo property => property.PropertyType,
+            FieldInfo field => field.FieldType,
+            _ => typeof(object),
+        };
+    }
+
+    private void SetValueForMember(MemberInfo any, object parent, object? value)
+    {
+        if (!ViewVariablesUtility.TryGetViewVariablesAccess(any, out var access) || access < VVAccess.ReadWrite)
+        {
+            // No access
+            return;
+        }
+
+        if (any is PropertyInfo { CanWrite: true } property)
+        {
+            property.SetValue(parent, value);
+        }
+        else if (any is FieldInfo field)
+        {
+            field.SetValue(parent, value);
+        }
+        else { return; }
+
+        if (parent is IComponent comp && type.HasCustomAttribute<Robust.Shared.GameStates.NetworkedComponentAttribute>())
+        {
+            ctx.EntityManager.Dirty(comp.Owner, comp);
+        }
+    }
+
+    private sealed class ComponentMember(MemberInfo member, StaticReflectionComponent parentComponent, StaticReflectionTypeContext ctx) : Member
+    {
+        public override IStaticReflectionType ValueType { get; } = IStaticReflectionType.From(GetMemberType(member), ctx);
+        public override string Name { get; } = member.Name;
+        public override object? GetValue(IComponent obj)
+        {
+            return GetValueFromMember(member, obj);
+        }
+
+        public override void SetValue(IComponent obj, object? value)
+        {
+            parentComponent.SetValueForMember(member, obj, value);
+        }
+    }
+
+    public override IEnumerable<IStaticReflectionType.IMember> GetMembers()
+    {
+        return ObjectType.GetMembers()
+            .Where(member => ViewVariablesUtility.TryGetViewVariablesAccess(member, out var access) && access >= VVAccess.ReadOnly)
+            .Select(member => new ComponentMember(member, this, ctx));
     }
 }
 
