@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseItem
+  id: JudgeHammer
+  name: Judge’s hammer.
+  description: Order, order! No bombs in my courthouse.
+  components:
+  - type: Sprite
+    sprite: _Maid/Objects/Misc/gavel_hammer.rsi
+    state: icon
+  - type: Item
+    sprite: _Maid/Objects/Misc/gavel_hammer.rsi
+    size: Small
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Maid/Items/JudgeHammer/gavel.ogg
+  - type: UseDelay
+    delay: 2
+  - type: MeleeWeapon
+    animationRotation: 225
+    wideAnimationRotation: 135
+    canBeBlocked: false
+    soundHit:
+      path: /Audio/_Maid/Items/JudgeHammer/gavel.ogg
+    damage:
+      types:
+        Blunt: 0
