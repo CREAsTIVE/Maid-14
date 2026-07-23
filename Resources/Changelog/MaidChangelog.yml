@@ -727,3 +727,9 @@ Entries:
       message: ЛГБТ удалён
   id: 65
   time: '2026-07-18T07:33:42.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Tweak
+      message: Старый UI консоли карго
+  id: 66
+  time: '2026-07-23T08:07:07.0000000+00:00'
