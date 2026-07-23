@@ -165,14 +165,14 @@ public sealed class ReflComponentFieldPathTypeParser : TypeParser<RlComponentFie
     }
 }
 
-[ToolshedCommand(Name = "refl"), AdminCommand(AdminFlags.VarEdit)]
+[ToolshedCommand(Name = "srefl"), AdminCommand(AdminFlags.VarEdit)]
 public sealed class ReflectionCommands : ToolshedCommand
 {
     [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IViewVariablesManager _vv = default!;
 
-    private static readonly Type[] Parsers = [typeof(RlOutputParser)];
+    private static readonly Type[] Parsers = [typeof(SimpleReflectionCommandOutputParser)];
     public override Type[] TypeParameterParsers => Parsers;
 
     [CommandImplementation("rcf")]
@@ -321,7 +321,7 @@ public sealed class ReflectionCommands : ToolshedCommand
     {
         if (!TrySplitComponentFieldPath(fullPath, out var componentName, out var fieldName))
         {
-            ctx.ReportError(new InvalidRlComponentError(fullPath));
+            ctx.ReportError(new InvalidReflectionComponentError(fullPath));
             return null;
         }
 
@@ -332,13 +332,13 @@ public sealed class ReflectionCommands : ToolshedCommand
     {
         if (!_factory.AllRegisteredTypes.TryFirstOrDefault(comp => _factory.GetComponentName(comp) == componentName, out var componentType))
         {
-            ctx.ReportError(new InvalidRlComponentError(componentName));
+            ctx.ReportError(new InvalidReflectionComponentError(componentName));
             return null;
         }
 
         if (!_entityManager.TryGetComponent(entity, componentType, out var component))
         {
-            ctx.ReportError(new InvalidRlComponentError(componentName));
+            ctx.ReportError(new InvalidReflectionComponentError(componentName));
             return null;
         }
 
@@ -355,7 +355,7 @@ public sealed class ReflectionCommands : ToolshedCommand
 
         if (!members.TryFirstOrDefault(m => m.Name == fieldName, out var member))
         {
-            ctx.ReportError(new InvalidRlFieldError(fieldName));
+            ctx.ReportError(new InvalidReflectionFieldError(fieldName));
             return null;
         }
 
@@ -397,7 +397,7 @@ public sealed class ReflectionCommands : ToolshedCommand
                 throw new ArgumentOutOfRangeException(nameof(member));
         }
     }
-    public sealed class RlOutputParser : CustomTypeParser<Type>
+    public sealed class SimpleReflectionCommandOutputParser : CustomTypeParser<Type>
     {
         [Dependency] private readonly IComponentFactory _factory = default!;
 
@@ -504,7 +504,7 @@ public sealed class ReflectionCommands : ToolshedCommand
     }
 }
 
-public record struct InvalidRlComponentError(string Name) : IConError
+public record struct InvalidReflectionComponentError(string Name) : IConError
 {
     public FormattedMessage DescribeInner()
     {
@@ -516,7 +516,7 @@ public record struct InvalidRlComponentError(string Name) : IConError
     public StackTrace? Trace { get; set; }
 }
 
-public record struct InvalidRlFieldError(string Name) : IConError
+public record struct InvalidReflectionFieldError(string Name) : IConError
 {
     public FormattedMessage DescribeInner()
     {
