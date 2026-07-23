@@ -80,7 +80,7 @@
   recipes:
   - SyringeGun
   - HandheldCrewMonitor
-  - DefibrillatorCompact
+#  - DefibrillatorCompact #Maid
   - ClothingHandsGlovesSurgical
 
 - type: latheRecipePack

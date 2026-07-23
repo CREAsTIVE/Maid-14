@@ -5,6 +5,7 @@ SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 SPDX-License-Identifier: MIT
 -->
 <!-- basically all of this has been changed by goobstation to a new UI, See PR #4780-->
+<!-- basically all of this has been changed AGAIN by maid to an old UI -->
 <PanelContainer
     xmlns="https://spacestation14.io"
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
@@ -12,89 +13,34 @@ SPDX-License-Identifier: MIT
     Margin="0 1"
     StyleClasses="AngleRect">
 
-    <!-- Main Container -->
-    <!-- MAID cargo ui fix -->
     <BoxContainer Orientation="Horizontal"
-                  HorizontalExpand="True"
-                  SeparationOverride="6"
-                  Margin="-4">
-
-        <!-- MAID cargo ui fix
-        <Control Margin="-6"> 
-            <PanelContainer StyleClasses="WindowHeadingBackground" />
-
-            <BoxContainer Margin="6 2">
-                <Label Name="Title"
-                       Access="Public"
-                       MaxHeight="28"
-                       StyleClasses="LabelKeyText"/>
-            </BoxContainer>
-        </Control>
-        -->
-
-        <!-- MAID cargo ui fix -->
-        <PanelContainer Name="Stride"
-                        Access="Public"
-                        StyleClasses="LowDivider"
-                        Margin="-3 0" /> 
-
-        <!-- Info -->
-        <!-- MAID cargo ui fix -->
-        <BoxContainer HorizontalExpand="True"> 
-            <TextureRect Name="Icon"
-                         Access="Public"
-                         MinSize="32 32"
-                         Margin="4"
-                         Stretch="KeepAspectCentered"
-                         RectClipContent="True"
-                         VerticalAlignment="Center"/>
-
-            <PanelContainer StyleClasses="LowDivider" Margin="4 0"/>
-
-            <BoxContainer Orientation="Vertical"
-                          HorizontalExpand="True"
-                          VerticalExpand="True">
-
-                <!-- MAID cargo ui fix -->
-                <Label Name="Title"
-                       Access="Public"
-                       MaxHeight="28"
-                       StyleClasses="LabelKeyText"/>
-                
-                <RichTextLabel Name="ProductName"
-                       Access="Public"
-                       HorizontalExpand="True"
-                       VerticalExpand="True"
-                       StyleClasses="LabelSubText" />
-
-                <Label Name="Description"
-                       Access="Public"
-                       HorizontalExpand="True"
-                       VerticalExpand="True"
-                       StyleClasses="LabelSubText"
-                       ClipText="True" />
-            </BoxContainer>
+                  HorizontalExpand="True">
+        <TextureRect Name="Icon"
+                     Access="Public"
+                     MinSize="32 32"
+                     Margin="0 0 10 0"
+                     RectClipContent="True" />
+        <BoxContainer Orientation="Vertical"
+                      HorizontalExpand="True"
+                      VerticalExpand="True">
+            <Label Name="ProductName"
+                   Access="Public"
+                   HorizontalExpand="True"
+                   StyleClasses="LabelSubText"
+                   ClipText="True" />
+            <Label Name="Description"
+                   Access="Public"
+                   HorizontalExpand="True"
+                   StyleClasses="LabelSubText"
+                   ClipText="True" />
         </BoxContainer>
-
-        <!-- MAID cargo ui fix
-        <PanelContainer StyleClasses="LowDivider" Margin="-6 0"/>
-        -->
-
-        <!-- Buttons -->
-        <!-- Btn's position hardcoded (args.Button.Parent?.Parent?.Parent type) in CargoConsoleBUI 158 & 166 line -->
-        <!-- MAID cargo ui fix -->
-        <BoxContainer Orientation="Vertical">
-            <Button Name="Approve"
-                    Access="Public"
-                    Text="{Loc 'cargo-console-menu-order-row-button-approve'}"
-                    StyleClasses="OpenRight"
-                    HorizontalExpand="True"/>
-
-            <Button Name="Cancel"
-                    Access="Public"
-                    Text="{Loc 'cargo-console-menu-order-row-button-cancel'}"
-                    StyleClasses="OpenLeft"
-                    HorizontalExpand="True" />
-        </BoxContainer>
+        <Button Name="Approve"
+                Access="Public"
+                Text="{Loc 'cargo-console-menu-order-row-button-approve'}"
+                StyleClasses="LabelSubText" />
+        <Button Name="Cancel"
+                Access="Public"
+                Text="{Loc 'cargo-console-menu-order-row-button-cancel'}"
+                StyleClasses="LabelSubText" />
     </BoxContainer>
 </PanelContainer>

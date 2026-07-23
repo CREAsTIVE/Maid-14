@@ -28,7 +28,7 @@ public sealed partial class CargoSystem
     {
         // MAID old funds
         args.Account = null; // Always withdraw
-        
+
         if (_station.GetOwningStation(ent) is not { } station ||
             !TryComp<StationBankAccountComponent>(station, out var bank))
             return;
@@ -41,7 +41,7 @@ public sealed partial class CargoSystem
         if (Timing.CurTime < ent.Comp.NextAccountActionTime)
             return;
 
-        if (!_accessReaderSystem.IsAllowed(args.Actor, ent))
+        if (!_accessReaderSystem.FindAccessTags(args.Actor).Intersect(ent.Comp.RemoveLimitAccess).Any()) //if (!_accessReaderSystem.IsAllowed(args.Actor, ent)) // MAID cargo old ui
         {
             ConsolePopup(args.Actor, Loc.GetString("cargo-console-order-not-allowed"));
             PlayDenySound(ent, ent.Comp);

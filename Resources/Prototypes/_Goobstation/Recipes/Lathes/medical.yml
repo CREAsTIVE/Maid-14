@@ -89,13 +89,13 @@
     Plastic: 200
     Gold: 100
 
-- type: latheRecipe
-  id: DefibrillatorCompact
-  result: DefibrillatorCompactEmpty
-  completetime: 5
-  materials:
-    Steel: 250
-    Silver: 50
+#- type: latheRecipe #Maid edit start
+#  id: DefibrillatorCompact
+#  result: DefibrillatorCompactEmpty
+#  completetime: 5
+#  materials:
+#    Steel: 250
+#    Silver: 50 #Maid edit end
 
 - type: latheRecipe
   id: VialBluespace

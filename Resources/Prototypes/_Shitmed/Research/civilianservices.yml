@@ -32,7 +32,7 @@
   tier: 2
   cost: 10000
   recipeUnlocks:
-  - DefibrillatorCompact # Goob
+#  - DefibrillatorCompact # Goob #Maid
   - OmnimedTool # Shitmed
   - EnergyScalpel # Shitmed
   - AdvancedRetractor # Shitmed

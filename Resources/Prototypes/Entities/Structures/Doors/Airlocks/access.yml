@@ -1188,11 +1188,13 @@
 - type: entity
   parent: AirlockGlassShuttle
   id: AirlockExternalGlassShuttleLocked
-  suffix: External, Glass, Docking, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsExternal ]
+  suffix: External, Glass, Docking, Public # Locked # MAID public shuttle airlocks
+# MAID BEGIN public shuttle airlocks
+#  components:
+#  - type: ContainerFill
+#    containers:
+#      board: [ DoorElectronicsExternal ]
+# MAID END public shuttle airlocks
 
 - type: entity
   parent: AirlockGlassShuttleSyndicate
