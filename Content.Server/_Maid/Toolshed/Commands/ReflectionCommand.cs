@@ -178,7 +178,7 @@ public sealed class StaticReflectionAny(Type type, StaticReflectionTypeContext c
 
     public override IEnumerable<IStaticReflectionType.IMember> GetMembers()
     {
-        return ObjectType.GetMembers()
+        return ObjectType.GetMembers(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
             .Where(member => ViewVariablesUtility.TryGetViewVariablesAccess(member, out var access) && access >= VVAccess.ReadOnly)
             .Select(member => new AnyMember(member, ctx));
     }
