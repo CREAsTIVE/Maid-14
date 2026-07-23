@@ -24,7 +24,7 @@
   - CartridgeBicaridine
   - CartridgeDermaline
   - CartridgeSaline
-  - ParamedHypo
+#  - ParamedHypo # Maid
 
 - type: latheRecipePack
   id: MedicalPatchesStatic

@@ -69,15 +69,15 @@
     Gold: 100
     Plasma: 100
 
-#- type: latheRecipe # Maid
-#  id: ParamedHypo
-#  result: ParamedHypo
-#  completetime: 3
-#  materials:
-#    Steel: 500
-#    Plastic: 500
-#    Glass: 500
-#    Gold: 300
+- type: latheRecipe
+  id: ParamedHypo
+  result: ParamedHypo
+  completetime: 3
+  materials:
+    Steel: 500
+    Plastic: 500
+    Glass: 500
+    Gold: 300
 
 - type: latheRecipe
   id: HandheldCrewMonitor
