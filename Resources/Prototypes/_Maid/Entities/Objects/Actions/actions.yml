@@ -1,0 +1,12 @@
+- type: entity
+  id: ToggleBodyCamera
+  name: Toggle body camera.
+  description: Toggles body camera.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: _Maid/Objects/Specific/Security/body-camera.rsi
+      state: unpowered
