@@ -1,5 +1,6 @@
 - type: entity
   id: ToggleBodyCamera
+  parent: BaseToggleAction
   name: Toggle body camera.
   description: Toggles body camera.
   noSpawn: true
