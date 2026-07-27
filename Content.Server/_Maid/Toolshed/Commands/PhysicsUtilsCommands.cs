@@ -38,8 +38,8 @@ public sealed class PhysicsUtilsCommands : ToolshedCommand
         return [];
     }
 
-    [CommandImplementation("parentwhile")]
-    public EntityUid ParentWhile(
+    [CommandImplementation("parentuntil")]
+    public EntityUid ParentUntil(
         IInvocationContext ctx,
         [PipedArgument] EntityUid input,
         Block<EntityUid, bool> predicate
@@ -61,8 +61,8 @@ public sealed class PhysicsUtilsCommands : ToolshedCommand
         return EntityUid.Invalid;
     }
 
-    [CommandImplementation("parentwhile")]
-    public IEnumerable<EntityUid> ParentWhile(
+    [CommandImplementation("parentuntil")]
+    public IEnumerable<EntityUid> ParentUntil(
         IInvocationContext ctx,
         [PipedArgument] IEnumerable<EntityUid> input,
         Block<EntityUid, bool> predicate
@@ -70,7 +70,7 @@ public sealed class PhysicsUtilsCommands : ToolshedCommand
     {
         foreach (var item in input)
         {
-            yield return ParentWhile(ctx, item, predicate);
+            yield return ParentUntil(ctx, item, predicate);
         }
     }
 }
