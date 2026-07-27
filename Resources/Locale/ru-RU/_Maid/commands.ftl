@@ -1,8 +1,6 @@
 command-description-ldbind = Загружает пользовательские привязки клавиш из файла keybinds.yml.
-command-description-physicsutils-parentgrid = Возвращает грид, на которой находится сущность.
-command-description-physicsutils-parentmap = Возвращает карту, на которой находится сущность.
-command-description-physicsutils-onsamegrid = Фильтрует сущности, которые находятся на том же гриде, что и вы.
-command-description-physicsutils-onsamemap = Фильтрует сущности, которые находятся на той же карте, что и вы.
+command-description-onsamegrid = Фильтрует сущности, которые находятся на том же гриде, что и вы.
+command-description-onsamemap = Фильтрует сущности, которые находятся на той же карте, что и вы.
 command-description-physicsutils-parentuntil = Поднимается по иерархии родителей сущности, пока условие не выполнится.
 command-description-arrutils-push = Добавляет элемент в конец изменяемой коллекции.
 command-description-arrutils-pushfirst = Добавляет элемент в начало изменяемого списка.
