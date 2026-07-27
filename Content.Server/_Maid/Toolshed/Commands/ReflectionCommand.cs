@@ -333,7 +333,7 @@ public sealed class ReflectionMemberPathTypeParser<TIn> : TypeParser<ReflectionM
             return false;
         }
 
-        if (ReflectionMemberPath<TIn>.TryParse(word, Context, out result, out var last) && string.IsNullOrEmpty(last))
+        if (ReflectionMemberPath<TIn>.TryParse(word, Context, out result, out var last) && last is null)
         {
             return true;
         }
