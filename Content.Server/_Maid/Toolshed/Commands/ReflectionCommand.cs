@@ -401,6 +401,9 @@ public sealed class ReflectionCommand : ToolshedCommand
     {
         foreach (var item in input)
         {
+            if (ctx.HasErrors)
+                yield break;
+
             yield return Read<TOut, TIn>(ctx, item, path);
         }
     }
@@ -438,6 +441,9 @@ public sealed class ReflectionCommand : ToolshedCommand
     {
         foreach (var item in input)
         {
+            if (ctx.HasErrors)
+                yield break;
+
             yield return Write(ctx, item, path, arg);
         }
     }

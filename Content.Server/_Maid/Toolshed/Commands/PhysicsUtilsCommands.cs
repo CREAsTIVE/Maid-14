@@ -43,6 +43,9 @@ public sealed class PhysicsUtilsCommands : ToolshedCommand
     {
         foreach (var item in input)
         {
+            if (ctx.HasErrors)
+                yield break;
+
             yield return ParentUntil(ctx, item, predicate);
         }
     }
