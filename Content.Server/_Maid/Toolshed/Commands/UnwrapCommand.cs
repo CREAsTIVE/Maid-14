@@ -23,9 +23,13 @@ public sealed class UnwrapCommand : ToolshedCommand
         }
         return value.Value;
     }
+}
 
-    [CommandImplementation("ordefault"), TakesPipedTypeAsGeneric]
-    public T OrDefault<T>([PipedArgument] T? value)
+[ToolshedCommand(Name = "unwrapordefault"), AdminCommand(AdminFlags.VarEdit)]
+public sealed class UnwrapOrDefaultCommand : ToolshedCommand
+{
+    [CommandImplementation, TakesPipedTypeAsGeneric]
+    public T UnwrapOrDefault<T>([PipedArgument] T? value)
         where T : struct
     {
         return value.GetValueOrDefault();
