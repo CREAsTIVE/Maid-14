@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Administration;
 using Robust.Client.Input;
 using Robust.Shared.Console;
