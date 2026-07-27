@@ -20,3 +20,5 @@ command-description-refl-read = Позволяет получить любое �
 command-description-refl-write = Позволяет записать любое поле любого объекта, досутпного для vv.
 command-description-and = Логическое И.
 command-description-or = Логическое ИЛИ.
+command-description-unwrap = Извлекает Value из Nullable.
+command-description-unwrap-ordefault = Извлекает Value из Nullable, иначе default.
