@@ -182,7 +182,7 @@ public sealed class StaticReflectionComponent(Type type, StaticReflectionTypeCon
 
     public override IEnumerable<IStaticReflectionType.IMember> GetMembers()
     {
-        return ObjectType.GetMembers()
+        return ObjectType.GetMembers(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
             .Where(member => ViewVariablesUtility.TryGetViewVariablesAccess(member, out var access) && access >= VVAccess.ReadOnly)
             .Select(member => new ComponentMember(member, this, ctx));
     }
@@ -482,21 +482,37 @@ public sealed class ReflectionCommandOutTypeParser : CustomTypeParser<Type>
             return true;
         }
 
-        if (pipedType.IsGenericType && pipedType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
-            pipedType = pipedType.GenericTypeArguments[0];
+        var enumerableType = (pipedType.IsGenericType && pipedType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+            ? pipedType
+            : pipedType.GetInterfaces().FirstOrDefault(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IEnumerable<>));
+
+        if (enumerableType != null)
+        {
+            pipedType = enumerableType.GenericTypeArguments[0];
+        }
 
         // WARNING: DIRTY STUFF
-        var constructedType = typeof(ReflectionMemberPath<>).MakeGenericType(pipedType);
-        var method = constructedType.GetMethod("TryGetOutputPath", BindingFlags.Public | BindingFlags.Static);
-        if (method != null)
+        try
         {
-            var args = new object?[] { word, Context, null };
-            if ((bool)method.Invoke(null, args)!)
+            if (!pipedType.IsByRef && !pipedType.IsPointer && !pipedType.ContainsGenericParameters)
             {
-                result = (Type)args[2]!;
-                ctx.Restore(save);
-                return true;
+                var constructedType = typeof(ReflectionMemberPath<>).MakeGenericType(pipedType);
+                var method = constructedType.GetMethod("TryGetOutputPath", BindingFlags.Public | BindingFlags.Static);
+                if (method != null)
+                {
+                    var args = new object?[] { word, Context, null };
+                    if ((bool)method.Invoke(null, args)!)
+                    {
+                        result = (Type)args[2]!;
+                        ctx.Restore(save);
+                        return true;
+                    }
+                }
             }
+        }
+        catch
+        {
+            // ignored
         }
         // END OF WARNING
 

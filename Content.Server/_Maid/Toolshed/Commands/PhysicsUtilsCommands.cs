@@ -22,7 +22,11 @@ public sealed class PhysicsUtilsCommands : ToolshedCommand
         var depth = 0; // cycle parenting aren't real they can't hurt you...
         while (current.IsValid() && depth++ < 1000)
         {
-            if (predicate.Invoke(current, ctx))
+            var res = predicate.Invoke(current, ctx);
+            if (ctx.HasErrors)
+                return EntityUid.Invalid;
+
+            if (res)
                 return current;
 
             if (!TryComp<TransformComponent>(current, out var transform))
@@ -46,7 +50,11 @@ public sealed class PhysicsUtilsCommands : ToolshedCommand
             if (ctx.HasErrors)
                 yield break;
 
-            yield return ParentUntil(ctx, item, predicate);
+            var res = ParentUntil(ctx, item, predicate);
+            if (ctx.HasErrors)
+                yield break;
+
+            yield return res;
         }
     }
 }
