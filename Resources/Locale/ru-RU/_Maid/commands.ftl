@@ -22,3 +22,4 @@ command-description-and = Логическое И.
 command-description-or = Логическое ИЛИ.
 command-description-unwrap = Извлекает Value из Nullable.
 command-description-unwrapordefault = Извлекает Value из Nullable, иначе default.
+command-description-solutionutils-addsolution = Добавляет солюшен в энтити

@@ -3,14 +3,6 @@ using Content.Shared.Administration;
 using Robust.Shared.Toolshed;
 
 namespace Content.Server._Maid.Toolshed.Commands;
-
-[ToolshedCommand(Name = "&&"), AdminCommand(AdminFlags.VarEdit)]
-public sealed class LogicalAndCommand : ToolshedCommand
-{
-    [CommandImplementation]
-    public bool And([PipedArgument] bool x, bool y) => x && y;
-}
-
 // For "or" consistency
 [ToolshedCommand(Name = "and"), AdminCommand(AdminFlags.VarEdit)]
 public sealed class WordAndCommand : ToolshedCommand
