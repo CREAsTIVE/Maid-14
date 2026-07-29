@@ -66,13 +66,13 @@
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 15
-        - id: Shadowling
-          weight: 10
-          conditions:
-          - !type:RuleHasBudgetCondition
-          - !type:MaxRuleOccurenceCondition
-          - !type:PlayerCountCondition
-            min: 30
+#        - id: Shadowling # (deleted)
+#          weight: 10
+#          conditions:
+#          - !type:RuleHasBudgetCondition
+#          - !type:MaxRuleOccurenceCondition
+#          - !type:PlayerCountCondition
+#            min: 30
         #        - id: CosmicCult # (deleted: probably will be changed onto blood cult)
         #          weight: 10
         #          conditions:
