@@ -5,9 +5,28 @@
   - type: GameRule
     minPlayers: 0 # We DON'T like greenshifts (players may join midround)
   - type: DynamicRule
+    # WDDP params
     startingBudgetMin: 0
-    startingBudgetMax: 100
+    startingBudgetMax: 30
     budgetPerSecond: 0.02
+    minPlayersForRuleSpawn: 3
+
+    # Maid params
+    budgetPercentageForRoundStart: 0.5
+
+    # formula:
+    # random (
+    #   min(addStartingBudgetPerReadyPlayerMin * readyPlayerCount, maxAddedStartingBudgetPerReadyPlayer),
+    #   min(addStartingBudgetPerReadyPlayerMax * readyPlayerCount, maxAddedStartingBudgetPerReadyPlayer)
+    # )
+    # Example (with current settings): for 10 players: random(10, 50) (+ random(0, 30) = [10; 80])
+    #                                  for 20 players: random(20, 70) (+ random(0, 30) = [20; 100])
+    #                                  for 50 players: random(50, 70) (+ random(0, 30) = [50; 100])
+    # (https://www.desmos.com/calculator/9co5vrqyf4)
+    addStartingBudgetPerReadyPlayerMin: 0.5
+    addStartingBudgetPerReadyPlayerMax: 1.8
+    maxAddedStartingBudgetPerReadyPlayer: 70
+
     table: !type:AllSelector
       children:
       # Roundstart Major Rules

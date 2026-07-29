@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Content.Server.Administration.Logs;
+using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.RoundEnd;
 using Content.Shared._Maid.DynamicGameMode.EntityTableConditions;
@@ -7,6 +8,10 @@ using Content.Shared.Database;
 using Content.Shared.EntityTable;
 using Content.Shared._Maid.DynamicGameMode.Rules;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.Humanoid;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -18,13 +23,28 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     [Dependency] private readonly EntityTableSystem _entityTable = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
 
     protected override void Added(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, component, gameRule, args);
 
-        component.Budget = _random.Next(component.StartingBudgetMin, component.StartingBudgetMax);
-        component.NextRuleTime = Timing.CurTime + _random.Next(component.MinRuleInterval, component.MaxRuleInterval);
+        var random = _random.Next(component.StartingBudgetMin, component.StartingBudgetMax);
+        var playerCount = _gameTicker.ReadyPlayerCount();
+
+        // We apply min for each argument for proper distribution
+        var perPlayer = _random.NextFloat(
+            MathF.Min(component.AddStartingBudgetPerReadyPlayerMin * playerCount, component.MaxAddedStartingBudgetPerReadyPlayer),
+            MathF.Min(component.AddStartingBudgetPerReadyPlayerMax * playerCount, component.MaxAddedStartingBudgetPerReadyPlayer)
+        );
+
+        component.Budget = random + perPlayer;
+
+        _adminLog.Add(LogType.EventStarted, LogImpact.High, $"Dynamic Rule active with initial budget {component.Budget} (random {random} + per player {perPlayer})");
+
+        component.LastBudgetUpdate = Timing.CurTime;
+        ResheduleNextRule((uid, component));
     }
 
     protected override void Started(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -47,6 +67,18 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         }
     }
 
+    private int GetAliveCrewCount()
+   {
+       var count = 0;
+       var query = EntityQueryEnumerator<HumanoidAppearanceComponent, ActorComponent, MobStateComponent>();
+       while (query.MoveNext(out var uid, out _, out _, out var mobState))
+       {
+           if (_mobStateSystem.IsAlive(uid, mobState))
+               count++;
+       }
+       return count;
+   }
+
     protected override void ActiveTick(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
@@ -55,10 +87,22 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
             return;
 
         // don't spawn antags during evac
+        // Do that before reshedule so spamming with evac don't stop antags from spawning
         if (_roundEnd.IsRoundEndRequested())
             return;
 
+        ResheduleNextRule((uid, component));
+
+        if (GetAliveCrewCount() < component.MinPlayersForRuleSpawn)
+            return;
+
         Execute((uid, component));
+    }
+
+    private void ResheduleNextRule(Entity<DynamicRuleComponent> entity)
+    {
+        entity.Comp.NextRuleTime =
+            Timing.CurTime + _random.Next(entity.Comp.MinRuleInterval, entity.Comp.MaxRuleInterval);
     }
 
     /// <summary>
@@ -71,6 +115,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         var ctx = new EntityTableContext(new Dictionary<string, object>
         {
             { RuleHasBudgetCondition.BudgetContextKey, entity.Comp.Budget },
+            { MaxRuleOccurenceCondition.SpawnedRulesContextKey, entity.Comp.SpawnedRules },
         });
 
         return _entityTable.GetSpawns(entity.Comp.Table, ctx: ctx);
@@ -96,9 +141,6 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     /// </returns>
     private List<EntityUid> Execute(Entity<DynamicRuleComponent> entity)
     {
-        entity.Comp.NextRuleTime =
-            Timing.CurTime + _random.Next(entity.Comp.MinRuleInterval, entity.Comp.MaxRuleInterval);
-
         var executedRules = new List<EntityUid>();
 
         foreach (var rule in GetRuleSpawns(entity))
@@ -107,6 +149,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
             Debug.Assert(res);
 
             executedRules.Add(ruleUid);
+            entity.Comp.SpawnedRules.Add(rule);
 
             if (TryComp<DynamicRuleCostComponent>(ruleUid, out var cost))
             {
@@ -125,12 +168,17 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
 
     private void StartSelection(Entity<DynamicRuleComponent> entity)
     {
-        entity.Comp.Budget /= 2;
-        var roundstartBudget = entity.Comp.Budget;
+        var roundstartBudget = entity.Comp.Budget * (1 - entity.Comp.BudgetPercentageForRoundStart);
+        entity.Comp.Budget *= entity.Comp.BudgetPercentageForRoundStart;
 
         var executedRules = Execute(entity);
-        while (executedRules.Count != 0)
+        var loopCount = 0;
+        while (executedRules.Count != 0 && loopCount < 100) // Upper bound for safty
+        {
             executedRules = Execute(entity);
+
+            loopCount++;
+        }
 
         entity.Comp.Budget += roundstartBudget;
     }

@@ -18,7 +18,7 @@ public sealed partial class DynamicRuleComponent : Component
     /// <summary>
     /// The last time budget was updated.
     /// </summary>
-    [DataField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan LastBudgetUpdate;
 
     /// <summary>
@@ -68,4 +68,25 @@ public sealed partial class DynamicRuleComponent : Component
     /// </summary>
     [DataField]
     public List<EntityUid> Rules = new();
+
+    /// <summary>
+    /// The rules that have been spawned (by prototype ID)
+    /// </summary>
+    [DataField]
+    public List<string> SpawnedRules = new();
+
+    [DataField]
+    public int MinPlayersForRuleSpawn = 3;
+
+    [DataField]
+    public float BudgetPercentageForRoundStart = 0.5f;
+
+    [DataField]
+    public float AddStartingBudgetPerReadyPlayerMin = 0f;
+
+    [DataField]
+    public float AddStartingBudgetPerReadyPlayerMax = 0f;
+
+    [DataField]
+    public float MaxAddedStartingBudgetPerReadyPlayer = 0f;
 }
