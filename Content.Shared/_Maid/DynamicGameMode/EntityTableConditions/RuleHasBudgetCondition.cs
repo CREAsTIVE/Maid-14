@@ -9,7 +9,7 @@ namespace Content.Shared._Maid.DynamicGameMode.EntityTableConditions;
 /// <summary>
 /// Condition that only succeeds if a table supplies a sufficient "cost" to a given
 /// </summary>
-public sealed partial class HasBudgetCondition : EntityTableCondition
+public sealed partial class RuleHasBudgetCondition : EntityTableCondition
 {
     public const string BudgetContextKey = nameof(DynamicRuleComponent.Budget);
 
@@ -40,7 +40,7 @@ public sealed partial class HasBudgetCondition : EntityTableCondition
 
             if (!proto.Index(entSelector.Id).TryGetComponent(out DynamicRuleCostComponent? costComponent, entMan.ComponentFactory))
             {
-                var log = Logger.GetSawmill("HasBudgetCondition");
+                var log = Logger.GetSawmill("RuleHasBudgetCondition");
                 log.Error($"Rule {entSelector.Id} does not have a DynamicRuleCostComponent.");
                 return false;
             }

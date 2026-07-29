@@ -19,59 +19,59 @@
         - id: Traitor
           weight: 34
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:MaxRuleOccurenceCondition
         - id: Nukeops
           weight: 10
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 20
         - id: Revolutionary
           weight: 7
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:MaxRuleOccurenceCondition
         - id: Zombie
           weight: 4
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 15
         - id: Changeling
           weight: 15
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 15
         - id: Shadowling
           weight: 10
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 30
         - id: CosmicCult
           weight: 10
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 30
         - id: BlobGameMode
           weight: 5
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 15
         - id: Wizard
           weight: 5
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 10
@@ -84,7 +84,7 @@
         - id: Devil
           prob: 0.5
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 15
@@ -97,14 +97,14 @@
         - id: SleeperAgents
           weight: 15
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:RoundDurationCondition
             min: 900
         - id: DragonSpawn
           weight: 15
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:RoundDurationCondition
             min: 900
@@ -113,7 +113,7 @@
         - id: NinjaSpawn
           weight: 20
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:RoundDurationCondition
             min: 900
@@ -122,7 +122,7 @@
         - id: ZombieOutbreak
           weight: 2.5
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 20
@@ -131,7 +131,7 @@
         - id: LoneOpsSpawn
           weight: 5
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 15
@@ -140,7 +140,7 @@
         - id: LoneAbductorSpawn
           weight: 7.5
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:PlayerCountCondition
             min: 10
           - !type:RoundDurationCondition
@@ -148,7 +148,7 @@
         - id: DuoAbductorSpawn
           weight: 7.5
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:PlayerCountCondition
             min: 20
           - !type:RoundDurationCondition
@@ -156,7 +156,7 @@
         - id: XenomorphsInfestation
           weight: 5
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:PlayerCountCondition
             min: 20
           - !type:RoundDurationCondition
@@ -164,7 +164,7 @@
         - id: BlobSpawn
           weight: 15
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:PlayerCountCondition
             min: 20
           - !type:RoundDurationCondition
@@ -172,7 +172,7 @@
         - id: WizardMidround
           weight: 5
           conditions:
-          - !type:HasBudgetCondition
+          - !type:RuleHasBudgetCondition
           - !type:PlayerCountCondition
             min: 10
           - !type:RoundDurationCondition

@@ -70,7 +70,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         UpdateBudget((entity.Owner, entity.Comp));
         var ctx = new EntityTableContext(new Dictionary<string, object>
         {
-            { HasBudgetCondition.BudgetContextKey, entity.Comp.Budget },
+            { RuleHasBudgetCondition.BudgetContextKey, entity.Comp.Budget },
         });
 
         return _entityTable.GetSpawns(entity.Comp.Table, ctx: ctx);
