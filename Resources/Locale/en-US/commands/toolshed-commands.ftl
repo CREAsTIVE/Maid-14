@@ -95,21 +95,21 @@ command-description-addaccesslog =
     Adds an access log to this entity. Do note that this bypasses the log's default limit and pause check.
 command-description-stationevent-simulate =
     Given a BasicStationEventScheduler prototype, N Rounds, N Players, mean round end, and stddev of round end, Simulates N number of rounds in which events will occur and prints the occurrences of every event after.
-command-description-dynamicrule-list =
+command-description-dynamic-list =
     Lists all currently active dynamic rules, usually this is just one.
-command-description-dynamicrule-get =
+command-description-dynamic-get =
     Gets the currently active dynamic rule.
-command-description-dynamicrule-budget =
+command-description-dynamic-budget =
     Gets the current budget of the piped dynamic rule(s).
-command-description-dynamicrule-adjust =
+command-description-dynamic-adjust =
     Adjusts the budget of the piped dynamic rule(s) by the specified amount.
-command-description-dynamicrule-set =
+command-description-dynamic-set =
     Sets the budget of the piped dynamic rule(s) to the specified amount.
-command-description-dynamicrule-dryrun =
+command-description-dynamic-dryrun =
     Returns a list of rules that could be activated if the rule ran at this moment with all current context. This is not a complete list of every single rule that could be run, just a sample of the current valid ones.
-command-description-dynamicrule-executenow =
+command-description-dynamic-executenow =
     Executes the piped dynamic rule as if it had reached its regular update time.
-command-description-dynamicrule-rules =
+command-description-dynamic-rules =
     Gets a list of all the rules spawned by the piped dynamic rule.
 command-description-xenoartifact-list =
     List all EntityUids of spawned artifacts.
