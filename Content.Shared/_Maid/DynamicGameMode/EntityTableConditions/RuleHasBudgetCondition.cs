@@ -11,7 +11,7 @@ namespace Content.Shared._Maid.DynamicGameMode.EntityTableConditions;
 /// </summary>
 public sealed partial class RuleHasBudgetCondition : EntityTableCondition
 {
-    public const string BudgetContextKey = nameof(DynamicRuleComponent.Budget);
+    public const string BudgetContextKey = "Budget";
 
     /// <summary>
     /// Used for determining the cost for the budget.

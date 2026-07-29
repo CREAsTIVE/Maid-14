@@ -8,6 +8,6 @@
   rules:
   - DynamicRule
   - DynamicStationEventScheduler
-  - MeteorSwarmScheduler
+  # - MeteorSwarmScheduler # Annyoying
   # - SpaceTrafficControlEventScheduler # Maid
   - BasicRoundstartVariation

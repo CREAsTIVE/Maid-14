@@ -54,20 +54,20 @@
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 30
-        - id: CosmicCult
-          weight: 10
-          conditions:
-          - !type:RuleHasBudgetCondition
-          - !type:MaxRuleOccurenceCondition
-          - !type:PlayerCountCondition
-            min: 30
-        - id: BlobGameMode
-          weight: 5
-          conditions:
-          - !type:RuleHasBudgetCondition
-          - !type:MaxRuleOccurenceCondition
-          - !type:PlayerCountCondition
-            min: 15
+        #        - id: CosmicCult # (deleted: probably will be changed onto blood cult)
+        #          weight: 10
+        #          conditions:
+        #          - !type:RuleHasBudgetCondition
+        #          - !type:MaxRuleOccurenceCondition
+        #          - !type:PlayerCountCondition
+        #            min: 30
+        #        - id: BlobGameMode # (deleted)
+        #          weight: 5
+        #          conditions:
+        #          - !type:RuleHasBudgetCondition
+        #          - !type:MaxRuleOccurenceCondition
+        #          - !type:PlayerCountCondition
+        #            min: 15
         - id: Wizard
           weight: 5
           conditions:
@@ -76,18 +76,18 @@
           - !type:PlayerCountCondition
             min: 10
       # Roundstart Minor Rules
-      - !type:GroupSelector
-        conditions:
-        - !type:RoundDurationCondition
-          max: 180
-        children:
-        - id: Devil
-          prob: 0.5
-          conditions:
-          - !type:RuleHasBudgetCondition
-          - !type:MaxRuleOccurenceCondition
-          - !type:PlayerCountCondition
-            min: 15
+#      - !type:GroupSelector
+#        conditions:
+#        - !type:RoundDurationCondition
+#          max: 180
+#        children:
+#        - id: Devil # (deleted: rework)
+#          prob: 0.5
+#          conditions:
+#          - !type:RuleHasBudgetCondition
+#          - !type:MaxRuleOccurenceCondition
+#          - !type:PlayerCountCondition
+#            min: 15
       # Midround rules
       - !type:GroupSelector
         conditions:
@@ -99,6 +99,8 @@
           conditions:
           - !type:RuleHasBudgetCondition
           - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 5
           - !type:RoundDurationCondition
             min: 900
         - id: DragonSpawn
@@ -127,7 +129,7 @@
           - !type:PlayerCountCondition
             min: 20
           - !type:RoundDurationCondition
-            min: 2700
+            min: 3600 # Since it round-ending
         - id: LoneOpsSpawn
           weight: 5
           conditions:
@@ -138,7 +140,7 @@
           - !type:RoundDurationCondition
             min: 2100
         - id: LoneAbductorSpawn
-          weight: 7.5
+          weight: 5 # Same as loneop since there 2 spawns already
           conditions:
           - !type:RuleHasBudgetCondition
           - !type:PlayerCountCondition
@@ -146,29 +148,37 @@
           - !type:RoundDurationCondition
             min: 900
         - id: DuoAbductorSpawn
-          weight: 7.5
-          conditions:
-          - !type:RuleHasBudgetCondition
-          - !type:PlayerCountCondition
-            min: 20
-          - !type:RoundDurationCondition
-            min: 900
-        - id: XenomorphsInfestation
           weight: 5
           conditions:
           - !type:RuleHasBudgetCondition
           - !type:PlayerCountCondition
             min: 20
           - !type:RoundDurationCondition
-            min: 2100
-        - id: BlobSpawn
-          weight: 15
+            min: 900
+#        - id: XenomorphsInfestation # (deleted)
+#          weight: 5
+#          conditions:
+#          - !type:RuleHasBudgetCondition
+#          - !type:PlayerCountCondition
+#            min: 20
+#          - !type:RoundDurationCondition
+#            min: 2100
+#        - id: BlobSpawn # (deleted)
+#          weight: 15
+#          conditions:
+#          - !type:RuleHasBudgetCondition
+#          - !type:PlayerCountCondition
+#            min: 20
+#          - !type:RoundDurationCondition
+#            min: 3000
+        - id: WraithMidround
+          weight: 10
           conditions:
           - !type:RuleHasBudgetCondition
           - !type:PlayerCountCondition
-            min: 20
+            min: 15
           - !type:RoundDurationCondition
-            min: 3000
+            min: 2700
         - id: WizardMidround
           weight: 5
           conditions:
@@ -177,3 +187,20 @@
             min: 10
           - !type:RoundDurationCondition
             min: 1800
+
+- type: entity
+  id: DynamicStationEventScheduler
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:AllSelector
+      children:
+      - !type:NestedSelector
+        tableId: BasicCalmEventsTable
+      - !type:NestedSelector
+        tableId: CargoGiftsTable
+      - !type:NestedSelector
+        tableId: CalmPestEventsTable
+      - id: ClosetSkeleton
+      - id: ParadoxCloneSpawn
+      - id: KingRatMigration
