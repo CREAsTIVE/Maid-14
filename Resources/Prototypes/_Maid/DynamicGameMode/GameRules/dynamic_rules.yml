@@ -1,0 +1,179 @@
+- type: entity
+  parent: BaseGameRule
+  id: DynamicRule
+  components:
+  - type: GameRule
+    minPlayers: 0 # We DON'T like greenshifts (players may join midround)
+  - type: DynamicRule
+    startingBudgetMin: 0
+    startingBudgetMax: 100
+    budgetPerSecond: 0.02
+    table: !type:AllSelector
+      children:
+      # Roundstart Major Rules
+      - !type:GroupSelector
+        conditions:
+        - !type:RoundDurationCondition
+          max: 1
+        children:
+        - id: Traitor
+          weight: 34
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+        - id: Nukeops
+          weight: 10
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 20
+        - id: Revolutionary
+          weight: 7
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+        - id: Zombie
+          weight: 4
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 15
+        - id: Changeling
+          weight: 15
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 15
+        - id: Shadowling
+          weight: 10
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 30
+        - id: CosmicCult
+          weight: 10
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 30
+        - id: BlobGameMode
+          weight: 5
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 15
+        - id: Wizard
+          weight: 5
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 10
+      # Roundstart Minor Rules
+      - !type:GroupSelector
+        conditions:
+        - !type:RoundDurationCondition
+          max: 180
+        children:
+        - id: Devil
+          prob: 0.5
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 15
+      # Midround rules
+      - !type:GroupSelector
+        conditions:
+        - !type:RoundDurationCondition
+          min: 300
+        children:
+        - id: SleeperAgents
+          weight: 15
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:RoundDurationCondition
+            min: 900
+        - id: DragonSpawn
+          weight: 15
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:RoundDurationCondition
+            min: 900
+          - !type:PlayerCountCondition
+            min: 20
+        - id: NinjaSpawn
+          weight: 20
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:RoundDurationCondition
+            min: 900
+          - !type:PlayerCountCondition
+            min: 15
+        - id: ZombieOutbreak
+          weight: 2.5
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 20
+          - !type:RoundDurationCondition
+            min: 2700
+        - id: LoneOpsSpawn
+          weight: 5
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 15
+          - !type:RoundDurationCondition
+            min: 2100
+        - id: LoneAbductorSpawn
+          weight: 7.5
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:PlayerCountCondition
+            min: 10
+          - !type:RoundDurationCondition
+            min: 900
+        - id: DuoAbductorSpawn
+          weight: 7.5
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:PlayerCountCondition
+            min: 20
+          - !type:RoundDurationCondition
+            min: 900
+        - id: XenomorphsInfestation
+          weight: 5
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:PlayerCountCondition
+            min: 20
+          - !type:RoundDurationCondition
+            min: 2100
+        - id: BlobSpawn
+          weight: 15
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:PlayerCountCondition
+            min: 20
+          - !type:RoundDurationCondition
+            min: 3000
+        - id: WizardMidround
+          weight: 5
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:PlayerCountCondition
+            min: 10
+          - !type:RoundDurationCondition
+            min: 1800

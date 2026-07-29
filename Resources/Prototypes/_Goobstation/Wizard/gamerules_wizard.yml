@@ -19,6 +19,8 @@
   parent: BaseGameRule
   id: BaseWizardRule
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 30 # MAID dynamic game mode
   - type: WizardRule
   - type: GameRule
     minPlayers: 30
