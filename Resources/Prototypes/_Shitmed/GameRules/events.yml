@@ -20,6 +20,8 @@
   parent: BaseGameRule
   id: LoneAbductorSpawn
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 15 # MAID dynamic game mode
   - type: StationEvent
     earliestStart: 15
     reoccurrenceDelay: 45
@@ -120,6 +122,8 @@
   parent: BaseGameRule
   id: DuoAbductorSpawn
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 16 # MAID dynamic game mode
   - type: StationEvent
     earliestStart: 15
     reoccurrenceDelay: 45

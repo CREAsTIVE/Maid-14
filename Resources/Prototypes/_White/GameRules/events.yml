@@ -2,6 +2,8 @@
   parent: BaseGameRule
   id: XenomorphsInfestation
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 24 # MAID dynamic game mode
   - type: StationEvent
     weight: 1.5 # Goobstation - was 7.5
     duration: null

@@ -1,0 +1,13 @@
+- type: gamePreset
+  id: Dynamic
+  alias:
+  - dynamic
+  name: gamemode-dynamic-title
+  showInVote: true
+  description: gamemode-dynamic-description
+  rules:
+  - DynamicRule
+  - DynamicStationEventScheduler
+  # - MeteorSwarmScheduler # Annyoying
+  # - SpaceTrafficControlEventScheduler # Maid
+  - BasicRoundstartVariation

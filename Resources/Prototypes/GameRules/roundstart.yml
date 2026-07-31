@@ -251,6 +251,8 @@
   parent: BaseNukeopsRule
   id: Nukeops
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 20 # MAID dynamic game mode
   - type: GameRule
     minPlayers: 20
   - type: LoadMapRule
@@ -366,6 +368,8 @@
   parent: BaseTraitorRule
   id: Traitor
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 14 # MAID dynamic game mode
   - type: GameRule
     minPlayers: 5
   - type: AntagSelection
@@ -388,6 +392,8 @@
   id: Revolutionary
   parent: BaseGameRule
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 20 # MAID dynamic game mode
   - type: GameRule
     minPlayers: 15
     chaosScore: 1000 # Goobstation - intentionally not per-antag
@@ -480,6 +486,8 @@
   id: Zombie
   parent: BaseGameRule
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 20 # MAID dynamic game mode
   - type: GameRule
     minPlayers: 20
     delay:
