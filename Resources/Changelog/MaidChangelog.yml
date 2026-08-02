@@ -823,3 +823,9 @@ Entries:
       message: Игровой режим "Dynamic"
   id: 73
   time: '2026-07-31T14:46:12.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Fix
+      message: Баг с окончанием раунда после взрыва ядерки
+  id: 74
+  time: '2026-08-02T19:04:19.0000000+00:00'
