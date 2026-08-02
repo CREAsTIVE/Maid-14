@@ -76,13 +76,16 @@
 - type: entity
   parent: BaseWizardRule
   id: Wizard
+  components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 15 # MAID dynamic game mode
 
 - type: entity
   parent: BaseWizardRule
   id: WizardMidround
   components:
   - type: DynamicRuleCost # MAID dynamic game mode
-    cost: 30 # MAID dynamic game mode
+    cost: 20 # MAID dynamic game mode
   - type: StationEvent
     earliestStart: 35
     weight: 5.5
