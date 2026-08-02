@@ -119,6 +119,7 @@
           conditions:
           - !type:RuleHasBudgetCondition
           - !type:MaxRuleOccurenceCondition
+            max: 3
           - !type:PlayerCountCondition
             min: 5
           - !type:RoundDurationCondition
@@ -127,7 +128,6 @@
           weight: 15
           conditions:
           - !type:RuleHasBudgetCondition
-          - !type:MaxRuleOccurenceCondition
           - !type:RoundDurationCondition
             min: 900
           - !type:PlayerCountCondition
@@ -163,6 +163,7 @@
           weight: 5 # Same as loneop since there 2 spawns already
           conditions:
           - !type:RuleHasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 10
           - !type:RoundDurationCondition
@@ -171,6 +172,7 @@
           weight: 5
           conditions:
           - !type:RuleHasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 20
           - !type:RoundDurationCondition
@@ -203,8 +205,10 @@
           weight: 5
           conditions:
           - !type:RuleHasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+            max: 2
           - !type:PlayerCountCondition
-            min: 10
+            min: 15
           - !type:RoundDurationCondition
             min: 1800
 
