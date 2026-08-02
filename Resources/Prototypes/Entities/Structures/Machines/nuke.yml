@@ -190,5 +190,5 @@
   suffix: no round end
   components:
   - type: Nuke
-    EndRoundOnExplosion: false
+    endRoundOnExplosion: false
 # MAID END round-end-fix
