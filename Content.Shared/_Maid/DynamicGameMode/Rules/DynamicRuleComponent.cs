@@ -89,4 +89,7 @@ public sealed partial class DynamicRuleComponent : Component
 
     [DataField]
     public float MaxAddedStartingBudgetPerReadyPlayer = 0f;
+
+    [DataField]
+    public float MaxPointsPerPlayer = 1.5f;
 }

@@ -8,11 +8,12 @@
     # WDDP params
     startingBudgetMin: 0
     startingBudgetMax: 30
-    budgetPerSecond: 0.02
+    budgetPerSecond: 0.012
     minPlayersForRuleSpawn: 3
 
     # Maid params
     budgetPercentageForRoundStart: 0.5
+    maxPointsPerPlayer: 1.5
 
     # formula:
     # random (
