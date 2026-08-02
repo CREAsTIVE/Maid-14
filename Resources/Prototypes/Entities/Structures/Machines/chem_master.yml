@@ -74,7 +74,7 @@
           components:
           - FitsInDispenser
   - type: ChemMaster
-    pillDosageLimit: 50
+    pillDosageLimit: 50      # Maid
   - type: Physics
     bodyType: Static
   - type: Fixtures

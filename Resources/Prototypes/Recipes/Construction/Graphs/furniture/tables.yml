@@ -108,10 +108,10 @@
               amount: 1
               doAfter: 1
 
-       # - to: DarkTableWood
-       #  - material: WoodPlank
-       #      amount: 1
-       #      doAfter: 1
+       # - to: DarkTableWood     # Maid
+       #  - material: WoodPlank  # Maid
+       #      amount: 1          # Maid
+       #      doAfter: 1         # Maid
 
         - to: TableWoodBright
           steps:
@@ -240,8 +240,8 @@
             - tool: Prying
               doAfter: 1
 
-    - node: DarkTableWood
-      entity: DarkTableWood
+    - node: DarkTableWood       # Maid
+      entity: DarkTableWood     # Maid
       edges:
         - to: TableFrame
           completed:
@@ -318,7 +318,7 @@
     - node: TableCarpet
       entity: TableCarpet
       edges:
-        - to: DarkTableWood
+        - to: DarkTableWood  # Maid
           completed:
             - !type:SpawnPrototype
               prototype: MaterialCloth1
@@ -330,7 +330,7 @@
     - node: TableFancyBlack
       entity: TableFancyBlack
       edges:
-        - to: DarkTableWood
+        - to: DarkTableWood      # Maid
           completed:
             - !type:SpawnPrototype
               prototype: FloorCarpetItemBlack
@@ -342,7 +342,7 @@
     - node: TableFancyBlue
       entity: TableFancyBlue
       edges:
-        - to: DarkTableWood
+        - to: DarkTableWood      # Maid
           completed:
             - !type:SpawnPrototype
               prototype: FloorCarpetItemBlue
@@ -354,7 +354,7 @@
     - node: TableFancyCyan
       entity: TableFancyCyan
       edges:
-        - to: DarkTableWood
+        - to: DarkTableWood     # Maid
           completed:
             - !type:SpawnPrototype
               prototype: FloorCarpetItemCyan
@@ -366,7 +366,7 @@
     - node: TableFancyGreen
       entity: TableFancyGreen
       edges:
-        - to: DarkTableWood
+        - to: DarkTableWood    # Maid
           completed:
             - !type:SpawnPrototype
               prototype: FloorCarpetItemGreen
@@ -378,7 +378,7 @@
     - node: TableFancyOrange
       entity: TableFancyOrange
       edges:
-        - to: DarkTableWood
+        - to: DarkTableWood   # Maid
           completed:
             - !type:SpawnPrototype
               prototype: FloorCarpetItemOrange
@@ -390,7 +390,7 @@
     - node: TableFancyPurple
       entity: TableFancyPurple
       edges:
-        - to: DarkTableWood
+        - to: DarkTableWood   # Maid
           completed:
             - !type:SpawnPrototype
               prototype: FloorCarpetItemPurple
@@ -402,7 +402,7 @@
     - node: TableFancyPink
       entity: TableFancyPink
       edges:
-        - to: DarkTableWood
+        - to: DarkTableWood  # Maid
           completed:
             - !type:SpawnPrototype
               prototype: FloorCarpetItemPink
@@ -414,7 +414,7 @@
     - node: TableFancyRed
       entity: TableFancyRed
       edges:
-        - to: DarkTableWood
+        - to: DarkTableWood     # Maid
           completed:
             - !type:SpawnPrototype
               prototype: FloorCarpetItemRed
@@ -426,7 +426,7 @@
     - node: TableFancyWhite
       entity: TableFancyWhite
       edges:
-        - to: DarkTableWood
+        - to: DarkTableWood   # Maid
           completed:
             - !type:SpawnPrototype
               prototype: FloorCarpetItemWhite
