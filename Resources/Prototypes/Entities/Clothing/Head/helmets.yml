@@ -455,9 +455,12 @@
   - type: Clothing
     sprite: Clothing/Head/Helmets/firehelmet.rsi
     quickEquip: true
-  - type: IngestionBlocker
+ #- type: IngestionBlocker               #Maid
+ #- type: TemperatureProtection          #Maid
+ #  heatingCoefficient: 0.01             #Maid
+ #  coolingCoefficient: 0.2              #Maid
   - type: FireProtection
-    reduction: 0.1 # not fully sealed so less protection
+    reduction: 0.15                      #Maid
   - type: IdentityBlocker
   - type: Tag
     tags:
@@ -479,7 +482,8 @@
     modifiers:
       coefficients:
         Slash: 0.95
-
+       #Heat: 0.85     #Maid
+       #Cold: 0.85     #Maid
 
 #Atmos Fire Helmet
 - type: entity
@@ -494,8 +498,11 @@
     sprite: Clothing/Head/Helmets/atmos_firehelmet.rsi
     quickEquip: true
   - type: IngestionBlocker
+ #- type: TemperatureProtection  #Maid
+ #  heatingCoefficient: 0.01     #Maid
+ #  coolingCoefficient: 0.2      #Maid
   - type: FireProtection
-    reduction: 0.15
+    reduction: 0.15              #Maid
   - type: PressureProtection
     highPressureMultiplier: 0.25
     lowPressureMultiplier: 1000
@@ -522,7 +529,8 @@
     modifiers:
       coefficients:
         Slash: 0.9
-       
+       #Heat: 0.8       #Maid
+       #Cold: 0.8       #Maid
   - type: EyeProtection # goob
 
 #Chitinous Helmet
