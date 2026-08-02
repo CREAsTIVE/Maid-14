@@ -32,13 +32,15 @@
     sprite: _White/Clothing/Eyes/Goggles/snightvision.rsi
   - type: Clothing
     sprite: _White/Clothing/Eyes/Goggles/snightvision.rsi
-  - type: ChameleonClothing
+    #Maid Begin
+  - type: ChameleonClothing            
     slot: [eyes]
     default: ClothingEyesGlassesSunglasses
   - type: UserInterface
     interfaces:
         enum.ChameleonUiKey.Key:
-          type: ChameleonBoundUserInterface
+          type: ChameleonBoundUserInterface  
+    #Maid end
 
 - type: entity
   parent: ClothingEyesNightVisionGogglesSyndie
