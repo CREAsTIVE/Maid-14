@@ -153,7 +153,7 @@
       Brute:
         path: /Audio/Effects/chop.ogg
         params:
-          variation: 0.05
+          # variation: 0.05 # MAID sound-porting
   - type: Destructible
     thresholds:
     - trigger:
@@ -171,7 +171,7 @@
           path: /Audio/Effects/tree_fell.ogg
           params:
             volume: 5
-            variation: 0.05
+            # variation: 0.05 # MAID sound-porting
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:SpawnEntitiesBehavior
@@ -436,7 +436,7 @@
           path: /Audio/Effects/tree_fell.ogg
           params:
             volume: 5
-            variation: 0.05
+            # variation: 0.05 # MAID sound-porting
       - !type:KillSignCauseBehavior
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -521,7 +521,7 @@
           path: /Audio/Effects/tree_fell.ogg
           params:
             volume: 5
-            variation: 0.05
+            # variation: 0.05 # MAID sound-porting
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:SpawnEntitiesBehavior

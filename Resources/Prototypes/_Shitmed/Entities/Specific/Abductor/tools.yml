@@ -79,11 +79,11 @@
     startSound:
       path: /Audio/Items/wirecutter.ogg
       params:
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
     endSound:
       path: /Audio/Items/wirecutter.ogg
       params:
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
   - type: GuideHelp
     guides:
     - Abductors
@@ -271,7 +271,7 @@
         soundStateActivate:
           collection: sparks
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -5
 
       hijack: !type:ItemSwitchState
@@ -288,5 +288,5 @@
         soundStateActivate:
           collection: sparks
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -5

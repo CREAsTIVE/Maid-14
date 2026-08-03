@@ -45,7 +45,7 @@
       params:
           volume: -5
           maxDistance: 10
-          variation: 0.01
+          # variation: 0.01 # MAID sound-porting
   - type: VoidPortal
     mobEntries:
     - prototype: VoidPortalSkeletonGoonWraith

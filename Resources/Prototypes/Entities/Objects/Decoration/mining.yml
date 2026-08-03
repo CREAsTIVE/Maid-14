@@ -31,7 +31,7 @@
       Brute:
         path: /Audio/Effects/chop.ogg
         params:
-          variation: 0.05
+          # variation: 0.05 # MAID sound-porting
   - type: Destructible
     thresholds:
     - trigger: # Excess damage, don't spawn entities
@@ -98,7 +98,7 @@
       Brute:
         path: /Audio/Effects/chop.ogg
         params:
-          variation: 0.05
+          # variation: 0.05 # MAID sound-porting
   - type: Destructible
     thresholds:
     - trigger: # Excess damage, don't spawn entities

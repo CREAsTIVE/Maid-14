@@ -67,11 +67,11 @@
     soundActivate:
       collection: sparks
       params:
-        variation: 0.250
+        # variation: 0.250 # MAID sound-porting
     soundDeactivate:
       collection: sparks
       params:
-        variation: 0.250
+        # variation: 0.250 # MAID sound-porting
   - type: Appearance
   - type: GenericVisualizer
     visuals:

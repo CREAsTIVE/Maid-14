@@ -14,7 +14,7 @@
       params:
         volume: 3
         maxDistance: 12
-        variation: 0.05
+        # variation: 0.05 # MAID sound-porting
   - type: TriggerOnMobstateChange
     mobState:
       - Dead
@@ -34,7 +34,7 @@
       params:
           volume: -5
           maxDistance: 10
-          variation: 0.8
+          # variation: 0.8 # MAID sound-porting
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Wraith/Mobs/rothulk.rsi

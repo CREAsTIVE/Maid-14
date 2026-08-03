@@ -7,7 +7,7 @@
 - type: emoteSounds
   id: EmoteC4
   params:
-    variation: 0
+    # variation: 0 # MAID sound-porting
   sounds:
     Beep:
       path: /Audio/Machines/Nuke/general_beep.ogg
@@ -17,7 +17,7 @@
 - type: emoteSounds
   id: ShadowCloak
   params:
-    variation: 0.125
+    # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
       path: /Audio/_Goobstation/Heretic/hiss/hiss5.ogg

@@ -93,7 +93,7 @@
     footstepSoundCollection:
       collection: FootstepClown
       params:
-        variation: 0.17
+        # variation: 0.17 # MAID sound-porting
   # for H.O.N.K. construction
   - type: Tag
     tags:
@@ -115,7 +115,7 @@
       collection: FootstepSlip
       params:
         volume: -10
-        variation: 0.10
+        # variation: 0.10 # MAID sound-porting
   - type: Construction
     graph: BananaClownShoes
     node: shoes
@@ -137,7 +137,7 @@
     footstepSoundCollection:
       collection: FootstepClown
       params:
-        variation: 0.17
+        # variation: 0.17 # MAID sound-porting
   - type: PointLight
     enabled: true
     radius: 3
@@ -281,7 +281,7 @@
       footstepSoundCollection:
         collection: FootstepJester
         params:
-          variation: 0.07
+          # variation: 0.07 # MAID sound-porting
 
 - type: entity
   parent: ClothingShoesClown
@@ -346,4 +346,4 @@
     footstepSoundCollection:
       collection: FootstepSkates
       params:
-        variation: 0.08
+        # variation: 0.08 # MAID sound-porting

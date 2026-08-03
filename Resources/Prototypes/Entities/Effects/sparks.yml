@@ -51,4 +51,4 @@
     sound: 
       path: /Audio/Effects/tesla_consume.ogg
       params:
-        variation: 0.3
+        # variation: 0.3 # MAID sound-porting

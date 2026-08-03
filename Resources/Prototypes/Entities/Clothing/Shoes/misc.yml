@@ -102,7 +102,7 @@
     footstepSoundCollection:
       collection: FootstepDuck # Goobstation - quack
       params:
-        variation: 0.07
+        # variation: 0.07 # MAID sound-porting
   - type: WaddleWhenWorn # Goobstation
     tumbleIntensity: 10 # smaller than clown shoes
   - type: Construction
@@ -123,7 +123,7 @@
     footstepSoundCollection:
       collection: FootstepLizardSlippers # Goobstation - weh
       params:
-        variation: 0.02
+        # variation: 0.02 # MAID sound-porting
   - type: WaddleWhenWorn # Goobstation
     tumbleIntensity: 10 # smaller than clown shoes
   - type: Construction

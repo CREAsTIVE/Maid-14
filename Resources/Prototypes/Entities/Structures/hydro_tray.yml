@@ -162,7 +162,7 @@
       path: /Audio/Effects/Fluids/slosh.ogg
       params:
         volume: -6
-        variation: 0.20
+        # variation: 0.20 # MAID sound-porting
   - type: Destructible
     thresholds:
     - trigger:

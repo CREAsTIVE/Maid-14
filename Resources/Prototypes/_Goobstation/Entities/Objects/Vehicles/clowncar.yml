@@ -23,7 +23,7 @@
     hornSound:
       collection: BikeHorn
       params:
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
   - type: MovementSpeedModifier
     weightlessModifier: 0
     acceleration: 1

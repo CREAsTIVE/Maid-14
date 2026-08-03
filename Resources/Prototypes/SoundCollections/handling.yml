@@ -2,97 +2,145 @@
 - type: soundCollection
   id: PistolsPickUp
   files:
-  - /Audio/_Goobstation/Items/weapons/Pistol/pickup1.ogg
-  - /Audio/_Goobstation/Items/weapons/Pistol/pickup2.ogg
-  - /Audio/_Goobstation/Items/weapons/Pistol/pickup3.ogg
-  - /Audio/_Goobstation/Items/weapons/Pistol/pickup4.ogg
+# MAID BEGIN sound-porting
+#  - /Audio/_Goobstation/Items/weapons/Pistol/pickup1.ogg
+#  - /Audio/_Goobstation/Items/weapons/Pistol/pickup2.ogg
+#  - /Audio/_Goobstation/Items/weapons/Pistol/pickup3.ogg
+#  - /Audio/_Goobstation/Items/weapons/Pistol/pickup4.ogg
+  - /Audio/_Maid/Items/Weapon/Pistol/pickup1.ogg
+  - /Audio/_Maid/Items/Weapon/Pistol/pickup2.ogg
+  - /Audio/_Maid/Items/Weapon/Pistol/pickup3.ogg
+  - /Audio/_Maid/Items/Weapon/Pistol/pickup4.ogg
 
 - type: soundCollection
   id: PistolsDrop
   files:
-  - /Audio/_Goobstation/Items/weapons/Pistol/drop1.ogg
-  - /Audio/_Goobstation/Items/weapons/Pistol/drop2.ogg
-  - /Audio/_Goobstation/Items/weapons/Pistol/drop3.ogg
+#  - /Audio/_Goobstation/Items/weapons/Pistol/drop1.ogg
+#  - /Audio/_Goobstation/Items/weapons/Pistol/drop2.ogg
+#  - /Audio/_Goobstation/Items/weapons/Pistol/drop3.ogg
+  - /Audio/_Maid/Items/Weapon/Pistol/drop1.ogg
+  - /Audio/_Maid/Items/Weapon/Pistol/drop2.ogg
+  - /Audio/_Maid/Items/Weapon/Pistol/drop3.ogg
 
 # SMGs
 - type: soundCollection
   id: SMGPickUp
   files:
-  - /Audio/_Goobstation/Items/weapons/SMG/pickup1.ogg
-  - /Audio/_Goobstation/Items/weapons/SMG/pickup2.ogg
-  - /Audio/_Goobstation/Items/weapons/SMG/pickup3.ogg
+#  - /Audio/_Goobstation/Items/weapons/SMG/pickup1.ogg
+#  - /Audio/_Goobstation/Items/weapons/SMG/pickup2.ogg
+#  - /Audio/_Goobstation/Items/weapons/SMG/pickup3.ogg
+  - /Audio/_Maid/Items/Weapon/Pistol/pickup1.ogg
+  - /Audio/_Maid/Items/Weapon/Pistol/pickup2.ogg
+  - /Audio/_Maid/Items/Weapon/Pistol/pickup3.ogg
+  - /Audio/_Maid/Items/Weapon/Pistol/pickup4.ogg
 
 - type: soundCollection
   id: SMGDrop
   files:
-  - /Audio/_Goobstation/Items/weapons/SMG/drop1.ogg
-  - /Audio/_Goobstation/Items/weapons/SMG/drop2.ogg
+#  - /Audio/_Goobstation/Items/weapons/SMG/drop1.ogg
+#  - /Audio/_Goobstation/Items/weapons/SMG/drop2.ogg
+  - /Audio/_Maid/Items/Weapon/Pistol/drop1.ogg
+  - /Audio/_Maid/Items/Weapon/Pistol/drop2.ogg
+  - /Audio/_Maid/Items/Weapon/Pistol/drop3.ogg
+# MAID END sound-porting
 # Rifles
 - type: soundCollection
   id: RiflesPickUp
   files:
-  - /Audio/_Goobstation/Items/weapons/Rifle/pickup1.ogg
-  - /Audio/_Goobstation/Items/weapons/Rifle/pickup2.ogg
-  - /Audio/_Goobstation/Items/weapons/Rifle/pickup3.ogg
+# MAID BEGIN sound-porting
+#  - /Audio/_Goobstation/Items/weapons/Rifle/pickup1.ogg
+#  - /Audio/_Goobstation/Items/weapons/Rifle/pickup2.ogg
+#  - /Audio/_Goobstation/Items/weapons/Rifle/pickup3.ogg
+  - /Audio/_Maid/Items/Weapon/rifle/pickup1.ogg
+  - /Audio/_Maid/Items/Weapon/rifle/pickup2.ogg
+  - /Audio/_Maid/Items/Weapon/rifle/pickup3.ogg
 
 - type: soundCollection
   id: RiflesDrop
   files:
-  - /Audio/_Goobstation/Items/weapons/Rifle/drop1.ogg
-  - /Audio/_Goobstation/Items/weapons/Rifle/drop2.ogg
+#  - /Audio/_Goobstation/Items/weapons/Rifle/drop1.ogg
+#  - /Audio/_Goobstation/Items/weapons/Rifle/drop2.ogg
+  - /Audio/_Maid/Items/Weapon/rifle/drop1.ogg
+  - /Audio/_Maid/Items/Weapon/rifle/drop2.ogg
+# MAID END sound-porting
 
 # Lasers
 - type: soundCollection
   id: LasersPickUp
   files:
-  - /Audio/_Goobstation/Items/weapons/Laser/pickup1.ogg
-  - /Audio/_Goobstation/Items/weapons/Laser/pickup2.ogg
+# MAID BEGIN sound-porting
+#  - /Audio/_Goobstation/Items/weapons/Laser/pickup1.ogg
+#  - /Audio/_Goobstation/Items/weapons/Laser/pickup2.ogg
+  - /Audio/_Maid/Items/Weapon/Laser/pickup1.ogg
+  - /Audio/_Maid/Items/Weapon/Laser/pickup2.ogg
 
 - type: soundCollection
   id: LasersDrop
   files:
-  - /Audio/_Goobstation/Items/weapons/Laser/drop1.ogg
+#  - /Audio/_Goobstation/Items/weapons/Laser/drop1.ogg
+  - /Audio/_Maid/Items/Weapon/Laser/drop1.ogg
+# MAID END sound-porting
 
 # Revolvers
 - type: soundCollection
   id: RevolversPickUp
   files:
-  - /Audio/_Goobstation/Items/weapons/Revolver/pickup1.ogg
-  - /Audio/_Goobstation/Items/weapons/Revolver/pickup2.ogg
+# MAID BEGIN sound-porting
+#  - /Audio/_Goobstation/Items/weapons/Revolver/pickup1.ogg
+#  - /Audio/_Goobstation/Items/weapons/Revolver/pickup2.ogg
+  - /Audio/_Maid/Items/Weapon/Revolver/pickup1.ogg
+  - /Audio/_Maid/Items/Weapon/Revolver/pickup2.ogg
 
 - type: soundCollection
   id: RevolversDrop
   files:
-  - /Audio/_Goobstation/Items/weapons/Revolver/drop1.ogg
-  - /Audio/_Goobstation/Items/weapons/Revolver/drop2.ogg
+#  - /Audio/_Goobstation/Items/weapons/Revolver/drop1.ogg
+#  - /Audio/_Goobstation/Items/weapons/Revolver/drop2.ogg
+  - /Audio/_Maid/Items/Weapon/Revolver/drop1.ogg
+  - /Audio/_Maid/Items/Weapon/Revolver/drop2.ogg
+# MAID END sound-porting
 
 # Shotguns
 - type: soundCollection
   id: ShotgunsPickUp
   files:
-  - /Audio/_Goobstation/Items/weapons/Shotgun/pickup1.ogg
-  - /Audio/_Goobstation/Items/weapons/Shotgun/pickup2.ogg
-  - /Audio/_Goobstation/Items/weapons/Shotgun/pickup3.ogg
+# MAID BEGIN sound-porting
+#  - /Audio/_Goobstation/Items/weapons/Shotgun/pickup1.ogg
+#  - /Audio/_Goobstation/Items/weapons/Shotgun/pickup2.ogg
+#  - /Audio/_Goobstation/Items/weapons/Shotgun/pickup3.ogg
+  - /Audio/_Maid/Items/Weapon/Shotgun/pickup1.ogg
+  - /Audio/_Maid/Items/Weapon/Shotgun/pickup2.ogg
+  - /Audio/_Maid/Items/Weapon/Shotgun/pickup3.ogg
 
 - type: soundCollection
   id: ShotgunsDrop
   files:
-  - /Audio/_Goobstation/Items/weapons/Shotgun/drop1.ogg
-  - /Audio/_Goobstation/Items/weapons/Shotgun/drop2.ogg
+#  - /Audio/_Goobstation/Items/weapons/Shotgun/drop1.ogg
+#  - /Audio/_Goobstation/Items/weapons/Shotgun/drop2.ogg
+  - /Audio/_Maid/Items/Weapon/Shotgun/drop1.ogg
+  - /Audio/_Maid/Items/Weapon/Shotgun/drop2.ogg
+# MAID END sound-porting
 
 # Snipers
 - type: soundCollection
   id: SnipersPickUp
   files:
-  - /Audio/_Goobstation/Items/weapons/Sniper/pickup1.ogg
-  - /Audio/_Goobstation/Items/weapons/Sniper/pickup2.ogg
+# MAID BEGIN sound-porting
+#  - /Audio/_Goobstation/Items/weapons/Sniper/pickup1.ogg
+#  - /Audio/_Goobstation/Items/weapons/Sniper/pickup2.ogg
+  - /Audio/_Maid/Items/Weapon/Sniper/pickup1.ogg
+  - /Audio/_Maid/Items/Weapon/Sniper/pickup2.ogg
 
 - type: soundCollection
   id: SnipersDrop
   files:
-  - /Audio/_Goobstation/Items/weapons/Sniper/drop1.ogg
-  - /Audio/_Goobstation/Items/weapons/Sniper/drop2.ogg
-  - /Audio/_Goobstation/Items/weapons/Sniper/drop3.ogg
+#  - /Audio/_Goobstation/Items/weapons/Sniper/drop1.ogg
+#  - /Audio/_Goobstation/Items/weapons/Sniper/drop2.ogg
+#  - /Audio/_Goobstation/Items/weapons/Sniper/drop3.ogg
+  - /Audio/_Maid/Items/Weapon/Sniper/drop1.ogg
+  - /Audio/_Maid/Items/Weapon/Sniper/drop2.ogg
+  - /Audio/_Maid/Items/Weapon/Sniper/drop3.ogg
+# MAID END sound-porting
 
 # Generic
 - type: soundCollection

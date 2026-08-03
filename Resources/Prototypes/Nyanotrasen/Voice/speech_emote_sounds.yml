@@ -12,7 +12,7 @@
 - type: emoteSounds
   id: MaleFelinid
   params:
-    variation: 0.125
+    # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
       collection: FelinidScreams
@@ -60,7 +60,7 @@
 - type: emoteSounds
   id: FemaleFelinid
   params:
-    variation: 0.125
+    # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
       collection: FelinidScreams

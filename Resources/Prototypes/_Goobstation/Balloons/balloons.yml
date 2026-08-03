@@ -58,7 +58,7 @@
         sound:
           path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
         spawn:
@@ -87,7 +87,7 @@
         sound:
           path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
@@ -119,7 +119,7 @@
         sound:
           path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
@@ -151,7 +151,7 @@
         sound:
           path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
@@ -183,7 +183,7 @@
         sound:
           path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
@@ -217,7 +217,7 @@
         sound:
           path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
@@ -250,7 +250,7 @@
         sound:
           path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
@@ -284,7 +284,7 @@
         sound:
           path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
@@ -324,7 +324,7 @@
         sound:
           path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
@@ -356,7 +356,7 @@
         sound:
           path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
@@ -387,7 +387,7 @@
         sound:
           path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:

@@ -362,7 +362,7 @@
       params:
         volume: -8
         maxDistance: 50
-        variation: 0.05
+        # variation: 0.05 # MAID sound-porting
   - type: DashAction
     actionProto: ActionDashGeneric
   - type: FootstepModifier
@@ -421,7 +421,7 @@
       params:
         volume: -8
         maxDistance: 10
-        variation: 0.05
+        # variation: 0.05 # MAID sound-porting
   - type: FootstepModifier
     footstepSoundCollection:
       collection: XenoFootstepLarge
@@ -497,7 +497,7 @@
       params:
         volume: 4
         maxDistance: 60
-        variation: 0.3
+        # variation: 0.3 # MAID sound-porting
   - type: FootstepModifier
     footstepSoundCollection:
       collection: XenoFootstepLarge

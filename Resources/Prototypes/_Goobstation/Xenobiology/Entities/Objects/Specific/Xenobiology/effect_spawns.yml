@@ -60,7 +60,7 @@
     sound:
       collection: SlimeMaleScreams
       params:
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
   - type: PointLight
     enabled: true
     radius: 3

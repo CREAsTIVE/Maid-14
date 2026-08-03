@@ -20,7 +20,7 @@
             sound:
               path: /Audio/Items/hiss.ogg
               params:
-                variation: 0.08
+                # variation: 0.08 # MAID sound-porting
   - type: DamagedByFlashing
     flashDamage:
       types:

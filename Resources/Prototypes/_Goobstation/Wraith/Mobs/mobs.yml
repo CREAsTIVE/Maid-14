@@ -184,7 +184,7 @@
       params:
         volume: 3
         maxDistance: 12
-        variation: 0.01
+        # variation: 0.01 # MAID sound-porting
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -262,7 +262,7 @@
       params:
         volume: -1
         maxDistance: 12
-        variation: 0.01
+        # variation: 0.01 # MAID sound-porting
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Wraith/Mobs/monstrosity.rsi
@@ -321,7 +321,7 @@
       params:
         volume: -1
         maxDistance: 12
-        variation: 0.01
+        # variation: 0.01 # MAID sound-porting
   - type: MindContainer
     showExamineInfo: true
   - type: HTN
@@ -491,7 +491,7 @@
       params:
         volume: -1
         maxDistance: 12
-        variation: 0.05
+        # variation: 0.05 # MAID sound-porting
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: HeavyArmorSyndi

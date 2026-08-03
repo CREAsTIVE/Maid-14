@@ -163,7 +163,7 @@
   # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/_Goobstation/Items/handling/wirecutter_pickup.ogg
+      path: /Audio/_Maid/Items/handling/wirecutter_pickup.ogg # MAID sound-porting
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/Items/wirecutter_drop.ogg
@@ -217,11 +217,11 @@
     startSound:
       path: /Audio/Items/wirecutter.ogg
       params:
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
     endSound:
       path: /Audio/Items/wirecutter.ogg
       params:
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
 
 - type: entity
   name: screwdriver
@@ -232,7 +232,7 @@
   # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/_Goobstation/Items/handling/screwdriver_pickup.ogg
+      path: /Audio/_Maid/Items/handling/screwdriver_pickup.ogg # MAID sound-porting
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/Items/screwdriver_drop.ogg
@@ -295,7 +295,7 @@
   # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/_Goobstation/Items/handling/wrench_pickup.ogg
+      path: /Audio/_Maid/Items/handling/wrench_pickup.ogg # MAID sound-porting
       params:
         volume: -2
   - type: EmitSoundOnDrop
@@ -351,7 +351,7 @@
   # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/_Goobstation/Items/handling/multitool_pickup.ogg
+      path: /Audio/_Maid/Items/handling/multitool_pickup.ogg # MAID sound-porting
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/Items/multitool_drop.ogg

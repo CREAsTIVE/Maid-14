@@ -27,7 +27,7 @@
       soundFailToActivate:
         path: /Audio/Machines/button.ogg
         params:
-          variation: 0.250
+          # variation: 0.250 # MAID sound-porting
     - type: ItemToggleActiveSound
       activeSound:
         path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyhum.ogg

@@ -322,6 +322,10 @@
     slots: WITHOUT_POCKET
   - type: Clothing
     clothingType: hardsuit # WD EDIT
+    # MAID BEGIN sound-porting
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    # MAID END sound-porting
   - type: DamageOnInteractProtection
     damageProtection:
       flatReductions:
@@ -330,17 +334,17 @@
   # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/_Goobstation/Items/handling/backpack_pickup.ogg
+      path: /Audio/_Maid/Items/handling/cloth_pickup.ogg
       params:
         volume: -4
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/_Goobstation/Items/handling/backpack_drop.ogg
+      collection: HardsuitDrop
       params:
         volume: -4
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/_Goobstation/Items/handling/backpack_drop.ogg
+      collection: HardsuitDrop
       params:
         volume: -4
   # Goobstation edit end

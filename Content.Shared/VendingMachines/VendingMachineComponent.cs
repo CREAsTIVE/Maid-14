@@ -128,7 +128,7 @@ namespace Content.Shared.VendingMachines
             Params = new AudioParams
             {
                 Volume = -4f,
-                Variation = 0.15f
+                Variation = 0f // MAID sound-porting
             }
         };
 

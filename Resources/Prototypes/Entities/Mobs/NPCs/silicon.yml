@@ -366,7 +366,7 @@
     sound:
       collection: BikeHorn
       params:
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
   - type: Sprite
     sprite: Mobs/Silicon/Bots/honkbot.rsi
     state: honkbot
@@ -421,7 +421,7 @@
     interactSuccessSound:
       path: /Audio/Items/bikehorn.ogg
       params:
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
 
 - type: entity
   parent: MobHonkBot
@@ -433,7 +433,7 @@
     sound:
       collection: CluwneHorn
       params:
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
   - type: Sprite
     state: jonkbot
   - type: Construction
@@ -452,7 +452,7 @@
     interactSuccessSound:
       path: /Audio/Items/brokenbikehorn.ogg
       params:
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
   - type: Vocal
     sounds:
       Unsexed: Cluwne

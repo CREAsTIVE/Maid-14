@@ -104,7 +104,7 @@
     soundCollapse:
       path: /Audio/Effects/tesla_collapse.ogg
       params:
-        variation: 0.3
+        # variation: 0.3 # MAID sound-porting
   - type: LightningArcShooter
     arcDepth: 3
     maxLightningArc: 4
@@ -131,7 +131,7 @@
     sound:
       path: /Audio/Effects/tesla_collapse.ogg
       params:
-        variation: 0.3
+        # variation: 0.3 # MAID sound-porting
   - type: InteractionPopup # for the brave
     successChance: 0.2
     interactSuccessString: petting-success-tesla

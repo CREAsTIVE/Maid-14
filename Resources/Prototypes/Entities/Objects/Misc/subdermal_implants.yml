@@ -127,7 +127,7 @@
       sound:
         collection: SadTrombone
         params:
-          variation: 0.125
+          # variation: 0.125 # MAID sound-porting
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -166,7 +166,7 @@
     sound:
       collection: BikeHorn
       params:
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
   - type: Tag
     tags:
     - BikeHorn

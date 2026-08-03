@@ -7,7 +7,7 @@
   id: Food
   useSound: !type:SoundCollectionSpecifier
     params:
-      variation: 0.2
+      # variation: 0.2 # MAID sound-porting
       volume: -1
     collection: eating # I think this *should* grab the sound specifier...
   message: edible-nom
@@ -23,7 +23,7 @@
   id: Drink
   useSound: !type:SoundPathSpecifier
     params:
-      variation: 0.25
+      # variation: 0.25 # MAID sound-porting
       volume: -2
     path: /Audio/Items/drink.ogg
   message: edible-slurp
@@ -39,7 +39,7 @@
   id: Pill
   useSound: !type:SoundPathSpecifier
     params:
-      variation: 0.2
+      # variation: 0.2 # MAID sound-porting
       volume: -1
     path: /Audio/Items/pill.ogg
   message: edible-swallow
