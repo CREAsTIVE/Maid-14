@@ -8,16 +8,16 @@
 
 - type: emoteSounds
   id: UnisexIPC
-  params:
+  # params: # MAID sound-porting
     # variation: 0 # MAID sound-porting
   sounds:
     Scream:
       path: /Audio/_EinsteinEngines/Voice/IPC/robot-scream.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Laugh:
       path: /Audio/_EinsteinEngines/Voice/IPC/robot-laugh_3.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Chitter:
       path: /Audio/Voice/Talk/pai.ogg
@@ -25,31 +25,31 @@
       path: /Audio/Voice/Talk/pai.ogg
     CatMeow:
       collection: CatMeows
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     CatHisses:
       collection: CatHisses
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     MonkeyScreeches:
       collection: MonkeyScreeches
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Sigh:
       path: /Audio/Voice/Talk/pai.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Crying:
       path: /Audio/_EinsteinEngines/Voice/IPC/cry_robot_1.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Whistle:
       path: /Audio/_EinsteinEngines/Voice/IPC/pai_whistle.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     RobotBeep: # disease
       path: /Audio/Effects/tesla_consume.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Beep: # normal
       path: /Audio/_EinsteinEngines/Voice/IPC/beep_2000.ogg
@@ -59,7 +59,7 @@
       path: /Audio/Machines/buzz-sigh.ogg
     Honk:
       path: /Audio/Items/bikehorn.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Chime:
       path: /Audio/Effects/Cargo/ping.ogg
@@ -67,22 +67,22 @@
       path: /Audio/Machines/buzz-two.ogg
     Ping:
       path: /Audio/Effects/beep1.ogg
-      params: # to prevent it from being definitively read by players as "OH SHIT A GRENADE"
+      # params: # MAID sound-porting # to prevent it from being definitively read by players as "OH SHIT A GRENADE"
         # variation: 0.125 # MAID sound-porting
     Whirr:
       collection: IPCWhirrs
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0 # MAID sound-porting
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0 # MAID sound-porting
 
 - type: emoteSounds
   id: MaleShadowkin
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
@@ -128,7 +128,7 @@
 
 - type: emoteSounds
   id: FemaleShadowkin
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:

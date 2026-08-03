@@ -114,11 +114,11 @@
   - type: Vehicle
     hornSound:
       collection: DeskBell
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     sirenSound:
       collection: PoliceSiren
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: ItemSlots
     slots:
@@ -171,7 +171,7 @@
   - type: Vehicle
     hornSound:
       collection: BikeHorn
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
   - type: ItemSlots
@@ -242,7 +242,7 @@
     engineRunning: true
     hornSound:
       collection: BikeHorn
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     renderOver: North, NorthEast, NorthWest
   - type: MovementSpeedModifier
@@ -374,7 +374,7 @@
     overlayPrototype: VehicleForkliftOverlay
     hornSound:
       collection: BikeHorn
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: MovementSpeedModifier
     baseAcceleration: 8

@@ -126,7 +126,7 @@
     - type: EmitSoundOnTrigger
       sound:
         collection: SadTrombone
-        params:
+        # params: # MAID sound-porting
           # variation: 0.125 # MAID sound-porting
 
 - type: entity
@@ -165,7 +165,7 @@
     predicted: true
     sound:
       collection: BikeHorn
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: Tag
     tags:

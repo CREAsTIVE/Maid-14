@@ -236,7 +236,7 @@
             canWideSwing: false
         soundStateActivate:
           collection: sparks
-          params:
+          # params: # MAID sound-porting
             # variation: 0.125 # MAID sound-porting
 
 - type: entity

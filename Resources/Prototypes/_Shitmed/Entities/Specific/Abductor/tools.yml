@@ -78,11 +78,11 @@
   - type: SurgeryTool
     startSound:
       path: /Audio/Items/wirecutter.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     endSound:
       path: /Audio/Items/wirecutter.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: GuideHelp
     guides:

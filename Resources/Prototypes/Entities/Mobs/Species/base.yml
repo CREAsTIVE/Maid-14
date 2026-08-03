@@ -590,9 +590,6 @@
     - Bacterial
     - Parasite
   # </Goobstation>
-  # MAID BEGIN sound-porting
-  - type: DeathGasps
-  # MAID END sound-porting
 
 - type: entity
   save: false

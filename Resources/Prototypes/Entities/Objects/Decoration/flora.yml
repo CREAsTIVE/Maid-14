@@ -152,7 +152,7 @@
     soundGroups:
       Brute:
         path: /Audio/Effects/chop.ogg
-        params:
+        # params: # MAID sound-porting
           # variation: 0.05 # MAID sound-porting
   - type: Destructible
     thresholds:

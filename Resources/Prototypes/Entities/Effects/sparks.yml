@@ -50,5 +50,5 @@
   - type: EmitSoundOnSpawn
     sound: 
       path: /Audio/Effects/tesla_consume.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.3 # MAID sound-porting

@@ -108,16 +108,16 @@
   # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/_Maid/Items/handling/matchbox_pickup.ogg # MAID sound-porting
+      path: /Audio/_Goobstation/Items/handling/matchbox_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/Items/matchbox_drop.ogg
   - type: EmitSoundOnCollide
     sound:
-      path: /Audio/_Maid/Items/handling/matchbox_drop.ogg # MAID sound-porting
+      path: /Audio/_Goobstation/Items/handling/matchbox_drop.ogg
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/_Maid/Items/handling/matchbox_use.ogg # MAID sound-porting
+      path: /Audio/_Goobstation/Items/handling/matchbox_use.ogg
   # Goobstation edit end
   - type: EmitSoundOnLand
     sound:

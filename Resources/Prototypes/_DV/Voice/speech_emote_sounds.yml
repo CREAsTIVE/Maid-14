@@ -20,7 +20,7 @@
 # species
 - type: emoteSounds
   id: SoundsHarpyFemale
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
@@ -104,7 +104,7 @@
 
 - type: emoteSounds
   id: SoundsHarpyMale
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
@@ -190,7 +190,7 @@
 
 - type: emoteSounds
   id: FemaleVulpkanin
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
@@ -240,7 +240,7 @@
 
 - type: emoteSounds
   id: MaleVulpkanin
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
@@ -290,7 +290,7 @@
 
 - type: emoteSounds
   id: MobDog
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Growl:
@@ -308,7 +308,7 @@
 
 - type: emoteSounds
   id: MaleRodentia
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
@@ -348,7 +348,7 @@
 
 - type: emoteSounds
   id: FemaleRodentia
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
@@ -388,7 +388,7 @@
 
 - type: emoteSounds
   id: UnisexChitinid
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Buzz:
@@ -430,7 +430,7 @@
 
 - type: emoteSounds
   id: FemaleFeroxi
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
@@ -472,7 +472,7 @@
 
 - type: emoteSounds
   id: MaleFeroxi
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:

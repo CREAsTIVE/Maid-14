@@ -99,33 +99,33 @@
   - type: EmitSoundOnUse
     sound:
       collection: RubberChicken
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnLand
     sound:
       collection: RubberChicken
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnActivate
     sound:
       collection: RubberChicken
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnCollide
     sound:
       collection: RubberChicken
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnTrigger
     sound:
       collection: RubberChicken
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: MeleeWeapon
     wideAnimationRotation: 110
     soundHit:
       collection: RubberChicken
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
 
 ## Cheapo Figurines
@@ -704,15 +704,15 @@
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
       path: /Audio/Weapons/eblade1.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.250 # MAID sound-porting
     activatedSoundOnHitNoDamage:
       path: /Audio/Weapons/eblade1.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.250 # MAID sound-porting
     activatedSoundOnSwing:
       path: /Audio/Weapons/eblademiss.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
 
 - type: entity
@@ -897,22 +897,22 @@
   - type: EmitSoundOnUse
     sound:
       collection: Parp
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnLand
     sound:
       collection: Parp
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnActivate
     sound:
       collection: Parp
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnCollide
     sound:
       collection: Parp
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: UseDelay
     delay: 0.8
@@ -925,12 +925,12 @@
       launchForwardsMultiplier: 0
     slipSound:
       collection: Parp
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: MeleeWeapon
     soundHit:
       collection: Parp
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     damage:
       types:

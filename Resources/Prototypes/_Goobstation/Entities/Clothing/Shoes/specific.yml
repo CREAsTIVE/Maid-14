@@ -29,5 +29,5 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepSkates
-      params:
+      # params: # MAID sound-porting
         # variation: 0.08 # MAID sound-porting

@@ -19,11 +19,11 @@
   - type: ItemToggle
     soundActivate:
       collection: sparks
-      params:
+      # params: # MAID sound-porting
         # variation: 0.250 # MAID sound-porting
     soundDeactivate:
       collection: sparks
-      params:
+      # params: # MAID sound-porting
         # variation: 0.250 # MAID sound-porting
   - type: Appearance
   - type: GenericVisualizer

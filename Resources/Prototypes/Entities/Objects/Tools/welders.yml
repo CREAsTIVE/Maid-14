@@ -111,7 +111,7 @@
   # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/_Maid/Items/handling/weldingtool_pickup.ogg # MAID sound-porting
+      path: /Audio/_Goobstation/Items/handling/weldingtool_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/Items/welder_drop.ogg

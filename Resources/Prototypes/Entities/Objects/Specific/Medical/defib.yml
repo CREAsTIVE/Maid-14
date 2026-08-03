@@ -155,7 +155,7 @@
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
       path: /Audio/Items/Defib/defib_zap.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.250 # MAID sound-porting
     activatedSoundOnHitNoDamage:
       path: /Audio/Items/Defib/defib_zap.ogg

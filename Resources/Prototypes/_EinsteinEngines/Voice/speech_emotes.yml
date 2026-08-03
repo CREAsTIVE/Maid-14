@@ -64,7 +64,7 @@
 
 - type: emoteSounds
   id: UnisexPlasmaman
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:

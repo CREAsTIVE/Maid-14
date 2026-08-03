@@ -125,48 +125,19 @@
 - type: soundCollection
   id: AmbienceGeneral
   files:
-# MAID BEGIN sound-porting
-#    - /Audio/Ambience/ambigen1.ogg
-#    - /Audio/Ambience/ambigen3.ogg
-#    - /Audio/Ambience/ambigen4.ogg
-#    - /Audio/Ambience/ambigen5.ogg
-#    - /Audio/Ambience/ambigen6.ogg
-#    - /Audio/Ambience/ambigen7.ogg
-#    - /Audio/Ambience/ambigen8.ogg
-#    - /Audio/Ambience/ambigen9.ogg
-#    - /Audio/Ambience/ambigen10.ogg
-#    - /Audio/Ambience/ambigen11.ogg
-#    - /Audio/Ambience/ambigen12.ogg
-#    - /Audio/Ambience/ambigen14.ogg
-#    - /Audio/Ambience/ambigen15.ogg
-    - /Audio/_Maid/Ambience/Station/station_1.ogg
-    - /Audio/_Maid/Ambience/Station/station_2.ogg
-    - /Audio/_Maid/Ambience/Station/station_3.ogg
-    - /Audio/_Maid/Ambience/Station/station_4.ogg
-    - /Audio/_Maid/Ambience/Station/station_5.ogg
-    - /Audio/_Maid/Ambience/Station/station_6.ogg
-    - /Audio/_Maid/Ambience/Station/station_7.ogg
-    - /Audio/_Maid/Ambience/Station/station_8.ogg
-    - /Audio/_Maid/Ambience/Station/station_9.ogg
-    - /Audio/_Maid/Ambience/Station/station_10.ogg
-    - /Audio/_Maid/Ambience/Station/station_11.ogg
-    - /Audio/_Maid/Ambience/Station/station_12.ogg
-    - /Audio/_Maid/Ambience/Station/station_13.ogg
-    - /Audio/_Maid/Ambience/Station/station_14.ogg
-    - /Audio/_Maid/Ambience/Station/station_15.ogg
-    - /Audio/_Maid/Ambience/Station/station_16.ogg
-    - /Audio/_Maid/Ambience/Station/station_17.ogg
-    - /Audio/_Maid/Ambience/Station/station_18.ogg
-    - /Audio/_Maid/Ambience/Station/station_19.ogg
-    - /Audio/_Maid/Ambience/Station/station_20.ogg
-    - /Audio/_Maid/Ambience/Station/station_21.ogg
-    - /Audio/_Maid/Ambience/Station/station_22.ogg
-    - /Audio/_Maid/Ambience/Station/station_23.ogg
-    - /Audio/_Maid/Ambience/Station/station_24.ogg
-    - /Audio/_Maid/Ambience/Station/station_25.ogg
-    - /Audio/_Maid/Ambience/Station/station_26.ogg
-    - /Audio/_Maid/Ambience/Station/station_27.ogg
-# MAID END sound-porting
+    - /Audio/Ambience/ambigen1.ogg
+    - /Audio/Ambience/ambigen3.ogg
+    - /Audio/Ambience/ambigen4.ogg
+    - /Audio/Ambience/ambigen5.ogg
+    - /Audio/Ambience/ambigen6.ogg
+    - /Audio/Ambience/ambigen7.ogg
+    - /Audio/Ambience/ambigen8.ogg
+    - /Audio/Ambience/ambigen9.ogg
+    - /Audio/Ambience/ambigen10.ogg
+    - /Audio/Ambience/ambigen11.ogg
+    - /Audio/Ambience/ambigen12.ogg
+    - /Audio/Ambience/ambigen14.ogg
+    - /Audio/Ambience/ambigen15.ogg
 
 - type: soundCollection
   id: AmbienceHoly
@@ -241,30 +212,13 @@
 - type: soundCollection
   id: AmbienceSpace
   files:
-# MAID BEGIN sound-porting
-#    - /Audio/Ambience/constellations.ogg
-#    - /Audio/Ambience/starlight.ogg
-#    - /Audio/Ambience/drifting.ogg
-#    - /Audio/Ambience/spookyspace1.ogg
-#    - /Audio/Ambience/spookyspace2.ogg
-#    - /Audio/Ambience/ambispace2.ogg
-#    - /Audio/Lobby/title2.ogg
-    - /Audio/_Maid/Ambience/Space/space_1.ogg
-    - /Audio/_Maid/Ambience/Space/space_2.ogg
-    - /Audio/_Maid/Ambience/Space/space_3.ogg
-    - /Audio/_Maid/Ambience/Space/space_4.ogg
-    - /Audio/_Maid/Ambience/Space/space_5.ogg
-    - /Audio/_Maid/Ambience/Space/space_6.ogg
-    - /Audio/_Maid/Ambience/Space/space_7.ogg
-    - /Audio/_Maid/Ambience/Space/space_8.ogg
-    - /Audio/_Maid/Ambience/Space/space_9.ogg
-    - /Audio/_Maid/Ambience/Space/space_10.ogg
-    - /Audio/_Maid/Ambience/Space/space_11.ogg
-    - /Audio/_Maid/Ambience/Space/space_12.ogg
-    - /Audio/_Maid/Ambience/Space/space_13.ogg
-    - /Audio/_Maid/Ambience/Space/space_14.ogg
-    - /Audio/_Maid/Ambience/Space/space_15.ogg
-# MAID END sound-porting
+    - /Audio/Ambience/constellations.ogg
+    - /Audio/Ambience/starlight.ogg
+    - /Audio/Ambience/drifting.ogg
+    - /Audio/Ambience/spookyspace1.ogg
+    - /Audio/Ambience/spookyspace2.ogg
+    - /Audio/Ambience/ambispace2.ogg
+    - /Audio/Lobby/title2.ogg
 
 - type: soundCollection
   id: AmbienceSpooky

@@ -60,7 +60,7 @@
 
 - type: emoteSounds
   id: MaleHuman
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
@@ -106,7 +106,7 @@
 
 - type: emoteSounds
   id: FemaleHuman
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
@@ -152,7 +152,7 @@
 
 - type: emoteSounds ## GOOB CONTENT START
   id: MonkeyMode
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
@@ -196,7 +196,7 @@
 
 - type: emoteSounds
   id: MaleReptilian
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
@@ -238,7 +238,7 @@
 
 - type: emoteSounds
   id: FemaleReptilian
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
@@ -327,7 +327,7 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
 
 - type: emoteSounds
@@ -379,7 +379,7 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
 
 - type: emoteSounds
@@ -427,7 +427,7 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
 
 - type: emoteSounds
@@ -465,12 +465,12 @@
       collection: Dionayawn
     Sigh: #goob
       collection: Dionasigh
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
 
 - type: emoteSounds
   id: UnisexArachnid
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
@@ -594,7 +594,7 @@
 
 - type: emoteSounds
   id: UnisexMoth
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Buzz:
@@ -644,7 +644,7 @@
 
 - type: emoteSounds
   id: MaleMoth
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Buzz:
@@ -694,7 +694,7 @@
 
 - type: emoteSounds
   id: FemaleMoth
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Buzz:
@@ -744,7 +744,7 @@
 
 - type: emoteSounds
   id: UnisexSilicon
-  params:
+  # params: # MAID sound-porting
     # variation: 0.05 # MAID sound-porting
   sounds:
     Scream:
@@ -765,7 +765,7 @@
       path: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
     Whirr: # Goobstation - IPC sounds
       collection: IPCWhirrs
-      params:
+      # params: # MAID sound-porting
         # variation: 0 # MAID sound-porting
     #Scream: # Goobstation - Cyborg Scream
     #  path: /Audio/_Goobstation/Voice/Cyborg/borgscream.ogg
@@ -773,26 +773,26 @@
     # Goobstation - Cyborg emote sounds
     Laugh:
       path: /Audio/_EinsteinEngines/Voice/IPC/robot-laugh_3.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Sigh:
       path: /Audio/Voice/Talk/pai.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Crying:
       path: /Audio/_EinsteinEngines/Voice/IPC/cry_robot_1.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Whistle:
       path: /Audio/_EinsteinEngines/Voice/IPC/pai_whistle.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
 
 - type: emoteSounds
   id: UnisexSiliconSyndicate
-  params:
+  # params: # MAID sound-porting
     # variation: 0.05 # MAID sound-porting
   sounds:
     Scream:
@@ -817,22 +817,22 @@
     # Goobstation - Cyborg emote sounds
     Sigh:
       path: /Audio/Voice/Talk/pai.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Crying:
       path: /Audio/_EinsteinEngines/Voice/IPC/cry_robot_1.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Whistle:
       path: /Audio/_EinsteinEngines/Voice/IPC/pai_whistle.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
 
 - type: emoteSounds
   id: UnisexSiliconXenoborg
-  params:
+  # params: # MAID sound-porting
     # variation: 0.05 # MAID sound-porting
   sounds:
     Scream:
@@ -854,15 +854,15 @@
     # Goobstation - Cyborg emote sounds
     Sigh:
       path: /Audio/Voice/Xenoborg/xenoborg_buzz-sigh.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Crying:
       path: /Audio/Voice/Xenoborg/cry_robot_xenoborg.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Whistle:
       path: /Audio/Voice/Xenoborg/xenoborg_chime.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
@@ -903,7 +903,7 @@
   sounds:
     Thump:
       path: /Audio/Voice/Reptilian/reptilian_tailthump.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Clap:
       collection: Claps
@@ -921,56 +921,56 @@
   id: Zombie
   sound:
     collection: ZombieScreams
-    params:
+    # params: # MAID sound-porting
       # variation: 0.125 # MAID sound-porting
 
 - type: emoteSounds
   id: Skeleton
   sound:
     path: /Audio/Voice/Skeleton/skeleton_scream.ogg
-    params:
+    # params: # MAID sound-porting
       # variation: 0.125 # MAID sound-porting
 
 - type: emoteSounds
   id: Mouse
   sound:
     path: /Audio/Animals/mouse_squeak.ogg
-    params:
+    # params: # MAID sound-porting
       # variation: 0.125 # MAID sound-porting
 
 - type: emoteSounds
   id: Cluwne
   sound:
     collection: CluwneScreams
-    params:
+    # params: # MAID sound-porting
       # variation: 0.125 # MAID sound-porting
 
 - type: emoteSounds
   id: Bear
   sound:
     path: /Audio/Animals/bear.ogg
-    params:
+    # params: # MAID sound-porting
       # variation: 0.125 # MAID sound-porting
 
 - type: emoteSounds # TODO put into goob
   id: Brullbar
   sound:
     path: /Audio/_Goobstation/Animals/Meatzone_Howl.ogg
-    params:
+    # params: # MAID sound-porting
       # variation: 0.125 # MAID sound-porting
 
 - type: emoteSounds
   id: Cerberus
   sound:
     path: /Audio/Animals/cerberus.ogg
-    params:
+    # params: # MAID sound-porting
       # variation: 0.125 # MAID sound-porting
 
 - type: emoteSounds
   id: Kangaroo
   sound:
     path: /Audio/Animals/kangaroo_grunt.ogg
-    params:
+    # params: # MAID sound-porting
       # variation: 0.125 # MAID sound-porting
 
 - type: emoteSounds
@@ -983,24 +983,24 @@
   id: Parrot
   sound:
     path: /Audio/Animals/parrot_raught.ogg
-    params:
+    # params: # MAID sound-porting
       # variation: 0.125 # MAID sound-porting
 
 - type: emoteSounds
   id: Goat
   sound:
     path: /Audio/Animals/goat_bah.ogg
-    params:
+    # params: # MAID sound-porting
       # variation: 0.125 # MAID sound-porting
 
 - type: emoteSounds
   id: Scurret
-  params:
+  # params: # MAID sound-porting
     # variation: 0.125 # MAID sound-porting
   sounds:
     Thump:
       path: /Audio/Effects/soft_thump.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
     Clap:
       collection: Claps

@@ -40,7 +40,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/Magic/staff_chaos.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.250 # MAID sound-porting
   - type: BasicEntityAmmoProvider
     prototypes: ChaosProjectiles
@@ -64,7 +64,7 @@
   - type: Gun
     soundGunshot:
       collection: BikeHorn
-      params:
+      # params: # MAID sound-porting
         # variation: 0.250 # MAID sound-porting
   - type: BasicEntityAmmoProvider
     proto: ProjectileBananaPeel

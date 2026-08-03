@@ -57,9 +57,6 @@
     layers:
       - map: [ base ]
         state: icon
-  - type: EmitSoundOnPickup
-    sound:
-      path: /Audio/_Maid/Items/handling/toolbox_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/Items/toolbox_drop.ogg
@@ -70,10 +67,10 @@
     maxItemSize: Normal
     grid:
     - 0,0,6,3
-    # MAID BEGIN sound-porting
-    storageOpenSound: /Audio/_Maid/Effects/closetopen.ogg
-    storageCloseSound: /Audio/_Maid/Effects/closetclose.ogg
-    # MAID END sound-porting
+    storageOpenSound: /Audio/Items/toolbox_open.ogg
+    storageCloseSound: /Audio/Items/toolbox_close.ogg
+    storageInsertSound: /Audio/Items/toolbox_insert.ogg
+    storageRemoveSound: /Audio/Items/toolbox_remove.ogg
   - type: Item
     size: Ginormous
   - type: MeleeWeapon

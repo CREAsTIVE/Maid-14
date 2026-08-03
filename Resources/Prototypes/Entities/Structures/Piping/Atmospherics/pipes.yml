@@ -186,7 +186,7 @@
   # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/_Maid/Items/handling/wrench_pickup.ogg # MAID sound-porting
+      path: /Audio/_Goobstation/Items/handling/wrench_pickup.ogg
       params:
         volume: -2
   - type: EmitSoundOnDrop

@@ -59,7 +59,7 @@
     maxInterval: 60
     sound:
       collection: SlimeMaleScreams
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: PointLight
     enabled: true

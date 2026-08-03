@@ -231,7 +231,7 @@
   # Goobstation edit start
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/_Maid/Items/handling/sabre_drop.ogg # MAID sound-porting
+      path: /Audio/_Goobstation/Items/handling/sabre_drop.ogg
   # Goobstation edit start
   - type: Sprite
     sprite: Objects/Weapons/Melee/captain_sabre.rsi

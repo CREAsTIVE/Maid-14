@@ -98,23 +98,21 @@
   id: BaseItem
   abstract: true
   components:
-# MAID BEGIN sound-porting
-#  # Goobstation edit start
-#  - type: EmitSoundOnPickup
-#    sound:
-#      collection: GenericPickup
-#      params:
-#        volume: -7
-#  - type: EmitSoundOnDrop
-#    sound:
-#      collection: GenericDrop
-#      params:
-#        volume: -7
-#  # - type: EmitSoundOnLand
-#    # sound:
-#      # collection: GenericDrop
-#  # Goobstation edit end
-# MAID END sound-porting
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: GenericPickup
+      params:
+        volume: -7
+  - type: EmitSoundOnDrop
+    sound:
+      collection: GenericDrop
+      params:
+        volume: -7
+  # - type: EmitSoundOnLand
+    # sound:
+      # collection: GenericDrop
+  # Goobstation edit end
   - type: Item
     size: Small
   - type: Animateable

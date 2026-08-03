@@ -255,7 +255,7 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepClown
-      params:
+      # params: # MAID sound-porting
         # variation: 0.17 # MAID sound-porting
   - type: MovementSpeedModifier
     baseWalkSpeed: 2

@@ -365,7 +365,7 @@
     maxInterval: 12
     sound:
       collection: BikeHorn
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: Sprite
     sprite: Mobs/Silicon/Bots/honkbot.rsi
@@ -420,7 +420,7 @@
     interactFailureString: petting-failure-honkbot
     interactSuccessSound:
       path: /Audio/Items/bikehorn.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
 
 - type: entity
@@ -432,7 +432,7 @@
   - type: SpamEmitSound
     sound:
       collection: CluwneHorn
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: Sprite
     state: jonkbot
@@ -451,7 +451,7 @@
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Items/brokenbikehorn.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.125 # MAID sound-porting
   - type: Vocal
     sounds:

@@ -86,7 +86,7 @@
     useKey: false
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_svalinn.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.05 # MAID sound-porting
   - type: MagazineVisuals
     magState: mag
@@ -143,7 +143,7 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_perforator.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.05 # MAID sound-porting
   - type: MagazineVisuals
     magState: mag
@@ -360,7 +360,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
-      params:
+      # params: # MAID sound-porting
         # variation: 0.12 # MAID sound-porting
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 2
