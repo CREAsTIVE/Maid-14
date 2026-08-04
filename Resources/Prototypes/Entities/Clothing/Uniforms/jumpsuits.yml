@@ -1247,9 +1247,9 @@
   description: Black as a starry night.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/hawaiblack.rsi
+    sprite: _Maid/Clothing/Uniforms/Jumpsuit/hawaiblack.rsi #Maid
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/hawaiblack.rsi
+    sprite: _Maid/Clothing/Uniforms/Jumpsuit/hawaiblack.rsi #Maid
 
 - type: entity
   parent: ClothingUniformBase
@@ -1258,9 +1258,9 @@
   description: Blue as a huge ocean.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/hawaiblue.rsi
+    sprite: _Maid/Clothing/Uniforms/Jumpsuit/hawaiblue.rsi #Maid
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/hawaiblue.rsi
+    sprite: _Maid/Clothing/Uniforms/Jumpsuit/hawaiblue.rsi #Maid
 
 - type: entity
   parent: ClothingUniformBase
@@ -1269,9 +1269,9 @@
   description: Red as a juicy watermelons.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/hawaired.rsi
+    sprite: _Maid/Clothing/Uniforms/Jumpsuit/hawaired.rsi #Maid
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/hawaired.rsi
+    sprite: _Maid/Clothing/Uniforms/Jumpsuit/hawaired.rsi #Maid
 
 - type: entity
   parent: ClothingUniformBase
@@ -1280,9 +1280,9 @@
   description: Yellow as a bright sun.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/hawaiyellow.rsi
+    sprite: _Maid/Clothing/Uniforms/Jumpsuit/hawaiyellow.rsi #Maid
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/hawaiyellow.rsi
+    sprite: _Maid/Clothing/Uniforms/Jumpsuit/hawaiyellow.rsi #Maid
 
 - type: entity
   parent: [ClothingUniformBase, BaseSyndicateContraband]
