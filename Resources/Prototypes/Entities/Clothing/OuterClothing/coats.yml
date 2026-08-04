@@ -455,9 +455,9 @@
   description: A suit that protects against minor chemical spills. Has a purple stripe on the shoulder.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_sci.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/rndcoat.rsi # Maid
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_sci.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/rndcoat.rsi # Maid
   - type: Armor
     coverage:
     - Chest
