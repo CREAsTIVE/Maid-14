@@ -839,3 +839,15 @@ Entries:
       message: Пофикшены столы, теперь их можно нормально собрать.
   id: 75
   time: '2026-08-02T21:05:09.0000000+00:00'
+- author: antiWAFG1
+  changes:
+    - type: Remove
+      message: Пожарный шлем больше не даёт полную защиту от температур без основной одежды.
+    - type: Tweak
+      message: В VendingMachineSec заменён RiotBulletShield на TelescopicShield
+    - type: Fix
+      message: Визор синдиката теперь выглядит как солнцезащитный очки и имеет свойства хамелеона.
+    - type: Fix
+      message: Исправил перевод стеклянного стыковочного шлюза.
+  id: 76
+  time: '2026-08-02T21:06:09.0000000+00:00'
