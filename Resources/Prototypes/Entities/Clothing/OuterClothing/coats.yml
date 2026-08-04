@@ -139,9 +139,9 @@
   description: A thick, well-worn WW2 leather bomber jacket.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/bomber.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/bomber.rsi # Maid
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/bomber.rsi
+    sprite: _Maid/Clothing/OuterClothing/Coats/bomber.rsi # Maid
 
 - type: entity
   parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, ClothingOuterArmorBase]
