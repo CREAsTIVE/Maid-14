@@ -219,7 +219,7 @@
     creationMethod: OnMove
     lengthStep: 0.1
     scale: 0.03, 0.0
-    lifetime: 1
+    lifetime: 0.5
     randomWalk: 0.03, 0.001
     gravity: 0.001, 0.005
     gradientIteratorType: Bezier
