@@ -209,7 +209,7 @@
       params:
         pitch: 0.8
     soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/empty.ogg
+      path: /Audio/_Maid/Weapons/Guns/Empty/empty.ogg #MAID Sound porting
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -261,7 +261,7 @@
         # variation: 0.05 # MAID sound-porting
         pitch: 0.8
     soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/empty.ogg
+      path: /Audio/_Maid/Weapons/Guns/Empty/empty.ogg #MAID Sound porting
   - type: Machine
     board: ShuttleGunDusterCircuitboard
   - type: MagazineAmmoProvider

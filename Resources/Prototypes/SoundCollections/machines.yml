@@ -26,7 +26,7 @@
 - type: soundCollection
   id: VendingDispense
   files:
-  - /Audio/Machines/machine_vend.ogg
+  - /Audio/_Maid/Machines/machine_vend.ogg #MAID Sound porting
 
 - type: soundCollection
   id: VendingDeny

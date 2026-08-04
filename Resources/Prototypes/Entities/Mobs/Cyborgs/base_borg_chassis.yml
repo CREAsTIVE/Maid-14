@@ -372,7 +372,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Machines/warning_buzzer.ogg
+          path: /Audio/_Maid/Machines/warning_buzzer.ogg #MAID Sound porting
           params:
             volume: 5
     - trigger:

@@ -388,7 +388,7 @@
     Scream:
       collection: VoxScreams
     Laugh:
-      path: /Audio/Voice/Vox/vox_laugh.ogg
+      path: /Audio/_Maid/Voice/Vox/vox_laugh.ogg #MAID Sound porting
     Bagawk: # Mono
       collection: Bagawk # Mono
     Honk:

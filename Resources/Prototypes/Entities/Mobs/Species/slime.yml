@@ -86,7 +86,7 @@
     - 0,0,1,2
     maxItemSize: Large
     storageInsertSound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
+      path: /Audio/_Maid/Voice/Slime/slime_squish.ogg #MAID Sound porting
   - type: ContainerContainer
     containers:
       storagebase: !type:Container

@@ -932,20 +932,20 @@
     state: icon
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
+      path: /Audio/_Maid/Voice/Slime/slime_squish.ogg #MAID Sound porting
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
+      path: /Audio/_Maid/Voice/Slime/slime_squish.ogg #MAID Sound porting
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
+      path: /Audio/_Maid/Voice/Slime/slime_squish.ogg #MAID Sound porting
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
+      path: /Audio/_Maid/Voice/Slime/slime_squish.ogg #MAID Sound porting
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:
-      path: /Audio/Voice/Slime/slime_squish.ogg
+      path: /Audio/_Maid/Voice/Slime/slime_squish.ogg #MAID Sound porting
   - type: Clothing
     quickEquip: false
     sprite: Objects/Fun/Plushies/slime.rsi
