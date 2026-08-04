@@ -724,7 +724,7 @@
     emagStaticPacks:
     - HostileCubesStatic
     # Goobstation Packs
-    - EmagCubesStatic
+#    - EmagCubesStatic # Maid
 
 - type: entity
   id: SecurityTechFab
