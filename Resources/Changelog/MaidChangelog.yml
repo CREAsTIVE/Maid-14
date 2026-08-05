@@ -875,3 +875,11 @@ Entries:
       message: Портированно огромное количество звуков из старого билда
   id: 78
   time: '2026-08-05T16:31:36.0000000+00:00'
+- author: riverkz
+  changes:
+    - type: Add
+      message: /Resources/Audio/StationEvents/epsilon.ogg
+    - type: Add
+      message: /Resources/Audio/StationEvents/peacemakers.ogg
+  id: 79
+  time: '2026-08-05T16:35:10.0000000+00:00'
