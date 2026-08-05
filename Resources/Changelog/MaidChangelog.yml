@@ -851,7 +851,7 @@ Entries:
       message: Исправил перевод стеклянного стыковочного шлюза.
   id: 76
   time: '2026-08-02T21:06:09.0000000+00:00'
-  - author: CREAsTIVE
+- author: CREAsTIVE
   changes:
     - type: Tweak
       message: Dynamic перебалансирован для более равномерного распределения антагонистов.
