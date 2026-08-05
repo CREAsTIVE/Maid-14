@@ -101,6 +101,9 @@ public sealed partial class GroupSelector : EntityTableSelector
             children.Add(child, child.Weight);
         }
 
+        if (children.Count == 0)
+            return [];
+
         var pick = SharedRandomExtensions.Pick(children, rand);
 
         return pick.GetSpawns(rand, entMan, proto, ctx);

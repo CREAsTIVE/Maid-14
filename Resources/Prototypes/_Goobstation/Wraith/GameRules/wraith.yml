@@ -2,6 +2,8 @@
   parent: BaseGameRule
   id: WraithMidround
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 15 # MAID dynamic game mode
   - type: AntagSelection
     agentName: wraith-round-end-agent-name
     definitions:
