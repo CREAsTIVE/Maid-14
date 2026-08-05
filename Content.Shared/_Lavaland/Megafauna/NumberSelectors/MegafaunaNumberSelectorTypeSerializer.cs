@@ -19,7 +19,7 @@ public sealed class MegafaunaNumberSelectorTypeSerializer :
         ISerializationContext? context = null)
     {
         // ConstantMegafaunaNumberSelector validation
-        if (float.TryParse(node.Value, out _))
+        if (float.TryParse(node.Value, CultureInfo.InvariantCulture, out _)) // MAID linter-fix
             return new ValidatedValueNode(node);
 
         // RangeMegafaunaNumberSelector validation
