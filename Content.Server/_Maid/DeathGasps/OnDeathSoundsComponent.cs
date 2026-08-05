@@ -9,7 +9,10 @@ public sealed partial class OnDeathSoundsComponent : Component
     public SoundSpecifier DeathSounds = new SoundCollectionSpecifier("deathSounds");
 
     [DataField]
-    public SoundSpecifier HeartSounds = new SoundCollectionSpecifier("heartSounds");
+    public SoundSpecifier HeartSounds = new SoundCollectionSpecifier(
+        "heartSounds",
+        new AudioParams { Volume = -3, }
+    );
 
     [DataField]
     public bool CanOtherHearDeathSound;
