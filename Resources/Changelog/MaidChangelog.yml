@@ -823,3 +823,37 @@ Entries:
       message: Игровой режим "Dynamic"
   id: 73
   time: '2026-07-31T14:46:12.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Fix
+      message: Баг с окончанием раунда после взрыва ядерки
+  id: 74
+  time: '2026-08-02T19:04:19.0000000+00:00'
+- author: antiWAFG1
+  changes:
+    - type: Tweak
+      message: В таблетки вмещается 50 унций вещества.
+    - type: Fix
+      message: Теперь при разборке раздвижных окон, они не болтируются.
+    - type: Fix
+      message: Пофикшены столы, теперь их можно нормально собрать.
+  id: 75
+  time: '2026-08-02T21:05:09.0000000+00:00'
+- author: antiWAFG1
+  changes:
+    - type: Remove
+      message: Пожарный шлем больше не даёт полную защиту от температур без основной одежды.
+    - type: Tweak
+      message: В VendingMachineSec заменён RiotBulletShield на TelescopicShield
+    - type: Fix
+      message: Визор синдиката теперь выглядит как солнцезащитный очки и имеет свойства хамелеона.
+    - type: Fix
+      message: Исправил перевод стеклянного стыковочного шлюза.
+  id: 76
+  time: '2026-08-02T21:06:09.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Tweak
+      message: Dynamic перебалансирован для более равномерного распределения антагонистов.
+  id: 77
+  time: '2026-08-02T21:06:10.0000000+00:00'

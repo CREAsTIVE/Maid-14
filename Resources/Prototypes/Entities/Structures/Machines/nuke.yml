@@ -182,3 +182,13 @@
     transferAmount: 100
   - type: StaticPrice
     price: 5000 # That's a pretty fancy keg you got there.
+
+# MAID BEGIN round-end-fix
+- type: entity
+  parent: NuclearBomb
+  id: NuclearBombNoRoundEnd
+  suffix: no round end
+  components:
+  - type: Nuke
+    endRoundOnExplosion: false
+# MAID END round-end-fix

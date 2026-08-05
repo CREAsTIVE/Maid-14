@@ -25,6 +25,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
     protected override void Added(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
@@ -129,7 +130,8 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     {
         var duration = (float) (Timing.CurTime - entity.Comp.LastBudgetUpdate).TotalSeconds;
 
-        entity.Comp.Budget += duration * entity.Comp.BudgetPerSecond;
+        var maxBudget = entity.Comp.MaxPointsPerPlayer * _playerManager.PlayerCount;
+        entity.Comp.Budget = MathF.Min(entity.Comp.Budget + duration * entity.Comp.BudgetPerSecond, maxBudget);
         entity.Comp.LastBudgetUpdate = Timing.CurTime;
     }
 

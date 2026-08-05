@@ -124,6 +124,7 @@ using Content.Server.Kitchen.Components;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
 using Content.Server.Station.Systems;
+using Content.Server.RoundEnd; // MAID round-end-fix
 using Content.Shared.Audio;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Coordinates.Helpers;
@@ -164,6 +165,7 @@ public sealed class NukeSystem : EntitySystem
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!; // Goobstation
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly RoundEndSystem _roundEnd = default!; // MAID round-end-fix
 
     /// <summary>
     ///     Used to calculate when the nuke song should start playing for maximum kino with the nuke sfx
@@ -764,6 +766,15 @@ public sealed class NukeSystem : EntitySystem
         {
             OwningStation = transform.GridUid,
         });
+
+        // MAID BEGIN round-end-fix
+        // With hooking on nuke explosion in loneop / nukeop (what can easly break)
+        // We 100% end round
+        if (component.EndRoundOnExplosion && transform.GridUid != null && _station.GetOwningStation(transform.GridUid.Value) != null)
+        {
+            _roundEnd.EndRound();
+        }
+        // MAID END round-end-fix
 
         _sound.StopStationEventMusic(uid, StationEventMusicType.Nuke);
         Del(uid);

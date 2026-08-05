@@ -851,7 +851,7 @@
     earliestStart: 35
     weight: 2.5 # Goobstation - was 5.5
     minimumPlayers: 50 # Goobstation - was 20
-    duration: 1
+    duration: null # MAID BEGIN round-end-fix
     chaos: # Goobstation
       Hostile: 200
       Medical: 200
