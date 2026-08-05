@@ -23,7 +23,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/syringe_gun.ogg
     soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/empty.ogg
+      path: /Audio/_Maid/Weapons/Guns/Empty/empty.ogg # MAID sound-porting
     clumsyProof: true
   - type: PacifismAllowedGun
   - type: Multishot # Goobstation V

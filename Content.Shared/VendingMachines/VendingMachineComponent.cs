@@ -123,7 +123,7 @@ namespace Content.Shared.VendingMachines
         /// </summary>
         [DataField]
         // Grabbed from: https://github.com/tgstation/tgstation/blob/d34047a5ae911735e35cd44a210953c9563caa22/sound/machines/machine_vend.ogg
-        public SoundSpecifier SoundVend = new SoundPathSpecifier("/Audio/Machines/machine_vend.ogg")
+        public SoundSpecifier SoundVend = new SoundPathSpecifier("/Audio/_Maid/Machines/machine_vend.ogg") // MAID sound-porting
         {
             Params = new AudioParams
             {
