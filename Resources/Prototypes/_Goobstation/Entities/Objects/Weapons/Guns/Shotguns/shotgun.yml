@@ -29,7 +29,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
     soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/empty.ogg
+      path: /Audio/_Maid/Weapons/Guns/Empty/empty.ogg # MAID sound-porting
   - type: ItemSlots
     slots:
       gun_magazine:

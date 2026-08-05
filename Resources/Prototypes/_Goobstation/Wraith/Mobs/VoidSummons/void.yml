@@ -15,7 +15,7 @@
       params:
           volume: -5
           maxDistance: 10
-          variation: 0.8
+          # variation: 0.8 # MAID sound-porting
   - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound
@@ -127,7 +127,7 @@
       params:
           volume: -5
           maxDistance: 10
-          variation: 0.8
+          # variation: 0.8 # MAID sound-porting
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Wraith/Mobs/void.rsi
@@ -226,7 +226,7 @@
       params:
           volume: -5
           maxDistance: 10
-          variation: 0.8
+          # variation: 0.8 # MAID sound-porting
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Wraith/Mobs/void.rsi
@@ -311,7 +311,7 @@
       params:
           volume: -5
           maxDistance: 10
-          variation: 0.8
+          # variation: 0.8 # MAID sound-porting
 
 - type: entity
   id: MobVoidSpikerWraith
@@ -325,7 +325,7 @@
       params:
           volume: -5
           maxDistance: 10
-          variation: 0.8
+          # variation: 0.8 # MAID sound-porting
 
 - type: entity
   id: MobVoidHoundWraith
@@ -339,4 +339,4 @@
       params:
           volume: -5
           maxDistance: 10
-          variation: 0.8
+          # variation: 0.8 # MAID sound-porting

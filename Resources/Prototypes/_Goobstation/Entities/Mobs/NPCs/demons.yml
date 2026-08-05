@@ -135,7 +135,7 @@
         params:
           volume: -5
           maxDistance: 10
-          variation: 0.5
+          # variation: 0.5 # MAID sound-porting
     - type: NpcFactionMember
       factions:
         - SimpleHostile
@@ -222,7 +222,7 @@
         params:
           volume: -5
           maxDistance: 15
-          variation: 0.5
+          # variation: 0.5 # MAID sound-porting
     - type: NpcFactionMember
       factions:
         - SimpleHostile

@@ -86,8 +86,8 @@
     useKey: false
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_svalinn.ogg
-      params:
-        variation: 0.05
+      # params: # MAID sound-porting
+        # variation: 0.05 # MAID sound-porting
   - type: MagazineVisuals
     magState: mag
     steps: 10
@@ -143,8 +143,8 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_perforator.ogg
-      params:
-        variation: 0.05
+      # params: # MAID sound-porting
+        # variation: 0.05 # MAID sound-porting
   - type: MagazineVisuals
     magState: mag
     steps: 10
@@ -209,7 +209,7 @@
       params:
         pitch: 0.8
     soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/empty.ogg
+      path: /Audio/_Maid/Weapons/Guns/Empty/empty.ogg #MAID Sound porting
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -258,10 +258,10 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_duster.ogg
       params:
-        variation: 0.05
+        # variation: 0.05 # MAID sound-porting
         pitch: 0.8
     soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/empty.ogg
+      path: /Audio/_Maid/Weapons/Guns/Empty/empty.ogg #MAID Sound porting
   - type: Machine
     board: ShuttleGunDusterCircuitboard
   - type: MagazineAmmoProvider
@@ -360,15 +360,15 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
-      params:
-        variation: 0.12
+      # params: # MAID sound-porting
+        # variation: 0.12 # MAID sound-porting
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 2
     rechargeSound:
       path: /Audio/Weapons/Guns/Bolt/lmg_bolt_closed.ogg
       params:
         pitch: 1.2
-        variation: 0.08
+        # variation: 0.08 # MAID sound-porting
   - type: BasicEntityAmmoProvider
     proto: BulletKineticShuttle
     capacity: 5

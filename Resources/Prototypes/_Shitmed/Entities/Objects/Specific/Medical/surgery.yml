@@ -86,7 +86,7 @@
         soundStateActivate:
           collection: sparks
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -5
 
       drill: !type:ItemSwitchState
@@ -100,7 +100,7 @@
         soundStateActivate:
           collection: sparks
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -5
 
 - type: entity
@@ -146,7 +146,7 @@
         soundStateActivate:
           collection: sparks
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -5
 
       hemostat: !type:ItemSwitchState
@@ -164,7 +164,7 @@
         soundStateActivate:
           collection: sparks
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -5
 
 - type: entity
@@ -210,7 +210,7 @@
         soundStateActivate:
           collection: WelderOn
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -5
 
       stitches: !type:ItemSwitchState
@@ -224,7 +224,7 @@
         soundStateActivate:
           collection: sparks
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -5
 
 - type: entity
@@ -269,7 +269,7 @@
         soundStateActivate:
           collection: sparks
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -5
 
       bonesetter: !type:ItemSwitchState
@@ -283,7 +283,7 @@
         soundStateActivate:
           collection: sparks
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -5
 
 - type: entity

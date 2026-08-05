@@ -411,7 +411,7 @@
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
-        sound: "/Audio/Ambience/Antag/headrev_start.ogg"
+        sound: "/Audio/_Maid/Ambience/Antag/headrev_start.ogg" #MAID Sound porting
       startingGear: HeadRevGear
       components:
       - type: Revolutionary
@@ -514,7 +514,7 @@
       briefing:
         text: zombie-patientzero-role-greeting
         color: Plum
-        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
+        sound: "/Audio/_Maid/Ambience/Antag/zombie_start.ogg" #MAID Sound porting
       components:
       - type: PendingZombie
       - type: ZombifyOnDeath

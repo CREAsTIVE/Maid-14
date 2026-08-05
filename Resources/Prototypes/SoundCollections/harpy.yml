@@ -132,7 +132,7 @@
     - /Audio/Items/desk_bell_ring.ogg
     - /Audio/Items/ring.ogg
     - /Audio/Machines/ding.ogg
-    - /Audio/Machines/warning_buzzer.ogg
+    - /Audio/_Maid/Machines/warning_buzzer.ogg #MAID Sound porting
 
 - type: soundCollection
   id: HarpyHonks
@@ -168,7 +168,7 @@
     - /Audio/Weapons/Guns/Gunshots/c-20r.ogg
     - /Audio/Items/snap.ogg
     - /Audio/Machines/blastdoor.ogg
-    - /Audio/Machines/machine_vend.ogg
+    - /Audio/_Maid/Machines/machine_vend.ogg #MAID Sound porting
     - /Audio/Magic/disintegrate.ogg
     - /Audio/Magic/fireball.ogg
     - /Audio/Magic/forcewall.ogg

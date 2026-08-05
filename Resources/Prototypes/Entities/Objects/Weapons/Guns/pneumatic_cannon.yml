@@ -199,7 +199,7 @@
 #    soundGunshot:
 #      path: /Audio/Weapons/Guns/Gunshots/syringe_gun.ogg
 #    soundEmpty:
-#      path: /Audio/Weapons/Guns/Empty/empty.ogg
+#      path: /Audio/_Maid/Weapons/Guns/Empty/empty.ogg #MAID Sound porting
 #    clumsyProof: true
 #  - type: ContainerAmmoProvider
 #    container: storagebase

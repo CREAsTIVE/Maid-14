@@ -25,7 +25,7 @@
       briefing:
         text: ninja-role-greeting
         color: Green
-        sound: /Audio/Misc/ninja_greeting.ogg
+        sound: /Audio/_Maid/Misc/ninja_greeting.ogg # MAID sound-porting
       components:
       - type: SpaceNinja
       - type: NpcFactionMember

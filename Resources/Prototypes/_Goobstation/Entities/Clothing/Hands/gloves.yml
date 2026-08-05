@@ -213,7 +213,7 @@
         soundStateActivate:
           collection: sparks
           params:
-            variation: 0.125
+            # variation: 0.125 # MAID sound-porting
             volume: -5
 
       claws: !type:ItemSwitchState
@@ -236,8 +236,8 @@
             canWideSwing: false
         soundStateActivate:
           collection: sparks
-          params:
-            variation: 0.125
+          # params: # MAID sound-porting
+            # variation: 0.125 # MAID sound-porting
 
 - type: entity
   parent: ClothingHandsGlovesDeathsquad
