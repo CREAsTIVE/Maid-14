@@ -1,9 +1,9 @@
 using Robust.Shared.Audio;
 
-namespace Content.Server._White.Other.DeathGasps;
+namespace Content.Server._Maid.DeathGasps;
 
 [RegisterComponent]
-public sealed partial class DeathGaspsComponent : Component
+public sealed partial class OnDeathSoundsComponent : Component
 {
     [DataField]
     public SoundSpecifier DeathSounds = new SoundCollectionSpecifier("deathSounds");

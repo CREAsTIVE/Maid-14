@@ -3,7 +3,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 
-namespace Content.Server._White.Other.DeathGasps;
+namespace Content.Server._Maid.DeathGasps;
 
 public sealed class OnDeath : EntitySystem
 {
@@ -11,14 +11,14 @@ public sealed class OnDeath : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<DeathGaspsComponent, MobStateChangedEvent>(HandleDeathEvent);
-        SubscribeLocalEvent<DeathGaspsComponent, PlayerDetachedEvent>(OnDetach);
+        SubscribeLocalEvent<OnDeathSoundsComponent, MobStateChangedEvent>(HandleDeathEvent);
+        SubscribeLocalEvent<OnDeathSoundsComponent, PlayerDetachedEvent>(OnDetach);
     }
 
     private readonly Dictionary<EntityUid, EntityUid> _playingStreams = new();
 
 
-    private void HandleDeathEvent(EntityUid uid, DeathGaspsComponent component, MobStateChangedEvent args)
+    private void HandleDeathEvent(EntityUid uid, OnDeathSoundsComponent component, MobStateChangedEvent args)
     {
         //^.^
         switch (args.NewMobState)
@@ -39,7 +39,7 @@ public sealed class OnDeath : EntitySystem
         }
     }
 
-    private void PlayPlayingStream(EntityUid uid, DeathGaspsComponent component)
+    private void PlayPlayingStream(EntityUid uid, OnDeathSoundsComponent component)
     {
         if (_playingStreams.TryGetValue(uid, out var currentStream))
         {
@@ -63,15 +63,17 @@ public sealed class OnDeath : EntitySystem
         _playingStreams.Remove(uid);
     }
 
-    private void PlayDeathSound(EntityUid uid, DeathGaspsComponent component)
+    private void PlayDeathSound(EntityUid uid, OnDeathSoundsComponent component)
     {
+        // MAID BEGIN sound-porting
         if (component.CanOtherHearDeathSound)
             _audio.PlayPvs(component.DeathSounds, uid, AudioParams.Default);
-        else
-            _audio.PlayEntity(component.DeathSounds, uid, uid, AudioParams.Default);
+        else if (TryComp<ActorComponent>(uid, out var actor))
+            _audio.PlayEntity(component.DeathSounds, actor.PlayerSession, uid, AudioParams.Default);
+        // MAID END sound-porting
     }
 
-    private void OnDetach(EntityUid uid, DeathGaspsComponent component, PlayerDetachedEvent args)
+    private void OnDetach(EntityUid uid, OnDeathSoundsComponent component, PlayerDetachedEvent args)
     {
         StopPlayingStream(args.Entity);
     }
