@@ -19,53 +19,22 @@
   id: FillSalvageSpecialistHardsuitSpatio
   table: !type:AllSelector
     children:
-    #    Maid edit start
     - id: OxygenTankFilled
-    - id: NitrogenTankFilled
-    - id: ClothingMaskGasExplorer
-    - id: ClothingOuterHardsuitSpatio
     - id: ClothingShoesBootsMag
-#    - id: OxygenTankFilled
-#    - id: ClothingShoesBootsMag
-#    - id: ClothingOuterHardsuitSalvage
-#    - id: ClothingMaskGasExplorer
-#    Maid edit end
+    - id: ClothingOuterHardsuitSalvage
+    - id: ClothingMaskGasExplorer
 
 - type: entityTable
   id: LockerFillSalvageSpecialist
   table: !type:AllSelector
     children:
-    #      Maid edit start
-    - id: HandHeldMassScanner
-    - id: ClothingEyesGlassesMeson
     - id: ClothingBeltUtilityFilled
+    - id: UndeterminedWeaponSalvageSpecialist
     - id: SurvivalKnife
-    - id: HandheldGPSBasic
-    - id: RadioHandheld
-    - id: SeismicCharge
-      amount: 2
-    - id: ClothingHandsGlovesColorBlack #Maid edit start
-    - id: WeaponFlareGun
-    - id: FlashlightLantern
-    - id: WeaponCrusher
-    - id: BoxFlare
-    - id: WeaponProtoKineticAccelerator
-    - id: OreBag
-    - id: Pickaxe
-    - id: LavalandJaunter
-    - id: LavalandEquipmentExplorerSuit
-    - id: ShelterCapsule
-    - id: ClothingMaskGasExplorer
-    - id: MineralScanner
-    - id: FlashlightSeclite
-#    - id: ClothingBeltUtilityFilled
-#    - id: UndeterminedWeaponSalvageSpecialist
-#    - id: SurvivalKnife
-#    - id: AppraisalTool
-#    - id: FireExtinguisher
-#    - !type:NestedSelector
-#      tableId: FillGeneralMiningExploration
-#     Maid edit end
+    - id: AppraisalTool
+    - id: FireExtinguisher
+    - !type:NestedSelector
+      tableId: FillGeneralMiningExploration
 
 # Shaft miner items
 - type: entityTable

@@ -47,16 +47,6 @@
       amount: !type:ConstantNumberSelector
         value: 2
     - id: Gauze
-    - id: MedkitFilled # Maid
-
-# Maid edit start
-- type: entityTable
-  id: LockerFillMedicineBoxes
-  table: !type:AllSelector
-    children:
-    - id: BoxPillCanister
-    - id: BoxBottle
-# Maid edit end
 
 - type: entity
   parent: LockerMedicine
@@ -65,17 +55,8 @@
   components:
   - type: EntityTableContainerFill
     containers:
-# Maid edit start
-      entity_storage: !type:AllSelector
-        children:
-        - !type:NestedSelector
-          tableId: LockerFillMedicine
-        - !type:NestedSelector
-          tableId: LockerFillMedicineBoxes
-
-#      entity_storage: !type:NestedSelector
-#        tableId: LockerFillMedicine
-# Maid edit end
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillMedicine
 
 - type: entity
   parent: LockerWallMedical
@@ -92,47 +73,19 @@
   id: LockerFillMedicalDoctor
   table: !type:AllSelector
     children:
-    # maid edit start
-    #    - id: HandheldHealthAnalyzer
-    #      prob: 0.6
-    #    # - id: ClothingHeadMirror
-    #    #   prob: 0.1
-    #    - id: ClothingHandsGlovesLatex
-    #    - id: ClothingHeadsetMedical
-    #    - id: ClothingEyesHudMedical
-    #    - id: UniformScrubsColorBlue
-    #    - id: ClothingHeadHatSurgcapBlue
-    #    - id: ClothingMaskSterile
-    #    - id: ClothingOuterCoatLab
-    #    - id: ClothingMaskBreathMedical
-    #    - id: ClothingBeltMedicalFilled
     - id: HandheldHealthAnalyzer
+      prob: 0.6
+    # - id: ClothingHeadMirror
+    #   prob: 0.1
     - id: ClothingHandsGlovesLatex
     - id: ClothingHeadsetMedical
     - id: ClothingEyesHudMedical
-    - id: ClothingBeltMedical
-    - id: ClothingHeadHatSurgcapGreen
-      prob: 0.1
-      orGroup: Surgcaps
-    - id: ClothingHeadHatSurgcapPurple
-      prob: 0.05
-      orGroup: Surgcaps
-    - id: ClothingHeadHatSurgcapBlue
-      prob: 0.90
-      orGroup: Surgcaps
-    - id: ClothingUniformJumpsuitMedicalDoctor
-    - id: ClothingUniformJumpskirtMedicalDoctor
     - id: UniformScrubsColorBlue
-      prob: 0.5
-      orGroup: Surgshrubs
-    - id: UniformScrubsColorGreen
-      prob: 0.1
-      orGroup: Surgshrubs
-    - id: UniformScrubsColorPurple
-      prob: 0.05
-      orGroup: Surgshrubs
+    - id: ClothingHeadHatSurgcapBlue
     - id: ClothingMaskSterile
-    # maid edit end
+    - id: ClothingOuterCoatLab
+    - id: ClothingMaskBreathMedical
+    - id: ClothingBeltMedicalFilled
 
     # - !type:GroupSelector
     #   children:
@@ -185,20 +138,15 @@
     - id: BoxBottle
     - id: BoxVial
     # - id: PlasmaChemistryVial
-    #    - id: ClothingMaskBreathMedical #Maid
-    #    - id: ClothingOuterCoatLabChem #Maid
+    - id: ClothingMaskBreathMedical
+    - id: ClothingOuterCoatLabChem
     - id: ChemBag
-      amount: 3 # Maid
     - id: ClothingHandsGlovesLatex
-      amount: 3 # Maid
     - id: ClothingHeadsetMedical
-      amount: 3 # Maid
     - id: ClothingMaskSterile
-      amount: 3 # Maid
-    #    - id: portableChemicalMixer # Goob, until chemmaster rework # Maid
+    - id: portableChemicalMixer # Goob, until chemmaster rework
     - id: HandLabeler
-      amount: 3 # Maid
-#      prob: 0.5 # Maid
+      prob: 0.5
 
 - type: entity
   parent: LockerChemistry
@@ -237,37 +185,21 @@
   components:
   - type: StorageFill
     contents:
-    # Maid edit start
-    #      # - id: UndeterminedVoidsuitParamedic # Goob edit
-    #      - id: ClothingMaskBreathMedical
-    #      - id: ClothingOuterHardsuitVoidParamed
-    #      - id: ClothingBeltMedicalEMTFilled
-    #      - id: OxygenTankFilled
-    #      - id: NitrogenTankFilled
-    #      - id: ClothingOuterCoatParamedicWB
-    #      - id: ClothingHeadHatParamedicsoft
-    #      - id: ClothingOuterWinterPara
-    #      - id: ClothingUniformJumpsuitParamedic
-    #      - id: ClothingUniformJumpskirtParamedic
-    #      - id: ClothingEyesHudMedical
-    #      - id: ClothingHandsGlovesLatex
-    #      - id: ClothingHeadsetMedical
-    #      - id: ClothingMaskSterile
-    #      - id: HandheldGPSBasic
-    #      - id: MedkitFilled
-    #        prob: 0.3
-    - id: ClothingOuterHardsuitVoidParamed
-    - id: ClothingOuterCoatParamedicWB
-    - id: ClothingHeadHatParamedicsoft
-    - id: ClothingOuterWinterPara
-    - id: ClothingUniformJumpsuitParamedic
-    - id: ClothingUniformJumpskirtParamedic
-    - id: ClothingEyesHudMedical
-    - id: ClothingHandsGlovesLatex
-    - id: ClothingHeadsetMedical
-    - id: ClothingMaskSterile
-    - id: HandheldGPSBasic
-    - id: MedkitFilled
-    - id: ClothingBeltMedicalEMTFilled
-    - id: HandheldCrewMonitor
-    # Maid edit end
+      # - id: UndeterminedVoidsuitParamedic # Goob edit
+      - id: ClothingMaskBreathMedical
+      - id: ClothingOuterHardsuitVoidParamed
+      - id: ClothingBeltMedicalEMTFilled
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
+      - id: ClothingOuterCoatParamedicWB
+      - id: ClothingHeadHatParamedicsoft
+      - id: ClothingOuterWinterPara
+      - id: ClothingUniformJumpsuitParamedic
+      - id: ClothingUniformJumpskirtParamedic
+      - id: ClothingEyesHudMedical
+      - id: ClothingHandsGlovesLatex
+      - id: ClothingHeadsetMedical
+      - id: ClothingMaskSterile
+      - id: HandheldGPSBasic
+      - id: MedkitFilled
+        prob: 0.3
