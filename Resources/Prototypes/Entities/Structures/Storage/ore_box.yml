@@ -80,8 +80,8 @@
     #- 0,0,9,5
     - 0,0,11,7 # Lavaland Change
     maxItemSize: Normal
-    storageOpenSound: /Audio/Effects/closetopen.ogg
-    storageCloseSound: /Audio/Effects/closetclose.ogg
+    storageOpenSound: /Audio/_Maid/Effects/closetopen.ogg #MAID Sound porting
+    storageCloseSound: /Audio/_Maid/Effects/closetclose.ogg #MAID Sound porting
     whitelist:
       tags:
       - Ore

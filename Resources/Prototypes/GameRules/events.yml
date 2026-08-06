@@ -454,7 +454,7 @@
       briefing:
         text: ninja-role-greeting
         color: Green
-        sound: /Audio/Misc/ninja_greeting.ogg
+        sound: /Audio/_Maid/Misc/ninja_greeting.ogg #MAID Sound porting
       components:
       - type: SpaceNinja
       - type: NpcFactionMember
@@ -830,7 +830,7 @@
       briefing:
         text: zombie-patientzero-role-greeting
         color: Plum
-        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
+        sound: "/Audio/_Maid/Ambience/Antag/zombie_start.ogg" #MAID Sound porting
       components:
       - type: PendingZombie #less time to prepare than normal
         minInitialInfectedGrace: 300

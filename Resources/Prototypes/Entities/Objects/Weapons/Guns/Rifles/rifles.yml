@@ -393,6 +393,6 @@
     soundGunshot:
       path: /Audio/Effects/thunk.ogg
     soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/empty.ogg
+      path: /Audio/_Maid/Weapons/Guns/Empty/empty.ogg #MAID Sound porting
     clumsyProof: true
   - type: PacifismAllowedGun

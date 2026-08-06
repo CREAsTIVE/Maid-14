@@ -110,12 +110,12 @@
     soundActivate:
       path: /Audio/Machines/button.ogg
       params:
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
         volume: -4
     soundDeactivate:
       path: /Audio/Machines/button.ogg
       params:
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
         volume: -4
     verbToggleOn: fire-extinguisher-component-verb-remove
     verbToggleOff: fire-extinguisher-component-verb-engage

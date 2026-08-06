@@ -130,7 +130,12 @@ public abstract partial class SharedDrinkSystem : EntitySystem
 
         args.Handled = true;
 
+        // MAID BEGIN sound-porting
+        /*
         _audio.PlayPredicted(entity.Comp.UseSound, args.Target, args.User, AudioParams.Default.WithVolume(-2f).WithVariation(0.25f));
+        */
+        _audio.PlayPredicted(entity.Comp.UseSound, args.Target, args.User, AudioParams.Default.WithVolume(-2f));
+        // MAID END sound-porting
 
         var flavors = _flavorProfile.GetLocalizedFlavorsMessage(entity.Owner, args.Target, args.Split);
 

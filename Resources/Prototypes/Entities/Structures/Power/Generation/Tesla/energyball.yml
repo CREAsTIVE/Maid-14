@@ -103,8 +103,8 @@
     spawnProto: TeslaMiniEnergyBall
     soundCollapse:
       path: /Audio/Effects/tesla_collapse.ogg
-      params:
-        variation: 0.3
+      # params: # MAID sound-porting
+        # variation: 0.3 # MAID sound-porting
   - type: LightningArcShooter
     arcDepth: 3
     maxLightningArc: 4
@@ -130,8 +130,8 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/Effects/tesla_collapse.ogg
-      params:
-        variation: 0.3
+      # params: # MAID sound-porting
+        # variation: 0.3 # MAID sound-porting
   - type: InteractionPopup # for the brave
     successChance: 0.2
     interactSuccessString: petting-success-tesla

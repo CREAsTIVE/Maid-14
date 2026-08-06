@@ -590,6 +590,7 @@
     - Bacterial
     - Parasite
   # </Goobstation>
+  - type: OnDeathSounds # MAID sound-porting
 
 - type: entity
   save: false

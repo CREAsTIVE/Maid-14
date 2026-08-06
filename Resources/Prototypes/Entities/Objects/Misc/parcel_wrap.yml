@@ -14,7 +14,7 @@
       path: /Audio/Items/Handcuffs/rope_start.ogg
       params:
         volume: -5
-        variation: 0.05
+        # variation: 0.05 # MAID sound-porting
     whitelist:
       components:
       - Item

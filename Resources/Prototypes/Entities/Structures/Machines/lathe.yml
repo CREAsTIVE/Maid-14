@@ -351,7 +351,7 @@
       params:
         volume: -12 # Ambient
         maxDistance: 10
-        variation: 0.05
+        # variation: 0.05 # MAID sound-porting
   - type: SpamEmitSoundRequirePower # Goobstation
 
 # a lathe that can be sped up with space lube / slowed down with glue

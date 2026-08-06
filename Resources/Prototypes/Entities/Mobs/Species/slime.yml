@@ -72,6 +72,8 @@
   abstract: true
   components:
   - type: Hunger
+  - type: OnDeathSounds # MAID sound-porting override
+    heartSounds: null
   - type: Thirst
   - type: Icon
     sprite: Mobs/Species/Slime/parts.rsi
@@ -86,7 +88,7 @@
     - 0,0,1,2
     maxItemSize: Large
     storageInsertSound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
+      path: /Audio/_Maid/Voice/Slime/slime_squish.ogg #MAID Sound porting
   - type: ContainerContainer
     containers:
       storagebase: !type:Container

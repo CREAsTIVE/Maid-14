@@ -26,7 +26,7 @@
     soundHit:
       path: /Audio/_DV/CosmicCult/ability_nova_impact.ogg
       params:
-        variation: 0.1
+        # variation: 0.1 # MAID sound-porting
         volume: +14
   - type: CosmicAstralNova
   - type: Sprite

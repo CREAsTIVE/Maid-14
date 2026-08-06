@@ -141,23 +141,23 @@
     soundActivate:
       collection: WelderOn
       params:
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
         volume: -5
     soundDeactivate:
       collection: WelderOff
       params:
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
         volume: -5
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
       params:
-        variation: 0.250
+        # variation: 0.250 # MAID sound-porting
         volume: -10
     activatedSoundOnHitNoDamage:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
       params:
-        variation: 0.250
+        # variation: 0.250 # MAID sound-porting
         volume: -12
     deactivatedSoundOnHitNoDamage:
       collection: MetalThud

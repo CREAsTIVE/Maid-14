@@ -174,7 +174,11 @@ public sealed partial class PainSystem : EntitySystem
                 if (TryComp<HumanoidAppearanceComponent>(args.Target, out var humanoid))
                     sex = humanoid.Sex;
 
+// MAID BEGIN remove crit cry
+/*
                 PlayPainSoundWithCleanup(args.Target, nerveSys, nerveSys.CritWhimpers[sex], AudioParams.Default.WithVolume(-12f));
+*/
+// MAID END remove crit cry
                 nerveSys.NextCritScream = _timing.CurTime + _random.Next(nerveSys.CritScreamsIntervalMin, nerveSys.CritScreamsIntervalMax);
                 break;
 

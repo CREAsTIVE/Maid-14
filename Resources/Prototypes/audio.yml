@@ -189,7 +189,7 @@
     - /Audio/Ambience/ambiruin5.ogg
     - /Audio/Ambience/ambiruin6.ogg
     - /Audio/Ambience/ambiruin7.ogg
-    - /Audio/Ambience/voyage_neverending.ogg
+    - /Audio/_Maid/Ambience/voyage_neverending.ogg #MAID Sound porting
     - /Audio/Ambience/unanchored.ogg
 
 - type: soundCollection
@@ -212,9 +212,9 @@
 - type: soundCollection
   id: AmbienceSpace
   files:
-    - /Audio/Ambience/constellations.ogg
-    - /Audio/Ambience/starlight.ogg
-    - /Audio/Ambience/drifting.ogg
+    - /Audio/_Maid/Ambience/constellations.ogg #MAID Sound porting
+    - /Audio/_Maid/Ambience/starlight.ogg #MAID Sound porting
+    - /Audio/_Maid/Ambience/drifting.ogg #MAID Sound porting
     - /Audio/Ambience/spookyspace1.ogg
     - /Audio/Ambience/spookyspace2.ogg
     - /Audio/Ambience/ambispace2.ogg

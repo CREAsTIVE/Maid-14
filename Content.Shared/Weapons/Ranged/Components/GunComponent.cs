@@ -60,7 +60,7 @@ public sealed partial class GunComponent : Component
     public SoundSpecifier? SoundGunshotModified;
 
     [DataField]
-    public SoundSpecifier? SoundEmpty = new SoundPathSpecifier("/Audio/Weapons/Guns/Empty/empty.ogg");
+    public SoundSpecifier? SoundEmpty = new SoundPathSpecifier("/Audio/_Maid/Weapons/Guns/Empty/empty.ogg"); // MAID sound-porting
 
     /// <summary>
     /// Sound played when toggling the <see cref="SelectedMode"/> for this gun.
