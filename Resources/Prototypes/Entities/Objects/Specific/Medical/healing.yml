@@ -112,12 +112,12 @@
       path: "/Audio/Items/Medical/ointment_begin.ogg"
       params:
         volume: 1.0
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
       params:
         volume: 1.0
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
   - type: Stack
     stackType: Ointment
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
@@ -169,12 +169,12 @@
       path: "/Audio/Items/Medical/ointment_begin.ogg"
       params:
         volume: 1.0
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
       params:
         volume: 1.0
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
   - type: Stack
     stackType: RegenerativeMesh
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
@@ -223,12 +223,12 @@
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
       params:
         volume: 1.0
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
       params:
         volume: 1.0
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
   - type: Stack
     stackType: Brutepack
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
@@ -279,12 +279,12 @@
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
       params:
         volume: 1.0
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
       params:
         volume: 1.0
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
   - type: Stack
     stackType: MedicatedSuture
     count: 15 #Was 10, Buffed due to surgery changes (Goobstation)
@@ -299,12 +299,12 @@
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
       params:
         volume: 1.0
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
     endSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
       params:
         volume: 1.0
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
   # </Shitmed>
 
 - type: entity
@@ -350,12 +350,12 @@
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
       params:
         volume: 1.0
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
       params:
         volume: 1.0
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
   - type: Stack
     stackType: Bloodpack
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
@@ -425,12 +425,12 @@
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
       params:
         volume: 1.0
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
       params:
         volume: 1.0
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
   - type: Stack
     stackType: Gauze
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
@@ -492,12 +492,12 @@
       path: "/Audio/Items/Medical/ointment_begin.ogg"
       params:
         volume: 1.0
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
       params:
         volume: 1.0
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
 
 # Pills
 - type: entity

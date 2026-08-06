@@ -100,12 +100,12 @@
     activatedSoundOnHit:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
       params:
-        variation: 0.250
+        # variation: 0.250 # MAID sound-porting
         volume: -10
     activatedSoundOnHitNoDamage:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
       params:
-        variation: 0.250
+        # variation: 0.250 # MAID sound-porting
         volume: -12
     deactivatedSoundOnHitNoDamage:
       collection: MetalThud
@@ -116,7 +116,7 @@
     soundDeactivate:
       path: /Audio/Items/candle_blowing.ogg
       params:
-        variation: 0.05
+        # variation: 0.05 # MAID sound-porting
         volume: 10
   - type: ItemToggleHot
   - type: Sprite

@@ -24,14 +24,14 @@
 - type: soundCollection
   id: MaleCough
   files:
-    - /Audio/Voice/Human/male_cough_1.ogg
-    - /Audio/Voice/Human/male_cough_2.ogg
+    - /Audio/_Maid/Voice/Human/male_cough_1.ogg #MAID Sound porting
+    - /Audio/_Maid/Voice/Human/male_cough_2.ogg #MAID Sound porting
 
 - type: soundCollection
   id: FemaleCough
   files:
-    - /Audio/Voice/Human/female_cough_1.ogg
-    - /Audio/Voice/Human/female_cough_2.ogg
+    - /Audio/_Maid/Voice/Human/female_cough_1.ogg #MAID Sound porting
+    - /Audio/_Maid/Voice/Human/female_cough_2.ogg #MAID Sound porting
 
 
 - type: soundCollection
@@ -98,7 +98,7 @@
 - type: soundCollection
   id: Squishes
   files:
-    - /Audio/Voice/Slime/slime_squish.ogg
+    - /Audio/_Maid/Voice/Slime/slime_squish.ogg #MAID Sound porting
 
 - type: soundCollection
   id: Weh

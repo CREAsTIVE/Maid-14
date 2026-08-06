@@ -22,8 +22,8 @@
     requiredHands: 1
     hornSound:
       collection: BikeHorn
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: MovementSpeedModifier
     weightlessModifier: 0
     acceleration: 1

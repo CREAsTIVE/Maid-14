@@ -842,11 +842,15 @@ Entries:
 - author: antiWAFG1
   changes:
     - type: Remove
-      message: Пожарный шлем больше не даёт полную защиту от температур без основной одежды.
+      message: >-
+        Пожарный шлем больше не даёт полную защиту от температур без основной
+        одежды.
     - type: Tweak
       message: В VendingMachineSec заменён RiotBulletShield на TelescopicShield
     - type: Fix
-      message: Визор синдиката теперь выглядит как солнцезащитный очки и имеет свойства хамелеона.
+      message: >-
+        Визор синдиката теперь выглядит как солнцезащитный очки и имеет свойства
+        хамелеона.
     - type: Fix
       message: Исправил перевод стеклянного стыковочного шлюза.
   id: 76
@@ -854,6 +858,28 @@ Entries:
 - author: CREAsTIVE
   changes:
     - type: Tweak
-      message: Dynamic перебалансирован для более равномерного распределения антагонистов.
+      message: >-
+        Dynamic перебалансирован для более равномерного распределения
+        антагонистов.
   id: 77
   time: '2026-08-02T21:06:10.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Add
+      message: Сердцебиение и звук после смерти
+    - type: Remove
+      message: >-
+        Больше нет рандомизации высоты звука практически у всех звуков (кроме
+        оружия)
+    - type: Tweak
+      message: Портированно огромное количество звуков из старого билда
+  id: 78
+  time: '2026-08-05T16:31:36.0000000+00:00'
+- author: riverkz
+  changes:
+    - type: Add
+      message: /Resources/Audio/StationEvents/epsilon.ogg
+    - type: Add
+      message: /Resources/Audio/StationEvents/peacemakers.ogg
+  id: 79
+  time: '2026-08-05T16:35:10.0000000+00:00'

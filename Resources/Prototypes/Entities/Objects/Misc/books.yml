@@ -103,17 +103,17 @@
    # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/_Goobstation/Items/handling/book_pickup.ogg
+      path: /Audio/_Maid/Items/handling/book_pickup.ogg # MAID sound-porting
       params:
         volume: -4
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/_Goobstation/Items/handling/book_drop.ogg
+      path: /Audio/_Maid/Items/handling/book_drop.ogg # MAID sound-porting
       params:
         volume: -4
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/_Goobstation/Items/handling/book_drop.ogg
+      path: /Audio/_Maid/Items/handling/book_drop.ogg # MAID sound-porting
       params:
         volume: -4
   # Goobstation edit end

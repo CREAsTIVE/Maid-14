@@ -79,8 +79,8 @@
 - type: soundCollection
   id: NukeMusic
   files:
-    - /Audio/StationEvents/running_out.ogg
-#    - /Audio/StationEvents/countdown.ogg # MAID nuke sound
+    - /Audio/_Maid/StationEvents/running_out.ogg #MAID Sound porting
+#    - /Audio/_Maid/StationEvents/countdown.ogg # MAID nuke sound #MAID Sound porting
 #    - /Audio/StationEvents/sound_station_14.ogg # MAID nuke sound
 
 #    # Goobstation No-no-no!!!

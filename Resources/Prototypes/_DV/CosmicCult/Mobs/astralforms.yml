@@ -238,17 +238,17 @@
     soundHit:
       path: /Audio/_DV/CosmicCult/cosmicsword_hit.ogg
       params:
-        variation: 0.2
+        # variation: 0.2 # MAID sound-porting
         volume: -4
     soundSwing:
       path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
       params:
-        variation: 0.125
+        # variation: 0.125 # MAID sound-porting
         volume: -4
     soundNoDamage:
       path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
       params:
-        variation: 0.2
+        # variation: 0.2 # MAID sound-porting
         volume: -11
   - type: StaminaDamageOnHit
     damage: 32

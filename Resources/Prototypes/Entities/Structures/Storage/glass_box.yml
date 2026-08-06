@@ -97,7 +97,7 @@
           collection: WindowShatter
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Machines/warning_buzzer.ogg
+          path: /Audio/_Maid/Machines/warning_buzzer.ogg #MAID Sound porting
           params:
             volume: 10
       - !type:DoActsBehavior
@@ -112,7 +112,7 @@
           collection: WindowShatter
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Machines/warning_buzzer.ogg
+          path: /Audio/_Maid/Machines/warning_buzzer.ogg #MAID Sound porting
           params:
             volume: 10
       - !type:SpawnEntitiesBehavior

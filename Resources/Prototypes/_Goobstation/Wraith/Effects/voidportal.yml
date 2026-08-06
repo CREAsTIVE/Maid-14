@@ -35,7 +35,7 @@
       params:
           volume: -5
           maxDistance: 10
-          variation: 0.05
+          # variation: 0.05 # MAID sound-porting
   - type: FadingIn # New component used to fade in a sprite once it is spawned.
     fadeInTime: 2
   - type: FadingTimedDespawn
