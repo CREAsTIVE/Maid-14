@@ -204,18 +204,34 @@
   id: FillLockerBrigmedic # heavily good edited
   table: !type:AllSelector
     children:
-    - id: BoxAutoinjectorCartidges
-    - id: ClothingBackpackDuffelSurgeryFilled
-    - id: ClothingHandsGlovesLatex
-    - id: ClothingOuterHardsuitBrigmedic
-    - id: OxygenTankFilled
-    - id: NitrogenTankFilled
+# Maid edit start
+#    - id: BoxAutoinjectorCartidges
+#    - id: ClothingBackpackDuffelSurgeryFilled
+#    - id: ClothingHandsGlovesLatex
+#    - id: ClothingOuterHardsuitBrigmedic
+#    - id: OxygenTankFilled
+#    - id: NitrogenTankFilled
+#    - id: ClothingUniformJumpskirtOfLife
+#      prob: 0.1
+#    - id: MedkitOxygenFilled
+#    - id: MedkitAdvancedFilled
+#    - id: BoxSyringe
+#    - id: BoxBodyBag # Goob Station
+    - id: WeaponDisabler
+    - id: TrackingImplanter
+    - id: ClothingHeadHatBeretBrigmedic
+    - id: ClothingMaskSterile
+    - id: ClothingOuterCoatAMG
+    - id: ClothingUniformJumpsuitBrigmedic
+    - id: ClothingUniformJumpskirtBrigmedic
     - id: ClothingUniformJumpskirtOfLife
       prob: 0.1
-    - id: MedkitOxygenFilled
-    - id: MedkitAdvancedFilled
-    - id: BoxSyringe
-    - id: BoxBodyBag # Goob Station
+    - id: ClothingEyesHudMedSec
+    - id: ClothingHandsGlovesNitrile
+    - id: MedkitFilled
+    - id: ClothingNeckCloakMoth #bзззз, молепокалипсис
+      prob: 0.15
+# Maid edit end
 
 - type: entity
   id: LockerDetectiveFilled
