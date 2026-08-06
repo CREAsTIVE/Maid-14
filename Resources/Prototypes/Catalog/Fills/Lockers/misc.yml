@@ -135,20 +135,44 @@
   id: FillLockerEmergencyStandard
   table: !type:AllSelector
     children:
-    - id: ClothingMaskBreath
+    # Maid edit start
+    #    - id: ClothingMaskBreath
+    #    - id: ClothingOuterSuitEmergency
+    #    - !type:GroupSelector
+    #      children:
+    #      - id: EmergencyOxygenTankFilled
+    #      - id: OxygenTankFilled
+    #    - id: ToolboxEmergencyFilled
+    #      prob: 0.5
+    #    - id: MedkitOxygenFilled
+    #      prob: 0.2
+    #    - id: WeaponFlareGun
+    #      prob: 0.1
+    #    - id: BoxMRE
+    #      prob: 0.1
     - id: ClothingOuterSuitEmergency
+    - id: ClothingMaskBreath
     - !type:GroupSelector
       children:
       - id: EmergencyOxygenTankFilled
+        weight: 0.20
       - id: OxygenTankFilled
+        weight: 0.05
+    - !type:GroupSelector
+      children:
+      - id: EmergencyNitrogenTankFilled
+        weight: 0.20
+      - id: NitrogenTankFilled
+        weight: 0.05
     - id: ToolboxEmergencyFilled
-      prob: 0.5
-    - id: MedkitOxygenFilled
-      prob: 0.2
-    - id: WeaponFlareGun
       prob: 0.1
+    - id: MedkitOxygenFilled
+      prob: 0.1
+    - id: WeaponFlareGun
+      prob: 0.05
     - id: BoxMRE
       prob: 0.1
+# Maid edit end
 
 - type: entity
   id: ClosetEmergencyFilledRandom
@@ -174,17 +198,26 @@
   id: FillLockerEmergencyN2Standard
   table: !type:AllSelector
     children:
+    # Maid edit start
+    #    - id: ClothingMaskBreath
+    #    - id: ClothingOuterSuitEmergency
+    #    - id: BoxMRE
+    #      prob: 0.1
+    #    - id: ToolboxEmergencyFilled
+    #      prob: 0.05
+    #    - !type:GroupSelector
+    #      children:
+    #      - id: EmergencyNitrogenTankFilled
+    #        weight: 4
+    #      - id: NitrogenTankFilled
     - id: ClothingMaskBreath
-    - id: ClothingOuterSuitEmergency
-    - id: BoxMRE
-      prob: 0.1
-    - id: ToolboxEmergencyFilled
-      prob: 0.05
     - !type:GroupSelector
       children:
       - id: EmergencyNitrogenTankFilled
-        weight: 4
+        weight: 0.80
       - id: NitrogenTankFilled
+        weight: 0.20
+# Maid edit end
 
 - type: entity
   id: ClosetEmergencyN2FilledRandom
@@ -210,20 +243,29 @@
   id: FillLockerFireStandard
   table: !type:AllSelector
     children:
+    # Maid edit start
+    #    - id: ClothingOuterSuitFire
+    #    - id: ClothingHeadHelmetFire
+    #    - id: ClothingMaskGas
+    #    - !type:GroupSelector
+    #      children:
+    #      - id: EmergencyOxygenTankFilled
+    #      - id: OxygenTankFilled
+    #    - id: CrowbarRed
+    #    - !type:GroupSelector
+    #      children:
+    #      - id: FireExtinguisher
+    #        weight: 98
+    #      - id: SprayBottleWater #It's just budget cut after budget cut man
+    #        weight: 2
     - id: ClothingOuterSuitFire
     - id: ClothingHeadHelmetFire
     - id: ClothingMaskGas
-    - !type:GroupSelector
-      children:
-      - id: EmergencyOxygenTankFilled
-      - id: OxygenTankFilled
-    - id: CrowbarRed
-    - !type:GroupSelector
-      children:
-      - id: FireExtinguisher
-        weight: 98
-      - id: SprayBottleWater #It's just budget cut after budget cut man
-        weight: 2
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: FireExtinguisher
+      prob: 0.15
+# Maid edit end
 
 - type: entity
   id: ClosetFireFilled
@@ -270,36 +312,376 @@
   id: MaintenanceLockerLoot
   table: !type:AllSelector
     children:
-    - id: StrangePill
-      prob: 0.15
-    # Tools
-    - !type:NestedSelector
-      tableId: MaintToolsTable
-      rolls: !type:RangeNumberSelector
-        range: 1, 5
-    # Fluff
-    - !type:NestedSelector
-      tableId: MaintFluffTable
-      prob: 0.33
-      rolls: !type:RangeNumberSelector
-        range: 0, 2
-    # Plushies
-    - !type:NestedSelector
-      tableId: AllPlushiesTable
+    # Maid edit
+    #    - id: StrangePill
+    #      prob: 0.15
+    #    # Tools
+    #    - !type:NestedSelector
+    #      tableId: MaintToolsTable
+    #      rolls: !type:RangeNumberSelector
+    #        range: 1, 5
+    #    # Fluff
+    #    - !type:NestedSelector
+    #      tableId: MaintFluffTable
+    #      prob: 0.33
+    #      rolls: !type:RangeNumberSelector
+    #        range: 0, 2
+    #    # Plushies
+    #    - !type:NestedSelector
+    #      tableId: AllPlushiesTable
+    #      prob: 0.10
+    #      rolls: !type:RangeNumberSelector
+    #        range: 1, 2
+    #    # Weapons
+    #    - !type:NestedSelector
+    #      tableId: MaintWeaponTable
+    #      prob: 0.075
+    #    # Syndie Loot
+    #    - !type:NestedSelector
+    #      tableId: SyndieMaintLoot
+    #      prob: 0.05
+    ##    # Recursive # Maid - rly funny
+    ##    - id: ClosetMaintenanceFilledRandom
+    ##      prob: 0.01
+    - id: Lantern
+      prob: 0.20
+    - id: Wirecutter
       prob: 0.10
-      rolls: !type:RangeNumberSelector
-        range: 1, 2
-    # Weapons
-    - !type:NestedSelector
-      tableId: MaintWeaponTable
-      prob: 0.075
-    # Syndie Loot
-    - !type:NestedSelector
-      tableId: SyndieMaintLoot
+    - id: Screwdriver
+      prob: 0.15
+    - id: Wrench
+      prob: 0.20
+    - id: Crowbar
+      prob: 0.10
+    - id: Welder
+      prob: 0.10
+    - id: Multitool
       prob: 0.05
-#    # Recursive # Maid - rly funny
-#    - id: ClosetMaintenanceFilledRandom
-#      prob: 0.01
+    - id: Soap
+      prob: 0.10
+    #    - id: null # WD tweak to decrease this plushie spawn
+    #      prob: 0.65
+    #      orGroup: carp
+    - !type:GroupSelector
+      children:
+      - id: PlushieCarp
+        prob: 0.2
+      #    - id: ClothingHeadHatGnome
+      #      prob: 0.2
+      - id: PlushieHolocarp
+        weight: 0.05
+      - id: PlushieMagicarp
+        weight: 0.05
+      - id: PlushieRainbowCarp
+        weight: 0.03
+    - id: PlushieSlime
+      prob: 0.1
+    - id: PlushieSnake
+      prob: 0.1
+    - id: ClothingShoesSkates
+      prob: 0.05
+    - id: ClothingHandsGlovesColorYellow
+      prob: 0.05
+    - id: ClothingHandsGlovesFingerlessInsulated
+      prob: 0.07
+    - id: ClothingBeltUtility
+      prob: 0.05
+    - id: ClothingHeadHatCone
+      prob: 0.1
+    - id: WeaponFlareGun
+      prob: 0.05
+    - id: ClothingHandsGlovesColorYellowBudget
+      prob: 0.15
+    - id: StrangePill
+      prob: 0.20
+    - id: DrinkMopwataBottleRandom
+      prob: 0.05
+    - id: ModularReceiver
+      prob: 0.05
+    - id: DrinkSpaceGlue
+      prob: 0.10
+    - id: DrinkSpaceLube
+      prob: 0.10
+    - id: BarberScissors
+      prob: 0.05
+    #    - id: PackedSoil # WD
+    #      prob: 0.05
+    # Syndicate loot
+    #    - id: null
+    #      prob: 0.95
+    - !type:GroupSelector
+      children:
+      - id: ClothingUniformJumpskirtOperative
+        weight: 0.005
+      - id: ClothingUniformJumpsuitOperative
+        weight: 0.005
+      - id: ClothingBackpackDuffelSyndicate
+        weight: 0.005
+      - id: CyberPen
+        weight: 0.005
+      - id: CigPackSyndicate
+        weight: 0.005
+      - id: ClothingBackpackDuffelSyndicatePyjamaBundle
+        weight: 0.005
+      - id: ClothingBeltMilitaryWebbing
+        weight: 0.005
+      - id: ClothingShoesBootsCombatFilled
+        weight: 0.005
+      - id: ToolboxSyndicateFilled
+        weight: 0.005
+      - id: BalloonSyn
+        weight: 0.005
+      - id: WeaponSniperMosin
+        weight: 0.0010
+    # StockParts - WD Edit
+    #    - id: null
+    #      prob: 0.65
+    #      orGroup: stockparts
+    #    - id: MatterBinStockPart
+    #      prob: 0.15
+    #      orGroup: stockparts
+    - !type:GroupSelector
+      children:
+      - id: MicroManipulatorStockPart
+        weight: 0.15
+    #    - id: CapacitorStockPart
+    #      prob: 0.15
+    #      orGroup: stockparts
+    # Materials - WD Edit
+    #    - id: null
+    #      prob: 0.88
+    - !type:GroupSelector
+      children:
+      - id: MaterialWoodPlank
+        weight: 0.01
+      - id: SheetPlasteel
+        weight: 0.01
+      - id: SheetPlastic
+        weight: 0.01
+      - id: SheetSteel
+        weight: 0.01
+      - id: SheetGlass
+        weight: 0.01
+      - id: MaterialBananium1
+        weight: 0.01
+      - id: SheetUranium
+        weight: 0.005
+      - id: SheetPlasma
+        weight: 0.005
+      - id: IngotGold
+        weight: 0.005
+      - id: IngotSilver
+        weight: 0.005
+      - id: MaterialCloth
+        weight: 0.01
+      - id: MaterialDurathread
+        weight: 0.01
+      - id: MaterialBiomass
+        weight: 0.01
+      - id: MaterialWebSilk
+        weight: 0.01
+    # Medical - WD Edit
+    #    - id: null
+    #      prob: 0.90
+    #      orGroup: medicalmaintloot
+    - !type:GroupSelector
+      children:
+      - id: Gauze
+        weight: 0.01
+      - id: Ointment
+        weight: 0.01
+      - id: Brutepack
+        weight: 0.01
+      - id: MedicatedSuture
+        weight: 0.005
+      - id: RegenerativeMesh
+        weight: 0.005
+      - id: EmergencyMedipen
+        weight: 0.03
+      - id: CombatMedipen
+        weight: 0.0005
+      - id: AntiPoisonMedipen
+        weight: 0.0005
+      - id: ChemicalSynthesisKit
+        weight: 0.001
+      - id: MedkitFilled
+        weight: 0.002
+      - id: MedkitCombatFilled
+        weight: 0.001
+      - id: MedkitToxinFilled
+        weight: 0.001
+      - id: MedkitRadiationFilled
+        weight: 0.002
+      - id: MedkitAdvancedFilled
+        weight: 0.001
+      - id: MedkitBurnFilled
+        weight: 0.002
+    # Security - WD Edit
+    #    - id: null
+    #      prob: 0.999
+    #      orGroup: securitymaintloot
+    - !type:GroupSelector
+      children:
+      - id: ClothingOuterArmorRiot
+        weight: 0.00005
+      - id: ClothingOuterArmorBasic
+        weight: 0.00005
+      - id: ClothingOuterArmorBulletproof
+        weight: 0.00005
+      - id: ClothingHeadHelmetBasic
+        weight: 0.00005
+      - id: FlashlightSeclite
+        weight: 0.0001
+      - id: Flash
+        weight: 0.0001
+      - id: ClothingEyesGlassesSecurity
+        weight: 0.0001
+      - id: Handcuffs
+        weight: 0.0001
+      - id: GrenadeFlashBang
+        weight: 0.0001
+      - id: TearGasGrenade
+        weight: 0.0001
+      - id: WeaponShotgunEnforcerRubber
+        weight: 0.00005
+      #    - id: WeaponPistolMk58Nonlethal
+      #      prob: 0.00005
+      #      orGroup: securitymaintloot
+      - id: WeaponDisabler
+        weight: 0.00005
+      - id: Stunbaton
+        weight: 0.00005
+    # Encryption Keys - WD Edit
+    #    - id: null
+    #      prob: 0.999
+    #      orGroup: encryptionkeymaintloot
+    - !type:GroupSelector
+      children:
+      - id: EncryptionKeyService
+        weight: 0.0003
+      - id: EncryptionKeyCargo
+        weight: 0.0002
+      - id: EncryptionKeyMedical
+        weight: 0.0002
+      - id: EncryptionKeyScience
+        weight: 0.0001
+      - id: EncryptionKeyEngineering
+        weight: 0.0001
+      - id: EncryptionKeySecurity
+        weight: 0.00005
+      - id: EncryptionKeyCommand
+        weight: 0.00005
+    # Implanters - WD Edit
+    #    - id: null
+    #      prob: 0.999
+    #      orGroup: implantermaintloot
+    - !type:GroupSelector
+      children:
+      - id: BikeHornImplanter
+        weight: 0.0002
+      - id: SadTromboneImplanter
+        weight: 0.0002
+      - id: MindShieldImplanter
+        weight: 0.0002
+      - id: TrackingImplanter
+        weight: 0.0001
+      - id: LightImplanter
+        weight: 0.0002
+      - id: EmpImplanter
+        weight: 0.00002
+      - id: SmokeImplanter
+        weight: 0.00002
+      #    - id: MindSlaveImplanter
+      #      prob: 0.00001
+      #      orGroup: implantermaintloot
+      - id: ScramImplanter
+        weight: 0.00001
+      - id: DnaScramblerImplanter
+        weight: 0.00001
+      - id: StorageImplanter
+        weight: 0.00001
+      #    - id: HardlightSpearImplanter
+      #      prob: 0.00001
+      #      orGroup: implantermaintloot
+      - id: FreedomImplanter
+        weight: 0.00001
+    # Melee Weapons - WD Edit
+    #    - id: null
+    #      prob: 0.999
+    #      orGroup: meleeweaponsmaintloot
+    - !type:GroupSelector
+      children:
+      - id: CombatKnife
+        weight: 0.0001
+      - id: KitchenKnife
+        weight: 0.0002
+      - id: SurvivalKnife
+        weight: 0.0001
+      - id: KukriKnife
+        weight: 0.0001
+      - id: BaseBallBat
+        weight: 0.0002
+      - id: Pickaxe
+        weight: 0.0001
+      - id: ScalpelShiv
+        weight: 0.0001
+      - id: FireAxe
+        weight: 0.00001
+      - id: FireAxeFlaming
+        weight: 0.00001
+      - id: ThrowingKnife
+        weight: 0.00001
+      - id: UraniumShiv
+        weight: 0.00001
+      - id: Sledgehammer
+        weight: 0.00001
+      - id: MiningDrill
+        weight: 0.00001
+      #    - id: EnergyBattleAxe
+      #      prob: 0.000005
+      #      orGroup: meleeweaponsmaintloot
+      - id: BetrayalKnife
+        weight: 0.000005
+      - id: ThrowingKnife
+        weight: 0.00003
+    # Hardsuits - WD Edit
+    #    - id: null
+    #      prob: 0.999
+    #      orGroup: hardsuitmaintloot
+    #    - id: ClothingOuterHardsuitBasic
+    #      prob: 0.0003
+    #      orGroup: hardsuitmaintloot
+    - !type:GroupSelector
+      children:
+      - id: ClothingOuterHardsuitEVA
+        weight: 0.0003
+      - id: ClothingOuterHardsuitEVAPrisoner
+        weight: 0.0003
+      - id: ClothingOuterHardsuitSyndie
+        weight: 0.00005
+    #    - id: ClothingOuterHardsuitSyndicate
+    #      prob: 0.00005
+    #      orGroup: hardsuitmaintloot
+    # Cash - WD Edit
+    #    - id: null
+    #      prob: 0.99
+    #      orGroup: cashmaintloot
+    - !type:GroupSelector
+      children:
+      - id: SpaceCash100
+        weight: 0.005
+      - id: SpaceCash500
+        weight: 0.003
+      - id: SpaceCash1000
+        weight: 0.001
+      - id: SpaceCash2500
+        weight: 0.0006
+      - id: SpaceCash5000
+        weight: 0.0003
+      - id: SpaceCash10000
+        weight: 0.0001
+
+# Maid edit end
 
 - type: entity
   id: ClosetMaintenanceFilledRandom
