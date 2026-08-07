@@ -168,14 +168,14 @@
   - ScientistGloves
   - ScientistShoes
   - ScientistPDA
-  - Glasses
+  # - Glasses
   - Survival
-  - Trinkets
+  # - Trinkets
   - GroupSpeciesBreathTool
   # Plasmaman
-  - ScientistEnvirohelm
-  - ScientistEnvirosuit
-  - ScientistEnvirogloves
+  # - ScientistEnvirohelm
+  # - ScientistEnvirosuit
+  # - ScientistEnvirogloves
 
 - type: roleLoadout
   id: JobBrigmedic
@@ -190,14 +190,14 @@
   - SecurityShoes
   - SecurityNeck
   - SurvivalSecurity
-  - Trinkets
-  - Animals
-  - SecurityStar
+  # - Trinkets #Maid
+  # - Animals #Maid
+  # - SecurityStar #Maid
   - GroupSpeciesBreathToolSecurity
   # Goobstation - EE Plasmeme Change.
-  - BrigmedicEnvirohelm
-  - BrigmedicEnvirosuit
-  - BrigmedicEnvirogloves
+  # - BrigmedicEnvirohelm #Maid
+  # - BrigmedicEnvirosuit #Maid
+  # - BrigmedicEnvirogloves #Maid
 
 
 # gives plasmaman a plasma breathing tank
@@ -244,8 +244,8 @@
    - MedicalShoes
    - VirologistPDA
    - SurvivalMedical
-   - Trinkets
+  #  - Trinkets #Maid
    - GroupSpeciesBreathToolMedical
-   - VirologyEnvirohelm
-   - VirologyEnvirosuit
-   - VirologyEnvirogloves
+  #  - VirologyEnvirohelm #Maid
+  #  - VirologyEnvirosuit #Maid
+  #  - VirologyEnvirogloves #Maid

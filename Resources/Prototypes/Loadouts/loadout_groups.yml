@@ -320,6 +320,7 @@
   loadouts:
   - CaptainHead
   - CaptainCap
+  - CaptainEnvirohelm #Maid
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -330,6 +331,7 @@
   - CaptainFormalSuit
   - CaptainFormalSkirt
   - CaptainJumpsuitMilitary # goob
+  - CaptainEnvirosuit #Maid
 
 - type: loadoutGroup
   id: CaptainNeck
@@ -364,6 +366,7 @@
   minLimit: 0
   loadouts:
   - HoPHead
+  - HoPEnvirohelm #Maid
 
 - type: loadoutGroup
   id: HoPJumpsuit
@@ -372,6 +375,7 @@
   - HoPJumpsuit
   - HoPJumpskirt
   - HoPJumpsuitMilitary # goob
+  - HoPEnvirosuit #Maid
 
 - type: loadoutGroup
   id: HoPNeck
@@ -426,6 +430,7 @@
   - BrownMJ
   - MaroonMJ
  # goob changes end
+  - GreyEnvirosuit #Maid
 
 - type: loadoutGroup
   id: PassengerFace
@@ -440,6 +445,7 @@
   minLimit: 0
   loadouts:
   - PassengerGloves
+  - DarkGreyEnvirogloves #Maid
 
 - type: loadoutGroup
   id: CommonBackpack
@@ -464,6 +470,9 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
+  - BoxerEnvirohelm #Maid
+  - ReporterEnvirohelm #Maid
+  - GreyEnvirohelm #Maid
 
 - type: loadoutGroup
   id: PassengerShoes
@@ -479,6 +488,7 @@
   loadouts:
   - BartenderHead
   - BartenderBowler
+  - WhiteEnvirohelm #Maid
 
 - type: loadoutGroup
   id: BartenderJumpsuit
@@ -488,6 +498,7 @@
   - BartenderJumpskirt
   - BartenderJumpsuitPurple
   - ServiceMJ # goob
+  - Enviroslacks #Maid
 
 - type: loadoutGroup
   id: BartenderOuterClothing
@@ -497,6 +508,7 @@
   - BartenderVest
   - BartenderApron
   - BartenderWintercoat
+  - WhiteEnvirogloves #Maid
 
 - type: loadoutGroup
   id: ChefHead
@@ -504,6 +516,7 @@
   minLimit: 0
   loadouts:
   - ChefHead
+  - WhiteEnvirohelm #Maid
 
 - type: loadoutGroup
   id: ChefMask
@@ -519,6 +532,7 @@
   - ChefJumpsuit
   - ChefJumpskirt
   - ServiceMJ # goob
+  - ChefEnvirosuit #Maid
 
 - type: loadoutGroup
   id: ChefOuterClothing
@@ -528,6 +542,7 @@
   - ChefApron
   - ChefJacket
   - ChefWintercoat
+  - WhiteEnvirogloves #Maid
 
 - type: loadoutGroup
   id: LibrarianJumpsuit
@@ -538,6 +553,7 @@
   - CuratorJumpsuit
   - CuratorJumpskirt
   - ServiceMJ # goob
+  - AncientVoidEnvirosuit #Maid
 
 - type: loadoutGroup
   id: LawyerJumpsuit
@@ -554,6 +570,7 @@
   - LawyerJumpsuitGood
   - LawyerJumpskirtGood
   - ServiceMJ # goob
+  - Enviroslacks #Maid
 
 - type: loadoutGroup
   id: LawyerNeck
@@ -561,6 +578,7 @@
   minLimit: 0
   loadouts:
   - LawyerNeck
+  - WhiteEnvirogloves #Maid
 
 - type: loadoutGroup
   id: ChaplainHead
@@ -572,6 +590,7 @@
   - ChaplainPlagueHat
   - ChaplainWitchHat
   - ChaplainWitchHatAlt
+  - ChaplainEnvirohelm #Maid
 
 - type: loadoutGroup
   id: ChaplainMask
@@ -589,6 +608,7 @@
   - ChaplainRobesLight
   - ChaplainRobesDark
   - ServiceMJ # goob
+  - ChaplainEnvirosuit #Maid
 
 - type: loadoutGroup
   id: ChaplainOuterClothing
@@ -606,6 +626,7 @@
   minLimit: 0
   loadouts:
   - ChaplainNeck
+  - BlackEnvirogloves #Maid
 
 - type: loadoutGroup
   id: JanitorHead
@@ -614,6 +635,7 @@
   loadouts:
   - JanitorHead
   - JanitorHeadSenior # Goobstation
+  - JanitorEnvirohelm #Maid
 
 - type: loadoutGroup
   id: JanitorJumpsuit
@@ -622,6 +644,7 @@
   - JanitorJumpsuit
   - JanitorJumpskirt
   - ServiceMJ # goob
+  - JanitorEnvirosuit #Maid
 
 - type: loadoutGroup
   id: JanitorGloves
@@ -631,6 +654,7 @@
   - JanitorRubberGloves
   - OrangeGloves
   - PurpleGloves
+  - JanitorEnvirogloves #Maid
 
 - type: loadoutGroup
   id: JanitorOuterClothing
@@ -654,6 +678,7 @@
   - BotanistHead
   - BotanistBandana
   - BotanistBeret # Goobstation
+  - BotanistEnvirohelm #Maid
 
 - type: loadoutGroup
   id: BotanistJumpsuit
@@ -664,6 +689,7 @@
   - BotanistOveralls
   - ServiceMJ # goob
   - HydroMJ # goob
+  - BotanistEnvirosuit #Maid
 
 - type: loadoutGroup
   id: BotanistBackpack
@@ -681,6 +707,7 @@
   loadouts:
   - BotanistApron
   - BotanistWintercoat
+  - LeatherEnvirogloves #Maid
 
 - type: loadoutGroup
   id: ClownHead
@@ -689,6 +716,7 @@
   loadouts:
   - JesterHat
   - JesterAltHat
+  - ClownEnvirohelm #Maid
 
 - type: loadoutGroup
   id: ClownJumpsuit
@@ -698,6 +726,7 @@
   - ClownSkirt
   - JesterSuit
   - JesterAltSuit
+  - ClownEnvirosuit #Maid
 
 - type: loadoutGroup
   id: ClownBackpack
@@ -715,6 +744,7 @@
   loadouts:
   - ClownRobes
   - ClownWintercoat
+  - ClownEnvirogloves #Maid
 
 - type: loadoutGroup
   id: ClownShoes
@@ -745,6 +775,7 @@
   - MimeHead
   - MimeFrenchBeret
   - MimeCap
+  - MimeEnvirohelm #Maid
 
 - type: loadoutGroup
   id: MimeMask
@@ -760,6 +791,7 @@
   loadouts:
   - MimeJumpsuit
   - MimeJumpskirt
+  - MimeEnvirosuit #Maid
 
 - type: loadoutGroup
   id: MimeBackpack
@@ -776,6 +808,7 @@
   minLimit: 0
   loadouts:
   - MimeWintercoat
+  - WhiteEnvirogloves #Maid
 
 - type: loadoutGroup
   id: MimeBelt
@@ -806,6 +839,7 @@
   - MusicianJumpsuit
   - MusicianJumpskirt
   - ServiceMJ # goob
+  - MusicianEnvirosuit #Maid
 
 - type: loadoutGroup
   id: MusicianOuterClothing
@@ -813,6 +847,7 @@
   minLimit: 0
   loadouts:
   - MusicianWintercoat
+  - WhiteEnvirogloves #Maid
 
 - type: loadoutGroup
   id: Instruments
@@ -857,6 +892,7 @@
   loadouts:
   - QuartermasterHead
   - QuartermasterBeret
+  - QuartermasterEnvirohelm #Maid
 
 - type: loadoutGroup
   id: QuartermasterJumpsuit
@@ -868,6 +904,7 @@
   - QuartermasterTurtleneckSkirt
   - QuartermasterFormalSuit
   - QuartermasterMJ # goob
+  - QuartermasterEnvirosuit #Maid
 
 - type: loadoutGroup
   id: QuartermasterNeck
@@ -883,6 +920,7 @@
   minLimit: 0
   loadouts:
   - QuartermasterWintercoat
+  - CargoTechnicianEnvirogloves #Maid
 
 - type: loadoutGroup
   id: QuartermasterShoes
@@ -898,6 +936,9 @@
   loadouts:
   - CargoTechnicianHead
   - CargoTechnicianHeadMail # Goob/DeltaV - Mail
+  - CargoTechnicianEnvirohelm #Maid
+  - MailCarrierEnvirohelm  #Maid
+  - SalvageEnvirohelm #Maid
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -908,6 +949,9 @@
   - CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail
   - CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail
   - CargoTechMJ # goob
+  - CargoTechnicianEnvirosuit #Maid
+  - MailCarrierEnvirosuit #Maid
+  - SalvageEnvirosuit #Maid
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -925,6 +969,9 @@
   loadouts:
   - CargoTechnicianWintercoat
   - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail
+  - CargoTechnicianEnvirogloves #Maid
+  - WhiteEnvirogloves #Maid
+  - SalvageEnvirogloves #Maid
 
 - type: loadoutGroup
   id: CargoTechnicianShoes
@@ -964,6 +1011,7 @@
   loadouts:
   - ChiefEngineerHead
   - ChiefEngineerBeret
+  - ChiefEngineerEnvirohelm #Maid
 
 - type: loadoutGroup
   id: ChiefEngineerJumpsuit
@@ -974,6 +1022,7 @@
   - ChiefEngineerTurtleneck
   - ChiefEngineerTurtleneckSkirt
   - ChiefEngineerMJ # goob
+  - ChiefEngineerEnvirosuit #Maid
 
 - type: loadoutGroup
   id: ChiefEngineerNeck
@@ -989,6 +1038,7 @@
   minLimit: 0
   loadouts:
   - ChiefEngineerWintercoat
+  - ChiefEngineerEnvirogloves #Maid
 
 - type: loadoutGroup
   id: ChiefEngineerShoes
@@ -1004,6 +1054,7 @@
   - YellowJumpsuit
   - YellowJumpskirt
   - EngiMJ # goob
+  - StationEngineerEnvirosuit #Maid
 
 - type: loadoutGroup
   id: StationEngineerHead
@@ -1014,6 +1065,7 @@
   - StationEngineerHardhatOrange
   - StationEngineerHardhatRed
   - SeniorEngineerBeret
+  - StationEngineerEnvirohelm #Maid
 
 - type: loadoutGroup
   id: StationEngineerJumpsuit
@@ -1025,6 +1077,7 @@
   - SeniorEngineerJumpsuit
   - SeniorEngineerJumpskirt
   - EngiMJ # goob
+  - StationEngineerEnvirosuit #Maid
 
 - type: loadoutGroup
   id: StationEngineerBackpack
@@ -1042,6 +1095,7 @@
   loadouts:
   - StationEngineerOuterVest
   - StationEngineerWintercoat
+  - StationEngineerEnvirogloves #Maid
 
 - type: loadoutGroup
   id: StationEngineerShoes
@@ -1063,6 +1117,7 @@
   minLimit: 0
   loadouts:
   - SeniorEngineerBeret   # Goobstation
+  - AtmosEnvirohelm #Maid
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
@@ -1074,6 +1129,7 @@
   - SeniorEngineerJumpskirt  # Goobstation
   - SeniorEngineerJumpsuit   # Goobstation
   - AtmosMJ # goob
+  - AtmosEnvirosuit #Maid
 
 - type: loadoutGroup
   id: AtmosphericTechnicianOuterClothing
@@ -1081,6 +1137,7 @@
   minLimit: 0
   loadouts:
   - AtmosphericTechnicianWintercoat
+  - AtmosEnvirogloves #Maid 
 
 - type: loadoutGroup
   id: AtmosphericTechnicianBackpack
@@ -1119,6 +1176,7 @@
   minLimit: 0
   loadouts:
   - ResearchDirectorBeret
+  - ResearchDirectorEnvirohelm #Maid
 
 - type: loadoutGroup
   id: ResearchDirectorNeck
@@ -1135,6 +1193,7 @@
   - ResearchDirectorJumpsuit
   - ResearchDirectorJumpskirt
   - ResearchDirectorMJ # goob
+  - ResearchDirectorEnvirosuit #Maid
 
 - type: loadoutGroup
   id: ResearchDirectorOuterClothing
@@ -1160,6 +1219,8 @@
   #- RoboticistCap
   #- SkullBandana
   - ScientificBeret
+  - ScientistEnvirohelm #Maid
+  - RoboticistEnvirohelm #Maid
 
 - type: loadoutGroup
   id: ScientistNeck
@@ -1179,6 +1240,8 @@
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
   - ResearchMJ # goob
+  - ScientistEnvirosuit #Maid
+  - RoboticistEnvirosuit #Maid
 
 - type: loadoutGroup
   id: ScientistBackpack
@@ -1217,6 +1280,10 @@
   - LatexGloves
   - PurpleGloves
   - RobohandsGloves
+  - ResearchDirectorEnvirogloves #Maid
+  - WhiteEnvirogloves #Maid
+  - RoboticistEnvirogloves #Maid
+  - WhiteEnvirogloves #Maid
 
 - type: loadoutGroup
   id: ScientistPDA
@@ -1232,6 +1299,7 @@
   - WhiteJumpsuit
   - WhiteJumpskirt
   - ResearchMJ # goob
+  - WhiteEnvirosuit #Maid
 
 # Security
 - type: loadoutGroup
@@ -1242,6 +1310,7 @@
   - HeadofSecurityHead
   - HeadofSecurityBeret
   - HeadofSecuritySpecialBeret # Goobstation
+  - HeadofSecurityEnvirohelm #Maid
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1253,6 +1322,7 @@
   - HeadofSecurityTurtleneckSkirt
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
+  - HeadofSecurityEnvirosuit #Maid
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1279,6 +1349,7 @@
   loadouts:
   - WardenHead
   - WardenBeret
+  - WardenEnvirohelm #Maid
 
 - type: loadoutGroup
   id: WardenJumpsuit
@@ -1286,6 +1357,7 @@
   loadouts:
   - WardenJumpsuit
   - WardenJumpskirt
+  - WardenEnvirosuit #Maid
 
 - type: loadoutGroup
   id: WardenOuterClothing
@@ -1305,6 +1377,7 @@
   - SecurityBeret
   - SecurityHat
   - TrooperHat
+  - SecurityOfficerEnvirohelm #Maid
 
 - type: loadoutGroup
   id: SecurityJumpsuit
@@ -1317,6 +1390,7 @@
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
   - TrooperUniform
+  - SecurityOfficerEnvirosuit #Maid
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1366,6 +1440,7 @@
   loadouts:
   - DetectiveFedora
   - DetectiveFedoraGrey
+  - DetectiveEnvirohelm #Maid
 
 - type: loadoutGroup
   id: DetectiveNeck
@@ -1383,6 +1458,7 @@
   - DetectiveJumpskirt
   - NoirJumpsuit
   - NoirJumpskirt
+  - DetectiveEnvirosuit #Maid
 
 - type: loadoutGroup
   id: DetectiveOuterClothing
@@ -1398,6 +1474,7 @@
   loadouts:
   - RedJumpsuit
   - RedJumpskirt
+  - SecurityOfficerEnvirosuit #Maid
 
 - type: loadoutGroup
   id: SurvivalSecurity
@@ -1429,6 +1506,7 @@
   - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
   - ChemistUshanka # Goobstation
+  - ChiefMedicalOfficerEnvirohelm #Maid
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
@@ -1439,6 +1517,7 @@
   - ChiefMedicalOfficerTurtleneckJumpsuit
   - ChiefMedicalOfficerTurtleneckJumpskirt
   - CMOMJ # goob
+  - ChiefMedicalOfficerEnvirosuit #Maid
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerOuterClothing
@@ -1475,6 +1554,7 @@
   - GreenSurgeryCap
   - PurpleSurgeryCap
   - NurseHat
+  - MedicalDoctorEnvirohelm #Maid
 
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit
@@ -1488,6 +1568,7 @@
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
   - MedicMJ # goob
+  - MedicalDoctorEnvirosuit #Maid
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
@@ -1528,6 +1609,8 @@
   loadouts:
   - LatexGloves
   - NitrileGloves
+  - WhiteEnvirogloves #Maid
+  - NitrileEnvirogloves #Maid
 
 - type: loadoutGroup
   id: MedicalMask
@@ -1543,6 +1626,7 @@
   - WhiteJumpsuit
   - WhiteJumpskirt
   - MedicMJ # goob
+  - MedicalDoctorEnvirosuit #Maid
 
 - type: loadoutGroup
   id: ChemistJumpsuit
@@ -1553,6 +1637,7 @@
   - SeniorPhysicianJumpsuit # Goobstation
   - SeniorPhysicianJumpskirt # Goobstation
   - ChemistMJ # goob
+  - ChemistEnvirosuit #Maid
 
 - type: loadoutGroup
   id: ChemistOuterClothing
@@ -1580,6 +1665,7 @@
   loadouts:
   - ParamedicHead
   - SeniorPhysicianBeret # Goobstation
+  - ParamedicEnvirohelm #Maid
 
 - type: loadoutGroup
   id: ParamedicJumpsuit
@@ -1590,6 +1676,7 @@
   - SeniorPhysicianJumpsuit # Goobstation
   - SeniorPhysicianJumpskirt # Goobstation
   - ParamedMJ # goob
+  - ParamedicEnvirosuit #Maid
 
 - type: loadoutGroup
   id: ParamedicOuterClothing
@@ -1642,6 +1729,7 @@
   - ReporterJumpsuit
   - JournalistJumpsuit
   - ReporterDress
+  - ReporterEnvirosuit #Maid
 
 - type: loadoutGroup
   id: PsychologistJumpsuit
@@ -1649,6 +1737,7 @@
   loadouts:
   - PsychologistJumpsuit
   - PsychologistJumpskirt
+  - PsychologistEnvirosuit #Maid
 
 - type: loadoutGroup
   id: BoxerJumpsuit
@@ -1656,6 +1745,7 @@
   loadouts:
   - BoxerShorts
   - BoxerShortsWithTop
+  - BoxerEnvirosuit #Maid
 
 - type: loadoutGroup
   id: BoxerGloves
@@ -1665,6 +1755,7 @@
   - BlueBoxingGloves
   - GreenBoxingGloves
   - YellowBoxingGloves
+  - WhiteEnvirogloves #Maid
 
 # Other
 - type: loadoutGroup

@@ -1,17 +1,22 @@
 - type: roleLoadout
   id: JobShaftMiner
   groups:
+  - CargoTechnicianOuterClothing
+  - CargoTechnicianHead
+  - CargoTechnicianJumpsuit
   - GroupTankHarness
   - SalvageSpecialistNeck # TODO add a special cloak specifically for shaft miners
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
-  - Glasses
+  # - Glasses #Maid
   - Survival
-  - Trinkets
-  - Animals
+  # - Trinkets #Maid
+  # - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  - SalvageEnvirohelm
-  - SalvageEnvirosuit
-  - SalvageEnvirogloves
+  # - SalvageEnvirohelm #Maid
+  # - SalvageEnvirosuit #Maid
+  # - SalvageEnvirogloves #Maid
+  - DefaultUnderwearWhite # Maid changes
+  - SocksUnderwear # Maid changes - socks
