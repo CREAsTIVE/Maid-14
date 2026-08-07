@@ -1,0 +1,159 @@
+- type: loadout
+  id: UnderwearBottomBoxersCap
+  equipment:
+   bra: ClothingUnderwearBottomBoxersCap
+
+- type: loadout
+  id: UnderwearBottomBoxersCMO
+  equipment:
+   underwear: ClothingUnderwearBottomBoxersCMO
+
+- type: loadout
+  id: UnderwearBottomBoxersQM
+  equipment:
+   underwear: ClothingUnderwearBottomBoxersQM
+
+- type: loadout
+  id: UnderwearBottomBoxersRD
+  equipment:
+   underwear: ClothingUnderwearBottomBoxersRD
+
+- type: loadout
+  id: UnderwearBottomBoxersWhite
+  equipment:
+   underwear: ClothingUnderwearBottomBoxersWhite
+
+- type: loadout
+  id: UnderwearBottomBoxersHeart
+  equipment:
+   underwear: ClothingUnderwearBottomBoxersHeart
+
+- type: loadout
+  id: UnderwearBottomBoxersStriped
+  equipment:
+   underwear: ClothingUnderwearBottomBoxersStriped
+
+- type: loadout
+  id: UnderwearBottomBoxersHOS
+  equipment:
+   underwear: ClothingUnderwearBottomBoxersHOS
+
+- type: loadout
+  id: UnderwearBottomBoxersCE
+  equipment:
+   underwear: ClothingUnderwearBottomBoxersCE
+
+- type: loadout
+  id: UnderwearBottomBoxersHOP
+  equipment:
+   underwear: ClothingUnderwearBottomBoxersHOP
+
+- type: loadout
+  id: UnderwearBottomMankini
+  equipment:
+   underwear: ClothingUnderwearBottomMankini
+
+- type: loadout
+  id: UnderwearBottomPantiesStripped
+  equipment:
+   underwear: ClothingUnderwearBottomPantiesStripped
+
+- type: loadout
+  id: UnderwearBottomPantiesSlim
+  equipment:
+   underwear: ClothingUnderwearBottomPantiesSlim
+
+- type: loadout
+  id: UnderwearBottomPantiesBeeKini
+  equipment:
+   underwear: ClothingUnderwearBottomPantiesBeeKini
+
+- type: loadout
+  id: UnderwearBottomPantiesThong
+  equipment:
+   underwear: ClothingUnderwearBottomPantiesThong
+
+- type: loadout
+  id: UnderwearBottomPantiesCE
+  equipment:
+   underwear: ClothingUnderwearBottomPantiesCE
+
+- type: loadout
+  id: UnderwearBottomPantiesQM
+  equipment:
+   underwear: ClothingUnderwearBottomPantiesQM
+
+- type: loadout
+  id: UnderwearBottomBoxersCap
+  equipment:
+   underwear: ClothingUnderwearBottomPantiesCMO
+
+- type: loadout
+  id: UnderwearBottomPantiesCMO
+  equipment:
+   underwear: ClothingUnderwearBottomPantiesCMO
+
+- type: loadout
+  id: UnderwearBottomPantiesCap
+  equipment:
+   underwear: ClothingUnderwearBottomPantiesCap
+
+- type: loadout
+  id: UnderwearBottomPantiesKinky
+  equipment:
+   underwear: ClothingUnderwearBottomPantiesKinky
+
+- type: loadout
+  id: UnderwearBottomPantiesHOP
+  equipment:
+   underwear: ClothingUnderwearBottomPantiesHOP
+
+- type: loadout
+  id: UnderwearBottomBriefs
+  equipment:
+   underwear: ClothingUnderwearBottomBriefs
+
+- type: loadout
+  id: UnderwearBottomPantiesThin
+  equipment:
+   underwear: ClothingUnderwearBottomPantiesThin
+
+- type: loadout
+  id: UnderwearBottomFishnetLower
+  equipment:
+   underwear: ClothingUnderwearBottomFishnetLower
+
+- type: loadout
+  id: UnderwearBottomPantiesRD
+  equipment:
+   underwear: ClothingUnderwearBottomPantiesRD
+
+- type: loadout
+  id: UnderwearBottomPantiesWhite
+  equipment:
+   underwear: ClothingUnderwearBottomPantiesWhite
+
+- type: loadout
+  id: UnderwearBottomPantiesNeko
+  equipment:
+   underwear: ClothingUnderwearBottomPantiesNeko
+
+- type: loadout
+  id: UnderwearBottomPantiesHOS
+  equipment:
+   underwear: ClothingUnderwearBottomPantiesHOS
+
+- type: loadout
+  id: UnderwearBottomPantiesSwimming
+  equipment:
+   underwear: ClothingUnderwearBottomPantiesSwimming
+
+- type: loadout
+  id: UnderwearBottomJockstrap
+  equipment:
+   underwear: ClothingUnderwearBottomJockstrap
+
+- type: loadout
+  id: UnderwearBottomeeShorts
+  equipment:
+   underwear: ClothingUnderwearBottomBeeShorts                                                            

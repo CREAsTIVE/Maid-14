@@ -1,7 +1,7 @@
 - type: loadout
   id: UnderwearSocksBeeKnee
   equipment:
-    socks: ClothingUnderwearSocksBeeKnee
+    socks: ClothingUnderwearSocksShort
 
 - type: loadout
   id: UnderwearSocksBeeNorm
@@ -56,7 +56,7 @@
 - type: loadout
   id: UnderwearSocksShort
   equipment:
-    socks: ClothingUnderwearSocksShort
+    socks: ClothingUnderwearSocksBeeKnee
 
 - type: loadout
   id: UnderwearSocksThigh

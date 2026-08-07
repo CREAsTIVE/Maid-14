@@ -90,6 +90,8 @@
 - type: loadoutGroup
   id: SocksUnderwear
   name: loadout-group-socks-underwear
+  minLimit: 0
+  maxLimit: 1
   loadouts:
   - UnderwearSocksBeeKnee
   - UnderwearSocksBeeNorm

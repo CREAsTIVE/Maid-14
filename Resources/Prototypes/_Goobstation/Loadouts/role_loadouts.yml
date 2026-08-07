@@ -176,6 +176,8 @@
   # - ScientistEnvirohelm
   # - ScientistEnvirosuit
   # - ScientistEnvirogloves
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobBrigmedic
@@ -198,6 +200,8 @@
   # - BrigmedicEnvirohelm #Maid
   # - BrigmedicEnvirosuit #Maid
   # - BrigmedicEnvirogloves #Maid
+  - Underwear #Maid
+  - Bra #Maid
 
 
 # gives plasmaman a plasma breathing tank
@@ -249,3 +253,5 @@
   #  - VirologyEnvirohelm #Maid
   #  - VirologyEnvirosuit #Maid
   #  - VirologyEnvirogloves #Maid
+   - Underwear #Maid
+   - Bra #Maid

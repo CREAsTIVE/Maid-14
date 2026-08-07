@@ -1798,3 +1798,131 @@
   hidden: true
   loadouts:
   - LoadoutSpeciesBreathToolSecurity
+
+- type: loadoutGroup #Maid begin
+  id: Underwear
+  name: loadout-group-underwear
+  loadouts:
+  - UnderwearBottomBoxersWhite
+  - UnderwearBottomBoxersHeart
+  - UnderwearBottomBoxersStriped
+  - UnderwearBottomMankini 
+  - UnderwearBottomPantiesStripped
+  - UnderwearBottomPantiesSlim
+  - UnderwearBottomPantiesBeeKini
+  - UnderwearBottomPantiesThong
+  - UnderwearBottomPantiesKinky
+  - UnderwearBottomBriefs
+  - UnderwearBottomPantiesThin
+  - UnderwearBottomFishnetLower
+  - UnderwearBottomPantiesWhite
+  - UnderwearBottomPantiesNeko
+  - UnderwearBottomPantiesSwimming
+  - UnderwearBottomeeShorts
+  - UnderwearBottomJockstrap
+
+- type: loadoutGroup
+  id: Bra
+  name: loadout-group-bra
+  loadouts:
+  - UnderwearTopBraStraplessAlt
+  - UnderwearTopBraNeko
+  - UnderwearTopFishnetBodySleeves
+  - UnderwearTopBraStriped
+  - UnderwearTopBraBeeKini
+  - UnderwearTopBraTubetop
+  - UnderwearTopBraHalterneck
+  - UnderwearTopBraSwimming
+  - UnderwearTopBraShibari
+  - UnderwearTopBraShibariSleeves
+  - UnderwearTopBraSports
+  - UnderwearTopBraStrapless
+  - UnderwearTopBraKinky
+  - UnderwearTopFishnetBodyGloves
+  - UnderwearTopBraSwimmingAlt
+  - UnderwearTopCow
+  - UnderwearTopBraWhite
+  - UnderwearTopBraThin
+  - UnderwearTopBraBinder
+  - UnderwearTopFishnetBody
+  - UnderwearTopBraBinderStrapless
+  - UnderwearTopBraSportsAlternative #Main end
+
+- type: loadoutGroup #Maid begin
+  id: CapUnderwear
+  name: loadout-group-underwear-cap
+  loadouts:
+  - UnderwearBottomBoxersCap
+  - UnderwearBottomPantiesCap #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: CMOUnderwear
+  name: loadout-group-underwear-cmo
+  loadouts:
+  - UnderwearBottomBoxersCMO
+  - UnderwearBottomPantiesCMO #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: HoSUnderwear
+  name: loadout-group-underwear-hos
+  loadouts:
+  - UnderwearBottomBoxersHOS
+  - UnderwearBottomPantiesHOS #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: HoPUnderwear
+  name: loadout-group-underwear-hop
+  loadouts:
+  - UnderwearBottomPantiesHOP
+  - UnderwearBottomBoxersHOP #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: QMUnderwear
+  name: loadout-group-underwear-qm
+  loadouts:
+  - UnderwearBottomPantiesQM
+  - UnderwearBottomBoxersQM #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: RDUnderwear
+  name: loadout-group-underwear-rd
+  loadouts:
+  - UnderwearBottomPantiesRD
+  - UnderwearBottomBoxersRD #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: CEUnderwear
+  name: loadout-group-underwear-ce
+  loadouts:
+  - UnderwearBottomPantiesCE
+  - UnderwearBottomBoxersCE #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: CEBra
+  name: loadout-group-bra-ce
+  loadouts:
+  - UnderwearTopBraCE #Maid end  
+
+- type: loadoutGroup #Maid begin
+  id: RDBra
+  name: loadout-group-bra-rd
+  loadouts:
+  - UnderwearTopBraRD #Maid end
+  
+- type: loadoutGroup #Maid begin
+  id: HoPBra
+  name: loadout-group-bra-hop
+  loadouts:
+  - UnderwearTopBraHOP #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: HoSBra
+  name: loadout-group-bra-hos
+  loadouts:
+  - UnderwearTopBraHOS #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: CMOBra
+  name: loadout-group-bra-cmo
+  loadouts:
+  - UnderwearTopBraCMO #Maid end
