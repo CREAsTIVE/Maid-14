@@ -883,3 +883,14 @@ Entries:
       message: /Resources/Audio/StationEvents/peacemakers.ogg
   id: 79
   time: '2026-08-05T16:35:10.0000000+00:00'
+- author: Urames
+  changes:
+    - type: Fix
+      message: Исправлены шансы на лут в шкафах
+    - type: Add
+      message: >-
+        Портировано наполнение из старого билда для LockerDetectiveFilled,
+        LockerSecurityFilled. Добавлен GunSafeTempGun + локализация. Добавлены
+        WeaponPistolMk58 в разные шкафы.
+  id: 80
+  time: '2026-08-08T08:59:45.0000000+00:00'
