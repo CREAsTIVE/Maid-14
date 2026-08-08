@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseGameRule
+  id: AdaptiveRule
+  components:
+  - type: GameRule
+    minPlayers: 0
+  - type: AdaptiveRule
+
+
+    # Only triggered on round start
+    roundstartRules: []
+
+    midroundSpawnTimer: # How often we spawn rules
+      min: 300 # 5 min
+      max: 600 # 10 min
+
+    midroundSpawnSkipProb: 0.6 # With what chance we skip spawning rule
+
+    midroundRules:
+    - id: ZombieOutbreak
+      baseWeight: 10
+      conditions:
+      - !type:AdaptiveRuleCooldownCondition
+        cooldown: 900 # 15 min
+      - !type:AdaptiveRuleMaxOccurenceCondition
+        amount: 2
