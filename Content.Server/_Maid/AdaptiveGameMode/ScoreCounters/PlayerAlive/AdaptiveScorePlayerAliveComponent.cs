@@ -18,7 +18,7 @@ public sealed partial class AdaptiveScorePlayerAliveComponent : Component
     public float CriticalMultiplier = 1f;
 
     [DataField]
-    public bool OnStation = false;
+    public bool OnStation = true;
 
     [DataField, ViewVariables]
     [AutoPausedField]

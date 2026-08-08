@@ -15,7 +15,7 @@ public sealed partial class AdaptiveScoreStaticComponent : Component
     public ScoreSlope CombatScore = new();
 
     [DataField]
-    public bool OnStation = false;
+    public bool OnStation = true;
 
     [DataField, ViewVariables]
     [AutoPausedField]

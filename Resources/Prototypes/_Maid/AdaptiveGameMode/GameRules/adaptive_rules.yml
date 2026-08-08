@@ -5,7 +5,7 @@
   - type: GameRule
     minPlayers: 0
   - type: AdaptiveRule
-
+    targetChaosValue: 0
 
     # Only triggered on round start
     roundstartRules: []

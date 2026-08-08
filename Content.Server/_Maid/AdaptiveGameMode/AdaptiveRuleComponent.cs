@@ -11,6 +11,9 @@ namespace Content.Server._Maid.AdaptiveGameMode;
 [RegisterComponent]
 public sealed partial class AdaptiveRuleComponent : Component
 {
+    [DataField]
+    public float TargetChaosValue = 0f;
+
     /// <summary>
     /// Gamerules that get added at round start.
     /// </summary>
@@ -52,27 +55,15 @@ public sealed partial class AdaptiveSpawnedRule
     public TimeSpan SpawnTime;
 }
 
-/// <summary>
-/// Definition of a midround rule that can be spawned in the Adaptive game mode.
-/// </summary>
 [DataDefinition]
 public sealed partial class AdaptiveRuleParam
 {
-    /// <summary>
-    /// The entity prototype ID of the game rule.
-    /// </summary>
     [DataField(required: true)]
     public EntProtoId Id;
 
-    /// <summary>
-    /// The base weight of the rule when selecting which rule to spawn.
-    /// </summary>
     [DataField]
     public float BaseWeight = 10f;
 
-    /// <summary>
-    /// The conditions required for this rule to be eligible for spawning.
-    /// </summary>
     [DataField]
     public List<AdaptiveRuleCondition> Conditions = new();
 }
