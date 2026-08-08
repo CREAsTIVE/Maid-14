@@ -14,10 +14,10 @@ public sealed partial class AdaptiveScoreAliveComponent : Component
     [DataField(required: true)]
     public ScoreSlope CombatScore = new();
 
-    [DataField("criticalMultiplier")]
+    [DataField]
     public float CriticalMultiplier = 1f;
 
-    [DataField("onStation")]
+    [DataField]
     public bool OnStation = false;
 
     [DataField, ViewVariables]
