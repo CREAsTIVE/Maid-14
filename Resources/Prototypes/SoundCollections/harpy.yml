@@ -261,7 +261,7 @@
     - /Audio/Machines/blender.ogg
     - /Audio/Machines/juicer.ogg
     - /Audio/Machines/reclaimer_startup.ogg
-    - /Resources/Audio/Misc/zip.ogg
+    - /Audio/Misc/zip.ogg
 
 - type: soundCollection
   id: HarpyClicks
