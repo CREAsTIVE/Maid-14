@@ -688,6 +688,7 @@
     - id: BoxEncryptionKeySecurity
     - id: HoloprojectorSecurity
     - id: MagazinePistol
+    - id: WeaponPistolMk58
 # Maid edit end
 
 # Hardsuit table, used for suit storage as well
