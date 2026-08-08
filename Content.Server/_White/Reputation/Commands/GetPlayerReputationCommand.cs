@@ -8,25 +8,24 @@ using Robust.Shared.Console;
 namespace Content.Server._White.Reputation.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
-public sealed class GetPlayerReputationCommand : IConsoleCommand
+public sealed class GetPlayerReputationCommand : LocalizedCommands
 {
-    public string Command => "getreput";
-    public string Description => "Get player's reputation value.";
-    public string Help => "Usage: getreput {ckey}";
-    public async void Execute(IConsoleShell shell, string argStr, string[] args)
+    public override string Command => "getreput";
+
+    public override async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         var playerManager = IoCManager.Resolve<IPlayerManager>();
         var repManager = IoCManager.Resolve<IEntityManager>().System<ReputationManager>();
 
         if (args.Length < 1)
         {
-            shell.WriteLine($"Not enough arguments.\n{Help}");
+            shell.WriteLine(Loc.GetString("cmd-getreput-not-enough-args") + "\n" + Help);
             return;
         }
 
         if (!playerManager.TryGetPlayerDataByUsername(args[0], out var playerData))
         {
-            shell.WriteLine($"Couldn't find player: {args[0]}.");
+            shell.WriteLine(Loc.GetString("cmd-getreput-player-not-found", ("ckey", args[0])));
             return;
         }
 
@@ -36,10 +35,10 @@ public sealed class GetPlayerReputationCommand : IConsoleCommand
 
         if (value == null)
         {
-            shell.WriteLine("Couldn't get player's reputation.");
+            shell.WriteLine(Loc.GetString("cmd-getreput-failed"));
             return;
         }
 
-        shell.WriteLine($"Reputation of {args[0]}: {value}");
+        shell.WriteLine(Loc.GetString("cmd-getreput-result", ("ckey", args[0]), ("value", value)));
     }
 }

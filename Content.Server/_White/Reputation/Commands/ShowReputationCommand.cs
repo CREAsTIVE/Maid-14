@@ -6,12 +6,11 @@ using Robust.Shared.Console;
 namespace Content.Server._White.Reputation.Commands;
 
 [AnyCommand]
-public sealed class ShowReputationCommand : IConsoleCommand
+public sealed class ShowReputationCommand : LocalizedCommands
 {
-    public string Command => "showreput";
-    public string Description => "Узнать свою репутацию.";
-    public string Help => "Использование: showreput";
-    public async void Execute(IConsoleShell shell, string argStr, string[] args)
+    public override string Command => "showreput";
+
+    public override async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (shell.Player == null)
             return;
@@ -21,10 +20,10 @@ public sealed class ShowReputationCommand : IConsoleCommand
         var value = await repManager.GetPlayerReputation(shell.Player.UserId);
         if (value == null)
         {
-            shell.WriteLine("Не удалось получить данные о репутации. Обратитесь к кодерам или попробуйте ещё раз.");
+            shell.WriteLine(Loc.GetString("cmd-showreput-failed"));
             return;
         }
 
-        shell.WriteLine($"Ваша репутация: {value}");
+        shell.WriteLine(Loc.GetString("cmd-showreput-result", ("value", value)));
     }
 }
