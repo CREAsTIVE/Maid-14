@@ -119,11 +119,6 @@
    underwear: ClothingUnderwearBottomPantiesRD
 
 - type: loadout
-  id: UnderwearBottomPantiesWhite
-  equipment:
-   underwear: ClothingUnderwearBottomPantiesWhite
-
-- type: loadout
   id: UnderwearBottomPantiesNeko
   equipment:
    underwear: ClothingUnderwearBottomPantiesNeko
