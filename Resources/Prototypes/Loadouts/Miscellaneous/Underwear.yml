@@ -19,11 +19,6 @@
    underwear: ClothingUnderwearBottomBoxersRD
 
 - type: loadout
-  id: UnderwearBottomBoxersWhite
-  equipment:
-   underwear: ClothingUnderwearBottomBoxersWhite
-
-- type: loadout
   id: UnderwearBottomBoxersHeart
   equipment:
    underwear: ClothingUnderwearBottomBoxersHeart
