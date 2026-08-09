@@ -109,11 +109,6 @@
    bra: ClothingUnderwearTopCow
 
 - type: loadout
-  id: UnderwearTopBraWhite
-  equipment:
-   bra: ClothingUnderwearTopBraWhite
-
-- type: loadout
   id: UnderwearTopBraThin
   equipment:
    bra: ClothingUnderwearTopBraThin
