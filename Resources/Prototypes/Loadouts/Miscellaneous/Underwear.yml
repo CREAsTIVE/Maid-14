@@ -84,11 +84,6 @@
    underwear: ClothingUnderwearBottomPantiesQM
 
 - type: loadout
-  id: UnderwearBottomBoxersCap
-  equipment:
-   underwear: ClothingUnderwearBottomPantiesCMO
-
-- type: loadout
   id: UnderwearBottomPantiesCMO
   equipment:
    underwear: ClothingUnderwearBottomPantiesCMO
