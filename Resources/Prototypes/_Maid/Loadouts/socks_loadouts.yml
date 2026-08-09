@@ -54,7 +54,7 @@
     socks: ClothingUnderwearSocksNormal
 
 - type: loadout
-  id: UnderwearSocksShort
+  id: UnderwearSocksBeeKnee
   equipment:
     socks: ClothingUnderwearSocksBeeKnee
 
