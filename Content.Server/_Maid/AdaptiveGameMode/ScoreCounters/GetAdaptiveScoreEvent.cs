@@ -1,4 +1,4 @@
-namespace Content.Server._Maid.AdaptiveGameMode;
+namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters;
 
 /// <summary>
 /// Raised as a broadcast event to calculate the current total adaptive chaos score.

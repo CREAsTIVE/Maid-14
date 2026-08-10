@@ -1,23 +1,27 @@
-using Content.Server._Maid.AdaptiveGameMode;
-using Content.Server._Maid.AdaptiveGameMode.ScoreCounters;
+﻿
+using Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Static;
 
-/// <summary>
-/// Component that provides a static score contribution to the Adaptive game mode while the entity exists.
-/// </summary>
 [RegisterComponent, AutoGenerateComponentPause]
-public sealed partial class AdaptiveScoreStaticComponent : Component, IAdaptiveScoreComponent
+public sealed partial class AdaptiveScoreStaticComponent : Component
 {
-    [DataField(required: true)]
+    [DataField]
     public ScoreSlope ChaosScore { get; set; } = new();
 
-    [DataField(required: true)]
-    public ScoreSlope CombatScore { get; set; } = new();
     [DataField]
-    public bool OnStation = true;
+    public ScoreSlope CombatScore { get; set; } = new();
 
-    [DataField, ViewVariables]
-    [AutoPausedField]
-    public TimeSpan ComponentCreated;
+    [DataField, AutoPausedField]
+    public TimeSpan CreationTime { get; set; } = TimeSpan.Zero;
+
+    [DataField]
+    public List<IAdaptiveScoreCondition> Conditions { get; set; } = [];
+
+    [DataField]
+    public List<ProtoId<AdaptiveScoreConditionsTablePrototype>> ConditionTables { get; set; } = [];
 }

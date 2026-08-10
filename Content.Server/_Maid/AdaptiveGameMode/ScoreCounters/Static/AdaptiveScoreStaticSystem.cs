@@ -1,47 +1,85 @@
-using Content.Server._Maid.AdaptiveGameMode;
-using Content.Server._Maid.AdaptiveGameMode.ScoreCounters;
-using Content.Shared.Station;
-using Robust.Shared.GameObjects;
+﻿using System.Linq;
+using Content.Server._Maid.AdaptiveGameMode.MetaInfo;
+using Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Collector;
+using Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Static;
 
-/// <summary>
-/// System that handles calculating static score contributions.
-/// </summary>
-public sealed class AdaptiveScoreStaticSystem : EntitySystem
+public sealed class AdaptiveScoreStaticSystem : EntitySystem, IAdaptiveBalanceInfoProvider
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedStationSystem _station = default!;
+    [Dependency] private readonly IPrototypeManager _protoManager = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<AdaptiveScoreStaticComponent, ComponentInit>(OnStaticComponentInit);
-        SubscribeLocalEvent<GetAdaptiveScoreEvent>(OnGetAdaptiveScore);
+
+        SubscribeLocalEvent<GetAdaptiveScoreEvent>(CollectScores);
+        SubscribeLocalEvent<AdaptiveScoreStaticComponent, ComponentInit>(OnInit);
     }
 
-    private void OnStaticComponentInit(EntityUid uid, AdaptiveScoreStaticComponent component, ref ComponentInit args)
+    private void OnInit(EntityUid uid, AdaptiveScoreStaticComponent component, ref ComponentInit args)
     {
-        component.ComponentCreated = _timing.CurTime;
+        component.CreationTime = _gameTiming.CurTime;
     }
 
-    private void OnGetAdaptiveScore(ref GetAdaptiveScoreEvent ev)
+    private IEnumerable<IAdaptiveScoreCondition> GetConditions(AdaptiveScoreStaticComponent comp)
     {
-        var curTime = _timing.CurTime;
-        var query = EntityQueryEnumerator<AdaptiveScoreStaticComponent>();
-        while (query.MoveNext(out var uid, out var component))
+        return comp.ConditionTables
+            .SelectMany(table =>
+                _protoManager.TryIndex(table, out var proto)
+                    ? proto.Conditions
+                    : []
+            )
+            .Concat(comp.Conditions);
+    }
+
+    private void CollectScores(ref GetAdaptiveScoreEvent ev)
+    {
+        var enumerator = EntityQueryEnumerator<AdaptiveScoreStaticComponent>();
+        while (enumerator.MoveNext(out var ent, out var comp))
         {
-            if (component.OnStation && _station.GetOwningStation(uid) == null)
-                continue;
+            if (GetConditions(comp).All(cond => cond.ConditionMet(ent, _entityManager)))
+            {
+                ev.ChaosScore += comp.ChaosScore.GetScore(comp.CreationTime);
+                ev.CombatScore += comp.CombatScore.GetScore(comp.CreationTime);
+            }
+        }
+    }
 
-            var elapsed = curTime - component.ComponentCreated;
+    public IEnumerable<AdaptiveBalanceInfo> GetBalanceInfo()
+    {
+        static string FixName(string name)
+        {
+            if (name.StartsWith("AdaptiveScore"))
+                name = name.Substring("AdaptiveScore".Length);
 
-            var chaos = component.ChaosScore.GetScore(elapsed);
-            var combat = component.CombatScore.GetScore(elapsed);
+            if (name.EndsWith("Condition"))
+                name = name.Substring(0, name.Length - "Condition".Length);
 
-            ev.ChaosScore += chaos;
-            ev.CombatScore += combat;
+            return name;
+        }
+
+        var protos = _protoManager.EnumeratePrototypes<EntityPrototype>();
+        foreach (var proto in protos)
+        {
+            if (proto.TryGetComponent(out AdaptiveScoreStaticComponent? component))
+            {
+                yield return AdaptiveBalanceInfo.FromSlope(
+                    proto.ID,
+                    string.Join(
+                        " + ",
+                        GetConditions(component)
+                            .Select(cond => cond.GetType().Name)
+                            .Select(FixName) // Make names COOLER
+                    ),
+                    component.CombatScore,
+                    component.ChaosScore
+                );
+            }
         }
     }
 }
