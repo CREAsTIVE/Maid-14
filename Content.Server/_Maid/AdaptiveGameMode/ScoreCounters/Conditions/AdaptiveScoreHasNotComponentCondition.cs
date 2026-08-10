@@ -1,3 +1,4 @@
+using Content.Shared.Mind;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Serialization.Manager.Attributes;
@@ -10,15 +11,18 @@ public sealed partial class AdaptiveScoreHasNotComponentCondition : IAdaptiveSco
     [DataField(required: true)]
     public List<string> Components { get; set; } = new();
 
-    public bool ConditionMet(EntityUid uid, IEntityManager entMan)
+    public bool ConditionMet(EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
     {
+        if (mob == null)
+            return true;
+
         var compFactory = IoCManager.Resolve<IComponentFactory>();
         foreach (var compName in Components)
         {
             if (!compFactory.TryGetRegistration(compName, out var registration))
                 continue;
 
-            if (entMan.HasComponent(uid, registration.Type))
+            if (entMan.HasComponent(mob.Value, registration.Type))
                 return false;
         }
         return true;

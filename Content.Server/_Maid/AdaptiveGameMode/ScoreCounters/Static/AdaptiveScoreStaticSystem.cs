@@ -1,4 +1,6 @@
-﻿using Robust.Shared.GameObjects;
+﻿using Content.Shared.Mind;
+using Content.Shared.Roles;
+using Robust.Shared.GameObjects;
 using System.Linq;
 using Content.Server._Maid.AdaptiveGameMode.MetaInfo;
 using Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Collector;
@@ -44,7 +46,41 @@ public sealed class AdaptiveScoreStaticSystem : EntitySystem, IAdaptiveBalanceIn
         var enumerator = EntityQueryEnumerator<AdaptiveScoreStaticComponent>();
         while (enumerator.MoveNext(out var ent, out var comp))
         {
-            if (GetConditions(comp).All(cond => cond.ConditionMet(ent, _entityManager)))
+            EntityUid? mob = null;
+            Entity<MindComponent>? mind = null;
+
+            // If ent controlled by mind
+            if (TryComp<MindRoleComponent>(ent, out var mindRole))
+            {
+                var mindId = mindRole.Mind.Owner;
+                if (TryComp<MindComponent>(mindId, out var mindComp))
+                {
+                    mob = mindRole.Mind.Comp.OwnedEntity;
+                    mind = new Entity<MindComponent>(mindId, mindComp);
+                }
+            }
+            // If mind itself
+            else if (TryComp<MindComponent>(ent, out var mindComp))
+            {
+                mob = mindComp.OwnedEntity;
+                mind = new Entity<MindComponent>(ent, mindComp);
+            }
+            // Idk something else
+            else
+            {
+                var mindSystem = _entityManager.System<SharedMindSystem>();
+                if (mindSystem.TryGetMind(ent, out var mobMindId, out var mobMindComp))
+                {
+                    mob = ent;
+                    mind = new Entity<MindComponent>(mobMindId, mobMindComp);
+                }
+                else
+                {
+                    mob = ent;
+                }
+            }
+            var conditions = GetConditions(comp).ToArray();
+            if (conditions.All(cond => cond.ConditionMet(mob, mind, _entityManager)))
             {
                 var age = _gameTiming.CurTime - comp.CreationTime;
                 ev.ChaosScore += comp.ChaosScore.GetScore(age);

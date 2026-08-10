@@ -1,3 +1,4 @@
+using Content.Shared.Mind;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Serialization.Manager.Attributes;
 
@@ -36,5 +37,5 @@ public partial interface IAdaptiveScoreCondition
             Pass(shared * chaos, shared * combat);
     }*/
 
-    public bool ConditionMet(EntityUid uid, IEntityManager entMan);
+    public bool ConditionMet(EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan);
 }

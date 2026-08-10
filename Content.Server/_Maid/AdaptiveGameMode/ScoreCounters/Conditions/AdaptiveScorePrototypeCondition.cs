@@ -1,6 +1,6 @@
+using Content.Shared.Mind;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Serialization.Manager.Attributes;
-using System.Collections.Generic;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
@@ -9,9 +9,12 @@ public sealed partial class AdaptiveScorePrototypeCondition : IAdaptiveScoreCond
     [DataField(required: true)]
     public List<string> Prototypes { get; set; } = new();
 
-    public bool ConditionMet(EntityUid uid, IEntityManager entMan)
+    public bool ConditionMet(EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
     {
-        if (!entMan.TryGetComponent<MetaDataComponent>(uid, out var meta) || meta.EntityPrototype == null)
+        if (mob is null)
+            return false;
+
+        if (!entMan.TryGetComponent<MetaDataComponent>(mob.Value, out var meta) || meta.EntityPrototype == null)
             return false;
 
         return Prototypes.Contains(meta.EntityPrototype.ID);

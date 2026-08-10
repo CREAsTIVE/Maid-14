@@ -1,6 +1,7 @@
 using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Ghost;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Enums;
@@ -11,12 +12,15 @@ namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
 public sealed partial class AdaptiveScorePlayerUncuffedCondition : IAdaptiveScoreCondition
 {
-    public bool ConditionMet(EntityUid uid, IEntityManager entMan)
+    public bool ConditionMet(EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
     {
-        if (entMan.TryGetComponent<CuffableComponent>(uid, out var cuffable))
+        if (mob is null)
+            return true;
+
+        if (entMan.TryGetComponent<CuffableComponent>(mob.Value, out var cuffable))
         {
             var cuffs = entMan.System<SharedCuffableSystem>();
-            if (cuffs.IsCuffed((uid, cuffable)))
+            if (cuffs.IsCuffed((mob.Value, cuffable)))
                 return false;
         }
 

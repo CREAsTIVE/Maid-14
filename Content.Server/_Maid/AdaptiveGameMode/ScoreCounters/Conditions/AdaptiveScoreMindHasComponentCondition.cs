@@ -11,10 +11,9 @@ public sealed partial class AdaptiveScoreMindHasComponentCondition : IAdaptiveSc
     [DataField(required: true)]
     public List<string> Components { get; set; } = new();
 
-    public bool ConditionMet(EntityUid uid, IEntityManager entMan)
+    public bool ConditionMet(EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
     {
-        var mindSystem = entMan.System<SharedMindSystem>();
-        if (!mindSystem.TryGetMind(uid, out var mindId, out _))
+        if (mind == null)
             return false;
 
         var compFactory = IoCManager.Resolve<IComponentFactory>();
@@ -23,7 +22,7 @@ public sealed partial class AdaptiveScoreMindHasComponentCondition : IAdaptiveSc
             if (!compFactory.TryGetRegistration(compName, out var registration))
                 return false;
 
-            if (!entMan.HasComponent(mindId, registration.Type))
+            if (!entMan.HasComponent(mind.Value.Owner, registration.Type))
                 return false;
         }
         return true;
