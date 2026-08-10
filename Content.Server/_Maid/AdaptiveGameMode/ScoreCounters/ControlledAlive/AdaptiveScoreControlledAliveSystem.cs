@@ -9,12 +9,12 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.PlayerAlive;
+namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.ControlledAlive;
 
 /// <summary>
 /// System that handles calculating score contributions for alive player-controlled entities.
 /// </summary>
-public sealed class AdaptiveScorePlayerAliveSystem : EntitySystem
+public sealed class AdaptiveScoreControlledAliveSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -23,11 +23,11 @@ public sealed class AdaptiveScorePlayerAliveSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<AdaptiveScorePlayerAliveComponent, ComponentInit>(OnPlayerAliveComponentInit);
+        SubscribeLocalEvent<AdaptiveScoreControlledAliveComponent, ComponentInit>(OnPlayerAliveComponentInit);
         SubscribeLocalEvent<GetAdaptiveScoreEvent>(OnGetAdaptiveScore);
     }
 
-    private void OnPlayerAliveComponentInit(EntityUid uid, AdaptiveScorePlayerAliveComponent component, ref ComponentInit args)
+    private void OnPlayerAliveComponentInit(EntityUid uid, AdaptiveScoreControlledAliveComponent component, ref ComponentInit args)
     {
         component.ComponentCreated = _timing.CurTime;
     }
@@ -36,7 +36,7 @@ public sealed class AdaptiveScorePlayerAliveSystem : EntitySystem
     private void OnGetAdaptiveScore(ref GetAdaptiveScoreEvent ev)
     {
         var curTime = _timing.CurTime;
-        var query = EntityQueryEnumerator<AdaptiveScorePlayerAliveComponent, ActorComponent>();
+        var query = EntityQueryEnumerator<AdaptiveScoreControlledAliveComponent, ActorComponent>();
         while (query.MoveNext(out var uid, out var component, out var actor))
         {
             if (component.OnStation && _station.GetOwningStation(uid) == null)
@@ -48,7 +48,7 @@ public sealed class AdaptiveScorePlayerAliveSystem : EntitySystem
             if (HasComp<GhostComponent>(uid))
                 continue;
 
-            float multiplier = 1f;
+            var multiplier = 1f;
             if (TryComp<MobStateComponent>(uid, out var mobState))
             {
                 if (_mobState.IsAlive(uid, mobState))

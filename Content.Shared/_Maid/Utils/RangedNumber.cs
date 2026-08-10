@@ -40,7 +40,7 @@ public sealed class RangedNumberSerializer : ITypeSerializer<RangedNumber, Value
         ISerializationManager.InstantiationDelegate<RangedNumber>? instanceProvider = null)
     {
         if (!float.TryParse(node.Value, NumberStyles.Any, CultureInfo.InvariantCulture, out var val))
-            throw new FormatException($"Failed to parse float for RangedNumber: {node.Value}");
+            throw new ArgumentException($"Failed to parse float for RangedNumber: {node.Value}");
 
         return new RangedNumber { Min = val, Max = val };
     }
