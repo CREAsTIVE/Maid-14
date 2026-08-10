@@ -31,10 +31,10 @@ public struct AdaptiveBalanceInfo
             Condition = condition,
             CombatFrom = combat.Base,
             CombatTo = combat.Target,
-            CombatDuration = combat.Target.HasValue ? (float)combat.In.TotalMinutes : null,
+            CombatDuration = combat.Target.HasValue ? (float)combat.In.TotalSeconds : null,
             ChaosFrom = chaos.Base,
             ChaosTo = chaos.Target,
-            ChaosDuration = chaos.Target.HasValue ? (float)chaos.In.TotalMinutes : null,
+            ChaosDuration = chaos.Target.HasValue ? (float)chaos.In.TotalSeconds : null,
         };
     }
 }

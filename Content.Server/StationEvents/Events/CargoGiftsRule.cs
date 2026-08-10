@@ -41,6 +41,7 @@ public sealed class CargoGiftsRule : StationEventSystem<CargoGiftsRuleComponent>
         stationEvent.StartAnnouncement = str;
 
         base.Added(uid, component, gameRule, args);
+        Spawn("AdaptiveScoreGiftEvent", Transform(uid).Coordinates);
     }
 
     /// <summary>

@@ -138,6 +138,14 @@
   description: A flying leviathan, loosely related to space carps.
   abstract: true
   components:
+  - type: AdaptiveScoreStatic
+    combatScore:
+      base: 10
+      target: 5
+      in: 10
+    chaosScore: 5
+    conditionTables:
+    - ControlledAlive
   - type: Body # Shitmed
     prototype: SpaceDragon
   - type: SurgeryTarget # Shitmed

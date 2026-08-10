@@ -100,7 +100,11 @@
   - type: RoleRequirement
     roles:
     - TraitorRole
-
+  - type: AdaptiveScoreStatic
+    combatScore: 3
+    chaosScore: 3
+    conditions:
+    - !type:AdaptiveScoreObjectiveCompletedCondition
 - type: entity
   abstract: true
   parent: [BaseTraitorObjective, BaseSocialObjective]

@@ -16,3 +16,4 @@
   - !type:AdaptiveScoreAliveCondition
   - !type:AdaptiveScoreHasComponentInChildrenCondition
     component: Contraband
+
