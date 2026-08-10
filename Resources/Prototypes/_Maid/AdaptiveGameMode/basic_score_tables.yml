@@ -1,0 +1,18 @@
+- type: AdaptiveScoreConditionsTable
+  id: Alive
+  conditions:
+  - !type:AdaptiveScoreAliveCondition
+
+- type: AdaptiveScoreConditionsTable
+  id: ControlledAlive
+  conditions:
+  - !type:AdaptiveScoreControlledCondition
+  - !type:AdaptiveScoreAliveCondition
+
+- type: AdaptiveScoreConditionsTable
+  id: ActiveAntag
+  conditions:
+  - !type:AdaptiveScoreControlledCondition
+  - !type:AdaptiveScoreAliveCondition
+  - !type:AdaptiveScoreHasComponentInChildrenCondition
+    component: Contraband
