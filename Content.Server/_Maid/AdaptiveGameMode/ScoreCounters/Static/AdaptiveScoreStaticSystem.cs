@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using Robust.Shared.GameObjects;
+using System.Linq;
 using Content.Server._Maid.AdaptiveGameMode.MetaInfo;
 using Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Collector;
 using Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
@@ -12,6 +13,7 @@ public sealed class AdaptiveScoreStaticSystem : EntitySystem, IAdaptiveBalanceIn
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly IComponentFactory _compFactory = default!;
 
     public override void Initialize()
     {
@@ -44,8 +46,9 @@ public sealed class AdaptiveScoreStaticSystem : EntitySystem, IAdaptiveBalanceIn
         {
             if (GetConditions(comp).All(cond => cond.ConditionMet(ent, _entityManager)))
             {
-                ev.ChaosScore += comp.ChaosScore.GetScore(comp.CreationTime);
-                ev.CombatScore += comp.CombatScore.GetScore(comp.CreationTime);
+                var age = _gameTiming.CurTime - comp.CreationTime;
+                ev.ChaosScore += comp.ChaosScore.GetScore(age);
+                ev.CombatScore += comp.CombatScore.GetScore(age);
             }
         }
     }
@@ -66,7 +69,7 @@ public sealed class AdaptiveScoreStaticSystem : EntitySystem, IAdaptiveBalanceIn
         var protos = _protoManager.EnumeratePrototypes<EntityPrototype>();
         foreach (var proto in protos)
         {
-            if (proto.TryGetComponent(out AdaptiveScoreStaticComponent? component))
+            if (proto.TryGetComponent(out AdaptiveScoreStaticComponent? component, _compFactory))
             {
                 yield return AdaptiveBalanceInfo.FromSlope(
                     proto.ID,

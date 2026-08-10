@@ -54,9 +54,9 @@ public sealed class AdaptiveScoreCollectorSystem : EntitySystem
                 ? GetEntities(reg.Type)
                 : GetEntities();
 
+            var conditions = GetConditions(collector).ToArray();
             var count = entities.Count(ent =>
-                GetConditions(collector)
-                    .All(condition => condition.ConditionMet(ent, _entityManager))
+                conditions.All(condition => condition.ConditionMet(ent, _entityManager))
             );
 
             ev.ChaosScore += count * collector.ChaosScore;
