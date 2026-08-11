@@ -9,7 +9,10 @@ using System.Collections.Generic;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Systems;
 
-public sealed class AdaptiveScoreNukeSystem : EntitySystem, IAdaptiveBalanceInfoProvider
+public sealed class AdaptiveScoreNukeSystem : EntitySystem
+#if DEBUG
+    , IAdaptiveBalanceInfoProvider
+#endif
 {
     [Dependency] private readonly SharedStationSystem _station = default!;
 
@@ -40,6 +43,7 @@ public sealed class AdaptiveScoreNukeSystem : EntitySystem, IAdaptiveBalanceInfo
         ev.ChaosScore += count * ChaosContribution;
     }
 
+#if DEBUG
     public IEnumerable<AdaptiveBalanceInfo> GetBalanceInfo()
     {
         yield return new()
@@ -50,4 +54,5 @@ public sealed class AdaptiveScoreNukeSystem : EntitySystem, IAdaptiveBalanceInfo
             CombatFrom = CombatContribution,
         };
     }
+#endif
 }

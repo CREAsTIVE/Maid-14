@@ -19,8 +19,8 @@ public partial interface IAdaptiveScoreCondition
         public static Result No { get; } = new()
         {
             Passes = false,
-            CombatMultiplier = 0f,
             ChaosMultiplier = 0f,
+            CombatMultiplier = 0f,
         };
 
         public static Result Pass(float multiplier = 1f) =>

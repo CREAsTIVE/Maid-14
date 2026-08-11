@@ -10,7 +10,10 @@ using System.Collections.Generic;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Systems;
 
-public sealed class AdaptiveScorePlayersAmountCounter : EntitySystem, IAdaptiveBalanceInfoProvider
+public sealed class AdaptiveScorePlayersAmountCounter : EntitySystem
+#if DEBUG
+    , IAdaptiveBalanceInfoProvider
+#endif
 {
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedStationSystem _station = default!;
@@ -46,6 +49,7 @@ public sealed class AdaptiveScorePlayersAmountCounter : EntitySystem, IAdaptiveB
         ev.CombatScore += count * CombatContribution;
     }
 
+#if DEBUG
     public IEnumerable<AdaptiveBalanceInfo> GetBalanceInfo()
     {
         yield return new()
@@ -56,4 +60,5 @@ public sealed class AdaptiveScorePlayersAmountCounter : EntitySystem, IAdaptiveB
             CombatFrom = CombatContribution,
         };
     }
+#endif
 }

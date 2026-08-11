@@ -1,24 +1,26 @@
 using System.Linq;
-using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Reflection;
 using Content.Server._Maid.AdaptiveGameMode.MetaInfo;
 using Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
-using Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Static;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.Markdown;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Sequence;
 using Robust.Shared.Serialization.Markdown.Value;
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Collector;
 
-public sealed class AdaptiveScoreCollectorSystem : EntitySystem, IAdaptiveBalanceInfoProvider
+public sealed class AdaptiveScoreCollectorSystem : EntitySystem
+#if DEBUG
+    , IAdaptiveBalanceInfoProvider
+#endif
 {
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly ISerializationManager _serializationManager = default!;
 
     public override void Initialize()
     {
@@ -102,115 +104,95 @@ public sealed class AdaptiveScoreCollectorSystem : EntitySystem, IAdaptiveBalanc
             ev.CombatScore += count * collector.CombatScore;
         }
     }
-
+#if DEBUG
     public IEnumerable<AdaptiveBalanceInfo> GetBalanceInfo()
     {
         static string FixName(string name)
         {
             if (name.StartsWith("AdaptiveScore"))
-                name = name.Substring("AdaptiveScore".Length);
+                name = name["AdaptiveScore".Length..];
 
             if (name.EndsWith("Condition"))
-                name = name.Substring(0, name.Length - "Condition".Length);
+                name = name[..^"Condition".Length];
 
             return name;
         }
 
-        var protos = _protoManager.EnumeratePrototypes<EntityPrototype>();
-        foreach (var proto in protos)
-        {
-            if (proto.TryGetComponent(out AdaptiveScoreCollectorComponent? component, _componentFactory))
-            {
-                if (!HasComponentDefinedOrOverridden(proto.ID, "AdaptiveScoreCollector"))
-                    continue;
+        var rawResults = GetRawResults(_protoManager);
+        if (rawResults == null)
+            yield break;
 
-                yield return new AdaptiveBalanceInfo
-                {
-                    Entity = proto.ID,
-                    Condition = string.Join(
-                        " + ",
-                        new[] { component.EnumerateComponent ?? "" }
-                            .Concat(
-                                GetConditions(component)
-                                    .Select(cond => cond.GetType().Name)
-                                    .Select(FixName)
-                            )
-                            .Where(s => !string.IsNullOrEmpty(s))
-                    ),
-                    CombatFrom = component.CombatScore,
-                    ChaosFrom = component.ChaosScore
-                };
-            }
+        foreach (var (protoId, mapping) in rawResults)
+        {
+            var compMapping = GetComponentMapping(mapping, "AdaptiveScoreCollector");
+            if (compMapping is null)
+                continue;
+
+            var component = _serializationManager.Read<AdaptiveScoreCollectorComponent?>(compMapping);
+            if (component is null)
+                continue;
+
+            yield return new AdaptiveBalanceInfo
+            {
+                Entity = protoId,
+                Condition = string.Join(
+                    " + ",
+                    new[] { component.EnumerateComponent ?? "" }
+                        .Concat(
+                            GetConditions(component)
+                                .Select(cond => cond.GetType().Name)
+                                .Select(FixName)
+                        )
+                        .Where(s => !string.IsNullOrEmpty(s))
+                ),
+                ChaosFrom = component.ChaosScore,
+                CombatFrom = component.CombatScore,
+            };
         }
     }
 
-    private MappingDataNode? GetRawMapping(string protoId)
+    private static Dictionary<string, MappingDataNode>? GetRawResults(IPrototypeManager protoManager)
     {
-        var prototypeManager = _protoManager as PrototypeManager;
-        if (prototypeManager == null)
+        if (protoManager is not PrototypeManager prototypeManager)
             return null;
 
-        var kindsField = typeof(PrototypeManager).GetField("_kinds", BindingFlags.Instance | BindingFlags.NonPublic);
-        if (kindsField == null)
-            return null;
+        // Some reflection nonsense to retrieve private fields. May break on engine update
+        var kindsField = typeof(PrototypeManager)
+            .GetField("_kinds", BindingFlags.Instance | BindingFlags.NonPublic);
 
-        var kinds = kindsField.GetValue(prototypeManager);
-        if (kinds == null)
-            return null;
-
-        var dict = kinds as System.Collections.IDictionary;
-        if (dict == null)
+        if (kindsField?.GetValue(prototypeManager) is not IDictionary dict)
             return null;
 
         if (!dict.Contains(typeof(EntityPrototype)))
             return null;
 
         var kindData = dict[typeof(EntityPrototype)];
-        if (kindData == null)
-            return null;
 
-        var rawResultsField = kindData.GetType().GetField("RawResults", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-        if (rawResultsField == null)
-            return null;
+        var rawResultsField = kindData?
+            .GetType()
+            .GetField("RawResults", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
 
-        var rawResults = rawResultsField.GetValue(kindData) as Dictionary<string, MappingDataNode>;
-        if (rawResults == null)
-            return null;
-
-        if (rawResults.TryGetValue(protoId, out var mapping))
-            return mapping;
-
-        return null;
+        return rawResultsField?.GetValue(kindData) as Dictionary<string, MappingDataNode>;
     }
 
-    private bool HasComponentDefinedOrOverridden(string protoId, string componentName)
+    private static MappingDataNode? GetComponentMapping(MappingDataNode mapping, string componentName)
     {
-        var mapping = GetRawMapping(protoId);
-        if (mapping == null)
-            return false;
-
         if (!mapping.TryGetValue("components", out var componentsNode) || componentsNode is not SequenceDataNode sequenceNode)
-            return false;
+            return null;
 
         foreach (var node in sequenceNode)
         {
-            if (node is ValueDataNode valueNode && valueNode.Value == componentName)
-            {
-                return true;
-            }
+            if (node is not MappingDataNode compMapping)
+                continue;
 
-            if (node is MappingDataNode compMapping)
-            {
-                if (compMapping.TryGetValue("type", out var typeNode) && typeNode is ValueDataNode valNode)
-                {
-                    if (valNode.Value == componentName)
-                    {
-                        return true;
-                    }
-                }
-            }
+            if (!compMapping.TryGetValue("type", out var typeNode) || typeNode is not ValueDataNode valNode)
+                continue;
+
+            if (valNode.Value == componentName)
+                return compMapping;
         }
 
-        return false;
+        return null;
     }
+#endif
 }
