@@ -1,14 +1,20 @@
-
 using System.Linq;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
+using Content.Server._Maid.AdaptiveGameMode.MetaInfo;
 using Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 using Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Static;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
-
+using Robust.Shared.Serialization.Markdown;
+using Robust.Shared.Serialization.Markdown.Mapping;
+using Robust.Shared.Serialization.Markdown.Sequence;
+using Robust.Shared.Serialization.Markdown.Value;
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Collector;
 
-public sealed class AdaptiveScoreCollectorSystem : EntitySystem
+public sealed class AdaptiveScoreCollectorSystem : EntitySystem, IAdaptiveBalanceInfoProvider
 {
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
@@ -95,5 +101,116 @@ public sealed class AdaptiveScoreCollectorSystem : EntitySystem
             ev.ChaosScore += count * collector.ChaosScore;
             ev.CombatScore += count * collector.CombatScore;
         }
+    }
+
+    public IEnumerable<AdaptiveBalanceInfo> GetBalanceInfo()
+    {
+        static string FixName(string name)
+        {
+            if (name.StartsWith("AdaptiveScore"))
+                name = name.Substring("AdaptiveScore".Length);
+
+            if (name.EndsWith("Condition"))
+                name = name.Substring(0, name.Length - "Condition".Length);
+
+            return name;
+        }
+
+        var protos = _protoManager.EnumeratePrototypes<EntityPrototype>();
+        foreach (var proto in protos)
+        {
+            if (proto.TryGetComponent(out AdaptiveScoreCollectorComponent? component, _componentFactory))
+            {
+                if (!HasComponentDefinedOrOverridden(proto.ID, "AdaptiveScoreCollector"))
+                    continue;
+
+                yield return new AdaptiveBalanceInfo
+                {
+                    Entity = proto.ID,
+                    Condition = string.Join(
+                        " + ",
+                        new[] { component.EnumerateComponent ?? "" }
+                            .Concat(
+                                GetConditions(component)
+                                    .Select(cond => cond.GetType().Name)
+                                    .Select(FixName)
+                            )
+                            .Where(s => !string.IsNullOrEmpty(s))
+                    ),
+                    CombatFrom = component.CombatScore,
+                    ChaosFrom = component.ChaosScore
+                };
+            }
+        }
+    }
+
+    private MappingDataNode? GetRawMapping(string protoId)
+    {
+        var prototypeManager = _protoManager as PrototypeManager;
+        if (prototypeManager == null)
+            return null;
+
+        var kindsField = typeof(PrototypeManager).GetField("_kinds", BindingFlags.Instance | BindingFlags.NonPublic);
+        if (kindsField == null)
+            return null;
+
+        var kinds = kindsField.GetValue(prototypeManager);
+        if (kinds == null)
+            return null;
+
+        var dict = kinds as System.Collections.IDictionary;
+        if (dict == null)
+            return null;
+
+        if (!dict.Contains(typeof(EntityPrototype)))
+            return null;
+
+        var kindData = dict[typeof(EntityPrototype)];
+        if (kindData == null)
+            return null;
+
+        var rawResultsField = kindData.GetType().GetField("RawResults", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        if (rawResultsField == null)
+            return null;
+
+        var rawResults = rawResultsField.GetValue(kindData) as Dictionary<string, MappingDataNode>;
+        if (rawResults == null)
+            return null;
+
+        if (rawResults.TryGetValue(protoId, out var mapping))
+            return mapping;
+
+        return null;
+    }
+
+    private bool HasComponentDefinedOrOverridden(string protoId, string componentName)
+    {
+        var mapping = GetRawMapping(protoId);
+        if (mapping == null)
+            return false;
+
+        if (!mapping.TryGetValue("components", out var componentsNode) || componentsNode is not SequenceDataNode sequenceNode)
+            return false;
+
+        foreach (var node in sequenceNode)
+        {
+            if (node is ValueDataNode valueNode && valueNode.Value == componentName)
+            {
+                return true;
+            }
+
+            if (node is MappingDataNode compMapping)
+            {
+                if (compMapping.TryGetValue("type", out var typeNode) && typeNode is ValueDataNode valNode)
+                {
+                    if (valNode.Value == componentName)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 }

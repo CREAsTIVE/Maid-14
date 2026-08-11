@@ -17,6 +17,11 @@
   id: MobAbductorAntag
   abstract: true
   components:
+  - type: AdaptiveScoreStatic # MAID adaptive scores
+    combatScore: 5 # MAID adaptive scores
+    chaosScore: 10 # MAID adaptive scores
+    conditionTables: # MAID adaptive scores
+    - ControlledAlive # MAID adaptive scores
   - type: Abductor
   - type: ActionGrant
     actions:
