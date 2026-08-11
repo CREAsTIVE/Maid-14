@@ -2,19 +2,20 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Serialization.Manager.Attributes;
 using Content.Shared.Mind;
+using Content.Shared.Roles;
 using System;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
 [DataDefinition]
-public sealed partial class AdaptiveScoreHasComponentInChildrenCondition : IAdaptiveScoreCondition
+public sealed partial class AdaptiveScoreHasComponentInChildrenCondition : AdaptiveScoreTargetedCondition
 {
     [DataField(required: true)]
     public string Component { get; set; } = string.Empty;
 
-    public bool ConditionMet(EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
+    protected override bool ConditionMetOnTarget(EntityUid? ent, IEntityManager entMan)
     {
-        if (mob == null)
+        if (ent == null)
             return false;
 
         var compFactory = IoCManager.Resolve<IComponentFactory>();
@@ -22,10 +23,10 @@ public sealed partial class AdaptiveScoreHasComponentInChildrenCondition : IAdap
             return false;
 
         var xformQuery = entMan.GetEntityQuery<TransformComponent>();
-        return HasComponent(mob.Value, registration.Type, entMan, xformQuery);
+        return HasComponent(ent.Value, registration.Type, entMan, xformQuery);
     }
 
-    private bool HasComponent(EntityUid uid, Type componentType, IEntityManager entMan, EntityQuery<TransformComponent> xformQuery)
+    private static bool HasComponent(EntityUid uid, Type componentType, IEntityManager entMan, EntityQuery<TransformComponent> xformQuery)
     {
         if (!xformQuery.TryGetComponent(uid, out var xform))
             return false;

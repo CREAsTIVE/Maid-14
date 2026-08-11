@@ -1,4 +1,5 @@
 using Content.Shared.Mind;
+using Content.Shared.Roles;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Serialization.Manager.Attributes;
 
@@ -9,7 +10,7 @@ public sealed partial class AdaptiveScorePrototypeCondition : IAdaptiveScoreCond
     [DataField(required: true)]
     public List<string> Prototypes { get; set; } = new();
 
-    public bool ConditionMet(EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
+    public bool ConditionMet(EntityUid owner, EntityUid? mob, Entity<MindComponent>? mind,  IEntityManager entMan)
     {
         if (mob is null)
             return false;

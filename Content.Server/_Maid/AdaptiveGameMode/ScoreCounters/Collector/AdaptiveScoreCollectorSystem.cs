@@ -12,10 +12,7 @@ using Robust.Shared.Serialization.Markdown.Sequence;
 using Robust.Shared.Serialization.Markdown.Value;
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Collector;
 
-public sealed class AdaptiveScoreCollectorSystem : EntitySystem
-#if DEBUG
-    , IAdaptiveBalanceInfoProvider
-#endif
+public sealed class AdaptiveScoreCollectorSystem : EntitySystem, IAdaptiveBalanceInfoProvider
 {
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
@@ -97,7 +94,7 @@ public sealed class AdaptiveScoreCollectorSystem : EntitySystem
                     }
                 }
 
-                return conditions.All(condition => condition.ConditionMet(mob, mind, _entityManager));
+                return conditions.All(condition => condition.ConditionMet(ent, mob, mind, _entityManager));
             });
 
             ev.ChaosScore += count * collector.ChaosScore;

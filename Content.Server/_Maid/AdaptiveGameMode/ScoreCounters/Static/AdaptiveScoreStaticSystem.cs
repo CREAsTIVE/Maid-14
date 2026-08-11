@@ -21,16 +21,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Static;
 
-public sealed class AdaptiveScoreStaticSystem : EntitySystem
-#if DEBUG
-    , IAdaptiveBalanceInfoProvider
-#endif
+public sealed class AdaptiveScoreStaticSystem : EntitySystem, IAdaptiveBalanceInfoProvider
 {
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly ISerializationManager _serializationManager = default!;
+    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
 
     public override void Initialize()
     {
@@ -63,28 +61,22 @@ public sealed class AdaptiveScoreStaticSystem : EntitySystem
         {
             EntityUid? mob = null;
             Entity<MindComponent>? mind = null;
+            Entity<MindRoleComponent>? mindRole = null;
 
-            // If ent controlled by mind
-            if (TryComp<MindRoleComponent>(ent, out var mindRole))
+
+            if (TryComp<MindRoleComponent>(ent, out var mindRoleComponent))
             {
-                var mindId = mindRole.Mind.Owner;
-                if (TryComp<MindComponent>(mindId, out var mindComp))
-                {
-                    mob = mindRole.Mind.Comp.OwnedEntity;
-                    mind = new Entity<MindComponent>(mindId, mindComp);
-                }
+                mind = mindRoleComponent.Mind;
+                mob = mind.Value.Comp.OwnedEntity;
             }
-            // If mind itself
             else if (TryComp<MindComponent>(ent, out var mindComp))
             {
                 mob = mindComp.OwnedEntity;
                 mind = new Entity<MindComponent>(ent, mindComp);
             }
-            // Idk something else
             else
             {
-                var mindSystem = _entityManager.System<SharedMindSystem>();
-                if (mindSystem.TryGetMind(ent, out var mobMindId, out var mobMindComp))
+                if (_mindSystem.TryGetMind(ent, out var mobMindId, out var mobMindComp))
                 {
                     mob = ent;
                     mind = new Entity<MindComponent>(mobMindId, mobMindComp);
@@ -95,7 +87,7 @@ public sealed class AdaptiveScoreStaticSystem : EntitySystem
                 }
             }
             var conditions = GetConditions(comp).ToArray();
-            if (conditions.All(cond => cond.ConditionMet(mob, mind, _entityManager)))
+            if (conditions.All(cond => cond.ConditionMet(ent, mob, mind, _entityManager)))
             {
                 var age = _gameTiming.CurTime - comp.CreationTime;
                 ev.ChaosScore += comp.ChaosScore.GetScore(age);

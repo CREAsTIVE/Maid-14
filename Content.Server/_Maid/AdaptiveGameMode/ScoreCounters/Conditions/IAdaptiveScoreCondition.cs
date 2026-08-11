@@ -1,6 +1,7 @@
 using Content.Shared.Mind;
+using Content.Shared.Roles;
 using Robust.Shared.GameObjects;
-using Robust.Shared.Serialization.Manager.Attributes;
+using Robust.Shared.Serialization;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
@@ -37,5 +38,26 @@ public partial interface IAdaptiveScoreCondition
             Pass(shared * chaos, shared * combat);
     }*/
 
-    public bool ConditionMet(EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan);
+    public bool ConditionMet(EntityUid owner, EntityUid? controlledMob, Entity<MindComponent>? mind, IEntityManager entMan);
+
+    public static EntityUid? ResolveTarget(
+        AdaptiveScoreConditionTarget target,
+        EntityUid owner,
+        EntityUid? controlledMob,
+        Entity<MindComponent>? mind
+    ) => target switch
+    {
+        AdaptiveScoreConditionTarget.Owner => owner,
+        AdaptiveScoreConditionTarget.Mind => mind,
+        AdaptiveScoreConditionTarget.Mob => controlledMob,
+        _ => null,
+    };
+}
+
+[Serializable, NetSerializable]
+public enum AdaptiveScoreConditionTarget
+{
+    Owner = 0,
+    Mind = 1,
+    Mob = 2, // Controlled mob by mind
 }

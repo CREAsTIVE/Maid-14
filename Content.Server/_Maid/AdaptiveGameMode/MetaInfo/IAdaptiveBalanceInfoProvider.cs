@@ -3,13 +3,15 @@ using Content.Server._Maid.AdaptiveGameMode.ScoreCounters;
 
 namespace Content.Server._Maid.AdaptiveGameMode.MetaInfo;
 
-#if DEBUG
+
 // THIS IS ONLY FOR BALANCING PURPOSES IN DEV ENV!
 public interface IAdaptiveBalanceInfoProvider
 {
+    #if DEBUG
     IEnumerable<AdaptiveBalanceInfo> GetBalanceInfo();
+    #endif
 }
-
+#if DEBUG
 public struct AdaptiveBalanceInfo
 {
     public string Entity;

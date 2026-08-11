@@ -5,16 +5,17 @@ using Content.Shared.Mind;
 using Content.Shared.Roles;
 using System.Collections.Generic;
 using Content.Shared.Roles.Jobs;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
 [DataDefinition]
-public sealed partial class AdaptiveScoreMindHasJobCondition : IAdaptiveScoreCondition
+public sealed partial class AdaptiveScoreHasJobCondition : IAdaptiveScoreCondition
 {
     [DataField(required: true)]
-    public List<string> Jobs { get; set; } = [];
+    public List<ProtoId<JobPrototype>> Jobs { get; set; } = [];
 
-    public bool ConditionMet(EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
+    public bool ConditionMet(EntityUid owner, EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
     {
         if (mind == null)
             return false;

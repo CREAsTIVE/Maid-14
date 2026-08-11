@@ -1,6 +1,7 @@
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mind;
+using Content.Shared.Roles;
 using Robust.Shared.GameObjects;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
@@ -10,10 +11,16 @@ public sealed partial class AdaptiveScoreAliveCondition : IAdaptiveScoreConditio
     [DataField]
     public bool AllowCritical = false;
 
-    public bool ConditionMet(EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
+    [DataField]
+    public bool MustHaveState = false;
+
+    public bool ConditionMet(EntityUid owner, EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
     {
-        if (mob == null || !entMan.TryGetComponent<MobStateComponent>(mob.Value, out var mobState))
+        if (mob is null)
             return false;
+
+        if (!entMan.TryGetComponent(mob, out MobStateComponent? mobState))
+            return !MustHaveState;
 
         var mobStateSystem = entMan.System<MobStateSystem>();
 
