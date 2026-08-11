@@ -312,7 +312,7 @@
     - id: MineralScanner
 #    - id: FoodSnackLollypopWrappedMysteryEvil # Goobstation #Maid
 #    - id: FoodSnackLollypopWrappedOmnizine # Goobstation #Maid
-      weight: 0.5
+#      weight: 0.5
     - !type:GroupSelector # Goobstation
       children:
       - id: DoubleEmergencyOxygenTankFilled
