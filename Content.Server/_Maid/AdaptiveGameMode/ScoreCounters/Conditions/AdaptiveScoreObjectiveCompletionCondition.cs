@@ -7,8 +7,11 @@ using Content.Shared.Objectives.Systems;
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
 [DataDefinition]
-public sealed partial class AdaptiveScoreObjectiveCompletedCondition : IAdaptiveScoreCondition
+public sealed partial class AdaptiveScoreObjectiveCompletionCondition : IAdaptiveScoreCondition
 {
+    [DataField]
+    public bool Completed = false;
+
     public bool ConditionMet(EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
     {
         if (mob == null)
@@ -23,7 +26,7 @@ public sealed partial class AdaptiveScoreObjectiveCompletedCondition : IAdaptive
         {
             if (mindComp.Objectives.Contains(objectiveId))
             {
-                return objectivesSystem.IsCompleted(objectiveId, (mindId, mindComp));
+                return objectivesSystem.IsCompleted(objectiveId, (mindId, mindComp)) == Completed;
             }
         }
 

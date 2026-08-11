@@ -645,6 +645,14 @@
   - type: GameRule
     chaosScore: 80
   - type: PowerGridCheckRule
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    chaosScore: 5
+    conditions:
+    - !type:AdaptiveScoreHasComponentCondition
+      components:
+      - ActiveGameRule
+  # MAID END adaptive scores
 
 - type: entity
   parent: BaseGameRule
@@ -679,6 +687,14 @@
     extraCount: 2
     lightBreakChancePerSecond: 0.0003
     doorToggleChancePerSecond: 0.001
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    chaosScore: 3
+    conditions:
+    - !type:AdaptiveScoreHasComponentCondition
+      components:
+      - ActiveGameRule
+  # MAID END adaptive scores
 
 - type: entity
   id: VentClog
@@ -965,6 +981,13 @@
   - type: GameRule
     chaosScore: 150
   - type: IonStormRule
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    chaosScore:
+      base: 3
+      target: 0
+      in: 10
+  # MAID END adaptive scores
 
 - type: entity
   id: MimicVendorRule

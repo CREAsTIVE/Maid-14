@@ -6,15 +6,6 @@
   name: malicious skeleton
   description: A hostile skeleton summoned by a wraith.
   components:
-  - type: AdaptiveScoreStatic
-    combatScore:
-      base: 3
-      target: 0
-    chaosScore:
-      base: 5
-      target: 0
-    conditionTables:
-    - ControlledAlive
   - type: HTN
     rootTask:
       task: XenomorphCompound

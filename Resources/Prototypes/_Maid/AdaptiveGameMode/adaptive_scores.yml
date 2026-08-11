@@ -135,15 +135,6 @@
     conditionTables:
     - ControlledAlive
 
-- type: entity
-  id: AdaptiveParadoxCloneScoreCollector
-  components:
-  - type: AdaptiveScoreCollector
-    combatScore: 3
-    chaosScore: 3
-    enumerateComponent: ParadoxCloneRole
-    conditionTables:
-    - ControlledAlive
 # Static Component Configurations for Global Events and Stationary Entities
 - type: entity
   id: AdaptiveAnomalyScoreStatic
@@ -151,25 +142,6 @@
   - type: AdaptiveScoreStatic
     chaosScore: 3
     enumerateComponent: Anomaly
-
-- type: entity
-  id: AdaptiveIonStormScoreStatic
-  components:
-  - type: AdaptiveScoreStatic
-    chaosScore: 10
-    # checks during active rule
-
-- type: entity
-  id: AdaptivePowerGridCheckScoreStatic
-  components:
-  - type: AdaptiveScoreStatic
-    chaosScore: 5
-
-- type: entity
-  id: AdaptiveSolarFlareScoreStatic
-  components:
-  - type: AdaptiveScoreStatic
-    chaosScore: 3
 
 - type: entity
   id: AdaptiveScoreGiftEvent
@@ -181,3 +153,27 @@
       base: -2
       target: 0
       in: 5
+
+- type: entity
+  id: AdaptiveDragonRiftScoreStatic
+  components:
+  - type: AdaptiveScoreStatic
+    chaosScore:
+      base: 5
+      target: 0
+      in: 15
+
+- type: entity
+  id: AdaptiveSkeletonScoreStatic
+  components:
+  - type: AdaptiveScoreStatic
+    combatScore:
+      base: 3
+      target: 0
+      in: 15
+    chaosScore:
+      base: 5
+      target: 0
+      in: 15
+    conditionTables:
+    - ControlledAlive

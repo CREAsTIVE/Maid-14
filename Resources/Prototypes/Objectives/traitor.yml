@@ -104,7 +104,7 @@
     combatScore: 3
     chaosScore: 3
     conditions:
-    - !type:AdaptiveScoreObjectiveCompletedCondition
+    - !type:AdaptiveScoreObjectiveCompletionCondition
 - type: entity
   abstract: true
   parent: [BaseTraitorObjective, BaseSocialObjective]
