@@ -33,7 +33,7 @@
       slots:
         - back
     - type: DisarmMalus
-    - type: Crit
+    - type: MaidCrit
       critChance: 0.3
       critMultiplier: 1.5
       critType: Slash
