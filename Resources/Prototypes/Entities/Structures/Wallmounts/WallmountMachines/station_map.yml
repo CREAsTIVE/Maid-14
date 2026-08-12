@@ -100,7 +100,7 @@
         collection: Keyboard
         params:
           volume: -1
-          variation: 0.10
+          # variation: 0.10 # MAID sound-porting
           pitch: 1.10  # low pitch keyboard sounds feel kinda weird
       blacklist:
         tags:

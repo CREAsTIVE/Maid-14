@@ -360,6 +360,8 @@
   parent: BaseGameRule
   id: DragonSpawn
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 10 # MAID dynamic game mode
   - type: StationEvent
     weight: 2 # Goobstation - was 3
     earliestStart: 30 # Goobstation was 45
@@ -400,6 +402,8 @@
   parent: BaseGameRule
   id: NinjaSpawn
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 15 # MAID dynamic game mode
   - type: StationEvent
     weight: 3 # Goobstation - was 6
     duration: null
@@ -450,7 +454,7 @@
       briefing:
         text: ninja-role-greeting
         color: Green
-        sound: /Audio/Misc/ninja_greeting.ogg
+        sound: /Audio/_Maid/Misc/ninja_greeting.ogg #MAID Sound porting
       components:
       - type: SpaceNinja
       - type: NpcFactionMember
@@ -797,6 +801,8 @@
   id: ZombieOutbreak
   parent: BaseGameRule
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 20 # MAID dynamic game mode
   - type: StationEvent
     earliestStart: 60 # Goobstation - was 90 (impossible on goob)
     minimumPlayers: 40
@@ -824,7 +830,7 @@
       briefing:
         text: zombie-patientzero-role-greeting
         color: Plum
-        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
+        sound: "/Audio/_Maid/Ambience/Antag/zombie_start.ogg" #MAID Sound porting
       components:
       - type: PendingZombie #less time to prepare than normal
         minInitialInfectedGrace: 300
@@ -839,11 +845,13 @@
   parent: BaseNukeopsRule
   id: LoneOpsSpawn
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 20 # MAID dynamic game mode
   - type: StationEvent
     earliestStart: 35
     weight: 2.5 # Goobstation - was 5.5
     minimumPlayers: 50 # Goobstation - was 20
-    duration: 1
+    duration: null # MAID BEGIN round-end-fix
     chaos: # Goobstation
       Hostile: 200
       Medical: 200
@@ -887,6 +895,8 @@
   parent: BaseTraitorRule
   id: SleeperAgents
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 10 # MAID dynamic game mode
   - type: StationEvent
     earliestStart: 30
     weight: 8

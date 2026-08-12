@@ -253,7 +253,7 @@
     items:
       - id: FoodMeatWheat
     sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
+      path: /Audio/_Maid/Voice/Slime/slime_squish.ogg #MAID Sound porting
   - type: Produce
     seedId: meatwheat
 

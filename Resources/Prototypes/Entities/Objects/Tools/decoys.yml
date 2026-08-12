@@ -29,7 +29,7 @@
           acts: [ "Destruction" ]
         - !type:PlaySoundBehavior
           sound:
-            path: /Audio/Effects/pop_high.ogg
+            path: /Audio/_Maid/Effects/pop_high.ogg #MAID Sound porting
   - type: Appearance
   - type: Item
     size: Normal

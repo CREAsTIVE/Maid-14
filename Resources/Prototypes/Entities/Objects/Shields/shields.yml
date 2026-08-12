@@ -591,8 +591,8 @@
       # WD EDIT START
       soundFailToActivate:
         path: /Audio/Machines/button.ogg
-        params:
-          variation: 0.250
+        # params: # MAID sound-porting
+          # variation: 0.250 # MAID sound-porting
       # WD EDIT END
     - type: ItemToggleActiveSound
       activeSound:

@@ -41,6 +41,22 @@ command-description-mind-get = Grabs the mind from the entity, if any.
 command-description-mind-control = Assumes control of an entity with the given player.
 command-description-addaccesslog = Adds an access log to this entity. Do note that this bypasses the log's default limit and pause check.
 command-description-stationevent-simulate = Simulates N number of rounds in which events will occur and prints the occurrences of every event after.
+command-description-dynamic-list =
+    Отображает список всех активных динамических игровых правил, обычно это только одно.
+command-description-dynamic-get =
+    Получает текущее активное динамическое игровое правило.
+command-description-dynamic-budget =
+    Получает текущий бюджет для переданных по конвейеру динамических игровых правил.
+command-description-dynamic-adjust =
+    Изменяет бюджет для переданных по конвейеру динамических игровых правил на указанную величину.
+command-description-dynamic-set =
+    Устанавливает бюджет для переданных по конвейеру динамических игровых правил на указанную величину.
+command-description-dynamic-dryrun =
+    Возвращает список игровых правил, которые могли бы быть активированы в текущий момент с учётом текущего контекста. Это не полный список всех возможных правил, а лишь пример тех, что доступны в данный момент.
+command-description-dynamic-executenow =
+    Выполняет переданное по конвейеру динамическое игровое правило, как если бы наступило время его очередного обновления.
+command-description-dynamic-rules =
+    Получает список всех правил, созданных переданным по конвейеру динамическим игровым правилом.
 command-description-xenoartifact-list = List all EntityUids of spawned artifacts.
 command-description-xenoartifact-printMatrix = Prints out matrix that displays all edges between nodes.
 command-description-xenoartifact-totalResearch = Gets all research points that can be extracted from artifact currently.

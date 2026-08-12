@@ -713,7 +713,7 @@
   description: It's made of a special fiber that increases perceived intelligence and decreases personal ethics. It has markings that denote the wearer as a scientist.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/scientist.rsi
+    sprite: _Maid/Clothing/Uniforms/Jumpsuit/scientist.rsi # Maid
 
 - type: entity
   parent: ClothingUniformBase

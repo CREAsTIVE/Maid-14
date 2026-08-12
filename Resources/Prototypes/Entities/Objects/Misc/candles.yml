@@ -35,7 +35,7 @@
       extinguishAttemptSound:
         path: /Audio/Items/candle_blowing.ogg
         params:
-          variation: 0.05
+          # variation: 0.05 # MAID sound-porting
           volume: 10
     - type: UseDelay
     - type: ExtinguishableSetCollisionWake

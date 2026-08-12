@@ -152,32 +152,46 @@
   id: LockerFillQuarterMaster
   table: !type:AllSelector
     children:
-    - id: BoxEncryptionKeyCargo
     - id: BoxFolderQmClipboard
-    - id: CargoBountyComputerCircuitboard
     - id: CargoRequestComputerCircuitboard
-    - id: CargoSaleComputerCircuitboard
+    #    - id: CargoShuttleComputerCircuitboard
     - id: CargoShuttleConsoleCircuitboard
-    - id: SalvageMagnetMachineCircuitboard
-    - id: SalvageExpeditionsComputerCircuitboard # Maid
-    - id: CigPackGreen
-      prob: 0.75
-    - id: ClothingHeadsetAltCargo
-    - id: DoorRemoteCargo
-    # - id: RubberStampApproved #Maid edit start
-    # - id: RubberStampDenied
     - id: SalvageShuttleConsoleCircuitboard
-    - id: ClothingShoesColorBrown
-    - id: ClothingUniformJumpskirtQM
-    - id: ClothingUniformJumpsuitQM #Maid edit end
+    - id: CargoBountyComputerCircuitboard
+    - id: DoorRemoteCargo
     - id: RubberStampQm
-    - id: LavalandShuttleConsoleCircuitboard # Goobstation - Mining Shuttle Board
-    # - id: AstroNavCartridge #Maid
-    - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab #Maid edit start
-    # - id: MailTeleporterMachineCircuitboard # GoobStation port of DeltaV mail
-    # - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
-    # - id: SalvageJobBoardComputerCircuitboard # Goobstation - This doesn't really have a use right now but it's there incase it ever gets use again
-    # - id: CargoMegaphone # goob - loudspeaker #Maid edit end
+    - id: BoxEncryptionKeyCargo
+    - id: RubberStampDenied
+    - id: RubberStampApproved
+    - id: BoxFolderClipboard
+# Maid edit start
+#    - id: BoxEncryptionKeyCargo
+#    - id: BoxFolderQmClipboard
+#    - id: CargoBountyComputerCircuitboard
+#    - id: CargoRequestComputerCircuitboard
+#    - id: CargoSaleComputerCircuitboard
+#    - id: CargoShuttleConsoleCircuitboard
+#    - id: SalvageMagnetMachineCircuitboard
+#    - id: SalvageExpeditionsComputerCircuitboard # Maid
+#    - id: CigPackGreen
+#      prob: 0.75
+#    - id: ClothingHeadsetAltCargo
+#    - id: DoorRemoteCargo
+#    # - id: RubberStampApproved #Maid edit start
+#    # - id: RubberStampDenied
+#    - id: SalvageShuttleConsoleCircuitboard
+#    - id: ClothingShoesColorBrown
+#    - id: ClothingUniformJumpskirtQM
+#    - id: ClothingUniformJumpsuitQM #Maid edit end
+#    - id: RubberStampQm
+#    - id: LavalandShuttleConsoleCircuitboard # Goobstation - Mining Shuttle Board
+#    # - id: AstroNavCartridge #Maid
+#    - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab #Maid edit start
+#    # - id: MailTeleporterMachineCircuitboard # GoobStation port of DeltaV mail
+#    # - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
+#    # - id: SalvageJobBoardComputerCircuitboard # Goobstation - This doesn't really have a use right now but it's there incase it ever gets use again
+#    # - id: CargoMegaphone # goob - loudspeaker #Maid edit end
+# Maid edit end
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -194,40 +208,67 @@
   id: LockerFillCaptainNoLaser
   table: !type:AllSelector
     children:
-    - id: CaptainIDCard
-    - id: CigarGoldCase
-      prob: 0.25
-    - id: ClothingBeltSheathFilled
-    - id: ClothingHeadsetAltCommand
-    - id: ClothingOuterArmorCaptainCarapace
-    - id: CommsComputerCircuitboard
-    - id: DoorRemoteCommand
-    - id: MedalCase
+    # Maid edit start
+    #    - id: CaptainIDCard
+    #    - id: CigarGoldCase
+    #      prob: 0.25
+    #    - id: ClothingBeltSheathFilled
+    #    - id: ClothingHeadsetAltCommand
+    #    - id: ClothingOuterArmorCaptainCarapace
+    #    - id: CommsComputerCircuitboard
+    #    - id: DoorRemoteCommand
+    #    - id: MedalCase
+    #    - id: NukeDisk
+    #    - id: PinpointerNuclear
+    #    - id: PlushieNuke
+    #      prob: 0.1
+    #    - id: RubberStampCaptain
+    #    # - id: SpaceCash1000 #Maid
+    #    - id: WeaponDisabler
+    #    - id: ClothingEyesGlassesSunglasses #Maid edit start
+    #    - id: Flash
+    #    - id: ClothingShoesBootsLaceup
+    #    - id: ClothingUniformJumpskirtCaptain
+    #    - id: ClothingUniformJumpsuitCaptain
+    #    # - id: ClothingEyesGlassesCommand
+    #    # - id: HeadSkeleton # A skull to accompany your skeleton crew
+    ##      conditions:
+    ##      - !type:PlayerCountCondition
+    #        max: 15 #Maid edit end
     - id: NukeDisk
     - id: PinpointerNuclear
+    - id: CaptainIDCard
+    - id: WeaponDisabler
+    - id: CommsComputerCircuitboard
     - id: PlushieNuke
       prob: 0.1
+    - id: ClothingBeltSheathFilled
+    - id: DoorRemoteCommand
     - id: RubberStampCaptain
-    # - id: SpaceCash1000 #Maid
-    - id: WeaponDisabler
-    - id: ClothingEyesGlassesSunglasses #Maid edit start
-    - id: Flash
-    - id: ClothingShoesBootsLaceup
-    - id: ClothingUniformJumpskirtCaptain
-    - id: ClothingUniformJumpsuitCaptain
-    # - id: ClothingEyesGlassesCommand
-    # - id: HeadSkeleton # A skull to accompany your skeleton crew
-#      conditions:
-#      - !type:PlayerCountCondition
-#        max: 15 #Maid edit end
+    - id: JetpackCaptainFilled
+    - id: MedalCase
+# Maid edit end
 
 # No laser table + Laser table
 - type: entityTable
   id: LockerFillCaptainLaser
   table: !type:AllSelector
     children:
-    - !type:NestedSelector
-      tableId: LockerFillCaptainNoLaser
+    # Maid edit start
+    #    - !type:NestedSelector
+    #      tableId: LockerFillCaptainNoLaser
+    - id: NukeDisk
+    - id: PinpointerNuclear
+    - id: CaptainIDCard
+    - id: CommsComputerCircuitboard
+    - id: PlushieNuke
+      prob: 0.1
+    - id: ClothingBeltSheathFilled
+    - id: DoorRemoteCommand
+    - id: RubberStampCaptain
+    - id: JetpackCaptainFilled
+    - id: MedalCase
+    # Maid edit end
     - id: WeaponAntiqueLaser
 
 # Hardsuit table, used for suit storage as well
@@ -235,11 +276,13 @@
   id: FillCaptainHardsuit
   table: !type:AllSelector
     children:
+    # Maid edit start
     - id: ClothingOuterHardsuitCap #Maid edit
-    - id: ClothingMaskGasCaptain
-    - id: JetpackCaptainFilled
+    #    - id: ClothingMaskGasCaptain
+    #    - id: JetpackCaptainFilled
     - id: OxygenTankFilled
-    - id: NitrogenTankFilled
+#    - id: NitrogenTankFilled
+# Maid edit end
 
 # No laser locker, used when the antique laser is placed in the special display crate
 - type: entity
@@ -282,36 +325,53 @@
   id: LockerFillHeadOfPersonnel
   table: !type:AllSelector
     children:
-    # - id: AccessConfigurator #Maid edit start
-    # - id: BoxEncryptionKeyPassenger
-    # - id: BoxEncryptionKeyService #Maid edit end
-    - id: BoxHeadset
-    - id: BoxID
-    - id: BoxPDA
-    - id: CigarGoldCase
-      prob: 0.25
-      # Fuck the HoP they don't deserve fucking cigars.
-      # Yes they do fuck you.
-    - id: ClothingBackpackIan
-      prob: 0.5
-    - id: ClothingHeadsetAltCommand # Goobstation
-    # - id: ClothingNeckGoldmedal #Maid
-    - id: DoorRemoteCommand # Maid
+    # Maid edit start
+    #    # - id: AccessConfigurator #Maid edit start
+    #    # - id: BoxEncryptionKeyPassenger
+    #    # - id: BoxEncryptionKeyService #Maid edit end
+    #    - id: BoxHeadset
+    #    - id: BoxID
+    #    - id: BoxPDA
+    #    - id: CigarGoldCase
+    #      prob: 0.25
+    #      # Fuck the HoP they don't deserve fucking cigars.
+    #      # Yes they do fuck you.
+    #    - id: ClothingBackpackIan
+    #      prob: 0.5
+    #    - id: ClothingHeadsetAltCommand # Goobstation
+    #    # - id: ClothingNeckGoldmedal #Maid
+    #    - id: DoorRemoteCommand # Maid
+    #    - id: HoPIDCard
+    #    - id: IDComputerCircuitboard
+    #    # - id: ComputerFundingAllocationFlatpack # Goobstation #Maid
+    #    # - id: ComputerCargoRequestServiceFlatpack # Goobstation #Maid
+    #    - id: RubberStampApproved
+    #    - id: RubberStampDenied
+    #    - id: RubberStampHop
+    #    - id: ClothingEyesGlassesSunglasses #Maid edit start
+    #    - id: ClothingShoesBootsLaceup
+    #    - id: ClothingUniformJumpskirtHoP
+    #    - id: ClothingUniformJumpsuitHoP
+    #    # - id: WeaponDisabler
+    #    # - id: ClothingEyesHudCommand
+    #    - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
+    #    # - id: CommandMegaphone # goob - loudspeakers #Maid edit end
     - id: HoPIDCard
+    - id: ClothingHeadsetCommand
+    - id: BoxPDA
+    - id: BoxID
+    - id: BoxHeadset
     - id: IDComputerCircuitboard
-    # - id: ComputerFundingAllocationFlatpack # Goobstation #Maid
-    # - id: ComputerCargoRequestServiceFlatpack # Goobstation #Maid
-    - id: RubberStampApproved
-    - id: RubberStampDenied
+    - id: WeaponDisabler
+    - id: DoorRemoteService
+    - id: ClothingNeckGoldmedal
     - id: RubberStampHop
-    - id: ClothingEyesGlassesSunglasses #Maid edit start
-    - id: ClothingShoesBootsLaceup
-    - id: ClothingUniformJumpskirtHoP
-    - id: ClothingUniformJumpsuitHoP
-    # - id: WeaponDisabler
-    # - id: ClothingEyesHudCommand
-    - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
-    # - id: CommandMegaphone # goob - loudspeakers #Maid edit end
+    - id: RubberStampDenied
+    - id: RubberStampApproved
+    - id: BoxEncryptionKeyPassenger
+    - id: BoxEncryptionKeyService
+    - id: BoxFolderClipboard
+# Maid edit end
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -328,46 +388,62 @@
   id: LockerFillChiefEngineerNoHardsuit
   table: !type:AllSelector
     children:
-    - id: AccessConfigurator
-    - id: BoxEncryptionKeyEngineering
-    - id: CigarCase
-      prob: 0.15
+    # Maid edit start
+    #    - id: AccessConfigurator
+    #    - id: BoxEncryptionKeyEngineering
+    #    - id: CigarCase
+    #      prob: 0.15
+    #    - id: ClothingBeltChiefEngineerFilled
+    #    - id: ClothingEyesGlassesMeson
+    #    - id: ClothingHandsGlovesColorYellow
+    #    - id: ClothingHeadsetAltEngineering
+    #    - id: DoorRemoteEngineering
+    #    # - id: CargoRequestEngineeringComputerCircuitboard #Maid
+    #    - id: RCD
+    #    - id: RCDAmmo
+    #    - id: RPD
+    #    - id: RCDAmmo
+    #    - id: RubberStampCE
+    #    # - id: MetalFoamGrenade #Maid edit start
+    #    - id: ClothingUniformJumpskirtChiefEngineer
+    #    - id: ClothingUniformJumpsuitChiefEngineer
+    #    - id: ClothingShoesColorBrown
+    #    # Goobstation V
+    #    - id: SupermatterComputerCircuitboard
+    #    - id: BaseHandheldStationMapSupermatterCe
+    #    # - id: BaseHandheldStationMapPowerCe
+    #    - id: EngineeringTechFabCircuitboard
+    ##    - id: CartridgeRocketSingularityBuster
+    ##    - id: CartridgeRocketSingularityBuster
+    ##    - id: WeaponLauncherSingularityBuster
+    #    # - id: MachinePowerTransmissionLaserFlatpack #Maid edit end
     - id: ClothingBeltChiefEngineerFilled
-    - id: ClothingEyesGlassesMeson
-    - id: ClothingHandsGlovesColorYellow
-    - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
-    # - id: CargoRequestEngineeringComputerCircuitboard #Maid
+    - id: RubberStampCE
+    - id: BoxEncryptionKeyEngineering
+    - id: AccessConfigurator
     - id: RCD
     - id: RCDAmmo
-    - id: RPD
-    - id: RCDAmmo
-    - id: RubberStampCE
-    # - id: MetalFoamGrenade #Maid edit start
-    - id: ClothingUniformJumpskirtChiefEngineer
-    - id: ClothingUniformJumpsuitChiefEngineer
-    - id: ClothingShoesColorBrown
-    # Goobstation V
-    - id: SupermatterComputerCircuitboard
-    - id: BaseHandheldStationMapSupermatterCe
-    # - id: BaseHandheldStationMapPowerCe
-    - id: EngineeringTechFabCircuitboard
-#    - id: CartridgeRocketSingularityBuster
-#    - id: CartridgeRocketSingularityBuster
-#    - id: WeaponLauncherSingularityBuster
-    # - id: MachinePowerTransmissionLaserFlatpack #Maid edit end
+      amount: 2
+    - id: HolofanProjector
+# Maid edit end
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit
   table: !type:AllSelector
     children:
-    - id: ClothingMaskGasAtmos
+    # Maid edit start
+    #    - id: ClothingMaskGasAtmos
+    #    - id: ClothingOuterHardsuitEngineeringWhite
+    #    - id: ClothingShoesBootsMagAdv
+    #    - id: JetpackVoidFilled
+    #    - id: OxygenTankFilled
+    #    - id: NitrogenTankFilled
     - id: ClothingOuterHardsuitEngineeringWhite
-    - id: ClothingShoesBootsMagAdv
-    - id: JetpackVoidFilled
+    - id: ClothingMaskBreath
     - id: OxygenTankFilled
-    - id: NitrogenTankFilled
+# Maid edit end
 
 # No hardsuit locker
 - type: entity
@@ -400,56 +476,71 @@
   id: LockerFillChiefMedicalOfficerNoHardsuit
   table: !type:AllSelector
     children:
-    - id: BoxEncryptionKeyMedical
-    # - id: ClothingBackpackDuffelSurgeryFilled # Goobstation - tools in webbing
-    - id: ClothingCloakCmo
-    - id: ClothingEyesHudMedical
-    - id: ClothingHandsGlovesNitrile
-    # - id: ClothingHeadHatBeretCmo
-    - id: ClothingHeadsetAltMedical
-    - id: ClothingMaskSterile
-    - id: DoorRemoteMedical
-    - id: HandheldCrewMonitor # Goobstation - in webbing #Maid
-    - id: Hypospray
-    - id: MedicalTechFabCircuitboard
-#    - id: ComputerCargoRequestMedicalFlatpack # Goobstation #Maid
+    # Maid edit
+    #    - id: BoxEncryptionKeyMedical
+    #    # - id: ClothingBackpackDuffelSurgeryFilled # Goobstation - tools in webbing
+    #    - id: ClothingCloakCmo
+    #    - id: ClothingEyesHudMedical
+    #    - id: ClothingHandsGlovesNitrile
+    #    # - id: ClothingHeadHatBeretCmo
+    #    - id: ClothingHeadsetAltMedical
+    #    - id: ClothingMaskSterile
+    #    - id: DoorRemoteMedical
+    #    - id: HandheldCrewMonitor # Goobstation - in webbing #Maid
+    #    - id: Hypospray
+    #    - id: MedicalTechFabCircuitboard
+    ##    - id: ComputerCargoRequestMedicalFlatpack # Goobstation #Maid
+    #    - id: MedkitFilled
+    #    - id: RubberStampCMO
+    #    - id: MedkitAdvancedFilled #Maid edit start
+    #    - id: MedkitCombatFilled
+    #    - id: ClothingShoesColorBrown
+    #    - id: ClothingHandsGlovesLatex
+    #    - id: ClothingUniformJumpsuitCMO
+    #    - id: ClothingUniformJumpskirtCMO
+    #    - id: ClothingMaskBreathMedical
+    #    # Goobstation Start
+    #    # - id: ChemistryHotplateFlatPack
+    #    # - id: CloningpodFlatpack
+    #    # - id: MedicalScannerFlatpack
+    #    # - id: ComputerCloningConsoleFlatpack
+    #    # - id: BiomassReclaimerFlatpack
+    #    # - id: Multitool
+    #    # - id: MedTekCartridge
+    #    # - id: RapidSyringeGun
+    #    # - id: BoxSyringePax #Maid edit end
+    #    - id: ClothingBeltMilitaryWebbingCMOFilled
+    #    - id: ClothingBackpackDuffelSurgeryFilled
+    #    # Shitmed
+    #    - id: MedicalBiofabricatorFlatpack
+    #    # Virology
+    #    - id: DiseaseDiagnoserFlatPack
+    #    - id: VaccinatorFlatPack
+    #    # Goobstation End
     - id: MedkitFilled
+    - id: Hypospray
+    - id: HandheldCrewMonitor
+    - id: DoorRemoteMedical
     - id: RubberStampCMO
-    - id: MedkitAdvancedFilled #Maid edit start
-    - id: MedkitCombatFilled
-    - id: ClothingShoesColorBrown
-    - id: ClothingHandsGlovesLatex
-    - id: ClothingUniformJumpsuitCMO
-    - id: ClothingUniformJumpskirtCMO
-    - id: ClothingMaskBreathMedical
-    # Goobstation Start
-    # - id: ChemistryHotplateFlatPack
-    # - id: CloningpodFlatpack
-    # - id: MedicalScannerFlatpack
-    # - id: ComputerCloningConsoleFlatpack
-    # - id: BiomassReclaimerFlatpack
-    # - id: Multitool
-    # - id: MedTekCartridge
-    # - id: RapidSyringeGun
-    # - id: BoxSyringePax #Maid edit end
-    - id: ClothingBeltMilitaryWebbingCMOFilled
-    - id: ClothingBackpackDuffelSurgeryFilled
-    # Shitmed
-    - id: MedicalBiofabricatorFlatpack
-    # Virology
-    - id: DiseaseDiagnoserFlatPack
-    - id: VaccinatorFlatPack
-    # Goobstation End
+    - id: MedicalTechFabCircuitboard
+    - id: BoxEncryptionKeyMedical
+    - id: ClothingBeltMedicalFilled
+# Maid edit end
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefMedicalOfficerHardsuit
   table: !type:AllSelector
     children:
-    - id: ClothingMaskBreathMedical
+    # Maid edit start
+    #    - id: ClothingMaskBreathMedical
+    #    - id: ClothingOuterHardsuitMedical
+    #    - id: OxygenTankFilled
+    #    - id: NitrogenTankFilled
+    - id: MedkitFilled
     - id: ClothingOuterHardsuitMedical
     - id: OxygenTankFilled
-    - id: NitrogenTankFilled
+# Maid edit end
 
 # No hardsuit locker
 - type: entity
@@ -482,37 +573,52 @@
   id: LockerFillResearchDirectorNoHardsuit
   table: !type:AllSelector
     children:
-    - id: Intellicard
-    - id: BoxEncryptionKeyScience
-    #- id: CircuitImprinterMachineCircuitboard # Goobstation - Science Techfab
-    - id: ClothingBeltUtilityFilled
-    - id: ClothingHeadsetAltScience
-    - id: ClothingShoesColorBrown #Maid
-    - id: NodeScanner #Maid
-    - id: DoorRemoteResearch
-    - id: HandTeleporter
-    #- id: ProtolatheMachineCircuitboard # Goobstation - Science Techfab
+    # Maid edit start
+    #    - id: Intellicard
+    #    - id: BoxEncryptionKeyScience
+    #    #- id: CircuitImprinterMachineCircuitboard # Goobstation - Science Techfab
+    #    - id: ClothingBeltUtilityFilled
+    #    - id: ClothingHeadsetAltScience
+    #    - id: ClothingShoesColorBrown #Maid
+    #    - id: NodeScanner #Maid
+    #    - id: DoorRemoteResearch
+    #    - id: HandTeleporter
+    #    #- id: ProtolatheMachineCircuitboard # Goobstation - Science Techfab
+    #    - id: ResearchComputerCircuitboard
+    #    # - id: ComputerCargoRequestScienceFlatpack # Goobstation #Maid
+    #    - id: RubberStampRd
+    #    # - id: EncryptionKeyBinary # goobstation - readd the cool binary channel access. fuck you. # Goobstation - WYCI + malf ai major
+    #    - id: AnomalyLocator # GoobStation - adding anomaly locator to the RD locker to reduce the amount of anoms that crit
+    #    - id: CigarCase
+    #      prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
+    #    - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
+    #    # - id: ClothingBeltGeminiHoloProjector # Goobstation - Who better to do science with than yourself? #Maid
+    #    - id: XenobiologyBountyComputerCircuitboard # Goobstation
+    #    # - id: MMI # Goobstation #Maid
     - id: ResearchComputerCircuitboard
-    # - id: ComputerCargoRequestScienceFlatpack # Goobstation #Maid
+    - id: ProtolatheMachineCircuitboard
+    - id: CircuitImprinterMachineCircuitboard
+    - id: HandTeleporter
+    - id: DoorRemoteResearch
+    - id: ClothingBeltUtilityFilled
     - id: RubberStampRd
-    # - id: EncryptionKeyBinary # goobstation - readd the cool binary channel access. fuck you. # Goobstation - WYCI + malf ai major
-    - id: AnomalyLocator # GoobStation - adding anomaly locator to the RD locker to reduce the amount of anoms that crit
-    - id: CigarCase
-      prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
-    - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
-    # - id: ClothingBeltGeminiHoloProjector # Goobstation - Who better to do science with than yourself? #Maid
-    - id: XenobiologyBountyComputerCircuitboard # Goobstation
-    # - id: MMI # Goobstation #Maid
+    - id: BoxEncryptionKeyScience
+    - id: ClothingHeadsetAltScience
+    - id: EncryptionKeyBinary
+# Maid edit end
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillResearchDirectorHardsuit
   table: !type:AllSelector
     children:
-    - id: ClothingMaskBreath
-    - id: ClothingOuterHardsuitRd #Maid edit
-    - id: OxygenTankFilled
-    - id: NitrogenTankFilled
+    # Maid edit start
+    #    - id: ClothingMaskBreath
+    #    - id: ClothingOuterHardsuitRd #Maid edit
+    #    - id: OxygenTankFilled
+    #    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitRd
+# Maid edit end
 
 # No hardsuit locker
 - type: entity
@@ -545,46 +651,61 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
-    #- id: WeaponEnergyShotgun # Goobstation - security revamp
-    - id: BookSpaceLaw
-    - id: BoxEncryptionKeySecurity
-    - id: CigarGoldCase
-      prob: 0.50
-    - id: ClothingBeltSecurityFilled
-    - id: ClothingEyesGlassesSecurity
-    - id: ClothingHeadsetAltSecurity
-    - id: ClothingMaskNeckGaiter
-    - id: ClothingOuterCoatHoSTrench
-    - id: ClothingShoesBootsJack
+    # Maid edit start
+    #    #- id: WeaponEnergyShotgun # Goobstation - security revamp
+    #    - id: BookSpaceLaw
+    #    - id: BoxEncryptionKeySecurity
+    #    - id: CigarGoldCase
+    #      prob: 0.50
+    #    - id: ClothingBeltSecurityFilled
+    #    - id: ClothingEyesGlassesSecurity
+    #    - id: ClothingHeadsetAltSecurity
+    #    - id: ClothingMaskNeckGaiter
+    #    - id: ClothingOuterCoatHoSTrench
+    #    - id: ClothingShoesBootsJack
+    #    - id: DoorRemoteSecurity
+    #    #- id: HoloprojectorSecurity Goob, you have one in the belt
+    #    - id: RubberStampHos
+    #    - id: SecurityTechFabCircuitboard
+    #    - id: ClothingUniformJumpsuitHoSGrey #Maid edit start
+    #    - id: ClothingUniformJumpskirtHoS
+    #    - id: ClothingUniformJumpsuitHoS
+    #    - id: MagazinePistol
+    #    - id: WeaponPistolMk58
+    #    - id: ClothingHandsGlovesCombat
+    #    - id: FlashlightSeclite
+    #    - id: Flash
+    #    - id: ClothingOuterArmorBasic
+    #    - id: WeaponDisabler
+    #    # - id: ComputerCargoRequestSecurityFlatpack # Goobstation
+    #    # - id: WantedListCartridge # Maid
+    #    # - id: DrinkHosFlask # Maid
+    #    # - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp#Maid edit end
+    - id: ClothingBeltAssaultFilled
     - id: DoorRemoteSecurity
-    #- id: HoloprojectorSecurity Goob, you have one in the belt
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
-    - id: ClothingUniformJumpsuitHoSGrey #Maid edit start
-    - id: ClothingUniformJumpskirtHoS
-    - id: ClothingUniformJumpsuitHoS
+    - id: BoxEncryptionKeySecurity
+    - id: HoloprojectorSecurity
     - id: MagazinePistol
     - id: WeaponPistolMk58
-    - id: ClothingHandsGlovesCombat
-    - id: FlashlightSeclite
-    - id: Flash
-    - id: ClothingOuterArmorBasic
-    - id: WeaponDisabler
-    # - id: ComputerCargoRequestSecurityFlatpack # Goobstation
-    # - id: WantedListCartridge # Maid
-    # - id: DrinkHosFlask # Maid
-    # - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp#Maid edit end
+# Maid edit end
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillHeadOfSecurityHardsuit
   table: !type:AllSelector
     children:
-    - id: ClothingMaskGasSwat
-    - id: ClothingOuterHardsuitSecurityRed #Maid edit
+    # Maid edit start
+    #    - id: ClothingMaskGasSwat
+    #    - id: ClothingOuterHardsuitSecurityRed #Maid edit
+    #    - id: JetpackSecurityFilled
+    #    - id: OxygenTankFilled
+    #    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitSecurityRed
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
-    - id: NitrogenTankFilled
+# Maid edit end
 
 # No hardsuit locker
 - type: entity

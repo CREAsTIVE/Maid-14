@@ -778,28 +778,125 @@ Entries:
   time: '2026-07-23T08:29:16.0000000+00:00'
 - author: Urames
   changes:
-  - type: Add
-    message: Добавлен русский и английский тексты для звонка при нажатии (DeskBell).
-  - type: Tweak
-    message: Шлема теперь не скрывают волосы (ClothingHeadHelmetBasicAlt, ClothingHeadHelmetRiot и ClothingHeadHelmetBombSuit).
-  - type: Tweak
-    message: Теперь дыхательные маски не видно на скафандре.
-  - type: Tweak
-    message: Заменены зимние спрайты одежды на спрайты из старого билда.
-  - type: Remove
-    message: Убраны барсетки из вендоматов и лоадаутов.
-  - type: Tweak
-    message: РПС охраны спрайт заменен на спрайт из старого билда.
-  - type: Remove
-    message: >-
-      В Утильмаге удалены Боевые перчатки, Кредиты, Плащ верного спасателя,
-      все аптечки, Роскошный медипен выживания (ещё и с ошибкой),
-      Роскошная капсула убежища, Мыло, Ящик сборки Кларка, Прыгучие ботинки, Луноходы.
-  - type: Tweak
-    message: >-
-      Изменены цена Медипен выживания( 2500), Комплект для призыва в шахтёрскую смену,
-      фонарик СБ заменен на FlashlightLantern.
-  - type: Add
-    message: Добавлен Старомодный пистолет(цена 4500).
+    - type: Add
+      message: Добавлен русский и английский тексты для звонка при нажатии (DeskBell).
+    - type: Tweak
+      message: >-
+        Шлема теперь не скрывают волосы (ClothingHeadHelmetBasicAlt,
+        ClothingHeadHelmetRiot и ClothingHeadHelmetBombSuit).
+    - type: Tweak
+      message: Теперь дыхательные маски не видно на скафандре.
+    - type: Tweak
+      message: Заменены зимние спрайты одежды на спрайты из старого билда.
+    - type: Remove
+      message: Убраны барсетки из вендоматов и лоадаутов.
+    - type: Tweak
+      message: РПС охраны спрайт заменен на спрайт из старого билда.
+    - type: Remove
+      message: >-
+        В Утильмаге удалены Боевые перчатки, Кредиты, Плащ верного спасателя,
+        все аптечки, Роскошный медипен выживания (ещё и с ошибкой), Роскошная
+        капсула убежища, Мыло, Ящик сборки Кларка, Прыгучие ботинки, Луноходы.
+    - type: Tweak
+      message: >-
+        Изменены цена Медипен выживания( 2500), Комплект для призыва в
+        шахтёрскую смену, фонарик СБ заменен на FlashlightLantern.
+    - type: Add
+      message: Добавлен Старомодный пистолет(цена 4500).
   id: 70
   time: '2026-07-23T17:22:23.0000000+00:00'
+- author: Ozzi_
+  changes:
+    - type: Tweak
+      message: Декали и тайлы
+  id: 71
+  time: '2026-07-26T09:53:09.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Add
+      message: Множество тулшед команд (подробности в PR#91).
+  id: 72
+  time: '2026-07-31T14:44:25.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Add
+      message: Игровой режим "Dynamic"
+  id: 73
+  time: '2026-07-31T14:46:12.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Fix
+      message: Баг с окончанием раунда после взрыва ядерки
+  id: 74
+  time: '2026-08-02T19:04:19.0000000+00:00'
+- author: antiWAFG1
+  changes:
+    - type: Tweak
+      message: В таблетки вмещается 50 унций вещества.
+    - type: Fix
+      message: Теперь при разборке раздвижных окон, они не болтируются.
+    - type: Fix
+      message: Пофикшены столы, теперь их можно нормально собрать.
+  id: 75
+  time: '2026-08-02T21:05:09.0000000+00:00'
+- author: antiWAFG1
+  changes:
+    - type: Remove
+      message: >-
+        Пожарный шлем больше не даёт полную защиту от температур без основной
+        одежды.
+    - type: Tweak
+      message: В VendingMachineSec заменён RiotBulletShield на TelescopicShield
+    - type: Fix
+      message: >-
+        Визор синдиката теперь выглядит как солнцезащитный очки и имеет свойства
+        хамелеона.
+    - type: Fix
+      message: Исправил перевод стеклянного стыковочного шлюза.
+  id: 76
+  time: '2026-08-02T21:06:09.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Tweak
+      message: >-
+        Dynamic перебалансирован для более равномерного распределения
+        антагонистов.
+  id: 77
+  time: '2026-08-02T21:06:10.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Add
+      message: Сердцебиение и звук после смерти
+    - type: Remove
+      message: >-
+        Больше нет рандомизации высоты звука практически у всех звуков (кроме
+        оружия)
+    - type: Tweak
+      message: Портированно огромное количество звуков из старого билда
+  id: 78
+  time: '2026-08-05T16:31:36.0000000+00:00'
+- author: riverkz
+  changes:
+    - type: Add
+      message: /Resources/Audio/StationEvents/epsilon.ogg
+    - type: Add
+      message: /Resources/Audio/StationEvents/peacemakers.ogg
+  id: 79
+  time: '2026-08-05T16:35:10.0000000+00:00'
+- author: Urames
+  changes:
+    - type: Fix
+      message: Исправлены шансы на лут в шкафах
+    - type: Add
+      message: >-
+        Портировано наполнение из старого билда для LockerDetectiveFilled,
+        LockerSecurityFilled. Добавлен GunSafeTempGun + локализация. Добавлены
+        WeaponPistolMk58 в разные шкафы.
+  id: 80
+  time: '2026-08-08T08:59:45.0000000+00:00'
+- author: Pik1ta
+  changes:
+    - type: Add
+      message: Большое количество звуков которые могут издавать Гарпии. Покаркайте!
+  id: 81
+  time: '2026-08-08T16:03:14.0000000+00:00'

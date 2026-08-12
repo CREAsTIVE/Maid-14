@@ -89,18 +89,18 @@
   - type: EmitSoundOnUse
     sound:
       collection: desecration
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnLand
     sound:
       collection: desecration
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnCollide
     sound:
       collection: desecration
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: Destructible
     thresholds:
     - trigger:

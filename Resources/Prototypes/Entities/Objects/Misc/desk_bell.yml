@@ -30,26 +30,26 @@
     interactSuccessSound:
       collection: DeskBell
       params:
-        variation: 0.03
+        # variation: 0.03 # MAID sound-porting
         volume: 3
     onActivate: true
   - type: EmitSoundOnUse
     sound:
       collection: DeskBell
       params:
-          variation: 0.03
+          # variation: 0.03 # MAID sound-porting
           volume: 3
   - type: EmitSoundOnTrigger
     sound:
       collection: DeskBell
       params:
-          variation: 0.03
+          # variation: 0.03 # MAID sound-porting
           volume: 3
   - type: EmitSoundOnLand
     sound:
       collection: DeskBell
       params:
-          variation: 0.03
+          # variation: 0.03 # MAID sound-porting
           volume: 3
   - type: UseDelay
     delay: 0.5
@@ -58,7 +58,7 @@
     soundHit:
       collection: DeskBell
       params:
-          variation: 0.03
+          # variation: 0.03 # MAID sound-porting
           volume: 3
     damage:
       types:

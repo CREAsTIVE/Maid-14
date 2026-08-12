@@ -216,12 +216,12 @@
   - type: SurgeryTool # Shitmed
     startSound:
       path: /Audio/Items/wirecutter.ogg
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
     endSound:
       path: /Audio/Items/wirecutter.ogg
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
 
 - type: entity
   name: screwdriver

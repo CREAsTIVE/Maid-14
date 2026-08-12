@@ -1,0 +1,230 @@
+- type: entity
+  parent: BaseGameRule
+  id: DynamicRule
+  components:
+  - type: GameRule
+    minPlayers: 0 # We DON'T like greenshifts (players may join midround)
+  - type: DynamicRule
+    # WDDP params
+    startingBudgetMin: 0
+    startingBudgetMax: 30
+    budgetPerSecond: 0.012
+    minPlayersForRuleSpawn: 3
+
+    # Maid params
+    budgetPercentageForRoundStart: 0.5
+    maxPointsPerPlayer: 1.5
+
+    # formula:
+    # random (
+    #   min(addStartingBudgetPerReadyPlayerMin * readyPlayerCount, maxAddedStartingBudgetPerReadyPlayer),
+    #   min(addStartingBudgetPerReadyPlayerMax * readyPlayerCount, maxAddedStartingBudgetPerReadyPlayer)
+    # )
+    # Example (with current settings): for 10 players: random(10, 50) (+ random(0, 30) = [10; 80])
+    #                                  for 20 players: random(20, 70) (+ random(0, 30) = [20; 100])
+    #                                  for 50 players: random(50, 70) (+ random(0, 30) = [50; 100])
+    # (https://www.desmos.com/calculator/9co5vrqyf4)
+    addStartingBudgetPerReadyPlayerMin: 0.5
+    addStartingBudgetPerReadyPlayerMax: 1.8
+    maxAddedStartingBudgetPerReadyPlayer: 70
+
+    table: !type:AllSelector
+      children:
+      # Roundstart Major Rules
+      - !type:GroupSelector
+        conditions:
+        - !type:RoundDurationCondition
+          max: 1
+        children:
+        - id: Traitor
+          weight: 34
+          conditions:
+          - !type:RuleHasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+        - id: Nukeops
+          weight: 10
+          conditions:
+          - !type:RuleHasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 20
+        - id: Revolutionary
+          weight: 7
+          conditions:
+          - !type:RuleHasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+        - id: Zombie
+          weight: 4
+          conditions:
+          - !type:RuleHasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 15
+        - id: Changeling
+          weight: 15
+          conditions:
+          - !type:RuleHasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 15
+#        - id: Shadowling # (deleted)
+#          weight: 10
+#          conditions:
+#          - !type:RuleHasBudgetCondition
+#          - !type:MaxRuleOccurenceCondition
+#          - !type:PlayerCountCondition
+#            min: 30
+        #        - id: CosmicCult # (deleted: probably will be changed onto blood cult)
+        #          weight: 10
+        #          conditions:
+        #          - !type:RuleHasBudgetCondition
+        #          - !type:MaxRuleOccurenceCondition
+        #          - !type:PlayerCountCondition
+        #            min: 30
+        #        - id: BlobGameMode # (deleted)
+        #          weight: 5
+        #          conditions:
+        #          - !type:RuleHasBudgetCondition
+        #          - !type:MaxRuleOccurenceCondition
+        #          - !type:PlayerCountCondition
+        #            min: 15
+        - id: Wizard
+          weight: 5
+          conditions:
+          - !type:RuleHasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 10
+      # Roundstart Minor Rules
+#      - !type:GroupSelector
+#        conditions:
+#        - !type:RoundDurationCondition
+#          max: 180
+#        children:
+#        - id: Devil # (deleted: rework)
+#          prob: 0.5
+#          conditions:
+#          - !type:RuleHasBudgetCondition
+#          - !type:MaxRuleOccurenceCondition
+#          - !type:PlayerCountCondition
+#            min: 15
+      # Midround rules
+      - !type:GroupSelector
+        conditions:
+        - !type:RoundDurationCondition
+          min: 300
+        children:
+        - id: SleeperAgents
+          weight: 15
+          conditions:
+          - !type:RuleHasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+            max: 3
+          - !type:PlayerCountCondition
+            min: 5
+          - !type:RoundDurationCondition
+            min: 900
+        - id: DragonSpawn
+          weight: 15
+          conditions:
+          - !type:RuleHasBudgetCondition
+          - !type:RoundDurationCondition
+            min: 900
+          - !type:PlayerCountCondition
+            min: 20
+        - id: NinjaSpawn
+          weight: 20
+          conditions:
+          - !type:RuleHasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:RoundDurationCondition
+            min: 900
+          - !type:PlayerCountCondition
+            min: 15
+        - id: ZombieOutbreak
+          weight: 2.5
+          conditions:
+          - !type:RuleHasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 20
+          - !type:RoundDurationCondition
+            min: 3600 # Since it round-ending
+        - id: LoneOpsSpawn
+          weight: 5
+          conditions:
+          - !type:RuleHasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 15
+          - !type:RoundDurationCondition
+            min: 2100
+        - id: LoneAbductorSpawn
+          weight: 5 # Same as loneop since there 2 spawns already
+          conditions:
+          - !type:RuleHasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 10
+          - !type:RoundDurationCondition
+            min: 900
+        - id: DuoAbductorSpawn
+          weight: 5
+          conditions:
+          - !type:RuleHasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 20
+          - !type:RoundDurationCondition
+            min: 900
+#        - id: XenomorphsInfestation # (deleted)
+#          weight: 5
+#          conditions:
+#          - !type:RuleHasBudgetCondition
+#          - !type:PlayerCountCondition
+#            min: 20
+#          - !type:RoundDurationCondition
+#            min: 2100
+#        - id: BlobSpawn # (deleted)
+#          weight: 15
+#          conditions:
+#          - !type:RuleHasBudgetCondition
+#          - !type:PlayerCountCondition
+#            min: 20
+#          - !type:RoundDurationCondition
+#            min: 3000
+        - id: WraithMidround
+          weight: 10
+          conditions:
+          - !type:RuleHasBudgetCondition
+          - !type:PlayerCountCondition
+            min: 15
+          - !type:RoundDurationCondition
+            min: 2700
+        - id: WizardMidround
+          weight: 5
+          conditions:
+          - !type:RuleHasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+            max: 2
+          - !type:PlayerCountCondition
+            min: 15
+          - !type:RoundDurationCondition
+            min: 1800
+
+- type: entity
+  id: DynamicStationEventScheduler
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:AllSelector
+      children:
+      - !type:NestedSelector
+        tableId: BasicCalmEventsTable
+      - !type:NestedSelector
+        tableId: CargoGiftsTable
+      - !type:NestedSelector
+        tableId: CalmPestEventsTable
+      - id: ClosetSkeleton
+      - id: ParadoxCloneSpawn
+      - id: KingRatMigration

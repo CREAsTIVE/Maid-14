@@ -12,6 +12,8 @@
   parent: BaseGameRule
   id: CosmicCult
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 10 # MAID dynamic game mode
   - type: CosmicCultRule
   - type: GameRule
     minPlayers: 25
