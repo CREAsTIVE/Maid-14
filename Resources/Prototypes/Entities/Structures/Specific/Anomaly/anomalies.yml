@@ -95,6 +95,11 @@
   description: An impossible object. Should you be standing this close to it?
   components:
   - type: Anomaly
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    chaosScore: 3
+    combatScore: 0
+  # MAID END adaptive scores
     offset: 0, 0.15
     pulseSound:
       collection: RadiationPulse

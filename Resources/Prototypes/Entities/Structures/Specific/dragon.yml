@@ -15,6 +15,13 @@
     mode: SnapgridCenter
   components:
   - type: DragonRift
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    chaosScore:
+      base: 5
+      target: 0
+      in: 900
+  # MAID END adaptive scores
   - type: Transform
     anchored: true
   - type: Physics

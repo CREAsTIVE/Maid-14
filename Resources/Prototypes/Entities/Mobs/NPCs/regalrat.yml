@@ -161,15 +161,19 @@
   parent: [ SimpleMobBase, MobCombat ]
   description: He's da rat. He make da roolz.
   components:
+  # MAID BEGIN adaptive scores
   - type: AdaptiveScoreStatic
     combatScore:
       base: 3
       target: 0
+      in: 900
     chaosScore:
       base: 5
       target: 0
+      in: 900
     conditionTables:
     - ControlledAlive
+  # MAID END adaptive scores
   - type: VentCrawler # goobstation - Ventcrawl
   - type: CombatMode
   - type: MovementSpeedModifier

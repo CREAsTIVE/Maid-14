@@ -986,7 +986,7 @@
     chaosScore:
       base: 3
       target: 0
-      in: 10
+      in: 600
   # MAID END adaptive scores
 
 - type: entity

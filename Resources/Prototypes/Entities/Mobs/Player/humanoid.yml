@@ -245,15 +245,6 @@
   name: ERT leader
   suffix: ERTRole, Basic
   components:
-    - type: AdaptiveScoreStatic
-      combatScore:
-        base: -5
-        target: 0
-        in: 10
-      chaosScore:
-        base: 10
-        target: 0
-        in: 10
     - type: Sprite
       sprite: Markers/jobs.rsi
       state: ertleader

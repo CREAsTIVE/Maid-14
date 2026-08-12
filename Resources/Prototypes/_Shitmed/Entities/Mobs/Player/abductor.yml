@@ -17,11 +17,19 @@
   id: MobAbductorAntag
   abstract: true
   components:
-  - type: AdaptiveScoreStatic # MAID adaptive scores
-    combatScore: 5 # MAID adaptive scores
-    chaosScore: 10 # MAID adaptive scores
-    conditionTables: # MAID adaptive scores
-    - ControlledAlive # MAID adaptive scores
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    combatScore:
+      base: 5
+      target: 2
+      in: 2400
+    chaosScore:
+      base: 10
+      target: 3
+      in: 2400
+    conditionTables:
+    - ControlledAlive
+  # MAID END adaptive scores
   - type: Abductor
   - type: ActionGrant
     actions:
