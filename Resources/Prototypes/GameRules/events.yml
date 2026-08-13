@@ -203,6 +203,8 @@
 #    - id: SlasherSpawn # Goobstation - The Slasher #Maid
     - id: SpacePirates # Goobstation - you probably can read whom this rule spawns
     #- id: WraithMidround # Goobstation - Wraith
+    - id: TerminatorSpawn # Maid - Terminator
+    #TODO When Slasher is Ready - id: SlasherSpawn # Goobstation - The Slasher
     #TODO when midrounds are "reviewed" by the chudmins add them back
 
 - type: entity
