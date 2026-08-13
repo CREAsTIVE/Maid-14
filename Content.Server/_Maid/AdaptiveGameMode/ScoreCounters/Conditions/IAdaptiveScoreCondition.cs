@@ -54,7 +54,7 @@ public partial interface IAdaptiveScoreCondition
     };
 }
 
-[Serializable, NetSerializable]
+[Serializable]
 public enum AdaptiveScoreConditionTarget
 {
     Owner = 0,
