@@ -3,9 +3,9 @@
   parent: BaseToggleAction
   name: Toggle body camera.
   description: Toggles body camera.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: BigAction
     priority: -20
     icon:

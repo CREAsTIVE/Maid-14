@@ -8,7 +8,7 @@
     sprite: _Maid/Clothing/Head/Hats/hat_gnome.rsi
   - type: Clothing
     sprite: _Maid/Clothing/Head/Hats/hat_gnome.rsi
-  - type: Seed
-    seedId: gnome
+  # - type: Seed
+  #   seedId: gnome
   # - type: AddAccentClothing
   #   accent: GnomeAccent
