@@ -84,7 +84,8 @@
     # If you update this also update the bulldog's size.
     size: Large
   - type: Clothing
-    sprite: _Maid/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
+#    sprite: _Maid/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # Maid
+    sprite: _Maid/Objects/Weapons/Guns/Shotguns/db_shotgun-inhands.rsi # Maid
     quickEquip: false
     slots:
     - Back
