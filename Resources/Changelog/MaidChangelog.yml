@@ -906,3 +906,13 @@ Entries:
       message: Очень много леденцов
   id: 82
   time: '2026-08-13T12:36:53.0000000+00:00'
+- author: Inconnu
+  changes:
+    - type: Add
+      message: Добавлены волны от взрывов
+    - type: Add
+      message: Добавлены следы от пуль
+    - type: Add
+      message: Добавлена репутация в ООС
+  id: 83
+  time: '2026-08-13T12:38:36.0000000+00:00'
