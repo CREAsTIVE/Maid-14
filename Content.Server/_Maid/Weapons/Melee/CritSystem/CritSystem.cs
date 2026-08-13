@@ -44,12 +44,12 @@ public sealed class CritSystem : EntitySystem
             damage - total
         );
 
-        _popup.PopupEntity($"Крит! +{damage} урона", args.User, args.User, PopupType.MediumCaution);
+        _popup.PopupEntity($"Крит! +{damage - total} урона", args.User, args.User, PopupType.MediumCaution);
     }
 
     private bool IsCriticalHit(EntityUid uid, MaidCritComponent component)
     {
         var roll = _random.NextFloat();
-        return roll <= component.CritChance;
+        return roll < component.CritChance;
     }
 }
