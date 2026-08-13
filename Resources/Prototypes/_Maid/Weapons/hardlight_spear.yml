@@ -46,6 +46,13 @@
     sprite: _Maid/Weapons/hardlight_spear.rsi
     layers:
     - state: spear
+  - type: SolutionContainerVisuals
+    maxFillLevels: 0
+    inHandsMaxFillLevels: 0
+    equippedMaxFillLevels: 0
+    fillBaseName: null
+    inHandsFillBaseName: null
+    equippedFillBaseName: null
   - type: MeleeWeapon
     damage:
       types:
