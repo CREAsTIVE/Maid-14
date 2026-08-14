@@ -1,5 +1,6 @@
 using System.Globalization;
 using Robust.Shared.IoC;
+using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Manager.Attributes;
@@ -22,9 +23,9 @@ public sealed partial class RangedNumber
     [DataField("max")]
     public float Max = 0f;
 
-    public float GetValue(System.Random rand)
+    public float GetValue(IRobustRandom random)
     {
-        return Min + (Max - Min) * (float)rand.NextDouble();
+        return Min + (Max - Min) * random.NextFloat();
     }
 }
 

@@ -207,8 +207,8 @@
   - type: NukeopsRole
   # MAID BEGIN adaptive scores
   - type: AdaptiveScoreStatic
-    combatScore: 15
-    chaosScore: 10
+    combatScore: 20
+    chaosScore: 15
     conditionTables:
     - ActiveAntag
   # MAID END adaptive scores
