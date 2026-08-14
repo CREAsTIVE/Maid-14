@@ -173,16 +173,13 @@
   - type: NinjaRole
   # MAID BEGIN adaptive scores
   - type: AdaptiveScoreStatic
-    combatScore:
-      base: 15
-      target: 5
-      in: 2400
-    chaosScore:
-      base: 10
-      target: 5
-      in: 2400
+    combatScore: 15
+    chaosScore: 10
+    conditions:
+    - !type:AdaptiveScoreControlledCondition
+    - !type:AdaptiveScoreAliveCondition
     conditionTables:
-    - ControlledAlive
+    - OnStationMap
   # MAID END adaptive scores
 
 # Paradox Clone
@@ -208,6 +205,13 @@
     exclusiveAntag: true
     antagPrototype: Nukeops
   - type: NukeopsRole
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    combatScore: 15
+    chaosScore: 10
+    conditionTables:
+    - ActiveAntag
+  # MAID END adaptive scores
 
 - type: entity
   parent: MindRoleNukeops
@@ -237,6 +241,14 @@
     roleType: TeamAntagonist
     subtype: role-subtype-head-revolutionary
   - type: RevolutionaryRole
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    combatScore: 5
+    chaosScore: 10
+    conditions:
+    - !type:AdaptiveScoreControlledCondition
+    - !type:AdaptiveScoreAliveCondition
+  # MAID END adaptive scores
 
 - type: entity
   parent: MindRoleHeadRevolutionary
@@ -246,6 +258,14 @@
   - type: MindRole
     antagPrototype: Rev
     subtype: role-subtype-revolutionary
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    combatScore: 5
+    chaosScore: 5
+    conditions:
+    - !type:AdaptiveScoreControlledCondition
+    - !type:AdaptiveScoreAliveCondition
+  # MAID END adaptive scores
 
 ## Thief
 #- type: entity
@@ -300,6 +320,11 @@
     roleType: TeamAntagonist
     subtype: role-subtype-initial-infected
   - type: InitialInfectedRole
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    combatScore: 0
+    chaosScore: 15
+  # MAID END adaptive scores
 
 - type: entity
   parent: MindRoleGhostRoleTeamAntagonistFlock
@@ -311,3 +336,10 @@
     exclusiveAntag: true
     subtype: role-subtype-zombie
   - type: ZombieRole
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    combatScore: 10
+    chaosScore: 10
+    conditions:
+    - !type:AdaptiveScoreAliveCondition
+  # MAID END adaptive scores
