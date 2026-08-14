@@ -26,9 +26,8 @@
   - !type:AdaptiveScoreOnStationCondition
     onGrid: false
 
-
 - type: adaptiveScoreConditionsTable
-  id: ObjectiveCompletion
+  id: ObjectiveNotCompleted
   conditions:
   - !type:AdaptiveScoreObjectiveCompletionCondition
-    completed: true
+    completed: false

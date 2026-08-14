@@ -104,7 +104,7 @@
     combatScore: 3
     chaosScore: 3
     conditionTables:
-    - ObjectiveCompletion
+    - ObjectiveNotCompleted
 - type: entity
   abstract: true
   parent: [BaseTraitorObjective, BaseSocialObjective]

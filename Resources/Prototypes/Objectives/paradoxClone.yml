@@ -42,6 +42,6 @@
     combatScore: 3
     chaosScore: 3
     conditionTables:
-    - ObjectiveCompletion
+    - ObjectiveNotCompleted
   # MAID END adaptive scores
 
