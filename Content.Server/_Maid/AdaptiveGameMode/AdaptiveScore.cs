@@ -32,7 +32,7 @@ public partial struct AdaptiveScore
         return new AdaptiveScore
         {
             Chaos = component.ChaosScore.Base,
-            Combat = component.CombatScore.Base
+            Combat = component.CombatScore.Base,
         };
     }
     public static AdaptiveScore operator +(AdaptiveScore score, AdaptiveScoreStaticComponent component)

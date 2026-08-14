@@ -10,10 +10,7 @@ using System.Collections.Generic;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Systems;
 
-public sealed class AdaptiveScorePlayersAmountCounter : EntitySystem
-#if DEBUG
-    , IAdaptiveBalanceInfoProvider
-#endif
+public sealed class AdaptiveScorePlayersAmountCounter : EntitySystem, IAdaptiveBalanceInfoProvider
 {
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedStationSystem _station = default!;
@@ -30,7 +27,6 @@ public sealed class AdaptiveScorePlayersAmountCounter : EntitySystem
     private void OnGetAdaptiveScore(ref GetAdaptiveScoreEvent ev)
     {
         var query = EntityQueryEnumerator<ActorComponent, MobStateComponent, TransformComponent>();
-        var count = 0;
         while (query.MoveNext(out var uid, out var actor, out var mobState, out var xform))
         {
             if (actor.PlayerSession.Status != Robust.Shared.Enums.SessionStatus.InGame)
@@ -42,11 +38,8 @@ public sealed class AdaptiveScorePlayersAmountCounter : EntitySystem
             if (xform.GridUid == null || _station.GetOwningStation(uid) == null)
                 continue;
 
-            count++;
+            ev.Add(uid, ChaosContribution, CombatContribution);
         }
-
-        ev.ChaosScore += count * ChaosContribution;
-        ev.CombatScore += count * CombatContribution;
     }
 
 #if DEBUG

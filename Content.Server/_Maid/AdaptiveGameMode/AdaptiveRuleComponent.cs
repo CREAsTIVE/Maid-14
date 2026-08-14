@@ -12,7 +12,10 @@ namespace Content.Server._Maid.AdaptiveGameMode;
 public sealed partial class AdaptiveRuleComponent : Component
 {
     [DataField]
-    public float TargetChaosValue = 0f;
+    public float TargetScore = 0f;
+
+    [DataField]
+    public float RoundstartTargetBudget = 0f;
 
     [DataField]
     public AdaptiveScore RoundstartChaosPerPlayer = new();

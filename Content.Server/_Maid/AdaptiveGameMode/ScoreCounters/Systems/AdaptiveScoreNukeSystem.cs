@@ -28,7 +28,6 @@ public sealed class AdaptiveScoreNukeSystem : EntitySystem
     private void OnGetAdaptiveScore(ref GetAdaptiveScoreEvent ev)
     {
         var query = EntityQueryEnumerator<NukeComponent, TransformComponent>();
-        var count = 0;
         while (query.MoveNext(out var uid, out var nuke, out var xform))
         {
             if (nuke.Status != NukeStatus.ARMED)
@@ -37,10 +36,8 @@ public sealed class AdaptiveScoreNukeSystem : EntitySystem
             if (xform.GridUid == null || _station.GetOwningStation(uid) == null)
                 continue;
 
-            count++;
+            ev.Add(uid, ChaosContribution, CombatContribution);
         }
-
-        ev.ChaosScore += count * ChaosContribution;
     }
 
 #if DEBUG

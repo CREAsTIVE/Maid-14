@@ -90,8 +90,7 @@ public sealed class AdaptiveScoreStaticSystem : EntitySystem, IAdaptiveBalanceIn
             if (conditions.All(cond => cond.ConditionMet(ent, mob, mind, _entityManager)))
             {
                 var age = _gameTiming.CurTime - comp.CreationTime;
-                ev.ChaosScore += comp.ChaosScore.GetScore(age);
-                ev.CombatScore += comp.CombatScore.GetScore(age);
+                ev.Add(ent, comp.ChaosScore.GetScore(age), comp.CombatScore.GetScore(age));
             }
         }
     }

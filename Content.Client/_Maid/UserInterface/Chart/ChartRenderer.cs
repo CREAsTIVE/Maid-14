@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
+using Robust.Shared.Input;
 using Robust.Shared.Maths;
 using Robust.Shared.ViewVariables;
 
@@ -30,9 +31,20 @@ public sealed class ChartRenderer : Control
     public IReadOnlyList<IChartSubRenderer> SubRenderers => _subRenderers;
 
 
+    public Vector2? HoveredPointData { get; private set; }
+    public Vector2? HoveredPointScreen { get; private set; }
+    public float? HoveredX { get; private set; }
+    public string? HoveredSeries { get; private set; }
+
+    public event Action<float>? OnPointClicked;
+    public event Action<float?>? OnPointHovered;
+
+    private Vector2? _mousePosition;
+
     public ChartRenderer()
     {
         RectClipContent = true;
+        MouseFilter = MouseFilterMode.Stop;
     }
 
     public void AddSubRenderer(IChartSubRenderer subRenderer)
@@ -108,6 +120,116 @@ public sealed class ChartRenderer : Control
 
         SetViewport(minX - paddingX, maxX + paddingX, minY - paddingY, maxY + paddingY);
     }
+    public Vector2 MapDataToScreen(Vector2 dataPoint)
+    {
+        var rangeX = ViewportMaxX - ViewportMinX;
+        var rangeY = ViewportMaxY - ViewportMinY;
+
+        if (MathF.Abs(rangeX) < 1e-6f)
+            rangeX = 1f;
+        if (MathF.Abs(rangeY) < 1e-6f)
+            rangeY = 1f;
+        var scaleX = PixelWidth / rangeX;
+        var scaleY = -PixelHeight / rangeY;
+
+        var posX = -ViewportMinX * scaleX;
+        var posY = PixelHeight - ViewportMinY * scaleY;
+
+        return new Vector2(posX + dataPoint.X * scaleX, posY + dataPoint.Y * scaleY);
+    }
+
+    protected override void MouseMove(GUIMouseMoveEventArgs args)
+    {
+        base.MouseMove(args);
+        _mousePosition = args.RelativePosition;
+        UpdateHoveredPoint();
+    }
+
+    protected override void MouseExited()
+    {
+        base.MouseExited();
+        _mousePosition = null;
+        HoveredX = null;
+        HoveredSeries = null;
+        HoveredPointScreen = null;
+        HoveredPointData = null;
+        OnPointHovered?.Invoke(null);
+    }
+
+    protected override void KeyBindDown(GUIBoundKeyEventArgs args)
+    {
+        base.KeyBindDown(args);
+        if (args.Function == EngineKeyFunctions.UIClick)
+        {
+            if (HoveredX != null)
+            {
+                OnPointClicked?.Invoke(HoveredX.Value);
+                args.Handle();
+            }
+        }
+    }
+
+    protected override void KeyBindUp(GUIBoundKeyEventArgs args)
+    {
+        base.KeyBindUp(args);
+        if (args.Function == EngineKeyFunctions.UIClick)
+        {
+            if (HoveredX != null)
+            {
+                OnPointClicked?.Invoke(HoveredX.Value);
+                args.Handle();
+            }
+        }
+    }
+
+    private void UpdateHoveredPoint()
+    {
+        if (_mousePosition == null)
+            return;
+
+        float? newHoveredX = null;
+        string? newHoveredSeries = null;
+        Vector2? closestScreen = null;
+        Vector2? closestData = null;
+        var closestDistanceX = float.MaxValue;
+
+        foreach (var sub in _subRenderers)
+        {
+            if (sub is ConnectedChartRenderer conn)
+            {
+                foreach (var p in conn.Points)
+                {
+                    var screenP = MapDataToScreen(p);
+                    var distX = MathF.Abs(_mousePosition.Value.X - screenP.X);
+                    if (distX < closestDistanceX)
+                    {
+                        closestDistanceX = distX;
+                        newHoveredX = p.X;
+                        newHoveredSeries = conn.Label;
+                        closestScreen = screenP;
+                        closestData = p;
+                    }
+                }
+            }
+        }
+
+        if (closestDistanceX > 30f)
+        {
+            newHoveredX = null;
+            newHoveredSeries = null;
+            closestScreen = null;
+            closestData = null;
+        }
+
+        if (newHoveredX != HoveredX || newHoveredSeries != HoveredSeries)
+        {
+            HoveredX = newHoveredX;
+            HoveredSeries = newHoveredSeries;
+            HoveredPointScreen = closestScreen;
+            HoveredPointData = closestData;
+            OnPointHovered?.Invoke(newHoveredX);
+        }
+    }
 
     protected override void Draw(DrawingHandleScreen handle)
     {
@@ -135,6 +257,12 @@ public sealed class ChartRenderer : Control
         foreach (var sub in _subRenderers)
         {
             sub.Draw(handle, context);
+        }
+
+        if (HoveredPointScreen != null)
+        {
+            handle.DrawCircle(HoveredPointScreen.Value, 5f, Color.Gold);
+            handle.DrawCircle(HoveredPointScreen.Value, 7f, Color.Gold.WithAlpha(0.5f), false);
         }
     }
 

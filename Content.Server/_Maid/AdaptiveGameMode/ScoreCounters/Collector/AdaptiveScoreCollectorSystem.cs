@@ -61,7 +61,7 @@ public sealed class AdaptiveScoreCollectorSystem : EntitySystem, IAdaptiveBalanc
                 : GetEntities();
 
             var conditions = GetConditions(collector).ToArray();
-            var count = entities.Count(ent =>
+            foreach (var ent in entities)
             {
                 EntityUid? mob = null;
                 Entity<MindComponent>? mind = null;
@@ -94,11 +94,11 @@ public sealed class AdaptiveScoreCollectorSystem : EntitySystem, IAdaptiveBalanc
                     }
                 }
 
-                return conditions.All(condition => condition.ConditionMet(ent, mob, mind, _entityManager));
-            });
-
-            ev.ChaosScore += count * collector.ChaosScore;
-            ev.CombatScore += count * collector.CombatScore;
+                if (conditions.All(condition => condition.ConditionMet(ent, mob, mind, _entityManager)))
+                {
+                    ev.Add(ent, collector.ChaosScore, collector.CombatScore);
+                }
+            }
         }
     }
 #if DEBUG
