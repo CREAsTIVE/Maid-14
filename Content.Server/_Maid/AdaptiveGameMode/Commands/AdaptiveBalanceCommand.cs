@@ -26,7 +26,6 @@ public sealed class AdaptiveBalanceCommand : ToolshedCommand
         var sb = new System.Text.StringBuilder();
         sb.AppendLine("Entity,Condition/Component,Chaos From,Chaos To,Chaos Duration,Combat From,Combat To,Combat Duration");
 
-        // 1. Scan systems implementing IAdaptiveBalanceInfoProvider
         var providers = new List<IAdaptiveBalanceInfoProvider>();
         foreach (var type in entitySystemManager.GetEntitySystemTypes())
         {
@@ -34,7 +33,12 @@ public sealed class AdaptiveBalanceCommand : ToolshedCommand
                 entitySystemManager.TryGetEntitySystem(type, out var system) &&
                 system is IAdaptiveBalanceInfoProvider provider)
             {
-                sb.AppendLine(string.Join("\n", provider.GetBalanceInfo().Select(info => info.ToString())));
+                sb.AppendLine(string.Join(
+                    "\n",
+                    provider
+                        .GetBalanceInfo()
+                        .Select(info => info.ToString())
+                ));
             }
         }
 

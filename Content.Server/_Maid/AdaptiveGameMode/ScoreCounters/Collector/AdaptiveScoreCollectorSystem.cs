@@ -136,9 +136,12 @@ public sealed class AdaptiveScoreCollectorSystem : EntitySystem, IAdaptiveBalanc
                     " + ",
                     new[] { component.EnumerateComponent ?? "" }
                         .Concat(
-                            GetConditions(component)
+                            component.Conditions
                                 .Select(cond => cond.GetType().Name)
                                 .Select(FixName)
+                                .Concat(component.ConditionTables
+                                    .Select(t => t.Id)
+                                )
                         )
                         .Where(s => !string.IsNullOrEmpty(s))
                 ),

@@ -19,16 +19,11 @@
   components:
   # MAID BEGIN adaptive scores
   - type: AdaptiveScoreStatic
-    combatScore:
-      base: 5
-      target: 2
-      in: 2400
-    chaosScore:
-      base: 10
-      target: 3
-      in: 2400
-    conditionTables:
-    - ControlledAlive
+    combatScore: 5
+    chaosScore: 10
+    conditions:
+    - !type:AdaptiveScoreControlledCondition
+    - !type:AdaptiveScoreAliveCondition
   # MAID END adaptive scores
   - type: Abductor
   - type: ActionGrant

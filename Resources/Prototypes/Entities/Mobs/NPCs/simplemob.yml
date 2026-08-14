@@ -130,8 +130,10 @@
       base: 3
       target: 0
       in: 300
+    conditions:
+    - !type:AdaptiveScoreAliveCondition
     conditionTables:
-    - Alive
+    - OnStationGrid
   # MAID END adaptive scores
   - type: NpcFactionMember
     factions:

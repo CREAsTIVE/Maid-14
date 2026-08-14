@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters;
 
-[Prototype("AdaptiveScoreConditionsTable")]
+[Prototype("adaptiveScoreConditionsTable")]
 public sealed class AdaptiveScoreConditionsTablePrototype : IPrototype
 {
     [IdDataField]

@@ -163,16 +163,13 @@
   components:
   # MAID BEGIN adaptive scores
   - type: AdaptiveScoreStatic
-    combatScore:
-      base: 3
-      target: 0
-      in: 900
-    chaosScore:
-      base: 5
-      target: 0
-      in: 900
+    combatScore: 3
+    chaosScore: 5
+    conditions:
+    - !type:AdaptiveScoreControlledCondition
+    - !type:AdaptiveScoreAliveCondition
     conditionTables:
-    - ControlledAlive
+    - OnStationGrid
   # MAID END adaptive scores
   - type: VentCrawler # goobstation - Ventcrawl
   - type: CombatMode
@@ -373,8 +370,11 @@
   components:
   - type: AdaptiveScoreStatic
     combatScore: 0.5
+    chaosScore: 0
+    conditions:
+    - !type:AdaptiveScoreAliveCondition
     conditionTables:
-    - Alive
+    - OnStationGrid
   - type: VentCrawler # goobstation - Ventcrawl
   - type: CombatMode
   - type: MovementSpeedModifier

@@ -122,9 +122,12 @@ public sealed class AdaptiveScoreStaticSystem : EntitySystem, IAdaptiveBalanceIn
                 protoId,
                 string.Join(
                     " + ",
-                    GetConditions(component)
+                    component.Conditions
                         .Select(cond => cond.GetType().Name)
-                        .Select(FixName) // Make names COOLER
+                        .Select(FixName)
+                        .Concat(component.ConditionTables
+                            .Select(t => t.Id)
+                        )// Make names COOLER
                 ),
                 component.ChaosScore,
                 component.CombatScore

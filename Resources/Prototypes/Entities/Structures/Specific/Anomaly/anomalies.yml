@@ -99,6 +99,8 @@
   - type: AdaptiveScoreStatic
     chaosScore: 3
     combatScore: 0
+    conditionTables:
+    - OnStationGrid
   # MAID END adaptive scores
     offset: 0, 0.15
     pulseSound:

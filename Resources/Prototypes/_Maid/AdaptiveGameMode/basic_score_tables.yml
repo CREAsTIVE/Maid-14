@@ -1,15 +1,4 @@
-- type: AdaptiveScoreConditionsTable
-  id: Alive
-  conditions:
-  - !type:AdaptiveScoreAliveCondition
-
-- type: AdaptiveScoreConditionsTable
-  id: ControlledAlive
-  conditions:
-  - !type:AdaptiveScoreControlledCondition
-  - !type:AdaptiveScoreAliveCondition
-
-- type: AdaptiveScoreConditionsTable
+- type: adaptiveScoreConditionsTable
   id: ActiveAntag
   conditions:
   - !type:AdaptiveScoreControlledCondition
@@ -17,3 +6,29 @@
   - !type:AdaptiveScoreHasComponentInChildrenCondition
     component: Contraband
 
+
+- type: adaptiveScoreConditionsTable
+  id: ActiveGamerule
+  conditions:
+  - !type:AdaptiveScoreHasComponentCondition
+    components:
+    - ActiveGameRule
+
+- type: adaptiveScoreConditionsTable
+  id: OnStationGrid
+  conditions:
+  - !type:AdaptiveScoreOnStationCondition
+    onGrid: true
+
+- type: adaptiveScoreConditionsTable
+  id: OnStationMap
+  conditions:
+  - !type:AdaptiveScoreOnStationCondition
+    onGrid: false
+
+
+- type: adaptiveScoreConditionsTable
+  id: ObjectiveCompletion
+  conditions:
+  - !type:AdaptiveScoreObjectiveCompletionCondition
+    completed: true

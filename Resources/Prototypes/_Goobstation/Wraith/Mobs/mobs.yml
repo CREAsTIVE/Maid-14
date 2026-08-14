@@ -16,8 +16,11 @@
       base: 5
       target: 0
       in: 900
+    conditions:
+    - !type:AdaptiveScoreControlledCondition
+    - !type:AdaptiveScoreAliveCondition
     conditionTables:
-    - ControlledAlive
+    - OnStationGrid
   # MAID END adaptive scores
   - type: HTN
     rootTask:

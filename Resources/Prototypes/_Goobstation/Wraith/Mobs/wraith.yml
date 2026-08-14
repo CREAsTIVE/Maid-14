@@ -10,16 +10,13 @@
   components:
   # MAID BEGIN adaptive scores
   - type: AdaptiveScoreStatic
-    combatScore:
-      base: 3
-      target: 0
-      in: 900
-    chaosScore:
-      base: 10
-      target: 0
-      in: 900
+    combatScore: 3
+    chaosScore: 10
+    conditions:
+    - !type:AdaptiveScoreControlledCondition
+    - !type:AdaptiveScoreAliveCondition
     conditionTables:
-    - ControlledAlive
+    - OnStationMap
   # MAID END adaptive scores
   - type: MindContainer
     showExamineInfo: true #show that its dead

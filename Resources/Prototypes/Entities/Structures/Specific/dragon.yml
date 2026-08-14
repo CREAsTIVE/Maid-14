@@ -17,10 +17,7 @@
   - type: DragonRift
   # MAID BEGIN adaptive scores
   - type: AdaptiveScoreStatic
-    chaosScore:
-      base: 5
-      target: 0
-      in: 900
+    chaosScore: 5
   # MAID END adaptive scores
   - type: Transform
     anchored: true
