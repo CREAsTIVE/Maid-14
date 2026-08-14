@@ -2,6 +2,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Server._Maid.AdaptiveGameMode.ScoreCounters;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Server._Maid.AdaptiveGameMode;
 using Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Static;
 using Content.Server.Administration.Logs;
 using Content.Server.Ghost.Roles.Components;
@@ -17,7 +18,8 @@ using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Preferences;
 using Content.Shared.Random.Helpers;
-namespace Content.Server._Maid.AdaptiveGameMode;
+using Content.Shared.Ghost.Roles.Components;
+using Content.Shared.Humanoid.Prototypes;
 public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 {
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
@@ -156,6 +158,9 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         float scoreBudget,
         int? playerCount = null)
     {
+        // RobustRandom weight uses dictionaries, and i don't want to copy shit
+        // So there manual implementation
+
         if (rules.Count == 0)
             return null;
 
@@ -211,11 +216,31 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
     public AdaptiveScore CalculatePossibleScoreForPrototype(string ruleId, int? playerCount = null)
     {
-        var visited = new HashSet<string>();
-        var totalScore = GetPrototypeStaticScore(ruleId, visited);
+        var totalScore = GetPrototypeStaticScore(ruleId);
 
         if (!_protoManager.TryIndex<EntityPrototype>(ruleId, out var proto))
             return totalScore;
+
+        // Check for direct AntagLoadProfileRule species spawns on the rule itself
+        if (proto.TryGetComponent(out AntagLoadProfileRuleComponent? loadProfile, _compFactory))
+        {
+            var speciesId = loadProfile.SpeciesHardOverride;
+            if (speciesId == null && loadProfile.AlwaysUseSpeciesOverride)
+            {
+                speciesId = loadProfile.SpeciesOverride;
+            }
+
+            if (speciesId != null && _protoManager.TryIndex<SpeciesPrototype>(speciesId.Value, out var species))
+            {
+                totalScore += GetPrototypeStaticScore(species.Prototype);
+            }
+        }
+
+        // Check for direct AntagSpawner spawns on the rule itself
+        if (proto.TryGetComponent(out AntagSpawnerComponent? ruleSpawner, _compFactory))
+        {
+            totalScore += GetPrototypeStaticScore(ruleSpawner.Prototype);
+        }
 
         if (proto.TryGetComponent(out AntagSelectionComponent? antagComp, _compFactory))
         {
@@ -239,14 +264,14 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
                 {
                     foreach (var role in def.MindRoles)
                     {
-                        totalScore += GetPrototypeStaticScore(role, visited) * antagCount;
+                        totalScore += GetPrototypeStaticScore(role) * antagCount;
                     }
                 }
 
                 // Spawners
                 if (def.SpawnerPrototype != null)
                 {
-                    totalScore += GetPrototypeStaticScore(def.SpawnerPrototype, visited) * antagCount;
+                    totalScore += GetPrototypeStaticScore(def.SpawnerPrototype) * antagCount;
                 }
 
                 // Added components
@@ -290,7 +315,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
         if (_balancing.TrackingEnabled)
         {
-            ev.Records = new List<ScoreCounters.AdaptiveScoreRecord>();
+            ev.Records = [];
         }
 
         RaiseLocalEvent(ref ev);
@@ -309,12 +334,32 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
     /// </summary>
     public AdaptiveScore CalculatePossibleScoreForDefinition(Entity<AntagSelectionComponent> antagSelection, int? playerCount = null)
     {
-        var visited = new HashSet<string>();
         var totalScore = MetaData(antagSelection).EntityPrototype?.ID is {} id
-            ? GetPrototypeStaticScore(id, visited)
+            ? GetPrototypeStaticScore(id)
             : new();
 
         var antagComp = antagSelection.Comp;
+
+        // Check for direct AntagLoadProfileRule species spawns on the rule itself
+        if (TryComp<AntagLoadProfileRuleComponent>(antagSelection, out var loadProfile))
+        {
+            var speciesId = loadProfile.SpeciesHardOverride;
+            if (speciesId == null && loadProfile.AlwaysUseSpeciesOverride)
+            {
+                speciesId = loadProfile.SpeciesOverride;
+            }
+
+            if (speciesId != null && _protoManager.TryIndex<SpeciesPrototype>(speciesId.Value, out var species))
+            {
+                totalScore += GetPrototypeStaticScore(species.Prototype);
+            }
+        }
+
+        // Check for direct AntagSpawner spawns on the rule itself
+        if (TryComp<AntagSpawnerComponent>(antagSelection, out var ruleSpawner))
+        {
+            totalScore += GetPrototypeStaticScore(ruleSpawner.Prototype);
+        }
 
         foreach (var def in antagComp.Definitions)
         {
@@ -327,14 +372,14 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
             {
                 foreach (var role in def.MindRoles)
                 {
-                    totalScore += GetPrototypeStaticScore(role, visited) * antagCount;
+                    totalScore += GetPrototypeStaticScore(role) * antagCount;
                 }
             }
 
             // Spawners
             if (def.SpawnerPrototype != null)
             {
-                totalScore += GetPrototypeStaticScore(def.SpawnerPrototype, visited) * antagCount;
+                totalScore += GetPrototypeStaticScore(def.SpawnerPrototype) * antagCount;
             }
 
             // Added components (i will kill you if you will add static score components like that)
@@ -349,10 +394,13 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         return totalScore;
     }
 
-    private AdaptiveScore GetPrototypeStaticScore(string protoId, HashSet<string> visited)
+    private AdaptiveScore GetPrototypeStaticScore(string protoId, int depth = 0)
     {
-        if (!visited.Add(protoId))
-            return new();
+        if (depth > 15)
+        {
+            _adminLog.Add(LogType.EventRan, LogImpact.Extreme, $"Adaptive: SOMETHING IS BROKEN!! We at {protoId}");
+            return new(); // Something definitely broke
+        }
 
         var score = new AdaptiveScore();
 
@@ -370,8 +418,28 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         {
             foreach (var role in ghostComp.MindRoles)
             {
-                score += GetPrototypeStaticScore(role, visited);
+                score += GetPrototypeStaticScore(role, depth + 1);
             }
+        }
+
+        // Is mob spawner
+        if (proto.TryGetComponent(out GhostRoleMobSpawnerComponent? spawnerComp, _compFactory))
+        {
+            if (spawnerComp.Prototype != null)
+            {
+                score += GetPrototypeStaticScore(spawnerComp.Prototype, depth + 1);
+            }
+
+            foreach (var selectable in spawnerComp.SelectablePrototypes)
+            {
+                score += GetPrototypeStaticScore(selectable, depth + 1);
+            }
+        }
+
+        // Is antag spawner
+        if (proto.TryGetComponent(out AntagSpawnerComponent? antagSpawner, _compFactory))
+        {
+            score += GetPrototypeStaticScore(antagSpawner.Prototype, depth + 1);
         }
 
         return score;
