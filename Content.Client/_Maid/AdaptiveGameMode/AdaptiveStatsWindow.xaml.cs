@@ -214,6 +214,7 @@ public sealed partial class AdaptiveStatsWindow : DefaultWindow
         Chart.AddSubRenderer(new ConnectedChartRenderer(targetChaosPoints, Color.FromHex("#8b2525"), "Target Chaos"));
         Chart.AddSubRenderer(new ConnectedChartRenderer(targetCombatPoints, Color.FromHex("#25258b"), "Target Combat"));
 
+        Chart.AutoFit();
         if (_selectedRunId != null)
         {
             var exists = runs.Any(run => run.Id == _selectedRunId.Value);

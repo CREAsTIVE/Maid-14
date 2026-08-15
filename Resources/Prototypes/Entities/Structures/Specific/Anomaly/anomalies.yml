@@ -95,6 +95,11 @@
   description: An impossible object. Should you be standing this close to it?
   components:
   - type: Anomaly
+    offset: 0, 0.15
+    pulseSound:
+      collection: RadiationPulse
+      params:
+        volume: 5
   # MAID BEGIN adaptive scores
   - type: AdaptiveScoreStatic
     chaosScore: 3
@@ -102,11 +107,6 @@
     conditionTables:
     - OnStationGrid
   # MAID END adaptive scores
-    offset: 0, 0.15
-    pulseSound:
-      collection: RadiationPulse
-      params:
-        volume: 5
   - type: AmbientSound
     range: 5
     volume: -5

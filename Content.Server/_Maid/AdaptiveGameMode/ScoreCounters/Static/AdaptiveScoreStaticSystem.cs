@@ -35,12 +35,12 @@ public sealed class AdaptiveScoreStaticSystem : EntitySystem, IAdaptiveBalanceIn
         base.Initialize();
 
         SubscribeLocalEvent<GetAdaptiveScoreEvent>(CollectScores);
-        SubscribeLocalEvent<AdaptiveScoreStaticComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<AdaptiveScoreStaticComponent, MapInitEvent>(OnInit);
     }
 
-    private void OnInit(EntityUid uid, AdaptiveScoreStaticComponent component, ref ComponentInit args)
+    private void OnInit(Entity<AdaptiveScoreStaticComponent> ent, ref MapInitEvent args)
     {
-        component.CreationTime = _gameTiming.CurTime;
+        ent.Comp.CreationTime = _gameTiming.CurTime;
     }
 
     private IEnumerable<IAdaptiveScoreCondition> GetConditions(AdaptiveScoreStaticComponent comp)

@@ -68,6 +68,7 @@ public sealed class ChartRenderer : Control
         ViewportMaxX = maxX;
         ViewportMinY = minY;
         ViewportMaxY = maxY;
+        InvalidateMeasure();
     }
 
     /// <summary>
