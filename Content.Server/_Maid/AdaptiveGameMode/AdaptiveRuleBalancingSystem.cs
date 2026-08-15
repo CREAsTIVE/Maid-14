@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Content.Server.GameTicking;
 using Content.Server._Maid.AdaptiveGameMode.ScoreCounters;
 using Content.Shared._Maid.CVars;
+using Content.Shared.GameTicking;
 using Robust.Shared.Configuration;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
@@ -19,6 +20,32 @@ public sealed class AdaptiveRuleBalancingSystem : EntitySystem
     // Dictionary of roundId -> list of calculation runs
     private readonly Dictionary<int, List<AdaptiveCalculationRun>> _roundData = new();
     private readonly HashSet<AdaptiveStatsEui> _openEuis = new();
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup);
+    }
+
+    private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
+    {
+        PruneRoundData();
+    }
+
+    private void PruneRoundData()
+    {
+        if (_roundData.Count <= 20)
+            return;
+
+        var sortedRounds = new List<int>(_roundData.Keys);
+        sortedRounds.Sort();
+
+        var roundsToRemoveCount = sortedRounds.Count - 20;
+        for (var i = 0; i < roundsToRemoveCount; i++)
+        {
+            _roundData.Remove(sortedRounds[i]);
+        }
+    }
 
     public void RegisterEui(AdaptiveStatsEui eui)
     {
@@ -48,6 +75,7 @@ public sealed class AdaptiveRuleBalancingSystem : EntitySystem
         {
             list = new List<AdaptiveCalculationRun>();
             _roundData[roundId] = list;
+            PruneRoundData();
         }
 
         var run = new AdaptiveCalculationRun

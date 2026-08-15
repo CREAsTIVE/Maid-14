@@ -4,6 +4,9 @@ using Content.Server.GameTicking;
 using Content.Shared._Maid.AdaptiveGameMode;
 using Content.Shared._Maid.CVars;
 using Content.Shared.Eui;
+using Content.Server.Administration;
+using Content.Server.Administration.Managers;
+using Content.Shared.Administration;
 using Robust.Shared.Configuration;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
@@ -14,6 +17,7 @@ public sealed class AdaptiveStatsEui : BaseEui
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IAdminManager _adminManager = default!;
 
     public AdaptiveStatsEui()
     {
@@ -91,6 +95,9 @@ public sealed class AdaptiveStatsEui : BaseEui
     public override void HandleMessage(EuiMessageBase msg)
     {
         base.HandleMessage(msg);
+
+        if (!_adminManager.HasAdminFlag(Player, AdminFlags.Round))
+            return;
 
         switch (msg)
         {

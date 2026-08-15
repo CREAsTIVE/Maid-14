@@ -170,18 +170,6 @@ public sealed class ChartRenderer : Control
         }
     }
 
-    protected override void KeyBindUp(GUIBoundKeyEventArgs args)
-    {
-        base.KeyBindUp(args);
-        if (args.Function == EngineKeyFunctions.UIClick)
-        {
-            if (HoveredX != null)
-            {
-                OnPointClicked?.Invoke(HoveredX.Value);
-                args.Handle();
-            }
-        }
-    }
 
     private void UpdateHoveredPoint()
     {

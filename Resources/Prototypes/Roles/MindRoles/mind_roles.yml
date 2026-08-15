@@ -346,6 +346,9 @@
   - type: AdaptiveScoreStatic
     combatScore: 0
     chaosScore: 15
+    conditions:
+    - !type:AdaptiveScoreControlledCondition
+    - !type:AdaptiveScoreAliveCondition
   # MAID END adaptive scores
 
 - type: entity

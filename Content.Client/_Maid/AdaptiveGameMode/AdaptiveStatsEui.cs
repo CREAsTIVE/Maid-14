@@ -12,14 +12,24 @@ public sealed class AdaptiveStatsEui : BaseEui
     {
         base.Opened();
         _window = new AdaptiveStatsWindow(this);
+        _window.OnClose += SendClosed;
         _window.OpenCentered();
     }
 
     public override void Closed()
     {
         base.Closed();
-        _window?.Close();
-        _window = null;
+        if (_window != null)
+        {
+            _window.OnClose -= SendClosed;
+            _window.Close();
+            _window = null;
+        }
+    }
+
+    private void SendClosed()
+    {
+        SendMessage(new CloseEuiMessage());
     }
 
     public override void HandleState(EuiStateBase state)
