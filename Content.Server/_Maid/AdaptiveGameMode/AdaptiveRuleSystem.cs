@@ -21,6 +21,8 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Server.StationEvents.Components;
+using Content.Shared.Administration.Logs;
+
 
 public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 {
@@ -32,20 +34,25 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly AdaptiveRuleBalancingSystem _balancing = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
+
+    // I hate admin logger
+    private new void Log(ref LogStringHandler handler, LogImpact impact = LogImpact.High)
+    {
+        _adminLog.Add(
+            LogType.EventRan,
+            impact,
+            $"Adaptive: {handler.ToStringAndClear()}"
+        );
+    }
 
     protected override void Started(EntityUid uid, AdaptiveRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
 
-        component.TimeUntilNextAttempt = component.MidroundSpawnTimer.GetValue(_random);
-        // Calculate and log estimated roundstart score
-        var estScore = CalculateEstimatedRoundstartScore(component);
+        Log($"AdaptiveRule is enabled");
 
-        _adminLog.Add(
-            LogType.EventStarted,
-            LogImpact.High,
-            $"Estimated roundstart Adaptive Score - {estScore}"
-        );
+        component.TimeUntilNextAttempt = component.MidroundSpawnTimer.GetValue(_random);
 
         SpawnRoundstartRules(uid, component);
     }
@@ -53,23 +60,27 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
     private void SpawnRoundstartRules(EntityUid uid, AdaptiveRuleComponent component)
     {
         var readyPlayersCount = _playerManager.Sessions
-            .Count(session => GameTicker.PlayerGameStatuses.TryGetValue(session.UserId, out var status) &&
-                              (status == PlayerGameStatus.ReadyToPlay || status == PlayerGameStatus.JoinedGame));
+            .Count(session => GameTicker.PlayerGameStatuses.TryGetValue(session.UserId, out var status)
+                              && (status == PlayerGameStatus.ReadyToPlay || status == PlayerGameStatus.JoinedGame)
+            );
 
-        var candidateRules = new List<AdaptiveRuleParam>();
-        foreach (var ruleParam in component.RoundstartRules)
-        {
-            if (ruleParam.Conditions.All(c => c.Condition(ruleParam, component, EntityManager)))
-            {
-                candidateRules.Add(ruleParam);
-            }
-        }
+        var candidateRules = component.RoundstartRules
+            .Where(ruleParam =>
+                ruleParam.Conditions.All(c => c.Condition(ruleParam, component, EntityManager))
+            )
+            .ToList();
 
-        var accumulatedScore = 0f;
-        for (var i = 0; i < 5; i++)
+        var roundstartTargetBudget = GetTargetBudget(component, TimeSpan.Zero) + readyPlayersCount * component.RoundstartScorePerPlayer;
+        var accumulatedScore = new AdaptiveScore();
+
+        Log($"Spawning roundstart rules with budget {roundstartTargetBudget} (of {readyPlayersCount} players)...");
+
+        for (var i = 0; i < 5; i++) // for now - hardcoded limit. TODO
         {
-            if (accumulatedScore >= component.RoundstartTargetBudget)
+            // TODO: Also temporary. Probably should do probability for spawning next rule based on distance to target score
+            if (accumulatedScore.Average >= roundstartTargetBudget.Average)
             {
+                Log($"Budget exceeded...");
                 break;
             }
 
@@ -78,29 +89,22 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
                 break;
             }
 
-            var remainingBudget = component.RoundstartTargetBudget - accumulatedScore;
+            var remainingBudget = roundstartTargetBudget - accumulatedScore;
             var chosenRule = ChooseRandomRule(component, candidateRules, remainingBudget, readyPlayersCount);
+
             if (chosenRule == null)
-            {
                 break;
-            }
 
             if (SpawnRule(uid, component, chosenRule.Id) != null)
             {
-                accumulatedScore += CalculatePossibleScoreForPrototype(chosenRule.Id, readyPlayersCount).Chaos;
+                accumulatedScore += CalculatePossibleScoreForPrototype(chosenRule.Id, readyPlayersCount);
             }
 
-            candidateRules.Remove(chosenRule);
+            candidateRules.Remove(chosenRule); // can't spawn same rule multiple times
+            // TODO: just do it with conditions and recalculate them. This will allow things like "rule allowed only if other is not runned", etc
         }
-    }
 
-    public AdaptiveScore CalculateEstimatedRoundstartScore(AdaptiveRuleComponent component)
-    {
-        var readyPlayersCount = _playerManager.Sessions
-            .Count(session => GameTicker.PlayerGameStatuses.TryGetValue(session.UserId, out var status) &&
-                              (status == PlayerGameStatus.ReadyToPlay || status == PlayerGameStatus.JoinedGame));
-
-        return component.RoundstartChaosPerPlayer * readyPlayersCount;
+        Log($"Done spawning roundstart rules");
     }
 
     protected override void ActiveTick(EntityUid uid, AdaptiveRuleComponent component, GameRuleComponent gameRule, float frameTime)
@@ -124,10 +128,10 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
             return;
 
         // TODO: Put there chance based on how close we to target chaos score
-        // For now i just kept it to make rule check frequent, but
+        // For now i just kept it to make rule check frequent (i love statistics, i wasted like hour making chart system lol)
         if (_random.Prob(component.MidroundSpawnSkipProb))
         {
-            Log.Info("Skipped spawning midround rule due to skip probability.");
+            Log($"Skipping rule spawning (UNLUCKY)");
             return;
         }
 
@@ -144,8 +148,9 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         if (candidateRules.Count == 0)
             return;
 
-        var currentChaos = CalculateChaosScore().ChaosScore;
-        var scoreBudget = component.TargetScore - currentChaos;
+        var currentScore = CalculateChaosScore();
+        var targetBudget = GetTargetBudget(component, _gameTicker.RoundDuration());
+        var scoreBudget = targetBudget - new AdaptiveScore { Chaos = currentScore.ChaosScore, Combat = currentScore.CombatScore };
 
         var chosenRule = ChooseRandomRule(component, candidateRules, scoreBudget);
         if (chosenRule == null)
@@ -157,7 +162,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
     public AdaptiveRuleParam? ChooseRandomRule(
         AdaptiveRuleComponent component,
         List<AdaptiveRuleParam> rules,
-        float scoreBudget,
+        AdaptiveScore scoreBudget,
         int? playerCount = null)
     {
         // RobustRandom weight uses dictionaries, and i don't want to copy shit
@@ -194,26 +199,43 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
     public List<(AdaptiveRuleParam Rule, float Weight)> GetRulesWeighted(
         AdaptiveRuleComponent component,
         List<AdaptiveRuleParam> rules,
-        float scoreBudget,
+        AdaptiveScore scoreBudget,
         int? playerCount = null)
     {
         var result = new List<(AdaptiveRuleParam Rule, float Weight)>();
         var decay = component.ScoreDifferenceMultiplierDecay;
-
         var m = component.ScoreDifferenceMultiplierMin;
 
         foreach (var rule in rules)
         {
-            // https://www.desmos.com/calculator/uqlzvsqnsn?lang=ru
-            var expectedBudget = CalculatePossibleScoreForPrototype(rule.Id, playerCount).Chaos;
-            var x = scoreBudget - expectedBudget;
-            var exponent = -(x * x) / decay;
-            var multiplier = MathF.Exp(exponent) * (1f - m) + m;
+
+            var expectedBudget = CalculatePossibleScoreForPrototype(rule.Id, playerCount);
+
+            var multiplierChaos = GetMultiplier(scoreBudget.Chaos, expectedBudget.Chaos);
+            var multiplierCombat = GetMultiplier(scoreBudget.Combat, expectedBudget.Combat);
+
+            // Honestly, i don't sure about that
+            // But this will make sure that we will NOT get some combat event (cause of large chaos)
+            // when we have invasion or some shit idk
+            // We also can't just multiply then cause it will decrease min from defined to min*min
+            // I'm thinking about slope that will take average on small difference
+            // but went to min on huge differences
+            // but for now this should work fine
+            var multiplier = MathF.Min(multiplierChaos, multiplierCombat);
             var weight = rule.BaseWeight * multiplier;
             result.Add((rule, weight));
         }
 
         return result;
+
+        // Basic normal distribution (probably didn't think about it enough, just took what first came to mine head, should be fine tho)
+        // https://www.desmos.com/calculator/uqlzvsqnsn?lang=ru
+        float GetMultiplier(float budget, float expected)
+        {
+            var x = budget - expected;
+            var exponent = -(x * x) / decay;
+            return MathF.Exp(exponent) * (1f - m) + m;
+        }
     }
 
     public AdaptiveScore CalculatePossibleScoreForPrototype(string ruleId, int? playerCount = null)
@@ -223,6 +245,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         if (!_protoManager.TryIndex<EntityPrototype>(ruleId, out var proto))
             return totalScore;
 
+        // We can't check everything (spawn tables is pain), so please, when it fails define manually
         if (proto.TryGetComponent(out RandomEntityStorageSpawnRuleComponent? storageSpawnRule, _compFactory))
         {
             totalScore += GetPrototypeStaticScore(storageSpawnRule.Prototype);
@@ -308,26 +331,22 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
     public EntityUid? SpawnRule(EntityUid uid, AdaptiveRuleComponent component, string ruleId)
     {
-        if (GameTicker.StartGameRule(ruleId, out var ruleEnt))
+        if (!GameTicker.StartGameRule(ruleId, out var ruleEnt))
+            return null;
+
+        component.SpawnedRules.Add(new AdaptiveSpawnedRule
         {
-            component.SpawnedRules.Add(new AdaptiveSpawnedRule
-            {
-                RuleId = ruleId,
-                Entity = ruleEnt,
-                SpawnTime = Timing.CurTime
-            });
+            RuleId = ruleId,
+            Entity = ruleEnt,
+            SpawnTime = Timing.CurTime
+        });
 
-            _adminLog.Add(LogType.EventStarted, LogImpact.Medium, $"Adaptive Gamemode spawned rule: {ruleId}");
-            ChatManager.SendAdminAnnouncement($"Adaptive Gamemode spawned rule: {ruleId}");
+        Log($"Rule spawned: {ruleId}");
 
-            return ruleEnt;
-        }
+        return ruleEnt;
 
-        return null;
     }
-    /// <summary>
-    /// Gets the current chaos score by broadcasting a <see cref="GetAdaptiveScoreEvent"/>.
-    /// </summary>
+
     public GetAdaptiveScoreEvent CalculateChaosScore()
     {
         var ev = new GetAdaptiveScoreEvent();
@@ -339,10 +358,18 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
         RaiseLocalEvent(ref ev);
 
-        if (_balancing.TrackingEnabled && ev.Records != null)
+        if (!_balancing.TrackingEnabled || ev.Records == null)
+            return ev;
+
+        var targetBudget = new AdaptiveScore();
+        var query = EntityQueryEnumerator<AdaptiveRuleComponent>();
+        if (query.MoveNext(out var uid, out var comp))
         {
-            _balancing.SaveCalculationRun(ev.ChaosScore, ev.CombatScore, ev.Records);
+            targetBudget = GetTargetBudget(comp, _gameTicker.RoundDuration());
         }
+
+        // Kinda gross but it is what it is
+        _balancing.SaveCalculationRun(ev.ChaosScore, ev.CombatScore, targetBudget.Chaos, targetBudget.Combat, ev.Records);
 
         return ev;
     }
@@ -486,4 +513,41 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
     }
 
 
+
+    public AdaptiveScore GetTargetBudget(AdaptiveRuleComponent component, TimeSpan duration)
+    {
+        var seconds = (float) duration.TotalSeconds;
+        if (component.RoundstartTargetBudgetSlope.Count == 0)
+        {
+            return component.RoundstartTargetBudgetBase;
+        }
+
+        var points = component.RoundstartTargetBudgetSlope.OrderBy(p => p.Time).ToList();
+
+        if (seconds <= points[0].Time)
+        {
+            if (points[0].Time <= 0f)
+                return points[0].Value;
+
+            var ratio = seconds / points[0].Time;
+            return component.RoundstartTargetBudgetBase + (points[0].Value - component.RoundstartTargetBudgetBase) * ratio;
+        }
+
+        for (var i = 0; i < points.Count - 1; i++)
+        {
+            var p1 = points[i];
+            var p2 = points[i + 1];
+            if (seconds >= p1.Time && seconds <= p2.Time)
+            {
+                var diff = p2.Time - p1.Time;
+                if (diff <= 0f)
+                    return p2.Value;
+
+                var ratio = (seconds - p1.Time) / diff;
+                return p1.Value + (p2.Value - p1.Value) * ratio;
+            }
+        }
+
+        return points[^1].Value;
+    }
 }

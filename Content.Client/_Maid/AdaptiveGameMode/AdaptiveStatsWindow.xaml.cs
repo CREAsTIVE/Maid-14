@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 using Content.Client.Eui;
 using Content.Client._Maid.UserInterface.Chart;
@@ -60,11 +61,11 @@ public sealed partial class AdaptiveStatsWindow : DefaultWindow
     private void OnPointClicked(float x)
     {
         var run = FindRunByX(x);
-        if (run != null)
-        {
-            _selectedRunId = run.Id;
-            UpdateTable();
-        }
+        if (run == null)
+            return;
+
+        _selectedRunId = run.Id;
+        UpdateTable();
     }
 
     private void OnPointHovered(float? x)
@@ -85,11 +86,11 @@ public sealed partial class AdaptiveStatsWindow : DefaultWindow
         }
 
         var run = FindRunByX(x.Value);
-        if (run != null)
-        {
-            TableTitle.Text = $"Hovering Run {run.Id} details (Time: {run.Time:hh\\:mm\\:ss}):";
-            PopulateTableForRun(run.Id);
-        }
+        if (run == null)
+            return;
+
+        TableTitle.Text = $@"Hovering Run {run.Id} details (Time: {run.Time:hh\:mm\:ss}):";
+        PopulateTableForRun(run.Id);
     }
 
     private SharedAdaptiveCalculationRun? FindRunByX(float x)
@@ -172,7 +173,7 @@ public sealed partial class AdaptiveStatsWindow : DefaultWindow
         if (runs.Count > 0)
         {
             var latest = runs[^1];
-            InfoLabel.Text = $"Round ID: {_selectedRoundId.Value} | Calculations: {runs.Count} | Latest score: Chaos={latest.TotalChaos}, Combat={latest.TotalCombat}";
+            InfoLabel.Text = $"Round ID: {_selectedRoundId.Value} | Calculations: {runs.Count} | Latest score: Chaos={latest.TotalChaos}, Combat={latest.TotalCombat} (Target Chaos={latest.TargetChaos}, Target Combat={latest.TargetCombat})";
         }
         else
         {
@@ -183,6 +184,8 @@ public sealed partial class AdaptiveStatsWindow : DefaultWindow
 
         var chaosPoints = new List<Vector2>();
         var combatPoints = new List<Vector2>();
+        var targetChaosPoints = new List<Vector2>();
+        var targetCombatPoints = new List<Vector2>();
 
         var maxVal = 10f;
         var maxX = 10f;
@@ -191,13 +194,14 @@ public sealed partial class AdaptiveStatsWindow : DefaultWindow
             var xVal = (float)run.Time.TotalMinutes;
             chaosPoints.Add(new Vector2(xVal, run.TotalChaos));
             combatPoints.Add(new Vector2(xVal, run.TotalCombat));
+            targetChaosPoints.Add(new Vector2(xVal, run.TargetChaos));
+            targetCombatPoints.Add(new Vector2(xVal, run.TargetCombat));
 
             if (xVal > maxX)
                 maxX = xVal;
-            if (run.TotalChaos > maxVal)
-                maxVal = run.TotalChaos;
-            if (run.TotalCombat > maxVal)
-                maxVal = run.TotalCombat;
+
+            // LOL they don't have params[] overload
+            maxVal = MathF.Max(MathHelper.Max(run.TotalChaos, run.TotalCombat, run.TargetChaos, run.TargetCombat), maxVal);
         }
 
         var spacingX = Math.Max(1f, MathF.Ceiling(maxX / 10f));
@@ -207,23 +211,15 @@ public sealed partial class AdaptiveStatsWindow : DefaultWindow
         Chart.AddSubRenderer(new ChartAxesRenderer(spacingX, spacingY, Color.White, 8));
         Chart.AddSubRenderer(new ConnectedChartRenderer(chaosPoints, Color.Red, "Chaos"));
         Chart.AddSubRenderer(new ConnectedChartRenderer(combatPoints, Color.Blue, "Combat"));
-        Chart.AutoFit();
+        Chart.AddSubRenderer(new ConnectedChartRenderer(targetChaosPoints, Color.FromHex("#8b2525"), "Target Chaos"));
+        Chart.AddSubRenderer(new ConnectedChartRenderer(targetCombatPoints, Color.FromHex("#25258b"), "Target Combat"));
 
         if (_selectedRunId != null)
         {
-            var exists = false;
-            foreach (var run in runs)
-            {
-                if (run.Id == _selectedRunId.Value)
-                {
-                    exists = true;
-                    break;
-                }
-            }
+            var exists = runs.Any(run => run.Id == _selectedRunId.Value);
+
             if (!exists)
-            {
                 _selectedRunId = null;
-            }
         }
 
         if (_selectedRunId == null && runs.Count > 0)
@@ -258,15 +254,7 @@ public sealed partial class AdaptiveStatsWindow : DefaultWindow
         if (runs == null)
             return;
 
-        SharedAdaptiveCalculationRun? selectedRun = null;
-        foreach (var run in runs)
-        {
-            if (run.Id == runId)
-            {
-                selectedRun = run;
-                break;
-            }
-        }
+        var selectedRun = runs.FirstOrDefault(run => run.Id == runId);
 
         if (selectedRun == null)
             return;

@@ -22,6 +22,8 @@ public sealed class SharedAdaptiveCalculationRun
     public TimeSpan Time { get; set; }
     public float TotalChaos { get; set; }
     public float TotalCombat { get; set; }
+    public float TargetChaos { get; set; }
+    public float TargetCombat { get; set; }
     public List<SharedAdaptiveScoreRecord> Records { get; set; } = new();
 }
 

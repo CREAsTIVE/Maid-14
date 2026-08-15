@@ -12,13 +12,13 @@ namespace Content.Server._Maid.AdaptiveGameMode;
 public sealed partial class AdaptiveRuleComponent : Component
 {
     [DataField]
-    public float TargetScore = 0f;
+    public AdaptiveScore RoundstartTargetBudgetBase = new();
 
     [DataField]
-    public float RoundstartTargetBudget = 0f;
+    public List<AdaptiveBudgetSlopePoint> RoundstartTargetBudgetSlope = [];
 
     [DataField]
-    public AdaptiveScore RoundstartChaosPerPlayer = new();
+    public AdaptiveScore RoundstartScorePerPlayer = new();
 
     /// <summary>
     /// Gamerules that get added at round start.
@@ -60,6 +60,16 @@ public sealed partial class AdaptiveRuleComponent : Component
     /// </summary>
     [DataField]
     public float ScoreDifferenceMultiplierMin = 0.1f;
+}
+
+[DataDefinition]
+public sealed partial class AdaptiveBudgetSlopePoint
+{
+    [DataField(required: true)]
+    public float Time { get; set; }
+
+    [DataField(required: true)]
+    public AdaptiveScore Value { get; set; }
 }
 
 [DataDefinition]

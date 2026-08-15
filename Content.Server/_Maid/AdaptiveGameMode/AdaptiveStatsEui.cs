@@ -62,7 +62,9 @@ public sealed class AdaptiveStatsEui : BaseEui
                         Id = run.Id,
                         Time = run.Time,
                         TotalChaos = run.TotalChaos,
-                        TotalCombat = run.TotalCombat
+                        TotalCombat = run.TotalCombat,
+                        TargetChaos = run.TargetChaos,
+                        TargetCombat = run.TargetCombat
                     };
 
                     foreach (var record in run.Records)

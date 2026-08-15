@@ -1,4 +1,5 @@
 using Content.Server.Administration;
+using Content.Server.GameTicking;
 using Content.Server._Maid.AdaptiveGameMode;
 using Content.Server._Maid.AdaptiveGameMode.ScoreCounters;
 using Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Collector;
@@ -12,6 +13,19 @@ namespace Content.Server._Maid.AdaptiveGameMode.Commands;
 public sealed class AdaptiveCommand : ToolshedCommand
 {
     private AdaptiveRuleSystem? _adaptiveRuleSystem;
+
+    [CommandImplementation("gettargetbudget")]
+    public AdaptiveScore GetTargetBudget()
+    {
+        _adaptiveRuleSystem ??= GetSys<AdaptiveRuleSystem>();
+        var query = EntityManager.EntityQueryEnumerator<AdaptiveRuleComponent>();
+        if (query.MoveNext(out var uid, out var component))
+        {
+            var gameTicker = GetSys<GameTicker>();
+            return _adaptiveRuleSystem.GetTargetBudget(component, gameTicker.RoundDuration());
+        }
+        return new AdaptiveScore();
+    }
 
     [CommandImplementation("calculatescore")]
     public GetAdaptiveScoreEvent CalculateScore()

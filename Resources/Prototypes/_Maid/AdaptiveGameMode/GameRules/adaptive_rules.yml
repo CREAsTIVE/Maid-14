@@ -5,9 +5,22 @@
   - type: GameRule
     minPlayers: 0
   - type: AdaptiveRule
-    targetChaosValue: 0
-
-    # Only triggered on round start
+    roundstartTargetBudgetBase:
+      chaos: 0
+      combat: 0
+    roundstartTargetBudgetSlope:
+    - time: 7200
+      value:
+        chaos: 5
+        combat: 0
+    - time: 9000
+      value:
+        chaos: 20
+        combat: 40
+    - time: 10800
+      value:
+        chaos: 50
+        combat: 100
     roundstartRules:
     - id: Zombie
       baseWeight: 10
@@ -29,6 +42,9 @@
       max: 600 # 10 min
 
     midroundSpawnSkipProb: 0.6 # With what chance we skip spawning rule
+
+    scoreDifferenceMultiplierDecay: 850
+    scoreDifferenceMultiplierMin: 0.15
 
     midroundRules:
     - id: ZombieOutbreak

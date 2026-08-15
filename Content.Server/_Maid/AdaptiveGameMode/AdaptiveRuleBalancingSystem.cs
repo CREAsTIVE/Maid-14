@@ -38,7 +38,7 @@ public sealed class AdaptiveRuleBalancingSystem : EntitySystem
         }
     }
 
-    public void SaveCalculationRun(float totalChaos, float totalCombat, List<AdaptiveScoreRecord> records)
+    public void SaveCalculationRun(float totalChaos, float totalCombat, float targetChaos, float targetCombat, List<AdaptiveScoreRecord> records)
     {
         if (!TrackingEnabled)
             return;
@@ -56,6 +56,8 @@ public sealed class AdaptiveRuleBalancingSystem : EntitySystem
             Time = _gameTicker.RoundDuration(),
             TotalChaos = totalChaos,
             TotalCombat = totalCombat,
+            TargetChaos = targetChaos,
+            TargetCombat = targetCombat,
         };
 
         foreach (var record in records)
@@ -90,6 +92,8 @@ public sealed class AdaptiveCalculationRun
     public float TotalChaos { get; set; }
     public float TotalCombat { get; set; }
     public List<ServerAdaptiveScoreRecord> Records { get; } = new();
+    public float TargetChaos { get; set; }
+    public float TargetCombat { get; set; }
 }
 
 public record struct ServerAdaptiveScoreRecord(EntityUid Entity, string Name, string? Prototype, float Chaos, float Combat);
