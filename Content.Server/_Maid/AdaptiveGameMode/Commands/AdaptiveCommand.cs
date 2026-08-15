@@ -1,4 +1,5 @@
 using Content.Server.Administration;
+using Content.Server._Maid.AdaptiveGameMode;
 using Content.Server._Maid.AdaptiveGameMode.ScoreCounters;
 using Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Collector;
 using Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Static;
@@ -35,6 +36,17 @@ public sealed class AdaptiveCommand : ToolshedCommand
     public float GetAverage([PipedArgument] GetAdaptiveScoreEvent input)
     {
         return input.Average;
+    }
+
+    [CommandImplementation("get")]
+    public AdaptiveRuleComponent? Get()
+    {
+        var enumerator = EntityManager.EntityQueryEnumerator<AdaptiveRuleComponent>();
+        while (enumerator.MoveNext(out var uid, out var component))
+        {
+            return component;
+        }
+        return null;
     }
 
 }

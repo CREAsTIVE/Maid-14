@@ -25,7 +25,7 @@
       baseWeight: 10
 
     midroundSpawnTimer: # How often we spawn rules
-      min: 300 # 5 min
+      min: 180 # 3 min
       max: 600 # 10 min
 
     midroundSpawnSkipProb: 0.6 # With what chance we skip spawning rule
@@ -106,8 +106,8 @@
       baseWeight: 10
     - id: SolarFlare
       baseWeight: 10
-    - id: SpacePirates
-      baseWeight: 10
+#    - id: SpacePirates
+#      baseWeight: 10
     - id: SpiderClownSpawn
       baseWeight: 10
     - id: SpiderSpawn

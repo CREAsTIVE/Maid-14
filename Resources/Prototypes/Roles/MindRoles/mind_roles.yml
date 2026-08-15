@@ -192,6 +192,18 @@
     antagPrototype: ParadoxClone
     subtype: role-subtype-paradox-clone
   - type: ParadoxCloneRole
+  # MAID BEGIN paradox clone score
+  - type: AdaptiveScoreStatic
+    combatScore: 5
+    chaosScore:
+      base: 10
+      target: 7
+    conditions:
+    - !type:AdaptiveScoreControlledCondition
+    - !type:AdaptiveScoreAliveCondition
+    conditionTables:
+    - OnStationMap
+  # MAID END paradox clone score
 
 # Nukies
 - type: entity
@@ -289,6 +301,16 @@
     exclusiveAntag: true
     subtype: role-subtype-traitor
   - type: TraitorRole
+  # MAID BEGIN traitor score
+  - type: AdaptiveScoreStatic
+    combatScore: 5
+    chaosScore: 5
+    conditions:
+    - !type:AdaptiveScoreControlledCondition
+    - !type:AdaptiveScoreAliveCondition
+    - !type:AdaptiveScoreOnStationCondition
+    - !type:AdaptiveScorePlayerUncuffedCondition
+  # MAID END traitor score
 
 - type: entity
   parent: MindRoleTraitor

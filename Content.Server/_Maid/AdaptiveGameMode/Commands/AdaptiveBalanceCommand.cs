@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Content.Server._Maid.AdaptiveGameMode.MetaInfo;
+using Content.Server._Maid.AdaptiveGameMode.ScoreCounters;
 using Content.Server.Administration;
 using Content.Server.EUI;
 using Content.Shared._Maid.CVars;
@@ -14,7 +15,7 @@ using Robust.Shared.Toolshed.Errors;
 
 namespace Content.Server._Maid.AdaptiveGameMode.Commands;
 
-[ToolshedCommand(Name = "adaptivebalance"), AdminCommand(AdminFlags.Round)]
+[ToolshedCommand(Name = "adaptivebalancing"), AdminCommand(AdminFlags.Round)]
 public sealed class AdaptiveBalanceCommand : ToolshedCommand
 {
     [Dependency] private readonly EuiManager _euiManager = default!;
@@ -30,6 +31,30 @@ public sealed class AdaptiveBalanceCommand : ToolshedCommand
 
         var ui = new AdaptiveStatsEui();
         _euiManager.OpenEui(ui, ctx.Session);
+    }
+
+    [CommandImplementation("exepctedscoresstart")]
+    public string ExpectedScoresStart([PipedArgument] List<AdaptiveRuleParam> rules)
+    {
+        var sysManager = IoCManager.Resolve<IEntitySystemManager>();
+        var ruleSys = sysManager.GetEntitySystem<AdaptiveRuleSystem>();
+
+        var sb = new System.Text.StringBuilder();
+        sb.AppendLine("entity,expectedscore,combatscore");
+
+        foreach (var rule in rules)
+        {
+            var score = ruleSys.CalculatePossibleScoreForPrototype(rule.Id);
+            sb.AppendLine($"{rule.Id},{score.Chaos},{score.Combat}");
+        }
+
+        return sb.ToString();
+    }
+
+    [CommandImplementation("expectedscoresstart")]
+    public string ExpectedScoresStartAlias([PipedArgument] List<AdaptiveRuleParam> rules)
+    {
+        return ExpectedScoresStart(rules);
     }
 
     #if DEBUG

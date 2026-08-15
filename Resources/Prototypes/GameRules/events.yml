@@ -248,6 +248,10 @@
     chaos: # Goobstation
       Anomaly: 100
     eventType: Chaotic # Goobstation
+  # MAID BEGIN anomaly score
+  - type: AdaptiveScoreStaticGameruleEntity
+    prototype: BaseAnomaly
+  # MAID END anomaly score
   # Goobstation
   - type: GameRule
     delay:
@@ -735,6 +739,11 @@
   # Goobstation
   - type: GameRule
     chaosScore: 200
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStaticGameruleEntity
+    prototype: MobSlimeXenobioBabyGrey
+    count: 5
+  # MAID END adaptive scores
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
@@ -759,6 +768,11 @@
   # Goobstation
   - type: GameRule
     chaosScore: 240
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStaticGameruleEntity
+    prototype: MobPurpleSnake
+    count: 5
+  # MAID END adaptive scores
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
@@ -785,6 +799,11 @@
   # Goobstation
   - type: GameRule
     chaosScore: 240
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStaticGameruleEntity
+    prototype: MobGiantSpiderAngry
+    count: 5
+  # MAID END adaptive scores
   - type: VentCrittersRule
     table: # DeltaV: EntityTable instead of spawn entries
       id: MobGiantSpiderAngry
@@ -808,6 +827,11 @@
   # Goobstation
   - type: GameRule
     chaosScore: 240
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStaticGameruleEntity
+    prototype: MobClownSpider
+    count: 5
+  # MAID END adaptive scores
   - type: VentCrittersRule
     playerRatio: 20 # DeltaV: Clown spiders are very robust
     table: # DeltaV: EntityTable instead of spawn entries

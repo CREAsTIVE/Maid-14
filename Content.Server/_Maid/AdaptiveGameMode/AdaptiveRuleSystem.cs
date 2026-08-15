@@ -20,6 +20,8 @@ using Content.Shared.Preferences;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Server.StationEvents.Components;
+
 public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 {
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
@@ -221,6 +223,12 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         if (!_protoManager.TryIndex<EntityPrototype>(ruleId, out var proto))
             return totalScore;
 
+        // Check for direct AdaptiveScoreStaticGameruleEntity
+        if (proto.TryGetComponent(out AdaptiveScoreStaticGameruleEntityComponent? gameruleEntity, _compFactory))
+        {
+            totalScore += GetPrototypeStaticScore(gameruleEntity.Prototype) * gameruleEntity.Count;
+        }
+
         // Check for direct AntagLoadProfileRule species spawns on the rule itself
         if (proto.TryGetComponent(out AntagLoadProfileRuleComponent? loadProfile, _compFactory))
         {
@@ -236,12 +244,18 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
             }
         }
 
+        // Check for direct RandomSpawnRule
+        if (proto.TryGetComponent(out RandomSpawnRuleComponent? randomSpawnRule, _compFactory))
+        {
+            totalScore += GetPrototypeStaticScore(randomSpawnRule.Prototype);
+        }
+
+
         // Check for direct AntagSpawner spawns on the rule itself
         if (proto.TryGetComponent(out AntagSpawnerComponent? ruleSpawner, _compFactory))
         {
             totalScore += GetPrototypeStaticScore(ruleSpawner.Prototype);
         }
-
         if (proto.TryGetComponent(out AntagSelectionComponent? antagComp, _compFactory))
         {
             var poolSize = playerCount ?? _antagSelection.GetTotalPlayerCount(_playerManager.Sessions);
@@ -340,6 +354,12 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
         var antagComp = antagSelection.Comp;
 
+        // Check for direct AdaptiveScoreStaticGameruleEntity
+        if (TryComp<AdaptiveScoreStaticGameruleEntityComponent>(antagSelection, out var gameruleEntity))
+        {
+            totalScore += GetPrototypeStaticScore(gameruleEntity.Prototype) * gameruleEntity.Count;
+        }
+
         // Check for direct AntagLoadProfileRule species spawns on the rule itself
         if (TryComp<AntagLoadProfileRuleComponent>(antagSelection, out var loadProfile))
         {
@@ -355,12 +375,18 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
             }
         }
 
+        // Check for direct RandomSpawnRule
+        if (TryComp<RandomSpawnRuleComponent>(antagSelection, out var randomSpawnRule))
+        {
+            totalScore += GetPrototypeStaticScore(randomSpawnRule.Prototype);
+        }
+
+
         // Check for direct AntagSpawner spawns on the rule itself
         if (TryComp<AntagSpawnerComponent>(antagSelection, out var ruleSpawner))
         {
             totalScore += GetPrototypeStaticScore(ruleSpawner.Prototype);
         }
-
         foreach (var def in antagComp.Definitions)
         {
             var antagCount = _antagSelection.GetTargetAntagCount(antagSelection, playerCount, def);
@@ -442,6 +468,17 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
             score += GetPrototypeStaticScore(antagSpawner.Prototype, depth + 1);
         }
 
+        // Is conditional or random spawner
+        if (proto.TryGetComponent(out Content.Server.Spawners.Components.ConditionalSpawnerComponent? condSpawner, _compFactory))
+        {
+            foreach (var spawnerProto in condSpawner.Prototypes)
+            {
+                score += GetPrototypeStaticScore(spawnerProto, depth + 1);
+            }
+        }
+
         return score;
     }
+
+
 }
