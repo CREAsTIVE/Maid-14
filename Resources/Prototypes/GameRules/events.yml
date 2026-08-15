@@ -250,7 +250,7 @@
     eventType: Chaotic # Goobstation
   # MAID BEGIN anomaly score
   - type: AdaptiveScoreStaticGameruleEntity
-    prototype: BaseAnomaly
+    prototype: AnomalyPyroclastic # We can't reference base since its abstract
   # MAID END anomaly score
   # Goobstation
   - type: GameRule
@@ -269,6 +269,11 @@
       min:  30
       max:  30
     chaosScore: 40 # Goobstation
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    chaosScore: 5
+    combatScore: 0
+  # MAID END adaptive scores
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
     startAudio:
@@ -359,6 +364,11 @@
     chaosScore: 60
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    chaosScore: 3
+    combatScore: 0
+  # MAID END adaptive scores
 
 - type: entity
   parent: BaseGameRule
@@ -610,6 +620,11 @@
   - type: GameRule
     chaosScore: 80 # most of the time scrubbers just clean it
   - type: GasLeakRule
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    chaosScore: 5
+    combatScore: 0
+  # MAID END adaptive scores
 
 - type: entity
   id: KudzuGrowth

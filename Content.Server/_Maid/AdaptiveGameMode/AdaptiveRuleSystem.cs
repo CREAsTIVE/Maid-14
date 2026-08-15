@@ -223,6 +223,11 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         if (!_protoManager.TryIndex<EntityPrototype>(ruleId, out var proto))
             return totalScore;
 
+        if (proto.TryGetComponent(out RandomEntityStorageSpawnRuleComponent? storageSpawnRule, _compFactory))
+        {
+            totalScore += GetPrototypeStaticScore(storageSpawnRule.Prototype);
+        }
+
         // Check for direct AdaptiveScoreStaticGameruleEntity
         if (proto.TryGetComponent(out AdaptiveScoreStaticGameruleEntityComponent? gameruleEntity, _compFactory))
         {
@@ -265,10 +270,10 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
                 var countOffset = 0;
                 foreach (var otherDef in antagComp.Definitions)
                 {
-                    countOffset += System.Math.Clamp((poolSize - countOffset) / otherDef.PlayerRatio, otherDef.Min, otherDef.Max) * otherDef.PlayerRatio;
+                    countOffset += Math.Clamp((poolSize - countOffset) / otherDef.PlayerRatio, otherDef.Min, otherDef.Max) * otherDef.PlayerRatio;
                 }
-                countOffset -= System.Math.Clamp(poolSize / def.PlayerRatio, def.Min, def.Max) * def.PlayerRatio;
-                var antagCount = System.Math.Clamp((poolSize - countOffset) / def.PlayerRatio, def.Min, def.Max);
+                countOffset -= Math.Clamp(poolSize / def.PlayerRatio, def.Min, def.Max) * def.PlayerRatio;
+                var antagCount = Math.Clamp((poolSize - countOffset) / def.PlayerRatio, def.Min, def.Max);
 
                 if (antagCount <= 0)
                     continue;

@@ -33,7 +33,7 @@ public sealed class AdaptiveBalanceCommand : ToolshedCommand
         _euiManager.OpenEui(ui, ctx.Session);
     }
 
-    [CommandImplementation("exepctedscoresstart")]
+    [CommandImplementation("calculatesexpectedscores")]
     public string ExpectedScoresStart([PipedArgument] List<AdaptiveRuleParam> rules)
     {
         var sysManager = IoCManager.Resolve<IEntitySystemManager>();
@@ -49,12 +49,6 @@ public sealed class AdaptiveBalanceCommand : ToolshedCommand
         }
 
         return sb.ToString();
-    }
-
-    [CommandImplementation("expectedscoresstart")]
-    public string ExpectedScoresStartAlias([PipedArgument] List<AdaptiveRuleParam> rules)
-    {
-        return ExpectedScoresStart(rules);
     }
 
     #if DEBUG
