@@ -251,7 +251,8 @@
 
 - type: entity
   name: Hristov
-  parent: [BaseWeaponSniperMagazine, BaseGunWieldable, BaseSyndicateContraband]
+#  parent: [BaseWeaponSniperMagazine, BaseGunWieldable, BaseSyndicateContraband] # Maid
+  parent: [BaseWeaponSniper, BaseGunWieldable, BaseSyndicateContraband] # Maid
   id: WeaponSniperHristov
   description: For when you absolutely, positively need to make someone regret their life choices from a safe distance. Uses .60 anti-materiel ammo.
   components:
@@ -275,12 +276,20 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
     resetOnHandSelected: false # Goobstation - quickscope pro
-  #- type: BallisticAmmoProvider - Goobstation - Magazine Sniper
-  #  whitelist:
-  #    tags:
-  #    - CartridgeAntiMateriel
-  #  capacity: 5
-  #  proto: CartridgeAntiMateriel
+#  - type: BallisticAmmoProvider - Goobstation - Magazine Sniper
+#    whitelist:
+#      tags:
+#      - CartridgeAntiMateriel
+#    capacity: 5
+#    proto: CartridgeAntiMateriel
+# Maid edit start
+  - type: BallisticAmmoProvider # Goobstation - Magazine Sniper
+    whitelist:
+      tags:
+      - CartridgeAntiMateriel
+    capacity: 5
+    proto: CartridgeAntiMateriel
+# Maid edit end
   - type: SpeedModifiedOnWield
     walkModifier: 0.8 # goob edit V
     sprintModifier: 0.8 # goob edit ^
