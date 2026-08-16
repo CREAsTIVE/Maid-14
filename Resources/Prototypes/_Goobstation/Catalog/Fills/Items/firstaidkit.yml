@@ -33,10 +33,10 @@
     contents:
     - id: MedicatedSuture
     - id: RegenerativeMesh
-    - id: CartridgeBicaridine
-    - id: CartridgeDermaline
-    - id: CartridgeSaline
-    - id: CartridgeEpinephrine
+#    - id: CartridgeBicaridine # Maid
+#    - id: CartridgeDermaline # Maid
+#    - id: CartridgeSaline # Maid
+#    - id: CartridgeEpinephrine # Maid
 
 - type: entity
   id: MedkitBSOIPCFilled
