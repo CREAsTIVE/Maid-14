@@ -963,3 +963,13 @@ Entries:
         пистолета, C-20R, Протокинетика и Обреза
   id: 87
   time: '2026-08-15T17:34:14.0000000+00:00'
+- author: Urames
+  changes:
+    - type: Add
+      message: >-
+        Портировано наполнение ДетекШкафа из старого билда. Портирован спрайт
+        пожарного костюма из старого билда.  Добавлены CargoTechFabCircuitboard,
+        ScienceTechFabCircuitboard, ServiceTechFabCircuitboard в наполнения
+        шкафов.
+  id: 88
+  time: '2026-08-16T08:52:12.0000000+00:00'
