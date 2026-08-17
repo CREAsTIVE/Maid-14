@@ -78,9 +78,22 @@
   description: An exquisite dark and red cloak fitting for those who can assert dominance over wrongdoers. Take a stab at being civil in prosecution!
   components:
   - type: Sprite
-    sprite: _Maid/Clothing/Neck/Cloaks/hos.rsi #Maid
+    sprite: Clothing/Neck/Cloaks/hos.rsi #Maid
   - type: StealTarget
     stealGroup: HeadCloak
+
+#Maid edit start
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckCloakHosWealthy
+  name: head of security's cloak
+  description: An exquisite dark and red cloak fitting for those who can assert dominance over wrongdoers. Take a stab at being civil in prosecution!
+  components:
+  - type: Sprite
+    sprite: _Maid/Clothing/Neck/Cloaks/hos.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+#Maid edit end
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]

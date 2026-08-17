@@ -188,9 +188,6 @@
 #    # - id: SalvageJobBoardComputerCircuitboard # Goobstation - This doesn't really have a use right now but it's there incase it ever gets use again
 #    # - id: CargoMegaphone # goob - loudspeaker #Maid edit end
     - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab #Maid
-    - id: ClothingUniformJumpskirtQM
-    - id: ClothingUniformJumpsuitQM
-    - id: ClothingShoesColorBrown
 # Maid edit end
 
 - type: entity
@@ -243,10 +240,6 @@
     - id: RubberStampCaptain
     - id: JetpackCaptainFilled
     - id: MedalCase
-    - id: ClothingUniformJumpskirtCaptain
-    - id: ClothingUniformJumpsuitCaptain
-    - id: ClothingShoesBootsLaceup
-    - id: ClothingEyesGlassesSunglasses
 # Maid edit end
 
 # No laser table + Laser table
@@ -367,10 +360,6 @@
     - id: BoxEncryptionKeyPassenger
     - id: BoxEncryptionKeyService
     - id: BoxFolderClipboard
-    - id: ClothingUniformJumpskirtHoP
-    - id: ClothingUniformJumpsuitHoP
-    - id: ClothingEyesGlassesSunglasses
-    - id: ClothingShoesBootsLaceup
 # Maid edit end
 
 - type: entity
@@ -423,9 +412,6 @@
     - id: RCDAmmo
       amount: 2
     - id: HolofanProjector
-    - id: ClothingUniformJumpskirtChiefEngineer
-    - id: ClothingUniformJumpsuitChiefEngineer
-    - id: ClothingShoesColorBrown
 # Maid edit end
 
 # Hardsuit table, used for suit storage as well
@@ -493,7 +479,6 @@
     #    - id: RubberStampCMO
     #    - id: MedkitAdvancedFilled #Maid edit start
     #    - id: MedkitCombatFilled
-    #    - id: ClothingShoesColorBrown
 #        - id: ClothingHandsGlovesLatex
     #    - id: ClothingMaskBreathMedical
     #    # Goobstation Start
@@ -522,9 +507,6 @@
     - id: MedicalTechFabCircuitboard
     - id: BoxEncryptionKeyMedical
     - id: ClothingBeltMedicalFilled
-    - id: ClothingUniformJumpsuitCMO
-    - id: ClothingUniformJumpskirtCMO
-    - id: ClothingCloakCmo
 # Maid edit end
 
 # Hardsuit table, used for suit storage as well
@@ -660,8 +642,6 @@
     #    - id: ClothingEyesGlassesSecurity
     #    - id: ClothingHeadsetAltSecurity
     #    - id: ClothingMaskNeckGaiter
-    #    - id: ClothingOuterCoatHoSTrench
-    #    - id: ClothingShoesBootsJack
     #    - id: DoorRemoteSecurity
     #    #- id: HoloprojectorSecurity Goob, you have one in the belt
     #    - id: RubberStampHos
@@ -685,9 +665,6 @@
     - id: HoloprojectorSecurity
     - id: MagazinePistol
     - id: WeaponPistolMk58
-    - id: ClothingUniformJumpsuitHoSGrey
-    - id: ClothingUniformJumpskirtHoS
-    - id: ClothingUniformJumpsuitHoS
 # Maid edit end
 
 # Hardsuit table, used for suit storage as well
