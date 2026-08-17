@@ -191,6 +191,7 @@
       - id: ClothingUniformJumpsuitHoS # Maid
       - id: ClothingShoesBootsJack # Maid
       - id: ClothingOuterCoatHoSTrench # Maid
+      - id: ClothingNeckCloakHosWealthy # MAID
 
 - type: entity
   id: DresserQuarterMasterFilled

@@ -146,6 +146,7 @@
     - id: HoloprojectorSecurity
     - id: BookSpaceLaw
     - id: MagazinePistol
+    - id: BoxMindshield # MAID BoxMindshield
     - id: WeaponPistolMk58
     - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
     - id: ClothingHeadsetAltWarden # Goobstation

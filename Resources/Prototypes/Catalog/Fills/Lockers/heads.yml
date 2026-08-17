@@ -664,6 +664,7 @@
     - id: BoxEncryptionKeySecurity
     - id: HoloprojectorSecurity
     - id: MagazinePistol
+    - id: BoxMindshield # MAID BoxMindshield
     - id: WeaponPistolMk58
 # Maid edit end
 
