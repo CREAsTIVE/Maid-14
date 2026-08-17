@@ -180,6 +180,9 @@
       - id: ClothingOuterWinterRD
       - id: ClothingOuterCoatRD
       - id: ClothingNeckCloakRd
+      - id: ClothingUniformJumpsuitResearchDirector # Maid
+      - id: ClothingUniformJumpskirtResearchDirector # Maid
+      - id: ClothingShoesColorBrown #Maid
 
 - type: entity
   id: DresserWardenFilled
