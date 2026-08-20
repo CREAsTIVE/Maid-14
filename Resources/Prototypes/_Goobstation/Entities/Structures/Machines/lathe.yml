@@ -326,7 +326,7 @@
       - SecurityAmmoStatic
 #      - SecurityAmmoStaticGoob #Maid
       - ERTAmmoStaticGoob
-      - SecurityHypoStatic
+#      - SecurityHypoStatic # Maid
       - SecurityEquipmentStaticGoob
     - type: MaterialStorage
       whitelist:

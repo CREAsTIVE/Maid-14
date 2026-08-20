@@ -180,9 +180,6 @@
 #    # - id: RubberStampApproved #Maid edit start
 #    # - id: RubberStampDenied
 #    - id: SalvageShuttleConsoleCircuitboard
-#    - id: ClothingShoesColorBrown
-#    - id: ClothingUniformJumpskirtQM
-#    - id: ClothingUniformJumpsuitQM #Maid edit end
 #    - id: RubberStampQm
 #    - id: LavalandShuttleConsoleCircuitboard # Goobstation - Mining Shuttle Board
 #    # - id: AstroNavCartridge #Maid
@@ -225,11 +222,7 @@
     #    - id: RubberStampCaptain
     #    # - id: SpaceCash1000 #Maid
     #    - id: WeaponDisabler
-    #    - id: ClothingEyesGlassesSunglasses #Maid edit start
     #    - id: Flash
-    #    - id: ClothingShoesBootsLaceup
-    #    - id: ClothingUniformJumpskirtCaptain
-    #    - id: ClothingUniformJumpsuitCaptain
     #    # - id: ClothingEyesGlassesCommand
     #    # - id: HeadSkeleton # A skull to accompany your skeleton crew
     ##      conditions:
@@ -348,10 +341,6 @@
     #    - id: RubberStampApproved
     #    - id: RubberStampDenied
     #    - id: RubberStampHop
-    #    - id: ClothingEyesGlassesSunglasses #Maid edit start
-    #    - id: ClothingShoesBootsLaceup
-    #    - id: ClothingUniformJumpskirtHoP
-    #    - id: ClothingUniformJumpsuitHoP
     #    # - id: WeaponDisabler
     #    # - id: ClothingEyesHudCommand
     #    # - id: CommandMegaphone # goob - loudspeakers
@@ -405,9 +394,6 @@
     #    - id: RCDAmmo
     #    - id: RubberStampCE
     #    # - id: MetalFoamGrenade #Maid edit start
-    #    - id: ClothingUniformJumpskirtChiefEngineer
-    #    - id: ClothingUniformJumpsuitChiefEngineer
-    #    - id: ClothingShoesColorBrown
     #    # Goobstation V
     #    - id: SupermatterComputerCircuitboard
     #    - id: BaseHandheldStationMapSupermatterCe
@@ -479,7 +465,6 @@
     # Maid edit
     #    - id: BoxEncryptionKeyMedical
     #    # - id: ClothingBackpackDuffelSurgeryFilled # Goobstation - tools in webbing
-    #    - id: ClothingCloakCmo
     #    - id: ClothingEyesHudMedical
     #    - id: ClothingHandsGlovesNitrile
     #    # - id: ClothingHeadHatBeretCmo
@@ -494,10 +479,7 @@
     #    - id: RubberStampCMO
     #    - id: MedkitAdvancedFilled #Maid edit start
     #    - id: MedkitCombatFilled
-    #    - id: ClothingShoesColorBrown
-    #    - id: ClothingHandsGlovesLatex
-    #    - id: ClothingUniformJumpsuitCMO
-    #    - id: ClothingUniformJumpskirtCMO
+#        - id: ClothingHandsGlovesLatex
     #    - id: ClothingMaskBreathMedical
     #    # Goobstation Start
     #    # - id: ChemistryHotplateFlatPack
@@ -579,7 +561,6 @@
     #    #- id: CircuitImprinterMachineCircuitboard # Goobstation - Science Techfab
     #    - id: ClothingBeltUtilityFilled
     #    - id: ClothingHeadsetAltScience
-    #    - id: ClothingShoesColorBrown #Maid
     #    - id: NodeScanner #Maid
     #    - id: DoorRemoteResearch
     #    - id: HandTeleporter
@@ -661,15 +642,10 @@
     #    - id: ClothingEyesGlassesSecurity
     #    - id: ClothingHeadsetAltSecurity
     #    - id: ClothingMaskNeckGaiter
-    #    - id: ClothingOuterCoatHoSTrench
-    #    - id: ClothingShoesBootsJack
     #    - id: DoorRemoteSecurity
     #    #- id: HoloprojectorSecurity Goob, you have one in the belt
     #    - id: RubberStampHos
-    #    - id: SecurityTechFabCircuitboard
-    #    - id: ClothingUniformJumpsuitHoSGrey #Maid edit start
-    #    - id: ClothingUniformJumpskirtHoS
-    #    - id: ClothingUniformJumpsuitHoS
+#        - id: SecurityTechFabCircuitboard
     #    - id: MagazinePistol
     #    - id: WeaponPistolMk58
     #    - id: ClothingHandsGlovesCombat
