@@ -63,7 +63,7 @@
   id: MusicMessagesfromtheStars
   name: "The RAH Band - Messages from the Stars"
   path:
-    path: /Audio/_Maid/White/Jukebox/Music_Messages_from_the_Stars.ogg
+    path: /Audio/_Maid/White/Jukebox/Music/Messages_from_the_Stars.ogg
 
 - type: jukebox
   id: Delirium
@@ -261,7 +261,7 @@
   id: ANeonGlowLightstheWay
   name: "Garoad - A Neon Glow Lights the Way"
   path:
-    path: /Audio/_Maid/White/Juskebox/Music/A_Neon_Glow_Lights_the_Way.ogg
+    path: /Audio/_Maid/White/Jukebox/Music/A_Neon_Glow_Lights_the_Way.ogg
 
 - type: jukebox
   id: AnotherMedium
