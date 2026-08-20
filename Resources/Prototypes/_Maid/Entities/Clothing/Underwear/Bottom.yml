@@ -10,7 +10,7 @@
   - type: Item
     size: Small
   - type: Clothing
-    slots: [underwearb]
+    slots: [UNDERWEARB]
   - type: Tag
     tags:
       - underwearb
