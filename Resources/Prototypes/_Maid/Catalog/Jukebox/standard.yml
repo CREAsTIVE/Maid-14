@@ -1,0 +1,355 @@
+# Songs
+- type: jukebox
+  id: SpaceOddity
+  name: "David Bowie - Space Oddity"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Songs/SpaceOddity.ogg
+
+- type: jukebox
+  id: SpaceShuttle
+  name: "Chris Remo - Space Shuttle"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Songs/SpaceShuttle.ogg
+
+- type: jukebox
+  id: TheSettler
+  name: "Chris Remo - The Settler"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Songs/TheSettler.ogg
+
+- type: jukebox
+  id: CirclesAroundTheSun
+  name: "Circles Around The Sun - Circles Around The Sun"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Songs/CirclesAroundTheSun.ogg
+
+- type: jukebox
+  id: RetroFilk
+  name: "Vic Tyler - RetroFilk"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Songs/RetroFilk.ogg
+
+- type: jukebox
+  id: AllThatICanSee
+  name: "SolusLunes - All That I Can See"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Songs/AllThatICanSee.ogg
+
+- type: jukebox
+  id: ARealHero
+  name: "College & Electric Youth - A Real Hero"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/A_Real_Hero.ogg
+
+- type: jukebox
+  id: EnjoytheSilence
+  name: "Depeche Mode - Enjoy the Silence"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/Enjoy_the_Silence.ogg
+
+- type: jukebox
+  id: INVISIBLE
+  name: "Duran Duran - Invisible"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/INVISIBLE.ogg
+
+- type: jukebox
+  id: Nuclear
+  name: "Mike Oldfield - Nuclear"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/Nuclear.ogg
+
+- type: jukebox
+  id: MusicMessagesfromtheStars
+  name: "The RAH Band - Messages from the Stars"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music_Messages_from_the_Stars.ogg
+
+- type: jukebox
+  id: Delirium
+  name: "Stellardrone - Delirium"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Music/delirium.ogg
+
+- type: jukebox
+  id: MagicFly
+  name: "Space - Magic Fly"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Music/magicfly.ogg
+
+- type: jukebox
+  id: CrokketTheme
+  name: "Jan Hammer - Crockett's Theme"
+  path:
+    path: /Audio/_Maid/White/Music/crokett_39_s_theme.ogg
+
+- type: jukebox
+  id: Guts
+  name: "Susumu Hirasawa - Guts"
+  path:
+    path: /Audio/_Maid/White/Music/guts.ogg
+
+- type: jukebox
+  id: VoyageNeverEnding
+  name: "SolusLunes - Voyage Never Ending"
+  path:
+    path: /Audio/_Maid/Ambience/voyage_neverending.ogg
+
+- type: jukebox
+  id: CosmicTemperance
+  name: "blinch - Cosmic Temperance"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/blinch_Cosmic_Temperance.ogg
+
+- type: jukebox
+  id: LibetsDelay
+  name: "The Caretaker - Libet's Delay"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Music/Libets_Delay.ogg
+
+- type: jukebox
+  id: ItsJustABurningMemory
+  name: "The Caretaker - It's Just a Burning Memory"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Music/Its_just_a_burning_memory.ogg
+
+- type: jukebox
+  id: AnamnesisoftheworldsSin
+  name: "blinch - Anamnesis of the World's Sin"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/blinch_Anamnesis_of_the worlds_Sin.ogg
+
+- type: jukebox
+  id: DarkMatterMoon
+  name: "blinch - Dark Matter Moon"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/blinch_Dark_Matter_Moon.ogg
+
+- type: jukebox
+  id: EmptyOcean
+  name: "blinch - Empty Ocean"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/blinch_Empty_Ocean.ogg
+
+- type: jukebox
+  id: GoldenWinPiano
+  name: "blinch - Golden Win Piano"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/blinch_Golden_Win_Piano.ogg
+
+- type: jukebox
+  id: KillerXChase
+  name: "blinch - Killer X Chase"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/blinch_Killer_X_Chase.ogg
+
+- type: jukebox
+  id: PathLootCrusaders
+  name: "blinch - PathLoot Crusaders"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/blinch_PathLoot_Crusaders.ogg
+
+- type: jukebox
+  id: PristintheMirror
+  name: "blinch - Prist in the Mirror"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/blinch_Prist_in_the_Mirror.ogg
+
+- type: jukebox
+  id: StarJudgment
+  name: "blinch - Star Judgment"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/blinch_Star_Judgment.ogg
+
+- type: jukebox
+  id: WheelofFaith
+  name: "blinch - Wheel of Faith"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/blinch_Wheel_of_Faith.ogg
+
+- type: jukebox
+  id: TheUnknown
+  name: "blinch - The Unknown"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/The_Unknown.ogg
+
+- type: jukebox
+  id: EscapeintheNight
+  name: "blinch - Escape in the Night"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/Escape_in_the_Night.ogg
+
+- type: jukebox
+  id: BossTheme
+  name: "blinch - Boss Theme"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/Boss_Theme.ogg
+
+- type: jukebox
+  id: BattleThemeII
+  name: "blinch - Battle Theme II"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/Battle_Theme_II.ogg
+
+- type: jukebox
+  id: GameOver
+  name: "blinch - Game Over"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/Game_Over.ogg
+
+- type: jukebox
+  id: TryAgain
+  name: "blinch - Try Again"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/Try_Again.ogg
+
+- type: jukebox
+  id: BeastsandBetrayal
+  name: "blinch - Beasts and Betrayal"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/Beasts_and_Betrayal.ogg
+
+- type: jukebox
+  id: BattleThemeI
+  name: "blinch - Battle Theme I"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/Battle_Theme_I.ogg
+
+- type: jukebox
+  id: HEAVENSAYSMANDELA
+  name: "Z Sharp Studios - HEAVEN SAYS (MANDELA MIX)"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/HEAVEN_SAYS_MANDELA.ogg
+
+- type: jukebox
+  id: CYBERSWORLD
+  name: "Toby Fox - A CYBER'S WORLD?"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/Toby_Fox_A_CYBERS_WORLD.ogg
+
+- type: jukebox
+  id: BIGSHOT
+  name: "Toby Fox - BIG SHOT"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/Toby_Fox_BIG_SHOT.ogg
+
+- type: jukebox
+  id: NOWSYOURCHANCETOBEA
+  name: "Toby Fox - NOW'S YOUR CHANCE TO BE A"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/Toby_Fox_NOWS_YOUR_CHANCE_TO_BE_A.ogg
+
+- type: jukebox
+  id: PandoraPalace
+  name: "Toby Fox - Pandora Palace"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/Toby_Fox_Pandora_Palace.ogg
+
+- type: jukebox
+  id: AttackoftheKillerQueen
+  name: "Toby Fox - Attack of the Killer Queen"
+  path:
+    path: /Audio/_Maid/_Honk/Jukebox/Toby_Fox_feat_Lena_Raine_Marcy_Nabors_Attack_of_the_Killer_Queen.ogg
+
+- type: jukebox
+  id: AGazeThatInvitedDisaster
+  name: "Garoad - A Gaze That Invited Disaster"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/A_Gaze_That_Invited_Disaster.ogg
+
+- type: jukebox
+  id: ANeonGlowLightstheWay
+  name: "Garoad - A Neon Glow Lights the Way"
+  path:
+    path: /Audio/_Maid/White/Juskebox/Music/A_Neon_Glow_Lights_the_Way.ogg
+
+- type: jukebox
+  id: AnotherMedium
+  name: "Toby Fox - Another Medium"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/Another_Medium.ogg
+
+- type: jukebox
+  id: CORE
+  name: "Toby Fox - CORE"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/CORE.ogg
+
+- type: jukebox
+  id: Crystals
+  name: "M.O.O.N. - Crystals"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/Crystals.ogg
+
+- type: jukebox
+  id: DriveMeWild
+  name: "Garoad - Drive Me Wild"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/Drive_Me_Wild.ogg
+
+- type: jukebox
+  id: Dust
+  name: "M.O.O.N. - Dust"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/Dust.ogg
+
+- type: jukebox
+  id: EveryDayIsNight
+  name: "Garoad - Every Day Is Night"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/Every_Day_Is_Night.ogg
+
+- type: jukebox
+  id: FieldofHopesandDreams
+  name: "Toby Fox - Field of Hopes and Dreams"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/Field_of_Hopes_and_Dreams.ogg
+
+- type: jukebox
+  id: Hydrogen
+  name: "M.O.O.N. - Hydrogen"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/Hydrogen.ogg
+
+- type: jukebox
+  id: KnockKnock
+  name: "Scattle - Knock Knock"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/Knock_Knock.ogg
+
+- type: jukebox
+  id: NighttimeManeuvers
+  name: "Garoad - Nighttime Maneuvers"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/Nighttime_Maneuvers.ogg
+
+- type: jukebox
+  id: SafeHaven
+  name: "Garoad - Safe Haven"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/Safe_Haven.ogg
+
+- type: jukebox
+  id: SilentFlower
+  name: "Garoad - Silent Flower"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/Silent_Flower.ogg
+
+- type: jukebox
+  id: Voyager
+  name: "Garoad - Voyager"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/Voyager.ogg
+
+- type: jukebox
+  id: WelcometoVA-11Hall-A
+  name: "Garoad - Welcome to VA-11 Hall-A"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/Welcome_to_VA-11_Hall-A.ogg
+
+- type: jukebox
+  id: You'veGotMe
+  name: "Garoad - You've Got Me"
+  path:
+    path: /Audio/_Maid/White/Jukebox/Music/You've_Got_Me.ogg
+
