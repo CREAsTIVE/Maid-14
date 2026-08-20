@@ -22,7 +22,9 @@ using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Server.StationEvents.Components;
 using Content.Shared.Administration.Logs;
+using Robust.Shared.Timing;
 
+namespace Content.Server._Maid.AdaptiveGameMode;
 
 public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 {
@@ -35,6 +37,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly AdaptiveRuleBalancingSystem _balancing = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     // I hate admin logger
     private new void Log(ref LogStringHandler handler, LogImpact impact = LogImpact.High)
@@ -52,7 +55,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
         Log($"AdaptiveRule is enabled");
 
-        component.TimeUntilNextAttempt = component.MidroundSpawnTimer.GetValue(_random);
+        ReScheduleMidroundSpawnAttempt((uid, component));
 
         SpawnRoundstartRules(uid, component);
     }
@@ -111,29 +114,24 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
 
-        component.TimeUntilNextAttempt -= frameTime;
-        if (component.TimeUntilNextAttempt > 0)
+        if (_gameTiming.CurTime < component.MidroundSpawnAttemptAt)
             return;
 
-        // Reset timer
-        component.TimeUntilNextAttempt = component.MidroundSpawnTimer.GetValue(_random);
+        ReScheduleMidroundSpawnAttempt((uid, component));
 
         // Try spawning a rule
         TrySpawnRandomRule(uid, component);
+    }
+
+    private void ReScheduleMidroundSpawnAttempt(Entity<AdaptiveRuleComponent> rule)
+    {
+        rule.Comp.MidroundSpawnAttemptAt = TimeSpan.FromSeconds(_gameTiming.CurTime.TotalSeconds + rule.Comp.MidroundSpawnTimer.GetValue(_random));
     }
 
     private void TrySpawnRandomRule(EntityUid uid, AdaptiveRuleComponent component)
     {
         if (component.MidroundRules.Count == 0)
             return;
-
-        // TODO: Put there chance based on how close we to target chaos score
-        // For now i just kept it to make rule check frequent (i love statistics, i wasted like hour making chart system lol)
-        if (_random.Prob(component.MidroundSpawnSkipProb))
-        {
-            Log($"Skipping rule spawning (UNLUCKY)");
-            return;
-        }
 
         // Evaluate conditions for candidate rules
         var candidateRules = new List<AdaptiveRuleParam>();

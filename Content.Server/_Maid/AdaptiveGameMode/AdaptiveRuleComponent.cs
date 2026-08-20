@@ -8,7 +8,7 @@ namespace Content.Server._Maid.AdaptiveGameMode;
 /// <summary>
 /// Gamerule component for the Adaptive game mode.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class AdaptiveRuleComponent : Component
 {
     [DataField]
@@ -32,13 +32,8 @@ public sealed partial class AdaptiveRuleComponent : Component
     /// <summary>
     /// Time remaining until the next midround spawn attempt.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float TimeUntilNextAttempt;
-    /// <summary>
-    /// The probability that we skip spawning a rule.
-    /// </summary>
-    [DataField]
-    public float MidroundSpawnSkipProb = 0.6f;
+    [DataField, AutoPausedField]
+    public TimeSpan MidroundSpawnAttemptAt = TimeSpan.Zero;
 
     /// <summary>
     /// Gamerules that can spawn midround.
