@@ -600,6 +600,7 @@ namespace Content.Server.Database
         public int SelectedCharacterSlot { get; set; }
         public string AdminOOCColor { get; set; } = null!;
         public List<string> ConstructionFavorites { get; set; } = new();
+        public string GhostId { get; set; } = null!; // Maid-14 Tweak
         public List<Profile> Profiles { get; } = new();
     }
 

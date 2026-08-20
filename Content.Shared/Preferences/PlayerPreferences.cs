@@ -11,6 +11,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared._White.CustomGhostSystem;
 using Content.Shared.Construction.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -28,13 +29,31 @@ namespace Content.Shared.Preferences
     {
         private Dictionary<int, ICharacterProfile> _characters;
 
-        public PlayerPreferences(IEnumerable<KeyValuePair<int, ICharacterProfile>> characters, int selectedCharacterIndex, Color adminOOCColor, List<ProtoId<ConstructionPrototype>> constructionFavorites)
+        public PlayerPreferences(IEnumerable<KeyValuePair<int, ICharacterProfile>> characters, int selectedCharacterIndex, Color adminOOCColor, List<ProtoId<ConstructionPrototype>> constructionFavorites, ProtoId<CustomGhostPrototype> customGhost)  // Maid-14-Tweak
         {
             _characters = new Dictionary<int, ICharacterProfile>(characters);
             SelectedCharacterIndex = selectedCharacterIndex;
             AdminOOCColor = adminOOCColor;
             ConstructionFavorites = constructionFavorites;
+            CustomGhost = customGhost; // Maid-14-Tweak
         }
+
+        // Maid-14-Tweak-Start
+        public PlayerPreferences WithCharacters(IEnumerable<KeyValuePair<int, ICharacterProfile>> characters) =>
+            new(characters, SelectedCharacterIndex, AdminOOCColor, ConstructionFavorites, CustomGhost);
+
+        public PlayerPreferences WithSlot(int slot) =>
+            new(_characters, slot, AdminOOCColor, ConstructionFavorites, CustomGhost);
+
+        public PlayerPreferences WithAdminOOCColor(Color adminOOCColor) =>
+            new(_characters, SelectedCharacterIndex, adminOOCColor, ConstructionFavorites, CustomGhost);
+
+        public PlayerPreferences WithConstructionFavorites(List<ProtoId<ConstructionPrototype>> constructionFavorites) =>
+            new(_characters, SelectedCharacterIndex, AdminOOCColor, constructionFavorites, CustomGhost);
+
+        public PlayerPreferences WithCustomGhost(ProtoId<CustomGhostPrototype> customGhost) =>
+            new(_characters, SelectedCharacterIndex, AdminOOCColor, ConstructionFavorites, customGhost);
+        // Maid-14-Tweak-End
 
         /// <summary>
         ///     All player characters.
@@ -62,6 +81,8 @@ namespace Content.Shared.Preferences
         ///    List of favorite items in the construction menu.
         /// </summary>
         public List<ProtoId<ConstructionPrototype>> ConstructionFavorites { get; set; } = [];
+
+        public ProtoId<CustomGhostPrototype> CustomGhost { get; set; } // Maid-14-Tweak
 
         public int IndexOfCharacter(ICharacterProfile profile)
         {
