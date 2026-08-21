@@ -219,13 +219,13 @@
     containers:
       entity_storage: !type:NestedSelector
 #        tableId: FillChiefEngineerHardsuit # Maid
-        tableId: FillSuitStorageCE # Maid
+        tableId: FillChiefEngineerStorageCE # Maid
   - type: AccessReader
     access: [["ChiefEngineer"]]
 
 # Maid edit start
 - type: entityTable
-  id: FillSuitStorageCE
+  id: FillChiefEngineerStorageCE
   table: !type:AllSelector
     children:
     - id: ClothingOuterHardsuitEngineeringWhite
