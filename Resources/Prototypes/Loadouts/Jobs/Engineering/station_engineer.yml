@@ -107,10 +107,8 @@
   id: StationEngineerHardhatYellow
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatHardhatYellow
@@ -120,10 +118,8 @@
   id: StationEngineerHardhatOrange
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatHardhatOrange
@@ -133,10 +129,8 @@
   id: StationEngineerHardhatRed
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatHardhatRed
@@ -147,10 +141,8 @@
   startingGear: EngineeringBeret
   effects:
 # MAID BEGIN plasmaman loadouts
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: SeniorEngineering
@@ -160,10 +152,8 @@
   id: StationEngineerJumpsuit
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineering
@@ -173,10 +163,8 @@
   id: StationEngineerJumpskirt
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtEngineering
@@ -186,10 +174,8 @@
   id: StationEngineerHazardsuit
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineeringHazard
@@ -199,10 +185,8 @@
   id: SeniorEngineerJumpsuit
   effects:
 # MAID BEGIN plasmaman loadouts
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: SeniorEngineering
@@ -213,10 +197,8 @@
   id: SeniorEngineerJumpskirt
   effects:
 # MAID BEGIN plasmaman loadouts
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: SeniorEngineering
@@ -227,10 +209,8 @@
   id: EngiMJ
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryEngineering
@@ -257,10 +237,8 @@
   id: StationEngineerOuterVest
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterVestHazard
@@ -269,10 +247,8 @@
   id: StationEngineerWintercoat
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterEngi

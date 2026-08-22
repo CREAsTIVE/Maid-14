@@ -94,10 +94,8 @@
   id: HeadofSecurityJumpsuit
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoS
@@ -108,10 +106,8 @@
   id: HeadofSecurityJumpskirt
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoS
@@ -122,10 +118,8 @@
   id: HeadofSecurityTurtleneck
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoSAlt
@@ -136,10 +130,8 @@
   id: HeadofSecurityTurtleneckSkirt
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoSAlt
@@ -150,10 +142,8 @@
   id: HeadofSecurityFormalSuit
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitHosFormal
@@ -164,10 +154,8 @@
   id: HeadofSecurityFormalSkirt
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtHosFormal
@@ -179,10 +167,8 @@
   id: HeadofSecurityHead
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatHoshat
@@ -192,10 +178,8 @@
   id: HeadofSecurityBeret
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatBeretHoS
@@ -225,10 +209,8 @@
   id: HeadofSecurityCoat
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterCoatHoSTrench
@@ -237,10 +219,8 @@
   id: HeadofSecurityWinterCoat
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterHoS

@@ -11,3 +11,13 @@
   - !type:SpeciesLoadoutEffect
     species:
     - IPC
+
+# MAID BEGIN plasmaman loadouts
+- type: loadoutEffectGroup
+  id: InvertedPlasmaman
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted: true
+# MAID END plasmaman loadouts

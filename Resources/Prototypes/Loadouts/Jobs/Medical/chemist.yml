@@ -81,10 +81,8 @@
   id: ChemistJumpsuit
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitChemistry
@@ -94,10 +92,8 @@
   id: ChemistJumpskirt
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtChemistry
@@ -107,10 +103,8 @@
   id: ChemistMJ
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryChemistry
@@ -137,10 +131,8 @@
   id: ChemistLabCoat
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterCoatLabChem
@@ -149,10 +141,8 @@
   id: ChemistWintercoat
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterChem

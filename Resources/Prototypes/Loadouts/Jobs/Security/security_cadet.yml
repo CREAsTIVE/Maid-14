@@ -79,10 +79,8 @@
   id: RedJumpsuit
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorRed
@@ -92,10 +90,8 @@
   id: RedJumpskirt
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorRed

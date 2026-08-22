@@ -9,10 +9,8 @@
     outerClothing: ClothingOuterCapJacket
   effects:
 # MAID BEGIN plasmaman loadouts
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: MasterCap
@@ -48,10 +46,8 @@
   id: CaptainGloves
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   equipment:
     gloves: ClothingHandsGlovesCaptain

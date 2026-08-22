@@ -316,8 +316,14 @@
 - type: loadoutGroup
   id: CaptainHead
   name: loadout-group-captain-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - CaptainHead
   - CaptainCap
   - CaptainEnvirohelm #Maid
@@ -356,6 +362,9 @@
   id: CaptainOuterClothing
   name: loadout-group-captain-outerclothing
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - CaptainOuterClothing
   - CaptainWintercoat
   - CaptainJacket # Goobstation
@@ -363,8 +372,14 @@
 - type: loadoutGroup
   id: HoPHead
   name: loadout-group-hop-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - HoPHead
   - HoPEnvirohelm #Maid
 
@@ -398,8 +413,14 @@
 - type: loadoutGroup
   id: HoPOuterClothing
   name: loadout-group-hop-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - HoPWintercoat
   - HoPLongcoat #goob
 
@@ -442,8 +463,14 @@
 - type: loadoutGroup
   id: PassengerGloves
   name: loadout-group-passenger-gloves
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - PassengerGloves
   - DarkGreyEnvirogloves #Maid
 
@@ -467,8 +494,14 @@
 - type: loadoutGroup
   id: PassengerOuterClothing
   name: loadout-group-passenger-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - PassengerWintercoat
   - BoxerEnvirohelm #Maid
   - ReporterEnvirohelm #Maid
@@ -484,8 +517,14 @@
 - type: loadoutGroup
   id: BartenderHead
   name: loadout-group-bartender-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - BartenderHead
   - BartenderBowler
   - WhiteEnvirohelm #Maid
@@ -503,8 +542,14 @@
 - type: loadoutGroup
   id: BartenderOuterClothing
   name: loadout-group-bartender-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - BartenderVest
   - BartenderApron
   - BartenderWintercoat
@@ -513,8 +558,14 @@
 - type: loadoutGroup
   id: ChefHead
   name: loadout-group-chef-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - ChefHead
   - WhiteEnvirohelm #Maid
 
@@ -537,8 +588,14 @@
 - type: loadoutGroup
   id: ChefOuterClothing
   name: loadout-group-chef-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - ChefApron
   - ChefJacket
   - ChefWintercoat
@@ -583,8 +640,14 @@
 - type: loadoutGroup
   id: ChaplainHead
   name: loadout-group-chaplain-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - ChaplainHead
   - ChaplainNunHood
   - ChaplainPlagueHat
@@ -613,8 +676,14 @@
 - type: loadoutGroup
   id: ChaplainOuterClothing
   name: loadout-group-chaplain-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - ChaplainPlagueSuit
   - ChaplainNunRobe
   - ChaplainBlackHoodie
@@ -631,8 +700,14 @@
 - type: loadoutGroup
   id: JanitorHead
   name: loadout-group-janitor-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - JanitorHead
   - JanitorHeadSenior # Goobstation
   - JanitorEnvirohelm #Maid
@@ -649,8 +724,14 @@
 - type: loadoutGroup
   id: JanitorGloves
   name: loadout-group-janitor-gloves
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - JanitorRubberGloves
   - OrangeGloves
   - PurpleGloves
@@ -659,8 +740,14 @@
 - type: loadoutGroup
   id: JanitorOuterClothing
   name: loadout-group-janitor-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - JanitorWintercoat
 
 - type: loadoutGroup
@@ -673,8 +760,14 @@
 - type: loadoutGroup
   id: BotanistHead
   name: loadout-group-botanist-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - BotanistHead
   - BotanistBandana
   - BotanistBeret # Goobstation
@@ -703,8 +796,14 @@
 - type: loadoutGroup
   id: BotanistOuterClothing
   name: loadout-group-botanist-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - BotanistApron
   - BotanistWintercoat
   - LeatherEnvirogloves #Maid
@@ -712,8 +811,14 @@
 - type: loadoutGroup
   id: ClownHead
   name: loadout-group-clown-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - JesterHat
   - JesterAltHat
   - ClownEnvirohelm #Maid
@@ -740,8 +845,14 @@
 - type: loadoutGroup
   id: ClownOuterClothing
   name: loadout-group-clown-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - ClownRobes
   - ClownWintercoat
   - ClownEnvirogloves #Maid
@@ -770,8 +881,14 @@
 - type: loadoutGroup
   id: MimeHead
   name: loadout-group-mime-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - MimeHead
   - MimeFrenchBeret
   - MimeCap
@@ -805,8 +922,14 @@
 - type: loadoutGroup
   id: MimeOuterClothing
   name: loadout-group-mime-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - MimeWintercoat
   - WhiteEnvirogloves #Maid
 
@@ -844,8 +967,14 @@
 - type: loadoutGroup
   id: MusicianOuterClothing
   name: loadout-group-musician-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - MusicianWintercoat
   - WhiteEnvirogloves #Maid
 
@@ -888,8 +1017,14 @@
 - type: loadoutGroup
   id: QuartermasterHead
   name: loadout-group-quartermaster-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - QuartermasterHead
   - QuartermasterBeret
   - QuartermasterEnvirohelm #Maid
@@ -917,8 +1052,14 @@
 - type: loadoutGroup
   id: QuartermasterOuterClothing
   name: loadout-group-quartermaster-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - QuartermasterWintercoat
   - CargoTechnicianEnvirogloves #Maid
 
@@ -932,8 +1073,14 @@
 - type: loadoutGroup
   id: CargoTechnicianHead
   name: loadout-group-cargo-technician-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - CargoTechnicianHead
   - CargoTechnicianHeadMail # Goob/DeltaV - Mail
   - CargoTechnicianEnvirohelm #Maid
@@ -965,8 +1112,14 @@
 - type: loadoutGroup
   id: CargoTechnicianOuterClothing
   name: loadout-group-cargo-technician-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - CargoTechnicianWintercoat
   - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail
   - CargoTechnicianEnvirogloves #Maid
@@ -992,8 +1145,14 @@
 - type: loadoutGroup
   id: SalvageSpecialistOuterClothing
   name: loadout-group-salvage-specialist-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - SalvageSpecialistWintercoat
 
 - type: loadoutGroup
@@ -1007,8 +1166,14 @@
 - type: loadoutGroup
   id: ChiefEngineerHead
   name: loadout-group-chief-engineer-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - ChiefEngineerHead
   - ChiefEngineerBeret
   - ChiefEngineerEnvirohelm #Maid
@@ -1035,8 +1200,14 @@
 - type: loadoutGroup
   id: ChiefEngineerOuterClothing
   name: loadout-group-chief-engineer-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - ChiefEngineerWintercoat
   - ChiefEngineerEnvirogloves #Maid
 
@@ -1059,8 +1230,14 @@
 - type: loadoutGroup
   id: StationEngineerHead
   name: loadout-group-station-engineer-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - StationEngineerHardhatYellow
   - StationEngineerHardhatOrange
   - StationEngineerHardhatRed
@@ -1091,8 +1268,14 @@
 - type: loadoutGroup
   id: StationEngineerOuterClothing
   name: loadout-group-station-engineer-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - StationEngineerOuterVest
   - StationEngineerWintercoat
   - StationEngineerEnvirogloves #Maid
@@ -1114,8 +1297,14 @@
 - type: loadoutGroup
   id: AtmosphericTechnicianHead
   name: loadout-group-atmospheric-technician-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - SeniorEngineerBeret   # Goobstation
   - AtmosEnvirohelm #Maid
 
@@ -1134,8 +1323,14 @@
 - type: loadoutGroup
   id: AtmosphericTechnicianOuterClothing
   name: loadout-group-atmospheric-technician-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - AtmosphericTechnicianWintercoat
   - AtmosEnvirogloves #Maid 
 
@@ -1173,8 +1368,14 @@
 - type: loadoutGroup
   id: ResearchDirectorHead
   name: loadout-group-research-director-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - ResearchDirectorBeret
   - ResearchDirectorEnvirohelm #Maid
 
@@ -1198,8 +1399,14 @@
 - type: loadoutGroup
   id: ResearchDirectorOuterClothing
   name: loadout-group-research-director-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - ResearchDirectorLabCoat
   - ResearchDirectorWintercoat
   - ResearchDirectorLabCoatPurple #goob
@@ -1214,8 +1421,14 @@
 - type: loadoutGroup
   id: ScientistHead
   name: loadout-group-scientist-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   #- RoboticistCap
   #- SkullBandana
   - ScientificBeret
@@ -1255,8 +1468,14 @@
 - type: loadoutGroup
   id: ScientistOuterClothing
   name: loadout-group-scientist-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - RegularLabCoat
   - ScienceLabCoat
   - ScienceWintercoat
@@ -1275,8 +1494,14 @@
 - type: loadoutGroup
   id: ScientistGloves
   name: loadout-group-scientist-gloves
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - LatexGloves
   - PurpleGloves
   - RobohandsGloves
@@ -1304,8 +1529,14 @@
 - type: loadoutGroup
   id: HeadofSecurityHead
   name: loadout-group-head-of-security-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - HeadofSecurityHead
   - HeadofSecurityBeret
   - HeadofSecuritySpecialBeret # Goobstation
@@ -1336,6 +1567,9 @@
   id: HeadofSecurityOuterClothing
   name: loadout-group-head-of-security-outerclothing
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
   - HeadofSecurityGreatCoat # Goobstation
@@ -1344,8 +1578,14 @@
 - type: loadoutGroup
   id: WardenHead
   name: loadout-group-warden-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - WardenHead
   - WardenBeret
   - WardenEnvirohelm #Maid
@@ -1362,6 +1602,9 @@
   id: WardenOuterClothing
   name: loadout-group-warden-outerclothing
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - WardenCoat
   - WardenArmoredWinterCoat
   - WardenCoatBlue #goob
@@ -1369,8 +1612,14 @@
 - type: loadoutGroup
   id: SecurityHead
   name: loadout-group-security-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - SecurityHelmet
   - SecurityHelmetAlt # Goobstation
   - SecurityBeret
@@ -1412,6 +1661,9 @@
   id: SecurityOuterClothing
   name: loadout-group-security-outerclothing
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
@@ -1435,8 +1687,14 @@
 - type: loadoutGroup
   id: DetectiveHead
   name: loadout-group-detective-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - DetectiveFedora
   - DetectiveFedoraGrey
   - DetectiveEnvirohelm #Maid
@@ -1463,6 +1721,9 @@
   id: DetectiveOuterClothing
   name: loadout-group-detective-outerclothing
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - DetectiveArmorVest
   - DetectiveCoat
   - DetectiveCoatGrey
@@ -1500,8 +1761,14 @@
 - type: loadoutGroup
   id: ChiefMedicalOfficerHead
   name: loadout-group-chief-medical-officer-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
   - ChemistUshanka # Goobstation
@@ -1521,8 +1788,14 @@
 - type: loadoutGroup
   id: ChiefMedicalOfficerOuterClothing
   name: loadout-group-chief-medical-officer-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - ChiefMedicalOfficerLabCoat
   - ChiefMedicalOfficerWintercoat
 
@@ -1544,8 +1817,14 @@
 - type: loadoutGroup
   id: MedicalDoctorHead
   name: loadout-group-medical-doctor-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - MedicalBeret
   - SeniorPhysicianBeret
   - MedicalHeadMirror
@@ -1572,8 +1851,14 @@
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
   name: loadout-group-medical-doctor-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - RegularLabCoat
   - MedicalDoctorWintercoat
   - SeniorPhysicianLabCoat
@@ -1604,8 +1889,14 @@
 - type: loadoutGroup
   id: MedicalGloves
   name: loadout-group-medical-gloves
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - LatexGloves
   - NitrileGloves
   - WhiteEnvirogloves #Maid
@@ -1641,8 +1932,14 @@
 - type: loadoutGroup
   id: ChemistOuterClothing
   name: loadout-group-chemist-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
@@ -1660,8 +1957,14 @@
 - type: loadoutGroup
   id: ParamedicHead
   name: loadout-group-paramedic-head
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - ParamedicHead
   - SeniorPhysicianBeret # Goobstation
   - ParamedicEnvirohelm #Maid
@@ -1680,8 +1983,14 @@
 - type: loadoutGroup
   id: ParamedicOuterClothing
   name: loadout-group-paramedic-outerclothing
-  minLimit: 0
+# MAID BEGIN plasmaman loadouts
+  # minLimit: 0
+  minLimit: 1
+# MAID END plasmaman loadouts
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - ParamedicWindbreaker
   - ParamedicWintercoat
   - ParamedicDavidsJacket # Goobstation
@@ -1750,6 +2059,9 @@
   id: BoxerGloves
   name: loadout-group-boxer-gloves
   loadouts:
+# MAID BEGIN plasmaman loadouts
+  - Nothing
+# MAID END plasmaman loadouts
   - RedBoxingGloves
   - BlueBoxingGloves
   - GreenBoxingGloves
