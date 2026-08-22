@@ -17,10 +17,10 @@
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
-  - type: ItemToggleSharp
+  # - type: ItemToggleSharp
   - type: ItemToggleHot
-  - type: ItemToggleDisarmMalus
-    activatedDisarmMalus: 0.225
+  # - type: ItemToggleDisarmMalus
+  #   activatedDisarmMalus: 0.225
   - type: ItemToggleSize
     activatedSize: Ginormous
   - type: ItemToggleMeleeWeapon
@@ -40,15 +40,15 @@
         volume: 16
     activatedDamage:
         types:
-            Slash: 50
-            Heat: 50
-            Structural: 100
+            Slash: 25
+            Heat: 25
+            Structural: 50
   - type: ToggleableLightVisuals
   - type: Sprite
     sprite: _Maid/White/Objects/Weapons/energy_axe.rsi
     layers:
       - state: icon-off
-        map: [ "enum.ToggleVisuals.Layer" ]
+        map: [ "enum.ItemToggleVisuals.Layer" ]
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 0.75
@@ -69,8 +69,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ItemToggleVisuals.State:
+        enum.ItemToggleVisuals.Layer:
           True: {state: icon}
           False: {state: icon-off}
   - type: DisarmMalus
@@ -80,7 +80,7 @@
     enabled: false
     reflects:
       - Energy
-  - type: ToggleableWielded
+  # - type: ToggleableWielded
   - type: Clothing
     sprite: _Maid/White/Objects/Weapons/energy_axe.rsi
     quickEquip: false

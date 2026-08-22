@@ -140,7 +140,7 @@
 # Projectiles
 - type: entity
   id: BaseBulletShinanoGranade
-  parent: BaseBullet
+  parent: BaseBulletTrigger
   abstract: true
   name: base shinano granade
   components:
@@ -152,22 +152,8 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
       - state: grenade
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.25,-0.25,0.25,0.25"
-        density: 20
-        mask:
-        - ItemMask
-        restitution: 0.3
-        friction: 0.2
-  - type: Physics
-    bodyType: Dynamic
   - type: TimedDespawn
     lifetime: 10
-  - type: TriggerOnLand
 
 - type: entity
   parent: BaseBulletShinanoGranade
@@ -185,12 +171,10 @@
     knockdownTime: 10
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
-  - type: ActiveTimerTrigger
-    timeRemaining: 0.6
   - type: DeleteOnTrigger
-  - type: SoundOnTrigger
-    sound:
-      path: "/Audio/Effects/flash_bang.ogg"
+  - type: Flashbang
+    minProtectionRange: 7
+  - type: SmartLinkBlacklist
 
 - type: entity
   parent: BaseBulletShinanoGranade
@@ -210,10 +194,6 @@
       reagents:
       - ReagentId: TearGas
         Quantity: 50
-  - type: SoundOnTrigger
-    sound: /Audio/Items/smoke_grenade_smoke.ogg
-  - type: ActiveTimerTrigger
-    timeRemaining: 0.6
   - type: DeleteOnTrigger
 
 - type: entity
@@ -226,18 +206,17 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
       - state: grenade
-  - type: ClusterGrenade
+  - type: ScatteringGrenade
     fillPrototype: PelletClusterRubber
     maxGrenadesCount: 30
     grenadeType: enum.GrenadeType.Shoot
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
-  - type: ActiveTimerTrigger
-    timeRemaining: 0.5
+  - type: DeleteOnTrigger
 
 - type: entity
-  parent: [BaseBullet, BaseBulletTrail]
+  parent: BaseBullet
   id: ShinanoBulletGrenadeBeanbag
   noSpawn: true
   name: beanbag shinano grenade
