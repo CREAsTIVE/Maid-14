@@ -88,6 +88,13 @@
 # Head
 - type: loadout
   id: ResearchDirectorBeret
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   startingGear: ScientificBeret
 
 
@@ -113,17 +120,38 @@
 # Jumpsuit
 - type: loadout
   id: ResearchDirectorJumpsuit
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitResearchDirector
 
 - type: loadout
   id: ResearchDirectorJumpskirt
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtResearchDirector
 
 
 - type: loadout # goob
   id: ResearchDirectorMJ
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryResearchDirector
 
@@ -131,10 +159,24 @@
 # OuterClothing
 - type: loadout
   id: ResearchDirectorLabCoat
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterCoatRD
 
 - type: loadout
   id: ResearchDirectorWintercoat
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterRD

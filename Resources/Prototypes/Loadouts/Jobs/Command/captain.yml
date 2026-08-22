@@ -92,30 +92,65 @@
 # Jumpsuit
 - type: loadout
   id: CaptainJumpsuit
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitCaptain
 
 
 - type: loadout
   id: CaptainJumpskirt
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtCaptain
 
 
 - type: loadout
   id: CaptainFormalSuit
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitCapFormal
 
 
 - type: loadout
   id: CaptainFormalSkirt
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtCapFormalDress
 
 
 - type: loadout # goob
   id: CaptainJumpsuitMilitary
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryCaptain
 
@@ -123,12 +158,26 @@
 # Head
 - type: loadout
   id: CaptainHead
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatCaptain
 
 
 - type: loadout
   id: CaptainCap
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatCapcap
 
@@ -202,10 +251,24 @@
 # Outer clothing
 - type: loadout
   id: CaptainOuterClothing
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterArmorCaptainCarapace
 
 - type: loadout
   id: CaptainWintercoat
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterCapArmored # Goob edit

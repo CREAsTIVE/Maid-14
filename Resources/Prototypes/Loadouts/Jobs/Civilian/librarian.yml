@@ -77,23 +77,51 @@
 # Jumpsuit
 - type: loadout
   id: LibrarianJumpsuit
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitLibrarian
 
 
 - type: loadout
   id: LibrarianJumpskirt
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtLibrarian
 
 
 - type: loadout
   id: CuratorJumpsuit
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitCurator
 
 
 - type: loadout
   id: CuratorJumpskirt
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtCurator

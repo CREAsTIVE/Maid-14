@@ -6,6 +6,13 @@
 # Head
 - type: loadout
   id: CargoTechnicianHeadMail
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadMailCarrier
 
@@ -13,12 +20,26 @@
 # Jumpsuit
 - type: loadout
   id: CargoTechnicianJumpsuitMail
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformMailCarrier
 
 
 - type: loadout
   id: CargoTechnicianJumpskirtMail
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformSkirtMailCarrier
 
@@ -26,6 +47,13 @@
 # OuterClothing
 - type: loadout
   id: CargoTechnicianWintercoatMail
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterCoatMail
 

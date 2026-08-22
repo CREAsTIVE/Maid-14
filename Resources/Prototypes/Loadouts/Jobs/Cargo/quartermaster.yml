@@ -88,36 +88,78 @@
 # Jumpsuit
 - type: loadout
   id: QuartermasterJumpsuit
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitQM
 
 
 - type: loadout
   id: QuartermasterJumpskirt
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtQM
 
 
 - type: loadout
   id: QuartermasterTurtleneck
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitQMTurtleneck
 
 
 - type: loadout
   id: QuartermasterTurtleneckSkirt
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtQMTurtleneck
 
 
 - type: loadout
   id: QuartermasterFormalSuit
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitQMFormal
 
 
 - type: loadout # goob
   id: QuartermasterMJ
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryQM
 
@@ -125,12 +167,26 @@
 # Head
 - type: loadout
   id: QuartermasterHead
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatQMsoft
 
 
 - type: loadout
   id: QuartermasterBeret
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatBeretQM
 
@@ -157,5 +213,12 @@
 # OuterClothing
 - type: loadout
   id: QuartermasterWintercoat
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterQM
