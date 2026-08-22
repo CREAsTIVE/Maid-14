@@ -23,7 +23,8 @@
     sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitBasic
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitBasic
 
 # Basic Hardsuit Helmet
 - type: entity
