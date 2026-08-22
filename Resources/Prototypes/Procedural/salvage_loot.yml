@@ -120,6 +120,9 @@
         - proto: WeaponTeslaGun
           prob: 0.1
           cost: 2
+        - proto: EnergyBattleAxe # MAID
+          prob: 0.1 # MAID
+          cost: 20 # MAID
 
 # Mob loot table
 

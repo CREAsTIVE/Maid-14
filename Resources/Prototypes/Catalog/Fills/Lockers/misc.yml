@@ -599,18 +599,16 @@
         weight: 0.00002
       - id: SmokeImplanter
         weight: 0.00002
-      #    - id: MindSlaveImplanter
-      #      prob: 0.00001
-      #      orGroup: implantermaintloot
+      - id: MindcontrolImplanter
+        weight: 0.00001
       - id: ScramImplanter
         weight: 0.00001
       - id: DnaScramblerImplanter
         weight: 0.00001
       - id: StorageImplanter
         weight: 0.00001
-      #    - id: HardlightSpearImplanter
-      #      prob: 0.00001
-      #      orGroup: implantermaintloot
+      - id: HardlightSpearImplanter
+        weight: 0.00001
       - id: FreedomImplanter
         weight: 0.00001
     # Melee Weapons - WD Edit
@@ -646,9 +644,8 @@
         weight: 0.00001
       - id: MiningDrill
         weight: 0.00001
-      #    - id: EnergyBattleAxe
-      #      prob: 0.000005
-      #      orGroup: meleeweaponsmaintloot
+      - id: EnergyBattleAxe
+        weight: 0.000005
       - id: BetrayalKnife
         weight: 0.000005
       - id: ThrowingKnife
@@ -657,9 +654,8 @@
     #    - id: null
     #      prob: 0.999
     #      orGroup: hardsuitmaintloot
-    #    - id: ClothingOuterHardsuitBasic
-    #      prob: 0.0003
-    #      orGroup: hardsuitmaintloot
+      - id: ClothingOuterHardsuitBasic
+        weight: 0.0003
     - !type:GroupSelector
       prob: 0.001
       children:
@@ -669,9 +665,8 @@
         weight: 0.0003
       - id: ClothingOuterHardsuitSyndie
         weight: 0.00005
-    #    - id: ClothingOuterHardsuitSyndicate
-    #      prob: 0.00005
-    #      orGroup: hardsuitmaintloot
+      - id: ClothingOuterEVASuitSyndicate
+        weight: 0.00005
     # Cash - WD Edit
     #    - id: null
     #      prob: 0.99
