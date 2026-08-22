@@ -270,6 +270,7 @@
     - id: MedalCase
     # Maid edit end
     - id: WeaponAntiqueLaser
+    - id: WeaponEgun # MAID
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

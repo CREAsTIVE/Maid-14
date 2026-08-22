@@ -33,7 +33,7 @@
     icon:
       sprite: _Maid/Weapons/hardlight_spear.rsi
       state: spear
-    useDelay: 60
+    useDelay: 5
 
 
 - type: entity
@@ -120,3 +120,20 @@
         - Opaque
         restitution: 0.3
         friction: 0.2
+
+- type: listing
+  id: UplinkHardlightSpearImplanter
+  name: uplink-hardlight-spear-implant-name
+  description: uplink-hardlight-spear-implant-desc
+  icon: { sprite: /Textures/White/Objects/Weapons/hardlight_spear.rsi, state: spear }
+  productEntity: HardlightSpearImplanter
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1
