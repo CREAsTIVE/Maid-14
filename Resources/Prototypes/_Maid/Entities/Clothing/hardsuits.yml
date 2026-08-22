@@ -1,0 +1,50 @@
+# CREW HARDSUITS
+# Basic Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitBasic
+  name: basic hardsuit
+  description: A basic, universal hardsuit that protects the wearer against the horrors of life in space. Beats not having a hardsuit, at least.
+  components:
+  - type: Sprite
+    sprite: _Maid/Clothing/OuterClothing/Hardsuits/basic.rsi
+  - type: Clothing
+    sprite: _Maid/Clothing/OuterClothing/Hardsuits/basic.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Caustic: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitBasic
+
+# Basic Hardsuit Helmet
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHeadHelmetHardsuitBasic
+  name: basic hardsuit helmet
+  description: A basic-looking hardsuit helmet that provides minor protection against most sources of damage.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _Maid/Clothing/Head/Hardsuits/basic.rsi
+  - type: Clothing
+    sprite: _Maid/Clothing/Head/Hardsuits/basic.rsi
+  - type: HideLayerClothing
+    slots:
+    - Snout
+
+# Syndicate Hardsuit Alias
+- type: entity
+  parent: ClothingOuterEVASuitSyndicate
+  id: ClothingOuterHardsuitSyndicate
+  name: syndicate EVA suit
+  description: "Has a tag on the back that reads: 'Totally not property of an enemy corporation, honest!'"

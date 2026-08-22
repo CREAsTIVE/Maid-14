@@ -1,0 +1,320 @@
+# Shinano Grenade Launcher
+- type: entity
+  name: Shinano
+  parent: BaseItem
+  id: WeaponLauncherShinano
+  description: A single-shot grenade launcher, which is equipped with colonial police, security units and mercenaries wherever there is a Nanotrain influence. He is notorious among picketers and revolutionaries, as BLUP is the first thing they hear before violence begins.
+  components:
+  - type: Sprite
+    sprite: _Maid/White/Objects/Weapons/Guns/Launchers/shinano-icons.rsi
+    layers:
+      - state: icon
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    sprite: _Maid/White/Objects/Weapons/Guns/Launchers/shinano-inhands.rsi
+    size: Large
+    shape:
+    - 0,0,2,1
+  - type: Clothing
+    sprite: _Maid/White/Objects/Weapons/Guns/Launchers/shinano-inhands.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    projectileSpeed: 15
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - ShinanoGrenade
+    capacity: 1
+    proto: ShinanoGrenadeFlash
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+    autoCycle: false
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: Appearance
+  - type: EmitSoundOnPickup
+    sound:
+      collection: RiflesPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: RiflesDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: RiflesDrop
+
+# Ammunition base
+- type: entity
+  id: BaseShinanoGrenade
+  name: base shinano grenade
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - ShinanoGrenade
+  - type: Item
+    size: Small
+  - type: Sprite
+
+# Grenades
+- type: entity
+  id: ShinanoGrenadeFlash
+  name: shinano flash grenade
+  parent: BaseShinanoGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: ShinanoBulletGrenadeFlash
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: blast
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: flash
+    suffix: false
+
+- type: entity
+  id: ShinanoGrenadeSmoke
+  name: shinano smoke grenade
+  parent: BaseShinanoGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: ShinanoBulletGrenadeSmoke
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: blast
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: smoke
+    suffix: false
+
+- type: entity
+  id: ShinanoGrenadeStinger
+  name: shinano stinger grenade
+  parent: BaseShinanoGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: ShinanoBulletGrenadeStinger
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: blast
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: stinger
+    suffix: false
+
+- type: entity
+  id: ShinanoGrenadeBeanbag
+  name: beanbag shinano grenade
+  parent: BaseShinanoGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: ShinanoBulletGrenadeBeanbag
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: blast
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: beanbag
+    suffix: false
+
+# Projectiles
+- type: entity
+  id: BaseBulletShinanoGranade
+  parent: BaseBullet
+  abstract: true
+  name: base shinano granade
+  components:
+  - type: MovedByPressure
+  - type: FlyBySound
+  - type: Clickable
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: Physics
+    bodyType: Dynamic
+  - type: TimedDespawn
+    lifetime: 10
+  - type: TriggerOnLand
+
+- type: entity
+  parent: BaseBulletShinanoGranade
+  id: ShinanoBulletGrenadeFlash
+  noSpawn: true
+  name: flash shinano grenade
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: FlashOnTrigger
+    range: 6
+    stunTime: 3
+    knockdownTime: 10
+  - type: SpawnOnTrigger
+    proto: GrenadeFlashEffect
+  - type: ActiveTimerTrigger
+    timeRemaining: 0.6
+  - type: DeleteOnTrigger
+  - type: SoundOnTrigger
+    sound:
+      path: "/Audio/Effects/flash_bang.ogg"
+
+- type: entity
+  parent: BaseBulletShinanoGranade
+  id: ShinanoBulletGrenadeSmoke
+  noSpawn: true
+  name: smoke shinano grenade
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: SmokeOnTrigger
+    duration: 10
+    spreadAmount: 30
+    smokePrototype: TearGasSmokeWhite
+    solution:
+      reagents:
+      - ReagentId: TearGas
+        Quantity: 50
+  - type: SoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+  - type: ActiveTimerTrigger
+    timeRemaining: 0.6
+  - type: DeleteOnTrigger
+
+- type: entity
+  id: ShinanoBulletGrenadeStinger
+  name: stinger shinano grenade
+  parent: BaseBulletShinanoGranade
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: ClusterGrenade
+    fillPrototype: PelletClusterRubber
+    maxGrenadesCount: 30
+    grenadeType: enum.GrenadeType.Shoot
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: ActiveTimerTrigger
+    timeRemaining: 0.5
+
+- type: entity
+  parent: [BaseBullet, BaseBulletTrail]
+  id: ShinanoBulletGrenadeBeanbag
+  noSpawn: true
+  name: beanbag shinano grenade
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 20
+  - type: StaminaDamageOnCollide
+    ignoreResistances: true
+    damage: 100
+
+# Ammo Providers (dispenser boxes)
+- type: entity
+  parent: BaseAmmoProvider
+  id: BaseShinanoGrenadeAmmoProvider
+  abstract: true
+  components:
+    - type: BallisticAmmoProvider
+      mayTransfer: true
+      whitelist:
+        tags:
+        - ShinanoGrenade
+      capacity: 4
+
+- type: entity
+  name: shinano grenade flash dispenser
+  parent: BaseShinanoGrenadeAmmoProvider
+  id: BoxShinanoGrenadeFlash
+  description: A dispenser box full of flash grenade, designed for Shinano.
+  components:
+    - type: BallisticAmmoProvider
+      proto: ShinanoGrenadeFlash
+    - type: Sprite
+      layers:
+        - state: boxwide
+        - state: shellflash
+
+- type: entity
+  name: shinano grenade smoke dispenser
+  parent: BaseShinanoGrenadeAmmoProvider
+  id: BoxShinanoGrenadeSmoke
+  description: A dispenser box full of smoke grenade, designed for Shinano.
+  components:
+    - type: BallisticAmmoProvider
+      proto: ShinanoGrenadeSmoke
+    - type: Sprite
+      layers:
+        - state: boxwide
+        - state: shellflare
+
+- type: entity
+  name: shinano grenade stinger dispenser
+  parent: BaseShinanoGrenadeAmmoProvider
+  id: BoxShinanoGrenadeStinger
+  description: A dispenser box full of stinger grenade, designed for Shinano.
+  components:
+    - type: BallisticAmmoProvider
+      proto: ShinanoGrenadeStinger
+    - type: Sprite
+      layers:
+        - state: boxwide
+        - state: shellflare
+
+- type: entity
+  name: shinano grenade beanbag dispenser
+  parent: BaseShinanoGrenadeAmmoProvider
+  id: BoxShinanoGrenadeBeanbag
+  description: A dispenser box full of beanbag grenade, designed for Shinano.
+  components:
+    - type: BallisticAmmoProvider
+      proto: ShinanoGrenadeBeanbag
+    - type: Sprite
+      layers:
+        - state: boxwide
+        - state: shellbeanbag
