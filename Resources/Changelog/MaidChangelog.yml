@@ -1045,3 +1045,11 @@ Entries:
         Z.
   id: 92
   time: '2026-08-22T09:29:58.0000000+00:00'
+- author: Urames
+  changes:
+    - type: Add
+      message: >-
+        Добавлены ClothingShoesBootsMagAdv и JetpackVoid в наполнение
+        SuitStorageCE.
+  id: 93
+  time: '2026-08-22T09:43:03.0000000+00:00'
