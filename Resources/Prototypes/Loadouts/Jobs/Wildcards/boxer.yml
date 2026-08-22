@@ -77,12 +77,26 @@
 # Jumpsuit
 - type: loadout
   id: BoxerShorts
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: UniformShortsRed
 
 
 - type: loadout
   id: BoxerShortsWithTop
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: UniformShortsRedWithTop
 
@@ -90,20 +104,48 @@
 # Gloves
 - type: loadout
   id: RedBoxingGloves
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     gloves: ClothingHandsGlovesBoxingRed
 
 - type: loadout
   id: BlueBoxingGloves
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     gloves: ClothingHandsGlovesBoxingBlue
 
 - type: loadout
   id: GreenBoxingGloves
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     gloves: ClothingHandsGlovesBoxingGreen
 
 - type: loadout
   id: YellowBoxingGloves
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     gloves: ClothingHandsGlovesBoxingYellow

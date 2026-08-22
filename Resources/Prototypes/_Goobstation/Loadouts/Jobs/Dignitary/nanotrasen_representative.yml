@@ -83,30 +83,65 @@
 #hat
 - type: loadout
   id: NanotrasenRepresentativeBowler
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatBowlerHat
 
 
 - type: loadout
   id: NanotrasenRepresentativeTop
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatTophat
 
 
 - type: loadout
   id: NanotrasenRepresentativeOutlaw
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatOutlawHat
 
 
 - type: loadout
   id: NanotrasenRepresentativeBeret
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatBeretFrench
 
 
 - type: loadout
   id: NanotrasenRepresentativeMAA
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatSyndieMAA
 
@@ -123,6 +158,13 @@
 # Gloves
 - type: loadout
   id: NanotrasenRepresentativeGloves
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     gloves: ClothingHandsGlovesHeavyGoldenTrim
 
@@ -157,16 +199,37 @@
 # Jumpsuits
 - type: loadout
   id: NanotrasenRepresentativeJumpsuit
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentative
 
 - type: loadout
   id: NanotrasenRepresentativeFancyJumpsuit
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentativeFancy
 
 - type: loadout
   id: NanotrasenRepresentativeJumpskirt
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtNanotrasenRepresentative
 

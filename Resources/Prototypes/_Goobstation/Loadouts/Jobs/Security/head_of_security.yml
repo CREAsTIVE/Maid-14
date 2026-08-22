@@ -5,12 +5,25 @@
 
 - type: loadout
   id: HeadofSecurityVestWeb
+# MAID BEGIN plasmaman loadouts
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterArmorHoSVestWeb
 
 - type: loadout
   id: HeadofSecuritySpecialBeret
   effects:
+# MAID BEGIN plasmaman loadouts
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: MasterHoS
   equipment:
@@ -19,6 +32,12 @@
 - type: loadout
   id: HeadofSecurityGreatCoat
   effects:
+# MAID BEGIN plasmaman loadouts
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
+# MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: MasterHoS
   equipment:
