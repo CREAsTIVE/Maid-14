@@ -77,7 +77,6 @@
     malus: 0
   - type: Reflect
     reflectProb: 0.25
-    enabled: false
     reflects:
       - Energy
   # - type: ToggleableWielded

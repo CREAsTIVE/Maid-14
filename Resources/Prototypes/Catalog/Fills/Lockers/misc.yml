@@ -665,7 +665,7 @@
         weight: 0.0003
       - id: ClothingOuterHardsuitSyndie
         weight: 0.00005
-      - id: ClothingOuterHardsuitSyndicate
+      - id: ClothingOuterEVASuitSyndicate
         weight: 0.00005
     # Cash - WD Edit
     #    - id: null

@@ -125,10 +125,10 @@
   id: UplinkHardlightSpearImplanter
   name: uplink-hardlight-spear-implant-name
   description: uplink-hardlight-spear-implant-desc
-  icon: { sprite: /Textures/White/Objects/Weapons/hardlight_spear.rsi, state: spear }
+  icon: { sprite: _Maid/Weapons/hardlight_spear.rsi, state: spear }
   productEntity: HardlightSpearImplanter
   cost:
-    Telecrystal: 30
+    Telecrystal: 20
   categories:
   - UplinkImplants
   conditions:
