@@ -16,10 +16,8 @@
   id: ChemistUshanka
   effects:
 # MAID BEGIN plasmaman loadouts
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
+  - !type:GroupLoadoutEffect
+    proto: InvertedPlasmaman
 # MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: MasterChemist
