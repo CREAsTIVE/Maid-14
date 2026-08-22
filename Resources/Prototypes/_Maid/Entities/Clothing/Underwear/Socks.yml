@@ -10,7 +10,7 @@
   - type: Item
     size: Small
   - type: Clothing
-    slots: [socks]
+    slots: [SOCKS]
   - type: Tag
     tags:
       - socks
