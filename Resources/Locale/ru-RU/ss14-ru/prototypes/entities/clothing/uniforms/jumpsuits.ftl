@@ -221,4 +221,5 @@ ent-ClothingUniformJumpsuitCasualRed = повседневный красный �
 ent-ClothingUniformJumpsuitCasualGreen = повседневный зелёный комбинезон
     .desc = Свободная потёртая зелёная рубашка с серыми штанами — идеальный вариант для тех, кто хочет расслабиться.
 ent-ClothingUniformJumpsuitFamilyGuy = семейный наряд
-    .desc = Напоминает о времени, когда вы сделали что-то смешное.
+    .desc = Напоминает о времени, когда вы сделали что-то смешное
+ent-LoadoutDummyNothing = Ничего #Maid

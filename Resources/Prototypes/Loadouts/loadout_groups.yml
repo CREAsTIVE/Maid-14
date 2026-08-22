@@ -1391,9 +1391,9 @@
   id: ResearchDirectorJumpsuit
   name: loadout-group-research-director-jumpsuit
   loadouts:
+  - ResearchDirectorMJ #maid
   - ResearchDirectorJumpsuit
   - ResearchDirectorJumpskirt
-  - ResearchDirectorMJ # goob
   - ResearchDirectorEnvirosuit #Maid
 
 - type: loadoutGroup
