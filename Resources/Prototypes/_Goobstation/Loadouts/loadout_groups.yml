@@ -480,7 +480,6 @@
   maxLimit: 1
   loadouts:
   - DetectiveGloves
-  - DetectiveEnvirogloves #Maid
 
 # Warden
 
@@ -541,7 +540,6 @@
   maxLimit: 1
   loadouts:
   - HoPGloves
-  - HoPEnvirogloves #Maid
 
 # Centcomm Officer
 
@@ -1122,7 +1120,6 @@
   name: loadout-group-reporter-outerclothing
   loadouts:
   - NoPro
-  - ReporterEnvirogloves #Maid
 
 - type: loadoutGroup
   id: ReporterEnvirohelm
@@ -1157,7 +1154,6 @@
   loadouts:
   - Bodycam # Goobstation - Body cameras
   - ClothingNeckCWPSec
-  - BlackEnvirogloves #Maid
 
 #honkops
 
@@ -1203,7 +1199,6 @@
   maxLimit: 1
   loadouts:
   - CaptainGloves
-  - CaptainEnvirogloves #Maid
 
 - type: loadoutGroup
   id: CaptainMask
@@ -1313,7 +1308,6 @@
   - MedicalBeret
   - SeniorPhysicianBeret
   - ChemistUshanka # Da.
-  - ChemistEnvirohelm #Maid
   
 - type: loadoutGroup
   id: ChemistEnvirohelm
@@ -1381,7 +1375,6 @@
   maxLimit: 1
   loadouts:
   - CombatGloves
-  - CombatEnvirogloves #Maid
 # Brigmedic
 
 - type: loadoutGroup
@@ -1390,7 +1383,6 @@
   loadouts:
   - BrigmedicJumpsuit
   - BrigmedicJumpskirt
-  - BrigmedicEnvirosuit #Maid
 
 - type: loadoutGroup
   id: BrigmedicHead
@@ -1402,7 +1394,6 @@
   - SecurityBeret
   - SecurityHat
   - TrooperHat
-  - BrigmedicEnvirohelm #Maid
 
 - type: loadoutGroup
   id: BrigmedicOuterClothing
@@ -1465,17 +1456,14 @@
   maxLimit: 1
   loadouts:
   - ZookeeperHead
-  - ZookeeperEnvirohelm #Maid
 
 - type: loadoutGroup
   id: ZookeeperJumpsuit
   name: loadout-group-zookeeper-jumpsuit
   minLimit: 1
-  maxLimit: 2 #Maid
+  maxLimit: 1
   loadouts:
   - ZookeeperJumpsuit
-  - ZookeeperEnvirosuit #Maid
-  - PurpleEnvirogloves #Maid
 
 - type: loadoutGroup
   id: ZookeeperEnvirohelm
@@ -1537,7 +1525,6 @@
    - VirologistJumpsuit
    - VirologistJumpskirt
    - VirologistMJ # goobin
-   - VirologistEnvirosuit #Maid
 
 - type: loadoutGroup
   id: VirologistBackpack

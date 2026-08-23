@@ -130,9 +130,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - CaptainEnvirohelm # Maid begin
-  # - CaptainEnvirosuit
-  # - CaptainEnvirogloves  #Maid end
+  - CaptainEnvirohelm
+  - CaptainEnvirosuit
+  - CaptainEnvirogloves
   - CaptainGloves
   - CaptainUnderwear # Maid changes
   - SocksUnderwear # Maid changes - socks
@@ -155,9 +155,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - HoPEnvirosuit  # 
-  # - HoPEnvirohelm   
-  # - HoPEnvirogloves  
+  - HoPEnvirosuit
+  - HoPEnvirohelm
+  - HoPEnvirogloves
   - HoPGloves
   - HeadOfPersonnelUnderwear # Maid changes
   - SocksUnderwear # Maid changes - socks
@@ -195,9 +195,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - AssistantEnvirohelm #Maid
-  # - AssistantEnvirosuit #Maid
-  # - AssistantEnvirogloves  #Maid
+  - AssistantEnvirohelm
+  - AssistantEnvirosuit
+  - AssistantEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -217,9 +217,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - BartenderEnvirohelm #Maid
-  # - BartenderEnvirosuit #Maid
-  # - BartenderEnvirogloves  #Maid
+  - BartenderEnvirohelm
+  - BartenderEnvirosuit
+  - BartenderEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -239,9 +239,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - ServiceWorkerEnvirohelm #Maid
-  # - ServiceWorkerEnvirosuit #Maid
-  # - ServiceWorkerEnvirogloves  #Maid
+  - ServiceWorkerEnvirohelm
+  - ServiceWorkerEnvirosuit
+  - ServiceWorkerEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -262,9 +262,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - ChefEnvirohelm #Maid
-  # - ChefEnvirosuit #Maid
-  # - ChefEnvirogloves  #Maid
+  - ChefEnvirohelm
+  - ChefEnvirosuit
+  - ChefEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -284,9 +284,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - LibrarianEnvirohelm #Maid
-  # - LibrarianEnvirosuit #Maid
-  # - LibrarianEnvirogloves  #Maid
+  - LibrarianEnvirohelm
+  - LibrarianEnvirosuit
+  - LibrarianEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -306,9 +306,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - LawyerEnvirohelm #Maid
-  # - LawyerEnvirosuit #Maid
-  # - LawyerEnvirogloves  #Maid
+  - LawyerEnvirohelm
+  - LawyerEnvirosuit
+  - LawyerEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -330,9 +330,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - ChaplainEnvirohelm #Maid
-  # - ChaplainEnvirosuit #Maid
-  # - ChaplainEnvirogloves #Maid
+  - ChaplainEnvirohelm
+  - ChaplainEnvirosuit
+  - ChaplainEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -354,9 +354,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - JanitorEnvirohelm #Maid
-  # - JanitorEnvirosuit #Maid
-  # - JanitorEnvirogloves #Maid
+  - JanitorEnvirohelm
+  - JanitorEnvirosuit
+  - JanitorEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -376,9 +376,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - BotanistEnvirohelm #Maid
-  # - BotanistEnvirosuit #Maid
-  # - BotanistEnvirogloves #Maid
+  - BotanistEnvirohelm
+  - BotanistEnvirosuit
+  - BotanistEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -399,9 +399,9 @@
 #  - Trinkets #Maid
 #  - Animals #Maid
   # Goobstation - EE Plasmeme Change.
-  # - ClownEnvirohelm #Maid
-  # - ClownEnvirosuit #Maid
-  # - ClownEnvirogloves  #Maid
+  - ClownEnvirohelm
+  - ClownEnvirosuit
+  - ClownEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -423,9 +423,9 @@
 #  - Trinkets #Maid
 #  - Animals #Maid
   # Goobstation - EE Plasmeme Change.
-  # - MimeEnvirohelm #Maid
-  # - MimeEnvirosuit #Maid
-  # - MimeEnvirogloves  #Maid
+  - MimeEnvirohelm
+  - MimeEnvirosuit
+  - MimeEnvirogloves
   - MimeGloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
@@ -447,9 +447,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - MusicianEnvirohelm #Maid
-  # - MusicianEnvirosuit #Maid
-  # - MusicianEnvirogloves  #Maid
+  - MusicianEnvirohelm
+  - MusicianEnvirosuit
+  - MusicianEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -472,9 +472,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - QuartermasterEnvirohelm #Maid
-  # - QuartermasterEnvirosuit #Maid
-  # - QuartermasterEnvirogloves #Maid
+  - QuartermasterEnvirohelm
+  - QuartermasterEnvirosuit
+  - QuartermasterEnvirogloves
   - QuartermasterUnderwear # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -496,9 +496,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - CargoTechnicianEnvirohelm #Maid
-  # - CargoTechnicianEnvirosuit #Maid
-  # - CargoTechnicianEnvirogloves #Maid
+  - CargoTechnicianEnvirohelm
+  - CargoTechnicianEnvirosuit
+  - CargoTechnicianEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -521,9 +521,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - SalvageEnvirohelm #Maid
-  # - SalvageEnvirosuit #Maid
-  # - SalvageEnvirogloves #Maid
+  - SalvageEnvirohelm
+  - SalvageEnvirosuit
+  - SalvageEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -545,9 +545,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - ChiefEngineerEnvirohelm #Maid
-  # - ChiefEngineerEnvirosuit #Maid
-  # - ChiefEngineerEnvirogloves #Maid
+  - ChiefEngineerEnvirohelm
+  - ChiefEngineerEnvirosuit
+  - ChiefEngineerEnvirogloves
   - ChiefEngineerUnderwear # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -568,9 +568,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - TechnicalAssistantEnvirohelm #Maid
-  # - TechnicalAssistantEnvirosuit #Maid
-  # - TechnicalAssistantEnvirogloves  #Maid
+  - TechnicalAssistantEnvirohelm
+  - TechnicalAssistantEnvirosuit
+  - TechnicalAssistantEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -591,9 +591,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - StationEngineerEnvirohelm #Maid
-  # - StationEngineerEnvirosuit #Maid
-  # - StationEngineerEnvirogloves #Maid
+  - StationEngineerEnvirohelm
+  - StationEngineerEnvirosuit
+  - StationEngineerEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -613,9 +613,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - AtmosEnvirohelm #Maid
-  # - AtmosEnvirosuit #Maid
-  # - AtmosEnvirogloves  #Maid
+  - AtmosEnvirohelm
+  - AtmosEnvirosuit
+  - AtmosEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -639,9 +639,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - ResearchDirectorEnvirosuit #Maid
-  # - ResearchDirectorEnvirohelm #Maid
-  # - ResearchDirectorEnvirogloves #Maid
+  - ResearchDirectorEnvirosuit
+  - ResearchDirectorEnvirohelm
+  - ResearchDirectorEnvirogloves
   - ResearchDirectorUnderwear # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -667,9 +667,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - ScientistEnvirohelm #Maid
-  # - ScientistEnvirosuit #Maid
-  # - ScientistEnvirogloves  #Maid
+  - ScientistEnvirohelm
+  - ScientistEnvirosuit
+  - ScientistEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -689,9 +689,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - ResearchAssistantEnvirohelm #Maid
-  # - ResearchAssistantEnvirosuit #Maid
-  # - ResearchAssistantEnvirogloves  #Maid
+  - ResearchAssistantEnvirohelm
+  - ResearchAssistantEnvirosuit
+  - ResearchAssistantEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -715,9 +715,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathToolSecurity
   # Goobstation - EE Plasmeme Change.
-  # - HeadofSecurityEnvirohelm #Maid
-  # - HeadofSecurityEnvirosuit #Maid
-  # - HeadofSecurityEnvirogloves  #Maid
+  - HeadofSecurityEnvirohelm
+  - HeadofSecurityEnvirosuit
+  - HeadofSecurityEnvirogloves
   - HeadofSecurityGloves
   - HeadOfSecurityUnderwear # Maid changes
   - SocksUnderwear # Maid changes - socks
@@ -743,9 +743,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathToolSecurity
   # Goobstation - EE Plasmeme Change.
-  # - WardenEnvirohelm #Maid
-  # - WardenEnvirosuit #Maid
-  # - WardenEnvirogloves  #Maid
+  - WardenEnvirohelm
+  - WardenEnvirosuit
+  - WardenEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -769,9 +769,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathToolSecurity
   # Goobstation - EE Plasmeme Change.
-  # - SecurityOfficerEnvirohelm #Maid
-  # - SecurityOfficerEnvirosuit #Maid
-  # - SecurityOfficerEnvirogloves  #Maid
+  - SecurityOfficerEnvirohelm
+  - SecurityOfficerEnvirosuit
+  - SecurityOfficerEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -792,9 +792,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathToolSecurity
   # Goobstation - EE Plasmeme Change.
-  # - DetectiveEnvirohelm #Maid
-  # - DetectiveEnvirosuit #Maid
-  # - DetectiveEnvirogloves  #Maid
+  - DetectiveEnvirohelm
+  - DetectiveEnvirosuit
+  - DetectiveEnvirogloves
   - DetectiveGloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
@@ -815,9 +815,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathToolSecurity
   # Goobstation - EE Plasmeme Change.
-  # - SecurityCadetEnvirohelm #Maid
-  # - SecurityCadetEnvirosuit #Maid
-  # - SecurityCadetEnvirogloves #Maid
+  - SecurityCadetEnvirohelm
+  - SecurityCadetEnvirosuit
+  - SecurityCadetEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -842,9 +842,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathToolMedical
   # Goobstation - EE Plasmeme Change.
-  # - ChiefMedicalOfficerEnvirohelm #Maid
-  # - ChiefMedicalOfficerEnvirosuit #Maid
-  # - ChiefMedicalOfficerEnvirogloves #Maid
+  - ChiefMedicalOfficerEnvirohelm
+  - ChiefMedicalOfficerEnvirosuit
+  - ChiefMedicalOfficerEnvirogloves
   - ChiefMedicalOfficerUnderwear # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -870,9 +870,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathToolMedical
   # Goobstation - EE Plasmeme Change.
-  # - MedicalDoctorEnvirohelm #Maid
-  # - MedicalDoctorEnvirosuit #Maid
-  # - MedicalDoctorEnvirogloves #Maid
+  - MedicalDoctorEnvirohelm
+  - MedicalDoctorEnvirosuit
+  - MedicalDoctorEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -892,9 +892,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathToolMedical
   # Goobstation - EE Plasmeme Change.
-  # - MedicalInternEnvirohelm #Maid
-  # - MedicalInternEnvirosuit #Maid
-  # - MedicalInternEnvirogloves  #Maid
+  - MedicalInternEnvirohelm
+  - MedicalInternEnvirosuit
+  - MedicalInternEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -916,9 +916,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathToolMedical
   # Goobstation - EE Plasmeme Change.
-  # - ChemistEnvirohelm #Maid
-  # - ChemistEnvirosuit #Maid
-  # - ChemistEnvirogloves  #Maid
+  - ChemistEnvirohelm
+  - ChemistEnvirosuit
+  - ChemistEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -941,9 +941,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathToolMedical
   # Goobstation - EE Plasmeme Change.
-  # - ParamedicEnvirohelm #Maid
-  # - ParamedicEnvirosuit #Maid
-  # - ParamedicEnvirogloves #Maid
+  - ParamedicEnvirohelm
+  - ParamedicEnvirosuit
+  - ParamedicEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -963,9 +963,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - ZookeeperEnvirohelm #Maid
-  # - ZookeeperEnvirosuit #Maid
-  # - ZookeeperEnvirogloves #Maid
+  - ZookeeperEnvirohelm
+  - ZookeeperEnvirosuit
+  - ZookeeperEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -985,9 +985,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - ReporterEnvirohelm #Maid
-  # - ReporterEnvirosuit #Maid
-  # - ReporterEnvirogloves #Maid
+  - ReporterEnvirohelm
+  - ReporterEnvirosuit
+  - ReporterEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -1007,9 +1007,9 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - PsychologistEnvirohelm #Maid
-  # - PsychologistEnvirosuit #Maid
-  # - PsychologistEnvirogloves #Maid
+  - PsychologistEnvirohelm
+  - PsychologistEnvirosuit
+  - PsychologistEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid
@@ -1029,8 +1029,8 @@
 #  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-#  - BoxerEnvirohelm #Maid
-#  - BoxerEnvirosuit #Maid
+  - BoxerEnvirohelm
+  - BoxerEnvirosuit
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid

@@ -173,9 +173,9 @@
   # - Trinkets
   - GroupSpeciesBreathTool
   # Plasmaman
-  # - ScientistEnvirohelm
-  # - ScientistEnvirosuit
-  # - ScientistEnvirogloves
+  - ScientistEnvirohelm
+  - ScientistEnvirosuit
+  - ScientistEnvirogloves
   - Underwear #Maid
   - Bra #Maid
 
@@ -197,9 +197,9 @@
   # - SecurityStar #Maid
   - GroupSpeciesBreathToolSecurity
   # Goobstation - EE Plasmeme Change.
-  # - BrigmedicEnvirohelm #Maid
-  # - BrigmedicEnvirosuit #Maid
-  # - BrigmedicEnvirogloves #Maid
+  - BrigmedicEnvirohelm
+  - BrigmedicEnvirosuit
+  - BrigmedicEnvirogloves
   - Underwear #Maid
   - Bra #Maid
 
@@ -250,8 +250,8 @@
    - SurvivalMedical
   #  - Trinkets #Maid
    - GroupSpeciesBreathToolMedical
-  #  - VirologyEnvirohelm #Maid
-  #  - VirologyEnvirosuit #Maid
-  #  - VirologyEnvirogloves #Maid
+   - VirologyEnvirohelm
+   - VirologyEnvirosuit
+   - VirologyEnvirogloves
    - Underwear #Maid
    - Bra #Maid
