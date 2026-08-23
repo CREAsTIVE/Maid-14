@@ -240,7 +240,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
     {
         // TODO: Move entire logic into GetPrototypeStaticScore. I don't see reason to keep those separate
 
-        var score = GetPrototypeStaticScore(ruleId);
+        var score = GetPrototypeStaticScore(ruleId, playerCount);
 
         return score;
     }

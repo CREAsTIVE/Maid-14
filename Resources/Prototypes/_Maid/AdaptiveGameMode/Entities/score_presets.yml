@@ -1,4 +1,5 @@
-﻿- id: BaseMobDanger
+﻿- type: entity
+  id: BaseMobDanger
   components:
   - type: AdaptiveScoreStatic
     chaosScore:
