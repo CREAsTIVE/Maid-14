@@ -18,12 +18,6 @@
 - type: loadout
   id: WinterCoatSeniorSecArmored
   effects:
-# MAID BEGIN plasmaman loadouts
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: SeniorOfficer
   equipment:

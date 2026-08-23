@@ -109,65 +109,30 @@
 # Head
 - type: loadout
   id: SecurityHelmet
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHelmetBasic
 
 
 - type: loadout # Goobstation
   id: SecurityHelmetAlt
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHelmetBasicAlt
 
 
 - type: loadout
   id: SecurityHat
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatSecsoft
 
 
 - type: loadout
   id: SecurityBeret
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatBeretSecurity
 
 
 - type: loadout
   id: TrooperHat
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatSecurityTrooper
 
@@ -175,65 +140,30 @@
 # Jumpsuit
 - type: loadout
   id: SecurityJumpsuit
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitSec
 
 
 - type: loadout
   id: SecurityJumpskirt
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtSec
 
 
 - type: loadout
   id: SecurityJumpsuitGrey
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecGrey
 
 
 - type: loadout
   id: SecurityJumpskirtGrey
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecGrey
 
 
 - type: loadout
   id: TrooperUniform
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformSecurityTrooper
 
@@ -241,12 +171,6 @@
 - type: loadout
   id: SeniorOfficerJumpsuit
   effects:
-# MAID BEGIN plasmaman loadouts
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: SeniorOfficer
   equipment:
@@ -255,12 +179,6 @@
 - type: loadout
   id: SeniorOfficerJumpskirt
   effects:
-# MAID BEGIN plasmaman loadouts
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: SeniorOfficer
   equipment:
@@ -296,37 +214,16 @@
 # Outerclothing
 - type: loadout
   id: ArmorVest
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterArmorBasic
 
 - type: loadout
   id: ArmorVestSlim
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterArmorBasicSlim
 
 - type: loadout
   id: SecurityOfficerWintercoat
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterSecArmored # Goobstation
 

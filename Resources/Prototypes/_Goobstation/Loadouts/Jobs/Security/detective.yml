@@ -27,12 +27,5 @@
 
 - type: loadout
   id: DetectiveGloves
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     gloves: ClothingHandsGlovesForensic

@@ -77,26 +77,12 @@
 # Jumpsuit
 - type: loadout
   id: WhiteJumpsuit
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorWhite
 
 
 - type: loadout
   id: WhiteJumpskirt
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorWhite
 

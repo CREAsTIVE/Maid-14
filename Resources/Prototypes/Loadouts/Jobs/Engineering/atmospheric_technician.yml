@@ -80,52 +80,24 @@
 # Jumpsuit
 - type: loadout
   id: AtmosphericTechnicianJumpsuit
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitAtmos
 
 
 - type: loadout
   id: AtmosphericTechnicianJumpskirt
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtAtmos
 
 
 - type: loadout
   id: AtmosphericTechnicianJumpsuitCasual
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitAtmosCasual
 
 
 - type: loadout # goob
   id: AtmosMJ
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryAtmospherics
 
@@ -149,13 +121,6 @@
 # OuterClothing
 - type: loadout
   id: AtmosphericTechnicianWintercoat
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterAtmos
 

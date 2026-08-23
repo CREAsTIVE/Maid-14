@@ -78,39 +78,18 @@
 # Jumpsuit
 - type: loadout
   id: ReporterJumpsuit
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitReporter
 
 
 - type: loadout
   id: ReporterDress
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtReporter
 
 
 - type: loadout
   id: JournalistJumpsuit
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitJournalist
 

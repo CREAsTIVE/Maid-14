@@ -27,52 +27,24 @@
 # Hats
 - type: loadout
   id: BlueshieldOfficerHeadSwatHelmet
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHelmetSwat
 
 
 - type: loadout
   id: BlueshieldOfficerBeret
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatBeretBlueshield # Here's your beret back Gallagin.
 
 
 - type: loadout
   id: BlueshieldOfficerHeadCowboy
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatCowboyBlueshield
 
 
 - type: loadout
   id: BlueshieldOfficerGoidaHelmet
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatUshankaBlueshield
 
@@ -89,39 +61,18 @@
 # Jumpsuits
 - type: loadout
   id: BlueshieldOfficerInnerBlueshieldSkirt
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtBlueshieldOfficer
 
 
 - type: loadout
   id: BlueshieldOfficerInnerBlueshieldSuit
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitBlueshieldOfficer
 
 
 - type: loadout
   id: BlueshieldOfficerInnerBlueshieldShirt
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitBlueshieldShirt
 
@@ -147,13 +98,6 @@
 
 - type: loadout
   id: CombatGloves
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted : true
-# MAID END plasmaman loadouts
   equipment:
     gloves: ClothingHandsGlovesCombat
 
