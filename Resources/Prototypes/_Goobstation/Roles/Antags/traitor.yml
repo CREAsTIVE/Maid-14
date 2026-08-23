@@ -8,6 +8,6 @@
   id: CorporateAgent
   name: roles-antag-corporate-agent-name
   antagonist: true
-  setPreference: true
+  setPreference: false #Maid вырезано
   objective: roles-antag-corporate-agent-description
   guides: [ CorporateAgents ]
