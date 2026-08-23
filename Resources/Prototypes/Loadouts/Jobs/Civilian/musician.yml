@@ -86,8 +86,10 @@
   id: MusicianJumpsuit
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitMusician
@@ -97,8 +99,10 @@
   id: MusicianJumpskirt
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtMusician
@@ -109,8 +113,10 @@
   id: MusicianWintercoat
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterMusician

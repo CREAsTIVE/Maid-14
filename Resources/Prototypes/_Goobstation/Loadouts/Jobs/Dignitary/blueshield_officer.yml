@@ -29,8 +29,10 @@
   id: BlueshieldOfficerHeadSwatHelmet
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHelmetSwat
@@ -40,8 +42,10 @@
   id: BlueshieldOfficerBeret
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatBeretBlueshield # Here's your beret back Gallagin.
@@ -51,8 +55,10 @@
   id: BlueshieldOfficerHeadCowboy
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatCowboyBlueshield
@@ -62,8 +68,10 @@
   id: BlueshieldOfficerGoidaHelmet
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatUshankaBlueshield
@@ -83,8 +91,10 @@
   id: BlueshieldOfficerInnerBlueshieldSkirt
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtBlueshieldOfficer
@@ -94,8 +104,10 @@
   id: BlueshieldOfficerInnerBlueshieldSuit
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitBlueshieldOfficer
@@ -105,8 +117,10 @@
   id: BlueshieldOfficerInnerBlueshieldShirt
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitBlueshieldShirt
@@ -135,8 +149,10 @@
   id: CombatGloves
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     gloves: ClothingHandsGlovesCombat

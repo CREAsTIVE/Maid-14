@@ -3,8 +3,10 @@
   id: NanotrasenTrainerHat
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadBeretTrainer
@@ -14,8 +16,10 @@
   id: NanotrasenTrainerBeret
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatTrainer
@@ -42,8 +46,10 @@
   id: NanotrasenTrainerJumpsuit
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitTrainer
@@ -53,8 +59,10 @@
   id: NanotrasenTrainerJumpskirt
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtTrainer
@@ -65,8 +73,10 @@
   id: NanotrasenTrainerCoat
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterCoatTrainer
@@ -87,8 +97,10 @@
   id: NanotrasenTrainerGloves
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     gloves: ClothingHandsGlovesHeavyGoldenTrim

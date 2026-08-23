@@ -79,8 +79,10 @@
   id: JesterHat
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatJester
@@ -90,8 +92,10 @@
   id: JesterAltHat
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatJesterAlt
@@ -102,8 +106,10 @@
   id: ClownSuit
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitClown
@@ -113,8 +119,10 @@
   id: ClownSkirt
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtClown
@@ -124,8 +132,10 @@
   id: JesterSuit
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitJester
@@ -135,8 +145,10 @@
   id: JesterAltSuit
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitJesterAlt
@@ -174,8 +186,10 @@
   id: ClownRobes
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterClownPriest
@@ -184,8 +198,10 @@
   id: ClownWintercoat
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterClown

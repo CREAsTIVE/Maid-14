@@ -7,8 +7,10 @@
   id: BrigmedicJumpsuit
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitBrigmedic
@@ -18,8 +20,10 @@
   id: BrigmedicJumpskirt
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtBrigmedic
@@ -29,8 +33,10 @@
   id: BrigmedicBeret
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatBeretBrigmedic
@@ -40,8 +46,10 @@
   id: BrigmedicAMG
 # MAID BEGIN plasmaman loadouts
   effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterCoatAMG

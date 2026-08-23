@@ -479,9 +479,6 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - DetectiveGloves
   - DetectiveEnvirogloves #Maid
 
@@ -543,9 +540,6 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - HoPGloves
   - HoPEnvirogloves #Maid
 
@@ -763,9 +757,6 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - WhiteGloves
 
 # Assistant
@@ -903,14 +894,8 @@
 - type: loadoutGroup
   id: NanotrasenRepresentativeHead
   name: loadout-group-ntr-head
-# MAID BEGIN plasmaman loadouts
-  # minLimit: 0
-  minLimit: 1
-# MAID END plasmaman loadouts
+  minLimit: 0
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - NanotrasenRepresentativeBeret
   - NanotrasenRepresentativeTop
   - NanotrasenRepresentativeBowler
@@ -961,9 +946,6 @@
   id: NanotrasenRepresentativeGloves
   name: loadout-group-ntr-gloves
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - NanotrasenRepresentativeGloves
 
 - type: loadoutGroup
@@ -994,14 +976,8 @@
 - type: loadoutGroup
   id: BlueshieldOfficerHead
   name: loadout-group-bso-head
-# MAID BEGIN plasmaman loadouts
-  # minLimit: 0
-  minLimit: 1
-# MAID END plasmaman loadouts
+  minLimit: 0
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - BlueshieldOfficerHeadSwatHelmet
   - BlueshieldOfficerBeret
   - BlueshieldOfficerHeadCowboy
@@ -1085,9 +1061,6 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - CombatGloves
 
 # Career Trainer
@@ -1095,14 +1068,8 @@
 - type: loadoutGroup
   id: NanotrasenTrainerHead
   name: loadout-group-nct-head
-# MAID BEGIN plasmaman loadouts
-  # minLimit: 0
-  minLimit: 1
-# MAID END plasmaman loadouts
+  minLimit: 0
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - NanotrasenTrainerHat
   - NanotrasenTrainerBeret
 
@@ -1124,23 +1091,14 @@
 - type: loadoutGroup
   id: NanotrasenTrainerOuterClothing
   name: loadout-group-nct-outerclothing
-# MAID BEGIN plasmaman loadouts
-  # minLimit: 0
-  minLimit: 1
-# MAID END plasmaman loadouts
+  minLimit: 0
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - NanotrasenTrainerCoat
 
 - type: loadoutGroup
   id: NanotrasenTrainerGloves
   name: loadout-group-nct-gloves
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - NanotrasenTrainerGloves
 
 - type: loadoutGroup
@@ -1163,9 +1121,6 @@
   id: ReporterOuterClothing
   name: loadout-group-reporter-outerclothing
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - NoPro
   - ReporterEnvirogloves #Maid
 
@@ -1247,9 +1202,6 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - CaptainGloves
   - CaptainEnvirogloves #Maid
 
@@ -1265,14 +1217,8 @@
 - type: loadoutGroup
   id: RoboticistHead
   name: loadout-group-roboticist-head
-# MAID BEGIN plasmaman loadouts
-  # minLimit: 0
-  minLimit: 1
-# MAID END plasmaman loadouts
+  minLimit: 0
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - RoboticistCap
   - SkullBandana
 
@@ -1295,14 +1241,8 @@
 - type: loadoutGroup
   id: RoboticistOuterClothing
   name: loadout-group-roboticist-outerclothing
-# MAID BEGIN plasmaman loadouts
-  # minLimit: 0
-  minLimit: 1
-# MAID END plasmaman loadouts
+  minLimit: 0
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - RegularLabCoat
   - RoboticistLabCoat
   - RoboticistWintercoat
@@ -1318,14 +1258,8 @@
 - type: loadoutGroup
   id: RoboticistGloves
   name: loadout-group-roboticist-gloves
-# MAID BEGIN plasmaman loadouts
-  # minLimit: 0
-  minLimit: 1
-# MAID END plasmaman loadouts
+  minLimit: 0
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - LatexGloves
   - PurpleGloves
   - RobohandsGloves
@@ -1374,14 +1308,8 @@
 - type: loadoutGroup
   id: ChemistHead
   name: loadout-group-chemist-head
-# MAID BEGIN plasmaman loadouts
-  # minLimit: 0
-  minLimit: 1
-# MAID END plasmaman loadouts
+  minLimit: 0
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - MedicalBeret
   - SeniorPhysicianBeret
   - ChemistUshanka # Da.
@@ -1452,9 +1380,6 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - CombatGloves
   - CombatEnvirogloves #Maid
 # Brigmedic
@@ -1470,14 +1395,8 @@
 - type: loadoutGroup
   id: BrigmedicHead
   name: loadout-group-brigmedic-head
-# MAID BEGIN plasmaman loadouts
-  # minLimit: 0
-  minLimit: 1
-# MAID END plasmaman loadouts
+  minLimit: 0
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - BrigmedicBeret
   - CMOMedicalHeadMirror
   - SecurityBeret
@@ -1489,9 +1408,6 @@
   id: BrigmedicOuterClothing
   name: loadout-group-brigmedic-outer
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - BrigmedicAMG
   - ArmorVest
   - ArmorVestSlim
@@ -1548,9 +1464,6 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-# MAID BEGIN plasmaman loadouts
-  - Nothing
-# MAID END plasmaman loadouts
   - ZookeeperHead
   - ZookeeperEnvirohelm #Maid
 
@@ -1637,14 +1550,8 @@
 - type: loadoutGroup
   id: VirologistOuterClothing
   name: loadout-group-virologist-outerclothing
-# MAID BEGIN plasmaman loadouts
-  # minLimit: 0
-  minLimit: 1
-# MAID END plasmaman loadouts
+  minLimit: 0
   loadouts:
-# MAID BEGIN plasmaman loadouts
-   - Nothing
-# MAID END plasmaman loadouts
    - VirologistLabCoat
    - VirologistWintercoat
 

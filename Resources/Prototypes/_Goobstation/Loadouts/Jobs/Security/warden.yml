@@ -32,8 +32,10 @@
     outerClothing: ClothingOuterCoatWardenBlue
   effects:
 # MAID BEGIN plasmaman loadouts
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    inverted : true
 # MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: SeniorWarden
