@@ -46,6 +46,8 @@
   parent: BaseGameRule
   id: Changeling
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 14 # MAID dynamic game mode
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
@@ -270,6 +272,8 @@
   parent: BaseGameRule
   categories: [ HideSpawnMenu ]
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 20 # MAID dynamic game mode
   - type: BlobRule
   - type: GameRule
     minPlayers: 20
@@ -296,6 +300,8 @@
   parent: BaseGameRule
   categories: [ HideSpawnMenu ]
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 20 # MAID dynamic game mode
   - type: StationEvent
     weight: 1
     duration: 1
@@ -396,6 +402,8 @@
   parent: BaseGameRule
   id: Devil
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 4 # MAID dynamic game mode
   - type: DevilRule
   - type: GameRule
     minPlayers: 15

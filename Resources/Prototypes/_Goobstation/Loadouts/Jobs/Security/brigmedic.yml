@@ -5,44 +5,24 @@
 
 - type: loadout
   id: BrigmedicJumpsuit
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitBrigmedic
 
 
 - type: loadout
   id: BrigmedicJumpskirt
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtBrigmedic
 
 
 - type: loadout
   id: BrigmedicBeret
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatBeretBrigmedic
 
 
 - type: loadout
   id: BrigmedicAMG
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterCoatAMG
 

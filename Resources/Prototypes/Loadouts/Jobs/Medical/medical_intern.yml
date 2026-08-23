@@ -77,22 +77,12 @@
 # Jumpsuit
 - type: loadout
   id: WhiteJumpsuit
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorWhite
 
 
 - type: loadout
   id: WhiteJumpskirt
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorWhite
 

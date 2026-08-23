@@ -127,12 +127,12 @@
     soundHit:
       collection: RubberHammer
       params:
-        variation: 0.03
+        # variation: 0.03 # MAID sound-porting
         volume: 3
     soundNoDamage:
       collection: RubberHammer
       params:
-        variation: 0.03
+        # variation: 0.03 # MAID sound-porting
         volume: 3
     damage:
       types:

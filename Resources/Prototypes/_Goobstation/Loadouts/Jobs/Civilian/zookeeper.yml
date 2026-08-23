@@ -18,22 +18,12 @@
 
 - type: loadout
   id: ZookeeperHead
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadSafari
 
 
 - type: loadout
   id: ZookeeperJumpsuit
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitSafari
 

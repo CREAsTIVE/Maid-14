@@ -98,33 +98,18 @@
 # Jumpsuit
 - type: loadout
   id: HoPJumpsuit
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoP
 
 
 - type: loadout
   id: HoPJumpskirt
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoP
 
 
 - type: loadout # goob
   id: HoPJumpsuitMilitary
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryHoP
 
@@ -132,11 +117,6 @@
 # Head
 - type: loadout
   id: HoPHead
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatHopcap
 
@@ -171,10 +151,5 @@
 # Outerclothing
 - type: loadout
   id: HoPWintercoat
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterHoP

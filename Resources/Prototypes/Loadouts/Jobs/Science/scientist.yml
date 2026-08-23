@@ -95,31 +95,17 @@
   id: ScientificBeret
   startingGear: ScientificBeret
   effects:
-# MAID BEGIN plasmaman loadouts
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: SeniorResearcher
 
 - type: loadout
   id: RoboticistCap
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatCorpsoft
 
 
 - type: loadout
   id: SkullBandana
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadBandSkull
 
@@ -134,44 +120,24 @@
 # Jumpsuit
 - type: loadout
   id: ScientistJumpsuit
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitScientist
 
 
 - type: loadout
   id: ScientistJumpskirt
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtScientist
 
 
 - type: loadout
   id: RoboticistJumpsuit
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitRoboticist
 
 
 - type: loadout
   id: RoboticistJumpskirt
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtRoboticist
 
@@ -179,10 +145,6 @@
 - type: loadout
   id: SeniorResearcherJumpsuit
   effects:
-# MAID BEGIN plasmaman loadouts
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: SeniorResearcher
   equipment:
@@ -191,10 +153,6 @@
 - type: loadout
   id: SeniorResearcherJumpskirt
   effects:
-# MAID BEGIN plasmaman loadouts
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: SeniorResearcher
   equipment:
@@ -202,11 +160,6 @@
 
 - type: loadout # goob
   id: ResearchMJ
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryScientist
 
@@ -230,61 +183,32 @@
 # OuterClothing
 - type: loadout
   id: RegularLabCoat
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterCoatLab
 
 - type: loadout
   id: ScienceLabCoat
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterCoatRnd
 
 - type: loadout
   id: ScienceWintercoat
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterSci
 
 - type: loadout
   id: RoboticistLabCoat
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterCoatRobo
 
 - type: loadout
   id: RoboticistWintercoat
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterRobo
 
 - type: loadout
   id: SeniorResearcherLabCoat
   effects:
-# MAID BEGIN plasmaman loadouts
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: SeniorResearcher
   equipment:
@@ -293,22 +217,12 @@
 # Gloves
 - type: loadout
   id: LatexGloves
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     gloves: ClothingHandsGlovesLatex
 
 
 - type: loadout
   id: RobohandsGloves
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     gloves: ClothingHandsGlovesRobohands
 

@@ -93,11 +93,6 @@
 # OuterClothing
 - type: loadout
   id: SalvageSpecialistWintercoat
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterMiner
 

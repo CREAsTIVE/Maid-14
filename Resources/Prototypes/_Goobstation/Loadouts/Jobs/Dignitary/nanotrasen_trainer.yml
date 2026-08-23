@@ -1,22 +1,12 @@
 # Hat
 - type: loadout
   id: NanotrasenTrainerHat
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadBeretTrainer
 
 
 - type: loadout
   id: NanotrasenTrainerBeret
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatTrainer
 
@@ -40,22 +30,12 @@
 # Jumpsuits
 - type: loadout
   id: NanotrasenTrainerJumpsuit
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitTrainer
 
 
 - type: loadout
   id: NanotrasenTrainerJumpskirt
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtTrainer
 
@@ -63,11 +43,6 @@
 # Outer
 - type: loadout
   id: NanotrasenTrainerCoat
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterCoatTrainer
 
@@ -85,11 +60,6 @@
 # Gloves
 - type: loadout
   id: NanotrasenTrainerGloves
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     gloves: ClothingHandsGlovesHeavyGoldenTrim
 

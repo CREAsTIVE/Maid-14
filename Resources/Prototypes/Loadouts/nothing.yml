@@ -1,6 +1,0 @@
-- type: loadout
-  id: Nothing
-  dummyEntity: LoadoutDummyNothing
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman

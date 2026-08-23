@@ -80,9 +80,22 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+#Maid edit start
+- type: entity
+  id: HeadsDresser
+  parent: Dresser
+  suffix: Filled, Warden
+  components:
+  - type: Storage
+    grid:
+    - 0,0,6,7
+    maxItemSize: Normal
+#Maid edit end
+
 - type: entity
   id: DresserCaptainFilled
-  parent: Dresser
+#  parent: Dresser # Maid
+  parent: HeadsDresser
   suffix: Filled, Captain
   components:
   - type: StorageFill
@@ -94,10 +107,19 @@
       - id: ClothingHandsGlovesCaptain
       - id: ClothingOuterWinterCapArmored # Goobstation
       - id: ClothingNeckCloakCap
+      - id: ClothingUniformJumpskirtCaptain # Maid
+      - id: ClothingUniformJumpsuitCaptain # Maid
+      - id: ClothingShoesBootsLaceup # Maid
+      - id: ClothingEyesGlassesSunglasses # Maid
+      - id: ClothingNeckCloakCapFormal # Maid
+      - id: ClothingNeckCloakVetCap # Maid
+      - id: ClothingNeckCloakCapWealthy # Maid
+
 
 - type: entity
   id: DresserChiefEngineerFilled
-  parent: Dresser
+#  parent: Dresser # Maid
+  parent: HeadsDresser
   suffix: Filled, Chief Engineer
   components:
   - type: StorageFill
@@ -107,10 +129,14 @@
       - id: ClothingHeadHatBeretEngineering
       - id: ClothingOuterWinterCE
       - id: ClothingNeckCloakCe
+      - id: ClothingUniformJumpskirtChiefEngineer # Maid
+      - id: ClothingUniformJumpsuitChiefEngineer # Maid
+      - id: ClothingShoesColorBrown # Maid
 
 - type: entity
   id: DresserChiefMedicalOfficerFilled
-  parent: Dresser
+#  parent: Dresser # Maid
+  parent: HeadsDresser
   suffix: Filled, Chief Medical Officer
   components:
   - type: StorageFill
@@ -123,10 +149,14 @@
       - id: ClothingEyesGlasses
       - id: ClothingOuterWinterCMO
       - id: ClothingCloakCmo
+      - id: ClothingUniformJumpsuitCMO # Maid
+      - id: ClothingUniformJumpskirtCMO # Maid
+      - id: ClothingShoesColorBrown # Maid
 
 - type: entity
   id: DresserHeadOfPersonnelFilled
-  parent: Dresser
+#  parent: Dresser # Maid
+  parent: HeadsDresser
   suffix: Filled, Head Of Personnel
   components:
   - type: StorageFill
@@ -135,10 +165,15 @@
       - id: ClothingOuterWinterHoP
       - id: ClothingEyesGlasses
       - id: ClothingNeckCloakHop
+      - id: ClothingUniformJumpskirtHoP # Maid
+      - id: ClothingUniformJumpsuitHoP # Maid
+      - id: ClothingEyesGlassesSunglasses # Maid
+      - id: ClothingShoesBootsLaceup # Maid
 
 - type: entity
   id: DresserHeadOfSecurityFilled
-  parent: Dresser
+#  parent: Dresser # Maid
+  parent: HeadsDresser
   suffix: Filled, Head Of Security
   components:
   - type: StorageFill
@@ -151,10 +186,17 @@
       - id: ClothingUniformJumpsuitHosFormal
       - id: ClothingOuterWinterHoS
       - id: ClothingNeckCloakHos
+      - id: ClothingUniformJumpsuitHoSGrey # Maid
+      - id: ClothingUniformJumpskirtHoS # Maid
+      - id: ClothingUniformJumpsuitHoS # Maid
+      - id: ClothingShoesBootsJack # Maid
+      - id: ClothingOuterCoatHoSTrench # Maid
+      - id: ClothingNeckCloakHosWealthy # MAID
 
 - type: entity
   id: DresserQuarterMasterFilled
-  parent: Dresser
+#  parent: Dresser # Maid
+  parent: HeadsDresser
   suffix: Filled, Quarter Master
   components:
   - type: StorageFill
@@ -166,10 +208,14 @@
       - id: ClothingHandsGlovesColorBrown
       - id: ClothingOuterWinterQM
       - id: ClothingNeckCloakQm
+      - id: ClothingUniformJumpskirtQM # Maid
+      - id: ClothingUniformJumpsuitQM # Maid
+      - id: ClothingShoesColorBrown # Maid
 
 - type: entity
   id: DresserResearchDirectorFilled
-  parent: Dresser
+#  parent: Dresser # Maid
+  parent: HeadsDresser
   suffix: Filled, Research Director
   components:
   - type: StorageFill
@@ -180,10 +226,14 @@
       - id: ClothingOuterWinterRD
       - id: ClothingOuterCoatRD
       - id: ClothingNeckCloakRd
+      - id: ClothingUniformJumpsuitResearchDirector # Maid
+      - id: ClothingUniformJumpskirtResearchDirector # Maid
+      - id: ClothingShoesColorBrown #Maid
 
 - type: entity
   id: DresserWardenFilled
-  parent: Dresser
+#  parent: Dresser # Maid
+  parent: HeadsDresser
   suffix: Filled, Warden
   components:
   - type: StorageFill

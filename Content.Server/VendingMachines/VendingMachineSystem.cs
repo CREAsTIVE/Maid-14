@@ -220,7 +220,12 @@ namespace Content.Server.VendingMachines
             var othersFilter = Filter.PvsExcept(args.Args.User);
             Popup.PopupEntity(Loc.GetString("vending-machine-restock-done-others", ("user", Identity.Entity(args.User, EntityManager)), ("target", uid)), args.Args.User, othersFilter, true, PopupType.Medium);
 
+            // MAID BEGIN sound-porting
+            /*
             Audio.PlayPvs(restockComponent.SoundRestockDone, uid, AudioParams.Default.WithVolume(-2f).WithVariation(0.2f));
+            */
+            Audio.PlayPvs(restockComponent.SoundRestockDone, uid, AudioParams.Default.WithVolume(-2f));
+            // MAID END sound-porting
 
             Del(args.Args.Used.Value);
 

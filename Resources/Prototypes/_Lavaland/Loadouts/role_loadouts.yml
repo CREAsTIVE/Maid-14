@@ -15,9 +15,9 @@
   # - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  # - SalvageEnvirohelm #Maid
-  # - SalvageEnvirosuit #Maid
-  # - SalvageEnvirogloves #Maid
+  - SalvageEnvirohelm
+  - SalvageEnvirosuit
+  - SalvageEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
   - Underwear #Maid

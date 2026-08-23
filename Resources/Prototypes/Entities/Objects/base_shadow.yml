@@ -19,8 +19,8 @@
           - !type:PlaySoundBehavior
             sound:
               path: /Audio/Items/hiss.ogg
-              params:
-                variation: 0.08
+              # params: # MAID sound-porting
+                # variation: 0.08 # MAID sound-porting
   - type: DamagedByFlashing
     flashDamage:
       types:

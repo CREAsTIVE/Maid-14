@@ -92,55 +92,30 @@
 # Jumpsuit
 - type: loadout
   id: CaptainJumpsuit
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitCaptain
 
 
 - type: loadout
   id: CaptainJumpskirt
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtCaptain
 
 
 - type: loadout
   id: CaptainFormalSuit
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitCapFormal
 
 
 - type: loadout
   id: CaptainFormalSkirt
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpskirtCapFormalDress
 
 
 - type: loadout # goob
   id: CaptainJumpsuitMilitary
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryCaptain
 
@@ -148,35 +123,27 @@
 # Head
 - type: loadout
   id: CaptainHead
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatCaptain
 
 
 - type: loadout
   id: CaptainCap
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     head: ClothingHeadHatCapcap
 
 
 # Mask - Tbh idk if this should be here or in _goob but this is easier.
 
-- type: loadout
-  id: CaptainMask
-  equipment:
-    mask: FoodSnackLollypopCaptain
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterCap
+# Maid edit start
+#- type: loadout
+#  id: CaptainMask
+#  equipment:
+#    mask: FoodSnackLollypopCaptain
+#  effects:
+#  - !type:GroupLoadoutEffect
+#    proto: MasterCap
+# Maid edit end
 
 # Neck
 - type: loadout
@@ -237,20 +204,10 @@
 # Outer clothing
 - type: loadout
   id: CaptainOuterClothing
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterArmorCaptainCarapace
 
 - type: loadout
   id: CaptainWintercoat
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     outerClothing: ClothingOuterWinterCapArmored # Goob edit

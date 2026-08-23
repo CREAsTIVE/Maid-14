@@ -351,7 +351,7 @@
       params:
         volume: -12 # Ambient
         maxDistance: 10
-        variation: 0.05
+        # variation: 0.05 # MAID sound-porting
   - type: SpamEmitSoundRequirePower # Goobstation
 
 # a lathe that can be sped up with space lube / slowed down with glue
@@ -724,7 +724,7 @@
     emagStaticPacks:
     - HostileCubesStatic
     # Goobstation Packs
-    - EmagCubesStatic
+#    - EmagCubesStatic # Maid
 
 - type: entity
   id: SecurityTechFab
@@ -758,7 +758,7 @@
     # Goobstation
 #    - SecurityAmmoStaticGoob #Maid
     - SecurityEquipmentStaticGoob
-    - SecurityHypoStatic
+#    - SecurityHypoStatic # Maid
     - MechWeaponsSecurityStatic
 #  - SecurityBoardsStaticGoob
 #  - SecurityBoardsStaticGoob
@@ -895,9 +895,9 @@
     - TranslatorImplanters # Language
   - type: Machine
     board: MedicalTechFabCircuitboard
-  - type: EmagLatheRecipes # Goobstation Packs
-    emagStaticPacks:
-    - SyndicateCatridgesStatic
+#  - type: EmagLatheRecipes # Goobstation Packs # Maid
+#    emagStaticPacks: # Maid
+#    - SyndicateCatridgesStatic # Maid
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
 

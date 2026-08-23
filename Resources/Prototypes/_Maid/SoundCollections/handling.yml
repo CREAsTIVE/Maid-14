@@ -1,0 +1,7 @@
+- type: soundCollection
+  id: HardsuitDrop
+  files:
+  - /Audio/_Maid/Items/handling/bodydrop1.ogg
+  - /Audio/_Maid/Items/handling/bodydrop2.ogg
+  - /Audio/_Maid/Items/handling/bodydrop3.ogg
+  - /Audio/_Maid/Items/handling/bodydrop4.ogg

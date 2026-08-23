@@ -2,6 +2,8 @@
   parent: BaseGameRule
   id: Shadowling
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 16 # MAID dynamic game mode
   - type: ShadowlingRule
   - type: GameRule
     minPlayers: 30

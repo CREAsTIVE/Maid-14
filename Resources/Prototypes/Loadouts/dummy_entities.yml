@@ -13,14 +13,3 @@
   - type: Sprite
     sprite: Objects/Misc/candles.rsi
     state: loadout
-# MAID BEGIN plasmaman loadouts
-- type: entity
-  id: LoadoutDummyNothing
-  categories: [ HideSpawnMenu ]
-  name: Nothing
-  description: No loadout item selected.
-  components:
-  - type: Sprite
-    sprite: Markers/cross.rsi
-    state: red
-# MAID END plasmaman loadouts

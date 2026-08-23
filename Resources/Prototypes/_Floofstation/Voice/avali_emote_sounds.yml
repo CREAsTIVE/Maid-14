@@ -25,8 +25,8 @@
 
 - type: emoteSounds
   id: MaleAvaliEmote
-  params:
-    variation: 0.125
+  # params: # MAID sound-porting
+    # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
       collection: AvaliScreams
@@ -75,8 +75,8 @@
 
 - type: emoteSounds
   id: FemaleAvaliEmote
-  params:
-    variation: 0.125
+  # params: # MAID sound-porting
+    # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
       collection: AvaliScreams

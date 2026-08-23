@@ -10,22 +10,25 @@
   recipes:
   - HumanCube
   - DionaCube
-  - GingerbreadCube
+#  - GingerbreadCube # Maid
   - MothCube
   - DwarfCube
   - HarpyCube
-  - RodentiaCube
+#  - RodentiaCube # Maid
   - ReptilianCube
-  - VulpkaninCube
+#  - VulpkaninCube # Maid
   - SlimePersonCube
-  - TajaranCube
-  - VoxCube
-  - YowieCube
-  - ShadowkinCube
-  - ChitinidCube
-  - FeroxiCube
+#  - TajaranCube # Maid
+#  - VoxCube # Maid
+#  - YowieCube # Maid
+#  - ShadowkinCube # Maid
+#  - ChitinidCube # Maid
+#  - FeroxiCube # Maid
+  - FelinidCube # Maid
 
-- type: latheRecipePack
-  id: EmagCubesStatic
-  recipes:
-  - FelinidCube
+# Maid edit start
+#- type: latheRecipePack
+#  id: EmagCubesStatic
+#  recipes:
+#  - FelinidCube
+# Maid edit end

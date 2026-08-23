@@ -811,3 +811,245 @@ Entries:
       message: Декали и тайлы
   id: 71
   time: '2026-07-26T09:53:09.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Add
+      message: Множество тулшед команд (подробности в PR#91).
+  id: 72
+  time: '2026-07-31T14:44:25.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Add
+      message: Игровой режим "Dynamic"
+  id: 73
+  time: '2026-07-31T14:46:12.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Fix
+      message: Баг с окончанием раунда после взрыва ядерки
+  id: 74
+  time: '2026-08-02T19:04:19.0000000+00:00'
+- author: antiWAFG1
+  changes:
+    - type: Tweak
+      message: В таблетки вмещается 50 унций вещества.
+    - type: Fix
+      message: Теперь при разборке раздвижных окон, они не болтируются.
+    - type: Fix
+      message: Пофикшены столы, теперь их можно нормально собрать.
+  id: 75
+  time: '2026-08-02T21:05:09.0000000+00:00'
+- author: antiWAFG1
+  changes:
+    - type: Remove
+      message: >-
+        Пожарный шлем больше не даёт полную защиту от температур без основной
+        одежды.
+    - type: Tweak
+      message: В VendingMachineSec заменён RiotBulletShield на TelescopicShield
+    - type: Fix
+      message: >-
+        Визор синдиката теперь выглядит как солнцезащитный очки и имеет свойства
+        хамелеона.
+    - type: Fix
+      message: Исправил перевод стеклянного стыковочного шлюза.
+  id: 76
+  time: '2026-08-02T21:06:09.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Tweak
+      message: >-
+        Dynamic перебалансирован для более равномерного распределения
+        антагонистов.
+  id: 77
+  time: '2026-08-02T21:06:10.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Add
+      message: Сердцебиение и звук после смерти
+    - type: Remove
+      message: >-
+        Больше нет рандомизации высоты звука практически у всех звуков (кроме
+        оружия)
+    - type: Tweak
+      message: Портированно огромное количество звуков из старого билда
+  id: 78
+  time: '2026-08-05T16:31:36.0000000+00:00'
+- author: riverkz
+  changes:
+    - type: Add
+      message: /Resources/Audio/StationEvents/epsilon.ogg
+    - type: Add
+      message: /Resources/Audio/StationEvents/peacemakers.ogg
+  id: 79
+  time: '2026-08-05T16:35:10.0000000+00:00'
+- author: Urames
+  changes:
+    - type: Fix
+      message: Исправлены шансы на лут в шкафах
+    - type: Add
+      message: >-
+        Портировано наполнение из старого билда для LockerDetectiveFilled,
+        LockerSecurityFilled. Добавлен GunSafeTempGun + локализация. Добавлены
+        WeaponPistolMk58 в разные шкафы.
+  id: 80
+  time: '2026-08-08T08:59:45.0000000+00:00'
+- author: Pik1ta
+  changes:
+    - type: Add
+      message: Большое количество звуков которые могут издавать Гарпии. Покаркайте!
+  id: 81
+  time: '2026-08-08T16:03:14.0000000+00:00'
+- author: Urames
+  changes:
+    - type: Remove
+      message: Очень много леденцов
+  id: 82
+  time: '2026-08-13T12:36:53.0000000+00:00'
+- author: Inconnu
+  changes:
+    - type: Add
+      message: Добавлены волны от взрывов
+    - type: Add
+      message: Добавлены следы от пуль
+    - type: Add
+      message: Добавлена репутация в ООС
+  id: 83
+  time: '2026-08-13T12:38:36.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Add
+      message: Добавлен E-Gun (двухрежимный энергетический пистолет)
+    - type: Add
+      message: Добавлен молот Тагиллы со звуками удара
+    - type: Add
+      message: Портированы боди-камеры службы безопасности
+    - type: Add
+      message: >-
+        Добавлено световое копьё (hardlight spear), гипоспрей бригмедика,
+        медицинский разгрузочный жилет
+    - type: Add
+      message: Добавлены зип-локи, секретные документы и шляпа гнома
+    - type: Tweak
+      message: Убрано слово "any" (любой) из названий магазинов патронов
+    - type: Tweak
+      message: Обновлены спрайты коробок и плащей ГСБ
+    - type: Tweak
+      message: Портирован старый спрайт мака
+  id: 84
+  time: '2026-08-13T12:39:53.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Add
+      message: Мид-раунд антаг-роль Терминатор
+    - type: Add
+      message: Компонент HeatOverTime
+  id: 85
+  time: '2026-08-13T12:42:08.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Add
+      message: Адаптивный игровой режим
+  id: 86
+  time: '2026-08-15T17:28:59.0000000+00:00'
+- author: Urames
+  changes:
+    - type: Add
+      message: Портированы спрайы магазинов для МК58, Лектера, Дрозда и АКМС
+    - type: Add
+      message: >-
+        Портированы спрайты оружия Гадюки, Бульдога, АКМС'а, Лектера,
+        Кардашёв-Мосина, L6 SAW'а, Кобры, Двустволки, Дрозда, Антикварного
+        пистолета, C-20R, Протокинетика и Обреза
+  id: 87
+  time: '2026-08-15T17:34:14.0000000+00:00'
+- author: Urames
+  changes:
+    - type: Add
+      message: >-
+        Портировано наполнение ДетекШкафа из старого билда. Портирован спрайт
+        пожарного костюма из старого билда.  Добавлены CargoTechFabCircuitboard,
+        ScienceTechFabCircuitboard, ServiceTechFabCircuitboard в наполнения
+        шкафов.
+  id: 88
+  time: '2026-08-16T08:52:12.0000000+00:00'
+- author: Urames
+  changes:
+    - type: Add
+      message: >-
+        Портированы спрайты из старого билда капюшоны биозащитного костюма,
+        канистры с газами,  водолазки рд.
+    - type: Add
+      message: Добавлен второй плащ для капитана.
+    - type: Remove
+      message: Катриджи автоинъектора.
+    - type: Tweak
+      message: >-
+        Теперь вместо сменяемых магазинов христов имеет встроенный на 5
+        патронов. 
+    - type: Tweak
+      message: Изменены называния плащей капитана.
+  id: 89
+  time: '2026-08-20T21:08:57.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Remove
+      message: Убрана телепортация игроков с шаттла прибытия
+  id: 90
+  time: '2026-08-21T09:41:35.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Add
+      message: Добавлен гранатомет Шинано и боеприпасы к нему.
+    - type: Add
+      message: Добавлены рецепты для создания гранат Шинано в автолатте.
+    - type: Add
+      message: Добавлены базовый скафандр и шлем.
+    - type: Add
+      message: Добавлены черные перчатки СБ в гардероб детектива.
+    - type: Add
+      message: >-
+        Добавлен энергетический боевой топор, который можно найти в технических
+        тоннелях или среди обломков утилизаторов.
+    - type: Add
+      message: Добавлен имплант светового копья в аплинк Синдиката.
+    - type: Tweak
+      message: Световое копье теперь можно использовать чаще.
+    - type: Fix
+      message: Исправлена работа баротравмы.
+  id: 91
+  time: '2026-08-22T09:26:26.0000000+00:00'
+- author: CREAsTIVE
+  changes:
+    - type: Add
+      message: Перенесен сейф с E-gun (и его фейковая версия) со старого репозитория.
+    - type: Add
+      message: >-
+        Добавлены 59 старых треков лобби/музыкального автомата из старого
+        репозитория.
+    - type: Remove
+      message: Убрано объявление о "Резне" в чате в конце раунда.
+    - type: Remove
+      message: >-
+        Убран спавн личинок ксеноморфов (фейсхаггеров) из случайных спавнеров
+        враждебных мобов.
+    - type: Tweak
+      message: Отключено оповещение на всю станцию о начале события "Спящие агенты".
+    - type: Fix
+      message: >-
+        Исправлена обработка заикания (stuttering) для слов с русскими
+        согласными.
+    - type: Fix
+      message: >-
+        Исправлено быстрое надевание носков и нижнего белья по нажатию клавиши
+        Z.
+  id: 92
+  time: '2026-08-22T09:29:58.0000000+00:00'
+- author: Urames
+  changes:
+    - type: Add
+      message: >-
+        Добавлены ClothingShoesBootsMagAdv и JetpackVoid в наполнение
+        SuitStorageCE.
+  id: 93
+  time: '2026-08-22T09:43:03.0000000+00:00'

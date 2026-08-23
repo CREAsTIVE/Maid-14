@@ -169,8 +169,8 @@
         pickup: true
         emptyAtUser: true
       steps:
-      - tool: Anchoring
-        doAfter: 1
+      - tool: Cutting   #Maid
+        doAfter: 5      #Maid
 
   #plasma windoor node
   - node: pglass
@@ -243,8 +243,8 @@
         pickup: true
         emptyAtUser: true
       steps:
-      - tool: Anchoring
-        doAfter: 1
+      - tool: Cutting   #Maid
+        doAfter: 5      #Maid
 
   #uranium windoor node
   - node: uglass
@@ -317,8 +317,8 @@
         pickup: true
         emptyAtUser: true
       steps:
-      - tool: Anchoring
-        doAfter: 1
+      - tool: Cutting   #Maid
+        doAfter: 5      #Maid
 
   #secure windoor nodes
   - node: assemblySecure
@@ -443,8 +443,8 @@
         pickup: true
         emptyAtUser: true
       steps:
-      - tool: Anchoring
-        doAfter: 4
+      - tool: Cutting   #Maid
+        doAfter: 5      #Maid
 
     - to: medSecurityUnfinished
       conditions:
@@ -551,8 +551,8 @@
         pickup: true
         emptyAtUser: true
       steps:
-      - tool: Anchoring
-        doAfter: 4
+      - tool: Cutting   #Maid
+        doAfter: 5      #Maid      
 
   #secure plasma node
   - node: pglassSecure
@@ -630,8 +630,8 @@
         pickup: true
         emptyAtUser: true
       steps:
-      - tool: Anchoring
-        doAfter: 4
+      - tool: Cutting   #Maid
+        doAfter: 5      #Maid
 
   #secure Uranium node
   - node: uglassSecure
@@ -708,8 +708,8 @@
         pickup: true
         emptyAtUser: true
       steps:
-      - tool: Anchoring
-        doAfter: 4
+      - tool: Cutting   #Maid
+        doAfter: 5      #Maid
 
 #Security Panels
   - node: medSecurityUnfinished

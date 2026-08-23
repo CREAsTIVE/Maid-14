@@ -52,6 +52,11 @@ namespace Content.Server.Nuke
     public sealed partial class NukeComponent : SharedNukeComponent
     {
         /// <summary>
+        ///     Whether or not this nuke explosion should automatically trigger a round end.
+        /// </summary>
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public bool EndRoundOnExplosion = true; // MAID round-end-fix
+        /// <summary>
         ///     Default bomb timer value in seconds.
         /// </summary>
         [DataField]

@@ -96,6 +96,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
 using Content.Server.Mind;
+using Content.Server.Preferences.Managers;
 using Content.Server.Roles.Jobs;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
@@ -170,6 +171,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
         [Dependency] private readonly GhostVisibilitySystem _ghostVisibility = default!;
         [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
+        [Dependency] private readonly IServerPreferencesManager _prefs = default!;
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -578,8 +580,14 @@ namespace Content.Server.Ghost
                 _minds.TransferTo(mind.Owner, null, createGhost: false, mind: mind.Comp);
                 return null;
             }
+            // Maid-14-Tweak-Start
+            EntProtoId ghostProto = GameTicker.ObserverPrototypeName;
+            if (_prefs.GetPreferencesOrNull(mind.Comp.UserId) is { } ghostPrefs
+                && _prototypeManager.TryIndex(ghostPrefs.CustomGhost, out var customGhost))
+                ghostProto = customGhost.GhostEntityPrototype;
 
-            var ghost = SpawnAtPosition(GameTicker.ObserverPrototypeName, spawnPosition.Value);
+            var ghost = SpawnAtPosition(ghostProto, spawnPosition.Value);
+            // Maid-14-Tweak-End
             var ghostComponent = Comp<GhostComponent>(ghost);
 
             // Try setting the ghost entity name to either the character name or the player name.

@@ -31,9 +31,5 @@
   equipment:
     outerClothing: ClothingOuterCoatWardenBlue
   effects:
-# MAID BEGIN plasmaman loadouts
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: SeniorWarden

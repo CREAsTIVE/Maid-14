@@ -245,12 +245,16 @@
   - type: AntagObjectives # Goobstation
     objectives:
     - NukeopsDetonateObjective
+  - type: AdaptiveScoreStatic # MAID adaptive gamemode
+    chaosScore: 25 # MAID adaptive gamemode
 
 
 - type: entity
   parent: BaseNukeopsRule
   id: Nukeops
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 20 # MAID dynamic game mode
   - type: GameRule
     minPlayers: 20
   - type: LoadMapRule
@@ -366,6 +370,8 @@
   parent: BaseTraitorRule
   id: Traitor
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 14 # MAID dynamic game mode
   - type: GameRule
     minPlayers: 5
   - type: AntagSelection
@@ -388,6 +394,8 @@
   id: Revolutionary
   parent: BaseGameRule
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 20 # MAID dynamic game mode
   - type: GameRule
     minPlayers: 15
     chaosScore: 1000 # Goobstation - intentionally not per-antag
@@ -405,7 +413,7 @@
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
-        sound: "/Audio/Ambience/Antag/headrev_start.ogg"
+        sound: "/Audio/_Maid/Ambience/Antag/headrev_start.ogg" #MAID Sound porting
       startingGear: HeadRevGear
       components:
       - type: Revolutionary
@@ -480,6 +488,8 @@
   id: Zombie
   parent: BaseGameRule
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 20 # MAID dynamic game mode
   - type: GameRule
     minPlayers: 20
     delay:
@@ -506,7 +516,7 @@
       briefing:
         text: zombie-patientzero-role-greeting
         color: Plum
-        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
+        sound: "/Audio/_Maid/Ambience/Antag/zombie_start.ogg" #MAID Sound porting
       components:
       - type: PendingZombie
       - type: ZombifyOnDeath

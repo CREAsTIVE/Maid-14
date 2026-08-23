@@ -27,11 +27,6 @@
 
 - type: loadout
   id: HoPGloves
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     gloves: ClothingHandsGlovesHop
 
@@ -40,9 +35,5 @@
   equipment:
     outerClothing: ClothingOuterCoatHoPLong
   effects:
-# MAID BEGIN plasmaman loadouts
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: MasterHoP

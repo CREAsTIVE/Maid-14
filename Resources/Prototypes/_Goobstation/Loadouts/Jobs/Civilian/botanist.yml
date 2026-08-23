@@ -15,10 +15,6 @@
 - type: loadout
   id: BotanistBeret
   effects:
-# MAID BEGIN plasmaman loadouts
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   - !type:GroupLoadoutEffect
     proto: MasterBotanist
   equipment:

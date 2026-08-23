@@ -182,7 +182,7 @@
       collection: FootstepHighHeels
       params:
         volume: -6
-        variation: 0.09
+        # variation: 0.09 # MAID sound-porting
 
 - type: entity
   parent: [ClothingShoesMilitaryBase, BaseSecurityContraband]
@@ -329,7 +329,7 @@
     footstepSoundCollection:
       collection: FootstepSpurs
       params:
-        variation: 0.09
+        # variation: 0.09 # MAID sound-porting
         volume: -6
 
 - type: entity

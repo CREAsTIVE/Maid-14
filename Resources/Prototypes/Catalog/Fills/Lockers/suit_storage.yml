@@ -218,9 +218,22 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
-        tableId: FillChiefEngineerHardsuit
+#        tableId: FillChiefEngineerHardsuit # Maid
+        tableId: FillChiefEngineerStorageCE # Maid
   - type: AccessReader
     access: [["ChiefEngineer"]]
+
+# Maid edit start
+- type: entityTable
+  id: FillChiefEngineerStorageCE
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterHardsuitEngineeringWhite
+    - id: ClothingMaskBreath
+    - id: OxygenTankFilled
+    - id: ClothingShoesBootsMagAdv
+    - id: JetpackVoid
+# Maid edit stop
 
 #CMO's hardsuit
 - type: entity

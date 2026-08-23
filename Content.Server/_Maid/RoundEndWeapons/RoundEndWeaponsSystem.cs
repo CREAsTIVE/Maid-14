@@ -1,4 +1,3 @@
-using Content.Server.Chat.Managers;
 using Content.Server.Hands.Systems;
 using Content.Shared._Maid.CVars;
 using Content.Shared.CombatMode.Pacification;
@@ -21,7 +20,7 @@ public sealed class RoundEndWeaponsSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IChatManager _chatMan = default!;
+
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
 
@@ -57,7 +56,7 @@ public sealed class RoundEndWeaponsSystem : EntitySystem
             _hands.PickupOrDrop(uid, weapon, handsComp: hands);
         }
 
-        _chatMan.DispatchServerAnnouncement(Loc.GetString("round-end-weapon-delivery-start"), Color.Red);
+
         _audio.PlayGlobal(EndOfRoundSound, Filter.Broadcast(), false);
     }
 }

@@ -330,6 +330,11 @@ public sealed class ArrivalsSystem : EntitySystem
             {
                 // Warp all players who are still on this shuttle to a spawn point. This doesn't let them return to
                 // arrivals. It also ensures noobs, slow players or AFK players safely leave the shuttle.
+                // MAID BEGIN arrivals FTL fix
+                // But wrap only if players NOT allowed to return on arrivals,
+                // since its not dangerous and will NOT leave you in space
+                if (!_cfgManager.GetCVar(CCVars.ArrivalsReturns))
+                // MAID END
                 TryTeleportToMapSpawn(pUid, component.Station, xform);
             }
 

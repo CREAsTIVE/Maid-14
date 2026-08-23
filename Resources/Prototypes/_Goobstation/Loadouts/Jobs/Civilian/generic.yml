@@ -1,10 +1,5 @@
 - type: loadout
   id: WhiteGloves
-# MAID BEGIN plasmaman loadouts
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: InvertedPlasmaman
-# MAID END plasmaman loadouts
   equipment:
     gloves: ClothingHandsGlovesColorWhite
 
