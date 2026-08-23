@@ -203,6 +203,8 @@
 #    - id: SlasherSpawn # Goobstation - The Slasher #Maid
     - id: SpacePirates # Goobstation - you probably can read whom this rule spawns
     #- id: WraithMidround # Goobstation - Wraith
+    - id: TerminatorSpawn # Maid - Terminator
+    #TODO When Slasher is Ready - id: SlasherSpawn # Goobstation - The Slasher
     #TODO when midrounds are "reviewed" by the chudmins add them back
 
 - type: entity
@@ -248,6 +250,10 @@
     chaos: # Goobstation
       Anomaly: 100
     eventType: Chaotic # Goobstation
+  # MAID BEGIN anomaly score
+  - type: AdaptiveScoreStaticGameruleEntity
+    prototype: AnomalyPyroclastic # We can't reference base since its abstract
+  # MAID END anomaly score
   # Goobstation
   - type: GameRule
     delay:
@@ -265,6 +271,11 @@
       min:  30
       max:  30
     chaosScore: 40 # Goobstation
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    chaosScore: 5
+    combatScore: 0
+  # MAID END adaptive scores
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
     startAudio:
@@ -355,11 +366,18 @@
     chaosScore: 60
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    chaosScore: 3
+    combatScore: 0
+  # MAID END adaptive scores
 
 - type: entity
   parent: BaseGameRule
   id: DragonSpawn
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 10 # MAID dynamic game mode
   - type: StationEvent
     weight: 2 # Goobstation - was 3
     earliestStart: 30 # Goobstation was 45
@@ -400,6 +418,8 @@
   parent: BaseGameRule
   id: NinjaSpawn
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 15 # MAID dynamic game mode
   - type: StationEvent
     weight: 3 # Goobstation - was 6
     duration: null
@@ -450,7 +470,7 @@
       briefing:
         text: ninja-role-greeting
         color: Green
-        sound: /Audio/Misc/ninja_greeting.ogg
+        sound: /Audio/_Maid/Misc/ninja_greeting.ogg #MAID Sound porting
       components:
       - type: SpaceNinja
       - type: NpcFactionMember
@@ -602,6 +622,11 @@
   - type: GameRule
     chaosScore: 80 # most of the time scrubbers just clean it
   - type: GasLeakRule
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    chaosScore: 5
+    combatScore: 0
+  # MAID END adaptive scores
 
 - type: entity
   id: KudzuGrowth
@@ -641,6 +666,14 @@
   - type: GameRule
     chaosScore: 80
   - type: PowerGridCheckRule
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    chaosScore: 5
+    conditions:
+    - !type:AdaptiveScoreHasComponentCondition
+      components:
+      - ActiveGameRule
+  # MAID END adaptive scores
 
 - type: entity
   parent: BaseGameRule
@@ -675,6 +708,14 @@
     extraCount: 2
     lightBreakChancePerSecond: 0.0003
     doorToggleChancePerSecond: 0.001
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    chaosScore: 3
+    conditions:
+    - !type:AdaptiveScoreHasComponentCondition
+      components:
+      - ActiveGameRule
+  # MAID END adaptive scores
 
 - type: entity
   id: VentClog
@@ -715,6 +756,11 @@
   # Goobstation
   - type: GameRule
     chaosScore: 200
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStaticGameruleEntity
+    prototype: MobSlimeXenobioBabyGrey
+    count: 5
+  # MAID END adaptive scores
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
@@ -739,6 +785,11 @@
   # Goobstation
   - type: GameRule
     chaosScore: 240
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStaticGameruleEntity
+    prototype: MobPurpleSnake
+    count: 5
+  # MAID END adaptive scores
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
@@ -765,6 +816,11 @@
   # Goobstation
   - type: GameRule
     chaosScore: 240
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStaticGameruleEntity
+    prototype: MobGiantSpiderAngry
+    count: 5
+  # MAID END adaptive scores
   - type: VentCrittersRule
     table: # DeltaV: EntityTable instead of spawn entries
       id: MobGiantSpiderAngry
@@ -788,6 +844,11 @@
   # Goobstation
   - type: GameRule
     chaosScore: 240
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStaticGameruleEntity
+    prototype: MobClownSpider
+    count: 5
+  # MAID END adaptive scores
   - type: VentCrittersRule
     playerRatio: 20 # DeltaV: Clown spiders are very robust
     table: # DeltaV: EntityTable instead of spawn entries
@@ -797,6 +858,8 @@
   id: ZombieOutbreak
   parent: BaseGameRule
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 20 # MAID dynamic game mode
   - type: StationEvent
     earliestStart: 60 # Goobstation - was 90 (impossible on goob)
     minimumPlayers: 40
@@ -824,7 +887,7 @@
       briefing:
         text: zombie-patientzero-role-greeting
         color: Plum
-        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
+        sound: "/Audio/_Maid/Ambience/Antag/zombie_start.ogg" #MAID Sound porting
       components:
       - type: PendingZombie #less time to prepare than normal
         minInitialInfectedGrace: 300
@@ -839,11 +902,13 @@
   parent: BaseNukeopsRule
   id: LoneOpsSpawn
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 20 # MAID dynamic game mode
   - type: StationEvent
     earliestStart: 35
     weight: 2.5 # Goobstation - was 5.5
     minimumPlayers: 50 # Goobstation - was 20
-    duration: 1
+    duration: null # MAID BEGIN round-end-fix
     chaos: # Goobstation
       Hostile: 200
       Medical: 200
@@ -887,14 +952,18 @@
   parent: BaseTraitorRule
   id: SleeperAgents
   components:
+  - type: DynamicRuleCost # MAID dynamic game mode
+    cost: 10 # MAID dynamic game mode
   - type: StationEvent
     earliestStart: 30
     weight: 8
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
-    startAnnouncement: station-event-communication-interception
-    startAudio:
-      path: /Audio/_Maid/Announcements/attention.ogg # Maid
+    # MAID BEGIN - disable sleeper agents announcements
+    # startAnnouncement: station-event-communication-interception
+    # startAudio:
+    #   path: /Audio/_Maid/Announcements/attention.ogg # Maid
+    # MAID END
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
     eventType: HostilesSpawn # Goobstation
@@ -955,6 +1024,13 @@
   - type: GameRule
     chaosScore: 150
   - type: IonStormRule
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    chaosScore:
+      base: 3
+      target: 0
+      in: 600
+  # MAID END adaptive scores
 
 - type: entity
   id: MimicVendorRule

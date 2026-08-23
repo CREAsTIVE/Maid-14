@@ -1,0 +1,13 @@
+- type: soundCollection
+  id: deathSounds
+  files:
+    - /Audio/_Maid/Death/death.ogg
+    - /Audio/_Maid/Death/death.wav
+
+- type: soundCollection
+  id: heartSounds
+  files:
+    - /Audio/_Maid/Heart/heart.ogg
+    - /Audio/_Maid/Heart/heart2.wav
+    - /Audio/_Maid/Heart/heart3.ogg
+    - /Audio/_Maid/Heart/heart4.ogg

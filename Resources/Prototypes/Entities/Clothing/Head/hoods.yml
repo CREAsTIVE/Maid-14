@@ -110,9 +110,11 @@
   description: A hood that protects the head and face from biological contaminants.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/general.rsi
+#    sprite: Clothing/Head/Hoods/Bio/general.rsi # Maid
+    sprite: _Maid/Clothing/Head/Hoods/Bio/general.rsi # Maid
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/general.rsi
+#    sprite: Clothing/Head/Hoods/Bio/general.rsi # Maid
+    sprite: _Maid/Clothing/Head/Hoods/Bio/general.rsi # Maid
   - type: BreathMask
   - type: IngestionBlocker
   - type: GroupExamine
@@ -156,9 +158,11 @@
   components:
   - type: IdentityBlocker
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/cmo.rsi
+#    sprite: Clothing/Head/Hoods/Bio/cmo.rsi # Maid
+    sprite: _Maid/Clothing/Head/Hoods/Bio/cmo.rsi # Maid
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/cmo.rsi
+#    sprite: Clothing/Head/Hoods/Bio/cmo.rsi # Maid
+    sprite: _Maid/Clothing/Head/Hoods/Bio/cmo.rsi # Maid
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.8
 
@@ -171,9 +175,11 @@
   components:
   - type: IdentityBlocker
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/janitor.rsi
+#    sprite: Clothing/Head/Hoods/Bio/janitor.rsi # Maid
+    sprite: _Maid/Clothing/Head/Hoods/Bio/janitor.rsi # Maid
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/janitor.rsi
+#    sprite: Clothing/Head/Hoods/Bio/janitor.rsi # Maid
+    sprite: _Maid/Clothing/Head/Hoods/Bio/janitor.rsi
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
@@ -184,9 +190,11 @@
   components:
   - type: IdentityBlocker
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/scientist.rsi
+#    sprite: Clothing/Head/Hoods/Bio/scientist.rsi # Maid
+    sprite: _Maid/Clothing/Head/Hoods/Bio/scientist.rsi # Maid
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/scientist.rsi
+#    sprite: Clothing/Head/Hoods/Bio/scientist.rsi # Maid
+    sprite: _Maid/Clothing/Head/Hoods/Bio/scientist.rsi # Maid
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
@@ -197,9 +205,11 @@
   components:
   - type: IdentityBlocker
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/security.rsi
+#    sprite: Clothing/Head/Hoods/Bio/security.rsi # Maid
+    sprite: _Maid/Clothing/Head/Hoods/Bio/security.rsi # Maid
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/security.rsi
+#    sprite: Clothing/Head/Hoods/Bio/security.rsi # Maid
+    sprite: _Maid/Clothing/Head/Hoods/Bio/security.rsi # Maid
   - type: Armor # Goob
     coverage:
     - Head
@@ -220,9 +230,11 @@
   components:
   - type: IdentityBlocker
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/virology.rsi
+#    sprite: Clothing/Head/Hoods/Bio/virology.rsi # Maid
+    sprite: _Maid/Clothing/Head/Hoods/Bio/virology.rsi # Maid
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/virology.rsi
+#    sprite: Clothing/Head/Hoods/Bio/virology.rsi # Maid
+    sprite: _Maid/Clothing/Head/Hoods/Bio/virology.rsi # Maid
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.8
 

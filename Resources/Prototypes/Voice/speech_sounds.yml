@@ -139,11 +139,11 @@
 - type: speechSounds
   id: Vox
   saySound:
-    path: /Audio/Voice/Talk/vox.ogg
+    path: /Audio/_Maid/Voice/Talk/vox.ogg #MAID Sound porting
   askSound:
-    path: /Audio/Voice/Talk/vox_ask.ogg
+    path: /Audio/_Maid/Voice/Talk/vox_ask.ogg #MAID Sound porting
   exclaimSound:
-    path: /Audio/Voice/Talk/vox_exclaim.ogg
+    path: /Audio/_Maid/Voice/Talk/vox_exclaim.ogg #MAID Sound porting
 
 - type: speechSounds
   id: Arachnid

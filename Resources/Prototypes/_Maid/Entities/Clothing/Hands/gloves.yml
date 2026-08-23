@@ -1,0 +1,5 @@
+- type: entity
+  parent: ClothingHandsGlovesColorBlack
+  id: ClothingHandsGlovesColorBlackSecurity
+  name: black security gloves
+  description: Tactical-looking black gloves worn by detective and security officers.

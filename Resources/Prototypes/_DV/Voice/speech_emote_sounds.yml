@@ -20,8 +20,8 @@
 # species
 - type: emoteSounds
   id: SoundsHarpyFemale
-  params:
-    variation: 0.125
+  # params: # MAID sound-porting
+    # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
       collection: HarpyScreams
@@ -104,8 +104,8 @@
 
 - type: emoteSounds
   id: SoundsHarpyMale
-  params:
-    variation: 0.125
+  # params: # MAID sound-porting
+    # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
       collection: HarpyScreams
@@ -190,8 +190,8 @@
 
 - type: emoteSounds
   id: FemaleVulpkanin
-  params:
-    variation: 0.125
+  # params: # MAID sound-porting
+    # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
       collection: VulpkaninScreams # EE
@@ -240,8 +240,8 @@
 
 - type: emoteSounds
   id: MaleVulpkanin
-  params:
-    variation: 0.125
+  # params: # MAID sound-porting
+    # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
       collection: VulpkaninScreams # EE
@@ -290,8 +290,8 @@
 
 - type: emoteSounds
   id: MobDog
-  params:
-    variation: 0.125
+  # params: # MAID sound-porting
+    # variation: 0.125 # MAID sound-porting
   sounds:
     Growl:
       collection: VulpkaninGrowls
@@ -308,8 +308,8 @@
 
 - type: emoteSounds
   id: MaleRodentia
-  params:
-    variation: 0.125
+  # params: # MAID sound-porting
+    # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
       path: /Audio/Animals/mouse_squeak.ogg
@@ -348,8 +348,8 @@
 
 - type: emoteSounds
   id: FemaleRodentia
-  params:
-    variation: 0.125
+  # params: # MAID sound-porting
+    # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
       path: /Audio/Animals/mouse_squeak.ogg
@@ -388,8 +388,8 @@
 
 - type: emoteSounds
   id: UnisexChitinid
-  params:
-    variation: 0.125
+  # params: # MAID sound-porting
+    # variation: 0.125 # MAID sound-porting
   sounds:
     Buzz:
       path: /Audio/_DV/Voice/Chitinid/moth_scream.ogg
@@ -430,8 +430,8 @@
 
 - type: emoteSounds
   id: FemaleFeroxi
-  params:
-    variation: 0.125
+  # params: # MAID sound-porting
+    # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
       collection: FemaleScreams
@@ -472,8 +472,8 @@
 
 - type: emoteSounds
   id: MaleFeroxi
-  params:
-    variation: 0.125
+  # params: # MAID sound-porting
+    # variation: 0.125 # MAID sound-porting
   sounds:
     Scream:
       collection: MaleScreams

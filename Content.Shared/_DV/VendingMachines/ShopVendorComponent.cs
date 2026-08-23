@@ -72,12 +72,12 @@ public sealed partial class ShopVendorComponent : Component
     public TimeSpan NextEject;
 
     [DataField]
-    public SoundSpecifier PurchaseSound = new SoundPathSpecifier("/Audio/Machines/machine_vend.ogg")
+    public SoundSpecifier PurchaseSound = new SoundPathSpecifier("/Audio/_Maid/Machines/machine_vend.ogg") // MAID sound-porting
     {
         Params = new AudioParams
         {
             Volume = -4f,
-            Variation = 0.15f
+            Variation = 0f // MAID sound-porting
         }
     };
 

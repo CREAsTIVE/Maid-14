@@ -69,28 +69,28 @@
   - type: EmitSoundOnUse
     sound:
       collection: BikeHorn
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnLand
     sound:
       collection: BikeHorn
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnTrigger
     sound:
       collection: BikeHorn
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnActivate
     sound:
       collection: BikeHorn
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnCollide
     sound:
       collection: BikeHorn
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: Tag
     tags:
     - Payload # yes, you can make re-usable prank grenades
@@ -101,8 +101,8 @@
     wideAnimationRotation: 135
     soundHit:
       collection: BikeHorn
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
     damage:
       types:
         Blunt: 0
@@ -136,35 +136,35 @@
   - type: EmitSoundOnTrigger
     sound:
       collection: CluwneHorn
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnUse
     sound:
       collection: CluwneHorn
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnActivate
     sound:
       collection: CluwneHorn
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnCollide
     sound:
       collection: CluwneHorn
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnLand
     sound:
       collection: CluwneHorn
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: MeleeWeapon
     animationRotation: 135 # WWDP
     wideAnimationRotation: 135
     soundHit:
       collection: CluwneHorn
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
     damage:
       types:
         Blunt: 5
@@ -214,34 +214,34 @@
   - type: EmitSoundOnUse
     sound:
       collection: BananiumHorn
-      params:
-        variation: 0.246
+      # params: # MAID sound-porting
+        # variation: 0.246 # MAID sound-porting
   - type: EmitSoundOnLand
     sound:
       collection: BananiumHorn
-      params:
-        variation: 0.246
+      # params: # MAID sound-porting
+        # variation: 0.246 # MAID sound-porting
   - type: EmitSoundOnTrigger
     sound:
       collection: BananiumHorn
-      params:
-        variation: 0.246
+      # params: # MAID sound-porting
+        # variation: 0.246 # MAID sound-porting
   - type: EmitSoundOnActivate
     sound:
       collection: BananiumHorn
-      params:
-        variation: 0.246
+      # params: # MAID sound-porting
+        # variation: 0.246 # MAID sound-porting
   - type: EmitSoundOnCollide
     sound:
       collection: BananiumHorn
-      params:
-        variation: 0.246
+      # params: # MAID sound-porting
+        # variation: 0.246 # MAID sound-porting
   - type: MeleeWeapon
     wideAnimationRotation: 135
     soundHit:
       collection: BananiumHorn
-      params:
-        variation: 0.246
+      # params: # MAID sound-porting
+        # variation: 0.246 # MAID sound-porting
     damage:
       types:
         Blunt: 0

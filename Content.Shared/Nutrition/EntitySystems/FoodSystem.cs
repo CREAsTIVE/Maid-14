@@ -256,7 +256,12 @@ public sealed class FoodSystem : EntitySystem
 
         args.Handled = true;
 
+        // MAID BEGIN sound-porting
+        /*
         _audio.PlayPredicted(entity.Comp.UseSound, args.Target, args.User, AudioParams.Default.WithVolume(-1f).WithVariation(0.20f));
+        */
+        _audio.PlayPredicted(entity.Comp.UseSound, args.Target, args.User, AudioParams.Default.WithVolume(-1f));
+        // MAID END sound-porting
 
         var flavors = _flavorProfile.GetLocalizedFlavorsMessage(entity.Owner, args.Target, args.Split);
 

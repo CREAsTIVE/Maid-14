@@ -38,7 +38,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     xmlns:lobbyUi="clr-namespace:Content.Client.Lobby.UI"
     xmlns:info="clr-namespace:Content.Client.Info"
     xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Chat.Widgets"
-    xmlns:maidControls="clr-namespace:Content.Client._Maid.Lobby.UI">
+    xmlns:maidControls="clr-namespace:Content.Client._Maid.Lobby.UI"
+    xmlns:whiteButtons="clr-namespace:Content.Client._White.UserInterface.Buttons">
     <!-- Background -->
     <TextureRect Access="Public" VerticalExpand="True" HorizontalExpand="True" Name="Background"
                  Stretch="KeepAspectCovered" />
@@ -55,6 +56,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                             <Button Name="AHelpButton" Access="Public" Text="{Loc 'ui-lobby-ahelp-button'}" />
                             <vote:VoteCallMenuButton Name="CallVoteButton" />
                             <Button Name="OptionsButton" Access="Public" Text="{Loc 'ui-lobby-options-button'}" />
+                            <whiteButtons:CustomGhostsMenuOpenButton Name="CustomGhostsButton" Text="{Loc 'ui-lobby-custom-ghosts-button'}" />
                             <Button Name="LeaveButton" Access="Public" Text="{Loc 'ui-lobby-leave-button'}" />
                         </BoxContainer>
                     </PanelContainer>

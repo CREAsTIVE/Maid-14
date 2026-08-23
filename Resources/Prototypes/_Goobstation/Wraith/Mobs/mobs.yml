@@ -6,6 +6,22 @@
   name: malicious skeleton
   description: A hostile skeleton summoned by a wraith.
   components:
+  # MAID BEGIN adaptive scores
+  - type: AdaptiveScoreStatic
+    combatScore:
+      base: 3
+      target: 0
+      in: 900
+    chaosScore:
+      base: 5
+      target: 0
+      in: 900
+    conditions:
+    - !type:AdaptiveScoreControlledCondition
+    - !type:AdaptiveScoreAliveCondition
+    conditionTables:
+    - OnStationGrid
+  # MAID END adaptive scores
   - type: HTN
     rootTask:
       task: XenomorphCompound
@@ -184,7 +200,7 @@
       params:
         volume: 3
         maxDistance: 12
-        variation: 0.01
+        # variation: 0.01 # MAID sound-porting
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -262,7 +278,7 @@
       params:
         volume: -1
         maxDistance: 12
-        variation: 0.01
+        # variation: 0.01 # MAID sound-porting
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Wraith/Mobs/monstrosity.rsi
@@ -321,7 +337,7 @@
       params:
         volume: -1
         maxDistance: 12
-        variation: 0.01
+        # variation: 0.01 # MAID sound-porting
   - type: MindContainer
     showExamineInfo: true
   - type: HTN
@@ -491,7 +507,7 @@
       params:
         volume: -1
         maxDistance: 12
-        variation: 0.05
+        # variation: 0.05 # MAID sound-porting
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: HeavyArmorSyndi

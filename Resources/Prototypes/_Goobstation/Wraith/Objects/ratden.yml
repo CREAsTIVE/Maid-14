@@ -50,7 +50,7 @@
       params:
         volume: 3
         maxDistance: 10
-        variation: 0.1
+        # variation: 0.1 # MAID sound-porting
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Diona

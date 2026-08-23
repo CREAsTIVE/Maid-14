@@ -59,8 +59,8 @@
     maxInterval: 60
     sound:
       collection: SlimeMaleScreams
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: PointLight
     enabled: true
     radius: 3
@@ -102,7 +102,7 @@
     - MobRatKing
     - MobTick
     - MobXenomorphHunter
-    - MobXenomorphFaceHugger # trollage
+    # - MobXenomorphFaceHugger # trollage # MAID change - disable facehugger spawner
     - MobPurpleSnake
     - MobSmallPurpleSnake
     - MobBingle

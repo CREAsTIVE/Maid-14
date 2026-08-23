@@ -415,6 +415,8 @@ namespace Content.Server.Voting.Managers
                 return;
             }
 
+            // MAID BEGIN round-end-fix
+            /*
             // Remove ineligible votes that somehow slipped through
             foreach (var playerVote in v.CastVotes)
             {
@@ -424,6 +426,14 @@ namespace Content.Server.Voting.Managers
                     v.CastVotes.Remove(playerVote.Key);
                 }
             }
+            */
+            var ineligibleVotes = v.CastVotes.Where(pv => !CheckVoterEligibility(pv.Key, v.VoterEligibility)).ToList();
+            foreach (var playerVote in ineligibleVotes)
+            {
+                v.Entries[playerVote.Value].Votes -= 1;
+                v.CastVotes.Remove(playerVote.Key);
+            }
+            // MAID END round-end-fix
 
             // Find winner or stalemate.
             var winners = v.Entries

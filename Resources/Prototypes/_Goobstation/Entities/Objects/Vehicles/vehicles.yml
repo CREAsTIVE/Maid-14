@@ -114,12 +114,12 @@
   - type: Vehicle
     hornSound:
       collection: DeskBell
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
     sirenSound:
       collection: PoliceSiren
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: ItemSlots
     slots:
       key_slot:
@@ -171,8 +171,8 @@
   - type: Vehicle
     hornSound:
       collection: BikeHorn
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
     renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
   - type: ItemSlots
     slots:
@@ -242,8 +242,8 @@
     engineRunning: true
     hornSound:
       collection: BikeHorn
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
     renderOver: North, NorthEast, NorthWest
   - type: MovementSpeedModifier
     acceleration: 10
@@ -374,8 +374,8 @@
     overlayPrototype: VehicleForkliftOverlay
     hornSound:
       collection: BikeHorn
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: MovementSpeedModifier
     baseAcceleration: 8
     baseFriction: 0.2 # wheels dont stop instantly
@@ -386,7 +386,7 @@
       path: /Audio/_Goobstation/Vehicle/Forklift/forklift.ogg
       params:
         playOffsetSeconds: 6
-        variation: 0.5
+        # variation: 0.5 # MAID sound-porting
   - type: ItemSlots
     slots:
       key_slot:

@@ -589,7 +589,7 @@
       params:
           volume: 1
           maxDistance: 20
-          variation: 0.01
+          # variation: 0.01 # MAID sound-porting
   - type: SoundWhileAlive # MAID brullbar sound
   - type: NpcFactionMember
     factions:

@@ -174,4 +174,4 @@
         params:
           volume: 1
           maxDistance: 10
-          variation: 0.3
+          # variation: 0.3 # MAID sound-porting

@@ -99,34 +99,34 @@
   - type: EmitSoundOnUse
     sound:
       collection: RubberChicken
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnLand
     sound:
       collection: RubberChicken
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnActivate
     sound:
       collection: RubberChicken
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnCollide
     sound:
       collection: RubberChicken
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnTrigger
     sound:
       collection: RubberChicken
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: MeleeWeapon
     wideAnimationRotation: 110
     soundHit:
       collection: RubberChicken
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
 
 ## Cheapo Figurines
 
@@ -600,7 +600,7 @@
     sound:
       path: /Audio/Effects/Lightning/lightningshock.ogg
       params:
-        variation: 0.65
+        # variation: 0.65 # MAID sound-porting
         volume: -10
 
 - type: entity
@@ -704,16 +704,16 @@
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
       path: /Audio/Weapons/eblade1.ogg
-      params:
-        variation: 0.250
+      # params: # MAID sound-porting
+        # variation: 0.250 # MAID sound-porting
     activatedSoundOnHitNoDamage:
       path: /Audio/Weapons/eblade1.ogg
-      params:
-        variation: 0.250
+      # params: # MAID sound-porting
+        # variation: 0.250 # MAID sound-porting
     activatedSoundOnSwing:
       path: /Audio/Weapons/eblademiss.ogg
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
 
 - type: entity
   parent: BasePlushie
@@ -871,12 +871,12 @@
     soundHit:
       collection: RubberHammer
       params:
-        variation: 0.03
+        # variation: 0.03 # MAID sound-porting
         volume: 3
     soundNoDamage:
       collection: RubberHammer
       params:
-        variation: 0.03
+        # variation: 0.03 # MAID sound-porting
         volume: 3
     damage:
       types:
@@ -897,23 +897,23 @@
   - type: EmitSoundOnUse
     sound:
       collection: Parp
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnLand
     sound:
       collection: Parp
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnActivate
     sound:
       collection: Parp
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: EmitSoundOnCollide
     sound:
       collection: Parp
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: UseDelay
     delay: 0.8
   - type: Slippery
@@ -925,13 +925,13 @@
       launchForwardsMultiplier: 0
     slipSound:
       collection: Parp
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
   - type: MeleeWeapon
     soundHit:
       collection: Parp
-      params:
-        variation: 0.125
+      # params: # MAID sound-porting
+        # variation: 0.125 # MAID sound-porting
     damage:
       types:
         Blunt: 0

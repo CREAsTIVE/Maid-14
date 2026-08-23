@@ -322,7 +322,7 @@ namespace Content.Server.Atmos.EntitySystems
                     RaiseLocalEvent(uid, ref resistEv);
 
                     if (resistEv.Cancelled)
-                        return;
+                        continue; // MAID barotrauma loop fix
                     // goob end
 
                     // Deal damage and ignore resistances. Resistance to pressure damage should be done via pressure protection gear.
@@ -344,7 +344,7 @@ namespace Content.Server.Atmos.EntitySystems
                     RaiseLocalEvent(uid, ref resistEv);
 
                     if (resistEv.Cancelled)
-                        return;
+                        continue; // MAID barotrauma loop fix
                     // goob end
 
                     var damageScale = MathF.Min(((pressure / Atmospherics.HazardHighPressure) - 1) * Atmospherics.PressureDamageCoefficient, Atmospherics.MaxHighPressureDamage);

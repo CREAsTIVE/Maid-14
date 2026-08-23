@@ -101,32 +101,32 @@
       slots:
         coldsauce_slot:
           name: foodcart-slot-component-slot-name-coldsauce
-          insertSound: /Audio/Items/bottle_clunk.ogg
-          ejectSound: /Audio/Items/bottle_clunk_2.ogg
+          insertSound: /Audio/_Maid/Items/bottle_clunk.ogg #MAID Sound porting
+          ejectSound: /Audio/_Maid/Items/bottle_clunk_2.ogg #MAID Sound porting
           whitelist:
             tags:
               - Coldsauce
           priority: 6
         hotsauce_slot:
           name: foodcart-slot-component-slot-name-hotsauce
-          insertSound: /Audio/Items/bottle_clunk.ogg
-          ejectSound: /Audio/Items/bottle_clunk_2.ogg
+          insertSound: /Audio/_Maid/Items/bottle_clunk.ogg #MAID Sound porting
+          ejectSound: /Audio/_Maid/Items/bottle_clunk_2.ogg #MAID Sound porting
           whitelist:
             tags:
               - Hotsauce
           priority: 5
         bbqsauce_slot:
           name: foodcart-slot-component-slot-name-bbqsauce
-          insertSound: /Audio/Items/bottle_clunk.ogg
-          ejectSound: /Audio/Items/bottle_clunk_2.ogg
+          insertSound: /Audio/_Maid/Items/bottle_clunk.ogg #MAID Sound porting
+          ejectSound: /Audio/_Maid/Items/bottle_clunk_2.ogg #MAID Sound porting
           whitelist:
             tags:
               - BBQsauce
           priority: 4
         ketchup_slot:
           name: foodcart-slot-component-slot-name-ketchup
-          insertSound: /Audio/Items/bottle_clunk.ogg
-          ejectSound: /Audio/Items/bottle_clunk_2.ogg
+          insertSound: /Audio/_Maid/Items/bottle_clunk.ogg #MAID Sound porting
+          ejectSound: /Audio/_Maid/Items/bottle_clunk_2.ogg #MAID Sound porting
           whitelist:
             tags:
               - Ketchup

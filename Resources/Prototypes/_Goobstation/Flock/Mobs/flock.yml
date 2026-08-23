@@ -19,7 +19,7 @@
       params:
         volume: -5
         maxDistance: 10
-        variation: 0.05
+        # variation: 0.05 # MAID sound-porting
   - type: Fixtures
     fixtures:
       fix1:
@@ -118,7 +118,7 @@
       params:
         volume: -5
         maxDistance: 10
-        variation: 0.05
+        # variation: 0.05 # MAID sound-porting
   - type: NpcFactionMember
     factions:
       - SimpleNeutral

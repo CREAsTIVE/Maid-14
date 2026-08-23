@@ -258,9 +258,9 @@
           components:
           - TimerTrigger
         insertSound:
-          path: /Audio/Weapons/Guns/Empty/empty.ogg
+          path: /Audio/_Maid/Weapons/Guns/Empty/empty.ogg #MAID Sound porting
         ejectSound:
-          path: /Audio/Weapons/Guns/Empty/empty.ogg
+          path: /Audio/_Maid/Weapons/Guns/Empty/empty.ogg #MAID Sound porting
         swap: false
         disableEject: true
   - type: Tag
