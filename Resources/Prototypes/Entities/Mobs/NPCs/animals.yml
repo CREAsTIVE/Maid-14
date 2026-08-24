@@ -2623,7 +2623,7 @@
   - type: ActiveListener
   - type: Vocalizer
   - type: RadioVocalizer
-  - type: ParrotListener
+  # - type: ParrotListener #Maid
   - type: ParrotMemory
   - type: Inventory
     templateId: parrot
