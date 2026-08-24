@@ -317,12 +317,14 @@
   id: CaptainHead
   name: loadout-group-captain-head
   minLimit: 0
+  speciesBlacklist: [Plasmaman]
   loadouts:
   - CaptainHead
   - CaptainCap
 
 - type: loadoutGroup
   id: CaptainJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-captain-jumpsuit
   loadouts:
   - CaptainJumpsuit
@@ -360,6 +362,7 @@
 
 - type: loadoutGroup
   id: HoPHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-hop-head
   minLimit: 0
   loadouts:
@@ -367,6 +370,7 @@
 
 - type: loadoutGroup
   id: HoPJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-hop-jumpsuit
   loadouts:
   - HoPJumpsuit
@@ -402,6 +406,7 @@
 # Civilian
 - type: loadoutGroup
   id: PassengerJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-passenger-jumpsuit
   loadouts:
   - GreyJumpsuit
@@ -436,6 +441,7 @@
 
 - type: loadoutGroup
   id: PassengerGloves
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-passenger-gloves
   minLimit: 0
   loadouts:
@@ -474,6 +480,7 @@
 
 - type: loadoutGroup
   id: BartenderHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-bartender-head
   minLimit: 0
   loadouts:
@@ -482,6 +489,7 @@
 
 - type: loadoutGroup
   id: BartenderJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-bartender-jumpsuit
   loadouts:
   - BartenderJumpsuit
@@ -500,6 +508,7 @@
 
 - type: loadoutGroup
   id: ChefHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-chef-head
   minLimit: 0
   loadouts:
@@ -514,6 +523,7 @@
 
 - type: loadoutGroup
   id: ChefJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-chef-jumpsuit
   loadouts:
   - ChefJumpsuit
@@ -531,6 +541,7 @@
 
 - type: loadoutGroup
   id: LibrarianJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-librarian-jumpsuit
   loadouts:
   - LibrarianJumpsuit
@@ -541,6 +552,7 @@
 
 - type: loadoutGroup
   id: LawyerJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-lawyer-jumpsuit
   loadouts:
   - LawyerJumpsuit
@@ -564,6 +576,7 @@
 
 - type: loadoutGroup
   id: ChaplainHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-chaplain-head
   minLimit: 0
   loadouts:
@@ -582,6 +595,7 @@
 
 - type: loadoutGroup
   id: ChaplainJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-chaplain-jumpsuit
   loadouts:
   - ChaplainJumpsuit
@@ -609,6 +623,7 @@
 
 - type: loadoutGroup
   id: JanitorHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-janitor-head
   minLimit: 0
   loadouts:
@@ -617,6 +632,7 @@
 
 - type: loadoutGroup
   id: JanitorJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-janitor-jumpsuit
   loadouts:
   - JanitorJumpsuit
@@ -625,6 +641,7 @@
 
 - type: loadoutGroup
   id: JanitorGloves
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-janitor-gloves
   minLimit: 0
   loadouts:
@@ -648,6 +665,7 @@
 
 - type: loadoutGroup
   id: BotanistHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-botanist-head
   minLimit: 0
   loadouts:
@@ -657,6 +675,7 @@
 
 - type: loadoutGroup
   id: BotanistJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-botanist-jumpsuit
   loadouts:
   - BotanistJumpsuit
@@ -684,6 +703,7 @@
 
 - type: loadoutGroup
   id: ClownHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-clown-head
   minLimit: 0
   loadouts:
@@ -692,6 +712,7 @@
 
 - type: loadoutGroup
   id: ClownJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-clown-jumpsuit
   loadouts:
   - ClownSuit
@@ -739,6 +760,7 @@
 
 - type: loadoutGroup
   id: MimeHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-mime-head
   minLimit: 0
   loadouts:
@@ -756,6 +778,7 @@
 
 - type: loadoutGroup
   id: MimeJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-mime-jumpsuit
   loadouts:
   - MimeJumpsuit
@@ -801,6 +824,7 @@
 
 - type: loadoutGroup
   id: MusicianJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-musician-jumpsuit
   loadouts:
   - MusicianJumpsuit
@@ -852,6 +876,7 @@
 # Cargo
 - type: loadoutGroup
   id: QuartermasterHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-quartermaster-head
   minLimit: 0
   loadouts:
@@ -860,6 +885,7 @@
 
 - type: loadoutGroup
   id: QuartermasterJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-quartermaster-jumpsuit
   loadouts:
   - QuartermasterJumpsuit
@@ -893,6 +919,7 @@
 
 - type: loadoutGroup
   id: CargoTechnicianHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-cargo-technician-head
   minLimit: 0
   loadouts:
@@ -901,6 +928,7 @@
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-cargo-technician-jumpsuit
   loadouts:
   - CargoTechnicianJumpsuit
@@ -959,6 +987,7 @@
 # Engineering
 - type: loadoutGroup
   id: ChiefEngineerHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-chief-engineer-head
   minLimit: 0
   loadouts:
@@ -967,6 +996,7 @@
 
 - type: loadoutGroup
   id: ChiefEngineerJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-chief-engineer-jumpsuit
   loadouts:
   - ChiefEngineerJumpsuit
@@ -999,6 +1029,7 @@
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-technical-assistant-jumpsuit
   loadouts:
   - YellowJumpsuit
@@ -1007,6 +1038,7 @@
 
 - type: loadoutGroup
   id: StationEngineerHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-station-engineer-head
   minLimit: 0
   loadouts:
@@ -1017,6 +1049,7 @@
 
 - type: loadoutGroup
   id: StationEngineerJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-station-engineer-jumpsuit
   loadouts:
   - StationEngineerJumpsuit
@@ -1059,6 +1092,7 @@
 
 - type: loadoutGroup
   id: AtmosphericTechnicianHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-atmospheric-technician-head
   minLimit: 0
   loadouts:
@@ -1066,6 +1100,7 @@
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-atmospheric-technician-jumpsuit
   loadouts:
   - AtmosphericTechnicianJumpsuit
@@ -1115,6 +1150,7 @@
 # Science
 - type: loadoutGroup
   id: ResearchDirectorHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-research-director-head
   minLimit: 0
   loadouts:
@@ -1130,8 +1166,10 @@
 
 - type: loadoutGroup
   id: ResearchDirectorJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-research-director-jumpsuit
   loadouts:
+  - ResearchDirectorMJ #maid
   - ResearchDirectorJumpsuit
   - ResearchDirectorJumpskirt
   - ResearchDirectorMJ # goob
@@ -1154,6 +1192,7 @@
 
 - type: loadoutGroup
   id: ScientistHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-scientist-head
   minLimit: 0
   loadouts:
@@ -1170,6 +1209,7 @@
 
 - type: loadoutGroup
   id: ScientistJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-scientist-jumpsuit
   loadouts:
   - ScientistJumpsuit
@@ -1211,6 +1251,7 @@
 
 - type: loadoutGroup
   id: ScientistGloves
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-scientist-gloves
   minLimit: 0
   loadouts:
@@ -1227,6 +1268,7 @@
 
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-research-assistant-jumpsuit
   loadouts:
   - WhiteJumpsuit
@@ -1236,6 +1278,7 @@
 # Security
 - type: loadoutGroup
   id: HeadofSecurityHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-head-of-security-head
   minLimit: 0
   loadouts:
@@ -1245,6 +1288,7 @@
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-head-of-security-jumpsuit
   loadouts:
   - HeadofSecurityJumpsuit
@@ -1274,6 +1318,7 @@
 
 - type: loadoutGroup
   id: WardenHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-warden-head
   minLimit: 0
   loadouts:
@@ -1282,6 +1327,7 @@
 
 - type: loadoutGroup
   id: WardenJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-warden-jumpsuit
   loadouts:
   - WardenJumpsuit
@@ -1297,6 +1343,7 @@
 
 - type: loadoutGroup
   id: SecurityHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-security-head
   minLimit: 0
   loadouts:
@@ -1308,6 +1355,7 @@
 
 - type: loadoutGroup
   id: SecurityJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-security-jumpsuit
   loadouts:
   - SecurityJumpsuit
@@ -1361,6 +1409,7 @@
 
 - type: loadoutGroup
   id: DetectiveHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-detective-head
   minLimit: 0
   loadouts:
@@ -1377,6 +1426,7 @@
 
 - type: loadoutGroup
   id: DetectiveJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-detective-jumpsuit
   loadouts:
   - DetectiveJumpsuit
@@ -1394,6 +1444,7 @@
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
   - RedJumpsuit
@@ -1423,6 +1474,7 @@
 # Medical
 - type: loadoutGroup
   id: ChiefMedicalOfficerHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-chief-medical-officer-head
   minLimit: 0
   loadouts:
@@ -1432,6 +1484,7 @@
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-chief-medical-officer-jumpsuit
   loadouts:
   - ChiefMedicalOfficerJumpsuit
@@ -1465,6 +1518,7 @@
 
 - type: loadoutGroup
   id: MedicalDoctorHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-medical-doctor-head
   minLimit: 0
   loadouts:
@@ -1478,6 +1532,7 @@
 
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-medical-doctor-jumpsuit
   loadouts:
   - MedicalDoctorJumpsuit
@@ -1523,6 +1578,7 @@
 
 - type: loadoutGroup
   id: MedicalGloves
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-medical-gloves
   minLimit: 0
   loadouts:
@@ -1538,6 +1594,7 @@
 
 - type: loadoutGroup
   id: MedicalInternJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-medical-intern-jumpsuit
   loadouts:
   - WhiteJumpsuit
@@ -1546,6 +1603,7 @@
 
 - type: loadoutGroup
   id: ChemistJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-chemist-jumpsuit
   loadouts:
   - ChemistJumpsuit
@@ -1575,6 +1633,7 @@
 
 - type: loadoutGroup
   id: ParamedicHead
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-paramedic-head
   minLimit: 0
   loadouts:
@@ -1583,6 +1642,7 @@
 
 - type: loadoutGroup
   id: ParamedicJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-paramedic-jumpsuit
   loadouts:
   - ParamedicJumpsuit
@@ -1637,6 +1697,7 @@
 # Wildcards
 - type: loadoutGroup
   id: ReporterJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-reporter-jumpsuit
   loadouts:
   - ReporterJumpsuit
@@ -1645,6 +1706,7 @@
 
 - type: loadoutGroup
   id: PsychologistJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-psychologist-jumpsuit
   loadouts:
   - PsychologistJumpsuit
@@ -1652,6 +1714,7 @@
 
 - type: loadoutGroup
   id: BoxerJumpsuit
+  speciesBlacklist: [Plasmaman] # MAID species loadout restrictions
   name: loadout-group-boxer-jumpsuit
   loadouts:
   - BoxerShorts
@@ -1707,3 +1770,131 @@
   hidden: true
   loadouts:
   - LoadoutSpeciesBreathToolSecurity
+
+- type: loadoutGroup #Maid begin
+  id: Underwear
+  name: loadout-group-underwear
+  loadouts:
+  - UnderwearBottomBoxersWhite
+  - UnderwearBottomBoxersHeart
+  - UnderwearBottomBoxersStriped
+  - UnderwearBottomMankini
+  - UnderwearBottomPantiesStripped
+  - UnderwearBottomPantiesSlim
+  - UnderwearBottomPantiesBeeKini
+  - UnderwearBottomPantiesThong
+  - UnderwearBottomPantiesKinky
+  - UnderwearBottomBriefs
+  - UnderwearBottomPantiesThin
+  - UnderwearBottomFishnetLower
+  - UnderwearBottomPantiesWhite
+  - UnderwearBottomPantiesNeko
+  - UnderwearBottomPantiesSwimming
+  - UnderwearBottomeeShorts
+  - UnderwearBottomJockstrap
+
+- type: loadoutGroup
+  id: Bra
+  name: loadout-group-bra
+  loadouts:
+  - UnderwearTopBraStraplessAlt
+  - UnderwearTopBraNeko
+  - UnderwearTopFishnetBodySleeves
+  - UnderwearTopBraStriped
+  - UnderwearTopBraBeeKini
+  - UnderwearTopBraTubetop
+  - UnderwearTopBraHalterneck
+  - UnderwearTopBraSwimming
+  - UnderwearTopBraShibari
+  - UnderwearTopBraShibariSleeves
+  - UnderwearTopBraSports
+  - UnderwearTopBraStrapless
+  - UnderwearTopBraKinky
+  - UnderwearTopFishnetBodyGloves
+  - UnderwearTopBraSwimmingAlt
+  - UnderwearTopCow
+  - UnderwearTopBraWhite
+  - UnderwearTopBraThin
+  - UnderwearTopBraBinder
+  - UnderwearTopFishnetBody
+  - UnderwearTopBraBinderStrapless
+  - UnderwearTopBraSportsAlternative #Main end
+
+- type: loadoutGroup #Maid begin
+  id: CapUnderwear
+  name: loadout-group-underwear-cap
+  loadouts:
+  - UnderwearBottomBoxersCap
+  - UnderwearBottomPantiesCap #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: CMOUnderwear
+  name: loadout-group-underwear-cmo
+  loadouts:
+  - UnderwearBottomBoxersCMO
+  - UnderwearBottomPantiesCMO #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: HoSUnderwear
+  name: loadout-group-underwear-hos
+  loadouts:
+  - UnderwearBottomBoxersHOS
+  - UnderwearBottomPantiesHOS #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: HoPUnderwear
+  name: loadout-group-underwear-hop
+  loadouts:
+  - UnderwearBottomPantiesHOP
+  - UnderwearBottomBoxersHOP #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: QMUnderwear
+  name: loadout-group-underwear-qm
+  loadouts:
+  - UnderwearBottomPantiesQM
+  - UnderwearBottomBoxersQM #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: RDUnderwear
+  name: loadout-group-underwear-rd
+  loadouts:
+  - UnderwearBottomPantiesRD
+  - UnderwearBottomBoxersRD #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: CEUnderwear
+  name: loadout-group-underwear-ce
+  loadouts:
+  - UnderwearBottomPantiesCE
+  - UnderwearBottomBoxersCE #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: CEBra
+  name: loadout-group-bra-ce
+  loadouts:
+  - UnderwearTopBraCE #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: RDBra
+  name: loadout-group-bra-rd
+  loadouts:
+  - UnderwearTopBraRD #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: HoPBra
+  name: loadout-group-bra-hop
+  loadouts:
+  - UnderwearTopBraHOP #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: HoSBra
+  name: loadout-group-bra-hos
+  loadouts:
+  - UnderwearTopBraHOS #Maid end
+
+- type: loadoutGroup #Maid begin
+  id: CMOBra
+  name: loadout-group-bra-cmo
+  loadouts:
+  - UnderwearTopBraCMO #Maid end

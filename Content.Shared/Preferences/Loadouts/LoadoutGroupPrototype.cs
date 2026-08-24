@@ -33,6 +33,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Preferences.Loadouts;
@@ -72,4 +73,23 @@ public sealed partial class LoadoutGroupPrototype : IPrototype
 
     [DataField(required: true)]
     public List<ProtoId<LoadoutPrototype>> Loadouts = new();
+
+    // MAID BEGIN pasmaman loadouts
+    [DataField]
+    public HashSet<ProtoId<SpeciesPrototype>>? SpeciesWhitelist = null;
+
+    [DataField]
+    public HashSet<ProtoId<SpeciesPrototype>>? SpeciesBlacklist = null;
+
+    public bool IsSpeciesAllowed(ProtoId<SpeciesPrototype> species)
+    {
+        if (SpeciesWhitelist is { } whitelist && !whitelist.Contains(species))
+            return false;
+
+        if (SpeciesBlacklist is { } blacklist && blacklist.Contains(species))
+            return false;
+
+        return true;
+    }
+    // MAID END pasmaman loadouts
 }

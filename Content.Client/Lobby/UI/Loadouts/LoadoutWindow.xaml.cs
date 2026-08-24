@@ -124,6 +124,9 @@ public sealed partial class LoadoutWindow : FancyWindow
                 if (groupProto.Hidden)
                     continue;
 
+                if (!groupProto.IsSpeciesAllowed(profile.Species)) // MAID pasmaman loadouts
+                    continue; // MAID pasmaman loadouts
+
                 var container = new LoadoutGroupContainer(profile, loadout, protoManager.Index(group), session, collection);
                 LoadoutGroupsContainer.AddTab(container, Loc.GetString(groupProto.Name));
                 _groups.Add(container);

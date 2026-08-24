@@ -195,6 +195,14 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
                 continue;
             }
 
+            // MAID BEGIN pasmaman loadouts
+            if (!groupProto.IsSpeciesAllowed(profile.Species))
+            {
+                groupRemove.Add(group);
+                continue;
+            }
+            // MAID END pasmaman loadouts
+
             var loadouts = groupLoadouts[..Math.Min(groupLoadouts.Count, groupProto.MaxLimit)];
 
             // Validate first
