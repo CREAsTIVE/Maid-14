@@ -113,9 +113,9 @@
     id: ParamedicPDA
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalEMTFilled
-  storage:
-    back:
-    - EmergencyRollerBedSpawnFolded
+  # storage: #Maid begin
+  #   back:
+  #   - EmergencyRollerBedSpawnFolded #Maid end
 
 - type: chameleonOutfit
   id: ParamedicChameleonOutfit
