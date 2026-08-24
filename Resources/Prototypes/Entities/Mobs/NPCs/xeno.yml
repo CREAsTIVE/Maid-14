@@ -112,25 +112,12 @@
 # Hacky for the stress test so don't even consider adding to this
 - type: entity
   name: space adder
-  parent: SimpleSpaceMobBase
+  parent:
+  - SimpleSpaceMobBase
+  - BaseMobDanger # MAID
   id: MobPurpleSnake
   description: A menacing purple snake from Kepler-283c.
   components:
-  # MAID BEGIN adaptive scores
-  - type: AdaptiveScoreStatic
-    combatScore:
-      base: 3
-      target: 0
-      in: 420
-    chaosScore:
-      base: 1
-      target: 0
-      in: 420
-    conditions:
-    - !type:AdaptiveScoreAliveCondition
-    conditionTables:
-    - OnStationGrid
-  # MAID END adaptive scores
   - type: Body # Shitmed Change
     prototype: SpaceAdder
   - type: SurgeryTarget # Shitmed

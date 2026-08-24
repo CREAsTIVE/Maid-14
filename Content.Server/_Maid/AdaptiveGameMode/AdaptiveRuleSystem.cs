@@ -22,7 +22,9 @@ using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Server.StationEvents.Components;
 using Content.Shared.Administration.Logs;
+using Robust.Shared.Timing;
 
+namespace Content.Server._Maid.AdaptiveGameMode;
 
 public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 {
@@ -35,6 +37,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly AdaptiveRuleBalancingSystem _balancing = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     // I hate admin logger
     private new void Log(ref LogStringHandler handler, LogImpact impact = LogImpact.High)
@@ -52,7 +55,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
         Log($"AdaptiveRule is enabled");
 
-        component.TimeUntilNextAttempt = component.MidroundSpawnTimer.GetValue(_random);
+        ReScheduleMidroundSpawnAttempt((uid, component));
 
         SpawnRoundstartRules(uid, component);
     }
@@ -111,29 +114,24 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
 
-        component.TimeUntilNextAttempt -= frameTime;
-        if (component.TimeUntilNextAttempt > 0)
+        if (_gameTiming.CurTime < component.MidroundSpawnAttemptAt)
             return;
 
-        // Reset timer
-        component.TimeUntilNextAttempt = component.MidroundSpawnTimer.GetValue(_random);
+        ReScheduleMidroundSpawnAttempt((uid, component));
 
         // Try spawning a rule
         TrySpawnRandomRule(uid, component);
+    }
+
+    private void ReScheduleMidroundSpawnAttempt(Entity<AdaptiveRuleComponent> rule)
+    {
+        rule.Comp.MidroundSpawnAttemptAt = TimeSpan.FromSeconds(_gameTiming.CurTime.TotalSeconds + rule.Comp.MidroundSpawnTimer.GetValue(_random));
     }
 
     private void TrySpawnRandomRule(EntityUid uid, AdaptiveRuleComponent component)
     {
         if (component.MidroundRules.Count == 0)
             return;
-
-        // TODO: Put there chance based on how close we to target chaos score
-        // For now i just kept it to make rule check frequent (i love statistics, i wasted like hour making chart system lol)
-        if (_random.Prob(component.MidroundSpawnSkipProb))
-        {
-            Log($"Skipping rule spawning (UNLUCKY)");
-            return;
-        }
 
         // Evaluate conditions for candidate rules
         var candidateRules = new List<AdaptiveRuleParam>();
@@ -240,93 +238,11 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
     public AdaptiveScore CalculatePossibleScoreForPrototype(string ruleId, int? playerCount = null)
     {
-        var totalScore = GetPrototypeStaticScore(ruleId);
+        // TODO: Move entire logic into GetPrototypeStaticScore. I don't see reason to keep those separate
 
-        if (!_protoManager.TryIndex<EntityPrototype>(ruleId, out var proto))
-            return totalScore;
+        var score = GetPrototypeStaticScore(ruleId, playerCount);
 
-        // We can't check everything (spawn tables is pain), so please, when it fails define manually
-        if (proto.TryGetComponent(out RandomEntityStorageSpawnRuleComponent? storageSpawnRule, _compFactory))
-        {
-            totalScore += GetPrototypeStaticScore(storageSpawnRule.Prototype);
-        }
-
-        // Check for direct AdaptiveScoreStaticGameruleEntity
-        if (proto.TryGetComponent(out AdaptiveScoreStaticGameruleEntityComponent? gameruleEntity, _compFactory))
-        {
-            totalScore += GetPrototypeStaticScore(gameruleEntity.Prototype) * gameruleEntity.Count;
-        }
-
-        // Check for direct AntagLoadProfileRule species spawns on the rule itself
-        if (proto.TryGetComponent(out AntagLoadProfileRuleComponent? loadProfile, _compFactory))
-        {
-            var speciesId = loadProfile.SpeciesHardOverride;
-            if (speciesId == null && loadProfile.AlwaysUseSpeciesOverride)
-            {
-                speciesId = loadProfile.SpeciesOverride;
-            }
-
-            if (speciesId != null && _protoManager.TryIndex<SpeciesPrototype>(speciesId.Value, out var species))
-            {
-                totalScore += GetPrototypeStaticScore(species.Prototype);
-            }
-        }
-
-        // Check for direct RandomSpawnRule
-        if (proto.TryGetComponent(out RandomSpawnRuleComponent? randomSpawnRule, _compFactory))
-        {
-            totalScore += GetPrototypeStaticScore(randomSpawnRule.Prototype);
-        }
-
-
-        // Check for direct AntagSpawner spawns on the rule itself
-        if (proto.TryGetComponent(out AntagSpawnerComponent? ruleSpawner, _compFactory))
-        {
-            totalScore += GetPrototypeStaticScore(ruleSpawner.Prototype);
-        }
-        if (proto.TryGetComponent(out AntagSelectionComponent? antagComp, _compFactory))
-        {
-            var poolSize = playerCount ?? _antagSelection.GetTotalPlayerCount(_playerManager.Sessions);
-
-            foreach (var def in antagComp.Definitions)
-            {
-                var countOffset = 0;
-                foreach (var otherDef in antagComp.Definitions)
-                {
-                    countOffset += Math.Clamp((poolSize - countOffset) / otherDef.PlayerRatio, otherDef.Min, otherDef.Max) * otherDef.PlayerRatio;
-                }
-                countOffset -= Math.Clamp(poolSize / def.PlayerRatio, def.Min, def.Max) * def.PlayerRatio;
-                var antagCount = Math.Clamp((poolSize - countOffset) / def.PlayerRatio, def.Min, def.Max);
-
-                if (antagCount <= 0)
-                    continue;
-
-                // MindRoles
-                if (def.MindRoles != null)
-                {
-                    foreach (var role in def.MindRoles)
-                    {
-                        totalScore += GetPrototypeStaticScore(role) * antagCount;
-                    }
-                }
-
-                // Spawners
-                if (def.SpawnerPrototype != null)
-                {
-                    totalScore += GetPrototypeStaticScore(def.SpawnerPrototype) * antagCount;
-                }
-
-                // Added components
-                var staticCompName = _compFactory.GetComponentName<AdaptiveScoreStaticComponent>();
-                if (def.Components.TryGetValue(staticCompName, out var staticCompEntry))
-                {
-                    var staticComp = (AdaptiveScoreStaticComponent) staticCompEntry.Component;
-                    totalScore += (AdaptiveScore) staticComp * antagCount;
-                }
-            }
-        }
-
-        return totalScore;
+        return score;
     }
 
     public EntityUid? SpawnRule(EntityUid uid, AdaptiveRuleComponent component, string ruleId)
@@ -374,87 +290,9 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         return ev;
     }
 
-    /// <summary>
-    /// Calculates the potential score for a given gamerule entity prototype.
-    /// This resolves the prototype's own static score, plus the scores of any mind roles it spawns.
-    /// </summary>
-    public AdaptiveScore CalculatePossibleScoreForDefinition(Entity<AntagSelectionComponent> antagSelection, int? playerCount = null)
+    private AdaptiveScore GetPrototypeStaticScore(string protoId, int? playerCount = null, int depth = 0)
     {
-        var totalScore = MetaData(antagSelection).EntityPrototype?.ID is {} id
-            ? GetPrototypeStaticScore(id)
-            : new();
-
-        var antagComp = antagSelection.Comp;
-
-        // Check for direct AdaptiveScoreStaticGameruleEntity
-        if (TryComp<AdaptiveScoreStaticGameruleEntityComponent>(antagSelection, out var gameruleEntity))
-        {
-            totalScore += GetPrototypeStaticScore(gameruleEntity.Prototype) * gameruleEntity.Count;
-        }
-
-        // Check for direct AntagLoadProfileRule species spawns on the rule itself
-        if (TryComp<AntagLoadProfileRuleComponent>(antagSelection, out var loadProfile))
-        {
-            var speciesId = loadProfile.SpeciesHardOverride;
-            if (speciesId == null && loadProfile.AlwaysUseSpeciesOverride)
-            {
-                speciesId = loadProfile.SpeciesOverride;
-            }
-
-            if (speciesId != null && _protoManager.TryIndex<SpeciesPrototype>(speciesId.Value, out var species))
-            {
-                totalScore += GetPrototypeStaticScore(species.Prototype);
-            }
-        }
-
-        // Check for direct RandomSpawnRule
-        if (TryComp<RandomSpawnRuleComponent>(antagSelection, out var randomSpawnRule))
-        {
-            totalScore += GetPrototypeStaticScore(randomSpawnRule.Prototype);
-        }
-
-
-        // Check for direct AntagSpawner spawns on the rule itself
-        if (TryComp<AntagSpawnerComponent>(antagSelection, out var ruleSpawner))
-        {
-            totalScore += GetPrototypeStaticScore(ruleSpawner.Prototype);
-        }
-        foreach (var def in antagComp.Definitions)
-        {
-            var antagCount = _antagSelection.GetTargetAntagCount(antagSelection, playerCount, def);
-            if (antagCount <= 0)
-                continue;
-
-            // MindRoles
-            if (def.MindRoles != null)
-            {
-                foreach (var role in def.MindRoles)
-                {
-                    totalScore += GetPrototypeStaticScore(role) * antagCount;
-                }
-            }
-
-            // Spawners
-            if (def.SpawnerPrototype != null)
-            {
-                totalScore += GetPrototypeStaticScore(def.SpawnerPrototype) * antagCount;
-            }
-
-            // Added components (i will kill you if you will add static score components like that)
-            var staticCompName = _compFactory.GetComponentName<AdaptiveScoreStaticComponent>();
-            if (def.Components.TryGetValue(staticCompName, out var staticCompEntry))
-            {
-                var staticComp = (AdaptiveScoreStaticComponent) staticCompEntry.Component;
-                totalScore += (AdaptiveScore) staticComp * antagCount;
-            }
-        }
-
-        return totalScore;
-    }
-
-    private AdaptiveScore GetPrototypeStaticScore(string protoId, int depth = 0)
-    {
-        if (depth > 15)
+        if (depth > 20)
         {
             _adminLog.Add(LogType.EventRan, LogImpact.Extreme, $"Adaptive: SOMETHING IS BROKEN!! We at {protoId}");
             return new(); // Something definitely broke
@@ -465,18 +303,31 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         if (!_protoManager.TryIndex<EntityPrototype>(protoId, out var proto))
             return new();
 
-        // Has AdaptiveScoreStaticComponent
+        // We can't check everything (like some complex entity table shit) to estimate it properly
+        // So we need a way to define score manually
+        if (proto.TryGetComponent(out AdaptiveScoreStaticGameruleEntityComponent? gameruleEntity, _compFactory))
+        {
+            score += GetPrototypeStaticScore(gameruleEntity.Prototype, playerCount, depth + 1) * gameruleEntity.Count;
+        }
+
+        // Score was explicitly defined on this entity
         if (proto.TryGetComponent(out AdaptiveScoreStaticComponent? staticScore, _compFactory))
         {
             score += staticScore;
         }
 
-        // Is spawner
+        // Some random spawner
+        if (proto.TryGetComponent(out RandomEntityStorageSpawnRuleComponent? storageSpawnRule, _compFactory))
+        {
+            score += GetPrototypeStaticScore(storageSpawnRule.Prototype, playerCount, depth + 1);
+        }
+
+        // Has ghost role, and since ghost roles have mind roles we need to check those
         if (proto.TryGetComponent(out GhostRoleComponent? ghostComp, _compFactory))
         {
             foreach (var role in ghostComp.MindRoles)
             {
-                score += GetPrototypeStaticScore(role, depth + 1);
+                score += GetPrototypeStaticScore(role, playerCount, depth + 1);
             }
         }
 
@@ -485,29 +336,90 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         {
             if (spawnerComp.Prototype != null)
             {
-                score += GetPrototypeStaticScore(spawnerComp.Prototype, depth + 1);
+                score += GetPrototypeStaticScore(spawnerComp.Prototype, playerCount, depth + 1);
             }
 
             foreach (var selectable in spawnerComp.SelectablePrototypes)
             {
-                score += GetPrototypeStaticScore(selectable, depth + 1);
+                score += GetPrototypeStaticScore(selectable, playerCount, depth + 1);
             }
         }
 
         // Is antag spawner
         if (proto.TryGetComponent(out AntagSpawnerComponent? antagSpawner, _compFactory))
         {
-            score += GetPrototypeStaticScore(antagSpawner.Prototype, depth + 1);
+            score += GetPrototypeStaticScore(antagSpawner.Prototype, playerCount, depth + 1);
         }
 
-        // Is conditional or random spawner
-        if (proto.TryGetComponent(out Content.Server.Spawners.Components.ConditionalSpawnerComponent? condSpawner, _compFactory))
+        if (proto.TryGetComponent(out Spawners.Components.ConditionalSpawnerComponent? condSpawner, _compFactory))
         {
             foreach (var spawnerProto in condSpawner.Prototypes)
             {
-                score += GetPrototypeStaticScore(spawnerProto, depth + 1);
+                score += GetPrototypeStaticScore(spawnerProto, playerCount, depth + 1);
             }
         }
+
+
+        if (proto.TryGetComponent(out AntagLoadProfileRuleComponent? loadProfile, _compFactory))
+        {
+            var speciesId = loadProfile.SpeciesHardOverride;
+            if (speciesId == null && loadProfile.AlwaysUseSpeciesOverride)
+            {
+                speciesId = loadProfile.SpeciesOverride;
+            }
+
+            if (speciesId != null && _protoManager.TryIndex<SpeciesPrototype>(speciesId.Value, out var species))
+            {
+                score += GetPrototypeStaticScore(species.Prototype, playerCount, depth + 1);
+            }
+        }
+
+        if (proto.TryGetComponent(out RandomSpawnRuleComponent? randomSpawnRule, _compFactory))
+        {
+            score += GetPrototypeStaticScore(randomSpawnRule.Prototype, playerCount, depth + 1);
+        }
+
+        if (proto.TryGetComponent(out AntagSelectionComponent? antagComp, _compFactory))
+        {
+            var poolSize = playerCount ?? _antagSelection.GetTotalPlayerCount(_playerManager.Sessions);
+
+            foreach (var def in antagComp.Definitions)
+            {
+                var countOffset = 0;
+                foreach (var otherDef in antagComp.Definitions)
+                {
+                    countOffset += Math.Clamp((poolSize - countOffset) / otherDef.PlayerRatio, otherDef.Min, otherDef.Max) * otherDef.PlayerRatio;
+                }
+                countOffset -= Math.Clamp(poolSize / def.PlayerRatio, def.Min, def.Max) * def.PlayerRatio;
+                var antagCount = Math.Clamp((poolSize - countOffset) / def.PlayerRatio, def.Min, def.Max);
+
+                if (antagCount <= 0)
+                    continue;
+
+                // MindRoles
+                if (def.MindRoles != null)
+                {
+                    foreach (var role in def.MindRoles)
+                    {
+                        score += GetPrototypeStaticScore(role, playerCount, depth + 1) * antagCount;
+                    }
+                }
+
+                // Spawners
+                if (def.SpawnerPrototype != null)
+                {
+                    score += GetPrototypeStaticScore(def.SpawnerPrototype, playerCount, depth + 1) * antagCount;
+                }
+
+                // Added components
+                var staticCompName = _compFactory.GetComponentName<AdaptiveScoreStaticComponent>();
+                if (def.Components.TryGetValue(staticCompName, out var staticCompEntry))
+                {
+                    var staticComp = (AdaptiveScoreStaticComponent) staticCompEntry.Component;
+                    score += (AdaptiveScore) staticComp * antagCount;
+                }
+            }
+        } // TODO: Same for vent critters maybe?
 
         return score;
     }
