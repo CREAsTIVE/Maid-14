@@ -120,44 +120,52 @@
   id: JobCaptain
   groups:
   - CaptainHead
+  - CaptainEnvirohelm # MAID plasmaman loadouts
   - CaptainNeck
   - CaptainJumpsuit
-#  - CaptainMask # Goobstation - Lollypops! # Maid
+  - CaptainEnvirosuit
+#  - CaptainMask # Goobstation - Lollypops! # MAID
   - CaptainBackpack
   - CaptainOuterClothing
   - Survival
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  - CaptainEnvirohelm
-  - CaptainEnvirosuit
-  - CaptainEnvirogloves
+  # - CaptainEnvirohelm # MAID plasmaman loadouts
   - CaptainGloves
+  - CaptainEnvirogloves
   - CaptainUnderwear # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
+  - CapUnderwear #Maid
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
   groups:
   - GroupTankHarness
   - HoPHead
+  - HoPEnvirohelm
   - HoPNeck
   - HoPJumpsuit
+  - HoPEnvirosuit
   - HoPBackpack
   - HoPOuterClothing
-  - Glasses
+#  - Glasses #Maid
   - Survival
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  - HoPEnvirohelm
-  - HoPEnvirosuit
-  - HoPEnvirogloves
   - HoPGloves
+  - HoPEnvirogloves
   - HeadOfPersonnelUnderwear # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
+  - HoPUnderwear #Maid
+  - HoPBra #Maid
 
 # Silicons
 - type: roleLoadout
@@ -175,184 +183,207 @@
   id: JobPassenger
   groups:
   - GroupTankHarness
+  - AssistantEnvirohelm
   - PassengerJumpsuit
+  - AssistantEnvirosuit
   - CommonBackpack
   - PassengerNeck
   - PassengerFace
   - PassengerGloves
+  - AssistantEnvirogloves
   - PassengerOuterClothing
   - PassengerShoes
-  - Glasses
+#  - Glasses #Maid
   - Survival
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  - AssistantEnvirohelm
-  - AssistantEnvirosuit
-  - AssistantEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobBartender
   groups:
   - GroupTankHarness
   - BartenderHead
-  - BartenderJumpsuit
-  - CommonBackpack
-  - BartenderOuterClothing
-  - Glasses
-  - Survival
-  - Trinkets
-  - Animals
-  - GroupSpeciesBreathTool
-  # Goobstation - EE Plasmeme Change.
   - BartenderEnvirohelm
+  - BartenderJumpsuit
   - BartenderEnvirosuit
   - BartenderEnvirogloves
+  - CommonBackpack
+  - BartenderOuterClothing
+#  - Glasses #Maid
+  - Survival
+#  - Trinkets #Maid
+#  - Animals #Maid
+  - GroupSpeciesBreathTool
+  # Goobstation - EE Plasmeme Change.
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobServiceWorker
   groups:
+  - BartenderOuterClothing #Maid
+  - BartenderHead #Maid
+  - ServiceWorkerEnvirohelm
   - GroupTankHarness
   - BartenderJumpsuit
-  - CommonBackpack
-  - Glasses
-  - Survival
-  - Trinkets
-  - Animals
-  - GroupSpeciesBreathTool
-  # Goobstation - EE Plasmeme Change.
-  - ServiceWorkerEnvirohelm
   - ServiceWorkerEnvirosuit
   - ServiceWorkerEnvirogloves
+  - CommonBackpack
+#  - Glasses #Maid
+  - Survival
+#  - Trinkets #Maid
+#  - Animals #Maid
+  - GroupSpeciesBreathTool
+  # Goobstation - EE Plasmeme Change.
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobChef
   groups:
   - GroupTankHarness
   - ChefHead
+  - ChefEnvirohelm
   - ChefMask
   - ChefJumpsuit
-  - CommonBackpack
-  - ChefOuterClothing
-  - Glasses
-  - Survival
-  - Trinkets
-  - Animals
-  - GroupSpeciesBreathTool
-  # Goobstation - EE Plasmeme Change.
-  - ChefEnvirohelm
   - ChefEnvirosuit
   - ChefEnvirogloves
+  - CommonBackpack
+  - ChefOuterClothing
+#  - Glasses #Maid
+  - Survival
+#  - Trinkets #Maid
+#  - Animals #Maid
+  - GroupSpeciesBreathTool
+  # Goobstation - EE Plasmeme Change.
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobLibrarian
   groups:
+  - BartenderOuterClothing #Maid
+  - BartenderHead #Maid
+  - LibrarianEnvirohelm
   - GroupTankHarness
   - LibrarianJumpsuit
-  - CommonBackpack
-  - Glasses
-  - Survival
-  - Trinkets
-  - Animals
-  - GroupSpeciesBreathTool
-  # Goobstation - EE Plasmeme Change.
-  - LibrarianEnvirohelm
   - LibrarianEnvirosuit
   - LibrarianEnvirogloves
+  - CommonBackpack
+#  - Glasses #Maid
+  - Survival
+#  - Trinkets #Maid
+#  - Animals #Maid
+  - GroupSpeciesBreathTool
+  # Goobstation - EE Plasmeme Change.
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobLawyer
   groups:
+  - BartenderHead #Maid
+  - LawyerEnvirohelm
   - GroupTankHarness
   - LawyerNeck
   - LawyerJumpsuit
-  - CommonBackpack
-  - Glasses
-  - Survival
-  - Trinkets
-  - Animals
-  - GroupSpeciesBreathTool
-  # Goobstation - EE Plasmeme Change.
-  - LawyerEnvirohelm
   - LawyerEnvirosuit
   - LawyerEnvirogloves
+  - CommonBackpack
+#  - Glasses #Maid
+  - Survival
+#  - Trinkets #Maid
+#  - Animals #Maid
+  - GroupSpeciesBreathTool
+  # Goobstation - EE Plasmeme Change.
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobChaplain
   groups:
   - GroupTankHarness
   - ChaplainHead
+  - ChaplainEnvirohelm
   - ChaplainMask
   - ChaplainNeck
   - ChaplainJumpsuit
-  - CommonBackpack
-  - ChaplainOuterClothing
-  - Glasses
-  - Survival
-  - Trinkets
-  - Animals
-  - GroupSpeciesBreathTool
-  # Goobstation - EE Plasmeme Change.
-  - ChaplainEnvirohelm
   - ChaplainEnvirosuit
   - ChaplainEnvirogloves
+  - CommonBackpack
+  - ChaplainOuterClothing
+#  - Glasses #Maid
+  - Survival
+#  - Trinkets #Maid
+#  - Animals #Maid
+  - GroupSpeciesBreathTool
+  # Goobstation - EE Plasmeme Change.
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobJanitor
   groups:
   - GroupTankHarness
   - JanitorHead
+  - JanitorEnvirohelm
   - JanitorJumpsuit
+  - JanitorEnvirosuit
   - JanitorGloves
+  - JanitorEnvirogloves
   - CommonBackpack
   - JanitorOuterClothing
-  - Glasses
+#  - Glasses #Maid
   - Survival
-  - Trinkets
+#  - Trinkets #Maid
   - JanitorPlunger
-  - Animals
+#  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  - JanitorEnvirohelm
-  - JanitorEnvirosuit
-  - JanitorEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobBotanist
   groups:
   - GroupTankHarness
   - BotanistHead
-  - BotanistJumpsuit
-  - BotanistBackpack
-  - BotanistOuterClothing
-  - Glasses
-  - Survival
-  - Trinkets
-  - Animals
-  - GroupSpeciesBreathTool
-  # Goobstation - EE Plasmeme Change.
   - BotanistEnvirohelm
+  - BotanistJumpsuit
   - BotanistEnvirosuit
   - BotanistEnvirogloves
+  - BotanistBackpack
+  - BotanistOuterClothing
+#  - Glasses #Maid
+  - Survival
+#  - Trinkets #Maid
+#  - Animals #Maid
+  - GroupSpeciesBreathTool
+  # Goobstation - EE Plasmeme Change.
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobClown
@@ -360,20 +391,22 @@
   groups:
   - GroupTankHarness
   - ClownHead
+  - ClownEnvirohelm
   - ClownJumpsuit
+  - ClownEnvirosuit
+  - ClownEnvirogloves
   - ClownBackpack
   - ClownOuterClothing
   - ClownShoes
-  - Glasses
+#  - Glasses #Maid
   - SurvivalClown
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   # Goobstation - EE Plasmeme Change.
-  - ClownEnvirohelm
-  - ClownEnvirosuit
-  - ClownEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobMime
@@ -381,42 +414,47 @@
   groups:
   - GroupTankHarness
   - MimeHead
+  - MimeEnvirohelm
   - MimeMask
   - MimeJumpsuit
+  - MimeEnvirosuit
   - MimeBackpack
   - MimeOuterClothing
   - MimeBelt
-  - Glasses
+#  - Glasses #Maid
   - SurvivalMime
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   # Goobstation - EE Plasmeme Change.
-  - MimeEnvirohelm
-  - MimeEnvirosuit
-  - MimeEnvirogloves
   - MimeGloves
+  - MimeEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobMusician
   groups:
+  - BartenderHead #Maid
+  - MusicianEnvirohelm
   - GroupTankHarness
   - MusicianJumpsuit
-  - CommonBackpack
-  - MusicianOuterClothing
-  - Glasses
-  - Survival
-  - Trinkets
-  - Instruments
-  - Animals
-  - GroupSpeciesBreathTool
-  # Goobstation - EE Plasmeme Change.
-  - MusicianEnvirohelm
   - MusicianEnvirosuit
   - MusicianEnvirogloves
+  - CommonBackpack
+  - MusicianOuterClothing
+#  - Glasses #Maid
+  - Survival
+#  - Trinkets #Maid
+  - Instruments
+#  - Animals #Maid
+  - GroupSpeciesBreathTool
+  # Goobstation - EE Plasmeme Change.
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 # Cargo
 - type: roleLoadout
@@ -424,63 +462,73 @@
   groups:
   - GroupTankHarness
   - QuartermasterHead
+  - QuartermasterEnvirohelm
   - QuartermasterNeck
   - QuartermasterJumpsuit
+  - QuartermasterEnvirosuit
+  - QuartermasterEnvirogloves
   - CargoTechnicianBackpack
   - QuartermasterOuterClothing
   - QuartermasterShoes
-  - Glasses
+#  - Glasses #Maid
   - Survival
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  - QuartermasterEnvirohelm
-  - QuartermasterEnvirosuit
-  - QuartermasterEnvirogloves
   - QuartermasterUnderwear # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
+  - QMUnderwear #Maid
 
 - type: roleLoadout
   id: JobCargoTechnician
   groups:
   - GroupTankHarness
   - CargoTechnicianHead
+  - CargoTechnicianEnvirohelm
   - CargoTechnicianJumpsuit
+  - CargoTechnicianEnvirosuit
+  - CargoTechnicianEnvirogloves
   - CargoTechnicianBackpack
   - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
-  - Glasses
+#  - Glasses #Maid
   - Survival
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  - CargoTechnicianEnvirohelm
-  - CargoTechnicianEnvirosuit
-  - CargoTechnicianEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
+  - CargoTechnicianOuterClothing #Maid
+  - CargoTechnicianHead #Maid
+  - SalvageEnvirohelm
+  - CargoTechnicianJumpsuit #Maid
+  - SalvageEnvirosuit
+  - SalvageEnvirogloves
   - GroupTankHarness
   - SalvageSpecialistNeck # Goobstation
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
-  - Glasses
+#  - Glasses #Maid
   - Survival
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  - SalvageEnvirohelm
-  - SalvageEnvirosuit
-  - SalvageEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 # Engineering
 - type: roleLoadout
@@ -488,79 +536,91 @@
   groups:
   - GroupTankHarness
   - ChiefEngineerHead
+  - ChiefEngineerEnvirohelm
   - ChiefEngineerJumpsuit
+  - ChiefEngineerEnvirosuit
+  - ChiefEngineerEnvirogloves
   - StationEngineerBackpack
   - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
   - ChiefEngineerShoes
   - SurvivalExtended
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  - ChiefEngineerEnvirohelm
-  - ChiefEngineerEnvirosuit
-  - ChiefEngineerEnvirogloves
   - ChiefEngineerUnderwear # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
+  - CEUnderwear #Maid
+  - CEBra #Maid
 
 - type: roleLoadout
   id: JobTechnicalAssistant
   groups:
+  - StationEngineerOuterClothing #Maid
+  - StationEngineerHead #Maid
+  - TechnicalAssistantEnvirohelm
   - GroupTankHarness
   - TechnicalAssistantJumpsuit
-  - StationEngineerBackpack
-  - SurvivalExtended
-  - Trinkets
-  - Animals
-  - GroupSpeciesBreathTool
-  # Goobstation - EE Plasmeme Change.
-  - TechnicalAssistantEnvirohelm
   - TechnicalAssistantEnvirosuit
   - TechnicalAssistantEnvirogloves
+  - StationEngineerBackpack
+  - SurvivalExtended
+#  - Trinkets #Maid
+#  - Animals #Maid
+  - GroupSpeciesBreathTool
+  # Goobstation - EE Plasmeme Change.
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobStationEngineer
   groups:
   - GroupTankHarness
   - StationEngineerHead
+  - StationEngineerEnvirohelm
   - StationEngineerJumpsuit
+  - StationEngineerEnvirosuit
+  - StationEngineerEnvirogloves
   - StationEngineerBackpack
   - StationEngineerOuterClothing
   - StationEngineerShoes
   - StationEngineerID
   - SurvivalExtended
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  - StationEngineerEnvirohelm
-  - StationEngineerEnvirosuit
-  - StationEngineerEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
   - GroupTankHarness
   - AtmosphericTechnicianHead # Goobstation
+  - AtmosEnvirohelm
   - AtmosphericTechnicianJumpsuit
+  - AtmosEnvirosuit
+  - AtmosEnvirogloves
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
   - SurvivalExtended
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  - AtmosEnvirohelm
-  - AtmosEnvirosuit
-  - AtmosEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 # Science
 - type: roleLoadout
@@ -568,96 +628,113 @@
   groups:
   - GroupTankHarness
   - ResearchDirectorHead
+  - ResearchDirectorEnvirohelm
   - ResearchDirectorNeck
   - ResearchDirectorJumpsuit
+  - ResearchDirectorEnvirosuit
   - ScientistBackpack
   - ResearchDirectorOuterClothing
   - ScientistGloves
+  - ResearchDirectorEnvirogloves
   - ResearchDirectorShoes
-  - Glasses
+#  - Glasses #Maid
   - Survival
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  - ResearchDirectorEnvirosuit
-  - ResearchDirectorEnvirohelm
-  - ResearchDirectorEnvirogloves
   - ResearchDirectorUnderwear # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
+  - RDUnderwear #Maid
+  - RDBra #Maid
 
 - type: roleLoadout
   id: JobScientist
   groups:
   - GroupTankHarness
   - ScientistHead
+  - ScientistEnvirohelm
   - ScientistNeck
   - ScientistJumpsuit
+  - ScientistEnvirosuit
   - ScientistBackpack
   - ScientistOuterClothing
   - ScientistGloves
+  - ScientistEnvirogloves
   - ScientistShoes
   - ScientistPDA
-  - Glasses
+#  - Glasses #Maid
   - Survival
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  - ScientistEnvirohelm
-  - ScientistEnvirosuit
-  - ScientistEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobResearchAssistant
   groups:
+  - ScientistGloves #Maid
+  - ResearchAssistantEnvirogloves
+  - ScientistHead #Maid
+  - ResearchAssistantEnvirohelm
   - GroupTankHarness
   - ResearchAssistantJumpsuit
+  - ResearchAssistantEnvirosuit
   - ScientistBackpack
-  - Glasses
+#  - Glasses #Maid
   - Survival
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  - ResearchAssistantEnvirohelm
-  - ResearchAssistantEnvirosuit
-  - ResearchAssistantEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 # Security
 - type: roleLoadout
   id: JobHeadOfSecurity
   groups:
   - HeadofSecurityHead
+  - HeadofSecurityEnvirohelm
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
+  - HeadofSecurityEnvirosuit
   - SecurityBackpack
   - SecurityMelee # Goobstation
   - SecurityBelt
   - HeadofSecurityOuterClothing
   - HeadofSecurityShoes # Goobstation edit
   - SurvivalSecurity
-  - Trinkets
-  - SecurityStar
-  - Animals
+#  - Trinkets #Maid
+#  - SecurityStar #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathToolSecurity
   # Goobstation - EE Plasmeme Change.
-  - HeadofSecurityEnvirohelm
-  - HeadofSecurityEnvirosuit
-  - HeadofSecurityEnvirogloves
   - HeadofSecurityGloves
+  - HeadofSecurityEnvirogloves
   - HeadOfSecurityUnderwear # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
+  - HoSUnderwear #Maid
+  - HoSBra #Maid
 
 - type: roleLoadout
   id: JobWarden
   groups:
   - WardenHead
+  - WardenEnvirohelm
   - WardenJumpsuit
+  - WardenEnvirosuit
+  - WardenEnvirogloves
   - SecurityBackpack
   - SecurityMelee # Goobstation
   - SecurityNeck
@@ -665,22 +742,24 @@
   - WardenOuterClothing
   - SecurityShoes
   - SurvivalSecurity
-  - Trinkets
-  - SecurityStar
-  - Animals
+#  - Trinkets #Maid
+#  - SecurityStar #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathToolSecurity
   # Goobstation - EE Plasmeme Change.
-  - WardenEnvirohelm
-  - WardenEnvirosuit
-  - WardenEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobSecurityOfficer
   groups:
   - SecurityHead
+  - SecurityOfficerEnvirohelm
   - SecurityJumpsuit
+  - SecurityOfficerEnvirosuit
+  - SecurityOfficerEnvirogloves
   - SecurityBackpack
   - SecurityMelee # Goobstation
   - SecurityOuterClothing
@@ -689,57 +768,61 @@
   - SecurityPDA
   - SecurityBelt
   - SurvivalSecurity
-  - Trinkets
-  - SecurityStar
-  - Animals
+#  - Trinkets #Maid
+#  - SecurityStar #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathToolSecurity
   # Goobstation - EE Plasmeme Change.
-  - SecurityOfficerEnvirohelm
-  - SecurityOfficerEnvirosuit
-  - SecurityOfficerEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobDetective
   groups:
   - DetectiveHead
+  - DetectiveEnvirohelm
   - DetectiveNeck
   - DetectiveJumpsuit
+  - DetectiveEnvirosuit
   - SecurityBackpack
   - DetectiveOuterClothing
   - SecurityShoes
   - SurvivalSecurity
-  - Trinkets
-  - SecurityStar
-  - Animals
+#  - Trinkets #Maid
+#  - SecurityStar #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathToolSecurity
   # Goobstation - EE Plasmeme Change.
-  - DetectiveEnvirohelm
-  - DetectiveEnvirosuit
-  - DetectiveEnvirogloves
   - DetectiveGloves
+  - DetectiveEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
+  - SecurityHead #Maid
+  - SecurityCadetEnvirohelm
   - SecurityCadetJumpsuit
+  - SecurityCadetEnvirosuit
+  - SecurityCadetEnvirogloves
   - SecurityBackpack
   - SecurityMelee # Goobstation
   - SurvivalSecurity
   - SecurityNeck
   - SecurityOuterClothing # Goobstation - Why not.
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathToolSecurity
   # Goobstation - EE Plasmeme Change.
-  - SecurityCadetEnvirohelm
-  - SecurityCadetEnvirosuit
-  - SecurityCadetEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 # Medical
 - type: roleLoadout
@@ -747,186 +830,212 @@
   groups:
   - GroupTankHarness
   - ChiefMedicalOfficerHead
+  - ChiefMedicalOfficerEnvirohelm
   - MedicalMask
   - ChiefMedicalOfficerJumpsuit
+  - ChiefMedicalOfficerEnvirosuit
   - MedicalGloves
+  - ChiefMedicalOfficerEnvirogloves
   - MedicalBackpack
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
   - MedicalEyewear
   - SurvivalMedical
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathToolMedical
   # Goobstation - EE Plasmeme Change.
-  - ChiefMedicalOfficerEnvirohelm
-  - ChiefMedicalOfficerEnvirosuit
-  - ChiefMedicalOfficerEnvirogloves
   - ChiefMedicalOfficerUnderwear # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
+  - CMOUnderwear #Maid
+  - CMOBra #Maid
 
 - type: roleLoadout
   id: JobMedicalDoctor
   groups:
   - GroupTankHarness
   - MedicalDoctorHead
+  - MedicalDoctorEnvirohelm
   - MedicalMask
   - MedicalDoctorJumpsuit
+  - MedicalDoctorEnvirosuit
   - MedicalGloves
+  - MedicalDoctorEnvirogloves
   - MedicalBackpack
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
   - MedicalEyewear
   - SurvivalMedical
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathToolMedical
   # Goobstation - EE Plasmeme Change.
-  - MedicalDoctorEnvirohelm
-  - MedicalDoctorEnvirosuit
-  - MedicalDoctorEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobMedicalIntern
   groups:
+  - MedicalGloves #Maid
+  - MedicalInternEnvirogloves
+  - MedicalDoctorHead #Maid
+  - MedicalInternEnvirohelm
   - GroupTankHarness
   - MedicalInternJumpsuit
+  - MedicalInternEnvirosuit
   - MedicalBackpack
   - MedicalEyewear
   - SurvivalMedical
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathToolMedical
   # Goobstation - EE Plasmeme Change.
-  - MedicalInternEnvirohelm
-  - MedicalInternEnvirosuit
-  - MedicalInternEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobChemist
   groups:
   - GroupTankHarness
   - ChemistHead # Goobstation
+  - ChemistEnvirohelm
   - MedicalMask
   - ChemistJumpsuit
+  - ChemistEnvirosuit
   - MedicalGloves
+  - ChemistEnvirogloves
   - ChemistBackpack
   - ChemistOuterClothing
   - MedicalShoes
   - SurvivalMedical
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathToolMedical
   # Goobstation - EE Plasmeme Change.
-  - ChemistEnvirohelm
-  - ChemistEnvirosuit
-  - ChemistEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobParamedic
   groups:
   - GroupTankHarness
   - ParamedicHead
+  - ParamedicEnvirohelm
   - MedicalMask
   - ParamedicJumpsuit
+  - ParamedicEnvirosuit
   - MedicalGloves
+  - ParamedicEnvirogloves
   - MedicalBackpack
   - ParamedicOuterClothing
   - ParamedicShoes
   - MedicalEyewear
   - SurvivalMedical
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathToolMedical
   # Goobstation - EE Plasmeme Change.
-  - ParamedicEnvirohelm
-  - ParamedicEnvirosuit
-  - ParamedicEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 # Wildcards
 - type: roleLoadout
   id: JobZookeeper
   groups:
   - ZookeeperHead
-  - ZookeeperJumpsuit
-  - GroupTankHarness
-  - CommonBackpack
-  - Glasses
-  - Survival
-  - Trinkets
-  - Animals
-  - GroupSpeciesBreathTool
-  # Goobstation - EE Plasmeme Change.
   - ZookeeperEnvirohelm
+  - ZookeeperJumpsuit
   - ZookeeperEnvirosuit
   - ZookeeperEnvirogloves
+  - GroupTankHarness
+  - CommonBackpack
+#  - Glasses #Maid
+  - Survival
+#  - Trinkets #Maid
+#  - Animals #Maid
+  - GroupSpeciesBreathTool
+  # Goobstation - EE Plasmeme Change.
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobReporter
   groups:
+  - PassengerOuterClothing #Maid
   - GroupTankHarness
-  - ReporterJumpsuit
-  - ReporterOuterClothing # Goobstation - Bodycams
-  - CommonBackpack
-  - Glasses
-  - Survival
-  - Trinkets
-  - Animals
-  - GroupSpeciesBreathTool
-  # Goobstation - EE Plasmeme Change.
   - ReporterEnvirohelm
+  - ReporterJumpsuit
   - ReporterEnvirosuit
   - ReporterEnvirogloves
+  - ReporterOuterClothing # Goobstation - Bodycams
+  - CommonBackpack
+#  - Glasses #Maid
+  - Survival
+#  - Trinkets #Maid
+#  - Animals #Maid
+  - GroupSpeciesBreathTool
+  # Goobstation - EE Plasmeme Change.
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobPsychologist
   groups:
+  - MedicalDoctorHead #Maid
+  - PsychologistEnvirohelm
+  - MedicalGloves #Maid
+  - PsychologistEnvirogloves
   - GroupTankHarness
   - PsychologistJumpsuit
+  - PsychologistEnvirosuit
   - MedicalBackpack
-  - Glasses
+#  - Glasses #Maid
   - Survival
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  - PsychologistEnvirohelm
-  - PsychologistEnvirosuit
-  - PsychologistEnvirogloves
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 - type: roleLoadout
   id: JobBoxer
   groups:
+  - PassengerOuterClothing #Maid
   - GroupTankHarness
+  - BoxerEnvirohelm
   - BoxerJumpsuit
+  - BoxerEnvirosuit
   - BoxerGloves
   - CommonBackpack
-  - Glasses
+#  - Glasses #Maid
   - Survival
-  - Trinkets
-  - Animals
+#  - Trinkets #Maid
+#  - Animals #Maid
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
-  - BoxerEnvirohelm
-  - BoxerEnvirosuit
   - DefaultUnderwearWhite # Maid changes
   - SocksUnderwear # Maid changes - socks
+  - Underwear #Maid
+  - Bra #Maid
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit

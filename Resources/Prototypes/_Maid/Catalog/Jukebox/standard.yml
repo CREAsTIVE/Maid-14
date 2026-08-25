@@ -1,0 +1,79 @@
+# Songs
+- type: jukebox
+  id: SpaceOddity
+  name: "David Bowie - Space Oddity"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Songs/SpaceOddity.ogg
+
+- type: jukebox
+  id: SpaceShuttle
+  name: "Chris Remo - Space Shuttle"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Songs/SpaceShuttle.ogg
+
+- type: jukebox
+  id: TheSettler
+  name: "Chris Remo - The Settler"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Songs/TheSettler.ogg
+
+- type: jukebox
+  id: CirclesAroundTheSun
+  name: "Circles Around The Sun - Circles Around The Sun"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Songs/CirclesAroundTheSun.ogg
+
+- type: jukebox
+  id: RetroFilk
+  name: "Vic Tyler - RetroFilk"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Songs/RetroFilk.ogg
+
+- type: jukebox
+  id: AllThatICanSee
+  name: "SolusLunes - All That I Can See"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Songs/AllThatICanSee.ogg
+
+- type: jukebox
+  id: Delirium
+  name: "Stellardrone - Delirium"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Music/delirium.ogg
+
+- type: jukebox
+  id: MagicFly
+  name: "Space - Magic Fly"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Music/magicfly.ogg
+
+- type: jukebox
+  id: CrokketTheme
+  name: "Jan Hammer - Crockett's Theme"
+  path:
+    path: /Audio/_Maid/White/Music/crokett_39_s_theme.ogg
+
+- type: jukebox
+  id: Guts
+  name: "Susumu Hirasawa - Guts"
+  path:
+    path: /Audio/_Maid/White/Music/guts.ogg
+
+- type: jukebox
+  id: VoyageNeverEnding
+  name: "SolusLunes - Voyage Never Ending"
+  path:
+    path: /Audio/_Maid/Ambience/voyage_neverending.ogg
+
+- type: jukebox
+  id: LibetsDelay
+  name: "The Caretaker - Libet's Delay"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Music/Libets_Delay.ogg
+
+- type: jukebox
+  id: ItsJustABurningMemory
+  name: "The Caretaker - It's Just a Burning Memory"
+  path:
+    path: /Audio/_Maid/White/Music/Lobby/Music/Its_just_a_burning_memory.ogg
+

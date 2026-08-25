@@ -41,7 +41,7 @@
       min: 180 # 3 min
       max: 600 # 10 min
 
-    midroundSpawnSkipProb: 0.6 # With what chance we skip spawning rule
+    # midroundSpawnSkipProb: 0.6 # With what chance we skip spawning rule
 
     scoreDifferenceMultiplierDecay: 850
     scoreDifferenceMultiplierMin: 0.15

@@ -1,0 +1,16 @@
+﻿- type: entity
+  id: BaseMobDanger
+  components:
+  - type: AdaptiveScoreStatic
+    chaosScore:
+      base: 0.5
+      target: 0
+      in: 420
+    combatScore:
+      base: 1
+      target: 0
+      in: 420
+    conditions:
+    - !type:AdaptiveScoreAliveCondition
+    conditionTables:
+    - OnStationGrid

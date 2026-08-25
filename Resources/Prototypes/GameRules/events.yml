@@ -959,9 +959,11 @@
     weight: 8
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
-    startAnnouncement: station-event-communication-interception
-    startAudio:
-      path: /Audio/_Maid/Announcements/attention.ogg # Maid
+    # MAID BEGIN - disable sleeper agents announcements
+    # startAnnouncement: station-event-communication-interception
+    # startAudio:
+    #   path: /Audio/_Maid/Announcements/attention.ogg # Maid
+    # MAID END
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
     eventType: HostilesSpawn # Goobstation

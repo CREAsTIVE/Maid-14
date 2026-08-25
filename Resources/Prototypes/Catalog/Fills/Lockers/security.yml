@@ -150,6 +150,11 @@
     - id: WeaponPistolMk58
     - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
     - id: ClothingHeadsetAltWarden # Goobstation
+    - id: WeaponLauncherShinano
+    - id: BoxShinanoGrenadeFlash
+    - id: BoxShinanoGrenadeSmoke
+    - id: BoxShinanoGrenadeStinger
+    - id: BoxShinanoGrenadeBeanbag
     # Maid edit end
 
 - type: entityTable

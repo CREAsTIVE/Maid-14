@@ -42,3 +42,20 @@
       size: Large
       shape:
       - 0, 0, 3, 1
+
+- type: entity
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  id: GunSafeEgun
+  name: egun safe
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillGunSafeEgun
+
+- type: entityTable
+  id: FillGunSafeEgun
+  table: !type:AllSelector
+    children:
+    - id: WeaponEgun
+      amount: 3

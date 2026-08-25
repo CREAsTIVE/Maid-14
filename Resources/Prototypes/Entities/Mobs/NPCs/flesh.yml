@@ -35,27 +35,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, MobCombat, BaseMobDanger ] # MAID
   id: BaseMobFlesh
   name: aberrant flesh
   description: A shambling mass of flesh, animated through anomalous energy.
   abstract: true
   components:
-  # MAID BEGIN adaptive scores
-  - type: AdaptiveScoreStatic
-    combatScore:
-      base: 4
-      target: 0
-      in: 420
-    chaosScore:
-      base: 2
-      target: 0
-      in: 420
-    conditions:
-    - !type:AdaptiveScoreAliveCondition
-    conditionTables:
-    - OnStationGrid
-  # MAID END adaptive scores
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -253,28 +238,13 @@
         Blunt: 10
 
 - type: entity
-  parent: [ SimpleSpaceMobBase, MobCombat ]
+  parent: [ SimpleSpaceMobBase, MobCombat, BaseMobDanger ] # MAID
   id: BaseMobFleshSalvage #This one is immune to space!
   name: aberrant flesh
   suffix: "Salvage Ruleset"
   description: A shambling mass of flesh, animated through anomalous energy.
   abstract: true
   components:
-  # MAID BEGIN adaptive scores
-  - type: AdaptiveScoreStatic
-    combatScore:
-      base: 3
-      target: 0
-      in: 420
-    chaosScore:
-      base: 1
-      target: 0
-      in: 420
-    conditions:
-    - !type:AdaptiveScoreAliveCondition
-    conditionTables:
-    - OnStationGrid
-  # MAID END adaptive scores
   - type: HTN
     rootTask:
       task: SimpleHostileCompound

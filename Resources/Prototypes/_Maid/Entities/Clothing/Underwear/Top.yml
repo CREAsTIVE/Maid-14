@@ -10,7 +10,7 @@
   - type: Item
     size: Small
   - type: Clothing
-    slots: [underweart]
+    slots: [UNDERWEART]
   - type: Tag
     tags:
       - underweart

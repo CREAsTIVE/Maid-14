@@ -539,106 +539,84 @@
 ## EE PLASMAMEN
 
 - type: entity
-  parent: BoxSurvivalSlots
+  parent: BoxCardboard  #Maid 
   id: BoxSurvivalSlotsPlasma
   suffix: Standard Plasma
   components:
-  - type: ContainerFill
-    containers:
-      water:
-      - DrinkMilkBottleFull
-      nutriblock:
-      - FoodSnackNutribrick
-      flare:
-      - Flare
-      tank:
-      - EmergencyPlasmaTankFilled
-      mask:
-      - ClothingMaskBreath
-      emergencypen:
-      - EmergencyMedipen
-      spacepen:
-      - SpaceMedipen
+  - type: StorageFill  #Maid begin
+    contents:
+      - id: FoodSnackNutribrick 
+      - id: EmergencyPlasmaTankFilled
+      - id: Flare #Maid
+      - id: ClothingMaskBreath
+      - id: EmergencyMedipen
+      - id: SpaceMedipen #Maid end
   - type: Label
     currentLabel: reagent-name-plasma
+  - type: Sprite #Maid begin
+    layers:
+    - state: internals
+    - state: emergencytank #Maid end
 
 - type: entity
-  parent: BoxSurvivalSlotsEngineering
+  parent: BoxCardboard #Maid 
   id: BoxSurvivalSlotsEngineeringPlasma
   suffix: Extended Plasma
   components:
-  - type: ContainerFill
-    containers:
-      water:
-      - DrinkMilkBottleFull
-      nutriblock:
-      - FoodSnackNutribrick
-      flare:
-      - Flare
-      tank:
-      - EmergencyPlasmaTankFilled
-      mask:
-      - ClothingMaskBreath
-      emergencypen:
-      - EmergencyMedipen
-      spacepen:
-      - SpaceMedipen
+  - type: StorageFill #Maid begin
+    contents:
+      - id: FoodSnackNutribrick
+      - id: EmergencyPlasmaTankFilled
+      - id: Flare #Maid
+      - id: ClothingMaskBreath
+      - id: EmergencyMedipen
+      - id: SpaceMedipen #Maid end
   - type: Label
     currentLabel: reagent-name-plasma
   - type: Sprite
-    state: box_extend
+    layers: #Maid begin
+    - state: internals
+    - state: emergencytank #Maid end
 
 - type: entity
-  parent: BoxSurvivalSlotsSecurity
+  parent: BoxCardboard #Maid 
   id: BoxSurvivalSlotsSecurityPlasma
   suffix: Security Plasma
   components:
-  - type: ContainerFill
-    containers:
-      water:
-      - DrinkMilkBottleFull
-      nutriblock:
-      - FoodSnackNutribrick
-      flare:
-      - Flare
-      tank:
-      - EmergencyPlasmaTankFilled
-      mask:
-      - ClothingMaskGasSecurity
-      emergencypen:
-      - EmergencyMedipen
-      spacepen:
-      - SpaceMedipen
+  - type: StorageFill #Maid begin
+    contents:
+      - id: FoodSnackNutribrick
+      - id: EmergencyPlasmaTankFilled
+      - id: Flare #Maid
+      - id: ClothingMaskBreath
+      - id: EmergencyMedipen
+      - id: SpaceMedipen #Maid end
   - type: Label
     currentLabel: reagent-name-plasma
   - type: Sprite
-    state: box_sec
+    layers: #Maid begin
+    - state: internals
+    - state: emergencytank #Maid end
 
 - type: entity
-  parent: BoxSurvivalSlotsMedical
+  parent: BoxCardboard #Maid 
   id: BoxSurvivalSlotsMedicalPlasma
   suffix: Medical Plasma
   components:
-  - type: ContainerFill
-    containers:
-      water:
-      - DrinkMilkBottleFull
-      nutriblock:
-      - FoodSnackNutribrick
-      flare:
-      - Flare
-      tank:
-      - EmergencyPlasmaTankFilled
-      mask:
-      - ClothingMaskBreathMedical
-      emergencypen:
-      - EmergencyMedipen
-      spacepen:
-      - SpaceMedipen
+  - type: StorageFill #Maid begin
+    contents:
+      - id: FoodSnackNutribrick
+      - id: EmergencyPlasmaTankFilled
+      - id: Flare #Maid
+      - id: ClothingMaskBreath
+      - id: EmergencyMedipen
+      - id: SpaceMedipen #Maid end
   - type: Label
     currentLabel: reagent-name-plasma
   - type: Sprite
-    state: box_med
+    layers: #Maid begin
+    - state: internals
+    - state: emergencytank #Maid end
 
 - type: entity
   parent: BoxHugSlots
@@ -715,48 +693,18 @@
     currentLabel: reagent-name-plasma
 
 - type: entity
-  parent: BoxSurvivalSlots
+  parent: BoxCardboard #Maid
   id: BoxSurvivalSlotsSilicon
   name: silicon survival box
   description: It's a box with basic tools for self-repair inside.
   components:
-  - type: ContainerContainer
-    containers:
-      battery: !type:ContainerSlot
-      flare: !type:ContainerSlot
-      welder: !type:ContainerSlot
-      cable: !type:ContainerSlot
-  - type: ItemSlots
-    slots:
-      battery:
-        ejectOnInteract: false
-        whitelist:
-          tags:
-          - DisposableBattery
-      flare:
-        ejectOnInteract: false
-        whitelist:
-          tags:
-          - Flare
-      welder:
-        ejectOnInteract: false
-        whitelist:
-          tags:
-          - WeldingTool
-      cable:
-        ejectOnInteract: false
-        whitelist:
-          tags:
-          - CableCoil
-  - type: ContainerFill
-    containers:
-      battery:
-      - BatteryDisposable
-      flare:
-      - Flare
-      welder:
-      - WelderMini
-      cable:
-      - CableApcStack10
+  - type: StorageFill #Maid begin
+    contents:
+      - id: CableApcStack10
+      - id: WelderMini
+      - id: Flare
+      - id: BatteryDisposable #Maid end
   - type: Sprite
-    state: box_silicon
+    layers: #Maid begin
+    - state: internals
+    - state: emergencytank #Maid end

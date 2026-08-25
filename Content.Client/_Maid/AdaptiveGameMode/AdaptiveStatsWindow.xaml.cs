@@ -278,7 +278,7 @@ public sealed partial class AdaptiveStatsWindow : DefaultWindow
             var viewButton = new Button { Text = "View" };
             viewButton.OnPressed += _ =>
             {
-                _console.ExecuteCommand($"teleport {record.Entity}");
+                _console.ExecuteCommand($"follow {record.Entity}");
             };
             TableGrid.AddChild(viewButton);
         }
