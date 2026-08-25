@@ -41,7 +41,7 @@
       - id: Ointment
       - id: Gauze
       - id: PillCanisterTricordrazine
-      - id: PillCanisterIron # Goobstation
+#      - id: PillCanisterIron # Goobstation #Maid
       # see https://github.com/tgstation/blob/master/code/game/objects/items/storage/firstaid.dm for example contents
 
 - type: entity
@@ -51,11 +51,17 @@
   components:
   - type: StorageFill
     contents:
-      - id: Ointment
-        amount: 2
-      - id: SprayBottleSilverSulfadiazine # Goobstation
-      - id: BurnAutoInjector # Goobstation
-      - id: PillCanisterDermaline
+# Maid edit start
+#      - id: Ointment
+#        amount: 2
+#      - id: SprayBottleSilverSulfadiazine # Goobstation
+#      - id: BurnAutoInjector # Goobstation
+#      - id: PillCanisterDermaline
+    - id: Ointment
+      amount: 3
+    - id: PillCanisterKelotane
+    - id: PillCanisterDermaline
+# Maid edit end
 
 - type: entity
   id: MedkitBruteFilled
@@ -64,11 +70,17 @@
   components:
   - type: StorageFill
     contents:
-      - id: Brutepack
-      - id: Gauze
-      - id: SprayBottleStypticPowder # Goobstation
-      - id: BruteAutoInjector # Goobstation
-      - id: PillCanisterIron
+# Maid edit start
+#      - id: Brutepack
+#      - id: Gauze
+#      - id: SprayBottleStypticPowder # Goobstation
+#      - id: BruteAutoInjector # Goobstation
+#      - id: PillCanisterIron
+    - id: Brutepack
+      amount: 3
+    - id: PillCanisterIron
+    - id: PillCanisterCopper
+# Maid edit end
 
 - type: entity
   id: MedkitToxinFilled
@@ -81,6 +93,7 @@
       - id: SyringeEthylredoxrazine
       - id: AntiPoisonMedipen
       - id: PillCanisterDylovene
+        amount: 2 #Maid
       - id: PillCanisterCharcoal
 
 - type: entity
@@ -95,6 +108,7 @@
       - id: EmergencyMedipen
       - id: SyringeInaprovaline
       - id: PillCanisterDexalin
+      - id: Gauze #Maid
 
 - type: entity
   id: MedkitRadiationFilled
@@ -107,6 +121,7 @@
       - id: RadAutoInjector
       - id: PillCanisterPotassiumIodide
       - id: PillCanisterHyronalin
+        amount: 2 #Maid
 
 - type: entity
   id: MedkitAdvancedFilled
@@ -119,7 +134,7 @@
       - id: RegenerativeMesh
       - id: Bloodpack
         amount: 2
-      - id: Tourniquet # Shitmed Change
+#      - id: Tourniquet # Shitmed Change #Maid
 
 - type: entity
   id: MedkitCombatFilled
@@ -131,7 +146,7 @@
       - id: MedicatedSuture
       - id: RegenerativeMesh
       - id: SyringeEphedrine
-      - id: SyringeSaline
+#      - id: SyringeSaline #Maid
       - id: BruteAutoInjector
       - id: BurnAutoInjector
 

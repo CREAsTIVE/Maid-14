@@ -188,6 +188,7 @@
 #    # - id: SalvageJobBoardComputerCircuitboard # Goobstation - This doesn't really have a use right now but it's there incase it ever gets use again
 #    # - id: CargoMegaphone # goob - loudspeaker #Maid edit end
     - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab #Maid
+    - id: ClothingHeadsetAltCargo
 # Maid edit end
 
 - type: entity
@@ -240,6 +241,7 @@
     - id: RubberStampCaptain
     - id: JetpackCaptainFilled
     - id: MedalCase
+    - id: ClothingHeadsetAltCommand
 # Maid edit end
 
 # No laser table + Laser table
@@ -361,6 +363,7 @@
     - id: BoxEncryptionKeyPassenger
     - id: BoxEncryptionKeyService
     - id: BoxFolderClipboard
+    - id: ClothingHeadsetAltCommand
 # Maid edit end
 
 - type: entity
@@ -413,6 +416,9 @@
     - id: RCDAmmo
       amount: 2
     - id: HolofanProjector
+    - id: ClothingHeadsetAltEngineering
+    - id: ClothingHandsGlovesColorYellow
+    - id: ClothingEyesGlassesMeson
 # Maid edit end
 
 # Hardsuit table, used for suit storage as well
@@ -508,6 +514,7 @@
     - id: MedicalTechFabCircuitboard
     - id: BoxEncryptionKeyMedical
     - id: ClothingBeltMedicalFilled
+    - id: ClothingHeadsetAltMedical
 # Maid edit end
 
 # Hardsuit table, used for suit storage as well
@@ -587,6 +594,7 @@
     - id: BoxEncryptionKeyScience
     - id: ClothingHeadsetAltScience
     - id: EncryptionKeyBinary
+    - id: ClothingHeadsetAltScience
 # Maid edit end
 
 # Hardsuit table, used for suit storage as well
@@ -658,7 +666,7 @@
     #    # - id: WantedListCartridge # Maid
     #    # - id: DrinkHosFlask # Maid
     #    # - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp#Maid edit end
-    - id: ClothingBeltAssaultFilled
+    - id: ClothingBeltSecurityFilled
     - id: DoorRemoteSecurity
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
@@ -667,6 +675,7 @@
     - id: MagazinePistol
     - id: BoxMindshield # MAID BoxMindshield
     - id: WeaponPistolMk58
+    - id: ClothingHeadsetAltSecurity
 # Maid edit end
 
 # Hardsuit table, used for suit storage as well

@@ -76,7 +76,8 @@
   - type: StorageFill
     contents:
       - id: MopItem
-      - id: MopBucketCubeWrapped
+#      - id: MopBucketCubeWrapped #Maid
+      - id: MopBucket #Maid
       - id: Bucket
         amount: 3
       - id: WetFloorSign
@@ -89,8 +90,8 @@
       - id: Plunger
         amount: 2
       - id: BoxCleanerGrenades
-      - id: WireBrush
-        amount: 2
+#      - id: WireBrush #Maid
+#        amount: 2 #Maid
 
 - type: entity
   id: CrateServiceCleanerGrenades

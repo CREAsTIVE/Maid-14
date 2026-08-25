@@ -267,5 +267,5 @@
     - id: HandheldGPSBasic
     - id: MedkitFilled
     - id: ClothingBeltMedicalEMTFilled
-    - id: HandheldCrewMonitor
+#    - id: HandheldCrewMonitor
     # Maid edit end

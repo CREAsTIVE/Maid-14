@@ -58,7 +58,8 @@
     anchored: true
     noRot: true
   - type: Sprite
-    sprite: Structures/Power/Generation/Singularity/collector.rsi
+#    sprite: Structures/Power/Generation/Singularity/collector.rsi
+    sprite: _Maid/Structures/Power/Generation/Singularity/collector.rsi #Maid
     snapCardinals: true
     layers:
       - state: ca_off
@@ -87,7 +88,8 @@
     group: Generator
     loadNode: input
     collectionName: radiationCollector
-    sprite: Structures/Power/Generation/Singularity/collector.rsi
+#    sprite: Structures/Power/Generation/Singularity/collector.rsi #Maid
+    sprite: _Maid/Structures/Power/Generation/Singularity/collector.rsi
     state: static
   - type: RadiationCollector
     chargeModifier: 15000
