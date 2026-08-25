@@ -136,6 +136,7 @@
 #    ClothingHeadPropellerHat: 2 #Maid
     ClothingBeltStorageWaistbag: 3
     ClothingEyesGlasses: 6
+    ClothingEyesGlassesCheapSunglasses: 3
     ClothingHandsGlovesColorBlack: 4
     ClothingHandsGlovesColorGray: 4
     ClothingHandsGlovesColorBrown: 2
@@ -146,7 +147,6 @@
     ClothingHandsGlovesColorGreen: 2
     ClothingHandsGlovesColorOrange: 2
     ClothingHandsGlovesColorPurple: 2
-    ClothingEyesGlassesCheapSunglasses: 3
     ClothingUniformJumpskirtDressOpenShoulder: 1 # Goobstation
     ClothingShoesSandals: 1 # Goobstation
 #    ClothingOuterCoatBomberPunkRed: 3 # NF #Maid
