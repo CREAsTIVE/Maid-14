@@ -162,6 +162,12 @@
 #  - MagazineBoxShotgunBeanbagHighCaliber # Goobstation #Maid
   - WeaponDisabler
   - WeaponMechCombatDisabler # Goobstation
+  # MAID BEGIN shinano ammo
+  - ShinanoGrenadeFlashRecipe
+  - ShinanoGrenadeSmokeRecipe
+  - ShinanoGrenadeStingerRecipe
+  - ShinanoGrenadeBeanbagRecipe
+  # MAID END shinano ammo
   # Goobstation R&D Console rework start
   position: 2,3
   technologyPrerequisites:

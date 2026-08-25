@@ -136,6 +136,12 @@
   - MagazineShotgunIncendiary
   - SpeedLoaderMagnumIncendiary
   - SpeedLoaderMagnumUranium
+  # MAID BEGIN shinano ammo
+  - ShinanoGrenadeFlashRecipe
+  - ShinanoGrenadeSmokeRecipe
+  - ShinanoGrenadeStingerRecipe
+  - ShinanoGrenadeBeanbagRecipe
+  # MAID END shinano ammo
 
 - type: latheRecipePack
   id: SecurityWeapons

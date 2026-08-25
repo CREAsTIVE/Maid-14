@@ -2,6 +2,8 @@
   id: ShinanoGrenadeFlashRecipe
   result: ShinanoGrenadeFlash
   completetime: 3
+  categories:
+  - Ammo
   materials:
      Steel: 800
      Plastic: 200
@@ -12,6 +14,8 @@
   id: ShinanoGrenadeSmokeRecipe
   result: ShinanoGrenadeSmoke
   completetime: 3
+  categories:
+  - Ammo
   materials:
      Steel: 800
      Plastic: 200
@@ -21,6 +25,8 @@
   id: ShinanoGrenadeStingerRecipe
   result: ShinanoGrenadeStinger
   completetime: 3
+  categories:
+  - Ammo
   materials:
      Steel: 800
      Plastic: 800
@@ -29,5 +35,7 @@
   id: ShinanoGrenadeBeanbagRecipe
   result: ShinanoGrenadeBeanbag
   completetime: 3
+  categories:
+  - Ammo
   materials:
      Steel: 800
