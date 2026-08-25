@@ -293,7 +293,7 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
-      outerClothing: # Goob 
+      outerClothing: # Goob
         sizeMaps:
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
@@ -304,7 +304,7 @@
   - type: Barotrauma
     damage:
       types:
-        Blunt: 0.50 #per second, scales with pressure and other constants.
+        Blunt: 1.50 #per second, scales with pressure and other constants. # MAID barotrauma fix
         Heat: 0.1
   #- type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute. # Specified above already
   #  allowedStates:
@@ -361,7 +361,7 @@
   - type: Carriable # Goobstation
   - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
   - type: GrabIntent # wilted rose
-  - type: Grabbable 
+  - type: Grabbable
   # Goobstation end
   - type: Hands
     leftHandDisplacement:

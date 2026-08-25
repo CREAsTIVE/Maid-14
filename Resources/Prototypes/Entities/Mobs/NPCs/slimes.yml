@@ -155,7 +155,8 @@
   - type: Barotrauma
     damage:
       types:
-        Blunt: 0.45
+        Blunt: 0.2 # MAID barotrauma fix
+        Heat: 0.2 # MAID barotrauma fix
   - type: Reactive
     groups:
       Flammable: [ Touch ]
