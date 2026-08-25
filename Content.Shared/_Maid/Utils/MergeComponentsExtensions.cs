@@ -18,7 +18,8 @@ public static class MergeComponentsExtensions
         this IEntityManager entMan,
         EntityUid uid,
         ComponentRegistry registry,
-        ISerializationManager? serialization = null)
+        ISerializationManager? serialization = null,
+        bool dirty = true)
     {
         serialization ??= IoCManager.Resolve<ISerializationManager>();
 
@@ -41,7 +42,9 @@ public static class MergeComponentsExtensions
 
             object? target = existingComp;
             serialization.CopyTo(mergedComp, ref target);
-            entMan.Dirty(uid, existingComp);
+
+            if (dirty)
+                entMan.Dirty(uid, existingComp);
         }
     }
 }
