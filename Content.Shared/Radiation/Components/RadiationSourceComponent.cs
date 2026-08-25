@@ -30,7 +30,7 @@ public sealed partial class RadiationSourceComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("terminalDecaySlope")]
-    public float TerminalDecaySlope = 0.07f;
+    public float TerminalDecaySlope = 0.15f; // MAID weak radiation
 
     /// <summary>
     ///     GOOBSTATION
@@ -41,7 +41,7 @@ public sealed partial class RadiationSourceComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("terminalDecayDistance")]
-    public float TerminalDecayDistance = 15;
+    public float TerminalDecayDistance = 4; // MAID weak radiation
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool Enabled = true;
