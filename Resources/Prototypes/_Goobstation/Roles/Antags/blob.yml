@@ -9,7 +9,7 @@
   id: Blob
   name: roles-antag-blob-name
   antagonist: true
-  setPreference: true
+  setPreference: false #Maid вырезано
   objective: roles-antag-blob-objective
   guides: [ Blob ]
   requirements:

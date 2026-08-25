@@ -208,11 +208,11 @@
     drawdepth: SmallMobs
     layers:
     - state: shell
-      sprite: _Imp/Drone/drone.rsi #Mobs/Silicon/drone.rsi
+      sprite: _Maid/Mobs/Silicon/drone.rsi #Mobs/Silicon/drone.rsi #Maid
       map: ["base"]
   - type: BorgTransponder
     sprite:
-      sprite: _Imp/Drone/drone.rsi
+      sprite: _Maid/Mobs/Silicon/drone.rsi #Maid
       state: shell
     name: drone
   - type: MovementIgnoreGravity
