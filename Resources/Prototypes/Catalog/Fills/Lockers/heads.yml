@@ -665,7 +665,7 @@
     #    # - id: WantedListCartridge # Maid
     #    # - id: DrinkHosFlask # Maid
     #    # - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp#Maid edit end
-    - id: ClothingBeltAssaultFilled
+    - id: ClothingBeltSecurityFilled
     - id: DoorRemoteSecurity
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
