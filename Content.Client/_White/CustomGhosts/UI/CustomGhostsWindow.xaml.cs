@@ -114,7 +114,9 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
         // so i have to do what it does manually
         // therefore there is no reason to use it over SpriteView
 
-        var ghostEnt = _entMan.Spawn(ghostProto.GhostEntityPrototype);
+        var ghostEnt = _entMan.Spawn("MobObserver");
+        _entMan.AddComponents(ghostEnt, ghostProto.AddComponents);
+
         _previewEntities.Add(ghostEnt);
         _entMan.RemoveComponent<GhostColorComponent>(ghostEnt);
         _sprite.ForceUpdate(ghostEnt);

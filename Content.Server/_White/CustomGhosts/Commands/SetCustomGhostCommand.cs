@@ -16,6 +16,7 @@ public sealed class SetCustomGhostCommand : IConsoleCommand
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IServerPreferencesManager _prefMan = default!;
+    [Dependency] private readonly IEntityManager _entManager = default!;
 
     public string Command => "setcustomghost";
     public string Description => Loc.GetString("setcustomghost-command-description");
@@ -59,5 +60,10 @@ public sealed class SetCustomGhostCommand : IConsoleCommand
         prefs.CustomGhost = protoId;
         await _db.SaveGhostTypeAsync(player.UserId, protoId);
         shell.WriteLine(Loc.GetString("setcustomghost-command-saved"));
+
+        if (player.AttachedEntity is { } attached && _entManager.TryGetComponent<CustomGhostComponent>(attached, out var customGhostComp))
+        {
+            _entManager.System<CustomGhostSystem>().SetupCustomGhost(attached, proto, customGhostComp);
+        }
     }
 }
