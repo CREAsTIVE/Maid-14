@@ -60,10 +60,5 @@ public sealed class SetCustomGhostCommand : IConsoleCommand
         prefs.CustomGhost = protoId;
         await _db.SaveGhostTypeAsync(player.UserId, protoId);
         shell.WriteLine(Loc.GetString("setcustomghost-command-saved"));
-
-        if (player.AttachedEntity is { } attached && _entManager.TryGetComponent<CustomGhostComponent>(attached, out var customGhostComp))
-        {
-            _entManager.System<CustomGhostSystem>().SetupCustomGhost(attached, proto, customGhostComp);
-        }
     }
 }

@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// MAID custom ghosts
+using Content.Shared._Maid.Utils; // MAID custom ghosts
 using Content.Client.Lobby;
 using Content.Shared._RMC14.GhostColor;
 using Content.Shared._White.CustomGhostSystem;
@@ -115,7 +117,7 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
         // therefore there is no reason to use it over SpriteView
 
         var ghostEnt = _entMan.Spawn("MobObserver");
-        _entMan.AddComponents(ghostEnt, ghostProto.AddComponents);
+        _entMan.MergeComponents(ghostEnt, ghostProto.AddComponents);
 
         _previewEntities.Add(ghostEnt);
         _entMan.RemoveComponent<GhostColorComponent>(ghostEnt);

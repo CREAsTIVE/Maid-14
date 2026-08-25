@@ -18,7 +18,7 @@ public static class MergeComponentsExtensions
         this IEntityManager entMan,
         EntityUid uid,
         ComponentRegistry registry,
-        ISerializationManager? serialization)
+        ISerializationManager? serialization = null)
     {
         serialization ??= IoCManager.Resolve<ISerializationManager>();
 
