@@ -1747,7 +1747,7 @@
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
   name: loadout-group-breath-tool
-  minLimit: 0
+  minLimit: 1
   maxLimit: 1
   hidden: true
   loadouts:
@@ -1756,7 +1756,7 @@
 - type: loadoutGroup
   id: GroupSpeciesBreathToolMedical
   name: loadout-group-breath-tool
-  minLimit: 0
+  minLimit: 1
   maxLimit: 1
   hidden: true
   loadouts:
@@ -1765,7 +1765,7 @@
 - type: loadoutGroup
   id: GroupSpeciesBreathToolSecurity
   name: loadout-group-breath-tool
-  minLimit: 0
+  minLimit: 1
   maxLimit: 1
   hidden: true
   loadouts:
