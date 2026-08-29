@@ -3,6 +3,7 @@
   id: ItemArtifacts
   components:
   - type: StationEvent
+    startAnnouncement: station-event-item-artifacts-start-announcement
     startAnnouncementColor: "#18abf5"
     startAudio:
       path: /Audio/_Maid/Announcements/announce.ogg # Maid
