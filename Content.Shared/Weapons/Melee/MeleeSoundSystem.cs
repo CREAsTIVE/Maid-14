@@ -55,7 +55,7 @@ public sealed class MeleeSoundSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
-    public const float DamagePitchVariation = 0.05f;
+    public const float DamagePitchVariation = 0f; // MAID no sound variation
 
     /// <summary>
     /// Plays the SwingSound from a weapon component
