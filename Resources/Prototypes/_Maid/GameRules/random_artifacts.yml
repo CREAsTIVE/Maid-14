@@ -2,6 +2,12 @@
   parent: BaseGameRule
   id: ItemArtifacts
   components:
+  - type: StationEvent
+    startAnnouncementColor: "#18abf5"
+    startAudio:
+      path: /Audio/_Maid/Announcements/announce.ogg # Maid
+    weight: 8
+    duration: 35
   - type: GameRule
   - type: RandomItemArtifactsRule
     conversionChance: 0.01
