@@ -1,0 +1,7 @@
+- type: entity
+  parent: BaseGameRule
+  id: ItemArtifacts
+  components:
+  - type: GameRule
+  - type: RandomItemArtifactsRule
+    conversionChance: 0.01
