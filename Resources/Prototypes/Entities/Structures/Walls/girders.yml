@@ -60,6 +60,7 @@
         - MachineMask
         layer:
         - GlassAirlockLayer
+        - WallLayer #Maid
   - type: InteractionOutline
   - type: Construction
     graph: Girder
