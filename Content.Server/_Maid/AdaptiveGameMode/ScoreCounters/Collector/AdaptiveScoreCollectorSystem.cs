@@ -61,45 +61,63 @@ public sealed class AdaptiveScoreCollectorSystem : EntitySystem, IAdaptiveBalanc
                 : GetEntities();
 
             var conditions = GetConditions(collector).ToArray();
+
             foreach (var ent in entities)
             {
-                EntityUid? mob = null;
-                Entity<MindComponent>? mind = null;
-
-                if (TryComp<MindRoleComponent>(ent, out var mindRole))
-                {
-                    var mindId = mindRole.Mind.Owner;
-                    if (TryComp<MindComponent>(mindId, out var mindComp))
-                    {
-                        mob = mindRole.Mind.Comp.OwnedEntity;
-                        mind = new Entity<MindComponent>(mindId, mindComp);
-                    }
-                }
-                else if (TryComp<MindComponent>(ent, out var mindComp))
-                {
-                    mob = mindComp.OwnedEntity;
-                    mind = new Entity<MindComponent>(ent, mindComp);
-                }
-                else
-                {
-                    var mindSystem = _entityManager.System<SharedMindSystem>();
-                    if (mindSystem.TryGetMind(ent, out var mobMindId, out var mobMindComp))
-                    {
-                        mob = ent;
-                        mind = new Entity<MindComponent>(mobMindId, mobMindComp);
-                    }
-                    else
-                    {
-                        mob = ent;
-                    }
-                }
-
-                if (conditions.All(condition => condition.ConditionMet(ent, mob, mind, _entityManager)))
-                {
+                if (IsConditionsMet(conditions, ent))
                     ev.Add(ent, collector.ChaosScore, collector.CombatScore);
-                }
             }
         }
+    }
+
+    public bool IsConditionsMet(
+        IEnumerable<IAdaptiveScoreCondition> conditions,
+        IEnumerable<ProtoId<AdaptiveScoreConditionsTablePrototype>> tables,
+        EntityUid ent)
+    {
+        return IsConditionsMet(
+            tables.SelectMany(table =>
+                    _protoManager.TryIndex(table, out var proto) ? proto.Conditions : []
+                )
+                .Concat(conditions),
+            ent
+        );
+    }
+
+    public bool IsConditionsMet(IEnumerable<IAdaptiveScoreCondition> conditions, EntityUid ent)
+    {
+        EntityUid? mob = null;
+        Entity<MindComponent>? mind = null;
+
+        if (TryComp<MindRoleComponent>(ent, out var mindRole))
+        {
+            var mindId = mindRole.Mind.Owner;
+            if (TryComp<MindComponent>(mindId, out var mindComp))
+            {
+                mob = mindComp.OwnedEntity;
+                mind = new Entity<MindComponent>(mindId, mindComp);
+            }
+        }
+        else if (TryComp<MindComponent>(ent, out var mindComp))
+        {
+            mob = mindComp.OwnedEntity;
+            mind = new Entity<MindComponent>(ent, mindComp);
+        }
+        else
+        {
+            var mindSystem = _entityManager.System<SharedMindSystem>();
+            if (mindSystem.TryGetMind(ent, out var mobMindId, out var mobMindComp))
+            {
+                mob = ent;
+                mind = new Entity<MindComponent>(mobMindId, mobMindComp);
+            }
+            else
+            {
+                mob = ent;
+            }
+        }
+
+        return conditions.All(condition => condition.ConditionMet(ent, mob, mind, _entityManager));
     }
 #if DEBUG
     public IEnumerable<AdaptiveBalanceInfo> GetBalanceInfo()

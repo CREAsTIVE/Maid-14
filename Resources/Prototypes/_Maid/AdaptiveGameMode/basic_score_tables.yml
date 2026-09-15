@@ -6,7 +6,6 @@
   - !type:AdaptiveScoreHasComponentInChildrenCondition
     component: Contraband
 
-
 - type: adaptiveScoreConditionsTable
   id: ActiveGamerule
   conditions:
@@ -31,3 +30,6 @@
   conditions:
   - !type:AdaptiveScoreObjectiveCompletionCondition
     completed: false
+  - !type:AdaptiveObjectiveOwnerCondition
+    conditionTables:
+    - ActiveAntag

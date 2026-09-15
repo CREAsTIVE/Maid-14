@@ -206,7 +206,6 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
         foreach (var rule in rules)
         {
-
             var expectedBudget = CalculatePossibleScoreForPrototype(rule.Id, playerCount);
 
             var multiplierChaos = GetMultiplier(scoreBudget.Chaos, expectedBudget.Chaos);
