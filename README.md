@@ -30,7 +30,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 ## Ссылки
 
-[Maid Discord Server](https://discord.gg/kNXKDvmB7H)
+[Maid Discord Server](https://discord.gg/maidstation14)
 
 ## Билдинг
 
