@@ -232,6 +232,15 @@
   id: UnknownShuttleInstigator
   parent: BaseUnknownShuttleRule
   components:
+  - type: AdaptiveScoreStatic
+    chaosScore:
+      base: 7
+      target: 0
+      in: 300
+    combatScore:
+      base: 3
+      target: 0
+      in: 300
   - type: StationEvent
     startAnnouncement: null #dont nark on antags
     weight: 1 #  lower because antags.
