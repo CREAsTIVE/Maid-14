@@ -7,9 +7,9 @@ using Robust.Shared.Player;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
-public sealed partial class Controlled : IAdaptiveScoreCondition
+public sealed partial class Controlled : AdaptiveScoreCondition
 {
-    public bool ConditionMet(EntityUid owner, EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
+    public override bool ConditionMet(EntityUid owner, EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
     {
         if (mob == null || !entMan.TryGetComponent<ActorComponent>(mob.Value, out var actor))
             return false;

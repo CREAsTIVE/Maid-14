@@ -25,29 +25,11 @@ public sealed class AdaptiveScoreCollectorSystem : EntitySystem, IAdaptiveBalanc
         SubscribeLocalEvent<GetAdaptiveScoreEvent>(OnGetAdaptiveScore);
     }
 
-    private IEnumerable<IAdaptiveScoreCondition> GetConditions(AdaptiveScoreCollectorComponent comp)
-    {
-        return comp.ConditionTables
-            .SelectMany(table =>
-                _protoManager.TryIndex(table, out var proto)
-                    ? proto.Conditions
-                    : []
-            )
-            .Concat(comp.Conditions);
-    }
+    private IEnumerable<EntityUid> GetEntities() =>
+        _entityManager.GetEntities();
 
-    private IEnumerable<EntityUid> GetEntities()
-    {
-        return _entityManager.GetEntities();
-    }
-
-    private IEnumerable<EntityUid> GetEntities(Type componentType)
-    {
-        foreach (var (uid, _) in _entityManager.GetAllComponents(componentType))
-        {
-            yield return uid;
-        }
-    }
+    private IEnumerable<EntityUid> GetEntities(Type componentType) =>
+        _entityManager.GetAllComponents(componentType).Select(e => e.Uid);
 
     private void OnGetAdaptiveScore(ref GetAdaptiveScoreEvent ev)
     {
@@ -60,31 +42,16 @@ public sealed class AdaptiveScoreCollectorSystem : EntitySystem, IAdaptiveBalanc
                 ? GetEntities(reg.Type)
                 : GetEntities();
 
-            var conditions = GetConditions(collector).ToArray();
-
             foreach (var ent in entities)
             {
-                if (IsConditionsMet(conditions, ent))
+                if (IsConditionsMet(collector.Conditions, ent))
                     ev.Add(ent, collector.ChaosScore, collector.CombatScore);
             }
         }
     }
 
-    public bool IsConditionsMet(
-        IEnumerable<IAdaptiveScoreCondition> conditions,
-        IEnumerable<ProtoId<AdaptiveScoreConditionsTablePrototype>> tables,
-        EntityUid ent)
-    {
-        return IsConditionsMet(
-            tables.SelectMany(table =>
-                    _protoManager.TryIndex(table, out var proto) ? proto.Conditions : []
-                )
-                .Concat(conditions),
-            ent
-        );
-    }
 
-    public bool IsConditionsMet(IEnumerable<IAdaptiveScoreCondition> conditions, EntityUid ent)
+    public bool IsConditionsMet(IEnumerable<AdaptiveScoreCondition> conditions, EntityUid ent)
     {
         EntityUid? mob = null;
         Entity<MindComponent>? mind = null;
@@ -122,17 +89,6 @@ public sealed class AdaptiveScoreCollectorSystem : EntitySystem, IAdaptiveBalanc
 #if DEBUG
     public IEnumerable<AdaptiveBalanceInfo> GetBalanceInfo()
     {
-        static string FixName(string name)
-        {
-            if (name.StartsWith("AdaptiveScore"))
-                name = name["AdaptiveScore".Length..];
-
-            if (name.EndsWith("Condition"))
-                name = name[..^"Condition".Length];
-
-            return name;
-        }
-
         var rawResults = GetRawResults(_protoManager);
         if (rawResults == null)
             yield break;
@@ -155,11 +111,7 @@ public sealed class AdaptiveScoreCollectorSystem : EntitySystem, IAdaptiveBalanc
                     new[] { component.EnumerateComponent ?? "" }
                         .Concat(
                             component.Conditions
-                                .Select(cond => cond.GetType().Name)
-                                .Select(FixName)
-                                .Concat(component.ConditionTables
-                                    .Select(t => t.Id)
-                                )
+                                .Select(cond => cond.BalanceTableName)
                         )
                         .Where(s => !string.IsNullOrEmpty(s))
                 ),

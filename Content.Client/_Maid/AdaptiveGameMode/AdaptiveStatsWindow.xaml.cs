@@ -209,6 +209,7 @@ public sealed partial class AdaptiveStatsWindow : DefaultWindow
 
         Chart.AddSubRenderer(new BackgroundGridRenderer(spacingX, spacingY, Color.FromHex("#222222")));
         Chart.AddSubRenderer(new ChartAxesRenderer(spacingX, spacingY, Color.White, 8));
+
         Chart.AddSubRenderer(new ConnectedChartRenderer(chaosPoints, Color.Red, "Chaos"));
         Chart.AddSubRenderer(new ConnectedChartRenderer(combatPoints, Color.Blue, "Combat"));
         Chart.AddSubRenderer(new ConnectedChartRenderer(targetChaosPoints, Color.FromHex("#8b2525"), "Target Chaos"));

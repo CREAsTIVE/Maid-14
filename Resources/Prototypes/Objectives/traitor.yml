@@ -103,8 +103,10 @@
   - type: AdaptiveScoreStatic
     combatScore: 3
     chaosScore: 3
-    conditionTables:
-    - ObjectiveNotCompleted
+    conditions:
+    - !type:MetTable
+      tables:
+      - ObjectiveNotCompleted
 - type: entity
   abstract: true
   parent: [BaseTraitorObjective, BaseSocialObjective]

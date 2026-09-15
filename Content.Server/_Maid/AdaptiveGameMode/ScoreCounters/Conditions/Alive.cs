@@ -6,7 +6,7 @@ using Robust.Shared.GameObjects;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
-public sealed partial class Alive : IAdaptiveScoreCondition
+public sealed partial class Alive : AdaptiveScoreCondition
 {
     [DataField]
     public bool AllowCritical = false;
@@ -14,7 +14,7 @@ public sealed partial class Alive : IAdaptiveScoreCondition
     [DataField]
     public bool MustHaveState = false;
 
-    public bool ConditionMet(EntityUid owner, EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
+    public override bool ConditionMet(EntityUid owner, EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
     {
         if (mob is null)
             return false;

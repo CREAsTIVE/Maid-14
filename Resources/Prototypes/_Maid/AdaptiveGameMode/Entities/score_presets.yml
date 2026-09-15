@@ -12,5 +12,6 @@
       in: 420
     conditions:
     - !type:Alive
-    conditionTables:
-    - OnStationGrid
+    - !type:MetTable
+      tables:
+      - OnStationGrid

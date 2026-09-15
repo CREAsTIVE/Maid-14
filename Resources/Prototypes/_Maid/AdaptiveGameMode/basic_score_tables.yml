@@ -30,5 +30,7 @@
   conditions:
   - !type:ObjectiveCompletion
   - !type:ObjectiveOwner
-    conditionTables:
-    - ActiveAntag
+    conditions:
+    - !type:MetTable
+      tables:
+      - ActiveAntag

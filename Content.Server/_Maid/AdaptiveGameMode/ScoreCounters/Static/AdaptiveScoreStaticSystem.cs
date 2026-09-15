@@ -29,6 +29,7 @@ public sealed class AdaptiveScoreStaticSystem : EntitySystem, IAdaptiveBalanceIn
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly ISerializationManager _serializationManager = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private readonly AdaptiveScoreCollectorSystem _adaptiveCollector = default!;
 
     public override void Initialize()
     {
@@ -43,55 +44,16 @@ public sealed class AdaptiveScoreStaticSystem : EntitySystem, IAdaptiveBalanceIn
         ent.Comp.CreationTime = _gameTiming.CurTime;
     }
 
-    private IEnumerable<IAdaptiveScoreCondition> GetConditions(AdaptiveScoreStaticComponent comp)
-    {
-        return comp.ConditionTables
-            .SelectMany(table =>
-                _protoManager.TryIndex(table, out var proto)
-                    ? proto.Conditions
-                    : []
-            )
-            .Concat(comp.Conditions);
-    }
-
     private void CollectScores(ref GetAdaptiveScoreEvent ev)
     {
         var enumerator = EntityQueryEnumerator<AdaptiveScoreStaticComponent>();
         while (enumerator.MoveNext(out var ent, out var comp))
         {
-            EntityUid? mob = null;
-            Entity<MindComponent>? mind = null;
-            Entity<MindRoleComponent>? mindRole = null;
+            if (!_adaptiveCollector.IsConditionsMet(comp.Conditions, ent))
+                continue;
 
-
-            if (TryComp<MindRoleComponent>(ent, out var mindRoleComponent))
-            {
-                mind = mindRoleComponent.Mind;
-                mob = mind.Value.Comp.OwnedEntity;
-            }
-            else if (TryComp<MindComponent>(ent, out var mindComp))
-            {
-                mob = mindComp.OwnedEntity;
-                mind = new Entity<MindComponent>(ent, mindComp);
-            }
-            else
-            {
-                if (_mindSystem.TryGetMind(ent, out var mobMindId, out var mobMindComp))
-                {
-                    mob = ent;
-                    mind = new Entity<MindComponent>(mobMindId, mobMindComp);
-                }
-                else
-                {
-                    mob = ent;
-                }
-            }
-            var conditions = GetConditions(comp).ToArray();
-            if (conditions.All(cond => cond.ConditionMet(ent, mob, mind, _entityManager)))
-            {
-                var age = _gameTiming.CurTime - comp.CreationTime;
-                ev.Add(ent, comp.ChaosScore.GetScore(age), comp.CombatScore.GetScore(age));
-            }
+            var age = _gameTiming.CurTime - comp.CreationTime;
+            ev.Add(ent, comp.ChaosScore.GetScore(age), comp.CombatScore.GetScore(age));
         }
     }
 
@@ -122,28 +84,11 @@ public sealed class AdaptiveScoreStaticSystem : EntitySystem, IAdaptiveBalanceIn
                 string.Join(
                     " + ",
                     component.Conditions
-                        .Select(cond => cond.GetType().Name)
-                        .Select(FixName)
-                        .Concat(component.ConditionTables
-                            .Select(t => t.Id)
-                        )// Make names COOLER
+                        .Select(cond => cond.BalanceTableName)
                 ),
                 component.ChaosScore,
                 component.CombatScore
             );
-        }
-
-        yield break;
-
-        static string FixName(string name)
-        {
-            if (name.StartsWith("AdaptiveScore"))
-                name = name["AdaptiveScore".Length..];
-
-            if (name.EndsWith("Condition"))
-                name = name[..^"Condition".Length];
-
-            return name;
         }
     }
 

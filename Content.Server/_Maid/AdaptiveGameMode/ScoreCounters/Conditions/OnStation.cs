@@ -6,11 +6,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
-public sealed partial class OnStation : IAdaptiveScoreCondition
+public sealed partial class OnStation : AdaptiveScoreCondition
 {
     [DataField]
     public bool OnGrid = false;
-    public bool ConditionMet(EntityUid owner, EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
+    public override bool ConditionMet(EntityUid owner, EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
     {
         if (mob is null)
             return false;

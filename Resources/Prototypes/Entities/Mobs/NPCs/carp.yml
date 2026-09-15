@@ -133,8 +133,9 @@
         in: 420
       conditions:
       - !type:Alive
-      conditionTables:
-      - OnStationGrid
+      - !type:MetTable
+        tables:
+        - OnStationGrid
     # MAID END adaptive scores
     - type: WeatherImmune # Lavaland Change
     - type: InputMover

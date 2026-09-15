@@ -15,8 +15,9 @@
     conditions:
     - !type:Controlled
     - !type:Alive
-    conditionTables:
-    - OnStationMap
+    - !type:MetTable
+      tables:
+      - OnStationMap
   # MAID END adaptive scores
   - type: MindContainer
     showExamineInfo: true #show that its dead

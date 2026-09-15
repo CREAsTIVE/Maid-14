@@ -178,8 +178,9 @@
     conditions:
     - !type:Controlled
     - !type:Alive
-    conditionTables:
-    - OnStationMap
+    - !type:MetTable
+      tables:
+      - OnStationMap
   # MAID END adaptive scores
 
 # Paradox Clone
@@ -201,8 +202,9 @@
     conditions:
     - !type:Controlled
     - !type:Alive
-    conditionTables:
-    - OnStationMap
+    - !type:MetTable
+      tables:
+      - OnStationMap
   # MAID END paradox clone score
 
 # Nukies
@@ -221,8 +223,10 @@
   - type: AdaptiveScoreStatic
     chaosScore: 15
     combatScore: 20
-    conditionTables:
-    - ActiveAntag
+    conditions:
+    - !type:MetTable
+      tables:
+      - ActiveAntag
   # MAID END adaptive scores
 
 - type: entity

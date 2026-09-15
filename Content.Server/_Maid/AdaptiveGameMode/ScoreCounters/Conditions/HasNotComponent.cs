@@ -12,6 +12,8 @@ public sealed partial class HasNotComponent : Targeted
     [DataField(required: true)]
     public List<string> Components { get; set; } = [];
 
+    public override string BalanceTableName => $"{nameof(HasNotComponent)}({string.Join(", ", Components)})";
+
     protected override bool ConditionMetOnTarget(EntityUid? mob, IEntityManager entMan)
     {
         if (mob == null)

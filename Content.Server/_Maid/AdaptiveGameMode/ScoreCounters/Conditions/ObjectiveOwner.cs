@@ -6,13 +6,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
-public sealed partial class ObjectiveOwner : IAdaptiveScoreCondition
+public sealed partial class ObjectiveOwner : AdaptiveScoreCondition
 {
     [DataField]
-    public List<IAdaptiveScoreCondition> Conditions { get; set; } = [];
+    public List<AdaptiveScoreCondition> Conditions { get; set; } = [];
 
-    [DataField]
-    public List<ProtoId<AdaptiveScoreConditionsTablePrototype>> ConditionTables { get; set; } = [];
 
     public Entity<MindComponent>? FindOwner(Entity<ObjectiveComponent> objectiveOwner, IEntityManager entMan)
     {
@@ -26,7 +24,7 @@ public sealed partial class ObjectiveOwner : IAdaptiveScoreCondition
         return null;
     }
 
-    public bool ConditionMet(EntityUid objectiveUid, EntityUid? controlledMob, Entity<MindComponent>? mind, IEntityManager entMan)
+    public override bool ConditionMet(EntityUid objectiveUid, EntityUid? controlledMob, Entity<MindComponent>? mind, IEntityManager entMan)
     {
         var adaptiveScoreCollectorSystem = entMan.System<AdaptiveScoreCollectorSystem>();
 
@@ -36,6 +34,6 @@ public sealed partial class ObjectiveOwner : IAdaptiveScoreCondition
         if (FindOwner((objectiveUid, objectiveComp), entMan) is not { } trueMind)
             return false;
 
-        return adaptiveScoreCollectorSystem.IsConditionsMet(Conditions, ConditionTables, trueMind);
+        return adaptiveScoreCollectorSystem.IsConditionsMet(Conditions, trueMind);
     }
 }

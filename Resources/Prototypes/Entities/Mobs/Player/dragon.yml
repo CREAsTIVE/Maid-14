@@ -148,8 +148,9 @@
     conditions:
     - !type:Controlled
     - !type:Alive
-    conditionTables:
-    - OnStationGrid
+    - !type:MetTable
+      tables:
+      - OnStationGrid
   # MAID END adaptive scores
   - type: Body # Shitmed
     prototype: SpaceDragon
