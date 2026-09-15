@@ -8,7 +8,7 @@ using Content.Shared.Objectives.Systems;
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
 [DataDefinition]
-public sealed partial class AdaptiveScoreObjectiveCompletionCondition : IAdaptiveScoreCondition
+public sealed partial class ObjectiveCompletion : IAdaptiveScoreCondition
 {
     [DataField]
     public bool Completed = false;

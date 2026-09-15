@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
-public sealed partial class AdaptiveObjectiveOwnerCondition : IAdaptiveScoreCondition
+public sealed partial class ObjectiveOwner : IAdaptiveScoreCondition
 {
     [DataField]
     public List<IAdaptiveScoreCondition> Conditions { get; set; } = [];

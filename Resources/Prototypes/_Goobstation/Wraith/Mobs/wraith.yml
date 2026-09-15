@@ -13,8 +13,8 @@
     combatScore: 3
     chaosScore: 10
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Controlled
+    - !type:Alive
     conditionTables:
     - OnStationMap
   # MAID END adaptive scores

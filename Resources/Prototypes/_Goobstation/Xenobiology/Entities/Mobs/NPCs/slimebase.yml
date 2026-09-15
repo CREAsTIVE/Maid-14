@@ -10,7 +10,7 @@
     combatScore: 0
     chaosScore: 1
     conditions:
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Alive
     conditionTables:
     - OnStationGrid
   # MAID END adaptive scores

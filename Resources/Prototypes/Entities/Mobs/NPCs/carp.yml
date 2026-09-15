@@ -132,7 +132,7 @@
         target: 0
         in: 420
       conditions:
-      - !type:AdaptiveScoreAliveCondition
+      - !type:Alive
       conditionTables:
       - OnStationGrid
     # MAID END adaptive scores

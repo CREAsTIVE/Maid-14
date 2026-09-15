@@ -146,8 +146,8 @@
       in: 600
     chaosScore: 5
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Controlled
+    - !type:Alive
     conditionTables:
     - OnStationGrid
   # MAID END adaptive scores

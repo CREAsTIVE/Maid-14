@@ -5,7 +5,7 @@ using Robust.Shared.Serialization.Manager.Attributes;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
-public sealed partial class AdaptiveScorePrototypeCondition : IAdaptiveScoreCondition
+public sealed partial class Prototype : IAdaptiveScoreCondition
 {
     [DataField(required: true)]
     public List<string> Prototypes { get; set; } = new();

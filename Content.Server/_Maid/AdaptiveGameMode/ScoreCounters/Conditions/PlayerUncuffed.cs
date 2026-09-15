@@ -11,7 +11,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
-public sealed partial class AdaptiveScorePlayerUncuffedCondition : IAdaptiveScoreCondition
+public sealed partial class PlayerUncuffed : IAdaptiveScoreCondition
 {
     public bool ConditionMet(EntityUid owner, EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
     {

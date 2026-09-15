@@ -176,8 +176,8 @@
     combatScore: 15
     chaosScore: 10
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Controlled
+    - !type:Alive
     conditionTables:
     - OnStationMap
   # MAID END adaptive scores
@@ -199,8 +199,8 @@
       base: 10
       target: 7
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Controlled
+    - !type:Alive
     conditionTables:
     - OnStationMap
   # MAID END paradox clone score
@@ -258,8 +258,8 @@
     combatScore: 5
     chaosScore: 10
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Controlled
+    - !type:Alive
   # MAID END adaptive scores
 
 - type: entity
@@ -275,8 +275,8 @@
     combatScore: 5
     chaosScore: 5
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Controlled
+    - !type:Alive
   # MAID END adaptive scores
 
 ## Thief
@@ -306,10 +306,10 @@
     combatScore: 5
     chaosScore: 5
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
-    - !type:AdaptiveScoreOnStationCondition
-    - !type:AdaptiveScorePlayerUncuffedCondition
+    - !type:Controlled
+    - !type:Alive
+    - !type:OnStation
+    - !type:PlayerUncuffed
   # MAID END traitor score
 
 - type: entity
@@ -347,8 +347,8 @@
     combatScore: 0
     chaosScore: 15
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Controlled
+    - !type:Alive
   # MAID END adaptive scores
 
 - type: entity
@@ -366,5 +366,5 @@
     combatScore: 10
     chaosScore: 10
     conditions:
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Alive
   # MAID END adaptive scores

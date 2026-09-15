@@ -10,7 +10,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
 [DataDefinition]
-public sealed partial class AdaptiveScoreHasJobCondition : IAdaptiveScoreCondition
+public sealed partial class HasJob : IAdaptiveScoreCondition
 {
     [DataField(required: true)]
     public List<ProtoId<JobPrototype>> Jobs { get; set; } = [];

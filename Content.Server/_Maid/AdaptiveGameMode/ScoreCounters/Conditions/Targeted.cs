@@ -2,7 +2,7 @@
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
-public abstract partial class AdaptiveScoreTargetedCondition : IAdaptiveScoreCondition
+public abstract partial class Targeted : IAdaptiveScoreCondition
 {
     [DataField]
     public AdaptiveScoreConditionTarget Target = AdaptiveScoreConditionTarget.Owner;

@@ -17,8 +17,8 @@
       target: 0
       in: 900
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Controlled
+    - !type:Alive
     conditionTables:
     - OnStationGrid
   # MAID END adaptive scores

@@ -7,25 +7,26 @@ using System.Collections.Generic;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
-public sealed partial class AdaptiveScoreHasNotComponentCondition : AdaptiveScoreTargetedCondition
+public sealed partial class HasComponent : Targeted
 {
     [DataField(required: true)]
-    public List<string> Components { get; set; } = [];
+    public List<string> Components = [];
 
-    protected override bool ConditionMetOnTarget(EntityUid? mob, IEntityManager entMan)
+    protected override bool ConditionMetOnTarget(EntityUid? ent, IEntityManager entMan)
     {
-        if (mob == null)
-            return true;
+        if (ent is null)
+            return false;
 
-        var compFactory = IoCManager.Resolve<IComponentFactory>();
+        var compFactory = entMan.ComponentFactory;
         foreach (var compName in Components)
         {
             if (!compFactory.TryGetRegistration(compName, out var registration))
-                continue;
+                return false;
 
-            if (entMan.HasComponent(mob.Value, registration.Type))
+            if (!entMan.HasComponent(ent, registration.Type))
                 return false;
         }
+
         return true;
     }
 }

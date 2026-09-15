@@ -166,8 +166,8 @@
     combatScore: 3
     chaosScore: 5
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Controlled
+    - !type:Alive
     conditionTables:
     - OnStationGrid
   # MAID END adaptive scores
@@ -372,7 +372,7 @@
     combatScore: 0.5
     chaosScore: 0
     conditions:
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Alive
     conditionTables:
     - OnStationGrid
   - type: VentCrawler # goobstation - Ventcrawl

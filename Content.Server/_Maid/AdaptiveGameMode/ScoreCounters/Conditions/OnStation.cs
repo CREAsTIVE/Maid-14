@@ -6,7 +6,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
-public sealed partial class AdaptiveScoreOnStationCondition : IAdaptiveScoreCondition
+public sealed partial class OnStation : IAdaptiveScoreCondition
 {
     [DataField]
     public bool OnGrid = false;

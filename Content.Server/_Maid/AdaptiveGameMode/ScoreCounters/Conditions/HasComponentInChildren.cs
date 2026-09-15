@@ -8,7 +8,7 @@ using System;
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
 [DataDefinition]
-public sealed partial class AdaptiveScoreHasComponentInChildrenCondition : AdaptiveScoreTargetedCondition
+public sealed partial class HasComponentInChildren : Targeted
 {
     [DataField(required: true)]
     public string Component { get; set; } = string.Empty;

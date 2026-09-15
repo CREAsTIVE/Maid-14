@@ -6,7 +6,7 @@ using Robust.Shared.GameObjects;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
-public sealed partial class AdaptiveScoreAliveCondition : IAdaptiveScoreCondition
+public sealed partial class Alive : IAdaptiveScoreCondition
 {
     [DataField]
     public bool AllowCritical = false;
