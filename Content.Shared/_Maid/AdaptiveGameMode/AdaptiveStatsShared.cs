@@ -6,7 +6,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Maid.AdaptiveGameMode;
 
 [Serializable, NetSerializable]
-public sealed class SharedAdaptiveScoreRecord
+public sealed class AdaptiveScoreRecord
 {
     public NetEntity Entity { get; set; }
     public string Name { get; set; } = string.Empty;
@@ -16,7 +16,7 @@ public sealed class SharedAdaptiveScoreRecord
 }
 
 [Serializable, NetSerializable]
-public sealed class SharedAdaptiveCalculationRun
+public sealed class AdaptiveCalculationRun
 {
     public int Id { get; set; }
     public TimeSpan Time { get; set; }
@@ -24,17 +24,20 @@ public sealed class SharedAdaptiveCalculationRun
     public float TotalCombat { get; set; }
     public float TargetChaos { get; set; }
     public float TargetCombat { get; set; }
-    public List<SharedAdaptiveScoreRecord> Records { get; set; } = new();
+    public List<AdaptiveScoreRecord> Records { get; set; } = new();
+
+    public List<(string RuleName, float Weight)>? Rules { get; set; } = null;
+    public string? SelectedRuleId { get; set; }= null;
 }
 
 [Serializable, NetSerializable]
 public sealed class AdaptiveStatsEuiState(
-    Dictionary<int, List<SharedAdaptiveCalculationRun>> roundData,
+    Dictionary<int, List<AdaptiveCalculationRun>> roundData,
     int currentRoundId,
     bool trackingEnabled)
     : EuiStateBase
 {
-    public Dictionary<int, List<SharedAdaptiveCalculationRun>> RoundData { get; } = roundData;
+    public Dictionary<int, List<AdaptiveCalculationRun>> RoundData { get; } = roundData;
     public int CurrentRoundId { get; } = currentRoundId;
     public bool TrackingEnabled { get; } = trackingEnabled;
 }

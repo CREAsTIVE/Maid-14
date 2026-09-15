@@ -76,11 +76,13 @@ public sealed partial class AdaptiveStatsWindow : DefaultWindow
             {
                 TableTitle.Text = $"Run {_selectedRunId.Value} details:";
                 PopulateTableForRun(_selectedRunId.Value);
+                PopulateRulesPossibilitiesForRun(_selectedRunId.Value);
             }
             else
             {
                 TableTitle.Text = "No calculation run selected. Hover/click points in the chart.";
                 TableGrid.DisposeAllChildren();
+                RulesPossibilitiesGrid.DisposeAllChildren();
             }
             return;
         }
@@ -91,9 +93,10 @@ public sealed partial class AdaptiveStatsWindow : DefaultWindow
 
         TableTitle.Text = $@"Hovering Run {run.Id} details (Time: {run.Time:hh\:mm\:ss}):";
         PopulateTableForRun(run.Id);
+        PopulateRulesPossibilitiesForRun(run.Id);
     }
 
-    private SharedAdaptiveCalculationRun? FindRunByX(float x)
+    private AdaptiveCalculationRun? FindRunByX(float x)
     {
         if (_lastState == null || _selectedRoundId == null)
             return null;
@@ -102,7 +105,7 @@ public sealed partial class AdaptiveStatsWindow : DefaultWindow
         if (runs == null || runs.Count == 0)
             return null;
 
-        SharedAdaptiveCalculationRun? closestRun = null;
+        AdaptiveCalculationRun? closestRun = null;
         var closestDistance = float.MaxValue;
         foreach (var run in runs)
         {
@@ -168,7 +171,7 @@ public sealed partial class AdaptiveStatsWindow : DefaultWindow
         if (_lastState == null || _selectedRoundId == null)
             return;
 
-        var runs = _lastState.RoundData.GetValueOrDefault(_selectedRoundId.Value) ?? new List<SharedAdaptiveCalculationRun>();
+        var runs = _lastState.RoundData.GetValueOrDefault(_selectedRoundId.Value) ?? new List<AdaptiveCalculationRun>();
 
         if (runs.Count > 0)
         {
@@ -243,6 +246,52 @@ public sealed partial class AdaptiveStatsWindow : DefaultWindow
 
         TableTitle.Text = $"Run {_selectedRunId.Value} details:";
         PopulateTableForRun(_selectedRunId.Value);
+        PopulateRulesPossibilitiesForRun(_selectedRunId.Value);
+    }
+
+    private void PopulateRulesPossibilitiesForRun(int selectedRunId)
+    {
+        RulesPossibilitiesGrid.DisposeAllChildren();
+
+        if (_lastState == null || _selectedRoundId == null)
+            return;
+
+        var runs = _lastState.RoundData.GetValueOrDefault(_selectedRoundId.Value);
+        if (runs == null)
+            return;
+
+        var selectedRun = runs.FirstOrDefault(run => run.Id == selectedRunId);
+
+        if (selectedRun == null)
+            return;
+
+        if (selectedRun.Rules is not { } rules || rules.Count == 0)
+        {
+            RulesPossibilitiesGrid.AddChild(new Label { Text = "No rule selection on this run.", StyleClasses = { "LabelSubText" } });
+            RulesPossibilitiesGrid.AddChild(new Label());
+            return;
+        }
+
+        RulesPossibilitiesGrid.AddChild(new Label { Text = "Rule Name", StyleClasses = { "Bold" } });
+        RulesPossibilitiesGrid.AddChild(new Label { Text = "Weight", StyleClasses = { "Bold" } });
+
+        foreach (var rule in rules)
+        {
+            var isSelected = rule.RuleName == selectedRun.SelectedRuleId;
+            var nameLabel = new Label
+            {
+                Text = isSelected ? $"{rule.RuleName} (Chosen)" : rule.RuleName,
+                FontColorOverride = isSelected ? Color.Green : null
+            };
+            var weightLabel = new Label
+            {
+                Text = rule.Weight.ToString("0.##"),
+                FontColorOverride = isSelected ? Color.Green : null
+            };
+
+            RulesPossibilitiesGrid.AddChild(nameLabel);
+            RulesPossibilitiesGrid.AddChild(weightLabel);
+        }
     }
 
     private void PopulateTableForRun(int runId)

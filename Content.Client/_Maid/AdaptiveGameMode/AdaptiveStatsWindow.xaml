@@ -2,9 +2,9 @@
                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                xmlns:chart="clr-namespace:Content.Client._Maid.UserInterface.Chart"
                Title="Adaptive Rule Balancing Statistics"
-               MinSize="700 600"
-               SetSize="800 650">
-    <BoxContainer Orientation="Vertical" Margin="10">
+               MinSize="800 650"
+               SetSize="900 700">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="10">
         <!-- Top bar -->
         <BoxContainer Orientation="Horizontal" Margin="0 0 0 10" HorizontalExpand="True">
             <Label Name="InfoLabel" Text="Round ID: N/A | Stats: N/A" VerticalAlignment="Center" HorizontalExpand="True" />
@@ -17,14 +17,27 @@
         </BoxContainer>
 
         <Label Text="Score Timeline (Click point to view contributing entities)" Margin="0 0 0 5" />
-        <chart:ChartRenderer Name="Chart" MinHeight="250" HorizontalExpand="True" />
+        <chart:ChartRenderer Name="Chart" MinHeight="220" HorizontalExpand="True" />
 
         <Control MinSize="0 10" />
         <Label Name="TableTitle" Text="No calculation run selected. Hover/click points in the chart." Margin="0 5" />
 
-        <!-- Table scroll container -->
-        <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
-            <GridContainer Name="TableGrid" Columns="6" HorizontalExpand="True" />
-        </ScrollContainer>
+        <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True">
+            <!-- Contributing entities table -->
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="0 0 5 0">
+                <Label Text="Contributing Entities" StyleClasses="LabelSubText" Margin="0 0 0 3" />
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                    <GridContainer Name="TableGrid" Columns="6" HorizontalExpand="True" />
+                </ScrollContainer>
+            </BoxContainer>
+
+            <!-- Candidate rules & weights -->
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="5 0 0 0">
+                <Label Text="Candidate Rules &amp; Weights" StyleClasses="LabelSubText" Margin="0 0 0 3" />
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                    <GridContainer Name="RulesPossibilitiesGrid" Columns="2" HorizontalExpand="True" />
+                </ScrollContainer>
+            </BoxContainer>
+        </BoxContainer>
     </BoxContainer>
 </DefaultWindow>
