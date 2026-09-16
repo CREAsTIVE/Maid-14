@@ -22,6 +22,9 @@ public sealed class AdaptiveScoreGhostRoleMobSpawnerCounterSystem : EntitySystem
         var enumerator = EntityQueryEnumerator<GhostRoleMobSpawnerComponent, TransformComponent>();
         while (enumerator.MoveNext(out var uid, out var ghostRole, out var transform))
         {
+            if (ghostRole.CurrentTakeovers >= ghostRole.AvailableTakeovers)
+                continue;
+
             if (!_prototypeManager.TryIndex(ghostRole.Prototype, out var ent))
                 continue;
 
