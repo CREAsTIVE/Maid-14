@@ -321,15 +321,23 @@ public sealed class FoodSystem : EntitySystem
         var trashes = food.Comp.Trash;
         var tryPickup = _hands.IsHolding(args.User, food, out _);
 
+        var wasHolding = _hands.IsHolding(args.User, food, out var handId); // MAID trash
+        if (wasHolding && handId != null) // MAID trash
+            _hands.TryDrop(args.User, food, checkActionBlocker: false, doDropInteraction: false); // MAID trash
+
         foreach (var trash in trashes)
         {
             var spawnedTrash = EntityManager.PredictedSpawn(trash, position);
 
             // If the user is holding the item
             if (tryPickup)
-            {
-                // Put the trash in the user's hand
-                _hands.TryPickupAnyHand(args.User, spawnedTrash);
+            {                                                                   // MAID trash
+                if (wasHolding && handId != null)                               // MAID trash
+                {
+                    if (!_hands.TryPickup(args.User, spawnedTrash, handId))     // MAID trash
+                        // Put the trash in the user's hand
+                        _hands.TryPickupAnyHand(args.User, spawnedTrash);
+                }                                                               // MAID trash
             }
         }
     }
@@ -392,6 +400,9 @@ public sealed class FoodSystem : EntitySystem
         var position = _transform.GetMapCoordinates(food);
         var trashes = food.Comp.Trash;
         var tryPickup = _hands.IsHolding(args.User, food, out _);
+        var wasHolding = _hands.IsHolding(args.User, food, out var handId);                    // MAID trash
+        if (wasHolding && handId != null)                                                      // MAID trash
+            _hands.TryDrop(args.User, food, checkActionBlocker: false, doDropInteraction: false); // MAID trash
 
         foreach (var trash in trashes)
         {
@@ -399,9 +410,13 @@ public sealed class FoodSystem : EntitySystem
 
             // If the user is holding the item
             if (tryPickup)
-            {
-                // Put the trash in the user's hand
-                _hands.TryPickupAnyHand(args.User, spawnedTrash);
+            {                                                                   // MAID trash
+                if (wasHolding && handId != null)                               // MAID trash
+                {
+                    if (!_hands.TryPickup(args.User, spawnedTrash, handId))     // MAID trash
+                        // Put the trash in the user's hand
+                        _hands.TryPickupAnyHand(args.User, spawnedTrash);
+                }                                                               // MAID trash
             }
         }
     }
