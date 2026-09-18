@@ -10,5 +10,5 @@ public sealed class AdaptiveScoreConditionsTablePrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     [DataField]
-    public List<IAdaptiveScoreCondition> Conditions { get; set; } = new();
+    public List<AdaptiveScoreCondition> Conditions { get; set; } = [];
 }

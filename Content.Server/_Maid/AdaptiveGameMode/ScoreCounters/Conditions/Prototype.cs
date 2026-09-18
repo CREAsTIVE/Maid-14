@@ -5,12 +5,12 @@ using Robust.Shared.Serialization.Manager.Attributes;
 
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
-public sealed partial class AdaptiveScorePrototypeCondition : IAdaptiveScoreCondition
+public sealed partial class Prototype : AdaptiveScoreCondition
 {
     [DataField(required: true)]
     public List<string> Prototypes { get; set; } = new();
 
-    public bool ConditionMet(EntityUid owner, EntityUid? mob, Entity<MindComponent>? mind,  IEntityManager entMan)
+    public override bool ConditionMet(EntityUid owner, EntityUid? mob, Entity<MindComponent>? mind,  IEntityManager entMan)
     {
         if (mob is null)
             return false;

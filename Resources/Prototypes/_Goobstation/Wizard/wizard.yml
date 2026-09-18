@@ -20,8 +20,8 @@
     combatScore: 10
     chaosScore: 15
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Controlled
+    - !type:Alive
   # MAID END adaptive scores
 
 - type: entity

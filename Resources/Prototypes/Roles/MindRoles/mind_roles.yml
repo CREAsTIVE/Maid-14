@@ -176,10 +176,11 @@
     combatScore: 15
     chaosScore: 10
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
-    conditionTables:
-    - OnStationMap
+    - !type:Controlled
+    - !type:Alive
+    - !type:MetTable
+      tables:
+      - OnStationMap
   # MAID END adaptive scores
 
 # Paradox Clone
@@ -199,10 +200,11 @@
       base: 10
       target: 7
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
-    conditionTables:
-    - OnStationMap
+    - !type:Controlled
+    - !type:Alive
+    - !type:MetTable
+      tables:
+      - OnStationMap
   # MAID END paradox clone score
 
 # Nukies
@@ -221,8 +223,10 @@
   - type: AdaptiveScoreStatic
     chaosScore: 15
     combatScore: 20
-    conditionTables:
-    - ActiveAntag
+    conditions:
+    - !type:MetTable
+      tables:
+      - ActiveAntag
   # MAID END adaptive scores
 
 - type: entity
@@ -258,8 +262,8 @@
     combatScore: 5
     chaosScore: 10
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Controlled
+    - !type:Alive
   # MAID END adaptive scores
 
 - type: entity
@@ -275,8 +279,8 @@
     combatScore: 5
     chaosScore: 5
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Controlled
+    - !type:Alive
   # MAID END adaptive scores
 
 ## Thief
@@ -306,10 +310,10 @@
     combatScore: 5
     chaosScore: 5
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
-    - !type:AdaptiveScoreOnStationCondition
-    - !type:AdaptiveScorePlayerUncuffedCondition
+    - !type:Controlled
+    - !type:Alive
+    - !type:OnStation
+    - !type:PlayerUncuffed
   # MAID END traitor score
 
 - type: entity
@@ -347,8 +351,8 @@
     combatScore: 0
     chaosScore: 15
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Controlled
+    - !type:Alive
   # MAID END adaptive scores
 
 - type: entity
@@ -366,5 +370,5 @@
     combatScore: 10
     chaosScore: 10
     conditions:
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Alive
   # MAID END adaptive scores

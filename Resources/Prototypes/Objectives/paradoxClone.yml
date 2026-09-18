@@ -41,7 +41,9 @@
   - type: AdaptiveScoreStatic
     combatScore: 3
     chaosScore: 3
-    conditionTables:
-    - ObjectiveNotCompleted
+    conditions:
+    - !type:MetTable
+      tables:
+      - ObjectiveNotCompleted
   # MAID END adaptive scores
 

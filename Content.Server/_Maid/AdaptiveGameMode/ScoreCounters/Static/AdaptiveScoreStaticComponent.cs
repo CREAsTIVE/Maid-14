@@ -20,8 +20,6 @@ public sealed partial class AdaptiveScoreStaticComponent : Component
     public TimeSpan CreationTime { get; set; } = TimeSpan.Zero;
 
     [DataField]
-    public List<IAdaptiveScoreCondition> Conditions { get; set; } = [];
+    public List<AdaptiveScoreCondition> Conditions { get; set; } = [];
 
-    [DataField]
-    public List<ProtoId<AdaptiveScoreConditionsTablePrototype>> ConditionTables { get; set; } = [];
 }

@@ -8,12 +8,12 @@ using Content.Shared.Objectives.Systems;
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
 [DataDefinition]
-public sealed partial class AdaptiveScoreObjectiveCompletionCondition : IAdaptiveScoreCondition
+public sealed partial class ObjectiveCompletion : AdaptiveScoreCondition
 {
     [DataField]
     public bool Completed = false;
 
-    public bool ConditionMet(EntityUid owner, EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
+    public override bool ConditionMet(EntityUid owner, EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
     {
         var objectivesSystem = entMan.System<SharedObjectivesSystem>();
 

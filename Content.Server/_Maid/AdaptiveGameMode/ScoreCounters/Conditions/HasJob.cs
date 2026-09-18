@@ -10,12 +10,14 @@ using Robust.Shared.Prototypes;
 namespace Content.Server._Maid.AdaptiveGameMode.ScoreCounters.Conditions;
 
 [DataDefinition]
-public sealed partial class AdaptiveScoreHasJobCondition : IAdaptiveScoreCondition
+public sealed partial class HasJob : AdaptiveScoreCondition
 {
     [DataField(required: true)]
     public List<ProtoId<JobPrototype>> Jobs { get; set; } = [];
 
-    public bool ConditionMet(EntityUid owner, EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
+    public override string BalanceTableName => $"HasJob({string.Join(", ", Jobs)})";
+
+    public override bool ConditionMet(EntityUid owner, EntityUid? mob, Entity<MindComponent>? mind, IEntityManager entMan)
     {
         if (mind == null)
             return false;
