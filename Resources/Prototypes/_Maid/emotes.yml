@@ -1,0 +1,39 @@
+- type: emote
+  id: Wave
+  name: chat-emote-name-wave
+  category: Hands
+  # icon: Interface/Emotes/snap.png
+  whitelist:
+    components:
+    - Hands
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-wave"]
+  chatTriggers:
+  - wave
+  - waves
+  - машет
+  - машет рукой
+  - махает
+  - махает рукой
+  - помахал
+  - помахал рукой
+  - помахала
+  - помахала рукой
+
+- type: emote
+  id: Lick
+  name: chat-emote-name-lick
+  category: General
+  # icon: Interface/Emotes/snap.png
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-lick"]
+  chatTriggers:
+  - lick
+  - licks
+  - облизывается
+  - облизнулся
+  - облизнулась
