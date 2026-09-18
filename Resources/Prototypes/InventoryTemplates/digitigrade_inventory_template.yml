@@ -87,6 +87,7 @@
       slotTexture: pocket
       slotFlags: POCKET
       slotGroup: MainHotbar
+      priority: -10 # MAID clothing quick equip
       stripTime: 3
       uiWindowPos: 0,3
       strippingWindowPos: 0,4
@@ -97,6 +98,7 @@
       slotTexture: pocket
       slotFlags: POCKET
       slotGroup: MainHotbar
+      priority: -10 # MAID clothing quick equip
       stripTime: 3
       uiWindowPos: 2,3
       strippingWindowPos: 1,4
