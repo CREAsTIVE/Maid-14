@@ -6,7 +6,7 @@
   - type: StaticPrice
     price: 1000
   - type: Tool
-    speed: 2
+    speedModifierModifier: 2
   - type: MeleeWeapon
     damage:
       types:
@@ -28,7 +28,7 @@
   - type: StaticPrice
     price: 500
   - type: Tool
-    speed: 2
+    speedModifier: 2
   - type: Sprite
     sprite: _Maid/Objects/Tools/impwrench.rsi
     state: icon
@@ -81,7 +81,7 @@
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Tool
-    speed: 2
+    speedModifier: 2
     qualities:
     - Screwing
     useSound:
@@ -130,7 +130,7 @@
     soundHit:
       path: /Audio/Items/wirecutter.ogg
   - type: Tool
-    speed: 2
+    speedModifier: 2
     qualities:
     - Cutting
     useSound:
@@ -159,7 +159,7 @@
   - type: Item
     sprite: _Maid/Objects/Tools/impwelder.rsi
   - type: Tool
-    speed: 1.5
+    speedModifier: 1.5
 
 - type: entity
   id: ClothingBeltUtilityImproved
