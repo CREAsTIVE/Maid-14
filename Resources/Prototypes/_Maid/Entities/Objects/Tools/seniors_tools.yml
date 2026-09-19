@@ -6,7 +6,7 @@
   - type: StaticPrice
     price: 1000
   - type: Tool
-    speedModifierModifier: 2
+    speedModifier: 2
   - type: MeleeWeapon
     damage:
       types:
