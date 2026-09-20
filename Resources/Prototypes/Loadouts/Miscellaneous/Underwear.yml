@@ -1,7 +1,7 @@
 - type: loadout
-  id: UnderwearBottomBoxersCap
+  id: UnderwearBottomBoxersWhite
   equipment:
-   bra: ClothingUnderwearBottomBoxersCap
+   bra: ClothingUnderwearBottomBoxersWhite 
 
 - type: loadout
   id: UnderwearBottomBoxersCMO
@@ -141,4 +141,9 @@
 - type: loadout
   id: UnderwearBottomeeShorts
   equipment:
-   underwear: ClothingUnderwearBottomBeeShorts                                                            
+   underwear: ClothingUnderwearBottomBeeShorts
+   
+- type: loadout
+  id: UnderwearBottomBoxersCap
+  equipment:
+   bra: ClothingUnderwearBottomBoxersCap                                                            
