@@ -312,7 +312,7 @@ public sealed partial class SalvageSystem
     {
         var seed = data.Comp.Offered[index];
 
-        var offering = GetSalvageOffering(seed);
+        var offering = index == 0 ? GetSalvageOffering(seed, new DebrisOffering()) : GetSalvageOffering(seed); // MAID: better magnet
         // Begin DeltaV Addition: make wrecks cost mining points to pull
         if (offering.Cost > 0 && !(_points.TryFindIdCard(user) is {} idCard && _points.RemovePoints(idCard, offering.Cost)))
             return;
