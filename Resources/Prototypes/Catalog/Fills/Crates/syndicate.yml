@@ -19,10 +19,10 @@
   name: Syndicate surplus crate
   # Goobstation - Telecrystal rework
   # Don't forget to edit translation
-  description: Contains 250 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
+  description: Contains 50 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
   components:
     - type: SurplusBundle
-      totalPrice: 250
+      totalPrice: 50
 
 - type: entity
   id: CrateCybersunJuggernautBundle
@@ -49,4 +49,4 @@
   description: Contains 625 telecrystals worth of completely random Syndicate items.
   components:
     - type: SurplusBundle
-      totalPrice: 625
+      totalPrice: 125
