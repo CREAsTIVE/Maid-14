@@ -395,22 +395,24 @@
       tags:
       - ContractorUplink
 
-- type: listing
-  id: UplinkEstoc # goob unbundle
-  name: uplink-estoc-name # goob unbundle
-  description: uplink-estoc-desc # goob unbundle
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
-  productEntity: WeaponRifleEstoc # goob unbundle
-  cost:
-    Telecrystal: 60 # goob unbundle
-  categories:
-  - UplinkWeaponry
-  #Goobstation
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
+# MAID BEGIN rem-uplink-weapons
+#- type: listing
+#  id: UplinkEstoc # goob unbundle
+#  name: uplink-estoc-name # goob unbundle
+#  description: uplink-estoc-desc # goob unbundle
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
+#  productEntity: WeaponRifleEstoc # goob unbundle
+#  cost:
+#    Telecrystal: 60 # goob unbundle
+#  categories:
+#  - UplinkWeaponry
+#  #Goobstation
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
+# MAID END rem-uplink-weapons
 
 - type: listing
   id: UplinkBulldog #goob
@@ -844,23 +846,24 @@
       tags:
       - ContractorUplink
 
-# For the Estoc
-- type: listing
-  id: UplinkEstocAmmo
-  name: uplink-estoc-ammo-name
-  description: uplink-estoc-ammo-desc
-  productEntity: MagazineLightRifle
-  cost:
-    Telecrystal: 7 # goob - higher ammo cost due to .30 rifle's 40% armour piercing
-  categories:
-  - UplinkAmmo
-  #Goobstation
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
-
+# MAID BEGIN rem-uplink-weapons
+## For the Estoc
+#- type: listing
+#  id: UplinkEstocAmmo
+#  name: uplink-estoc-ammo-name
+#  description: uplink-estoc-ammo-desc
+#  productEntity: MagazineLightRifle
+#  cost:
+#    Telecrystal: 7 # goob - higher ammo cost due to .30 rifle's 40% armour piercing
+#  categories:
+#  - UplinkAmmo
+#  #Goobstation
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
+# MAID END rem-uplink-weapons
 # for the hristov
 - type: listing
   id: UplinkHristovAmmo
@@ -1273,16 +1276,17 @@
   - UplinkDisruption
 
 
-- type: listing
-  id: UplinkSlipocalypseClusterSoap
-  name: uplink-slipocalypse-clustersoap-name
-  description: uplink-slipocalypse-clustersoap-desc
-  productEntity: SlipocalypseClusterSoap
-  cost:
-    Telecrystal: 6 # goob - Not a GREAT item but has some effects. Bomb Balance.
-  categories:
-  - UplinkDisruption
-
+# MAID BEGIN rem-uplink-soap
+#- type: listing
+#  id: UplinkSlipocalypseClusterSoap
+#  name: uplink-slipocalypse-clustersoap-name
+#  description: uplink-slipocalypse-clustersoap-desc
+#  productEntity: SlipocalypseClusterSoap
+#  cost:
+#    Telecrystal: 6 # goob - Not a GREAT item but has some effects. Bomb Balance.
+#  categories:
+#  - UplinkDisruption
+# MAID END rem-uplink-soap
 
 - type: listing
   id: UplinkToolbox
@@ -1375,7 +1379,7 @@
 - type: listing
   id: UplinkSurplusBundle
   name: uplink-surplus-bundle-name
-  description: uplink-surplus-bundle-desc
+  description: uplink-surplus-bundle-desc # Don't forget to edit translation
   productEntity: CrateSyndicateSurplusBundle
   cost:
     Telecrystal: 100 # goob
@@ -1397,7 +1401,7 @@
 - type: listing
   id: UplinkSuperSurplusBundle
   name: uplink-super-surplus-bundle-name
-  description: uplink-super-surplus-bundle-desc
+  description: uplink-super-surplus-bundle-desc # Don't forget to edit translation
   productEntity: CrateSyndicateSuperSurplusBundle
   cost:
     Telecrystal: 200 # goob
@@ -1458,7 +1462,7 @@
   description: uplink-cameraBug-desc
   productEntity: CameraBug
   cost:
-    Telecrystal: 12 # goob
+    Telecrystal: 20 # MAID camera bug price
   categories:
   - UplinkDisruption
 

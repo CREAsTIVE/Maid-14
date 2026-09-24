@@ -18,6 +18,7 @@
   parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
   name: Syndicate surplus crate
   # Goobstation - Telecrystal rework
+  # Don't forget to edit translation
   description: Contains 250 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
   components:
     - type: SurplusBundle
@@ -44,6 +45,7 @@
   parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
   name: Syndicate super surplus crate
   # Goobstation - Telecrystal rework
+  # Don't forget to edit translation
   description: Contains 625 telecrystals worth of completely random Syndicate items.
   components:
     - type: SurplusBundle

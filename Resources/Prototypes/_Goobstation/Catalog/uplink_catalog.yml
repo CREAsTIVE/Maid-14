@@ -404,36 +404,38 @@
       tags:
       - NukeOpsUplink
 
-- type: listing
-  id: UplinkWSPR
-  name: uplink-WSPR-name
-  description: uplink-WSPR-desc
-  productEntity: WeaponRifleWSPR
-  cost:
-    Telecrystal: 65 # fire
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
-
-- type: listing
-  id: UplinkWeaponRifleBurner
-  name: uplink-weapon-burner-name
-  description: uplink-weapon-burner-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
-  productEntity: WeaponRifleBurner
-  cost:
-    Telecrystal: 100 # don't kill me piras
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
+# MAID BEGIN rem-uplink-weapons
+#- type: listing
+#  id: UplinkWSPR
+#  name: uplink-WSPR-name
+#  description: uplink-WSPR-desc
+#  productEntity: WeaponRifleWSPR
+#  cost:
+#    Telecrystal: 65 # fire
+#  categories:
+#  - UplinkWeaponry
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
+#
+#- type: listing
+#  id: UplinkWeaponRifleBurner
+#  name: uplink-weapon-burner-name
+#  description: uplink-weapon-burner-desc
+#  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
+#  productEntity: WeaponRifleBurner
+#  cost:
+#    Telecrystal: 100 # don't kill me piras
+#  categories:
+#  - UplinkWeaponry
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
+# MAID END rem-uplink-weapons
 
 #- type: listing
 #  id: UplinkWeaponShotgunHeavy
@@ -451,22 +453,23 @@
 #      tags:
 #      - ContractorUplink
 
-- type: listing
-  id: UplinkBowHardlight
-  name: uplink-hardlight-bow-name
-  description: uplink-hardlight-bow-desc
-  icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
-  productEntity: BowHardlight
-  cost:
-    Telecrystal: 60
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-
+# MAID BEGIN rem-uplink-weapons
+#- type: listing
+#  id: UplinkBowHardlight
+#  name: uplink-hardlight-bow-name
+#  description: uplink-hardlight-bow-desc
+#  icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
+#  productEntity: BowHardlight
+#  cost:
+#    Telecrystal: 60
+#  categories:
+#  - UplinkWeaponry
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - NukeOpsUplink
+# MAID END rem-uplink-weapons
 #- type: listing
 #  id: UplinkDualettaBundle
 #  name: uplink-dualetta-bundle-name
@@ -514,20 +517,22 @@
       tags:
       - ContractorUplink
 
-- type: listing
-  id: UplinkWeaponM7S
-  name: uplink-m7s-name
-  description: uplink-m7s-desc
-  productEntity: WeaponSubMachineGunM7S
-  cost:
-    Telecrystal: 60
-  categories:
-    -  UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
+# MAID BEGIN rem-uplink-weapons
+#- type: listing
+#  id: UplinkWeaponM7S
+#  name: uplink-m7s-name
+#  description: uplink-m7s-desc
+#  productEntity: WeaponSubMachineGunM7S
+#  cost:
+#    Telecrystal: 60
+#  categories:
+#    -  UplinkWeaponry
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
+# MAID END rem-uplink-weapons
 
 #- type: listing
 #  id: UplinkWeaponHE1SG8
@@ -811,21 +816,23 @@
       tags:
       - NukeOpsUplink
 
-- type: listing
-  id: UplinkMobRoachMicrobomb
-  name: uplink-mobroach-microbomb-name
-  description: uplink-mobroach-microbomb-desc
-  icon: { sprite: _Goobstation/Objects/Devices/communication.rsi, state: radio-syndiroach }
-  productEntity: ReinforcementRadioSyndicateSyndiRoach
-  cost:
-    Telecrystal: 30
-  categories:
-    - UplinkAllies
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
+# MAID BEGIN rem-uplink-syndiroach
+#- type: listing
+#  id: UplinkMobRoachMicrobomb
+#  name: uplink-mobroach-microbomb-name
+#  description: uplink-mobroach-microbomb-desc
+#  icon: { sprite: _Goobstation/Objects/Devices/communication.rsi, state: radio-syndiroach }
+#  productEntity: ReinforcementRadioSyndicateSyndiRoach
+#  cost:
+#    Telecrystal: 30
+#  categories:
+#    - UplinkAllies
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
+# MAID END rem-uplink-syndiroach
 
 - type: listing
   id: uplinkBeeNades    #goob - bee update
@@ -931,15 +938,17 @@
   categories:
   - UplinkChemicals
 
-- type: listing
-  id: UplinkSyndicateLollypopBundle
-  name: uplink-lollypop-bundle-name
-  description: uplink-lollypop-bundle-desc
-  productEntity: SyndicateLollypopBundle
-  cost:
-    Telecrystal: 15
-  categories:
-  - UplinkChemicals
+# MAID BEGIN rem-uplink-candy-pizza
+#- type: listing
+#  id: UplinkSyndicateLollypopBundle
+#  name: uplink-lollypop-bundle-name
+#  description: uplink-lollypop-bundle-desc
+#  productEntity: SyndicateLollypopBundle
+#  cost:
+#    Telecrystal: 15
+#  categories:
+#  - UplinkChemicals
+# MAID END rem-uplink-candy-pizza
 
 - type: listing
   id: UplinkSyringePistol
@@ -947,19 +956,21 @@
   description: uplink-syringe-pistol-desc
   productEntity: SyringePistol
   cost:
-    Telecrystal: 15
+    Telecrystal: 30 # MAID syringe pistol price
   categories:
   - UplinkChemicals
 
-- type: listing
-  id: UplinkSyndicateLollypopBundleBig
-  name: uplink-lollypop-bundle-big-name
-  description: uplink-lollypop-bundle-big-desc
-  productEntity: ClothingBackpackDuffelSyndicateFilledCandy
-  cost:
-    Telecrystal: 100
-  categories:
-  - UplinkChemicals
+# MAID BEGIN rem-uplink-candy-pizza
+#- type: listing
+#  id: UplinkSyndicateLollypopBundleBig
+#  name: uplink-lollypop-bundle-big-name
+#  description: uplink-lollypop-bundle-big-desc
+#  productEntity: ClothingBackpackDuffelSyndicateFilledCandy
+#  cost:
+#    Telecrystal: 100
+#  categories:
+#  - UplinkChemicals
+# MAID END rem-uplink-candy-pizza
 
 #- type: listing Removed pending rework™
 #  id: UplinkMedicalBeamGunSyndicate
@@ -1029,16 +1040,18 @@
   categories:
     - UplinkImplants
 
-- type: listing
-  id: UplinkNutrimentImplanter
-  name: uplink-nutriment-implant-name
-  description: uplink-nutriment-implant-desc
-  icon: { sprite: Objects/Consumable/Food/burger.rsi, state: bacon }
-  productEntity: NutrimentImplanter
-  cost:
-    Telecrystal: 5
-  categories:
-  - UplinkImplants
+# MAID BEGIN rem-uplink-implants
+#- type: listing
+#  id: UplinkNutrimentImplanter
+#  name: uplink-nutriment-implant-name
+#  description: uplink-nutriment-implant-desc
+#  icon: { sprite: Objects/Consumable/Food/burger.rsi, state: bacon }
+#  productEntity: NutrimentImplanter
+#  cost:
+#    Telecrystal: 5
+#  categories:
+#  - UplinkImplants
+# MAID END rem-uplink-implants
 
 # I don't know if this is balanced, so i'm just going to leave it commented out.
 # If you want to add this in the future, feel free. - Sol
@@ -1053,16 +1066,18 @@
 #  categories:
 #  - UplinkImplants
 
-- type: listing
-  id: UplinkKravMagaImplanter
-  name: uplink-krav-maga-implant-name
-  description: uplink-krav-maga-implant-desc
-  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/kravgloves.rsi, state: icon }
-  productEntity: KravMagaImplanter
-  cost:
-    Telecrystal: 40
-  categories:
-    - UplinkImplants
+# MAID BEGIN rem-uplink-implants
+#- type: listing
+#  id: UplinkKravMagaImplanter
+#  name: uplink-krav-maga-implant-name
+#  description: uplink-krav-maga-implant-desc
+#  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/kravgloves.rsi, state: icon }
+#  productEntity: KravMagaImplanter
+#  cost:
+#    Telecrystal: 40
+#  categories:
+#    - UplinkImplants
+# MAID END rem-uplink-implants
 
 - type: listing
   id: UplinkBinaryImplant
@@ -1075,184 +1090,185 @@
   categories:
   - UplinkImplants
 
-- type: listing
-  id: UplinkAutosurgeonRightMantisBlade
-  name: uplink-autosurgeon-right-mantis-blade-name
-  description: uplink-autosurgeon-mantis-blade-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon }
-  productEntity: AutosurgeonRightMantisBlade
-  cost:
-    Telecrystal: 17
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
-
-- type: listing
-  id: UplinkAutosurgeonLeftMantisBlade
-  name: uplink-autosurgeon-left-mantis-blade-name
-  description: uplink-autosurgeon-mantis-blade-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
-  productEntity: AutosurgeonLeftMantisBlade
-  cost:
-    Telecrystal: 17
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
-
-- type: listing
-  id: UplinkAutosurgeonSandevistan
-  name: uplink-autosurgeon-sandevistan-name
-  description: uplink-autosurgeon-sandevistan-desc
-  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
-  productEntity: AutosurgeonSandevistan
-  cost:
-    Telecrystal: 66 # The urge to make it 65...
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-
-- type: listing
-  id: UplinkAutosurgeonStatvekaSandevistan
-  name: uplink-autosurgeon-statveka-sandevistan-name
-  description: uplink-autosurgeon-statveka-sandevistan-desc
-  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
-  productEntity: AutosurgeonStatvekaSandevistan
-  cost:
-    Telecrystal: 66
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-
-- type: listing
-  id: NukieUplinkAutosurgeonSandevistan
-  name: uplink-autosurgeon-sandevistan-name
-  description: uplink-autosurgeon-sandevistan-desc
-  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
-  productEntity: AutosurgeonSandevistan
-  cost:
-    Telecrystal: 124
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - LoneOpsUplink
-
-- type: listing
-  id: NukieUplinkAutosurgeonStatvekaSandevistan
-  name: uplink-autosurgeon-statveka-sandevistan-name
-  description: uplink-autosurgeon-statveka-sandevistan-desc
-  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
-  productEntity: AutosurgeonStatvekaSandevistan
-  cost:
-    Telecrystal: 124
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - LoneOpsUplink
-
-- type: listing
-  id: UplinkClothingOuterDavidsJacketValid
-  name: uplink-davids-jacket-name
-  description: uplink-davids-jacket-desc
-  icon: { sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi, state: icon }
-  productEntity: ClothingOuterDavidsJacketValid
-  cost:
-    Telecrystal: 0
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:BuyBeforeCondition
-    whitelist:
-    - UplinkAutosurgeonRightMantisBlade
-    - UplinkAutosurgeonLeftMantisBlade
-    - UplinkAutosurgeonSandevistan
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
-
-- type: listing
-  id: UplinkAutosurgeonSmartLink
-  name: uplink-autosurgeon-smartlink-name
-  description: uplink-autosurgeon-smartlink-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/SMGs/smartgun.rsi, state: base }
-  productEntity: AutosurgeonSmartLink
-  cost:
-    Telecrystal: 30
-  categories:
-  - UplinkImplants
-
-- type: listing
-  id: UplinkAutosurgeonRecoilAbsorber
-  name: uplink-autosurgeon-recoil-absorbing-name
-  description: uplink-autosurgeon-recoil-absorbing-desc
-  icon: { sprite: Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
-  productEntity: AutosurgeonRecoilAbsorber
-  cost:
-    Telecrystal: 40
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
-
-- type: listing
-  id: UplinkAutosurgeonBerserkerHeart
-  name: uplink-autosurgeon-berserker-heart-name
-  description: uplink-autosurgeon-berserker-heart-desc
-  icon: { sprite: _Goobstation/Objects/Misc/berserker_heart.rsi, state: icon }
-  productEntity: AutosurgeonBerserker
-  cost:
-    Telecrystal: 66
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
-
-- type: listing
-  id: UplinkAutosurgeonJumpstarter
-  name: uplink-autosurgeon-jumpstarter-heart-name
-  description: uplink-autosurgeon-jumpstarter-heart-desc
-  icon: { sprite: _Goobstation/Objects/Misc/jumpstarter_heart.rsi, state: icon }
-  productEntity: AutosurgeonJumpstarter
-  cost:
-    Telecrystal: 60
-  categories:
-  - UplinkImplants
-  conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink
-
+# MAID BEGIN rem-uplink-autosurgeon
+#- type: listing
+#  id: UplinkAutosurgeonRightMantisBlade
+#  name: uplink-autosurgeon-right-mantis-blade-name
+#  description: uplink-autosurgeon-mantis-blade-desc
+#  icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon }
+#  productEntity: AutosurgeonRightMantisBlade
+#  cost:
+#    Telecrystal: 17
+#  categories:
+#  - UplinkImplants
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
+#
+#- type: listing
+#  id: UplinkAutosurgeonLeftMantisBlade
+#  name: uplink-autosurgeon-left-mantis-blade-name
+#  description: uplink-autosurgeon-mantis-blade-desc
+#  icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
+#  productEntity: AutosurgeonLeftMantisBlade
+#  cost:
+#    Telecrystal: 17
+#  categories:
+#  - UplinkImplants
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
+#
+#- type: listing
+#  id: UplinkAutosurgeonSandevistan
+#  name: uplink-autosurgeon-sandevistan-name
+#  description: uplink-autosurgeon-sandevistan-desc
+#  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
+#  productEntity: AutosurgeonSandevistan
+#  cost:
+#    Telecrystal: 66 # The urge to make it 65...
+#  categories:
+#  - UplinkImplants
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - NukeOpsUplink
+#
+#- type: listing
+#  id: UplinkAutosurgeonStatvekaSandevistan
+#  name: uplink-autosurgeon-statveka-sandevistan-name
+#  description: uplink-autosurgeon-statveka-sandevistan-desc
+#  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
+#  productEntity: AutosurgeonStatvekaSandevistan
+#  cost:
+#    Telecrystal: 66
+#  categories:
+#  - UplinkImplants
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - NukeOpsUplink
+#
+#- type: listing
+#  id: NukieUplinkAutosurgeonSandevistan
+#  name: uplink-autosurgeon-sandevistan-name
+#  description: uplink-autosurgeon-sandevistan-desc
+#  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
+#  productEntity: AutosurgeonSandevistan
+#  cost:
+#    Telecrystal: 124
+#  categories:
+#  - UplinkImplants
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - LoneOpsUplink
+#
+#- type: listing
+#  id: NukieUplinkAutosurgeonStatvekaSandevistan
+#  name: uplink-autosurgeon-statveka-sandevistan-name
+#  description: uplink-autosurgeon-statveka-sandevistan-desc
+#  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
+#  productEntity: AutosurgeonStatvekaSandevistan
+#  cost:
+#    Telecrystal: 124
+#  categories:
+#  - UplinkImplants
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - LoneOpsUplink
+#
+#- type: listing
+#  id: UplinkClothingOuterDavidsJacketValid
+#  name: uplink-davids-jacket-name
+#  description: uplink-davids-jacket-desc
+#  icon: { sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi, state: icon }
+#  productEntity: ClothingOuterDavidsJacketValid
+#  cost:
+#    Telecrystal: 0
+#  categories:
+#  - UplinkImplants
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+#  - !type:BuyBeforeCondition
+#    whitelist:
+#    - UplinkAutosurgeonRightMantisBlade
+#    - UplinkAutosurgeonLeftMantisBlade
+#    - UplinkAutosurgeonSandevistan
+#  - !type:BuyerWhitelistCondition
+#    blacklist:
+#      components:
+#      - SurplusBundle
+#
+#- type: listing
+#  id: UplinkAutosurgeonSmartLink
+#  name: uplink-autosurgeon-smartlink-name
+#  description: uplink-autosurgeon-smartlink-desc
+#  icon: { sprite: _Goobstation/Objects/Weapons/Guns/SMGs/smartgun.rsi, state: base }
+#  productEntity: AutosurgeonSmartLink
+#  cost:
+#    Telecrystal: 30
+#  categories:
+#  - UplinkImplants
+#
+#- type: listing
+#  id: UplinkAutosurgeonRecoilAbsorber
+#  name: uplink-autosurgeon-recoil-absorbing-name
+#  description: uplink-autosurgeon-recoil-absorbing-desc
+#  icon: { sprite: Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+#  productEntity: AutosurgeonRecoilAbsorber
+#  cost:
+#    Telecrystal: 40
+#  categories:
+#  - UplinkImplants
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
+#
+#- type: listing
+#  id: UplinkAutosurgeonBerserkerHeart
+#  name: uplink-autosurgeon-berserker-heart-name
+#  description: uplink-autosurgeon-berserker-heart-desc
+#  icon: { sprite: _Goobstation/Objects/Misc/berserker_heart.rsi, state: icon }
+#  productEntity: AutosurgeonBerserker
+#  cost:
+#    Telecrystal: 66
+#  categories:
+#  - UplinkImplants
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
+#
+#- type: listing
+#  id: UplinkAutosurgeonJumpstarter
+#  name: uplink-autosurgeon-jumpstarter-heart-name
+#  description: uplink-autosurgeon-jumpstarter-heart-desc
+#  icon: { sprite: _Goobstation/Objects/Misc/jumpstarter_heart.rsi, state: icon }
+#  productEntity: AutosurgeonJumpstarter
+#  cost:
+#    Telecrystal: 60
+#  categories:
+#  - UplinkImplants
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      blacklist:
+#        tags:
+#          - NukeOpsUplink
+# MAID END rem-uplink-autosurgeon
 # Deception
 
 - type: listing
@@ -1358,37 +1374,39 @@
       tags:
       - ContractorUplink
 
-- type: listing
-  id: UplinkMagazineHighCaliber
-  name: uplink-high-caliber-magazine-name
-  description: uplink-high-caliber-magazine-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
-  productEntity: MagazineHighCaliber
-  cost:
-    Telecrystal: 8
-  categories:
-  - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
-
-- type: listing
-  id: UplinkMagazineHighCaliberExplosive
-  name: uplink-high-caliber-explosive-magazine-name
-  description: uplink-high-caliber-explosive-magazine-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
-  productEntity: MagazineHighCaliberExplosive
-  cost:
-    Telecrystal: 12
-  categories:
-  - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
+# MAID BEGIN rem-uplink-weapons
+#- type: listing
+#  id: UplinkMagazineHighCaliber
+#  name: uplink-high-caliber-magazine-name
+#  description: uplink-high-caliber-magazine-desc
+#  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
+#  productEntity: MagazineHighCaliber
+#  cost:
+#    Telecrystal: 8
+#  categories:
+#  - UplinkAmmo
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
+#
+#- type: listing
+#  id: UplinkMagazineHighCaliberExplosive
+#  name: uplink-high-caliber-explosive-magazine-name
+#  description: uplink-high-caliber-explosive-magazine-desc
+#  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
+#  productEntity: MagazineHighCaliberExplosive
+#  cost:
+#    Telecrystal: 12
+#  categories:
+#  - UplinkAmmo
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
+# MAID END rem-uplink-weapons
 
 #- type: listing # A box, really? Why not like... mags?
 #  id: UplinkHighCaliberBox
@@ -1444,21 +1462,23 @@
   - UplinkAmmo
 
 # 弾薬
-- type: listing
-  id: UplinkCaselessRifleMag
-  name: uplink-rifle-caseless-mag-name
-  description: uplink-rifle-caseless-mag-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi, state: base }
-  productEntity: MagazineCaselessRifle
-  cost:
-    Telecrystal: 8 # Much more damage than C20 or M90 (780, 98 dmg per TC), but hollow-point
-  categories:
-  - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
+# MAID BEGIN rem-uplink-weapons
+#- type: listing
+#  id: UplinkCaselessRifleMag
+#  name: uplink-rifle-caseless-mag-name
+#  description: uplink-rifle-caseless-mag-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi, state: base }
+#  productEntity: MagazineCaselessRifle
+#  cost:
+#    Telecrystal: 8 # Much more damage than C20 or M90 (780, 98 dmg per TC), but hollow-point
+#  categories:
+#  - UplinkAmmo
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
+# MAID END rem-uplink-weapons
 
 - type: listing
   id: UplinkHighCapacityMagazinePistol
@@ -1523,21 +1543,23 @@
       tags:
       - ContractorUplink
 
-- type: listing
-  id: UplinkMagazineM7S
-  name: uplink-m7s-mag-name
-  description: uplink-m7s-mag-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/M7S_magazine.rsi, state: icon }
-  productEntity: MagazineLowCaliberM7S
-  cost:
-    Telecrystal: 5 # 105 dmg per TC which seems huge, but you're missing half of your shots
-  categories:
-  - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
+# MAID BEGIN rem-uplink-weapons
+#- type: listing
+#  id: UplinkMagazineM7S
+#  name: uplink-m7s-mag-name
+#  description: uplink-m7s-mag-desc
+#  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/M7S_magazine.rsi, state: icon }
+#  productEntity: MagazineLowCaliberM7S
+#  cost:
+#    Telecrystal: 5 # 105 dmg per TC which seems huge, but you're missing half of your shots
+#  categories:
+#  - UplinkAmmo
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
+# MAID END rem-uplink-weapons
 
 - type: listing
   id: UplinkCartridgeG8Demolishing
@@ -1744,20 +1766,22 @@
       tags:
       - ContractorUplink
 
-- type: listing
-  id: UplinkPizzaParty
-  name: uplink-pizza-party-crate-name
-  description: uplink-pizza-party-crate-desc
-  productEntity: CratePizzaParty
-  cost:
-    Telecrystal: 50  # Goob Bundle, get 8 pizza bombs and 7 regular pizzas. Bundle + Pizza boxes not telling the dangerous ones justifies the discount.
-  categories:
-  - UplinkExplosives
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
+# MAID BEGIN rem-uplink-candy-pizza
+#- type: listing
+#  id: UplinkPizzaParty
+#  name: uplink-pizza-party-crate-name
+#  description: uplink-pizza-party-crate-desc
+#  productEntity: CratePizzaParty
+#  cost:
+#    Telecrystal: 50  # Goob Bundle, get 8 pizza bombs and 7 regular pizzas. Bundle + Pizza boxes not telling the dangerous ones justifies the discount.
+#  categories:
+#  - UplinkExplosives
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
+# MAID END rem-uplink-candy-pizza
 
 - type: listing
   id: UplinkM172
@@ -1819,44 +1843,48 @@
 #    whitelist:
 #    - Human
 
-- type: listing
-  id: UplinkUndeterminedBundle
-  name: uplink-undetermined-bundle-name
-  description: uplink-undetermined-bundle-desc
-  productEntity: CrateSyndicateUndetermined
-  cost:
-    Telecrystal: 99 # :trollface:
-  categories:
-  - UplinkDisruption
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
-      - NukeOpsUplink
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+# MAID BEGIN rem-uplink-undetermined
+#- type: listing
+#  id: UplinkUndeterminedBundle
+#  name: uplink-undetermined-bundle-name
+#  description: uplink-undetermined-bundle-desc
+#  productEntity: CrateSyndicateUndetermined
+#  cost:
+#    Telecrystal: 99 # :trollface:
+#  categories:
+#  - UplinkDisruption
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
+#      - NukeOpsUplink
+#  - !type:BuyerWhitelistCondition
+#    blacklist:
+#      components:
+#      - SurplusBundle
+# MAID END rem-uplink-undetermined
 
-- type: listing
-  id: UplinkEnergyPickaxe
-  name: uplink-energy-pickaxe-name
-  description: uplink-energy-pickaxe-desc
-  icon: { sprite: /Textures/_NF/Objects/Weapons/Melee/energy_pickaxe.rsi, state: icon }
-  productEntity: NFEnergyPickaxe
-  cost:
-    Telecrystal: 32 # Worse than esword for combat, better for breaching
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
-  - !type:BuyerSpeciesCondition
-    whitelist:
-    - Dwarf # Rock and stone
+# MAID BEGIN rem-uplink-weapons
+#- type: listing
+#  id: UplinkEnergyPickaxe
+#  name: uplink-energy-pickaxe-name
+#  description: uplink-energy-pickaxe-desc
+#  icon: { sprite: /Textures/_NF/Objects/Weapons/Melee/energy_pickaxe.rsi, state: icon }
+#  productEntity: NFEnergyPickaxe
+#  cost:
+#    Telecrystal: 32 # Worse than esword for combat, better for breaching
+#  categories:
+#  - UplinkWeaponry
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
+#  - !type:BuyerSpeciesCondition
+#    whitelist:
+#    - Dwarf # Rock and stone
+# MAID END rem-uplink-weapons
 
 - type: listing
   id: UplinkBloodredCassette
