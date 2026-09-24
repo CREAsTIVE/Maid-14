@@ -321,24 +321,26 @@
 #   categories:
 #   - UplinkWeaponry
 
-- type: listing
-  id: UplinkContractorBaton
-  name: uplink-contractor-baton-name
-  description: uplink-contractor-baton-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Melee/contractor_baton.rsi, state: uplink }
-  productEntity: ContractorBaton
-  cost:
-    Telecrystal: 35
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink #cheaper for contractors
-      - NukeOpsUplink
-  - !type:ListingLimitedStockCondition
-    stock: 1
+# MAID BEGIN rem-uplink-contractor-baton
+#- type: listing
+#  id: UplinkContractorBaton
+#  name: uplink-contractor-baton-name
+#  description: uplink-contractor-baton-desc
+#  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Melee/contractor_baton.rsi, state: uplink }
+#  productEntity: ContractorBaton
+#  cost:
+#    Telecrystal: 35
+#  categories:
+#  - UplinkWeaponry
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink #cheaper for contractors
+#      - NukeOpsUplink
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+# MAID END rem-uplink-contractor-baton
 
 - type: listing
   id: UplinkGlovesKnuckleDusters
@@ -362,16 +364,18 @@
   categories:
   - UplinkWeaponry
 
-- type: listing
-  id: UplinkSyndicateDisabler
-  name: uplink-syndicate-disabler-name
-  description: uplink-syndicate-disabler-desc
-  icon: { sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/syndicate-disabler.rsi, state: base }
-  productEntity: WeaponDisablerSyndicate
-  cost:
-    Telecrystal: 20
-  categories:
-  - UplinkWeaponry
+# MAID BEGIN rem-uplink-disabler
+#- type: listing
+#  id: UplinkSyndicateDisabler
+#  name: uplink-syndicate-disabler-name
+#  description: uplink-syndicate-disabler-desc
+#  icon: { sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/syndicate-disabler.rsi, state: base }
+#  productEntity: WeaponDisablerSyndicate
+#  cost:
+#    Telecrystal: 20
+#  categories:
+#  - UplinkWeaponry
+# MAID END rem-uplink-disabler
 
 - type: listing
   id: UplinkFireAxeFlaming
@@ -928,15 +932,17 @@
 
 # chemicals
 
-- type: listing
-  id: UplinkAdvancedCombatMedipen
-  name: uplink-advanced-combat-medipen-name
-  description: uplink-advanced-combat-medipen-desc
-  productEntity: AdvancedCombatMedipen
-  cost:
-    Telecrystal: 24
-  categories:
-  - UplinkChemicals
+# MAID BEGIN rem-uplink-chemicals
+#- type: listing
+#  id: UplinkAdvancedCombatMedipen
+#  name: uplink-advanced-combat-medipen-name
+#  description: uplink-advanced-combat-medipen-desc
+#  productEntity: AdvancedCombatMedipen
+#  cost:
+#    Telecrystal: 24
+#  categories:
+#  - UplinkChemicals
+# MAID END rem-uplink-chemicals
 
 # MAID BEGIN rem-uplink-candy-pizza
 #- type: listing
@@ -1960,22 +1966,24 @@
 
     #Contractor
 
-- type: listing
-  id: UplinkContractorContractorBaton
-  name: uplink-contractor-baton-name
-  description: uplink-contractor-baton-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Melee/contractor_baton.rsi, state: uplink }
-  productEntity: ContractorBaton
-  cost:
-    Telecrystal: 10  #cheaper for contractors
-  categories:
-  - UplinkWeaponry
-  - UplinkContractor
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - ContractorUplink
+# MAID BEGIN rem-uplink-contractor-baton
+#- type: listing
+#  id: UplinkContractorContractorBaton
+#  name: uplink-contractor-baton-name
+#  description: uplink-contractor-baton-desc
+#  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Melee/contractor_baton.rsi, state: uplink }
+#  productEntity: ContractorBaton
+#  cost:
+#    Telecrystal: 10  #cheaper for contractors
+#  categories:
+#  - UplinkWeaponry
+#  - UplinkContractor
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - ContractorUplink
+# MAID END rem-uplink-contractor-baton
 
 - type: listing
   id: UplinkModsuitContractor
