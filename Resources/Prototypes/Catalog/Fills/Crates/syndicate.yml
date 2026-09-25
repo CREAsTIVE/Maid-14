@@ -17,12 +17,11 @@
   id: CrateSyndicateSurplusBundle
   parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
   name: Syndicate surplus crate
-  # Goobstation - Telecrystal rework
-  # Don't forget to edit translation
-  description: Contains 50 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
+  # MAID uplink price rebalance
+  description: Contains 50 telecrystals worth of completely random Syndicate items. It can be useless junk or really good. # MAID uplink price rebalance
   components:
     - type: SurplusBundle
-      totalPrice: 50
+      totalPrice: 50 # MAID uplink price rebalance
 
 - type: entity
   id: CrateCybersunJuggernautBundle
@@ -44,9 +43,8 @@
   id: CrateSyndicateSuperSurplusBundle
   parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
   name: Syndicate super surplus crate
-  # Goobstation - Telecrystal rework
-  # Don't forget to edit translation
-  description: Contains 625 telecrystals worth of completely random Syndicate items.
+  # MAID uplink price rebalance
+  description: Contains 125 telecrystals worth of completely random Syndicate items. # MAID uplink price rebalance
   components:
     - type: SurplusBundle
-      totalPrice: 125
+      totalPrice: 125 # MAID uplink price rebalance
