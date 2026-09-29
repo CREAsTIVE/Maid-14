@@ -418,6 +418,7 @@
 - type: emote
   id: DefaultDeathgasp
   name: chat-emote-name-deathgasp
+  available: false # MAID disable deathgasp from emote list
   icon: Interface/Emotes/deathgasp.png
   whitelist:
     components:
@@ -430,7 +431,6 @@
   chatMessages: ["chat-emote-msg-deathgasp"]
   chatTriggers:
   - deathgasp
-
 - type: emote
   id: MonkeyDeathgasp
   name: chat-emote-name-deathgasp

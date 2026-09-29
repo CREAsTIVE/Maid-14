@@ -671,7 +671,7 @@
   - type: AdaptiveScoreStatic
     chaosScore: 5
     conditions:
-    - !type:AdaptiveScoreHasComponentCondition
+    - !type:HasComponent
       components:
       - ActiveGameRule
   # MAID END adaptive scores
@@ -713,7 +713,7 @@
   - type: AdaptiveScoreStatic
     chaosScore: 3
     conditions:
-    - !type:AdaptiveScoreHasComponentCondition
+    - !type:HasComponent
       components:
       - ActiveGameRule
   # MAID END adaptive scores

@@ -188,9 +188,15 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
             r -= weight;
             if (r <= 0)
+            {
+                if (_balancing.TrackingEnabled)
+                    _balancing.AppendRandomRuleSelectionData(weightedRules, rule);
                 return rule;
+            }
         }
 
+        if (_balancing.TrackingEnabled)
+            _balancing.AppendRandomRuleSelectionData(weightedRules, null);
         return weightedRules.Last().Rule;
     }
 
@@ -206,7 +212,6 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
         foreach (var rule in rules)
         {
-
             var expectedBudget = CalculatePossibleScoreForPrototype(rule.Id, playerCount);
 
             var multiplierChaos = GetMultiplier(scoreBudget.Chaos, expectedBudget.Chaos);
@@ -277,6 +282,8 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         if (!_balancing.TrackingEnabled || ev.Records == null)
             return ev;
 
+        // Recalculate target budget cause tracking code is a mess,
+        // But it's cheap, so should be alr
         var targetBudget = new AdaptiveScore();
         var query = EntityQueryEnumerator<AdaptiveRuleComponent>();
         if (query.MoveNext(out var uid, out var comp))
@@ -285,6 +292,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         }
 
         // Kinda gross but it is what it is
+        // TODO: Rewrite whole tracking system and make it pretty and not that shit
         _balancing.SaveCalculationRun(ev.ChaosScore, ev.CombatScore, targetBudget.Chaos, targetBudget.Combat, ev.Records);
 
         return ev;

@@ -76,7 +76,7 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
         for (var i = 0; i < current.Offers.Count; i++)
         {
             var seed = current.Offers[i];
-            var offer = salvageSystem.GetSalvageOffering(seed);
+            var offer = i == 0 ? salvageSystem.GetSalvageOffering(seed, new DebrisOffering()) : salvageSystem.GetSalvageOffering(seed); // MAID better salvs
             var option = new OfferingWindowOption();
             option.MinWidth = 210f;
             option.Disabled = current.EndTime != null;

@@ -1,14 +1,14 @@
 # Names
-chat-emote-name-harpyring = Звон
+chat-emote-name-harpyring = Звонить
 chat-emote-name-harpypew = Пиу
 chat-emote-name-harpybang = Бах
 chat-emote-name-harpyrev = Рёв
 chat-emote-name-harpycaw = Кар
 chat-emote-name-harpyhoot = Ухать
-chat-emote-name-vulpbark = Лай
-chat-emote-name-vulpsnarl = Рык
+chat-emote-name-vulpbark = Лаять
+chat-emote-name-vulpsnarl = Рычать
 chat-emote-name-vulpwhine = Скулеж
-chat-emote-name-vulphowl = Вой
+chat-emote-name-vulphowl = Выть
 delta-chat-emote-name-awoo = Аууу
 
 # Message

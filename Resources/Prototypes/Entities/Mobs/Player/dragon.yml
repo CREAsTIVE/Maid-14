@@ -146,10 +146,11 @@
       in: 600
     chaosScore: 5
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
-    conditionTables:
-    - OnStationGrid
+    - !type:Controlled
+    - !type:Alive
+    - !type:MetTable
+      tables:
+      - OnStationGrid
   # MAID END adaptive scores
   - type: Body # Shitmed
     prototype: SpaceDragon

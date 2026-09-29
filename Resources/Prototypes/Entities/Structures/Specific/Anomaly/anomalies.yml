@@ -104,8 +104,10 @@
   - type: AdaptiveScoreStatic
     chaosScore: 3
     combatScore: 0
-    conditionTables:
-    - OnStationGrid
+    conditions:
+    - !type:MetTable
+      tables:
+      - OnStationGrid
   # MAID END adaptive scores
   - type: AmbientSound
     range: 5

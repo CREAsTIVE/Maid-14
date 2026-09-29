@@ -48,8 +48,10 @@
   - type: AdaptiveScoreStatic
     combatScore: 30
     chaosScore: 15
-    conditionTables:
-    - OnStationGrid
+    conditions:
+    - !type:MetTable
+      tables:
+      - OnStationGrid
   - type: Temperature
     heatDamage:
       types:

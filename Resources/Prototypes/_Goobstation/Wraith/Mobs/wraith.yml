@@ -13,10 +13,11 @@
     combatScore: 3
     chaosScore: 10
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
-    conditionTables:
-    - OnStationMap
+    - !type:Controlled
+    - !type:Alive
+    - !type:MetTable
+      tables:
+      - OnStationMap
   # MAID END adaptive scores
   - type: MindContainer
     showExamineInfo: true #show that its dead

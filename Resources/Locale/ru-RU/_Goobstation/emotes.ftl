@@ -10,17 +10,17 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 chat-emote-name-flip = Сальто
-chat-emote-name-spin = Крутиться
-chat-emote-name-jump = Прыжок
-chat-emote-name-tweak = Дёргается
+chat-emote-name-spin = Танцевать
+chat-emote-name-jump = Прыгнуть
+chat-emote-name-tweak = Дёргаться
 chat-emote-name-flex = Показать мышцы
-chat-emote-name-gulp = Глотать
+chat-emote-name-gulp = Взглотнуть
 chat-emote-msg-flip = делает сальто!
-chat-emote-msg-spin = крутится!
+chat-emote-msg-spin = танцует!
 chat-emote-msg-jump = прыгает!
 chat-emote-msg-tweak = начинает дёргаться!
 chat-emote-msg-flex = демонстрирует мышцы.
 chat-emote-msg-gulp = глотает.
-chat-emote-name-surprised = Удивляться
+chat-emote-name-surprised = Удивиться
 chat-emote-name-bagawk = Багавк
 chat-emote-msg-surprised = удивляется.

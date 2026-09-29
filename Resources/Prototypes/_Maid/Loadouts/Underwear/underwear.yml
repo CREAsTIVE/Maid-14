@@ -14,14 +14,14 @@
     sexes:
     - Female
 
-# Default underwear
-- type: loadout
-  id: UnderwearBottomBoxersWhite
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MaleUnderwear
-  equipment:
-    underwearb: ClothingUnderwearBottomBoxersWhite
+# # Default underwear #Maid begin
+# - type: loadout
+#   id: UnderwearBottomBoxersWhite
+#   effects:
+#   - !type:GroupLoadoutEffect
+#     proto: MaleUnderwear
+#   equipment:
+#     underwearb: ClothingUnderwearBottomBoxersWhite #Maid end
 
 - type: loadout
   id: UnderwearBottomPantiesWhite

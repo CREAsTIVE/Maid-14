@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Content.Server.GameTicking;
 using Content.Server._Maid.AdaptiveGameMode.ScoreCounters;
+using Content.Shared._Maid.AdaptiveGameMode;
 using Content.Shared._Maid.CVars;
 using Content.Shared.GameTicking;
 using Robust.Shared.Configuration;
@@ -65,7 +67,7 @@ public sealed class AdaptiveRuleBalancingSystem : EntitySystem
         }
     }
 
-    public void SaveCalculationRun(float totalChaos, float totalCombat, float targetChaos, float targetCombat, List<AdaptiveScoreRecord> records)
+    public void SaveCalculationRun(float totalChaos, float totalCombat, float targetChaos, float targetCombat, List<ScoreCounters.AdaptiveScoreRecord> records)
     {
         if (!TrackingEnabled)
             return;
@@ -100,7 +102,14 @@ public sealed class AdaptiveRuleBalancingSystem : EntitySystem
                     prototype = meta.EntityPrototype?.ID;
             }
 
-            run.Records.Add(new ServerAdaptiveScoreRecord(record.Entity, name, prototype, record.Chaos, record.Combat));
+            run.Records.Add(new Shared._Maid.AdaptiveGameMode.AdaptiveScoreRecord
+            {
+                Entity = GetNetEntity(record.Entity),
+                Name = name,
+                Prototype = prototype,
+                Chaos = record.Chaos,
+                Combat = record.Combat,
+            });
         }
 
         list.Add(run);
@@ -111,17 +120,25 @@ public sealed class AdaptiveRuleBalancingSystem : EntitySystem
     {
         return _roundData;
     }
-}
 
-public sealed class AdaptiveCalculationRun
-{
-    public int Id { get; set; }
-    public TimeSpan Time { get; set; }
-    public float TotalChaos { get; set; }
-    public float TotalCombat { get; set; }
-    public List<ServerAdaptiveScoreRecord> Records { get; } = new();
-    public float TargetChaos { get; set; }
-    public float TargetCombat { get; set; }
-}
+    public void AppendRandomRuleSelectionData(List<(AdaptiveRuleParam Rule, float Weight)> weightedRules, AdaptiveRuleParam? rule)
+    {
+        if (!TrackingEnabled)
+            return;
 
-public record struct ServerAdaptiveScoreRecord(EntityUid Entity, string Name, string? Prototype, float Chaos, float Combat);
+        var roundId = _gameTicker.RoundId;
+        if (!_roundData.TryGetValue(roundId, out var list))
+            return;
+
+        var run = list.LastOrDefault();
+        if (run == null)
+            return;
+
+        if (run.Rules is not null)
+            return; // Don't rerun if already got stats on that tick
+
+        run.Rules = weightedRules.Select(data => (data.Rule.Id.Id, data.Weight)).ToList();
+        run.SelectedRuleId = rule?.Id.Id;
+        UpdateEuis();
+    }
+}

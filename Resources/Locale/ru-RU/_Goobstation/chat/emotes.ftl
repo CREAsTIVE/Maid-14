@@ -1,5 +1,5 @@
 # Names
-chat-emote-name-flap = Хлопанье
+chat-emote-name-flap = Хлопать
 chat-emote-name-trill = Трель
 chat-emote-name-warble = Трель
 

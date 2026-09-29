@@ -216,18 +216,18 @@ namespace Content.Client.Gameplay
             return first.IsValid() ? first : null;
         }
 
-        public IEnumerable<EntityUid> GetClickableEntities(EntityCoordinates coordinates, bool excludeFaded = true)
+        public IEnumerable<EntityUid> GetClickableEntities(EntityCoordinates coordinates, bool excludeFaded = false) // MAID click faded entities
         {
             var transformSystem = _entitySystemManager.GetEntitySystem<SharedTransformSystem>();
             return GetClickableEntities(transformSystem.ToMapCoordinates(coordinates), excludeFaded);
         }
 
-        public IEnumerable<EntityUid> GetClickableEntities(MapCoordinates coordinates, bool excludeFaded = true)
+        public IEnumerable<EntityUid> GetClickableEntities(MapCoordinates coordinates, bool excludeFaded = false) // MAID click faded entities
         {
             return GetClickableEntities(coordinates, _eyeManager.CurrentEye, excludeFaded);
         }
 
-        public IEnumerable<EntityUid> GetClickableEntities(MapCoordinates coordinates, IEye? eye, bool excludeFaded = true)
+        public IEnumerable<EntityUid> GetClickableEntities(MapCoordinates coordinates, IEye? eye, bool excludeFaded = false) // MAID click faded entities
         {
             /*
              * TODO:

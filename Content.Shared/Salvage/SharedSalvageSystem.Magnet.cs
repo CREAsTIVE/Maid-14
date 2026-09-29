@@ -45,11 +45,11 @@ public abstract partial class SharedSalvageSystem
         "ChunkDebris"
     };
 
-    public ISalvageMagnetOffering GetSalvageOffering(int seed)
+    public ISalvageMagnetOffering GetSalvageOffering(int seed, ISalvageMagnetOffering? concreteOffering = null) // MAID: magnet rework
     {
         var rand = new System.Random(seed);
 
-        var type = SharedRandomExtensions.Pick(_offeringWeights, rand);
+        var type = concreteOffering ?? SharedRandomExtensions.Pick(_offeringWeights, rand); // MAID: magnet rework
         switch (type)
         {
             case AsteroidOffering:

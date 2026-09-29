@@ -4,8 +4,7 @@ injector-draw-text = Набрать
 injector-inject-text = Ввести
 injector-invalid-injector-toggle-mode = Неверный режим
 injector-volume-label =
-    Объём: [color=white]{ $currentVolume }/{ $totalVolume }[/color]
-    Режим: [color=white]{ $modeString }[/color] ([color=white]{ $transferVolume } ед.[/color])
+    Объём: [color=white]{ $currentVolume }/{ $totalVolume }[/color] [color=white]{ $modeString }[/color] ([color=white]{ $transferVolume } ед.[/color])
 
 ## Entity
 

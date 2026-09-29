@@ -149,15 +149,23 @@ public sealed partial class IngestionSystem
         var trashes = entity.Comp.Trash;
         var tryPickup = _hands.IsHolding(user, entity, out _);
 
+        var wasHolding = _hands.IsHolding(user, entity, out var handId);                       // MAID trash
+        if (wasHolding && handId != null)                                                      // MAID trash
+            _hands.TryDrop(user, entity, checkActionBlocker: false, doDropInteraction: false); // MAID trash
+
         foreach (var trash in trashes)
         {
             var spawnedTrash = EntityManager.PredictedSpawn(trash, position);
 
             // If the user is holding the item
             if (tryPickup)
-            {
-                // Put the trash in the user's hand
-                _hands.TryPickupAnyHand(user, spawnedTrash);
+            {                                                                   // MAID trash
+                if (wasHolding && handId != null)                               // MAID trash
+                {
+                    if (!_hands.TryPickup(user, spawnedTrash, handId))          // MAID trash
+                        // Put the trash in the user's hand
+                        _hands.TryPickupAnyHand(user, spawnedTrash);
+                }                                                               // MAID trash
             }
         }
     }

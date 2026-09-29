@@ -50,8 +50,8 @@
     chaosScore: -3
     combatScore: 0
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Controlled
+    - !type:Alive
   # MAID END bingle score
   - type: GhostTakeoverAvailable
   - type: GhostRole

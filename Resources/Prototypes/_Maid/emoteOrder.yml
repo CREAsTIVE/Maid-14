@@ -1,0 +1,63 @@
+- type: emoteOrder
+  id: default
+  order: 999999999 # Put all other emotes at the end by default
+
+- type: emoteOrder
+  id: Sigh
+  order: 11
+- type: emoteOrder
+  id: Nod
+  order: 12
+- type: emoteOrder
+  id: Scream
+  order: 13
+
+- type: emoteOrder
+  id: Wave # Махать рукой
+  order: 21
+- type: emoteOrder
+  id: Lick # Облизываться
+  order: 22
+- type: emoteOrder
+  id: Salute
+  order: 23
+
+- type: emoteOrder
+  id: Crying
+  order: 31
+- type: emoteOrder
+  id: ShakeHead
+  order: 32
+- type: emoteOrder
+  id: Yawn
+  order: 33
+
+- type: emoteOrder
+  id: Jump
+  order: 41
+- type: emoteOrder
+  id: Flip
+  order: 42
+- type: emoteOrder
+  id: Whistle
+  order: 43
+
+- type: emoteOrder
+  id: Laugh
+  order: 51
+- type: emoteOrder
+  id: Spin
+  order: 52
+- type: emoteOrder
+  id: Smile
+  order: 53
+
+- type: emoteOrder
+  id: Clap
+  order: 61
+- type: emoteOrder
+  id: Frown
+  order: 62
+- type: emoteOrder
+  id: Snap
+  order: 63

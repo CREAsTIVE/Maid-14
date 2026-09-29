@@ -89,6 +89,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -141,8 +142,13 @@ public abstract class ClothingSystem : EntitySystem
         Entity<ClothingComponent> toEquipEnt,
         Entity<InventoryComponent, HandsComponent> userEnt)
     {
+        // MAID BEGIN clothing quick equip
+        /*
         foreach (var slotDef in userEnt.Comp1.Slots)
+        */
+        foreach (var slotDef in userEnt.Comp1.Slots.OrderByDescending(slot => slot.Priority))
         {
+            // MAID END clothing quick equip
             if (!_invSystem.CanEquip(userEnt, toEquipEnt, slotDef.Name, out _, slotDef, userEnt, toEquipEnt))
                 continue;
 

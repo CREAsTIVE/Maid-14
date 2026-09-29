@@ -22,8 +22,8 @@
     combatScore: 5
     chaosScore: 10
     conditions:
-    - !type:AdaptiveScoreControlledCondition
-    - !type:AdaptiveScoreAliveCondition
+    - !type:Controlled
+    - !type:Alive
   # MAID END adaptive scores
   - type: Abductor
   - type: ActionGrant

@@ -17,8 +17,6 @@ public sealed partial class AdaptiveScoreCollectorComponent : Component
     public string? EnumerateComponent { get; set; }
 
     [DataField]
-    public List<IAdaptiveScoreCondition> Conditions { get; set; } = [];
+    public List<AdaptiveScoreCondition> Conditions { get; set; } = [];
 
-    [DataField]
-    public List<ProtoId<AdaptiveScoreConditionsTablePrototype>> ConditionTables { get; set; } = [];
 }

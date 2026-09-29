@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client._Maid;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
 using Content.Shared.Whitelist;
@@ -28,7 +29,20 @@ public sealed partial class WhiteEmotesMenu : DefaultWindow, IBaseEmoteMenu
         var whitelistSystem = _entManager.System<EntityWhitelistSystem>();
 
         var emotes = _prototypeManager.EnumeratePrototypes<EmotePrototype>().ToList();
+        // MAID BEGIN emote sorting
+        /*
         emotes.Sort((a,b) => string.Compare(a.Name, b.Name, StringComparison.Ordinal));
+        */
+        var defaultOrder = _prototypeManager.TryIndex("default", out EmoteOrderPrototype? proto)
+            ? proto.Order : 0;
+        emotes = emotes
+            .OrderBy(a =>
+                _prototypeManager.TryIndex(a.ID, out EmoteOrderPrototype? proto)
+                ? proto.Order : defaultOrder
+            )
+            .ThenBy(a => Loc.GetString(a.Name))
+            .ToList();
+        // MAID END emote sorting
         foreach (var emote in emotes)
         {
             var player = _playerManager.LocalEntity;

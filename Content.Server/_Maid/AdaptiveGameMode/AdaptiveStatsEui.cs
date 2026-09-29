@@ -45,7 +45,7 @@ public sealed class AdaptiveStatsEui : BaseEui
 
     public override EuiStateBase GetNewState()
     {
-        var roundData = new Dictionary<int, List<SharedAdaptiveCalculationRun>>();
+        var roundData = new Dictionary<int, List<AdaptiveCalculationRun>>();
         var currentRoundId = 0;
         var trackingEnabled = _cfg.GetCVar(MaidCVars.AdaptiveStatistics);
 
@@ -58,34 +58,7 @@ public sealed class AdaptiveStatsEui : BaseEui
         {
             foreach (var (roundId, runs) in balancing.GetRoundData())
             {
-                var sharedRuns = new List<SharedAdaptiveCalculationRun>();
-                foreach (var run in runs)
-                {
-                    var sharedRun = new SharedAdaptiveCalculationRun
-                    {
-                        Id = run.Id,
-                        Time = run.Time,
-                        TotalChaos = run.TotalChaos,
-                        TotalCombat = run.TotalCombat,
-                        TargetChaos = run.TargetChaos,
-                        TargetCombat = run.TargetCombat
-                    };
-
-                    foreach (var record in run.Records)
-                    {
-                        sharedRun.Records.Add(new SharedAdaptiveScoreRecord
-                        {
-                            Entity = _entManager.GetNetEntity(record.Entity),
-                            Name = record.Name,
-                            Prototype = record.Prototype,
-                            Chaos = record.Chaos,
-                            Combat = record.Combat
-                        });
-                    }
-
-                    sharedRuns.Add(sharedRun);
-                }
-                roundData[roundId] = sharedRuns;
+                roundData[roundId] = new List<AdaptiveCalculationRun>(runs);
             }
         }
 

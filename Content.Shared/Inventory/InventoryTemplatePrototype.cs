@@ -85,4 +85,6 @@ public sealed partial class SlotDefinition
     ///     Entity blacklist for CanEquip checks.
     /// </summary>
     [DataField("blacklist")] public EntityWhitelist? Blacklist = null;
+
+    [DataField("priority")] public int Priority { get; private set; } = 0; // MAID clothing quick equip
 }
