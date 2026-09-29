@@ -1,0 +1,60 @@
+mood-show-effects-start = [font size=12]Mood:[/font]
+mood-effect-positive = [font size=10][color=#008000]{ $text }[/color][/font]
+mood-effect-negative = [font size=10][color=#BA0000]{ $text }[/color][/font]
+
+mood-effect-handcuffed = I guess my antics have finally caught up with me.
+mood-effect-suffocating = I CAN'T... BREATHE...
+mood-effect-on-fire = I'M ON FIRE!!!
+mood-effect-creampied = I've been creamed. Tastes like pie.
+mood-effect-mob-slipped = I slipped again. I should be more careful.
+mood-effect-mob-vomit = I just threw up. Gross.
+mood-effect-mob-low-pressure = I'm about to burst open!
+mood-effect-mob-high-pressure = I'm being crushed by the pressure!
+mood-effect-being-hugged = Hugs are nice.
+mood-effect-being-pet = Someone petted me!
+mood-effect-arcade-play = I had fun playing an interesting arcade game.
+mood-effect-got-blessed = I was blessed.
+mood-effect-pet-animal = Animals are so cute! I can't stop petting them!
+mood-effect-saved-life = It feels so good to save someone's life.
+mood-effect-traitor-focused = I have a goal, and I will reach it no matter what!
+mood-effect-revolution-focused = VIVA LA REVOLUTION!!!
+mood-effect-cult-focused = I know the truth, praise the great one!
+mood-effect-wizard-focused = Nothing can stand against my power!
+mood-effect-stimulator = I CAN FEEL IT, SOMETHING UNUSUAL IS IN MY BLOOD!!
+mood-effect-hunger-overfed = My stomach is full!
+mood-effect-hunger-okay = My stomach is full!
+mood-effect-hunger-peckish = I'm hungry.
+mood-effect-hunger-starving = I'm starving!
+mood-effect-hunger-dead = I'm dying of hunger!
+mood-effect-thirst-over-hydrated = I'm not thirsty.
+mood-effect-thirst-okay = I'm not thirsty.
+mood-effect-thirst-thirsty = I'm thirsty.
+mood-effect-thirst-parched = I really need a drink!
+mood-effect-thirst-dead = I'm dying of thirst!
+mood-effect-health-no-damage = I feel no pain.
+mood-effect-health-light-damage = My scrapes sting.
+mood-effect-health-severe-damage = Severe pain pierces me.
+mood-effect-health-heavy-damage = Agony gnaws at my soul!
+
+alerts-mood-insane-name = Insane
+alerts-mood-insane-desc = Darkness and hopelessness smoulder in my soul, the world is doomed to absolute evil.
+alerts-mood-very-very-bad-name = Miserable
+alerts-mood-very-very-bad-desc = I struggle with pain and fear, my fate is a series of torments and suffering.
+alerts-mood-very-bad-name = Very bad
+alerts-mood-very-bad-desc = My life has drained away like blood from a wound, and there is only darkness and despair around.
+alerts-mood-bad-name = Bad
+alerts-mood-bad-desc = My strength is leaving me, and every day becomes a hard ordeal.
+alerts-mood-not-great-name = Not great
+alerts-mood-not-great-desc = The world is full of threats and pain, and my hopes are slowly dying.
+alerts-mood-neutral-name = Neutral
+alerts-mood-neutral-desc = I keep going despite the threats and hardships, looking for the faintest light in the darkness.
+alerts-mood-great-name = Decent
+alerts-mood-great-desc = In this world full of suffering, I find a little relief and hope.
+alerts-mood-good-name = Good
+alerts-mood-good-desc = My strength is returning, and the world seems less evil and painful.
+alerts-mood-very-good-name = Very good
+alerts-mood-very-good-desc = I feel strength and hope for better days, despite the threats lurking around.
+alerts-mood-very-very-good-name = Great
+alerts-mood-very-very-good-desc = My soul is full of light and strength, and I am ready to fight the darkness in this cruel world.
+alerts-mood-dead-name = Dead
+alerts-mood-dead-desc = Eternal emptiness has enveloped me, and the world no longer has power over my soul.
