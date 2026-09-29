@@ -12,3 +12,6 @@
 
 - type: Tag
   id: ShinanoGrenade
+
+- type: Tag
+  id: IgnoreBalanceChecks

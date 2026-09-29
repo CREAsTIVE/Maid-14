@@ -59,6 +59,7 @@
     DrinkMugOne: 1
     DrinkMugRainbow: 2
     DrinkMugRed: 2
+    Eftpos: 4 # Maid edit - economy
   contrabandInventory:
     CandyBowl: 1
     BarSpoon: 2

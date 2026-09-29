@@ -1,0 +1,72 @@
+- type: entity
+  parent: BaseWallmountMachine
+  id: ATM
+  name: ATM
+  description: For all your monetary needs!
+  components:
+  - type: WallMount
+    arc: 360
+  - type: Sprite
+    sprite: _Maid/Structures/Machines/atm.rsi
+    snapCardinals: true
+    layers:
+    - state: "off"
+      map: ["enum.ATMVisualLayers.Base"]
+    - state: "on"
+      map: ["enum.ATMVisualLayers.BaseUnshaded"]
+      shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.ATMVisualLayers.BaseUnshaded:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ATM
+    cardSlot:
+      name: id-card-slot
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      ejectOnBreak: true
+      swap: false
+      whitelist:
+        components:
+        - BankCard
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      card-slot: !type:ContainerSlot
+  - type: ApcPowerReceiver
+    powerLoad: 200
+    priority: Low
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -9
+    range: 3
+    enabled: false
+    sound:
+      path: /Audio/Ambience/Objects/vending_machine_hum.ogg
+  - type: PointLight
+    enabled: false
+    castShadows: false
+    radius: 1.5
+  - type: LitOnPowered
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: ActivatableUI
+    key: enum.ATMUiKey.Key
+    singleUser: true
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.ATMUiKey.Key:
+        type: ATMBoundUserInterface
+  - type: EmitSoundOnUIOpen
+    sound:
+      collection: Keyboard

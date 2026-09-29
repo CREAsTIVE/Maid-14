@@ -207,6 +207,7 @@
     - MedTekCartridge
     - AstroNavCartridge
     - NanoChatCartridge # DeltaV
+    - BankCartridge # Maid edit - economy
 
 - type: entity
   parent: NavyCaptainPDA
@@ -281,6 +282,7 @@
     - NotekeeperCartridge
 #    - NanoTaskCartridge #Maid
     - NanoChatCartridge # DeltaV
+    - BankCartridge # Maid edit - economy
 
 - type: entity
   parent: BaseMedicalPDA

@@ -63,6 +63,7 @@
   id: FillLockerBooze
   table: !type:AllSelector
     children: #Maid edit start
+      - id: Eftpos # Maid edit - economy
       - id: ClothingOuterArmorBasicSlim
       - id: WeaponShotgunDoubleBarreledRubber
       - id: DrinkShaker
@@ -99,6 +100,7 @@
   id: FillClosetChef
   table: !type:AllSelector
     children:
+    - id: Eftpos # Maid edit - economy
     - id: VariantCubeBox
     - id: SprayBottleWater
     - id: FoodBoxCloth
@@ -183,6 +185,7 @@
   id: FillLockerBotanist
   table: !type:AllSelector
     children:
+    - id: Eftpos # Maid edit - economy
     - id: ClothingHandsGlovesLeather
     - id: ClothingOuterApronBotanist
     - id: ClothingHeadBandBotany
