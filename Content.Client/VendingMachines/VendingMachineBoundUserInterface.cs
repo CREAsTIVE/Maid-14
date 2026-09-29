@@ -27,6 +27,8 @@
 using Content.Client.UserInterface.Controls;
 using Content.Client.VendingMachines.UI;
 using Content.Shared.VendingMachines;
+using Content.Shared._Maid.Economy; // Maid edit - economy
+
 using Robust.Client.UserInterface;
 using Robust.Shared.Input;
 using System.Linq;
@@ -52,6 +54,7 @@ namespace Content.Client.VendingMachines
             _menu = this.CreateWindowCenteredLeft<VendingMachineMenu>();
             _menu.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
             _menu.OnItemSelected += OnItemSelected;
+            _menu.OnWithdraw += OnWithdraw; // Maid edit - economy
             Refresh();
         }
 
@@ -62,7 +65,8 @@ namespace Content.Client.VendingMachines
             var system = EntMan.System<VendingMachineSystem>();
             _cachedInventory = system.GetAllInventory(Owner);
 
-            _menu?.Populate(_cachedInventory, enabled);
+            _menu?.Populate(_cachedInventory, enabled, bendy?.PriceMultiplier ?? 1f); // Maid edit - economy
+            UpdateCredits(bendy); // Maid edit - economy
         }
 
         public void UpdateAmounts()
@@ -72,7 +76,24 @@ namespace Content.Client.VendingMachines
             var system = EntMan.System<VendingMachineSystem>();
             _cachedInventory = system.GetAllInventory(Owner);
             _menu?.UpdateAmounts(_cachedInventory, enabled);
+            UpdateCredits(bendy); // Maid edit - economy
         }
+
+        // Maid edit start - economy
+        private void UpdateCredits(VendingMachineComponent? component)
+        {
+            if (component == null)
+                return;
+
+            var paid = component.PriceMultiplier > 0 && _cachedInventory.Any(entry => entry.Price > 0);
+            _menu?.SetCredits(component.Credits, paid);
+        }
+
+        private void OnWithdraw()
+        {
+            SendMessage(new VendingMachineWithdrawMessage());
+        }
+        // Maid edit end
 
         private void OnItemSelected(GUIBoundKeyEventArgs args, ListData data)
         {
@@ -103,6 +124,7 @@ namespace Content.Client.VendingMachines
                 return;
 
             _menu.OnItemSelected -= OnItemSelected;
+            _menu.OnWithdraw -= OnWithdraw; // Maid edit - economy
             _menu.OnClose -= Close;
             _menu.Dispose();
         }

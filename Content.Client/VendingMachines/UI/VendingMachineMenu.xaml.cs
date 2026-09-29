@@ -135,6 +135,7 @@ namespace Content.Client.VendingMachines.UI
         private bool _enabled;
 
         public event Action<GUIBoundKeyEventArgs, ListData>? OnItemSelected;
+        public event Action? OnWithdraw; // Maid edit - economy
 
         public VendingMachineMenu()
         {
@@ -146,7 +147,20 @@ namespace Content.Client.VendingMachines.UI
             VendingContents.DataFilterCondition += DataFilterCondition;
             VendingContents.GenerateItem += GenerateButton;
             VendingContents.ItemKeyBindDown += (args, data) => OnItemSelected?.Invoke(args, data);
+            WithdrawButton.OnPressed += _ => OnWithdraw?.Invoke(); // Maid edit - economy
         }
+
+        // Maid edit start - economy
+        /// <summary>
+        /// Shows the cash inserted into the machine. Hidden for free machines.
+        /// </summary>
+        public void SetCredits(int credits, bool paid)
+        {
+            CreditsContainer.Visible = paid || credits > 0;
+            CreditsLabel.Text = Loc.GetString("vending-machine-credits", ("credits", credits));
+            WithdrawButton.Disabled = credits <= 0;
+        }
+        // Maid edit end
 
         protected override void Dispose(bool disposing)
         {
@@ -177,10 +191,11 @@ namespace Content.Client.VendingMachines.UI
 
         private void GenerateButton(ListData data, ListContainerButton button)
         {
-            if (data is not VendorItemsListData { ItemProtoID: var protoID, ItemText: var text })
+            if (data is not VendorItemsListData { ItemProtoID: var protoID, ItemText: var text, Price: var price }) // Maid edit - economy
                 return;
 
             var item = new VendingMachineItem(protoID, text);
+            item.SetPrice(price); // Maid edit - economy
             _listItems[protoID] = (button, item);
             button.AddChild(item);
             button.AddStyleClass("ButtonSquare");
@@ -191,7 +206,7 @@ namespace Content.Client.VendingMachines.UI
         /// Populates the list of available items on the vending machine interface
         /// and sets icons based on their prototypes
         /// </summary>
-        public void Populate(List<VendingMachineInventoryEntry> inventory, bool enabled)
+        public void Populate(List<VendingMachineInventoryEntry> inventory, bool enabled, float priceMultiplier = 1f) // Maid edit - economy
         {
             _enabled = enabled;
             _listItems.Clear();
@@ -247,6 +262,7 @@ namespace Content.Client.VendingMachines.UI
                 listData.Add(new VendorItemsListData(prototype.ID, i)
                 {
                     ItemText = itemText,
+                    Price = (int) (entry.Price * priceMultiplier), // Maid edit - economy
                 });
             }
 
@@ -295,5 +311,7 @@ namespace Content.Client.VendingMachines.UI
     public record VendorItemsListData(EntProtoId ItemProtoID, int ItemIndex) : ListData
     {
         public string ItemText = string.Empty;
+        public int Price; // Maid edit - economy
+
     }
 }

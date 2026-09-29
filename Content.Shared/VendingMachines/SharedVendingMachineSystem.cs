@@ -17,6 +17,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Emag.Components;
+using Content.Shared._Maid.Economy; // Maid edit - economy
+
 using Robust.Shared.Prototypes;
 using System.Linq;
 using Content.Shared.Access.Components;
@@ -52,6 +54,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     [Dependency] protected readonly SharedUserInterfaceSystem UISystem = default!;
     [Dependency] protected readonly IRobustRandom Randomizer = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly INetManager _net = default!; // Maid edit - economy
 
     public override void Initialize()
     {
@@ -97,6 +100,8 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
             EmaggedInventory = emaggedInventory,
             ContrabandInventory = contrabandInventory,
             Contraband = component.Contraband,
+            PriceMultiplier = component.PriceMultiplier, // Maid edit - economy
+            Credits = component.Credits, // Maid edit - economy
             EjectEnd = component.EjectEnd,
             DenyEnd = component.DenyEnd,
             DispenseOnHitEnd = component.DispenseOnHitEnd,
@@ -235,6 +240,26 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
             return;
         }
 
+        // Maid edit start - economy
+        var price = GetPrice(entry, vendComponent);
+        if (price > 0 && user != null)
+        {
+            // Bank accounts only exist on the server, so purchases can't be predicted.
+            if (_net.IsClient)
+                return;
+
+            var purchaseEv = new VendingMachinePurchaseAttemptEvent(user.Value, price);
+            RaiseLocalEvent(uid, ref purchaseEv);
+
+            if (!purchaseEv.Paid)
+            {
+                Popup.PopupEntity(Loc.GetString("vending-machine-component-no-balance"), uid, user.Value);
+                Deny((uid, vendComponent), user);
+                return;
+            }
+        }
+        // Maid edit end
+
         // Start Ejecting, and prevent users from ordering while anim playing
         vendComponent.EjectEnd = Timing.CurTime + vendComponent.EjectDelay;
         vendComponent.NextItemToEject = entry.ID;
@@ -345,7 +370,35 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
         // only emag if there are emag-only items
         args.Handled = component.EmaggedInventory.Count > 0;
+
+        // Maid edit start - economy
+        // Emagged machines give everything away for free.
+        if (component.PriceMultiplier > 0)
+        {
+            component.PriceMultiplier = 0;
+            args.Handled = true;
+            Dirty(uid, component);
+        }
+        // Maid edit end
     }
+
+    // Maid edit start - economy
+    /// <summary>
+    /// Final price of an entry, zero if it is free.
+    /// </summary>
+    public int GetPrice(VendingMachineInventoryEntry entry, VendingMachineComponent component)
+    {
+        return (int) (entry.Price * component.PriceMultiplier);
+    }
+
+    /// <summary>
+    /// Base price of a newly stocked item.
+    /// </summary>
+    protected virtual int GetEntryPrice(EntityPrototype prototype)
+    {
+        return 0;
+    }
+    // Maid edit end
 
     /// <summary>
     /// Returns all of the vending machine's inventory. Only includes emagged and contraband inventories if
@@ -426,7 +479,14 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
                     // losing the rest of the restock.
                     entry.Amount = Math.Min(entry.Amount + amount, 3 * restock);
                 else
-                    inventory.Add(id, new VendingMachineInventoryEntry(type, id, restock));
+                {
+                    // Maid edit start - economy
+                    inventory.Add(id, new VendingMachineInventoryEntry(type, id, restock)
+                    {
+                        Price = GetEntryPrice(PrototypeManager.Index<EntityPrototype>(id)),
+                    });
+                    // Maid edit end
+                }
             }
         }
     }

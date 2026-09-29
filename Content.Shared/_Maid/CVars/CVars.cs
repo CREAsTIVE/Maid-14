@@ -79,4 +79,32 @@ public sealed class MaidCVars
         CVarDef.Create("maid.adaptive_statistics", false, CVar.SERVERONLY);
 
     #endregion
+
+    #region Economy
+
+    /// <summary>
+    /// How often salaries are paid to crew bank accounts.
+    /// </summary>
+    public static readonly CVarDef<float> EconomySalaryInterval =
+        CVarDef.Create("maid.economy.salary_interval", 1200f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Money every crew member starts the round with, on top of one salary.
+    /// </summary>
+    public static readonly CVarDef<int> EconomyStartingBalance =
+        CVarDef.Create("maid.economy.starting_balance", 100, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Multiplier applied to the estimated price of items sold by vending machines.
+    /// </summary>
+    public static readonly CVarDef<float> EconomyVendingPriceMultiplier =
+        CVarDef.Create("maid.economy.vending_price_multiplier", 2f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Price of vending machine items that have no estimated price.
+    /// </summary>
+    public static readonly CVarDef<int> EconomyVendingDefaultPrice =
+        CVarDef.Create("maid.economy.vending_default_price", 25, CVar.SERVERONLY);
+
+    #endregion
 }
