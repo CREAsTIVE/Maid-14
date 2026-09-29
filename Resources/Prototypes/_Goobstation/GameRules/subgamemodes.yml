@@ -10,6 +10,7 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
+      moodEffect: TraitorFocused # Maid edit - mood
       max: 3
       playerRatio: 10
       blacklist:

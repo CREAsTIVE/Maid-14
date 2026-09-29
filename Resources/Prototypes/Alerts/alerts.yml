@@ -139,6 +139,7 @@
   id: BaseAlertOrder
   order:
   - category: Health
+  - category: Mood # Maid edit - mood
   - category: Stamina
   - alertType: ChangelingBiomass # goobstation - changelings
   - alertType: ChangelingChemicals # goobstation - changelings

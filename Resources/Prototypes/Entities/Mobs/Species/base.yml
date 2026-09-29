@@ -591,6 +591,7 @@
     - Parasite
   # </Goobstation>
   - type: OnDeathSounds # MAID sound-porting
+  - type: Mood # Maid edit - mood
 
 - type: entity
   save: false
