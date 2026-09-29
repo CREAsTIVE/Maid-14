@@ -57,6 +57,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Utility;
+using Content.Shared._Maid.Mood; // Maid edit - mood
 
 namespace Content.Shared.Slippery;
 
@@ -162,6 +163,8 @@ public sealed class SlipperySystem : EntitySystem
 
         var ev = new SlipEvent(other);
         RaiseLocalEvent(uid, ref ev);
+        RaiseLocalEvent(other, new MoodEffectEvent("MobSlipped")); // Maid edit - mood
+
 
         if (_physicsQuery.TryComp(other, out var physics) && !_slidingQuery.HasComp(other))
         {

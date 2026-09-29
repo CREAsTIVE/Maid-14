@@ -56,6 +56,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Content.Shared._Maid.Mood; // Maid edit - mood
 
 namespace Content.Server.Bible
 {
@@ -175,8 +176,11 @@ namespace Content.Server.Bible
                 }
             }
 
+            RaiseLocalEvent(args.Target.Value, new MoodEffectEvent("GotBlessed")); // Maid edit - mood
+
             var damage = _damageableSystem.TryChangeDamage(args.Target.Value,
                 component.Damage,
+
                 true,
                 origin: uid,
                 targetPart: TargetBodyPart.All,

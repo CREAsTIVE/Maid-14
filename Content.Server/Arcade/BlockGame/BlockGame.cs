@@ -8,6 +8,7 @@ using Content.Shared.Arcade;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Shared._Maid.Mood; // Maid edit - mood
 
 namespace Content.Server.Arcade.BlockGame;
 
@@ -88,6 +89,8 @@ public sealed partial class BlockGame
         {
             _highScorePlacement = _arcadeSystem.RegisterHighScore(meta.EntityName, Points);
             SendHighscoreUpdate();
+            _entityManager.EventBus.RaiseLocalEvent(cabinet.Player.Value, new MoodEffectEvent("ArcadePlay")); // Maid edit - mood
+
         }
         SendMessage(new BlockGameMessages.BlockGameGameOverScreenMessage(Points, _highScorePlacement?.LocalPlacement, _highScorePlacement?.GlobalPlacement));
     }

@@ -56,6 +56,7 @@ using Robust.Shared.Containers;
 // Shitmed Change
 using Content.Shared._Shitmed.Targeting;
 using Content.Goobstation.Common.Atmos;
+using Content.Shared._Maid.Mood; // Maid edit - mood
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -335,6 +336,7 @@ namespace Content.Server.Atmos.EntitySystems
                     }
 
                     _alertsSystem.ShowAlert(uid, barotrauma.LowPressureAlert, 2);
+                    RaiseLocalEvent(uid, new MoodEffectEvent("MobLowPressure")); // Maid edit - mood
                 }
                 else if (pressure >= Atmospherics.HazardHighPressure && !_spellblade.IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(uid)) // Goob edit
                 {
@@ -359,6 +361,7 @@ namespace Content.Server.Atmos.EntitySystems
                     }
 
                     _alertsSystem.ShowAlert(uid, barotrauma.HighPressureAlert, 2);
+                    RaiseLocalEvent(uid, new MoodEffectEvent("MobHighPressure")); // Maid edit - mood
                 }
                 else
                 {
@@ -372,6 +375,11 @@ namespace Content.Server.Atmos.EntitySystems
                     {
                         barotrauma.TakingDamage = false;
                         _adminLogger.Add(LogType.Barotrauma, $"{ToPrettyString(uid):entity} stopped taking pressure damage");
+                        // Maid edit start - mood
+                        RaiseLocalEvent(uid, new MoodRemoveEffectEvent("MobLowPressure"));
+                        RaiseLocalEvent(uid, new MoodRemoveEffectEvent("MobHighPressure"));
+                        // Maid edit end
+
                     }
 
                     // Set correct alert.

@@ -8,6 +8,8 @@ using Content.Server.Polymorph.Systems;
 using Content.Shared.Polymorph;
 using Content.Shared.Revolutionary;
 using Content.Shared.Revolutionary.Components;
+using Content.Shared._Maid.Mood; // Maid edit - mood
+
 
 namespace Content.Server.Revolutionary;
 
@@ -59,5 +61,7 @@ public sealed class RevolutionarySystem : SharedRevolutionarySystem  // Goob Sta
                 _languageSystem.RemoveLanguage(uid, revComp.Language);
                 break;
         }
+
+        RaiseLocalEvent(uid, new MoodRemoveEffectEvent("RevolutionFocused")); // Maid edit - mood
     }
 }

@@ -29,6 +29,8 @@ using Robust.Shared.Utility;
 using Content.Shared.Traits.Assorted;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Nutrition.EntitySystems; // Shitmed Change
+using Content.Shared._Maid.Mood; // Maid edit - mood
+
 
 namespace Content.Server.Medical.CPR;
 
@@ -135,6 +137,8 @@ public sealed class CPRSystem : EntitySystem
             && !HasComp<UnrevivableComponent>(args.Target)
             && _mobThreshold.CheckVitalDamage(args.Target.Value, damageableComponent) < threshold) // GoobStation
             _mobStateSystem.ChangeMobState(args.Target.Value, MobState.Critical, state, performer);
+
+        RaiseLocalEvent(performer, new MoodEffectEvent("SavedLife")); // Maid edit - mood
 
         var isAlive = _mobStateSystem.IsAlive(args.Target.Value);
         args.Repeat = !isAlive;
