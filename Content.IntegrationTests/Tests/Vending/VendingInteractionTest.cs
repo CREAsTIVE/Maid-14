@@ -60,6 +60,7 @@ public sealed class VendingInteractionTest : InteractionTest
   - type: VendingMachine
     pack: InteractionTestVendingInventory
     ejectDelay: 0 # no delay to speed up tests
+    priceMultiplier: 0 # Maid edit - economy, free machine
   - type: Sprite
     sprite: error.rsi
 ";

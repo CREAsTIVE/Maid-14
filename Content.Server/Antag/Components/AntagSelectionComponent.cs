@@ -91,6 +91,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Shared._Maid.Mood; // Maid edit - mood
 
 namespace Content.Server.Antag.Components;
 
@@ -291,6 +292,14 @@ public partial struct AntagSelectionDefinition()
     /// </summary>
     [DataField]
     public BriefingData? Briefing;
+
+    // Maid edit start - mood
+    /// <summary>
+    /// A mood effect applied to the player once they are selected.
+    /// </summary>
+    [DataField]
+    public ProtoId<MoodEffectPrototype>? MoodEffect;
+    // Maid edit end
 
     /// <summary>
     /// A spawner used to defer the selection of this particular definition.

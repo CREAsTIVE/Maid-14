@@ -98,6 +98,7 @@ using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared._Maid.Mood; // Maid edit - mood
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
@@ -251,7 +252,10 @@ public sealed class HungerSystem : EntitySystem
             _alerts.ClearAlertCategory(uid, component.HungerAlertCategory);
         }
 
+        RaiseLocalEvent(uid, new MoodEffectEvent("Hunger" + component.CurrentThreshold)); // Maid edit - mood
+
         if (component.HungerThresholdDecayModifiers.TryGetValue(component.CurrentThreshold, out var modifier))
+
         {
             component.ActualDecayRate = component.BaseDecayRate * modifier;
             DirtyField(uid, component, nameof(HungerComponent.ActualDecayRate));

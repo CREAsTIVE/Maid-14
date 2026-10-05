@@ -92,6 +92,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Server._Maid.Economy; // Maid edit - economy
 
 namespace Content.Server.VendingMachines
 {
@@ -101,6 +102,7 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly PricingSystem _pricing = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly VendingMachineEconomySystem _economy = default!; // Maid edit - economy
 
         private const float WallVendEjectDistanceFromWall = 1f;
 
@@ -142,7 +144,15 @@ namespace Content.Server.VendingMachines
             args.Price += price;
         }
 
+        // Maid edit start - economy
+        protected override int GetEntryPrice(EntityPrototype prototype)
+        {
+            return _economy.GetItemPrice(prototype);
+        }
+        // Maid edit end
+
         protected override void OnMapInit(EntityUid uid, VendingMachineComponent component, MapInitEvent args)
+
         {
             base.OnMapInit(uid, component, args);
 

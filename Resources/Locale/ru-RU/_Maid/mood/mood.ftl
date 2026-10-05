@@ -1,0 +1,60 @@
+mood-show-effects-start = [font size=12]Настроение:[/font]
+mood-effect-positive = [font size=10][color=#008000]{ $text }[/color][/font]
+mood-effect-negative = [font size=10][color=#BA0000]{ $text }[/color][/font]
+
+mood-effect-handcuffed = Кажется, мои выходки кто-то заметил.
+mood-effect-suffocating = НЕ.. МОГУ... ДЫШАТЬ...
+mood-effect-on-fire = ГОРЮ!!!
+mood-effect-creampied = Меня окремили. На вкус как пирог.
+mood-effect-mob-slipped = Опять поскальзываюсь. Надо быть аккуратнее.
+mood-effect-mob-vomit = Меня только что вырвало. Мерзость.
+mood-effect-mob-low-pressure = Меня сейчас разорвёт наружу!
+mood-effect-mob-high-pressure = На меня оказывается огромное давление!
+mood-effect-being-hugged = Обнимашки - круто.
+mood-effect-being-pet = Меня погладили!
+mood-effect-arcade-play = Я весело поиграл в интересную аркаду.
+mood-effect-got-blessed = Меня благословили.
+mood-effect-pet-animal = Животные такие милые! Не могу перестать их гладить!
+mood-effect-saved-life = Так приятно спасать чью-то жизнь.
+mood-effect-traitor-focused = У меня есть цель, и я добьюсь её, во что бы то ни стало!
+mood-effect-revolution-focused = СЛАВА РЕВОЛЮЦИИ!!!
+mood-effect-cult-focused = Знаю правду, славим великого!
+mood-effect-wizard-focused = Ничто не в силах остановить моё могущество!
+mood-effect-stimulator = Я ЧУВСТВУЮ ЭТО, В МОЕЙ КРОВИ НАХОДИТСЯ ЧТО-ТО НЕОБЫЧНОЕ!!
+mood-effect-hunger-overfed = Мой желудок полон!
+mood-effect-hunger-okay = Мой желудок полон!
+mood-effect-hunger-peckish = Хочу есть.
+mood-effect-hunger-starving = Голодаю!
+mood-effect-hunger-dead = Умираю от голода!
+mood-effect-thirst-over-hydrated = Не хочу пить.
+mood-effect-thirst-okay = Не хочу пить.
+mood-effect-thirst-thirsty = Хочу пить.
+mood-effect-thirst-parched = Хочу пить!
+mood-effect-thirst-dead = Умираю от жажды!
+mood-effect-health-no-damage = Чувствую себя лишённым боли.
+mood-effect-health-light-damage = Мои ссадины жгутся.
+mood-effect-health-severe-damage = Сильная боль пронзает меня.
+mood-effect-health-heavy-damage = Агония гложет мою душу!
+
+alerts-mood-insane-name = Безумие
+alerts-mood-insane-desc = В моей душе тлеют мрак и безнадёжность, мир обречён на абсолютное зло.
+alerts-mood-very-very-bad-name = Печально
+alerts-mood-very-very-bad-desc = Я борюсь с болями и страхами, моя судьба - череда мучений и страданий.
+alerts-mood-very-bad-name = Очень плохо
+alerts-mood-very-bad-desc = Моя жизнь иссякла, как кровь из раны, и вокруг лишь мрак и отчаяние.
+alerts-mood-bad-name = Плохо
+alerts-mood-bad-desc = Силы покидают меня, и каждый день становится тяжёлым испытанием.
+alerts-mood-not-great-name = Нехорошо
+alerts-mood-not-great-desc = Мир полон угроз и боли, и мои надежды медленно умирают.
+alerts-mood-neutral-name = Нормально
+alerts-mood-neutral-desc = Я продолжаю свой путь, несмотря на угрозы и лишения, ища хоть малейший свет во мраке.
+alerts-mood-great-name = Неплохо
+alerts-mood-great-desc = В этом мире, полном страданий, я обретаю небольшое облегчение и надежду.
+alerts-mood-good-name = Хорошо
+alerts-mood-good-desc = Моя сила восстанавливается, и мир кажется меньшим злом и болью.
+alerts-mood-very-good-name = Очень хорошо
+alerts-mood-very-good-desc = Я ощущаю в себе силы и надежду на лучшие дни, несмотря на угрозы, что таятся вокруг.
+alerts-mood-very-very-good-name = Великолепно
+alerts-mood-very-very-good-desc = Моя душа полна света и силы, и я готов сразиться с тьмой в этом жестоком мире.
+alerts-mood-dead-name = Мёртв
+alerts-mood-dead-desc = Вечная пустота окутала меня, и мир больше не имеет власти над моей душой.

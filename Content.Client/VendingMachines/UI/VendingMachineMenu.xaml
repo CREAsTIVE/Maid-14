@@ -21,6 +21,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     xmlns:co="clr-namespace:Content.Client.UserInterface.Controls"
     MinHeight="210">
     <BoxContainer Name="MainContainer" Orientation="Vertical">
+        <!-- Maid edit start - economy -->
+        <BoxContainer Name="CreditsContainer" Orientation="Horizontal" Margin="4 4" Visible="False">
+            <Label Name="CreditsLabel" HorizontalExpand="True"/>
+            <Button Name="WithdrawButton" Text="{Loc 'vending-machine-withdraw'}" HorizontalAlignment="Right"/>
+        </BoxContainer>
+        <!-- Maid edit end -->
+
         <LineEdit Name="SearchBar" PlaceHolder="{Loc 'vending-machine-component-search-filter'}" HorizontalExpand="True"  Margin ="4 4"/>
         <co:SearchListContainer Name="VendingContents" VerticalExpand="True" Margin="4 4"/>
          <!-- Footer -->

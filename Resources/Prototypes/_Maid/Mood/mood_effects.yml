@@ -1,0 +1,206 @@
+- type: moodEffect
+  id: Handcuffed
+  description: mood-effect-handcuffed
+  moodChange: Small
+
+- type: moodEffect
+  id: Suffocating
+  description: mood-effect-suffocating
+  moodChange: Medium
+  timeout: 60
+
+- type: moodEffect
+  id: OnFire
+  description: mood-effect-on-fire
+  moodChange: Big
+
+- type: moodEffect
+  id: Creampied
+  description: mood-effect-creampied
+  moodChange: Small
+  timeout: 180
+
+- type: moodEffect
+  id: MobSlipped
+  description: mood-effect-mob-slipped
+  moodChange: Small
+  timeout: 180
+
+- type: moodEffect
+  id: MobVomit
+  description: mood-effect-mob-vomit
+  moodChange: Small
+  timeout: 480
+
+- type: moodEffect
+  id: MobLowPressure
+  description: mood-effect-mob-low-pressure
+  moodChange: Medium
+
+- type: moodEffect
+  id: MobHighPressure
+  description: mood-effect-mob-high-pressure
+  moodChange: Medium
+
+- type: moodEffect
+  id: BeingHugged
+  description: mood-effect-being-hugged
+  moodChange: Small
+  positive: true
+  timeout: 120
+
+- type: moodEffect
+  id: BeingPet
+  description: mood-effect-being-pet
+  moodChange: Small
+  positive: true
+  timeout: 120
+
+- type: moodEffect
+  id: ArcadePlay
+  description: mood-effect-arcade-play
+  moodChange: Small
+  positive: true
+  timeout: 480
+
+- type: moodEffect
+  id: GotBlessed
+  description: mood-effect-got-blessed
+  moodChange: Small
+  positive: true
+  timeout: 480
+
+- type: moodEffect
+  id: PetAnimal
+  description: mood-effect-pet-animal
+  moodChange: Small
+  positive: true
+  timeout: 300
+
+- type: moodEffect
+  id: SavedLife
+  description: mood-effect-saved-life
+  moodChange: Medium
+  positive: true
+  timeout: 480
+
+- type: moodEffect
+  id: TraitorFocused
+  description: mood-effect-traitor-focused
+  moodChange: Medium
+  positive: true
+
+- type: moodEffect
+  id: RevolutionFocused
+  description: mood-effect-revolution-focused
+  moodChange: Medium
+  positive: true
+
+- type: moodEffect
+  id: CultFocused
+  description: mood-effect-cult-focused
+  moodChange: Big
+  positive: true
+
+- type: moodEffect
+  id: WizardFocused
+  description: mood-effect-wizard-focused
+  moodChange: Medium
+  positive: true
+
+- type: moodEffect
+  id: Stimulator
+  description: mood-effect-stimulator
+  moodChange: Medium
+  positive: true
+  timeout: 60
+
+- type: moodEffect
+  id: HungerOverfed
+  description: mood-effect-hunger-overfed
+  moodChange: Medium
+  positive: true
+  category: Hunger
+
+- type: moodEffect
+  id: HungerOkay
+  description: mood-effect-hunger-okay
+  moodChange: Medium
+  positive: true
+  category: Hunger
+
+- type: moodEffect
+  id: HungerPeckish
+  description: mood-effect-hunger-peckish
+  moodChange: Medium
+  category: Hunger
+
+- type: moodEffect
+  id: HungerStarving
+  description: mood-effect-hunger-starving
+  moodChange: Big
+  category: Hunger
+
+- type: moodEffect
+  id: HungerDead
+  description: mood-effect-hunger-dead
+  moodChange: Huge
+  category: Hunger
+
+- type: moodEffect
+  id: ThirstOverHydrated
+  description: mood-effect-thirst-over-hydrated
+  moodChange: Medium
+  positive: true
+  category: Thirst
+
+- type: moodEffect
+  id: ThirstOkay
+  description: mood-effect-thirst-okay
+  moodChange: Medium
+  positive: true
+  category: Thirst
+
+- type: moodEffect
+  id: ThirstThirsty
+  description: mood-effect-thirst-thirsty
+  moodChange: Medium
+  category: Thirst
+
+- type: moodEffect
+  id: ThirstParched
+  description: mood-effect-thirst-parched
+  moodChange: Big
+  category: Thirst
+
+- type: moodEffect
+  id: ThirstDead
+  description: mood-effect-thirst-dead
+  moodChange: Huge
+  category: Thirst
+
+- type: moodEffect
+  id: HealthNoDamage
+  description: mood-effect-health-no-damage
+  moodChange: None
+  positive: true
+  category: Health
+  hidden: true
+
+- type: moodEffect
+  id: HealthLightDamage
+  description: mood-effect-health-light-damage
+  moodChange: Small
+  category: Health
+
+- type: moodEffect
+  id: HealthSevereDamage
+  description: mood-effect-health-severe-damage
+  moodChange: Medium
+  category: Health
+
+- type: moodEffect
+  id: HealthHeavyDamage
+  description: mood-effect-health-heavy-damage
+  moodChange: Large
+  category: Health

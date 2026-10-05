@@ -35,6 +35,7 @@
     BookSpaceLaw: 3
     LuxuryPen: 2
     HandLabeler: 2
+    Eftpos: 3 # Maid edit - economy
   contrabandInventory:
     ClothingOuterRobesJudge: 1
     ClothingHeadHatPwig: 1

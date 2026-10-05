@@ -17,6 +17,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Actions;
+using Content.Shared.Stacks; // Maid edit - economy
+using Robust.Shared.Prototypes; // Maid edit - economy
+
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -209,6 +212,29 @@ namespace Content.Shared.VendingMachines
         [DataField("loopDeny")]
         public bool LoopDenyAnimation = true;
         #endregion
+
+        // Maid edit start - economy
+        /// <summary>
+        /// Multiplier applied to the price of every item. Zero makes the machine free.
+        /// </summary>
+        [DataField]
+        public float PriceMultiplier = 1f;
+
+        /// <summary>
+        /// Cash inserted into the machine and not spent yet.
+        /// </summary>
+        [DataField]
+        public int Credits;
+
+        [DataField]
+        public ProtoId<StackPrototype> CreditStackPrototype = "Credit";
+
+        [DataField]
+        public SoundSpecifier SoundInsertCurrency = new SoundPathSpecifier("/Audio/_Maid/Machines/polaroid2.ogg");
+
+        [DataField]
+        public SoundSpecifier SoundWithdrawCurrency = new SoundPathSpecifier("/Audio/_Maid/Machines/polaroid1.ogg");
+        // Maid edit end
     }
 
     [Serializable, NetSerializable, DataDefinition]
@@ -223,6 +249,14 @@ namespace Content.Shared.VendingMachines
         [DataField]
         public uint Amount;
 
+        // Maid edit start - economy
+        /// <summary>
+        /// Base price of the item, before <see cref="VendingMachineComponent.PriceMultiplier"/>.
+        /// </summary>
+        [DataField]
+        public int Price;
+        // Maid edit end
+
         public VendingMachineInventoryEntry(InventoryType type, string id, uint amount)
         {
             Type = type;
@@ -235,6 +269,7 @@ namespace Content.Shared.VendingMachines
             Type = entry.Type;
             ID = entry.ID;
             Amount = entry.Amount;
+            Price = entry.Price; // Maid edit - economy
         }
     }
 
@@ -306,6 +341,12 @@ namespace Content.Shared.VendingMachines
         public Dictionary<string, VendingMachineInventoryEntry> ContrabandInventory = new();
 
         public bool Contraband;
+
+        // Maid edit start - economy
+        public float PriceMultiplier;
+
+        public int Credits;
+        // Maid edit end
 
         public TimeSpan? EjectEnd;
 

@@ -114,6 +114,7 @@ using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
+using Content.Shared._Maid.Mood; // Maid edit - mood
 
 namespace Content.Server.Body.Systems;
 
@@ -518,6 +519,8 @@ public sealed class RespiratorSystem : EntitySystem
 
         // Shitmed Change End
         _damageableSys.TryChangeDamage(ent, HasComp<DebrainedComponent>(ent) ? ent.Comp.Damage * 4.5f : ent.Comp.Damage, targetPart: TargetBodyPart.All, interruptsDoAfters: false); // Shitmed Change
+        RaiseLocalEvent(ent, new MoodEffectEvent("Suffocating")); // Maid edit - mood
+
 
         if (ent.Comp.SuffocationCycles < ent.Comp.SuffocationCycleThreshold)
             return;

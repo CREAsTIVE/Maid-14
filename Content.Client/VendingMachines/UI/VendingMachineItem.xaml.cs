@@ -26,4 +26,13 @@ public sealed partial class VendingMachineItem : BoxContainer
     {
         NameLabel.Text = text;
     }
+
+    // Maid edit start - economy
+    public void SetPrice(int price)
+    {
+        PriceLabel.Visible = price > 0;
+        PriceLabel.Text = Loc.GetString("vending-machine-price", ("price", price));
+    }
+    // Maid edit end
+
 }

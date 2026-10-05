@@ -21,4 +21,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             SizeFlagsStretchRatio="3"
             HorizontalExpand="True"
             ClipText="True"/>
+    <!-- Maid edit - economy -->
+    <Label Name="PriceLabel"
+            HorizontalAlignment="Right"
+            Margin="0 0 4 0"
+            Visible="False"/>
+
 </BoxContainer>

@@ -48,7 +48,14 @@ public sealed class VendingMachineSystem : SharedVendingMachineSystem
         // If all we did was update amounts then we can leave BUI buttons in place.
         var fullUiUpdate = !component.Inventory.Keys.SequenceEqual(state.Inventory.Keys) ||
                            !component.EmaggedInventory.Keys.SequenceEqual(state.EmaggedInventory.Keys) ||
-                           !component.ContrabandInventory.Keys.SequenceEqual(state.ContrabandInventory.Keys);
+                           !component.ContrabandInventory.Keys.SequenceEqual(state.ContrabandInventory.Keys) ||
+                           !MathHelper.CloseTo(component.PriceMultiplier, state.PriceMultiplier); // Maid edit - economy
+
+        // Maid edit start - economy
+        component.PriceMultiplier = state.PriceMultiplier;
+        component.Credits = state.Credits;
+        // Maid edit end
+
 
         component.Inventory.Clear();
         component.EmaggedInventory.Clear();

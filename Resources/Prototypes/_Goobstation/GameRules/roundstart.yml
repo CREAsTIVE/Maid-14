@@ -66,6 +66,7 @@
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
+      moodEffect: TraitorFocused # Maid edit - mood
       max: 4
       playerRatio: 12
       chaosScore: 200
@@ -98,6 +99,7 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
+      moodEffect: TraitorFocused # Maid edit - mood
       max: 2
       playerRatio: 25
       chaosScore: 300
@@ -122,6 +124,7 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
+      moodEffect: TraitorFocused # Maid edit - mood
       max: 3
       playerRatio: 15
       blacklist:
@@ -147,6 +150,7 @@
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
+      moodEffect: TraitorFocused # Maid edit - mood
       max: 2
       playerRatio: 15
       blacklist:
@@ -171,6 +175,7 @@
     selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ NukeopsCommander ]
+      moodEffect: TraitorFocused # Maid edit - mood
       fallbackRoles: [ Nukeops, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsCommander
       playerRatio: 15
@@ -188,6 +193,7 @@
       mindRoles:
       - MindRoleNukeopsCommander
     - prefRoles: [ NukeopsMedic ]
+      moodEffect: TraitorFocused # Maid edit - mood
       fallbackRoles: [ Nukeops, NukeopsCommander ]
       spawnerPrototype: SpawnPointNukeopsMedic
       playerRatio: 15
@@ -207,6 +213,7 @@
       mindRoles:
       - MindRoleNukeopsMedic
     - prefRoles: [ Nukeops ]
+      moodEffect: TraitorFocused # Maid edit - mood
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
       max: 10
@@ -239,6 +246,7 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ HeadRev ]
+      moodEffect: RevolutionFocused # Maid edit - mood
       max: 1
       playerRatio: 20
       blacklist:
@@ -340,6 +348,7 @@
     selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ NukeopsCommander ]
+      moodEffect: TraitorFocused # Maid edit - mood
       fallbackRoles: [ Nukeops, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsCommander
       startingGear: SyndicateCommanderGearFullHonkops
@@ -358,6 +367,7 @@
       mindRoles:
       - MindRoleNukeopsCommander
     - prefRoles: [ NukeopsMedic ]
+      moodEffect: TraitorFocused # Maid edit - mood
       fallbackRoles: [ Nukeops, NukeopsCommander ]
       spawnerPrototype: SpawnPointNukeopsMedic
       startingGear: SyndicateOperativeMedicFullHonkops
@@ -378,6 +388,7 @@
       mindRoles:
       - MindRoleNukeopsMedic
     - prefRoles: [ Nukeops ]
+      moodEffect: TraitorFocused # Maid edit - mood
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
       max: 10 # Goobstation / 古布空间站 - 没有限制的核特工

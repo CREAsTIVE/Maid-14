@@ -157,6 +157,7 @@
     - SilentStorageUser
     - PreventAccessLogging
     - AllowBiomeLoading
+    - IgnoreBalanceChecks # Maid edit - economy
   - type: Input
     context: "aghost"
   - type: Ghost

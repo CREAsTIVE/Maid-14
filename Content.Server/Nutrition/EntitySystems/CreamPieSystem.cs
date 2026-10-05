@@ -110,6 +110,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
+using Content.Shared._Maid.Mood; // Maid edit - mood
 
 namespace Content.Server.Nutrition.EntitySystems
 {
@@ -192,7 +193,10 @@ namespace Content.Server.Nutrition.EntitySystems
                                             ("owner", Identity.Entity(uid, EntityManager)),
                                             ("thrown", Identity.Entity(args.Thrown, EntityManager))),
                                             uid, otherPlayers, false);
+
+            RaiseLocalEvent(uid, new MoodEffectEvent("Creampied")); // Maid edit - mood
         }
+
 
         private void OnRejuvenate(Entity<CreamPiedComponent> entity, ref RejuvenateEvent args)
         {

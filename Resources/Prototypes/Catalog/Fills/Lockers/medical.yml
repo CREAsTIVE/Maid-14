@@ -92,6 +92,7 @@
   id: LockerFillMedicalDoctor
   table: !type:AllSelector
     children:
+    - id: Eftpos # Maid edit - economy
     # maid edit start
     #    - id: HandheldHealthAnalyzer
     #      prob: 0.6
@@ -175,6 +176,7 @@
   id: LockerFillChemistry
   table: !type:AllSelector
     children:
+    - id: Eftpos # Maid edit - economy
     - id: BoxSyringe
     - id: BoxBeaker
     - id: BoxBeaker
@@ -267,5 +269,6 @@
     - id: HandheldGPSBasic
     - id: MedkitFilled
     - id: ClothingBeltMedicalEMTFilled
+    - id: Eftpos # Maid edit - economy
 #    - id: HandheldCrewMonitor
     # Maid edit end

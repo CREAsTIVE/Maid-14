@@ -110,6 +110,7 @@ using Content.Shared.Nutrition.EntitySystems;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Content.Shared._Maid.Mood; // Maid edit - mood
 
 namespace Content.Server.Medical
 {
@@ -150,7 +151,10 @@ namespace Content.Server.Medical
                 return;
             // goob end
 
+            RaiseLocalEvent(uid, new MoodEffectEvent("MobVomit")); // Maid edit - mood
+
             // Vomiting makes you hungrier and thirstier
+
             if (TryComp<HungerComponent>(uid, out var hunger))
                 _hunger.ModifyHunger(uid, hungerAdded, hunger);
 

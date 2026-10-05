@@ -39,6 +39,7 @@
     selectionTime: PostPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
+      moodEffect: TraitorFocused # Maid edit - mood
       min: 1
       max: 2
       playerRatio: 10
@@ -81,6 +82,7 @@
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
+      moodEffect: TraitorFocused # Maid edit - mood
       min: 1
       max: 2
       playerRatio: 10
@@ -164,6 +166,7 @@
     selectionTime: PostPlayerSpawn
     definitions:
     - prefRoles: [ HeadRev ]
+      moodEffect: RevolutionFocused # Maid edit - mood
       max: 3
       playerRatio: 15
       blacklist:

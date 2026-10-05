@@ -1,0 +1,117 @@
+- type: alertCategory
+  id: Mood
+
+- type: shader
+  id: SaturationScale
+  kind: source
+  path: "/Textures/_Maid/Shaders/saturationscale.swsl"
+
+- type: alert
+  id: MoodInsane
+  category: Mood
+  clickEvent: !type:ShowMoodEffectsAlertEvent
+  icons:
+  - sprite: /Textures/_Maid/Interface/Alerts/mood.rsi
+    state: mood_insane
+  name: alerts-mood-insane-name
+  description: alerts-mood-insane-desc
+
+- type: alert
+  id: MoodVeryVeryBad
+  category: Mood
+  clickEvent: !type:ShowMoodEffectsAlertEvent
+  icons:
+  - sprite: /Textures/_Maid/Interface/Alerts/mood.rsi
+    state: mood1
+  name: alerts-mood-very-very-bad-name
+  description: alerts-mood-very-very-bad-desc
+
+- type: alert
+  id: MoodVeryBad
+  category: Mood
+  clickEvent: !type:ShowMoodEffectsAlertEvent
+  icons:
+  - sprite: /Textures/_Maid/Interface/Alerts/mood.rsi
+    state: mood2
+  name: alerts-mood-very-bad-name
+  description: alerts-mood-very-bad-desc
+
+- type: alert
+  id: MoodBad
+  category: Mood
+  clickEvent: !type:ShowMoodEffectsAlertEvent
+  icons:
+  - sprite: /Textures/_Maid/Interface/Alerts/mood.rsi
+    state: mood3
+  name: alerts-mood-bad-name
+  description: alerts-mood-bad-desc
+
+- type: alert
+  id: MoodNotGreat
+  category: Mood
+  clickEvent: !type:ShowMoodEffectsAlertEvent
+  icons:
+  - sprite: /Textures/_Maid/Interface/Alerts/mood.rsi
+    state: mood4
+  name: alerts-mood-not-great-name
+  description: alerts-mood-not-great-desc
+
+- type: alert
+  id: MoodNeutral
+  category: Mood
+  clickEvent: !type:ShowMoodEffectsAlertEvent
+  icons:
+  - sprite: /Textures/_Maid/Interface/Alerts/mood.rsi
+    state: mood5
+  name: alerts-mood-neutral-name
+  description: alerts-mood-neutral-desc
+
+- type: alert
+  id: MoodGreat
+  category: Mood
+  clickEvent: !type:ShowMoodEffectsAlertEvent
+  icons:
+  - sprite: /Textures/_Maid/Interface/Alerts/mood.rsi
+    state: mood6
+  name: alerts-mood-great-name
+  description: alerts-mood-great-desc
+
+- type: alert
+  id: MoodGood
+  category: Mood
+  clickEvent: !type:ShowMoodEffectsAlertEvent
+  icons:
+  - sprite: /Textures/_Maid/Interface/Alerts/mood.rsi
+    state: mood7
+  name: alerts-mood-good-name
+  description: alerts-mood-good-desc
+
+- type: alert
+  id: MoodVeryGood
+  category: Mood
+  clickEvent: !type:ShowMoodEffectsAlertEvent
+  icons:
+  - sprite: /Textures/_Maid/Interface/Alerts/mood.rsi
+    state: mood8
+  name: alerts-mood-very-good-name
+  description: alerts-mood-very-good-desc
+
+- type: alert
+  id: MoodVeryVeryGood
+  category: Mood
+  clickEvent: !type:ShowMoodEffectsAlertEvent
+  icons:
+  - sprite: /Textures/_Maid/Interface/Alerts/mood.rsi
+    state: mood9
+  name: alerts-mood-very-very-good-name
+  description: alerts-mood-very-very-good-desc
+
+- type: alert
+  id: MoodDead
+  category: Mood
+  clickEvent: !type:ShowMoodEffectsAlertEvent
+  icons:
+  - sprite: /Textures/_Maid/Interface/Alerts/mood.rsi
+    state: mood_happiness_bad
+  name: alerts-mood-dead-name
+  description: alerts-mood-dead-desc

@@ -29,6 +29,7 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ CosmicAntagCultist ]
+      moodEffect: CultFocused # Maid edit - mood
       min: 2
       max: 6
       playerRatio: 10

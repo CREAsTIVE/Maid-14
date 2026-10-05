@@ -259,6 +259,7 @@
 #      - NanoTaskCartridge #Maid
       - NewsReaderCartridge
       - NanoChatCartridge # DeltaV
+      - BankCartridge # Maid edit - economy
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge
@@ -339,6 +340,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - NanoChatCartridge # DeltaV
+    - BankCartridge # Maid edit - economy
 
 - type: entity
   parent: BasePDA
@@ -354,6 +356,7 @@
       - NewsReaderCartridge
       - MedTekCartridge
       - NanoChatCartridge # DeltaV
+      - BankCartridge # Maid edit - economy
 
 - type: entity
   parent: BasePDA
@@ -671,6 +674,7 @@
     - AstroNavCartridge
     - MailMetricsCartridge
     - NanoChatCartridge # DeltaV
+    - BankCartridge # Maid edit - economy
 
 - type: entity
   parent: BasePDA
@@ -717,6 +721,7 @@
       - NewsReaderCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - BankCartridge # Maid edit - economy
 
 - type: entity
   parent: BasePDA
@@ -1068,6 +1073,7 @@
     - WantedListCartridge
     - LogProbeCartridge
     - NanoChatCartridge # DeltaV
+    - BankCartridge # Maid edit - economy
 
 - type: entity
   parent: BaseSecurityPDA
@@ -1141,6 +1147,7 @@
       - LogProbeCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - BankCartridge # Maid edit - economy
 
 - type: entity
   parent: CentcomPDA
@@ -1169,6 +1176,7 @@
       - MedTekCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - BankCartridge # Maid edit - economy
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
@@ -1291,6 +1299,7 @@
       - NotekeeperCartridge
 #      - NanoTaskCartridge #Maid
       - NanoChatCartridge # DeltaV
+      - BankCartridge # Maid edit - economy
 
 - type: entity
   parent: BaseSecurityPDA
@@ -1324,6 +1333,7 @@
       - LogProbeCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - BankCartridge # Maid edit - economy
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1494,6 +1504,7 @@
     - WantedListCartridge
     - LogProbeCartridge
     - NanoChatCartridge # DeltaV
+    - BankCartridge # Maid edit - economy
 
 - type: entity
   parent: BaseMedicalPDA
@@ -1523,6 +1534,7 @@
     - WantedListCartridge
     - MedTekCartridge
     - NanoChatCartridge # DeltaV
+    - BankCartridge # Maid edit - economy
 
 - type: entity
   parent: ClownPDA
@@ -1669,6 +1681,7 @@
 #      - NanoTaskCartridge #Maid
       - MedTekCartridge
       - NanoChatCartridge # DeltaV
+      - BankCartridge # Maid edit - economy
 
 - type: entity
   parent: BasePDA

@@ -263,6 +263,7 @@
     selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ NukeopsCommander ]
+      moodEffect: TraitorFocused # Maid edit - mood
       fallbackRoles: [ Nukeops, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsCommander
       startingGear: SyndicateCommanderGearFull
@@ -282,6 +283,7 @@
       mindRoles:
       - MindRoleNukeopsCommander
     - prefRoles: [ NukeopsMedic ]
+      moodEffect: TraitorFocused # Maid edit - mood
       fallbackRoles: [ Nukeops, NukeopsCommander ]
       spawnerPrototype: SpawnPointNukeopsMedic
       startingGear: SyndicateOperativeMedicFull
@@ -303,6 +305,7 @@
       mindRoles:
       - MindRoleNukeopsMedic
     - prefRoles: [ Nukeops ]
+      moodEffect: TraitorFocused # Maid edit - mood
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
       max: 10 # Goobstation / 古布空间站 - 没有限制的核特工
@@ -360,6 +363,7 @@
     selectionTime: PostPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ Traitor ]
+      moodEffect: TraitorFocused # Maid edit - mood
       blacklist: # Goobstation
         components:
         - CommandStaff
@@ -378,6 +382,7 @@
     selectionTime: IntraPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ Traitor ]
+      moodEffect: TraitorFocused # Maid edit - mood
       max: 8
       playerRatio: 10
       chaosScore: 150 # Goobstation
@@ -404,6 +409,7 @@
     selectionTime: IntraPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ HeadRev ]
+      moodEffect: RevolutionFocused # Maid edit - mood
       max: 3
       playerRatio: 15
       blacklist:

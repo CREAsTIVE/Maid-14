@@ -469,6 +469,7 @@
   id: LockerFillChiefMedicalOfficerNoHardsuit
   table: !type:AllSelector
     children:
+    - id: Eftpos # Maid edit - economy
     # Maid edit
     #    - id: BoxEncryptionKeyMedical
     #    # - id: ClothingBackpackDuffelSurgeryFilled # Goobstation - tools in webbing

@@ -52,6 +52,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
+using Content.Shared._Maid.Mood; // Maid edit - mood
 
 namespace Content.Server.Arcade.SpaceVillain;
 
@@ -121,7 +122,10 @@ public sealed partial class SpaceVillainArcadeSystem : EntitySystem
         if (!TryComp<ApcPowerReceiverComponent>(uid, out var power) || !power.Powered)
             return;
 
+        RaiseLocalEvent(msg.Actor, new MoodEffectEvent("ArcadePlay")); // Maid edit - mood
+
         switch (msg.PlayerAction)
+
         {
             case SharedSpaceVillainArcadeComponent.PlayerAction.Attack:
             case SharedSpaceVillainArcadeComponent.PlayerAction.Heal:

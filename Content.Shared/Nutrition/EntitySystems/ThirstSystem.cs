@@ -111,6 +111,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._Maid.Mood; // Maid edit - mood
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
@@ -263,6 +264,9 @@ public sealed class ThirstSystem : EntitySystem
         {
             _alerts.ClearAlertCategory(uid, component.ThirstyCategory);
         }
+
+        RaiseLocalEvent(uid, new MoodEffectEvent("Thirst" + component.CurrentThirstThreshold)); // Maid edit - mood
+
 
         DirtyField(uid, component, nameof(ThirstComponent.LastThirstThreshold));
         DirtyField(uid, component, nameof(ThirstComponent.ActualDecayRate));

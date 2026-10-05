@@ -36,6 +36,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared._Maid.Mood; // Maid edit - mood
 
 namespace Content.Shared.Interaction;
 
@@ -129,6 +130,19 @@ public sealed class InteractionPopupSystem : EntitySystem
 
             var ev = new InteractionSuccessEvent(user);
             RaiseLocalEvent(target, ref ev);
+
+            // Maid edit start - mood
+            if (component.InteractSuccessString == "hugging-success-generic")
+            {
+                RaiseLocalEvent(uid, new MoodEffectEvent("BeingHugged"));
+            }
+            else if (component.InteractSuccessString?.StartsWith("petting-success-") == true)
+            {
+                RaiseLocalEvent(user, new MoodEffectEvent("PetAnimal"));
+                RaiseLocalEvent(uid, new MoodEffectEvent("BeingPet"));
+            }
+            // Maid edit end
+
         }
         else
         {
