@@ -8,35 +8,26 @@ name: PR Changelogs
 on:
   pull_request_target:
     types: [closed]
-  workflow_dispatch:
-    inputs:
-      pr_number:
-        description: 'PR number (leave empty for last merged)'
-        required: false
-        type: number
 
 concurrency: commit_action
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   CHANGELOG_DIR: ${{ vars.CHANGELOG_DIR }}
-  PR_NUMBER: ${{ github.event.inputs.pr_number || github.event.number }}
+  PR_NUMBER: ${{ github.event.pull_request.number }}
 
 jobs:
   changelog:
     runs-on: ubuntu-latest
-    if: |
-      (github.event_name == 'pull_request_target' && github.event.pull_request.merged == true) ||
-      (github.event_name == 'workflow_dispatch')
+    if: github.event.pull_request.merged == true
     permissions:
       contents: write
-      pull-requests: write
     steps:
-      - name: Checkout Master
+      - name: Checkout
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          ref: "${{ vars.CHANGELOG_BRANCH }}"
+          ref: ${{ vars.CHANGELOG_BRANCH }}
 
       - name: Setup Git
         run: |
@@ -49,22 +40,21 @@ jobs:
           node-version: 18.x
 
       - name: Install Dependencies
-        run: |
-          cd "Tools/changelog"
-          npm install
+        run: cd Tools/changelog && npm install
 
-      - name: Generate Changelog
+      - name: Commit changelog
         run: |
-          cd "Tools/changelog"
-          node changelog.js
-
-      - name: Commit Changelog
-        run: |
-          if [[ -n $(git status --porcelain) ]]; then
-            git add *.yml
+          BRANCH="${{ vars.CHANGELOG_BRANCH }}"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "$BRANCH"
+            git reset --hard "origin/$BRANCH"
+            (cd Tools/changelog && node changelog.js)
+            if [[ -z $(git status --porcelain) ]]; then
+              echo "No changes to commit"; exit 0
+            fi
+            git add -- "$CHANGELOG_DIR"
             git commit -m "${{ vars.CHANGELOG_MESSAGE }} (#${{ env.PR_NUMBER }})"
-            git pull --rebase origin ${{ vars.CHANGELOG_BRANCH }}
-            git push
-          else
-            echo "No changes to commit"
-          fi
+            if git push origin "HEAD:$BRANCH"; then exit 0; fi
+            sleep $((attempt * 3))
+          done
+          exit 1
