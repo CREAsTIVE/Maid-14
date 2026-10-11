@@ -159,43 +159,43 @@
   - !type:ListingLimitedStockCondition
     stock: 4
 
-- type: listing
-  id: SpellbookArcaneBarrageUpgrade
-  productUpgradeId: SpellbookArcaneBarrageUpgrade
-  name: spellbook-upgrade-arcane-barrage-name
-  description: spellbook-upgrade-arcane-barrage-desc
-  icon:
-    sprite: _Goobstation/Wizard/actions.rsi
-    state: arcane_barrage
-  cost:
-    WizCoin: 2
-  categories:
-  - SpellbookOffensive
-  conditions:
-  - !type:BuyBeforeCondition
-    whitelist:
-    - SpellbookArcaneBarrage
-  - !type:ListingLimitedStockCondition
-    stock: 2
+# - type: listing #MaidBegin вырезано
+#   id: SpellbookArcaneBarrageUpgrade
+#   productUpgradeId: SpellbookArcaneBarrageUpgrade
+#   name: spellbook-upgrade-arcane-barrage-name
+#   description: spellbook-upgrade-arcane-barrage-desc
+#   icon:
+#     sprite: _Goobstation/Wizard/actions.rsi
+#     state: arcane_barrage
+#   cost:
+#     WizCoin: 2
+#   categories:
+#   - SpellbookOffensive
+#   conditions:
+#   - !type:BuyBeforeCondition
+#     whitelist:
+#     - SpellbookArcaneBarrage
+#   - !type:ListingLimitedStockCondition
+#     stock: 2 #Maidend вырезано
 
-- type: listing
-  id: SpellbookLesserSummonGunsUpgrade
-  productUpgradeId: SpellbookLesserSummonGunsUpgrade
-  name: spellbook-upgrade-lesser-summon-guns-name
-  description: spellbook-upgrade-lesser-summon-guns-desc
-  icon:
-    sprite: _Goobstation/Wizard/actions.rsi
-    state: bolt_action
-  cost:
-    WizCoin: 2
-  categories:
-  - SpellbookOffensive
-  conditions:
-  - !type:BuyBeforeCondition
-    whitelist:
-    - SpellbookLesserSummonGuns
-  - !type:ListingLimitedStockCondition
-    stock: 2
+# - type: listing #MaidBegin вырезано
+#   id: SpellbookLesserSummonGunsUpgrade
+#   productUpgradeId: SpellbookLesserSummonGunsUpgrade
+#   name: spellbook-upgrade-lesser-summon-guns-name
+#   description: spellbook-upgrade-lesser-summon-guns-desc
+#   icon:
+#     sprite: _Goobstation/Wizard/actions.rsi
+#     state: bolt_action
+#   cost:
+#     WizCoin: 2
+#   categories:
+#   - SpellbookOffensive
+#   conditions:
+#   - !type:BuyBeforeCondition
+#     whitelist:
+#     - SpellbookLesserSummonGuns
+#   - !type:ListingLimitedStockCondition
+#     stock: 2 #Maidend вырезано
 
 - type: listing
   id: SpellbookBarnyardCurseUpgrade
@@ -273,24 +273,24 @@
   - !type:ListingLimitedStockCondition
     stock: 2
 
-- type: listing
-  id: SpellbookSmiteUpgrade
-  productUpgradeId: SpellbookSmiteUpgrade
-  name: spellbook-upgrade-smite-name
-  description: spellbook-upgrade-smite-desc
-  icon:
-    sprite: _Goobstation/Wizard/actions.rsi
-    state: gib
-  cost:
-    WizCoin: 2
-  categories:
-  - SpellbookOffensive
-  conditions:
-  - !type:BuyBeforeCondition
-    whitelist:
-    - SpellbookSmite
-  - !type:ListingLimitedStockCondition
-    stock: 2
+# - type: listing #MaidBegin вырезано
+#   id: SpellbookSmiteUpgrade
+#   productUpgradeId: SpellbookSmiteUpgrade
+#   name: spellbook-upgrade-smite-name
+#   description: spellbook-upgrade-smite-desc
+#   icon:
+#     sprite: _Goobstation/Wizard/actions.rsi
+#     state: gib
+#   cost:
+#     WizCoin: 2
+#   categories:
+#   - SpellbookOffensive
+#   conditions:
+#   - !type:BuyBeforeCondition
+#     whitelist:
+#     - SpellbookSmite
+#   - !type:ListingLimitedStockCondition
+#     stock: 2 #Maidend вырезано
 
 - type: listing
   id: SpellbookRodFormUpgrade
@@ -315,27 +315,27 @@
       tags:
         - GrimoireGhost
 
-- type: listing
-  id: SpellbookSpellCardsUpgrade
-  productUpgradeId: SpellbookSpellCardsUpgrade
-  name: spellbook-upgrade-spell-cards-name
-  description: spellbook-upgrade-spell-cards-desc
-  icon:
-    sprite: _Goobstation/Wizard/actions.rsi
-    state: spellcard
-  cost:
-    WizCoin: 2
-  categories:
-  - SpellbookOffensive
-  conditions:
-  - !type:BuyBeforeCondition
-    whitelist:
-    - SpellbookSpellCards
-    blacklist:
-    - SpellbookFullRandom
-    - SpellbookSemiRandom
-  - !type:ListingLimitedStockCondition
-    stock: 2
+# - type: listing #MaidBegin вырезано
+#   id: SpellbookSpellCardsUpgrade
+#   productUpgradeId: SpellbookSpellCardsUpgrade
+#   name: spellbook-upgrade-spell-cards-name
+#   description: spellbook-upgrade-spell-cards-desc
+#   icon:
+#     sprite: _Goobstation/Wizard/actions.rsi
+#     state: spellcard
+#   cost:
+#     WizCoin: 2
+#   categories:
+#   - SpellbookOffensive
+#   conditions:
+#   - !type:BuyBeforeCondition
+#     whitelist:
+#     - SpellbookSpellCards
+#     blacklist:
+#     - SpellbookFullRandom
+#     - SpellbookSemiRandom
+#   - !type:ListingLimitedStockCondition
+#     stock: 2 #Maidend вырезано
 
 - type: listing
   id: SpellbookSummonSimiansUpgrade
