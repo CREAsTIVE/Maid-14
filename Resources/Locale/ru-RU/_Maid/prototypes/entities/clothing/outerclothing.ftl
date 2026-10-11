@@ -1,2 +1,2 @@
-ent-ClothingOuterBumblebeeСostume = костюм шмеля
+ent-ClothingOuterBumblebeeCostume = костюм шмеля
     .desc = БЖЖЖЖ БЖЖЖ.
