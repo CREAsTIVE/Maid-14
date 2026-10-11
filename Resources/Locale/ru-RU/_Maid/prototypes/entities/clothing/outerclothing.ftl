@@ -1,2 +1,2 @@
-ent-ClothingHeadHatGnome = шляпа гнома
-    .desc = Шляпа настоящего садового помощника.
+ent-ClothingOuterBumblebeeСostume = костюм шмеля
+    .desc = БЖЖЖЖ БЖЖЖ.
