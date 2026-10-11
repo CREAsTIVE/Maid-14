@@ -68,22 +68,22 @@
     - SpellbookFullRandom
     - SpellbookSemiRandom
 
-- type: listing
-  id: SpellbookCorpseExplosion
-  name: spellbook-corpse-explosion-name
-  description: spellbook-corpse-explosion-desc
-  productAction: ActionCorpseExplosion
-  cost:
-    WizCoin: 1
-  categories:
-  - SpellbookOffensive
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:BuyBeforeCondition
-    blacklist:
-    - SpellbookFullRandom
-    - SpellbookSemiRandom
+# - type: listing #Maidbegin вырезано
+#   id: SpellbookCorpseExplosion
+#   name: spellbook-corpse-explosion-name
+#   description: spellbook-corpse-explosion-desc
+#   productAction: ActionCorpseExplosion
+#   cost:
+#     WizCoin: 1
+#   categories:
+#   - SpellbookOffensive
+#   conditions:
+#   - !type:ListingLimitedStockCondition
+#     stock: 1
+#   - !type:BuyBeforeCondition
+#     blacklist:
+#     - SpellbookFullRandom
+#     - SpellbookSemiRandom #MaidEnd вырезано
 
 - type: listing
   id: SpellbookBlind
@@ -175,61 +175,61 @@
     - SpellbookFullRandom
     - SpellbookSemiRandom
 
-- type: listing
-  id: SpellbookSpellCards
-  productUpgradeId: SpellbookSpellCardsUpgrade
-  name: spellbook-spell-cards-name
-  description: spellbook-spell-cards-desc
-  productAction: ActionSpellCards
-  cost:
-    WizCoin: 2
-  categories:
-  - SpellbookOffensive
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:BuyBeforeCondition
-    blacklist:
-    - SpellbookFullRandom
-    - SpellbookSemiRandom
+# - type: listing #Maidbegin вырезано
+#   id: SpellbookSpellCards
+#   productUpgradeId: SpellbookSpellCardsUpgrade
+#   name: spellbook-spell-cards-name
+#   description: spellbook-spell-cards-desc
+#   productAction: ActionSpellCards
+#   cost:
+#     WizCoin: 2
+#   categories:
+#   - SpellbookOffensive
+#   conditions:
+#   - !type:ListingLimitedStockCondition
+#     stock: 1
+#   - !type:BuyBeforeCondition
+#     blacklist:
+#     - SpellbookFullRandom
+#     - SpellbookSemiRandom 
 
-- type: listing
-  id: SpellbookArcaneBarrage
-  productUpgradeId: SpellbookArcaneBarrageUpgrade
-  name: spellbook-arcane-barrage-name
-  description: spellbook-arcane-barrage-desc
-  productAction: ActionArcaneBarrage
-  cost:
-    WizCoin: 2
-  categories:
-  - SpellbookOffensive
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:BuyBeforeCondition
-    blacklist:
-    - SpellbookLesserSummonGuns
-    - SpellbookFullRandom
-    - SpellbookSemiRandom
+# - type: listing
+#   id: SpellbookArcaneBarrage
+#   productUpgradeId: SpellbookArcaneBarrageUpgrade
+#   name: spellbook-arcane-barrage-name
+#   description: spellbook-arcane-barrage-desc
+#   productAction: ActionArcaneBarrage
+#   cost:
+#     WizCoin: 2
+#   categories:
+#   - SpellbookOffensive
+#   conditions:
+#   - !type:ListingLimitedStockCondition
+#     stock: 1
+#   - !type:BuyBeforeCondition
+#     blacklist:
+#     - SpellbookLesserSummonGuns
+#     - SpellbookFullRandom
+#     - SpellbookSemiRandom #Maidend вырезано
 
-- type: listing
-  id: SpellbookLesserSummonGuns
-  productUpgradeId: SpellbookLesserSummonGunsUpgrade
-  name: spellbook-lesser-summon-guns-name
-  description: spellbook-lesser-summon-guns-desc
-  productAction: ActionLesserSummonGuns
-  cost:
-    WizCoin: 2
-  categories:
-  - SpellbookOffensive
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:BuyBeforeCondition
-    blacklist:
-    - SpellbookArcaneBarrage
-    - SpellbookFullRandom
-    - SpellbookSemiRandom
+# - type: listing #Maidbegin вырезано
+#   id: SpellbookLesserSummonGuns
+#   productUpgradeId: SpellbookLesserSummonGunsUpgrade
+#   name: spellbook-lesser-summon-guns-name
+#   description: spellbook-lesser-summon-guns-desc
+#   productAction: ActionLesserSummonGuns
+#   cost:
+#     WizCoin: 2
+#   categories:
+#   - SpellbookOffensive
+#   conditions:
+#   - !type:ListingLimitedStockCondition
+#     stock: 1
+#   - !type:BuyBeforeCondition
+#     blacklist:
+#     - SpellbookArcaneBarrage
+#     - SpellbookFullRandom
+#     - SpellbookSemiRandom #Maidend вырезано
 
 - type: listing
   id: SpellbookBarnyardCurse
@@ -321,23 +321,23 @@
     - SpellbookFullRandom
     - SpellbookSemiRandom
 
-- type: listing
-  id: SpellbookSmite
-  productUpgradeId: SpellbookSmiteUpgrade
-  name: spellbook-smite-name
-  description: spellbook-smite-desc
-  productAction: ActionSmite
-  cost:
-    WizCoin: 2
-  categories:
-  - SpellbookOffensive
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:BuyBeforeCondition
-    blacklist:
-    - SpellbookFullRandom
-    - SpellbookSemiRandom
+# - type: listing  #Maidbegin вырезано
+#   id: SpellbookSmite
+#   productUpgradeId: SpellbookSmiteUpgrade
+#   name: spellbook-smite-name
+#   description: spellbook-smite-desc
+#   productAction: ActionSmite
+#   cost:
+#     WizCoin: 2
+#   categories:
+#   - SpellbookOffensive
+#   conditions:
+#   - !type:ListingLimitedStockCondition
+#     stock: 1
+#   - !type:BuyBeforeCondition
+#     blacklist:
+#     - SpellbookFullRandom
+#     - SpellbookSemiRandom #Maidend вырезано
 
 # Defensive
 - type: listing
@@ -919,22 +919,22 @@
   disableRefund: true
 
 # Event
-- type: listing
-  id: SpellbookEventDimensionShift
-  name: spellbook-event-dimension-shift-name
-  description: spellbook-event-dimension-shift-desc
-  productEvent: !type:DimensionShiftEvent
-  icon:
-    sprite: _Goobstation/Wizard/Icons/spellbook.rsi
-    state: icemoon
-  cost:
-    WizCoin: 0
-  categories:
-  - SpellbookEvents
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  disableRefund: true
+# - type: listing  #Maidbegin вырезано
+#   id: SpellbookEventDimensionShift
+#   name: spellbook-event-dimension-shift-name
+#   description: spellbook-event-dimension-shift-desc
+#   productEvent: !type:DimensionShiftEvent
+#   icon:
+#     sprite: _Goobstation/Wizard/Icons/spellbook.rsi
+#     state: icemoon
+#   cost:
+#     WizCoin: 0
+#   categories:
+#   - SpellbookEvents
+#   conditions:
+#   - !type:ListingLimitedStockCondition
+#     stock: 1
+#   disableRefund: true #Maidend вырезано
 
 - type: listing
   id: SpellbookEventGlobalTileToggle
