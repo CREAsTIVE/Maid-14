@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingOuterBase
-  id: ClothingOuterBumblebeeСostume
+  id: ClothingOuterBumblebeeCostume
   name: Bumblebee Costume
   description: Bzzzzz Bzzzz
   components:
