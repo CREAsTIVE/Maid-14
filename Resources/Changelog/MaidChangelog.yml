@@ -1384,3 +1384,17 @@ Entries:
       message: Добавлен костюм ШМЕЛЯ
   id: 131
   time: '2026-10-11T19:34:41.0000000+00:00'
+- author: antiWAFG1
+  changes:
+    - type: Remove
+      message: Удалено заклинание "Взрыв трупа"
+    - type: Remove
+      message: Удалено заклинание "Боевые карты"
+    - type: Remove
+      message: Удалено заклинание "Малое призывание оружия"
+    - type: Remove
+      message: Удалено заклинание "Кара"
+    - type: Remove
+      message: Удалено заклинание "Сдвиг Измерений"
+  id: 132
+  time: '2026-10-11T19:35:14.0000000+00:00'
