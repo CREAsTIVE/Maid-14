@@ -121,6 +121,8 @@
 #    ClothingOuterSuitHotDog: 1 # Goob #Maid
 #    ClothingOuterSuitPickle: 1 #Maid
     ClothingHeadHatTinfoilHat: 2 # Goobstation
+    ClothingOuterBumblebeeCostume: 3 #Maid
+    
   contrabandInventory:
     ClothingHeadHatRichard: 1
     ClothingShoesBling: 1

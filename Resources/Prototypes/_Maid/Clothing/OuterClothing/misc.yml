@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterBumblebeeCostume
+  name: Bumblebee Costume
+  description: Bzzzzz Bzzzz
+  components:
+  - type: Sprite
+    sprite: _Maid/Clothing/OuterClothing/Misc/Funny/shmel.rsi
+  - type: Clothing
+    sprite: _Maid/Clothing/OuterClothing/Misc/Funny/shmel.rsi
