@@ -99,6 +99,9 @@
   description: Designates where orders will appear when purchased. Made of plastitanium to discourage pesky vandals.
   parent: BaseCargoPallet
   components:
+  - type: Construction #Maid
+    graph: CargoPalletBuy #Maid
+    node: cargopalletbuy #Maid
   - type: CargoPallet
     palletType: buy
   - type: Sprite
