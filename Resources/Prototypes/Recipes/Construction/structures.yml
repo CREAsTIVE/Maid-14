@@ -1479,3 +1479,16 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+
+- type: construction #Maid begin
+  id: CargoPalletBuy
+  graph: CargoPalletBuy
+  startNode: start
+  targetNode: CargoPalletBuy
+  category: construction-category-structures
+  conditions:
+    - !type:TileNotBlocked
+      failIfSpace: false
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false #Maid end
