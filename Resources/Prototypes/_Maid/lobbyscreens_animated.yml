@@ -40,8 +40,8 @@
   name: Clown
   artist: Unknown
 
-- type: animatedLobbyScreen
-  id: Neon
-  background: /Textures/_Maid/LobbyScreens/AnimatedScreens/neon.rsi
-  name: Neon
-  artist: Unknown
+#- type: animatedLobbyScreen
+#  id: Neon
+#  background: /Textures/_Maid/LobbyScreens/AnimatedScreens/neon.rsi
+#  name: Neon
+#  artist: Unknown
