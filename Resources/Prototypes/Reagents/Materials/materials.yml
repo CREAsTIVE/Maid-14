@@ -54,7 +54,7 @@
   unit: materials-unit-roll
   icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: cloth }
   color: "#e7e7de"
-  price: 0.05
+  price: 0.04
 
 - type: material
   id: Durathread
@@ -64,7 +64,7 @@
   unit: materials-unit-sheet
   icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: durathread }
   color: "#8291a1"
-  price: 0.075 # 1-1 mix of plastic and cloth. #Maid
+  price: 0.1 # 1-1 mix of plastic and cloth. #Maid
 
 - type: material
   id: Paper
