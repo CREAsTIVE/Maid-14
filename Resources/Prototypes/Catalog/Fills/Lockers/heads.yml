@@ -495,7 +495,6 @@
     #    # - id: ComputerCloningConsoleFlatpack
     #    # - id: BiomassReclaimerFlatpack
     #    # - id: Multitool
-    #    # - id: MedTekCartridge
     #    # - id: RapidSyringeGun
     #    # - id: BoxSyringePax #Maid edit end
     #    - id: ClothingBeltMilitaryWebbingCMOFilled
@@ -515,6 +514,7 @@
     - id: BoxEncryptionKeyMedical
     - id: ClothingBeltMedicalFilled
     - id: ClothingHeadsetAltMedical
+    - id: MedTekCartridge #Maid
 # Maid edit end
 
 # Hardsuit table, used for suit storage as well
