@@ -101,7 +101,7 @@
   components:
   - type: Construction #Maid
     graph: CargoPalletBuy #Maid
-    node: cargopalletbuy #Maid
+    node: CargoPalletBuy #Maid
   - type: CargoPallet
     palletType: buy
   - type: Sprite
