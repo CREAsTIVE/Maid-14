@@ -44,7 +44,7 @@ public sealed class CustomGhostSystem : EntitySystem
         component.Ghost = customGhost.ID;
         Dirty(uid, component);
         EntityManager.MergeComponents(uid, customGhost.AddComponents, _serManager);
-        // _meta.SetEntityName(uid, customGhost.DisplayName); // We actually don't want that i think?
-        // _meta.SetEntityDescription(uid, customGhost.DisplayDesc);
+        _meta.SetEntityName(uid, customGhost.DisplayName); // We actually don't want that i think? # Maid Needed
+        _meta.SetEntityDescription(uid, customGhost.DisplayDesc);
     }
 }
