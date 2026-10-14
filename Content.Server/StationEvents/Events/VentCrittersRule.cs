@@ -78,6 +78,8 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
         var max = comp.Max * players / comp.PlayerRatio;
         var count = Math.Max(RobustRandom.Next(min, max), 1);
         Log.Info($"Spawning {count} critters for {ToPrettyString(uid):rule}");
+        // MAID BEGIN vent critters fix
+        /*
         for (int i = 0; i < count; i++)
         {
             foreach (var spawn in _entityTable.GetSpawns(comp.Table))
@@ -92,6 +94,36 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
         // guaranteed spawn
         var specialEntry = RobustRandom.Pick(comp.SpecialEntries);
         Spawn(specialEntry.PrototypeId, coords);
+        */
+        List<EntityCoordinates> spawnLocations = [coords];
+        var gridUid = _transform.GetGrid(coords);
+        var station = CompOrNull<StationMemberComponent>(gridUid)?.Station;
+
+        var locations = EntityQueryEnumerator<VentCritterSpawnLocationComponent, TransformComponent>();
+        while (locations.MoveNext(out _, out _, out var transform))
+        {
+            if (station != null && CompOrNull<StationMemberComponent>(transform.GridUid)?.Station != station)
+                continue;
+
+            if (_transform.InRange(coords, transform.Coordinates, comp.VentRadius))
+                spawnLocations.Add(transform.Coordinates);
+        }
+
+
+        for (var i = 0; i < count; i++)
+        {
+            foreach (var spawn in _entityTable.GetSpawns(comp.Table))
+            {
+                var spawnCoords = RobustRandom.Pick(spawnLocations);
+                Spawn(spawn, spawnCoords);
+            }
+        }
+
+        // guaranteed spawn
+        var specialEntry = RobustRandom.Pick(comp.SpecialEntries);
+        var specialCoords = RobustRandom.Pick(spawnLocations);
+        Spawn(specialEntry.PrototypeId, specialCoords);
+        // MAID END vent critters fix
     }
 
     private void PickLocation(VentCrittersRuleComponent comp)

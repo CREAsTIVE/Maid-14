@@ -42,6 +42,14 @@ public sealed partial class VentCrittersRuleComponent : Component
     [ViewVariables]
     public EntityCoordinates? Location;
 
+    // MAID BEGIN vent critters fix
+    /// <summary>
+    /// Radius around the target vent in which critters will spawn on vents.
+    /// </summary>
+    [DataField]
+    public float VentRadius = 15f;
+    // MAID END vent critters fix
+
     /// <summary>
     /// DeltaV: Base minimum number of critters to spawn.
     /// </summary>
