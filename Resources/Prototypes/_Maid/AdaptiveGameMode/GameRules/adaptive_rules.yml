@@ -46,7 +46,7 @@
     # Magic numbers: more info in Content.Server._Maid.AdaptiveGameMode.AdaptiveRuleSystem.GetRulesWeighted.GetMultiplier
     k2: 0
     p2: 1
-    s2: 17
+    s2: 13
 
     midroundRules:
     - id: ItemArtifacts
