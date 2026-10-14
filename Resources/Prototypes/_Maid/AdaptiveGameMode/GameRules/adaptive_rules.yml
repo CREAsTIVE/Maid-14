@@ -43,8 +43,10 @@
 
     # midroundSpawnSkipProb: 0.6 # With what chance we skip spawning rule
 
-    scoreDifferenceMultiplierDecay: 850
-    scoreDifferenceMultiplierMin: 0.15
+    # Magic numbers: more info in Content.Server._Maid.AdaptiveGameMode.AdaptiveRuleSystem.GetRulesWeighted.GetMultiplier
+    k2: 0
+    p2: 1
+    s2: 17
 
     midroundRules:
     - id: ItemArtifacts
