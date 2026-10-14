@@ -13,7 +13,7 @@
     - Kemuri
   addComponents:
   - type: Sprite
-    sprite: _Maid\CustomGhosts\kemuri_ghost.rsi
+    sprite: _Maid/CustomGhosts/kemuri_ghost.rsi
     color: "#ffffffe6" # 90% alpha
     layers:
     - state: animated
