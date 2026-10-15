@@ -207,8 +207,9 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         int? playerCount = null)
     {
         var result = new List<(AdaptiveRuleParam Rule, float Weight)>();
-        var decay = component.ScoreDifferenceMultiplierDecay;
-        var m = component.ScoreDifferenceMultiplierMin;
+        var k2 = component.K2;
+        var p2 = component.P2;
+        var s2 = component.S2;
 
         foreach (var rule in rules)
         {
@@ -231,13 +232,18 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
         return result;
 
-        // Basic normal distribution (probably didn't think about it enough, just took what first came to mine head, should be fine tho)
-        // https://www.desmos.com/calculator/uqlzvsqnsn?lang=ru
+        // Weight multiplier formula: f2(x) = e^(-x*k2 - (x/s2)^p2)
+        // https://www.desmos.com/calculator/uqlzvsqnsn
         float GetMultiplier(float budget, float expected)
         {
-            var x = budget - expected;
-            var exponent = -(x * x) / decay;
-            return MathF.Exp(exponent) * (1f - m) + m;
+            var x = MathF.Abs(budget - expected);
+            if (s2 <= 0f)
+                return 0f;
+
+            if (k2 == 0f && p2 == 1f)
+                return MathF.Exp(-x / s2);
+
+            return MathF.Exp(-x * k2 - MathF.Pow(x / s2, p2));
         }
     }
 

@@ -272,6 +272,8 @@ public sealed partial class AdaptiveStatsWindow : DefaultWindow
             return;
         }
 
+        rules.Sort((x, y) => y.Weight.CompareTo(x.Weight));
+
         RulesPossibilitiesGrid.AddChild(new Label { Text = "Rule Name", StyleClasses = { "Bold" } });
         RulesPossibilitiesGrid.AddChild(new Label { Text = "Weight", StyleClasses = { "Bold" } });
 

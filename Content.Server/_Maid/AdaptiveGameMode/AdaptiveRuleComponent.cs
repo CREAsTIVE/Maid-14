@@ -45,16 +45,22 @@ public sealed partial class AdaptiveRuleComponent : Component
     public List<AdaptiveSpawnedRule> SpawnedRules = new();
 
     /// <summary>
-    /// Decay factor for the score difference multiplier formula.
+    /// Linear factor (k2) in rule weight multiplier formula: e^(-x*k2 - (x/s2)^p2).
     /// </summary>
-    [DataField]
-    public float ScoreDifferenceMultiplierDecay = 1500f;
+    [DataField("k2")]
+    public float K2 = 0f;
 
     /// <summary>
-    /// Minimum weight multiplier when the score difference is large.
+    /// Power exponent (p2) in rule weight multiplier formula: e^(-x*k2 - (x/s2)^p2).
     /// </summary>
-    [DataField]
-    public float ScoreDifferenceMultiplierMin = 0.1f;
+    [DataField("p2")]
+    public float P2 = 1f;
+
+    /// <summary>
+    /// Scale denominator (s2) in rule weight multiplier formula: e^(-x*k2 - (x/s2)^p2).
+    /// </summary>
+    [DataField("s2")]
+    public float S2 = 17f;
 }
 
 [DataDefinition]
