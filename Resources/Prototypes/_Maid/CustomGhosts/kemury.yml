@@ -1,0 +1,14 @@
+- type: customGhost
+  id: KemuriCustomGhost
+  name: Loughshinny
+  desc: Искра, готовая разгореться в бурю.
+  category: customGhosts
+  restrictions:
+  - !type:CkeyRestriction
+    ckey:
+    - Kemuri
+  mergeEntityComponents:
+  - type: Sprite
+    sprite: _Maid/CustomGhosts/kemuri_ghost.rsi
+    layers:
+    - state: animated

@@ -1,0 +1,52 @@
+- type: customGhost
+  id: apylsinBird
+  category: personal
+  name: Кто нахуй
+  desc: гооол
+  mergeEntityComponents:
+  - type: Sprite
+    sprite: _Maid/CustomGhosts/bird.rsi
+    layers:
+    - state: bird
+      shader: unshaded
+      sprite: _Maid/CustomGhosts/bird.rsi
+  restrictions:
+  - !type:CkeyRestriction
+    ckey:
+    - apylsin
+
+- type: customGhost
+  id: narsieFull
+  category: personal
+  name: Нарси побольшьбе
+  desc: Пиздец побольшьбе
+  mergeEntityComponents:
+  - type: Sprite
+    sprite: Mobs/Demons/narsie.rsi
+    color: "#ffff"
+    layers:
+    - state: narsie
+      shader: unshaded
+      sprite: Mobs/Demons/narsie.rsi
+  restrictions:
+  - !type:CkeyRestriction
+    ckey:
+    - apylsin
+
+- type: customGhost
+  id: narsie
+  category: personal
+  name: Нарси
+  desc: Пиздец
+  mergeEntityComponents:
+  - type: Sprite
+    sprite: Mobs/Demons/narsie.rsi
+    scale: 0.2, 0.2
+    layers:
+    - state: narsie
+      shader: unshaded
+      sprite: Mobs/Demons/narsie.rsi
+  restrictions:
+  - !type:CkeyRestriction
+    ckey:
+    - apylsin

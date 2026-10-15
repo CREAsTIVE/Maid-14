@@ -16,6 +16,7 @@ public sealed class CustomGhostSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public override void Initialize()
     {
@@ -33,6 +34,7 @@ public sealed class CustomGhostSystem : EntitySystem
         if (!_prototypeManager.TryIndex(ent.Comp.Ghost.Value, out var customGhost))
             return;
 
-        EntityManager.MergeComponents(ent.Owner, customGhost.AddComponents, _serManager);
+        _entityManager.AddComponents(ent.Owner, customGhost.AddComponents, true);
+        _entityManager.MergeEntityComponents(ent.Owner, customGhost.MergeEntityComponents, _serManager);
     }
 }

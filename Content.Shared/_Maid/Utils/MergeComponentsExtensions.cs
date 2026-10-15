@@ -12,9 +12,10 @@ public static class MergeComponentsExtensions
     /// <summary>
     /// Merges components from component registry onto existing entity,
     /// like it works with "parent" field when defining entity prototype.
+    /// Some components fill their other fields based on initial state.
     /// <remarks>This method kinda heavy and does unnecessary copying. Use with caution</remarks>
     /// </summary>
-    public static void MergeComponents(
+    public static void MergeEntityComponents(
         this IEntityManager entMan,
         EntityUid uid,
         ComponentRegistry registry,
@@ -34,6 +35,7 @@ public static class MergeComponentsExtensions
             // This component already exists so we merge them
 
             // Yeah, we doing a lot of copying there, but i don't see other ways without manual serialization out of sandbox
+            // (we actually can try to deserialize into existing live component, but i don't sure thats possible with given API)
             var existingComponentNode = (MappingDataNode) serialization.WriteValue(existingComp.GetType(), existingComp);
 
             var mergedComponentNode = serialization.CombineMappings(entry.Mapping, existingComponentNode);
@@ -47,4 +49,5 @@ public static class MergeComponentsExtensions
                 entMan.Dirty(uid, existingComp);
         }
     }
+
 }

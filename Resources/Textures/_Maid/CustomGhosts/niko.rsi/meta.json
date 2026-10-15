@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Provided by CREAsTIVE",
+  "size": {
+    "x": 24,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "niko",
+      "directions": 4
+    },
+    {
+      "name": "niko-moving",
+      "directions": 4,
+      "delays": [
+        [0.15, 0.15, 0.15, 0.15],
+        [0.15, 0.15, 0.15, 0.15],
+        [0.15, 0.15, 0.15, 0.15],
+        [0.15, 0.15, 0.15, 0.15]
+      ]
+    }
+  ]
+}
