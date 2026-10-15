@@ -81,7 +81,7 @@ public sealed class CustomGhostSystem : EntitySystem
             EntityManager.AddComponents(uid, customGhost.AddComponents);
             EntityManager.MergeEntityComponents(uid, customGhost.MergeEntityComponents, _serManager);
 
-            // _meta.SetEntityName(uid, customGhost.DisplayName);
+            _meta.SetEntityName(uid, $"{customGhost.DisplayName} ({Name(uid)})");
             _meta.SetEntityDescription(uid, customGhost.DisplayDesc);
         }
         catch (Exception e)
