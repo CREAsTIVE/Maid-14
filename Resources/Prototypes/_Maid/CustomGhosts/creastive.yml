@@ -1,0 +1,23 @@
+- type: customGhost
+  id: niko
+  category: personal
+  name: Нико
+  desc: Существо из другого мира
+  mergeEntityComponents:
+  - type: Sprite
+    sprite: _Maid/CustomGhosts/niko.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: niko
+      shader: unshaded
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: niko-moving
+    noMovementLayers:
+      movement:
+        state: niko
+  restrictions:
+  - !type:CkeyRestriction
+    ckey:
+    - CREAsTIVE

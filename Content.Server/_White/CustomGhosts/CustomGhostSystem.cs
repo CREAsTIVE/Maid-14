@@ -1,4 +1,5 @@
 using Content.Server.Preferences.Managers;
+using Content.Server.Database; // MAID custom ghosts
 using Content.Shared._Maid.Utils;
 using Content.Shared._RMC14.GhostColor;
 using Content.Shared._White.CustomGhostSystem;
@@ -15,6 +16,7 @@ public sealed class CustomGhostSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
+    [Dependency] private readonly UserDbDataManager _userDb = default!; // MAID custom ghosts
 
     public override void Initialize()
     {
@@ -23,28 +25,67 @@ public sealed class CustomGhostSystem : EntitySystem
         SubscribeLocalEvent<CustomGhostComponent, PlayerAttachedEvent>(OnPlayerAttached);
     }
 
+// MAID BEGIN custom ghosts
     private void OnPlayerAttached(Entity<CustomGhostComponent> ent, ref PlayerAttachedEvent args)
     {
+        if (ent.Comp.Ghost != null)
+            return;
+
         var player = args.Player;
-        var prefs = _prefs.GetPreferences(player.UserId);
-        var ghostProtoId = prefs.CustomGhost;
 
-        if (!_prototypeManager.TryIndex(ghostProtoId, out var customGhost) || !customGhost.CanUse(player))
-        {
-            ghostProtoId = "default";
-            if (!_prototypeManager.TryIndex(ghostProtoId, out customGhost))
-                return;
-        }
-
-        SetupCustomGhost(ent.Owner, customGhost, ent.Comp);
+        SetupGhost(ent.Owner, player);
     }
 
-    public void SetupCustomGhost(EntityUid uid, CustomGhostPrototype customGhost, CustomGhostComponent component)
+    private async void SetupGhost(EntityUid uid, ICommonSession player)
     {
-        component.Ghost = customGhost.ID;
-        Dirty(uid, component);
-        EntityManager.MergeComponents(uid, customGhost.AddComponents, _serManager);
-        _meta.SetEntityName(uid, customGhost.DisplayName); // We actually don't want that i think? # Maid Needed
-        _meta.SetEntityDescription(uid, customGhost.DisplayDesc);
+        try
+        {
+            if (!TryComp<CustomGhostComponent>(uid, out var component))
+                return;
+
+            if (!_userDb.IsLoadComplete(player))
+            {
+                try { await _userDb.WaitLoadComplete(player); }
+                catch (OperationCanceledException) { return; } // Probably?
+            }
+            // Are we still there
+            if (TerminatingOrDeleted(uid) || !TryComp<CustomGhostComponent>(uid, out component))
+                return;
+            // Same
+            if (player.AttachedEntity != uid)
+                return;
+
+            // That can return false if database unloads moment when its loaded
+            if (!_prefs.TryGetCachedPreferences(player.UserId, out var prefs))
+                return;
+
+            var ghostProtoId = prefs.CustomGhost;
+
+            // Do that again for funnies
+            if (!TryComp(uid, out CustomGhostComponent? comp))
+                return;
+
+            if (!_prototypeManager.TryIndex(ghostProtoId, out var customGhost) || !customGhost.CanUse(player))
+            {
+                ghostProtoId = "default";
+                if (!_prototypeManager.TryIndex(ghostProtoId, out customGhost))
+                    return;
+            }
+
+            component.Ghost = customGhost.ID;
+            Dirty(uid, component);
+
+            EntityManager.AddComponents(uid, customGhost.AddComponents);
+            EntityManager.MergeEntityComponents(uid, customGhost.MergeEntityComponents, _serManager);
+
+            _meta.SetEntityName(uid, customGhost.DisplayName); // We actually don't want that i think? # Maid Needed
+            _meta.SetEntityDescription(uid, customGhost.DisplayDesc);
+        }
+        catch (Exception e)
+        {
+            // Silently ignore
+            // We can't properly return error
+            // But atleast it will not crash or bug
+        }
     }
 }

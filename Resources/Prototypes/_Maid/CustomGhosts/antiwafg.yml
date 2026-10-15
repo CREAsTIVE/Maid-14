@@ -1,0 +1,16 @@
+- type: customGhost
+  id: magpie
+  category: personal
+  name: Магпай
+  desc: Уэуэуэ
+  mergeEntityComponents:
+  - type: Sprite
+    sprite: _Maid/CustomGhosts/magpie.rsi
+    layers:
+    - state: magpie
+      shader: unshaded
+      sprite: _Maid/CustomGhosts/magpie.rsi
+  restrictions:
+  - !type:CkeyRestriction
+    ckey:
+    - antiWAFG
