@@ -72,6 +72,9 @@ public sealed class CustomGhostSystem : EntitySystem
                     return;
             }
 
+            if (ghostProtoId == "default")
+                return; // They don't do anything, so should be fine
+
             component.Ghost = customGhost.ID;
             Dirty(uid, component);
 
@@ -79,7 +82,7 @@ public sealed class CustomGhostSystem : EntitySystem
             EntityManager.MergeEntityComponents(uid, customGhost.MergeEntityComponents, _serManager);
 
             // _meta.SetEntityName(uid, customGhost.DisplayName);
-            // _meta.SetEntityDescription(uid, customGhost.DisplayDesc);
+            _meta.SetEntityDescription(uid, customGhost.DisplayDesc);
         }
         catch (Exception e)
         {
