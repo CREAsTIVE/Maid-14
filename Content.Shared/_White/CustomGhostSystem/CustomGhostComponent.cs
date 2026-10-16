@@ -9,6 +9,6 @@ namespace Content.Shared._White.CustomGhostSystem;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class CustomGhostComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<CustomGhostPrototype>? Ghost;
 }

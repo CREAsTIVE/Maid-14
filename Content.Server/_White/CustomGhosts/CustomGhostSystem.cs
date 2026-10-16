@@ -72,13 +72,16 @@ public sealed class CustomGhostSystem : EntitySystem
                     return;
             }
 
+            if (ghostProtoId == "default")
+                return; // They don't do anything, so should be fine
+
             component.Ghost = customGhost.ID;
             Dirty(uid, component);
 
             EntityManager.AddComponents(uid, customGhost.AddComponents);
             EntityManager.MergeEntityComponents(uid, customGhost.MergeEntityComponents, _serManager);
 
-            _meta.SetEntityName(uid, customGhost.DisplayName); // We actually don't want that i think? # Maid Needed
+            _meta.SetEntityName(uid, $"{customGhost.DisplayName} ({Name(uid)})");
             _meta.SetEntityDescription(uid, customGhost.DisplayDesc);
         }
         catch (Exception e)

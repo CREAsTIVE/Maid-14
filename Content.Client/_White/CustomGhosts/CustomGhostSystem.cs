@@ -28,10 +28,10 @@ public sealed class CustomGhostSystem : EntitySystem
 
     private void OnAfterHandleState(Entity<CustomGhostComponent> ent, ref AfterAutoHandleStateEvent args)
     {
-        if (ent.Comp.Ghost == null)
+        if (ent.Comp.Ghost is not {} ghostProto || ghostProto == "default")
             return;
 
-        if (!_prototypeManager.TryIndex(ent.Comp.Ghost.Value, out var customGhost))
+        if (!_prototypeManager.TryIndex(ghostProto, out var customGhost))
             return;
 
         _entityManager.AddComponents(ent.Owner, customGhost.AddComponents, true);
