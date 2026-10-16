@@ -124,6 +124,8 @@
     - cigar7
     - cigar8
   - type: Appearance
+  - type: VendingPrice #Maid
+    price: 40 #Maid
 
 - type: entity
   id: CigarGoldCase

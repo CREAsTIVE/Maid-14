@@ -165,6 +165,8 @@
       - id: FoodSnackLunacake
     sound:
       path: /Audio/Effects/unwrap.ogg
+  - type: VendingPrice #Maid
+    price: 30 #Maid
 
 - type: entity
   parent: FoodSnackBase
@@ -201,6 +203,8 @@
       - id: FoodSnackMochicake
     sound:
       path: /Audio/Effects/unwrap.ogg
+  - type: VendingPrice #Maid
+    price: 30 #Maid
 
 - type: entity
   parent: FoodSnackBase
@@ -237,6 +241,8 @@
       - id: FoodSnackMooncake
     sound:
       path: /Audio/Effects/unwrap.ogg
+  - type: VendingPrice #Maid
+    price: 30 #Maid
 
 - type: entity
   parent: FoodSnackBase

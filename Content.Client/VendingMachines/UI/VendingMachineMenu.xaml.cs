@@ -262,6 +262,8 @@ namespace Content.Client.VendingMachines.UI
                 listData.Add(new VendorItemsListData(prototype.ID, i)
                 {
                     ItemText = itemText,
+                    // CREAsTIVE: WHAT THE FUCK you use that multiplier both in ui and in method that calculates price???
+                    // Its will be squared wtf are you doing (not touching that tho, maybe i'm just stupid idk, too lazy to dig into that shit)
                     Price = (int) (entry.Price * priceMultiplier), // Maid edit - economy
                 });
             }

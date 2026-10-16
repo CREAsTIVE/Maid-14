@@ -92,6 +92,8 @@
     tags:
     - WhitelistChameleon
     - Backpack
+  - type: VendingPrice #Maid
+    price: 40 #Maid
 
 - type: entity
   parent: ClothingBackpack

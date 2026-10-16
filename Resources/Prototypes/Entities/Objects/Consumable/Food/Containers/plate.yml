@@ -183,6 +183,8 @@
   - type: Tag
     tags:
     - Trash
+  - type: VendingPrice #Maid
+    price: 0 #Maid
 
 - type: entity
   name: plastic plate
@@ -205,6 +207,8 @@
   - type: Tag
     tags:
     - Trash
+  - type: VendingPrice #Maid
+    price: 0 #Maid
 
 # Pie Tin
 

@@ -148,6 +148,8 @@
     - outerClothing
   - type: Sprite
     state: icon
+  - type: VendingPrice #Maid
+    price: 25 #Maid
 
 - type: entity
   abstract: true
@@ -183,8 +185,8 @@
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
-  - type: StaticPrice
-    price: 70
+  - type: VendingPrice #Maid
+    price: 40 #Maid
 
 - type: entity
   abstract: true

@@ -21,6 +21,7 @@ using Content.Shared._Maid.Economy; // Maid edit - economy
 
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Server._Maid.Economy;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Advertise.Components;
@@ -394,7 +395,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     /// <summary>
     /// Base price of a newly stocked item.
     /// </summary>
-    protected virtual int GetEntryPrice(EntityPrototype prototype)
+    protected virtual int GetEntryPrice(EntityPrototype prototype, int? defaultPrice = null)
     {
         return 0;
     }
@@ -483,7 +484,10 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
                     // Maid edit start - economy
                     inventory.Add(id, new VendingMachineInventoryEntry(type, id, restock)
                     {
-                        Price = GetEntryPrice(PrototypeManager.Index<EntityPrototype>(id)),
+                        Price = GetEntryPrice(
+                            PrototypeManager.Index<EntityPrototype>(id),
+                            TryComp(uid, out VendingPriceComponent? priceComp) ? priceComp.Price : null
+                        ),
                     });
                     // Maid edit end
                 }

@@ -65,6 +65,8 @@
   - type: Tag # goob edit
     tags:
     - Mask
+  - type: VendingPrice #Maid
+    price: 15 #Maid
 
 - type: entity
   abstract: true

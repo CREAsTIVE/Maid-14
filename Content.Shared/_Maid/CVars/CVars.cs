@@ -109,13 +109,13 @@ public sealed class MaidCVars
     /// Multiplier applied to the estimated price of items sold by vending machines.
     /// </summary>
     public static readonly CVarDef<float> EconomyVendingPriceMultiplier =
-        CVarDef.Create("maid.economy.vending_price_multiplier", 2f, CVar.SERVERONLY);
+        CVarDef.Create("maid.economy.vending_price_multiplier", 1f, CVar.SERVERONLY);
 
     /// <summary>
     /// Price of vending machine items that have no estimated price.
     /// </summary>
     public static readonly CVarDef<int> EconomyVendingDefaultPrice =
-        CVarDef.Create("maid.economy.vending_default_price", 25, CVar.SERVERONLY);
+        CVarDef.Create("maid.economy.vending_default_price", 67676767, CVar.SERVERONLY);
 
     #endregion
 }

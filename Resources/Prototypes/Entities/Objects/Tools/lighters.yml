@@ -184,6 +184,8 @@
   - type: Tag #Goobstation - whitelisted cig pack strorage (added new tag)
     tags:
     - Lighter
+  - type: VendingPrice #Maid
+    price: 10 #Maid
 
 - type: entity
   name: cheap lighter
@@ -213,6 +215,8 @@
         - ReagentId: WeldingFuel
           Quantity: 4
         maxVol: 4 #uses less fuel than a welder, so this isnt as bad as it looks
+  - type: VendingPrice #Maid
+    price: 5 #Maid
 
 - type: entity
   name: flippo lighter
@@ -310,6 +314,8 @@
   - type: Tag
     tags:
       - Lighter #Goobstation - whitelisted cig pack strorage (added tag)
+  - type: VendingPrice #Maid
+    price: 15 #Maid
 
 - type: entity
   name: flippo engraved lighter

@@ -49,6 +49,8 @@
     guides:
     - Janitorial
   - type: DnaSubstanceTrace
+  - type: VendingPrice #Maid
+    price: 0 #Maid
 
 - type: entity
   id: MagicBroomstickVehicle

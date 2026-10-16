@@ -131,6 +131,8 @@
     - ClothMade
     - WhitelistChameleon
     - DroneUsable # Goobstation
+  - type: VendingPrice #Maid
+    price: 25 #Maid
 
 - type: entity
   abstract: true

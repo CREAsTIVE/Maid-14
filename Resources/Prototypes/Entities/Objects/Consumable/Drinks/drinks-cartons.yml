@@ -157,6 +157,8 @@
   - type: TrashOnSolutionEmpty
     solution: drink
   - type: DnaSubstanceTrace
+  - type: VendingPrice #Maid
+    price: 25 #Maid
 
 - type: entity
   parent: DrinkCartonBaseFull

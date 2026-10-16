@@ -211,7 +211,7 @@
 #goobstation edit start
 - type: entity
   abstract: true
-  parent: [ClothingHeadBase] 
+  parent: [ClothingHeadBase]
   id: ClothingHeadHatArmored
   components:
   - type: Armor # Goob
@@ -754,6 +754,8 @@
     tags:
     - PetWearable
     - CorgiWearable
+  - type: VendingPrice #Maid
+    price: 25 #Maid
 
 - type: entity
   parent: ClothingHeadBase
@@ -913,6 +915,8 @@
         color: "#a60b0b"
       - state: pompom-equipped-HELMET
         color: "#a60b0b"
+  - type: VendingPrice #Maid
+    price: 25 #Maid
 
 - type: entity
   parent: ClothingHeadBase # Goob edit
@@ -1027,6 +1031,8 @@
     sprite: Clothing/Head/Hats/xmascrown.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/xmascrown.rsi
+  - type: VendingPrice #Maid
+    price: 25 #Maid
 
 - type: entity
   parent: ClothingHeadBase

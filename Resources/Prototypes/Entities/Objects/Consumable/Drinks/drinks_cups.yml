@@ -172,6 +172,8 @@
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Glass: 100
+  - type: VendingPrice #Maid
+    price: 20 #Maid
 
 - type: entity
   parent: DrinkBaseCup

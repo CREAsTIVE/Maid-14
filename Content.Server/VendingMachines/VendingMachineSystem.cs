@@ -145,9 +145,9 @@ namespace Content.Server.VendingMachines
         }
 
         // Maid edit start - economy
-        protected override int GetEntryPrice(EntityPrototype prototype)
+        protected override int GetEntryPrice(EntityPrototype prototype, int? defaultPrice = null)
         {
-            return _economy.GetItemPrice(prototype);
+            return _economy.GetItemPrice(prototype, defaultPrice);
         }
         // Maid edit end
 

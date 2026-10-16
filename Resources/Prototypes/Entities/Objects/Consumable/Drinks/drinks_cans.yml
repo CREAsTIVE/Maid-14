@@ -203,6 +203,8 @@
     tags:
     - DrinkCan
   - type: DnaSubstanceTrace
+  - type: VendingPrice #Maid
+    price: 20 #Maid
 
 - type: entity
   parent: DrinkCanBaseFull
@@ -442,6 +444,8 @@
   - type: Drink
   - type: Sprite
     sprite: Objects/Consumable/Drinks/sodawater.rsi
+  - type: VendingPrice #Maid
+    price: 20 #Maid
 
 - type: entity
   parent: DrinkCanBaseFull

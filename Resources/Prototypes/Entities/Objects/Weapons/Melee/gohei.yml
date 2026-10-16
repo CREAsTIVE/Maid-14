@@ -33,3 +33,5 @@
   - type: Item
     size: Small
     sprite: Objects/Weapons/Melee/gohei.rsi
+  - type: VendingPrice #Maid
+    price: 0 #Maid

@@ -1776,6 +1776,8 @@
     entries:
       Taco: Poppy
       Burger: Poppy
+  - type: VendingPrice #Maid
+    price: 25 #Maid
 
 - type: entity
   name: lily

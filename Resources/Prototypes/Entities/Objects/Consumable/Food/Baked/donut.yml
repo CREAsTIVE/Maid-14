@@ -46,6 +46,8 @@
   - type: Item
     sprite: Objects/Consumable/Food/Baked/donut.rsi
     size: Tiny
+  - type: VendingPrice #Maid
+    price: 16 #Maid
 
 - type: entity
   abstract: true

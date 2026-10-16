@@ -215,6 +215,8 @@
     sprite: _Maid/Clothing/Shoes/Boots/winterboots.rsi # Maid
   - type: Clothing
     sprite: _Maid/Clothing/Shoes/Boots/winterboots.rsi # Maid
+  - type: VendingPrice #Maid
+    price: 25 #Maid
 
 - type: entity
   parent: ClothingShoesBaseWinterBoots
@@ -331,6 +333,8 @@
       params:
         # variation: 0.09 # MAID sound-porting
         volume: -6
+  - type: VendingPrice #Maid
+    price: 25 #Maid
 
 - type: entity
   parent: ClothingShoesBootsCowboyBrown

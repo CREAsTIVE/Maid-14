@@ -171,6 +171,8 @@
     - cig5
     - cig6
   - type: Appearance
+  - type: VendingPrice #Maid
+    price: 10 #Maid
 
 - type: entity
   id: CigPackMixedBase
@@ -241,6 +243,8 @@
     - cig5
     - cig6
   - type: Appearance
+  - type: VendingPrice #Maid
+    price: 10 #Maid
 
 - type: entity
   id: CigPackGreen

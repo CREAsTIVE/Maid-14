@@ -99,6 +99,8 @@
       - Packet
   - type: ExaminableSolution
     exactVolume: true
+  - type: VendingPrice #Maid
+    price: 5 #Maid
 
 - type: entity
   parent: BaseFoodCondimentPacket

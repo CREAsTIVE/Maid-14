@@ -44,3 +44,5 @@
   - type: Tag
     tags:
     - Trash
+  - type: VendingPrice #Maid
+    price: 5 #Maid

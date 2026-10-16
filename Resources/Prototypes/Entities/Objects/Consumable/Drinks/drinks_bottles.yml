@@ -862,6 +862,8 @@
   - type: Tag # Goobstation
     tags:
     - DrinkBottle
+  - type: VendingPrice #Maid
+    price: 20 #Maid
 
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassSmallBaseFull]

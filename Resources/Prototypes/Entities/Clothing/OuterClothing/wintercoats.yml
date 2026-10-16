@@ -151,8 +151,8 @@
     - Recyclable
     - WhitelistChameleon
     - WinterCoat # Goobstation
-  - type: StaticPrice
-    price: 50
+#  - type: StaticPrice #Maid
+#    price: 50 #Maid
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Cloth: 125

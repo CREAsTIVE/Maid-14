@@ -185,6 +185,7 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
+    priceMultiplier: 0 #Maid
   - type: Advertise
     pack: MailDrobeAds
   - type: Sprite

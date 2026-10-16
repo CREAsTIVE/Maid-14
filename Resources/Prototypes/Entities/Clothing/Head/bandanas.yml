@@ -114,6 +114,8 @@
     - ClothMade
     - Recyclable
     - WhitelistChameleon
+  - type: VendingPrice #Maid
+    price: 25 #Maid
 
 - type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandBlack]

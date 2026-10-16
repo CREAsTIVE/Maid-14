@@ -72,6 +72,8 @@
     damage:
       types:
         Blunt: 0
+  - type: VendingPrice #Maid
+    price: 0 #Maid
 
 - type: entity
   parent: UtensilBase

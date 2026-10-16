@@ -31,6 +31,8 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Drinks/shakerblack.rsi
     state: icon
+  - type: VendingPrice #Maid
+    price: 30 #Maid
 
 - type: entity
   parent: DrinkFitnessShakerBlack

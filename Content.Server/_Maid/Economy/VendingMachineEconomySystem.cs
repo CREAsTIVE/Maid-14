@@ -29,6 +29,7 @@ public sealed class VendingMachineEconomySystem : EntitySystem
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
 
     private static readonly ProtoId<TagPrototype> IgnoreBalanceChecksTag = "IgnoreBalanceChecks";
 
@@ -44,10 +45,17 @@ public sealed class VendingMachineEconomySystem : EntitySystem
     /// <summary>
     /// Base price of an item sold by vending machines.
     /// </summary>
-    public int GetItemPrice(EntityPrototype prototype)
+    public int GetItemPrice(EntityPrototype prototype, int? defaultPrice = null)
     {
-        var price = (int) _pricing.GetEstimatedPrice(prototype);
-        if (price <= 0)
+        var price = 0;
+
+        if (prototype.TryGetComponent(out VendingPriceComponent? priceComponent, _componentFactory))
+            price = priceComponent.Price;
+
+        else if (defaultPrice is { } something)
+            price = something;
+
+        else
             price = _cfg.GetCVar(MaidCVars.EconomyVendingDefaultPrice);
 
         return (int) (price * _cfg.GetCVar(MaidCVars.EconomyVendingPriceMultiplier));

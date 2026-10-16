@@ -101,6 +101,8 @@
     materialComposition:
       Cloth: 75
   - type: SuitSensorShockable # Goobstation
+  - type: VendingPrice #Maid
+    price: 30 #Maid
 
 - type: entity
   abstract: true

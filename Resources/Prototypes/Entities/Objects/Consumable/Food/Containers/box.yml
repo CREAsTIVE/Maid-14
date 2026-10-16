@@ -669,6 +669,8 @@
       - id: GoldenBikeHorn
         prob: 0.1
         orGroup: GiftPool
+  - type: VendingPrice #Maid
+    price: 30 #Maid
 
 - type: entity
   id: HappyHonkMime

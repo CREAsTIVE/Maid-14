@@ -40,6 +40,7 @@
     Wrench: 3 #Maid
     Screwdriver: 3 #Maid
     trayScanner: 3 #Maid
+    Multitool: 2 #Maid
     NetworkConfigurator: 3
     GasAnalyzer: 3
     FlashlightLantern: 5

@@ -9,6 +9,7 @@
     pack: MNKDrobeInventory
     offState: off
     brokenState: broken
+    priceMultiplier: 0 #Maid
   - type: Sprite
     sprite: _Maid/Structures/Machines/VendingMachines/Nyano/mnkdrobe.rsi
     layers:

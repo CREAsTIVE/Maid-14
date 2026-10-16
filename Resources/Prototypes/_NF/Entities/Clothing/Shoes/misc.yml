@@ -8,3 +8,5 @@
     sprite: _NF/Clothing/Shoes/Misc/clothwrap.rsi
   - type: Clothing
     sprite: _NF/Clothing/Shoes/Misc/clothwrap.rsi
+  - type: VendingPrice #Maid
+    price: 15 #Maid
