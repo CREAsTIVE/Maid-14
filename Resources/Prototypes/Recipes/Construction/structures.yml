@@ -1492,3 +1492,29 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false #Maid end
+
+- type: construction #Maid begin
+  id: CargoPallet
+  graph: CargoPallet
+  startNode: start
+  targetNode: CargoPallet
+  category: construction-category-structures
+  conditions:
+    - !type:TileNotBlocked
+      failIfSpace: false
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false #Maid end
+
+- type: construction #Maid begin
+  id: CargoPalletSell
+  graph: CargoPalletSell
+  startNode: start
+  targetNode: CargoPalletSell
+  category: construction-category-structures
+  conditions:
+    - !type:TileNotBlocked
+      failIfSpace: false
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false #Maid end
