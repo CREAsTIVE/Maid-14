@@ -1468,3 +1468,11 @@ Entries:
         Warete + Creastive).
   id: 141
   time: '2026-10-16T06:55:10.0000000+00:00'
+- author: antiWAFG1
+  changes:
+    - type: Add
+      message: 'Добавлен крафт поддона. '
+    - type: Add
+      message: 'Добавлен крафт продающего поддона. '
+  id: 142
+  time: '2026-10-17T09:30:02.0000000+00:00'
