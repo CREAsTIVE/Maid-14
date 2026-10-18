@@ -44,7 +44,7 @@
     Bucket: 3
     BoxMouthSwab: 1
     Eftpos: 4 # Maid edit - economy
-#    BoxAgrichem: 1 #Maid
+    BoxAgrichem: 1 #Maid
     #TO DO:
     #plant analyzer
   contrabandInventory:
