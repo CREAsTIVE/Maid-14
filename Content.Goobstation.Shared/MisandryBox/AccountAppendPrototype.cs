@@ -13,7 +13,7 @@ using Robust.Shared.Serialization.Manager.Attributes;
 namespace Content.Goobstation.Shared.MisandryBox;
 
 [Prototype("AccountAppend")]
-public sealed class AccountAppendPrototype : IPrototype
+public sealed partial class AccountAppendPrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private init; } = null!;
