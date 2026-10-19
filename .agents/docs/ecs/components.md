@@ -1,6 +1,6 @@
 # Components
 
-Engine-level facts about components. Replication of component data is in `networking.md`. See `../ECS.md` for the overview.
+Engine-level facts about components. Replication of component data is in `networking.md`. See `../ecs.md` for the overview.
 
 ## Declaration (the attribute vocabulary)
 ```

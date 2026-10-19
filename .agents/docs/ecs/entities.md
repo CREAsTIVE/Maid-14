@@ -1,6 +1,6 @@
 # Entities
 
-Engine-level facts about entities. See `../ECS.md` for the overview.
+Engine-level facts about entities. See `../ecs.md` for the overview.
 
 ## Identifiers
 - `EntityUid` — a struct wrapping an `int Id`. Local to one process (server and client numbers for the same entity differ). `EntityUid.Invalid` is `0`; `Valid`/`IsValid()` means `Id > 0`. `EntityUid?` is used for "maybe no entity".

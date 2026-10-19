@@ -1,6 +1,6 @@
 # Systems index
 
-Index of content systems: what each owns and the facts needed to talk to it. Engine-level ECS mechanics (events, components, networking) are in `ECS.md`.
+Index of content systems: what each owns and the facts needed to talk to it. Engine-level ECS mechanics (events, components, networking) are in `ecs.md`.
 
 **Layout:** this file is the index and quick reference. Each system gets (or will get) a detailed doc at `systems/<system>.md`; when one exists, prefer it and keep the entry here short with a pointer. Content is large and forked (Goob + others); fork-specific edits show up as `// Goobstation`, `// WD EDIT`, `// Shitmed`, `<Trauma>`, `// MAID` markers. Systems live in `Content.Shared/<Area>` unless noted.
 
