@@ -10,8 +10,6 @@ namespace Content.Server._Maid.Toolshed.Commands;
 [ToolshedCommand(Name = "mindutils"), AdminCommand(AdminFlags.Fun), AdminCommand(AdminFlags.Debug)]
 public sealed class MindUtilsCommands : ToolshedCommand
 {
-    private MindSystem? _mind;
-
     [CommandImplementation("controlmob")]
     public EntityUid ControlMob(
         IInvocationContext ctx,
@@ -21,8 +19,8 @@ public sealed class MindUtilsCommands : ToolshedCommand
         if (!EntityManager.EntityExists(target))
             return target;
 
-        _mind ??= GetSys<MindSystem>();
-        _mind.ControlMob(player.UserId, target);
+        var mind = GetSys<MindSystem>();
+        mind.ControlMob(player.UserId, target);
         return target;
     }
 
