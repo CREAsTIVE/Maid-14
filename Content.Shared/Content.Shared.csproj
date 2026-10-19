@@ -40,6 +40,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   <Import Project="..\MSBuild\Content.props" /> <!-- MAID rt-update -->
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
+    <PackageReference Include="YamlDotNet" /> <!-- MAID rt-update -->
+    <PackageReference Include="Serilog" /> <!-- MAID rt-update -->
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Content.Goobstation.Common\Content.Goobstation.Common.csproj" />

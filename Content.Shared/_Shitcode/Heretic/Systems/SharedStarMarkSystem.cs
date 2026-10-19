@@ -206,7 +206,7 @@ public abstract class SharedStarMarkSystem : EntitySystem
         if (_net.IsClient)
             return;
 
-        var spawnCoords = coords.SnapToGrid(EntityManager, _mapMan);
+        var spawnCoords = coords.SnapToGrid(EntityManager);
 
         var lookup = _lookup.GetEntitiesInRange<CosmicFieldComponent>(spawnCoords, 0.1f, LookupFlags.Static);
         if (lookup.Count > 0)

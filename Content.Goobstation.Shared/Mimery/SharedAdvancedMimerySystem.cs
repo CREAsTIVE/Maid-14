@@ -71,7 +71,7 @@ public abstract class SharedAdvancedMimerySystem : EntitySystem
         foreach (var position in _magic.GetInstantSpawnPositions(transform, new TargetInFront()))
         {
             args.Handled = true;
-            PredictedSpawnAttachedTo(ent.Comp.WallPrototype, position.SnapToGrid(EntityManager, _mapMan));
+            PredictedSpawnAttachedTo(ent.Comp.WallPrototype, position.SnapToGrid(EntityManager));
         }
 
         if (!args.Handled)

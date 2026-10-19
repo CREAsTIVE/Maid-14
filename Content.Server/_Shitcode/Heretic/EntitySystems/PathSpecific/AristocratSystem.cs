@@ -277,7 +277,7 @@ public sealed class AristocratSystem : EntitySystem
             {
                 var offset = new Vector2(x, y);
 
-                var pos = coords.Offset(offset).SnapToGrid(EntityManager, _mapMan);
+                var pos = coords.Offset(offset).SnapToGrid(EntityManager);
                 tiles.Add(pos);
             }
         }

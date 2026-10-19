@@ -50,7 +50,7 @@ public sealed class MegafaunaBlinkSystem : EntitySystem
                 continue;
             }
 
-            _xform.SetCoordinates(uid, blink.Coordinates.SnapToGrid(EntityManager, _mapMan));
+            _xform.SetCoordinates(uid, blink.Coordinates.SnapToGrid(EntityManager));
             _audio.PlayPredicted(blink.Sound, blink.Coordinates, uid);
             RemComp(uid, blink);
         }
