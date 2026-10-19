@@ -1,7 +1,7 @@
 # Maid-14 architecture
 
 Maid-14 = Space Station 14 (SS14) on the **RobustToolbox** engine (C#/.NET 9, YAML data, Fluent localisation), forked through Goob Station. Docs in this folder:
-- `ECS.md` — entities, components, systems (engine mechanics), events, networking.
+- `ECS.md` — ECS overview and index of the engine-mechanics files in `ecs/` (`entities.md`, `components.md`, `networking.md`, `systems-engine.md`).
 - `systems.md` — index of content systems with key facts. Detailed per-system docs live in `systems/<system>.md` (one file per system, added over time; subsystems may get their own files).
 - `rsi.md` — sprite packaging, sprite layers, the Appearance bridge, equipment art naming.
 
@@ -38,7 +38,7 @@ Maid-14 = Space Station 14 (SS14) on the **RobustToolbox** engine (C#/.NET 9, YA
 ```
 - **Shared logic runs on both sides**: the client executes it *predictively* for the local player and gets corrected by authoritative server state. This is why gameplay rules (interaction, hands, inventory, damage, doors, locks, storage) live in `Content.Shared`.
 - Per-feature split: `Shared…System` (rules), server part (side effects that need authority; guarded with `_net.IsServer` when a shared path needs it), client part (visuals/UI, guarded with `_timing.IsFirstTimePredicted` for one-shot effects).
-- **Data flow**: input → client `InputSystem` → command binding (e.g. interaction `Use`) → shared system runs (predicted) *and* the input is sent to the server → server runs the same shared code → components are `Dirty`'d → game state sent to clients in PVS → client applies state (`ComponentHandleState`) → visuals update via Appearance/visualizers. Details in `ECS.md` §2.
+- **Data flow**: input → client `InputSystem` → command binding (e.g. interaction `Use`) → shared system runs (predicted) *and* the input is sent to the server → server runs the same shared code → components are `Dirty`'d → game state sent to clients in PVS → client applies state (`ComponentHandleState`) → visuals update via Appearance/visualizers. Details in `ecs/networking.md`.
 - **Client-only components** (e.g. `SpriteComponent`, visualizers) appear in shared prototypes; the server skips them via the explicit `IgnoredComponents.List` in `Content.Server/Entry/` and by ignoring any missing component whose name ends in `Visuals`. **Server-only components** (e.g. power net nodes) are skipped on the client because the client calls `IgnoreMissingComponents()` (any component type it doesn't know is silently ignored). A *new* client-only component therefore needs an entry in the server ignore list or the server errors on the prototype.
 - **Entry points**: each Content project has `Entry/EntryPoint.cs` registering IoC services and starting module init.
 
