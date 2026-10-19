@@ -8,7 +8,7 @@ RobustToolbox ECS as used by Maid-14. **Entity** = id (`EntityUid`, `NetEntity` 
 | `ecs/components.md` | declaring components (attributes), lifecycle events, accessing/adding/removing, queries |
 | `ecs/networking.md` | `Dirty`, component state get/handle, auto-generated states, prediction helpers |
 | `ecs/systems-engine.md` | system shape, subscriptions, event kinds and raising, relay, time, localisation |
-| `systems.md` | index of content systems (Interaction, Hands, Damage, ...) |
+| `systems.md` | entry point for per-system docs of content systems (none documented yet) |
 | `rsi.md` | sprites, RSI, Appearance |
 
 Quick orientation:
