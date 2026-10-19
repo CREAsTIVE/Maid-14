@@ -481,7 +481,7 @@ public abstract partial class SharedSurgerySystem
             return;
 
         var organType = ent.Comp.Organ.Values.FirstOrDefault();
-        if (organType == default)
+        if (organType.Component == null) // MAID rt-update
             return;
 
         var markingCategory = MarkingCategoriesConversion.FromHumanoidVisualLayers(ent.Comp.MarkingCategory);

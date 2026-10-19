@@ -10,6 +10,7 @@
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Weapons.Ranged.Components;
+using Robust.Shared.Prototypes; // MAID rt-update
 using Content.Shared.Weapons.Ranged.Events;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
