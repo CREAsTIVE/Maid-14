@@ -2,7 +2,7 @@
 
 Maid-14 is a fork of Goob Station, which itself descends from Space Station 14 (SS14). It is a multiplayer 2D game built on the RobustToolbox engine. This document describes the big picture; the detailed concepts live in the sibling documents:
 
-- `component.md` — what components are and how they behave
+- `ECS.md` — entities and components: identity, lifecycle, data, networking, composition (`entity.md` is a pointer to it)
 - `systems.md` — what systems are, how they talk to each other, and which ones are used most
 - `rsi.md` — how sprites and their animation state are packaged
 
@@ -28,7 +28,7 @@ The fork-specific layers (upstream Goob content and Maid's own content) follow t
 
 All game objects are **entities**. An entity is nothing but an identifier plus a bag of components; it has no behavior and no type of its own.
 
-- **Components** are pure data attached to an entity. The set of components on an entity *is* what that entity is. See `component.md`.
+- **Components** are pure data attached to an entity. The set of components on an entity *is* what that entity is. See `ECS.md`.
 - **Systems** are the behavior. Each system owns the logic for one concern and operates on every entity that has the relevant components. See `systems.md`.
 - **Prototypes** are YAML templates that say "an entity of this kind starts with these components, with these values". Spawning an entity means instantiating a prototype. Prototypes can inherit from parents, so large families of items share a base and override details.
 

@@ -1,6 +1,6 @@
 # Systems
 
-A **system** owns the behavior for one concern. Entities supply data through components (see `component.md`); systems supply the rules. There is normally exactly one instance of each system, and it serves every entity that carries its components.
+A **system** owns the behavior for one concern. Entities supply data through components (see `ECS.md`); systems supply the rules. There is normally exactly one instance of each system, and it serves every entity that carries its components.
 
 ## Role of a system
 
