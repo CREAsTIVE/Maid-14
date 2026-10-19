@@ -729,7 +729,6 @@
     - SheetRPGlassLingering0
     - SheetPlasteelLingering0
     - PartRodMetalLingering0
-    - FloorTileItemSteelLingering0
     - FloorTileItemWhiteLingering0
     - FloorTileItemDarkLingering0
     # Frontier: droppable borg items
@@ -745,6 +744,10 @@
       whitelist:
         components:
         - StockPart
+    - id: FloorTileItemWhite
+      whitelist:
+        components:
+        - FloorTile
     # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: construction-module }
