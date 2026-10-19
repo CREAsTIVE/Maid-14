@@ -99,7 +99,8 @@ namespace Content.Server.Shuttles.Systems
             SubscribeLocalEvent<DockingComponent, ComponentStartup>(OnStartup);
             SubscribeLocalEvent<DockingComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<DockingComponent, AnchorStateChangedEvent>(OnAnchorChange);
-            SubscribeLocalEvent<DockingComponent, ReAnchorEvent>(OnDockingReAnchor);
+            // MAID rt-update ReAnchorEvent removed in RT 292, AnchorStateChangedEvent is raised instead
+            // SubscribeLocalEvent<DockingComponent, ReAnchorEvent>(OnDockingReAnchor);
 
             SubscribeLocalEvent<DockingComponent, BeforeDoorAutoCloseEvent>(OnAutoClose);
 
@@ -233,6 +234,8 @@ namespace Content.Server.Shuttles.Systems
             }
         }
 
+        // MAID BEGIN rt-update ReAnchorEvent removed
+        /*
         private void OnDockingReAnchor(Entity<DockingComponent> entity, ref ReAnchorEvent args)
         {
             var uid = entity.Owner;
@@ -248,6 +251,8 @@ namespace Content.Server.Shuttles.Systems
             Dock((uid, component), (otherDock.Value, other));
             _console.RefreshShuttleConsoles();
         }
+        */
+        // MAID END rt-update ReAnchorEvent removed
 
         /// <summary>
         /// Docks 2 ports together and assumes it is valid.

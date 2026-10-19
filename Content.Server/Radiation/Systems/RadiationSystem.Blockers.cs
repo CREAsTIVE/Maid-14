@@ -19,7 +19,8 @@ public partial class RadiationSystem
         SubscribeLocalEvent<RadiationBlockerComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<RadiationBlockerComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<RadiationBlockerComponent, AnchorStateChangedEvent>(OnAnchorChanged);
-        SubscribeLocalEvent<RadiationBlockerComponent, ReAnchorEvent>(OnReAnchor);
+        // MAID rt-update ReAnchorEvent removed in RT 292, AnchorStateChangedEvent is raised instead
+        // SubscribeLocalEvent<RadiationBlockerComponent, ReAnchorEvent>(OnReAnchor);
 
         SubscribeLocalEvent<RadiationBlockerComponent, DoorStateChangedEvent>(OnDoorChanged);
 
@@ -52,6 +53,8 @@ public partial class RadiationSystem
         }
     }
 
+    // MAID BEGIN rt-update ReAnchorEvent removed
+    /*
     private void OnReAnchor(EntityUid uid, RadiationBlockerComponent component, ref ReAnchorEvent args)
     {
         // probably grid was split
@@ -60,6 +63,8 @@ public partial class RadiationSystem
         // and move it to the new one
         AddTile(uid, component);
     }
+    */
+    // MAID END rt-update ReAnchorEvent removed
 
     private void OnDoorChanged(EntityUid uid, RadiationBlockerComponent component, DoorStateChangedEvent args)
     {
