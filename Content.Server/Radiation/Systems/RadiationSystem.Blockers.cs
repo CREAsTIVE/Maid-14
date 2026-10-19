@@ -4,6 +4,8 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Robust.Shared.GameObjects; // MAID rt-update
+using Robust.Shared.IoC; // MAID rt-update
 using Content.Server.Radiation.Components;
 using Content.Shared.Doors;
 using Content.Shared.Doors.Components;
@@ -14,6 +16,7 @@ namespace Content.Server.Radiation.Systems;
 // create and update map of radiation blockers
 public partial class RadiationSystem
 {
+    private static SharedMapSystem RtMapSystem => IoCManager.Resolve<IEntityManager>().System<SharedMapSystem>(); // MAID rt-update
     private void InitRadBlocking()
     {
         SubscribeLocalEvent<RadiationBlockerComponent, ComponentInit>(OnInit);
@@ -119,7 +122,7 @@ public partial class RadiationSystem
 
         // save resistance into rad protection grid
         var gridId = trs.GridUid.Value;
-        var tilePos = grid.TileIndicesFor(trs.Coordinates);
+        var tilePos = RtMapSystem.TileIndicesFor(grid.Owner, grid, trs.Coordinates);
         AddToTile(gridId, tilePos, component.RadResistance);
 
         // and remember it as last valid position

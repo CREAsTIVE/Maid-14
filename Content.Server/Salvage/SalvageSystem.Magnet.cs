@@ -474,7 +474,9 @@ public sealed partial class SalvageSystem
 
             // This doesn't stop it from spawning on top of random things in space
             // Might be better like this, ghosts could stop it before
-            if (_mapSystem.FindGridsIntersecting(finalCoords.MapId, box2Rot).Any())
+            var intersectingGrids = new List<Entity<MapGridComponent>>(); // MAID rt-update
+            _mapSystem.FindGridsIntersecting(finalCoords.MapId, box2Rot, ref intersectingGrids); // MAID rt-update
+            if (intersectingGrids.Count > 0)
             {
                 // Bump it further and further just in case.
                 fraction += 0.1f;

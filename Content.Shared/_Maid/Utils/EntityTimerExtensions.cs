@@ -27,6 +27,11 @@ public static class EntityTimerExtensions
         }, cancellationToken);
     }
 
+    public static void SpawnTimer(this EntityUid uid, TimeSpan delay, Action onFired, CancellationToken cancellationToken = default)
+    {
+        uid.SpawnTimer((int) delay.TotalMilliseconds, onFired, cancellationToken);
+    }
+
     public static void SpawnRepeatingTimer(this EntityUid uid, TimeSpan interval, Action onFired, CancellationToken cancellationToken)
     {
         var entMan = IoCManager.Resolve<IEntityManager>();
