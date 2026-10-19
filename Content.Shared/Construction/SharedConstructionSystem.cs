@@ -44,7 +44,7 @@ namespace Content.Shared.Construction
             if (!_mapSystem.TryFindGridAt(coords, out _, out var grid))
                 return null;
 
-            var ignored = grid.GetAnchoredEntities(coords).ToHashSet();
+            var ignored = _mapSystem.GetAnchoredEntities(grid.Owner, grid, coords).ToHashSet();
             return e => ignored.Contains(e);
         }
 

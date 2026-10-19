@@ -38,7 +38,10 @@ public static class MergeComponentsExtensions
             // (we actually can try to deserialize into existing live component, but i don't sure thats possible with given API)
             var existingComponentNode = (MappingDataNode) serialization.WriteValue(existingComp.GetType(), existingComp);
 
-            var mergedComponentNode = serialization.CombineMappings(entry.Mapping, existingComponentNode);
+            // RT 278+ no longer keeps the raw yaml MappingDataNode on ComponentRegistryEntry, so we re-serialize the
+            // registry component instead. Fields equal to the type default are omitted, see RT_UPDATE/CONTROVERSIAL.md
+            var entryNode = (MappingDataNode) serialization.WriteValue(entry.Component.GetType(), entry.Component);
+            var mergedComponentNode = serialization.CombineMappings(entryNode, existingComponentNode);
 
             var mergedComp = (IComponent) serialization.Read(existingComp.GetType(), mergedComponentNode, notNullableOverride: true)!;
 

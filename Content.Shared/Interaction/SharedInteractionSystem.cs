@@ -1068,7 +1068,7 @@ namespace Content.Shared.Interaction
                 }
 
                 if (ignoreAnchored && _mapSystem.TryFindGridAt(targetCoords, out _, out var grid))
-                    ignored.UnionWith(grid.GetAnchoredEntities(targetCoords));
+                    ignored.UnionWith(_mapSystem.GetAnchoredEntities(grid.Owner, grid, targetCoords));
             }
 
             Ignored combinedPredicate = e => e == target || (predicate?.Invoke(e) ?? false) || ignored.Contains(e);

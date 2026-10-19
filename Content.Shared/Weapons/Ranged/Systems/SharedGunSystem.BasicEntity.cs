@@ -54,7 +54,7 @@ public abstract partial class SharedGunSystem
             }
 
             // Goob edit start
-            var proto = component.Proto ?? prototypes!.Pick(Random);
+            EntProtoId proto = component.Proto ?? prototypes!.Pick(Random).Id; // MAID rt-update
             var ent = Spawn(proto, args.Coordinates);
             // Goob edit end
             args.Ammo.Add((ent, EnsureShootable(ent)));

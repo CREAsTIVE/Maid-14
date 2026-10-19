@@ -61,7 +61,7 @@ public sealed class EntityShapeSystem : EntitySystem
     public void SpawnEntityShape(EntityShape shape, EntityUid target, EntProtoId spawnId, out List<EntityUid> spawned, bool alignTile = false)
     {
         var coords = alignTile
-            ? Transform(target).Coordinates.AlignWithClosestGridTile(1.5f, EntityManager, _mapMan)
+            ? Transform(target).Coordinates.AlignWithClosestGridTile(1.5f, EntityManager) /* MAID rt-update */
             : Transform(target).Coordinates;
 
         SpawnEntityShape(shape, coords, spawnId, out spawned);
