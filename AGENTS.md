@@ -24,6 +24,6 @@
   - `{change}`: short, consistent 2–5 word task label.
 
 ## Documentation
-- Project knowledge base for agents lives in `.agents/docs/`; start with `.agents/docs/ARCHITECTURE.md`.
-- `.agents/docs/ecs.md` is the ECS overview (entities, components, systems, with details in `.agents/docs/ecs/`); `.agents/docs/systems.md` indexes content systems (per-system docs go in `.agents/docs/systems/<system>.md`); `.agents/docs/rsi.md` covers sprites/RSI/Appearance.
+- Project knowledge base for agents lives in `.claude/docs/`; start with `.claude/docs/ARCHITECTURE.md`.
+- `.claude/docs/ecs.md` is the ECS overview (entities, components, systems, with details in `.claude/docs/ecs/`); `.claude/docs/systems.md` indexes content systems (per-system docs go in `.claude/docs/systems/<system>.md`); `.claude/docs/rsi.md` covers sprites/RSI/Appearance.
 - Read the relevant docs before studying code from scratch.
