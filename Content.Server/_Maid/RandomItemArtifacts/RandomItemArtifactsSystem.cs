@@ -11,6 +11,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -52,7 +53,7 @@ public sealed class RandomItemArtifactsSystem : StationEventSystem<RandomItemArt
             if (iter > 5)
                 return;
 
-            if (HasComp<ItemComponent>(ent))
+            if (HasComp<ItemComponent>(ent) && !HasComp<MindContainerComponent>(ent))
                 items.Add(ent);
 
             // Inventory
