@@ -12,8 +12,8 @@ public sealed class MindUtilsCommands : ToolshedCommand
 {
     private MindSystem? _mind;
 
-    [CommandImplementation("control")]
-    public EntityUid Control(
+    [CommandImplementation("controlmob")]
+    public EntityUid ControlMob(
         IInvocationContext ctx,
         [PipedArgument] EntityUid target,
         ICommonSession player)
@@ -26,8 +26,8 @@ public sealed class MindUtilsCommands : ToolshedCommand
         return target;
     }
 
-    [CommandImplementation("control")]
-    public EntityUid Control(
+    [CommandImplementation("controlmob")]
+    public EntityUid ControlMob(
         IInvocationContext ctx,
         [PipedArgument] EntityUid target)
     {
@@ -37,6 +37,6 @@ public sealed class MindUtilsCommands : ToolshedCommand
             return target;
         }
 
-        return Control(ctx, target, player);
+        return ControlMob(ctx, target, player);
     }
 }
