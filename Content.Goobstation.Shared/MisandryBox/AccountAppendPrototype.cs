@@ -16,12 +16,12 @@ namespace Content.Goobstation.Shared.MisandryBox;
 public sealed partial class AccountAppendPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; private init; } = null!;
+    public string ID { get; private set; } = null!;
 
     [DataField("userid", customTypeSerializer: typeof(GuidSerializer))]
-    public Guid Userid { get; private init; } = Guid.Empty;
+    public Guid Userid { get; private set; } = Guid.Empty;
 
     // I am not dragging the whole compReg for this
     [DataField("AppendComps")]
-    public List<string> Components { get; init; } = [];
+    public List<string> Components { get; set; } = [];
 }

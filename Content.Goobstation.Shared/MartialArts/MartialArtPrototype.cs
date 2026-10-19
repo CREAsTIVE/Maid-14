@@ -24,7 +24,7 @@ namespace Content.Goobstation.Shared.MartialArts;
 public sealed partial class MartialArtPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; private init; } = default!;
+    public string ID { get; private set; } = default!;
 
     [DataField]
     public MartialArtsForms MartialArtsForm = MartialArtsForms.CloseQuartersCombat;

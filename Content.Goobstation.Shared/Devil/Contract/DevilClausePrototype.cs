@@ -13,7 +13,7 @@ namespace Content.Goobstation.Shared.Devil.Contract;
 public sealed partial class DevilClausePrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; private init; } = default!;
+    public string ID { get; private set; } = default!;
 
     [DataField(required: true)]
     public int ClauseWeight;
