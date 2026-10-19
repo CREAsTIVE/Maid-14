@@ -27,3 +27,4 @@
 - Project knowledge base for agents lives in `.claude/docs/`; start with `.claude/docs/ARCHITECTURE.md`.
 - `.claude/docs/ecs.md` is the ECS overview (entities, components, systems, with details in `.claude/docs/ecs/`); `.claude/docs/systems.md` is the entry point for content systems (per-system docs go in `.claude/docs/systems/<system>.md`); `.claude/docs/rsi.md` covers sprites/RSI/Appearance.
 - Read the relevant docs before studying code from scratch.
+- When writing, updating or auditing these docs, use the `doc-writer` skill (`.claude/skills/doc-writer`).
