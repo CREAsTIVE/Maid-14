@@ -17,7 +17,7 @@ public sealed partial class CustomGhostPrototype : IPrototype, IInheritingProtot
     [ViewVariables]
     [NeverPushInheritance]
     [AbstractDataField]
-    public bool Abstract { get; }
+    public bool Abstract { get; private set; }
 
     [ViewVariables]
     [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<CustomGhostPrototype>))]

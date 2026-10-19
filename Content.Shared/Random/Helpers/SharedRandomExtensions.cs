@@ -143,6 +143,11 @@ namespace Content.Shared.Random.Helpers
                 {
                     return key;
                 }
+            }
+
+            // Shouldn't happen
+            throw new InvalidOperationException($"Invalid weighted pick for {prototype.ID}!");
+        }
 
         // MAID BEGIN rt-update generic weighted random
         public static ProtoId<T> Pick<T>(this IWeightedRandomPrototype<T> prototype, System.Random random)
@@ -172,11 +177,6 @@ namespace Content.Shared.Random.Helpers
             return random.Pick(prototype.Weights);
         }
         // MAID END rt-update generic weighted random
-            }
-
-            // Shouldn't happen
-            throw new InvalidOperationException($"Invalid weighted pick for {prototype.ID}!");
-        }
 
         public static T Pick<T>(this IRobustRandom random, Dictionary<T, float> weights)
             where T: notnull

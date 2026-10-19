@@ -9,6 +9,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Robust.Shared.Serialization.Manager.Attributes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -17,7 +18,8 @@ namespace Content.Shared.DeviceLinking;
 /// <summary>
 ///     A prototype for a device port, for use with device linking.
 /// </summary>
-public abstract class DevicePortPrototype
+[DataDefinition] // MAID rt-update
+public abstract partial class DevicePortPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;

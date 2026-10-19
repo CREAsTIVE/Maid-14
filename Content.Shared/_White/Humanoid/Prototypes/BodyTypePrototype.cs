@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._White.Humanoid.Prototypes;
 
 [Prototype("bodyType")]
-public sealed class BodyTypePrototype : IPrototype
+public sealed partial class BodyTypePrototype : IPrototype
 {
     /// <summary>
     ///     Prototype ID of the body type.
