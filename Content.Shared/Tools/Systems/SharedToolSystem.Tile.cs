@@ -121,7 +121,7 @@ public abstract partial class SharedToolSystem
         var tileRef = _maps.GetTileRef(gridUid, mapGrid, clickLocation);
         var tileDef = (ContentTileDefinition) _tileDefManager[tileRef.Tile.TypeId];
 
-        if (!tool.Qualities.ContainsAny(tileDef.DeconstructTools))
+        if (!tool.Qualities.Overlaps(tileDef.DeconstructTools) /* MAID rt-update */)
             return false;
 
         if (string.IsNullOrWhiteSpace(tileDef.BaseTurf))
@@ -142,7 +142,7 @@ public abstract partial class SharedToolSystem
     public bool TryDeconstructWithToolQualities(TileRef tileRef, HashSet<ProtoId<ToolQualityPrototype>> withToolQualities)
     {
         var tileDef = (ContentTileDefinition) _tileDefManager[tileRef.Tile.TypeId];
-        if (withToolQualities.ContainsAny(tileDef.DeconstructTools))
+        if (withToolQualities.Overlaps(tileDef.DeconstructTools) /* MAID rt-update */)
         {
             // don't do this on the client or else the tile entity spawn mispredicts and looks horrible
             return _net.IsClient || _tiles.DeconstructTile(tileRef);
