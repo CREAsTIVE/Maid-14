@@ -1,80 +1,82 @@
-# RSI (Robust State Image)
+# RSI (Robust State Image) and sprites
 
-An **RSI** is the engine's format for packaging the visuals of one *thing* — an item, a machine, a mob, an effect — into a single self-describing bundle. It is the basic unit of 2D art in the game.
+Facts about how art is packaged and how it reaches the screen. Engine side (`Robust.Shared/Resources/RsiLoading`, `Robust.Client` `RSIResource`, `SpriteComponent`/`SpriteSystem`, `AppearanceSystem`) is stable; content side (clothing/item/visualizer systems) changes more.
 
-## Concept
+## 1. What an RSI is on disk
+A **directory** named `something.rsi` under `Resources/Textures/` containing:
+- `meta.json` — the manifest.
+- one `<state name>.png` per state (file name = state name exactly).
 
-Instead of loading loose image files, the game loads an RSI that contains:
+(`.rsic` is a single-PNG variant with the JSON embedded in a PNG metadata field; the game uses the folder form.)
 
-- one or more **images** (the pixel data), and
-- a **metadata description** saying how to interpret them.
+### meta.json fields
+```
+version      int (1)
+license      SPDX-ish string, e.g. "CC-BY-SA-3.0"        (project policy: mandatory)
+copyright    free text: origin of the art, author, commit/link (project policy: mandatory)
+size         { "x": 32, "y": 32 }   frame size in pixels; shared by every state
+states       [ { name, directions?, delays?, flags? }, ... ]
+load         optional: { "srgb": bool }  texture load params
+```
+- `directions` ∈ **1, 4, 8**; omitted = 1. Anything else fails loading.
+- `delays` is a **list per direction of lists of frame durations in seconds**: `[[0.1,0.1,0.1]]` for a 1-direction 3-frame animation, `[[1],[1],[1],[1]]` for a 4-direction still. The outer length must equal `directions`. Omitted = one frame per direction, no animation. Durations are folded across directions internally.
+- `flags` / selectors are parsed but ignored by the engine today.
+- State names must be unique within an RSI (duplicate = load error).
 
-An RSI is thus "a sprite sheet with a built-in table of contents". On disk it appears as a folder whose name marks it as an RSI, holding the images plus one metadata file.
+### PNG layout of a state
+The image must be an exact multiple of `size` in both axes. Frames are read **row-major, wrapping at the image width**, in the order: *all frames of direction 0, then all frames of direction 1, …*. So a 4-direction 1-frame state is 4 cells (typically a 4×1 or 2×2 grid), a 4-direction 3-frame state is 12 cells.
+Direction order (`RsiDirection`): `South(0), North(1), East(2), West(3)`, and for 8-dir: `SouthEast(4), SouthWest(5), NorthEast(6), NorthWest(7)`.
+At load the game packs all states into one atlas texture, so many tiny RSIs are cheap; mismatched metadata/PNG sizes are the usual load failure (`RSILoadException`).
 
-## States
+### Where assets are referenced from
+Paths in YAML/code are relative to `Textures/` (`sprite: Objects/Tools/crowbar.rsi`). Maid-owned art lives under `Textures/_Maid/...`; upstream forks use their own prefixes (`_Goobstation`, `_Corvax`, `_DV`, …). The YAML sprite `icon`/`SpriteSpecifier` form is `{ sprite: <rsi path>, state: <state> }` (or a bare `texture:` PNG).
 
-The core idea is the **state**: a named visual variant of the thing. A single RSI describes many states, for example:
+## 2. Sprites on entities
+`SpriteComponent` (client-only data; it appears in entity prototypes but is never networked) holds a list of **layers**. YAML form:
+```yaml
+- type: Sprite
+  sprite: Objects/Tools/wirecutters.rsi      # default RSI for all layers
+  drawdepth: Items                            # DrawDepth tag
+  layers:
+  - state: cutters
+    map: [ "enum.DamageStateVisualLayers.Base" ]   # layer key(s)
+  - state: cutters-cutty-thingy
+    shader: unshaded                          # also: visible, color, offset, scale, rotation, sprite (per-layer RSI), renderingStrategy
+```
+- Shorthand: `sprite:` + `state:` at the component level makes a single layer.
+- Layer fields (`PrototypeLayerData`): `sprite`, `state`, `texture`, `shader`, `scale`, `rotation`, `offset`, `visible`, `color`, `map` (set of keys), `renderingStrategy`, `cycle`, shader parameter copying.
+- Component-level fields: `visible`, `drawdepth`, `scale`, `rotation`, `offset`, `color`, `snapCardinals`, `noRot`, `overrideDir`/`enableOverrideDir`, `overrideContainerOcclusion`.
+- **Layer keys** (`map:`) are what code addresses. Keys are usually enum values (written `enum.SomeVisualLayers.Base` in YAML, a C# `enum` in code) or strings. Without a key a layer can only be addressed by index.
+- Direction: a sprite picks the frame from the entity's world rotation (`snapCardinals` snaps to 4; `noRot` ignores rotation; `overrideDir` forces one).
+- A sprite whose entity sits in a container is hidden (`ContainerOccluded`) unless `overrideContainerOcclusion`.
 
-- an item icon,
-- the same item as held in the left or right hand,
-- the same item as worn on a body part,
-- open/closed, on/off, damaged, or charging variants of a machine,
-- a mob's walking, lying down, or dead appearance.
+### SpriteSystem API (client)
+Operate through `SpriteSystem` with `Entity<SpriteComponent?>`: `LayerSetRsiState(ent, key|index, state)`, `LayerSetVisible`, `LayerSetColor`, `LayerSetOffset`, `LayerSetScale`, `LayerSetRotation`, `LayerSetRsi`, `LayerSetTexture`, `LayerSetSprite`, `LayerSetAutoAnimated`, `LayerMapSet/Get/TryGet/Remove/Reserve`, `AddLayer/AddBlankLayer/AddRsiLayer/AddTextureLayer/RemoveLayer`, `LayerExists`, `SetVisible`, `SetColor`, `SetDrawDepth`, `SetOffset`, `SetRotation`, `SetScale`, `SetBaseRsi`, `GetState`/`GetIcon`/`GetPrototypeIcon` (for UI icons), `CopySprite`. `sprite.BaseRSI` is the default RSI; `RSI.TryGetState(name, out state)` tests whether a state exists.
+Sprites exist only on clients; shared/server code cannot touch them. Anything that must be visible is exposed through Appearance (below) or entity-specific client systems.
 
-Code and prototypes pick visuals by asking the RSI for a **state by name**. The states are therefore a small vocabulary shared between art and logic; renaming a state breaks whoever refers to it.
+## 3. Appearance: how game state becomes sprite state
+`AppearanceComponent` (networked) is a dictionary `Enum key → object value` ("appearance data").
+- Set from shared/server logic: `_appearance.SetData(uid, SomeVisuals.Key, value)` (also `RemoveData`, `CopyData`, `AppendData`, `TryGetData<T>`). `SetData` is a no-op when the value is unchanged, skipped while the client is applying a server state, dirties the component (so it replicates) and queues a visual update. Keys are enums (`[Serializable, NetSerializable]` so they can be sent); values must be serialisable value types / enums / strings.
+- The client `AppearanceSystem` processes the queue each frame (`FrameUpdate`) and raises **`AppearanceChangeEvent`** (by-ref; fields `Component`, `AppearanceData`, `Sprite`) on the entity. It is also queued when the appearance component starts up and when a server state changes the data (including after re-entering PVS).
+- Consumers:
+  1. **`VisualizerSystem<TComp>`** (client): subclass, override `OnAppearanceChange(uid, comp, ref AppearanceChangeEvent)`, read data via `AppearanceSystem.TryGetData<T>(uid, key, out var v, args.Component)`, and call `SpriteSystem.Layer*`. Used when logic is non-trivial (e.g. a lock: pick the "locked"/"unlocked" state, hide while open).
+  2. **`GenericVisualizerComponent`** (YAML only, no code): `visuals: { <appearance key>: { <layer key>: { <value>: <layer data> } } }` — e.g. `enum.StorageVisuals.Open: { enum.StorageVisualLayers.Door: { True: { visible: true }, False: { visible: false } } }`, or `Paper: { state: paper }`. The data value is converted with `ToString()` and matched against the value keys (so enum members are written by name); a layer key that doesn't exist yet is created (reserved blank layer) on first use.
+  3. Client systems that listen to domain events directly (damage overlays, mob state, humanoid layers).
+- Convention: each feature defines its own `…Visuals` enum (keys) and `…VisualLayers` enum (layer keys) in `Content.Shared` next to its component, so shared logic sets the data and client + YAML refer to the same enum.
 
-## What each state describes
+## 4. Equipment and item art naming (content convention, client-side systems)
+These are **state-name conventions in an item's RSI**; the client builds worn/held layers by looking them up.
+- `icon` — by convention the state shown as the item's icon (ground sprite, and what UI icon generation `GetPrototypeIcon` picks up from the prototype's sprite).
+- **Held**: `inhand-left` and `inhand-right` (4 directions each). `ItemComponent.HeldPrefix` prepends `"{prefix}-"` (e.g. `on-inhand-left`) so one RSI can hold several variants; per-hand explicit layer lists can be declared in `ItemComponent.InhandVisuals`. RSI used = `ItemComponent.RsiPath` if set, else the entity's `Sprite` base RSI.
+- **Worn**: `equipped-<SLOT>` (4 directions). `<SLOT>` comes from the slot name through a fixed map in the client clothing system: `head→HELMET, eyes→EYES, ears→EARS, mask→MASK, outerClothing→OUTERCLOTHING, jumpsuit→INNERCLOTHING, neck→NECK, back→BACKPACK, belt→BELT, gloves→HAND, shoes→FEET, id→IDCARD, pocket1→POCKET1, pocket2→POCKET2, suitstorage→SUITSTORAGE`; Maid adds `socks→SOCKS, underweart→UNDERWEART, underwearb→UNDERWEARB`. `ClothingComponent.EquippedPrefix` → `"{prefix}-equipped-<SLOT>"`; `EquippedState` overrides the whole name; `RsiPath` overrides the RSI.
+- Wearer variants (checked in this order, falling back to the plain name): body-type suffix (`…-<bodytype>`, a WD feature) then species suffix (`…-<species id>`, e.g. `equipped-INNERCLOTHING-Vox`). Explicit `ClothingComponent.ClothingVisuals` (per slot or `slot-species`) beats the naming convention.
+- Mapping to the example RSI of a crowbar-like belt item: `icon`, `inhand-left/right`, `equipped-BELT`, plus `storage` (grid-storage preview, `ItemComponent.StoredSprite`).
+- When an item's visuals change while held/worn, `ItemSystem.VisualsChanged` raises `VisualsChangedEvent` to the container owner so the holder re-renders the layer.
+- Worn/held layers are added to the *wearer's* `SpriteComponent` as keyed layers (`inhand-left`, or the slot name) and removed on unequip; displacement maps may reshape them for non-human body types.
 
-- **Directions** — whether the state has just one view, or distinct views for several facing directions (typically four, sometimes eight). Directional states let a thing look correct whichever way it faces; the image data holds one picture per direction.
-- **Frames and timing** — whether the state is a still image or an animation. Animated states list how long each frame lasts. They may loop or play once.
-- **Flags and options** — optional extras on top of the basics, such as marking a state as having alternative behaviors.
-
-## Metadata (the table of contents)
-
-The metadata file is a small structured document containing:
-
-- **Format version.**
-- **Frame size** — the pixel dimensions of one picture; all states in the RSI share it, which is why large things get their own RSI.
-- **License and copyright** — who made the art and under what terms. This is mandatory in this project: every RSI must carry attribution, and the source of borrowed art must be traceable.
-- **The list of states** with their direction counts and timing information.
-
-Tools and the game both read this one file to know how many images to expect per state and how to slice the sheet.
-
-## How sprites use RSIs
-
-A sprite on an entity is built from **layers**. Each layer pairs an RSI with a state name and can be independently shown, hidden, recolored, offset, rotated, or swapped. A simple object has one layer; complex objects stack several (a base body, an overlay light, a panel, a damage overlay).
-
-Layers are usually given **keys** so that logic can address them by role ("the door panel layer", "the light layer") without caring about their order.
-
-## Driving visuals from game state
-
-Game logic does not poke sprites. The pattern is:
-
-1. Logic publishes abstract facts about the entity (open, powered, charge, mode).
-2. A client-side visualizer subscribes to those facts and sets a layer's state or visibility accordingly.
-3. Simple cases need no code: a generic visualizer in the prototype maps appearance values to RSI states directly.
-
-This keeps simulation (Shared/Server) independent of rendering (Client), and makes sprites purely a function of replicated state.
-
-## Equipment visuals
-
-Wearable and holdable items follow naming conventions inside their RSI so the game can find the right image automatically:
-
-- a base icon state used in inventory and on the floor,
-- per-hand states for being held,
-- per-slot states for being worn (the slot is part of the state name),
-- optional variants per species or body-shape, stored as separate states or sub-bundles.
-
-Clothing and held-item systems construct the layers on the character from these states, so adding art with the expected names often makes an item appear correctly with no further data.
-
-## Authoring and maintenance notes
-
-- Art is edited as images, but the metadata must be kept in sync: a state present in the metadata with missing images (or vice versa) is an error that surfaces at load time.
-- Direction count and frame count must match the actual image content.
-- Because RSIs are loaded as units, big mixed bundles load more than needed, while many tiny ones add overhead; grouping by thing, not by category, is the convention.
-- Attribution fields are not optional bookkeeping; legal compliance depends on them.
-
-## Related
-
-- `ECS.md` — sprite and appearance data are components attached to entities.
-- `ECS.md` — visualizer systems and the equipment systems that consume RSI states.
+## 5. Practical checklist for facts you will need
+- State exists in `meta.json` **and** as a PNG of matching size/frame count, or the whole RSI fails to load.
+- Prototype `sprite:` value must be the RSI path relative to `Textures/`; a missing state prints a client error and shows a placeholder.
+- Anything that animates or swaps visuals at runtime = an Appearance key + layer key pair (+ visualizer), not a direct sprite call from shared code.
+- Icons in UI (action/alert/verb icons) use the same `{sprite, state}` pair (`SpriteSpecifier.Rsi`).
+- License/copyright are mandatory in each `meta.json` for new art (repo uses REUSE headers elsewhere; `Tools/apply_reuse_headers.py` exists).

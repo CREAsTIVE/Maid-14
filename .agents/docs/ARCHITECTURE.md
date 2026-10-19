@@ -1,88 +1,81 @@
-# Architecture Overview
+# Maid-14 architecture
 
-Maid-14 is a fork of Goob Station, which itself descends from Space Station 14 (SS14). It is a multiplayer 2D game built on the RobustToolbox engine. This document describes the big picture; the detailed concepts live in the sibling documents:
+Maid-14 = Space Station 14 (SS14) on the **RobustToolbox** engine (C#/.NET 9, YAML data, Fluent localisation), forked through Goob Station. Docs in this folder:
+- `ECS.md` — entities, components, systems, events, networking, and the load-bearing content systems.
+- `rsi.md` — sprite packaging, sprite layers, the Appearance bridge, equipment art naming.
 
-- `ECS.md` — entities, components and systems: identity, lifecycle, data, networking, composition, behavior, event communication, and the map of the most used systems
-- `rsi.md` — how sprites and their animation state are packaged
+## 1. Repository map
 
-This documentation is deliberately abstract. It describes ideas and relationships, not file locations or signatures, so that refactors which keep the architecture intact do not invalidate it.
+| Path | What it is |
+|---|---|
+| `RobustToolbox/` | Engine submodule (currently **v266.0.0**; upstream Goob is on v293). **Never modify.** Projects: `Robust.Shared` (ECS, physics, maps, prototypes, serialization, networking), `Robust.Server`, `Robust.Client` (rendering, UI toolkit, audio, input, resources). |
+| `Content.Shared/` | Game code that runs on **both** server and client: component definitions, rules that must agree for prediction, events, prototype classes, enums for visuals/UI keys. |
+| `Content.Server/` | Authoritative-only: spawning, persistence, power/atmos simulation, game rules, admin, chat routing, anything hidden from clients. |
+| `Content.Client/` | Presentation: visualizers, UI windows (XAML), overlays, input, audio cues. |
+| `Content.Shared.Database/`, `Content.Server.Database/` | EF Core models/migrations. Do not edit without permission. |
+| `Content.Goobstation.{Shared,Server,Client,Common,Maths,UIKit}` | Goob's own layer on top of upstream SS14 content. Do not edit without permission. |
+| `Content.Tests`, `Content.IntegrationTests`, `Content.Benchmarks`, `Content.YAMLLinter`, `Content.MapRenderer`, `Content.Packaging`, `Content.Replay`, `Content.Tools`, `Content.ModuleManager`, `Content.PatreonParser` | Tooling/CI. Don't run tests or full builds unless asked. |
+| `Resources/Prototypes/` | YAML data: entities (`Entities/`), `Access`, `Damage`, `Body`, `Chemistry`, `Catalog`, `Datasets`, `InventoryTemplates`, game presets, etc. Many fork prefixes coexist: `_Maid`, `_Goobstation`, `_Corvax*`, `DeltaV/_DV`, `_Impstation`, `_EinsteinEngines`, `_Floofstation`, … |
+| `Resources/Textures/` | RSI folders (see `rsi.md`); `_Maid/…` is Maid art. |
+| `Resources/Audio`, `Maps`, `Fonts`, `ServerInfo`, `ConfigPresets`, `Changelog` | Assets/config. |
+| `Resources/Locale/<lang>/` | Fluent `.ftl` text. `en-US`, `ru-RU` (the main one for Maid), `nl-NL`. |
+| `Tools/` | Scripts (changelog, REUSE headers, mapping tools). `Tools/_Maid` for Maid's. |
+| `.github/workflows/` | CI. All GitHub PRs are mirrored locally as `origin/pr/<n>`. |
 
-## Layers
+**Maid ownership**: everything in `_Maid/` folders (in each Content project, `Resources/Prototypes/_Maid`, `Textures/_Maid`, locale) is Maid's own. Edits to upstream files stay minimal and marked (`// MAID {task}` for inline, `// MAID BEGIN {task}` … `// MAID END {task}` for blocks with the old code kept in `/* */`; YAML uses `#` comments; `.ftl` files have no comments). Other markers you will see are other forks' (`// Goobstation`, `// WD EDIT`, `// Shitmed`, `<Trauma>…</Trauma>`, `// DeltaV`…) — leave them.
 
-The project is three layers stacked on each other:
+## 2. The three code sides and how they connect
 
-1. **Engine (RobustToolbox).** Generic game-engine services: networking, entity/component runtime, physics, rendering, audio, resource loading, prototypes, UI toolkit. It knows nothing about "a station" or "a crowbar". It is vendored as a submodule and treated as read-only.
-2. **Content.** The actual game: items, mobs, machines, jobs, chemistry, atmospherics, game modes. It is written against the engine's APIs.
-3. **Resources.** Pure data: entity definitions (prototypes), sprites, sounds, maps, localization strings, UI layouts. Most gameplay variation is made here, without code.
+```
+          Content.Shared  ── compiled into both ──┐
+             │  ▲                                  │
+ Content.Server   Content.Client                    │
+ (authority)      (prediction + presentation)       │
+        ▲ ▲                                         │
+        │ └── replicated component state, net events, UI messages
+ Engine: Robust.Server / Robust.Client / Robust.Shared
+```
+- **Shared logic runs on both sides**: the client executes it *predictively* for the local player and gets corrected by authoritative server state. This is why gameplay rules (interaction, hands, inventory, damage, doors, locks, storage) live in `Content.Shared`.
+- Per-feature split: `Shared…System` (rules), server part (side effects that need authority; guarded with `_net.IsServer` when a shared path needs it), client part (visuals/UI, guarded with `_timing.IsFirstTimePredicted` for one-shot effects).
+- **Data flow**: input → client `InputSystem` → command binding (e.g. interaction `Use`) → shared system runs (predicted) *and* the input is sent to the server → server runs the same shared code → components are `Dirty`'d → game state sent to clients in PVS → client applies state (`ComponentHandleState`) → visuals update via Appearance/visualizers. Details in `ECS.md` §2.
+- **Client-only components** (e.g. `SpriteComponent`, visualizers) appear in shared prototypes; the server skips them via the explicit `IgnoredComponents.List` in `Content.Server/Entry/` and by ignoring any missing component whose name ends in `Visuals`. **Server-only components** (e.g. power net nodes) are skipped on the client because the client calls `IgnoreMissingComponents()` (any component type it doesn't know is silently ignored). A *new* client-only component therefore needs an entry in the server ignore list or the server errors on the prototype.
+- **Entry points**: each Content project has `Entry/EntryPoint.cs` registering IoC services and starting module init.
 
-Content code is itself split by *who runs it*:
+## 3. Data-driven layer (what lives in YAML)
 
-- **Shared** — runs on both server and client. Holds the data definitions and the rules that must agree on both sides (so the client can predict).
-- **Server** — authoritative logic, secrets, persistence, anything the client must not decide.
-- **Client** — presentation: rendering, UI, input, sounds, visual feedback.
+- **Entity prototypes**: `- type: entity`, `id`, `parent` (single or list; inheritance merges components), `abstract: true`, `name`/`description`/`suffix`/`categories`, `components:` list of `- type: <ComponentName minus "Component">` with field overrides (field names = camelCase `[DataField]` names). `!type:SomeClass` selects polymorphic types (e.g. conditions, effects, shapes). Enum values are written `enum.EnumType.Member`. Child prototypes may replace/remove inherited components.
+- **Other prototype kinds** (each a C# class with `[Prototype]` + `IPrototype`): damage types/groups/modifier sets, item sizes, inventory templates, tool qualities, tags, alerts, reagents/reactions, jobs, game rules, loadouts, datasets, etc. Reference by id with `ProtoId<T>` / `EntProtoId`.
+- **Hot reload**: prototypes reload in dev; component field changes in YAML take effect on new entities.
+- **Localisation**: `Loc.GetString("key", ("arg", value))`, entity names/descriptions via `ent-<ProtoId>` keys (`.name`, `.desc`, `.suffix`) in `Resources/Locale/<lang>/**/*.ftl`. UI XAML uses `Loc` too. Maid's primary language is Russian (`ru-RU`); English strings must still exist.
+- **CVars**: config vars declared in `Content.Shared/CCVar/CCVars.*.cs` (Maid ones under `_Maid/CVars`), set from `Resources/ConfigPresets` or server config.
+- **Maps**: authored in the map editor/YAML; reference prototypes by id and carry per-entity overrides.
 
-The fork-specific layers (upstream Goob content and Maid's own content) follow the same Shared/Server/Client split. Maid-owned material is isolated in dedicated `_Maid` areas; upstream material is only touched minimally and with markers.
+## 4. Runtime world model
 
-## The Entity–Component–System model
+- **Maps** (`MapComponent`) are roots; **grids** (`MapGridComponent`) are tile-structure entities parented to maps (stations, shuttles, asteroids); everything else is parented to a grid, a map, or another entity (container contents). Position is always relative to the parent.
+- **Containers** express "inside" (inventory, hands, storage, item slots, machine parts, body parts, status effects).
+- **Physics** (Box2D-derived) via `PhysicsComponent`/`FixturesComponent`; collision/trigger events are directed events on entities.
+- **PVS**: the server only sends entities within a client's view/range, so client code can see only part of the world — never assume a distant entity exists on the client.
+- **Time**: simulation ticks at a fixed rate (`net.tickrate`, default **30**); `IGameTiming.CurTime` is the clock for cooldowns; paused entities (on paused maps) are skipped by update queries.
 
-All game objects are **entities**. An entity is nothing but an identifier plus a bag of components; it has no behavior and no type of its own.
+## 5. Systems layering in Content (how the big pieces relate)
 
-- **Components** are pure data attached to an entity. The set of components on an entity *is* what that entity is. See `ECS.md`.
-- **Systems** are the behavior. Each system owns the logic for one concern and operates on every entity that has the relevant components. See `ECS.md`.
-- **Prototypes** are YAML templates that say "an entity of this kind starts with these components, with these values". Spawning an entity means instantiating a prototype. Prototypes can inherit from parents, so large families of items share a base and override details.
+```
+Input/UI ──► Interaction ──► (Verbs | Hands | Item use | DoAfter | Tools | Storage | ItemSlots | Doors | Locks | ...)
+                 │
+         ActionBlocker  ◄── attempt events cancelled by MobState, Stun, Restraints, Pacified, ...
+                 │
+   Damage ──► MobState ──► Standing/Movement/Alerts/Overlays
+   Inventory (relay) ──► armor, speed, vision, slip, ... on the wearer
+   Power(server) ──► Powered flag ──► machines, lights, UIs
+   Appearance ──► client visualizers ──► sprite layers (rsi.md)
+```
+- The same few primitives recur: **attempt event → cancel**, **modifier event → aggregate**, **done event → react**, **relay event → forward to equipment/parts**, **component as capability**, **container as location**, **appearance key as visual state**.
+- The fork adds large vertical subsystems on top of upstream: body/wound model ("Shitmed", complex bodies where damage is applied per body part), antagonists/game modes from Goob, and Maid's economy, mood, adaptive/dynamic game modes, TTS, ghost/ERT recruitment, trade shuttle console. Find them under the relevant `_Maid`/`Goobstation` folders.
 
-This inversion matters for how to think about the codebase: a "door" is not a class, it is an entity that happens to carry door, power, access, and sprite components. Behaviors compose by combining components, not by subclassing.
+## 6. Where to put changes (rules of the fork)
 
-## Communication: events, not calls
-
-Systems rarely call each other directly on a specific entity. Instead they raise **events** about an entity, and any system interested in that entity's components reacts.
-
-- **Directed events** are addressed to one entity and delivered only to systems subscribed for components that entity has. This is the dominant pattern: "something is trying to be picked up", "this entity was damaged", "someone is examining this".
-- **Broadcast events** go to every subscriber regardless of entity, for global occurrences.
-- Many events come in **attempt / action pairs**: an *attempt* event lets any interested system veto or modify, then the real event announces the outcome. This is how unrelated features (restraints, stuns, locks, blockers) can cancel an action without the acting system knowing about them.
-
-The result is loose coupling: adding a feature usually means adding a component and a system that listens to existing events, rather than editing the system that fires them.
-
-## Client–server model and prediction
-
-The server is authoritative. The world state that matters is replicated to clients.
-
-- Components marked as networked have their data sent to clients, which receive it as state snapshots.
-- Because Shared code runs on the client too, the client can **predict** the result of the player's own actions immediately, then reconcile when the authoritative state arrives. Prediction is why most gameplay logic sits in Shared rather than Server.
-- Things the client cannot or should not know (hidden roles, server-only bookkeeping) stay in Server-only systems and components.
-- Purely cosmetic reactions run on the client only, driven by replicated state.
-
-A recurring bridge between logic and visuals is the **appearance** mechanism: server/shared logic writes abstract key–value facts ("open", "powered", "charge level") and client-side visualizers translate them into sprite changes. Logic never touches sprites directly. See `rsi.md` for the sprite side.
-
-## Data-driven content
-
-A large share of gameplay is configured, not coded:
-
-- Prototypes (entities, jobs, reagents, recipes, damage types, tiles, and many more) are loaded at startup and can be hot-reloaded.
-- Component fields are filled from prototype YAML, so a tuning change is a data change.
-- Localization strings are separate from code and from prototypes, with one set per language.
-- Maps are authored data referencing prototypes.
-
-Practical consequence: before writing code for a new variation, check whether existing components plus a new prototype already express it.
-
-## World structure
-
-- **Maps** contain **grids** (stations, shuttles, asteroids), each a movable tile-based structure, plus empty space.
-- Entities live in a hierarchy: an entity is parented to a grid, map, or another entity (a held item is a child of the holder, an item in a locker is a child of the locker via a container).
-- **Containers** are the mechanism for "inside" relationships: inventory slots, hands, storage, machine parts. An entity inside a container is removed from the world's spatial view but still exists.
-- **Physics** handles collision, movement and triggers; **lookup** answers "what is near here".
-
-## Lifecycle of a typical feature
-
-A feature such as "a locker that can be locked" decomposes naturally:
-
-1. Components hold its data (lock state, access requirements, storage contents).
-2. A system reacts to interaction events and attempt events, mutates component data, and marks it as changed for replication.
-3. Appearance data is updated; the client visualizer picks the matching sprite state from the RSI.
-4. A prototype wires the components together with concrete values; localization provides the text.
-
-## Fork conventions
-
-- `_Maid` areas are Maid-owned and freely editable.
-- Upstream (Goob) areas are changed minimally and annotated so merges stay tractable.
-- The engine is never modified.
+- Maid-only features: new files under `_Maid/` in the appropriate side project; YAML under `Resources/Prototypes/_Maid`; art under `Textures/_Maid`; strings in locale folders.
+- Needed upstream changes: smallest possible edit with a `MAID` marker; prefer subscribing to an existing event from a Maid system over editing an upstream system.
+- Never touch: `RobustToolbox/`, `Content.Goobstation.*`, `Content.*.Database` without explicit permission.
+- Don't run tests, integration tests, or full builds unless asked.
