@@ -89,6 +89,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Robust.Shared.Prototypes;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reaction;
@@ -120,8 +121,8 @@ public sealed partial class CleanTileReaction : ITileReaction
     /// <summary>
     /// What reagent to replace the tile conents with.
     /// </summary>
-    [DataField("reagent", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>))]
-    public string ReplacementReagent = "Water";
+    [DataField("reagent")]
+    public ProtoId<ReagentPrototype> ReplacementReagent = "Water";
 
     FixedPoint2 ITileReaction.TileReact(TileRef tile,
         ReagentPrototype reagent,

@@ -10,9 +10,9 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Audio;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
 namespace Content.Server.Weapons.Ranged.Components;
 
@@ -29,14 +29,14 @@ public sealed partial class RangedDamageSoundComponent : Component
     /// Will fallback to defaults if none specified.
     /// </summary>
     [DataField("soundGroups",
-        customTypeSerializer: typeof(PrototypeIdDictionarySerializer<SoundSpecifier, DamageGroupPrototype>))]
-    public Dictionary<string, SoundSpecifier>? SoundGroups;
+)]
+    public Dictionary<ProtoId<DamageGroupPrototype>, SoundSpecifier>? SoundGroups;
 
     /// <summary>
     /// Specified sounds to apply when the entity takes damage with the specified type.
     /// Will fallback to defaults if none specified.
     /// </summary>
     [DataField("soundTypes",
-         customTypeSerializer: typeof(PrototypeIdDictionarySerializer<SoundSpecifier, DamageTypePrototype>))]
-    public Dictionary<string, SoundSpecifier>? SoundTypes;
+)]
+    public Dictionary<ProtoId<DamageTypePrototype>, SoundSpecifier>? SoundTypes;
 }
