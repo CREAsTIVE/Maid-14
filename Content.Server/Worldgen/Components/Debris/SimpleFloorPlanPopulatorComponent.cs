@@ -27,8 +27,7 @@ public sealed partial class SimpleFloorPlanPopulatorComponent : Component
     /// <summary>
     ///     The prototype facing floor plan populator entries.
     /// </summary>
-    [DataField("entries", required: true,
-)]
+    [DataField("entries", required: true)]
     private Dictionary<ProtoId<ContentTileDefinition>, List<EntitySpawnEntry>> _entries = default!;
 
     /// <summary>

@@ -57,8 +57,7 @@ public sealed partial class AtmosMonitorComponent : Component
     [DataField("monitorFire")]
     public bool MonitorFire = false;
 
-    [DataField("gasThresholdPrototypes",
-)]
+    [DataField("gasThresholdPrototypes")]
     public Dictionary<Gas, ProtoId<AtmosAlarmThresholdPrototype>>? GasThresholdPrototypes;
 
     [DataField("gasThresholds")]

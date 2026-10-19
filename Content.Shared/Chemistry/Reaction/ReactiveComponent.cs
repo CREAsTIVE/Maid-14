@@ -50,7 +50,6 @@ public sealed partial class ReactiveReagentEffectEntry
     [DataField("effects", required: true)]
     public List<EntityEffect> Effects = default!;
 
-    [DataField("groups", readOnly: true, serverOnly: true,
-)]
+    [DataField("groups", readOnly: true, serverOnly: true)]
     public Dictionary<ProtoId<ReactiveGroupPrototype>, HashSet<ReactionMethod>>? ReactiveGroups { get; private set; }
 }

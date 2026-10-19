@@ -21,15 +21,13 @@ public sealed partial class FelinidComponent : Component
     //[DataField("hairballAction")]
     //public EntProtoId HairballAction = "ActionHairball";
 
-    [DataField("hairballActionId",
-)]
+    [DataField("hairballActionId")]
     public EntProtoId? HairballActionId = "ActionHairball";
 
     [DataField("hairballAction")]
     public EntityUid? HairballAction;
 
-    [DataField("eatActionId",
-)]
+    [DataField("eatActionId")]
     public EntProtoId? EatActionId = "ActionEatMouse";
 
     [DataField("eatAction")]

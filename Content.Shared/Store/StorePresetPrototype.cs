@@ -37,8 +37,7 @@ public sealed partial class StorePresetPrototype : IPrototype
     /// <summary>
     /// The inital balance that the store initializes with.
     /// </summary>
-    [DataField("initialBalance",
-)]
+    [DataField("initialBalance")]
     public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>? InitialBalance { get; private set; }
 
     /// <summary>
