@@ -8,6 +8,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Robust.Shared.Prototypes; // MAID rt-update
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;

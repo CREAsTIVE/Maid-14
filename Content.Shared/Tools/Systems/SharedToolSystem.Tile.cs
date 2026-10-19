@@ -40,6 +40,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Robust.Shared.Prototypes; // MAID rt-update
 using Content.Shared.Database;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
