@@ -54,7 +54,7 @@ namespace Content.Server.Atmos.EntitySystems
     {
         [Robust.Shared.IoC.Dependency] private readonly IGameTiming _gameTiming = default!;
         [Robust.Shared.IoC.Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Robust.Shared.IoC.Dependency] private readonly IMapManager _mapManager = default!;
+        [Robust.Shared.IoC.Dependency] private readonly SharedMapSystem _mapSystem = default!; // MAID rt-update
         [Robust.Shared.IoC.Dependency] private readonly IConfigurationManager _confMan = default!;
         [Robust.Shared.IoC.Dependency] private readonly IParallelManager _parMan = default!;
         [Robust.Shared.IoC.Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;

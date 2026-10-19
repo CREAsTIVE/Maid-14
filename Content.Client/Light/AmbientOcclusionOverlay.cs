@@ -22,7 +22,7 @@ public sealed class AmbientOcclusionOverlay : Overlay
     [Dependency] private readonly IClyde _clyde = default!;
     [Dependency] private readonly IConfigurationManager _cfgManager = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!; // MAID rt-update
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowEntities;
@@ -116,7 +116,7 @@ public sealed class AmbientOcclusionOverlay : Overlay
                 // Don't want lighting affecting it.
                 worldHandle.UseShader(_proto.Index(UnshadedShader).Instance());
 
-                foreach (var grid in _mapManager.FindGridsIntersecting(mapId, worldBounds))
+                foreach (var grid in _mapSystem.FindGridsIntersecting(mapId, worldBounds))
                 {
                     var transform = xformSystem.GetWorldMatrix(grid.Owner);
                     var worldToTextureMatrix = Matrix3x2.Multiply(transform, invMatrix);

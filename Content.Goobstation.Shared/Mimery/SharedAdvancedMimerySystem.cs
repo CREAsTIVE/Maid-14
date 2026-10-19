@@ -13,7 +13,7 @@ namespace Content.Goobstation.Shared.Mimery;
 
 public abstract class SharedAdvancedMimerySystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapMan = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!; // MAID rt-update
 
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedMagicSystem _magic = default!;

@@ -14,7 +14,7 @@ namespace Content.Shared.Random;
 /// Linter-friendly version of weightedRandom for Species prototypes.
 /// </summary>
 [Prototype]
-public sealed partial class WeightedRandomSpeciesPrototype : IWeightedRandomPrototype
+public sealed partial class WeightedRandomSpeciesPrototype : IWeightedRandomPrototype<SpeciesPrototype>
 {
     [IdDataField]
     public string ID { get; private set; } = default!;

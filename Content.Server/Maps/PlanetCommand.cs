@@ -29,7 +29,7 @@ namespace Content.Server.Maps;
 public sealed class PlanetCommand : IConsoleCommand
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!; // MAID rt-update
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
 
 
@@ -53,7 +53,7 @@ public sealed class PlanetCommand : IConsoleCommand
 
         var mapId = new MapId(mapInt);
 
-        if (!_mapManager.MapExists(mapId))
+        if (!_mapSystem.MapExists(mapId))
         {
             shell.WriteError(Loc.GetString($"cmd-planet-map", ("map", mapId)));
             return;
@@ -66,7 +66,7 @@ public sealed class PlanetCommand : IConsoleCommand
         }
 
         var biomeSystem = _entManager.System<BiomeSystem>();
-        var mapUid = _mapManager.GetMapEntityId(mapId);
+        var mapUid = _mapSystem.GetMapEntityId(mapId);
         biomeSystem.EnsurePlanet(mapUid, biomeTemplate);
 
         // - Beginning of GoobStation changes -

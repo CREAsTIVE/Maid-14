@@ -14,7 +14,7 @@ namespace Content.Shared.Random;
 /// Linter-friendly version of weightedRandom for Ore prototypes.
 /// </summary>
 [Prototype]
-public sealed partial class WeightedRandomOrePrototype : IWeightedRandomPrototype
+public sealed partial class WeightedRandomOrePrototype : IWeightedRandomPrototype<OrePrototype>
 {
     [IdDataField]
     public string ID { get; private set; } = default!;

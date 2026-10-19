@@ -12,7 +12,7 @@ public interface IBudgetEntry : IProbEntry
 {
     float Cost { get; set; }
 
-    string Proto { get; set; }
+    EntProtoId Proto { get; set; } // MAID rt-update
 }
 
 /// <summary>
