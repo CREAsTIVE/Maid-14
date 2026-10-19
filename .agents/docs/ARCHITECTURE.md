@@ -2,7 +2,7 @@
 
 Maid-14 is a fork of Goob Station, which itself descends from Space Station 14 (SS14). It is a multiplayer 2D game built on the RobustToolbox engine. This document describes the big picture; the detailed concepts live in the sibling documents:
 
-- `ECS.md` — entities and components: identity, lifecycle, data, networking, composition (`entity.md` is a pointer to it)
+- `ECS.md` — entities and components: identity, lifecycle, data, networking, composition
 - `systems.md` — what systems are, how they talk to each other, and which ones are used most
 - `rsi.md` — how sprites and their animation state are packaged
 
