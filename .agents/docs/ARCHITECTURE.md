@@ -9,13 +9,13 @@ Maid-14 = Space Station 14 (SS14) on the **RobustToolbox** engine (C#/.NET 9, YA
 
 | Path | What it is |
 |---|---|
-| `RobustToolbox/` | Engine submodule (currently **v266.0.0**; upstream Goob is on v293). **Never modify.** Projects: `Robust.Shared` (ECS, physics, maps, prototypes, serialization, networking), `Robust.Server`, `Robust.Client` (rendering, UI toolkit, audio, input, resources). |
+| `RobustToolbox/` | Engine submodule (currently **v266.0.0**; upstream Goob is on v293). Projects: `Robust.Shared` (ECS, physics, maps, prototypes, serialization, networking), `Robust.Server`, `Robust.Client` (rendering, UI toolkit, audio, input, resources). |
 | `Content.Shared/` | Game code that runs on **both** server and client: component definitions, rules that must agree for prediction, events, prototype classes, enums for visuals/UI keys. |
 | `Content.Server/` | Authoritative-only: spawning, persistence, power/atmos simulation, game rules, admin, chat routing, anything hidden from clients. |
 | `Content.Client/` | Presentation: visualizers, UI windows (XAML), overlays, input, audio cues. |
-| `Content.Shared.Database/`, `Content.Server.Database/` | EF Core models/migrations. Do not edit without permission. |
-| `Content.Goobstation.{Shared,Server,Client,Common,Maths,UIKit}` | Goob's own layer on top of upstream SS14 content. Do not edit without permission. |
-| `Content.Tests`, `Content.IntegrationTests`, `Content.Benchmarks`, `Content.YAMLLinter`, `Content.MapRenderer`, `Content.Packaging`, `Content.Replay`, `Content.Tools`, `Content.ModuleManager`, `Content.PatreonParser` | Tooling/CI. Don't run tests or full builds unless asked. |
+| `Content.Shared.Database/`, `Content.Server.Database/` | EF Core models/migrations. |
+| `Content.Goobstation.{Shared,Server,Client,Common,Maths,UIKit}` | Goob's own layer on top of upstream SS14 content. |
+| `Content.Tests`, `Content.IntegrationTests`, `Content.Benchmarks`, `Content.YAMLLinter`, `Content.MapRenderer`, `Content.Packaging`, `Content.Replay`, `Content.Tools`, `Content.ModuleManager`, `Content.PatreonParser` | Tooling/CI. |
 | `Resources/Prototypes/` | YAML data: entities (`Entities/`), `Access`, `Damage`, `Body`, `Chemistry`, `Catalog`, `Datasets`, `InventoryTemplates`, game presets, etc. Many fork prefixes coexist: `_Maid`, `_Goobstation`, `_Corvax*`, `DeltaV/_DV`, `_Impstation`, `_EinsteinEngines`, `_Floofstation`, … |
 | `Resources/Textures/` | RSI folders (see `rsi.md`); `_Maid/…` is Maid art. |
 | `Resources/Audio`, `Maps`, `Fonts`, `ServerInfo`, `ConfigPresets`, `Changelog` | Assets/config. |
@@ -23,7 +23,7 @@ Maid-14 = Space Station 14 (SS14) on the **RobustToolbox** engine (C#/.NET 9, YA
 | `Tools/` | Scripts (changelog, REUSE headers, mapping tools). `Tools/_Maid` for Maid's. |
 | `.github/workflows/` | CI. All GitHub PRs are mirrored locally as `origin/pr/<n>`. |
 
-**Maid ownership**: everything in `_Maid/` folders (in each Content project, `Resources/Prototypes/_Maid`, `Textures/_Maid`, locale) is Maid's own. Edits to upstream files stay minimal and marked (`// MAID {task}` for inline, `// MAID BEGIN {task}` … `// MAID END {task}` for blocks with the old code kept in `/* */`; YAML uses `#` comments; `.ftl` files have no comments). Other markers you will see are other forks' (`// Goobstation`, `// WD EDIT`, `// Shitmed`, `<Trauma>…</Trauma>`, `// DeltaV`…) — leave them.
+**Maid code** lives in `_Maid/` folders (in each Content project, `Resources/Prototypes/_Maid`, `Textures/_Maid`, locale). Other forks' markers seen in upstream files: `// Goobstation`, `// WD EDIT`, `// Shitmed`, `<Trauma>…</Trauma>`, `// DeltaV`, `// MAID …` for Maid's own edits.
 
 ## 2. The three code sides and how they connect
 
@@ -73,10 +73,3 @@ Input/UI ──► Interaction ──► (Verbs | Hands | Item use | DoAfter | T
 ```
 - The same few primitives recur: **attempt event → cancel**, **modifier event → aggregate**, **done event → react**, **relay event → forward to equipment/parts**, **component as capability**, **container as location**, **appearance key as visual state**.
 - The fork adds large vertical subsystems on top of upstream: body/wound model ("Shitmed", complex bodies where damage is applied per body part), antagonists/game modes from Goob, and Maid's economy, mood, adaptive/dynamic game modes, TTS, ghost/ERT recruitment, trade shuttle console. Find them under the relevant `_Maid`/`Goobstation` folders.
-
-## 6. Where to put changes (rules of the fork)
-
-- Maid-only features: new files under `_Maid/` in the appropriate side project; YAML under `Resources/Prototypes/_Maid`; art under `Textures/_Maid`; strings in locale folders.
-- Needed upstream changes: smallest possible edit with a `MAID` marker; prefer subscribing to an existing event from a Maid system over editing an upstream system.
-- Never touch: `RobustToolbox/`, `Content.Goobstation.*`, `Content.*.Database` without explicit permission.
-- Don't run tests, integration tests, or full builds unless asked.
