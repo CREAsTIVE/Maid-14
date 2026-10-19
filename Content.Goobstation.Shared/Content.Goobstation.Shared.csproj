@@ -22,6 +22,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
     <ItemGroup>
       <PackageReference Include="JetBrains.Annotations" />
+    <PackageReference Include="SixLabors.ImageSharp" /> <!-- MAID rt-update -->
     </ItemGroup>
 
   

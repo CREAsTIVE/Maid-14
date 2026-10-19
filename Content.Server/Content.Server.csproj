@@ -50,6 +50,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   <Import Project="..\MSBuild\Content.props" /> <!-- MAID rt-update -->
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
+    <PackageReference Include="prometheus-net" /> <!-- MAID rt-update -->
+    <PackageReference Include="Microsoft.Extensions.ObjectPool" /> <!-- MAID rt-update -->
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Content.Packaging\Content.Packaging.csproj" />

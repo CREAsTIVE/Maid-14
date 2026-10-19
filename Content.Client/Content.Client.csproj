@@ -48,6 +48,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   <ItemGroup>
     <PackageReference Include="Nett" />
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
+    <PackageReference Include="SixLabors.ImageSharp" /> <!-- MAID rt-update -->
+    <PackageReference Include="Pidgin" /> <!-- MAID rt-update -->
+    <PackageReference Include="Robust.Shared.AuthLib" /> <!-- MAID rt-update -->
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" />
