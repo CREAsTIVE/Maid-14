@@ -2,8 +2,7 @@
 
 Maid-14 is a fork of Goob Station, which itself descends from Space Station 14 (SS14). It is a multiplayer 2D game built on the RobustToolbox engine. This document describes the big picture; the detailed concepts live in the sibling documents:
 
-- `ECS.md` — entities and components: identity, lifecycle, data, networking, composition
-- `systems.md` — what systems are, how they talk to each other, and which ones are used most
+- `ECS.md` — entities, components and systems: identity, lifecycle, data, networking, composition, behavior, event communication, and the map of the most used systems
 - `rsi.md` — how sprites and their animation state are packaged
 
 This documentation is deliberately abstract. It describes ideas and relationships, not file locations or signatures, so that refactors which keep the architecture intact do not invalidate it.
@@ -29,7 +28,7 @@ The fork-specific layers (upstream Goob content and Maid's own content) follow t
 All game objects are **entities**. An entity is nothing but an identifier plus a bag of components; it has no behavior and no type of its own.
 
 - **Components** are pure data attached to an entity. The set of components on an entity *is* what that entity is. See `ECS.md`.
-- **Systems** are the behavior. Each system owns the logic for one concern and operates on every entity that has the relevant components. See `systems.md`.
+- **Systems** are the behavior. Each system owns the logic for one concern and operates on every entity that has the relevant components. See `ECS.md`.
 - **Prototypes** are YAML templates that say "an entity of this kind starts with these components, with these values". Spawning an entity means instantiating a prototype. Prototypes can inherit from parents, so large families of items share a base and override details.
 
 This inversion matters for how to think about the codebase: a "door" is not a class, it is an entity that happens to carry door, power, access, and sprite components. Behaviors compose by combining components, not by subclassing.

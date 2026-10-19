@@ -77,4 +77,4 @@ Clothing and held-item systems construct the layers on the character from these 
 ## Related
 
 - `ECS.md` — sprite and appearance data are components attached to entities.
-- `systems.md` — visualizer systems and the equipment systems that consume RSI states.
+- `ECS.md` — visualizer systems and the equipment systems that consume RSI states.
