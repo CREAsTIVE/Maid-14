@@ -10,14 +10,12 @@ A **directory** named `something.rsi` under `Resources/Textures/` containing:
 (`.rsic` is a single-PNG variant with the JSON embedded in a PNG metadata field; the game uses the folder form.)
 
 ### meta.json fields
-```
-version      int (1)
-license      SPDX-ish string, e.g. "CC-BY-SA-3.0"        (project policy: mandatory)
-copyright    free text: origin of the art, author, commit/link (project policy: mandatory)
-size         { "x": 32, "y": 32 }   frame size in pixels; shared by every state
-states       [ { name, directions?, delays?, flags? }, ... ]
-load         optional: { "srgb": bool }  texture load params
-```
+- `version`: int (1).
+- `license`: string such as `"CC-BY-SA-3.0"` (project policy: mandatory).
+- `copyright`: free text with the origin, author and commit/link of the art (project policy: mandatory).
+- `size`: `{ "x": 32, "y": 32 }`, the frame size in pixels, shared by every state.
+- `states`: list of `{ name, directions?, delays?, flags? }`.
+- `load`: optional `{ "srgb": bool }`, texture load parameters.
 - `directions` ∈ **1, 4, 8**; omitted = 1. Anything else fails loading.
 - `delays` is a **list per direction of lists of frame durations in seconds**: `[[0.1,0.1,0.1]]` for a 1-direction 3-frame animation, `[[1],[1],[1],[1]]` for a 4-direction still. The outer length must equal `directions`. Omitted = one frame per direction, no animation. Durations are folded across directions internally.
 - `flags` / selectors are parsed but ignored by the engine today.

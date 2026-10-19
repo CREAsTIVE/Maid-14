@@ -27,15 +27,9 @@ Maid-14 = Space Station 14 (SS14) on the **RobustToolbox** engine (C#/.NET 9, YA
 
 ## 2. The three code sides and how they connect
 
-```
-          Content.Shared  ── compiled into both ──┐
-             │  ▲                                  │
- Content.Server   Content.Client                    │
- (authority)      (prediction + presentation)       │
-        ▲ ▲                                         │
-        │ └── replicated component state, net events, UI messages
- Engine: Robust.Server / Robust.Client / Robust.Shared
-```
+- `Content.Shared` is compiled into both `Content.Server` and `Content.Client`. The server is the authority; the client does prediction and presentation.
+- Server → client: replicated component state, networked events, UI messages (engine layer: `Robust.Server` / `Robust.Client` on top of `Robust.Shared`).
+- Client → server: input commands, predictive events, UI messages.
 - **Shared logic runs on both sides**: the client executes it *predictively* for the local player and gets corrected by authoritative server state. This is why gameplay rules (interaction, hands, inventory, damage, doors, locks, storage) live in `Content.Shared`.
 - Per-feature split: `Shared…System` (rules), server part (side effects that need authority; guarded with `_net.IsServer` when a shared path needs it), client part (visuals/UI, guarded with `_timing.IsFirstTimePredicted` for one-shot effects).
 - **Data flow**: input → client `InputSystem` → command binding (e.g. interaction `Use`) → shared system runs (predicted) *and* the input is sent to the server → server runs the same shared code → components are `Dirty`'d → game state sent to clients in PVS → client applies state (`ComponentHandleState`) → visuals update via Appearance/visualizers. Details in `ecs/networking.md`.
@@ -61,15 +55,12 @@ Maid-14 = Space Station 14 (SS14) on the **RobustToolbox** engine (C#/.NET 9, YA
 
 ## 5. Systems layering in Content (how the big pieces relate)
 
-```
-Input/UI ──► Interaction ──► (Verbs | Hands | Item use | DoAfter | Tools | Storage | ItemSlots | Doors | Locks | ...)
-                 │
-         ActionBlocker  ◄── attempt events cancelled by MobState, Stun, Restraints, Pacified, ...
-                 │
-   Damage ──► MobState ──► Standing/Movement/Alerts/Overlays
-   Inventory (relay) ──► armor, speed, vision, slip, ... on the wearer
-   Power(server) ──► Powered flag ──► machines, lights, UIs
-   Appearance ──► client visualizers ──► sprite layers (rsi.md)
-```
+Relations between the big pieces, as text:
+- Clicks and UI input go to **Interaction**, which dispatches to Verbs, Hands, item use, DoAfter, Tools, Storage, ItemSlots, Doors, Locks and similar.
+- **ActionBlocker** sits beside Interaction: attempt events cancelled by MobState, stun, restraints and others decide whether an action is allowed.
+- **Damage** feeds **MobState**, which in turn affects Standing, Movement, Alerts and overlays.
+- **Inventory** relays events from the wearer to equipped items (armor, speed, vision, slip and so on).
+- **Power** (server simulation) produces the `Powered` flag, which machines, lights and UIs consume.
+- **Appearance** carries state to client visualizers, which set sprite layers (see `rsi.md`).
 - The same few primitives recur: **attempt event → cancel**, **modifier event → aggregate**, **done event → react**, **relay event → forward to equipment/parts**, **component as capability**, **container as location**, **appearance key as visual state**.
 - The fork adds large vertical subsystems on top of upstream: body/wound model ("Shitmed", complex bodies where damage is applied per body part), antagonists/game modes from Goob, and Maid's economy, mood, adaptive/dynamic game modes, TTS, ghost/ERT recruitment, trade shuttle console. Find them under the relevant `_Maid`/`Goobstation` folders.
