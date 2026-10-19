@@ -137,7 +137,7 @@ public sealed partial class DungeonSystem
     {
         // Ensure the underlying template exists.
         var roomMap = GetOrCreateTemplate(room);
-        var templateMapUid = _mapSystem.GetMapEntityId(roomMap);
+        var templateMapUid = _mapSystem.GetMapOrInvalid(roomMap);
         var templateGrid = Comp<MapGridComponent>(templateMapUid);
         var roomDimensions = room.Size;
 

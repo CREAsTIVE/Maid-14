@@ -35,7 +35,7 @@ public sealed class AddMapAtmosCommand : LocalizedCommands
         }
 
         int.TryParse(args[0], out var id);
-        var map = _mapSystem.GetMapEntityId(new MapId(id));
+        var map = _mapSystem.GetMapOrInvalid(new MapId(id));
         if (!map.IsValid())
         {
             shell.WriteError(Loc.GetString("cmd-parse-failure-mapid",  ("arg", args[0])));

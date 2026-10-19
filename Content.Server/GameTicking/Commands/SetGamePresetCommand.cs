@@ -33,7 +33,7 @@ namespace Content.Server.GameTicking.Commands
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
-            if (!args.Length.InRange(1, 2))
+            if (args.Length is < 1 or > 2) // MAID rt-update
             {
                 shell.WriteError(Loc.GetString("shell-need-between-arguments", ("lower", 1), ("upper", 2), ("currentAmount", args.Length)));
                 return;

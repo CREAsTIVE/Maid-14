@@ -66,7 +66,7 @@ public sealed class PlanetCommand : IConsoleCommand
         }
 
         var biomeSystem = _entManager.System<BiomeSystem>();
-        var mapUid = _mapSystem.GetMapEntityId(mapId);
+        var mapUid = _mapSystem.GetMapOrInvalid(mapId);
         biomeSystem.EnsurePlanet(mapUid, biomeTemplate);
 
         // - Beginning of GoobStation changes -

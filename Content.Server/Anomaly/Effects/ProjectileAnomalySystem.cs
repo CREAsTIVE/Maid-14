@@ -111,7 +111,7 @@ public sealed class ProjectileAnomalySystem : EntitySystem
 
         var spawnCoords = _mapSystem.TryFindGridAt(mapPos, out var gridUid, out _)
                 ? _xform.WithEntityId(coords, gridUid)
-                : new(_mapSystem.GetMapEntityId(mapPos.MapId), mapPos.Position);
+                : new(_mapSystem.GetMapOrInvalid(mapPos.MapId), mapPos.Position);
 
         var ent = Spawn(component.ProjectilePrototype, spawnCoords);
         var direction = _xform.ToMapCoordinates(targetCoords).Position - mapPos.Position;

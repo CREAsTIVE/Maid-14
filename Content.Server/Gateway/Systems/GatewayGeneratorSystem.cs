@@ -112,7 +112,7 @@ public sealed class GatewayGeneratorSystem : EntitySystem
         var seed = _random.Next();
         var random = new Random(seed);
         var mapId = _maps.CreateMap();
-        var mapUid = _maps.GetMapEntityId(mapId);
+        var mapUid = _maps.GetMapOrInvalid(mapId);
 
         var gatewayName = _salvage.GetFTLName(_protoManager.Index(PlanetNames), seed);
         _metadata.SetEntityName(mapUid, gatewayName);
