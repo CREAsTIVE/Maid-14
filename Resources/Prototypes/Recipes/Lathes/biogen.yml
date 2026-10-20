@@ -165,7 +165,7 @@
     Biomass: 15
 
 
-- type: latheRecipe
+- type: latheRecipe #Maid begin
   id: BioGenChlorine
   resultReagents:
     Chlorine: 10
@@ -280,7 +280,7 @@
     state: bottle-1
   completetime: 1
   materials:
-    Biomass: 15
+    Biomass: 15 #Maid end
 
 - type: latheRecipe
   id: BioGenMilk
@@ -373,8 +373,9 @@
   materials:
     Biomass: 18
 
-#Seeds
-- type: latheRecipe
+#Maid begin
+#Seeds 
+- type: latheRecipe 
   abstract: false
   id: BioGenSeedsRecipe
   categories:
@@ -696,3 +697,4 @@
   icon:
     sprite: Objects/Specific/Hydroponics/poppy.rsi
     state: seed
+#Maid end
