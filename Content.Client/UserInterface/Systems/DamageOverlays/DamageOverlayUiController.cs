@@ -179,11 +179,13 @@ public sealed class DamageOverlayUiController : UIController
                         if (consciousness is null)
                             return; // MAID crit overlay vital damage
 
-                        if (consciousness.Consciousness <= 0/* || consciousness.Consciousness >= consciousness.Cap*/) // MAID pain overlay
+                        /* // MAID pain overlay
+                        if (consciousness.Consciousness <= 0 || consciousness.Consciousness >= consciousness.Cap)
                         {
                             _overlay.PainLevel = 0;
                             return;
                         }
+                        */
 
                         // MAID BEGIN pain overlay
                         /*
