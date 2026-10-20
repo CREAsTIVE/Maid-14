@@ -24,8 +24,8 @@ public sealed class MindUtilsCommands : ToolshedCommand
         return target;
     }
 
-    [CommandImplementation("controlmob")]
-    public EntityUid ControlMob(
+    [CommandImplementation("controlmobself")]
+    public EntityUid ControlMobSelf(
         IInvocationContext ctx,
         [PipedArgument] EntityUid target)
     {
