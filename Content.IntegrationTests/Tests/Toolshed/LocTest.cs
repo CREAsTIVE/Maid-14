@@ -27,7 +27,7 @@ public sealed class LocTest : ToolshedTest
         var locStrings = new HashSet<string>();
 
         var ignored = new HashSet<Assembly>()
-            {typeof(LocTest).Assembly} // MAID rt-update;
+            {typeof(LocTest).Assembly}; // MAID rt-update
 
         await Server.WaitAssertion(() =>
         {
