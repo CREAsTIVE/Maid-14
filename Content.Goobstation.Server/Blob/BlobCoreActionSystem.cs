@@ -106,7 +106,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
             || !args.ClickLocation.IsValid(EntityManager))
             return;
 
-        var location = args.ClickLocation.AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapManager);
+        var location = args.ClickLocation.AlignWithClosestGridTile(entityManager: EntityManager); // MAID rt-update
         var gridUid = _transform.GetGrid(location);
 
         if (!TryComp<MapGridComponent>(gridUid, out var grid))
