@@ -31,6 +31,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <PackageReference Include="NUnit" />
     <PackageReference Include="NUnit3TestAdapter" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="Serilog" /> <!-- MAID rt-update -->
+    <PackageReference Include="YamlDotNet" /> <!-- MAID rt-update -->
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Content.Client\Content.Client.csproj" />
