@@ -26,10 +26,12 @@ SPDX-License-Identifier: MIT
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <OutputType>Exe</OutputType>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <IsTestingPlatformApplication>false</IsTestingPlatformApplication> <!-- MAID rt-update -->
   </PropertyGroup>
   <Import Project="..\MSBuild\Content.props" /> <!-- MAID rt-update -->
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" />
+    <PackageReference Include="Moq" /> <!-- MAID rt-update -->
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Content.Client\Content.Client.csproj" />

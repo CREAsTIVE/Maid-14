@@ -15,7 +15,8 @@ SPDX-License-Identifier: MIT
         <OutputPath>..\bin\Content.YAMLLinter\</OutputPath>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <ServerGarbageCollection>true</ServerGarbageCollection>
-    </PropertyGroup>
+      <IsTestingPlatformApplication>false</IsTestingPlatformApplication> <!-- MAID rt-update -->
+  </PropertyGroup>
 
   <ItemGroup>
       <ProjectReference Include="..\Content.Client\Content.Client.csproj" />
