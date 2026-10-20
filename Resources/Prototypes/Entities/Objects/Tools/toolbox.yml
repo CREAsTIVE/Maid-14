@@ -75,9 +75,10 @@
     size: Ginormous
   - type: MeleeWeapon
     heavyStaminaCost: 10 # goob edit
+    attackRate: 0.6 # Maid
     damage:
       types:
-        Blunt: 12
+        Blunt: 15 # Maid
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
   - type: Tag
