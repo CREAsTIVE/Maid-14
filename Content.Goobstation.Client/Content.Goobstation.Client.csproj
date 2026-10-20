@@ -22,6 +22,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   <ItemGroup>
     <PackageReference Include="Nett" />
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
+    <PackageReference Include="SixLabors.ImageSharp" /> <!-- MAID rt-update -->
+    <PackageReference Include="Serilog" /> <!-- MAID rt-update -->
   </ItemGroup>
 
     <ItemGroup>
