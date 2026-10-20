@@ -95,7 +95,6 @@ namespace Content.Client.NodeContainer
                 var overlay = new NodeVisualizationOverlay(
                     this,
                     _entityLookup,
-                    _mapManager,
                     _inputManager,
                     _resourceCache,
                     EntityManager);

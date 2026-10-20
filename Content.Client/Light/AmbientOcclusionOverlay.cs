@@ -5,6 +5,7 @@ using Robust.Client.Graphics;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components; // MAID rt-update
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -116,7 +117,9 @@ public sealed class AmbientOcclusionOverlay : Overlay
                 // Don't want lighting affecting it.
                 worldHandle.UseShader(_proto.Index(UnshadedShader).Instance());
 
-                foreach (var grid in _mapSystem.FindGridsIntersecting(mapId, worldBounds))
+                var grids = new List<Entity<MapGridComponent>>(); // MAID rt-update
+                _mapSystem.FindGridsIntersecting(mapId, worldBounds, (gridUid, gridComp) => { grids.Add((gridUid, gridComp)); return true; }); // MAID rt-update
+                foreach (var grid in grids)
                 {
                     var transform = xformSystem.GetWorldMatrix(grid.Owner);
                     var worldToTextureMatrix = Matrix3x2.Multiply(transform, invMatrix);

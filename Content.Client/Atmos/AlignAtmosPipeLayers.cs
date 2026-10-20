@@ -92,7 +92,7 @@ public sealed class AlignAtmosPipeLayers : SnapgridCenter
         if (pManager.PlacementType != PlacementTypes.None)
             return;
 
-        MouseCoords = _unalignedMouseCoords.AlignWithClosestGridTile(SearchBoxSize, _entityManager, _mapManager);
+        MouseCoords = _unalignedMouseCoords.AlignWithClosestGridTile(SearchBoxSize, _entityManager); // MAID rt-update
 
         var gridId = _transformSystem.GetGrid(MouseCoords);
 
