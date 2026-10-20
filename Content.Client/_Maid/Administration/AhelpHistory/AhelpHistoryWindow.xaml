@@ -1,0 +1,18 @@
+<ui:FancyWindow xmlns="https://spacestation14.io"
+                xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
+                Title="{Loc 'ahelp-history-window-title-loading'}"
+                MinSize="500 300"
+                SetSize="700 500">
+    <BoxContainer Orientation="Vertical" Margin="4">
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+            <Button Name="LoadMoreButton" Text="{Loc 'ahelp-history-load-older'}" Disabled="True" />
+            <Control MinSize="5 0" />
+            <LineEdit Name="FilterLineEdit" PlaceHolder="{Loc 'ahelp-history-filter-placeholder'}" HorizontalExpand="True" />
+            <Control MinSize="5 0" />
+            <Label Name="CountLabel" VerticalAlignment="Center" />
+        </BoxContainer>
+        <PanelContainer StyleClasses="BackgroundDark" VerticalExpand="True" HorizontalExpand="True">
+            <OutputPanel Name="Output" VerticalExpand="True" HorizontalExpand="True" Margin="4" />
+        </PanelContainer>
+    </BoxContainer>
+</ui:FancyWindow>

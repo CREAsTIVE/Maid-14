@@ -1,0 +1,14 @@
+ahelp-history-window-title = Ahelp history: {$player}
+ahelp-history-window-title-loading = Ahelp history
+ahelp-history-load-older = Load older
+ahelp-history-filter-placeholder = Filter by text or sender...
+ahelp-history-count = {$count} messages loaded
+ahelp-history-count-filtered = {$shown} of {$count} messages
+ahelp-history-loading = Loading...
+ahelp-history-empty = No ahelp messages recorded for this player.
+ahelp-history-round-header = Round {$round} · {$server} · {$date}
+ahelp-history-no-round-header = No round
+ahelp-history-discord-suffix = (Discord)
+ahelp-history-admin-only-prefix = (admin only)
+ahelp-history-button = History
+ahelp-history-player-panel-button = Ahelp history

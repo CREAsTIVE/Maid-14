@@ -190,6 +190,7 @@ namespace Content.Server.Database
         public DbSet<RMCPatronLobbyMessage> RMCPatronLobbyMessages { get; set; } = default!;
         public DbSet<RMCPatronRoundEndNTShoutout> RMCPatronRoundEndNTShoutouts { get; set; } = default!;
         public DbSet<PlayerReputation> PlayerReputations { get; set; } = default!; // WD edit
+        public DbSet<AhelpMessage> AhelpMessages { get; set; } = default!; // MAID ahelp history
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -281,6 +281,14 @@ namespace Content.Client.Administration.UI.Bwoink
                     _console.ExecuteCommand($"adminnotes \"{_currentPlayer.SessionId}\"");
             };
 
+            // MAID BEGIN ahelp history
+            AhelpHistory.OnPressed += _ =>
+            {
+                if (_currentPlayer is not null)
+                    _console.ExecuteCommand($"ahelphistory \"{_currentPlayer.SessionId}\"");
+            };
+            // MAID END ahelp history
+
             Ban.OnPressed += _ =>
             {
                 if (_currentPlayer is not null)
@@ -345,6 +353,11 @@ namespace Content.Client.Administration.UI.Bwoink
 
             Notes.Visible = _adminManager.HasFlag(AdminFlags.ViewNotes);
             Notes.Disabled = !Notes.Visible || disabled;
+
+            // MAID BEGIN ahelp history
+            AhelpHistory.Visible = _adminManager.CanCommand("ahelphistory");
+            AhelpHistory.Disabled = !AhelpHistory.Visible || disabled;
+            // MAID END ahelp history
 
             Ban.Visible = _adminManager.HasFlag(AdminFlags.Ban);
             Ban.Disabled = !Ban.Visible || disabled;

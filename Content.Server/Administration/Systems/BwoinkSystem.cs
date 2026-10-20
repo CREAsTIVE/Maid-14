@@ -161,6 +161,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly IServerDbManager _dbManager = default!;
         [Dependency] private readonly PlayerRateLimitManager _rateLimit = default!;
         [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
+        [Dependency] private readonly Content.Server._Maid.Administration.AhelpHistory.AhelpHistorySystem _ahelpHistory = default!; // MAID ahelp history
 
         [GeneratedRegex(@"^https://(?:(?:canary|ptb)\.)?discord\.com/api/webhooks/(\d+)/((?!.*/).*)$")]
         private static partial Regex DiscordRegex();
@@ -856,6 +857,17 @@ namespace Content.Server.Administration.Systems
             var msg = new BwoinkTextMessage(bwoinkParams.Message.UserId, bwoinkParams.SenderId, bwoinkText, playSound: playSound, adminOnly: bwoinkParams.Message.AdminOnly);
 
             LogBwoink(msg);
+            // MAID BEGIN ahelp history
+            _ahelpHistory.Record(
+                bwoinkParams.Message.UserId,
+                bwoinkParams.SenderId,
+                bwoinkParams.SenderName,
+                bwoinkParams.Message.Text,
+                bwoinkParams.FromWebhook || bwoinkParams.SenderAdmin != null,
+                bwoinkParams.Message.AdminOnly,
+                playSound,
+                bwoinkParams.FromWebhook);
+            // MAID END ahelp history
 
             var admins = GetTargetAdmins();
 

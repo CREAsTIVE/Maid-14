@@ -495,6 +495,21 @@ namespace Content.Server.Database
         /// <param name="player">Guid of the player to get the value for.</param>
         /// <returns>Value of player's reputation.</returns>
         Task<float> GetPlayerReputation(Guid player);
+
+        // MAID BEGIN ahelp history
+        /// <summary>
+        /// Stores a single ahelp message.
+        /// </summary>
+        Task AddAhelpMessageAsync(AhelpMessage message);
+
+        /// <summary>
+        /// Gets up to <paramref name="limit"/> ahelp messages of a player's thread, newest first.
+        /// </summary>
+        /// <param name="player">The player whose ahelp thread to fetch.</param>
+        /// <param name="limit">Maximum amount of messages to return.</param>
+        /// <param name="beforeId">If set, only messages with an id lower than this are returned.</param>
+        Task<List<AhelpMessage>> GetAhelpMessagesAsync(Guid player, int limit, int? beforeId);
+        // MAID END ahelp history
     }
 
     /// <summary>
@@ -1304,6 +1319,20 @@ namespace Content.Server.Database
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetPlayerReputation(player));
         }
+
+        // MAID BEGIN ahelp history
+        public Task AddAhelpMessageAsync(AhelpMessage message)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddAhelpMessageAsync(message));
+        }
+
+        public Task<List<AhelpMessage>> GetAhelpMessagesAsync(Guid player, int limit, int? beforeId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetAhelpMessagesAsync(player, limit, beforeId));
+        }
+        // MAID END ahelp history
 
         private async void HandleDatabaseNotification(DatabaseNotification notification)
         {

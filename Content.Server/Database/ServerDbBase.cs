@@ -2190,6 +2190,42 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return reputation?.Reputation ?? 0f;
         }
 
+        // MAID BEGIN ahelp history
+        public async Task AddAhelpMessageAsync(AhelpMessage message)
+        {
+            await using var db = await GetDb();
+
+            db.DbContext.AhelpMessages.Add(message);
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task<List<AhelpMessage>> GetAhelpMessagesAsync(Guid player, int limit, int? beforeId)
+        {
+            await using var db = await GetDb();
+
+            var query = db.DbContext.AhelpMessages
+                .AsNoTracking()
+                .Where(m => m.PlayerUserId == player);
+
+            if (beforeId is { } before)
+                query = query.Where(m => m.Id < before);
+
+            var messages = await query
+                .OrderByDescending(m => m.Id)
+                .Take(limit)
+                .Include(m => m.Round)
+                .ThenInclude(r => r!.Server)
+                .ToListAsync();
+
+            foreach (var message in messages)
+            {
+                message.SentAt = NormalizeDatabaseTime(message.SentAt);
+            }
+
+            return messages;
+        }
+        // MAID END ahelp history
+
         public abstract Task SendNotification(DatabaseNotification notification);
 
         // SQLite returns DateTime as Kind=Unspecified, Npgsql actually knows for sure it's Kind=Utc.

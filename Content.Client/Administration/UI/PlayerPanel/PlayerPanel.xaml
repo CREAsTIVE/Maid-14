@@ -27,13 +27,17 @@ SPDX-License-Identifier: AGPL-3.0-or-later
        <Label Name="SharedConnections"/>
 
        <BoxContainer Align="Center">
-           <GridContainer Rows="6">
+           <!-- MAID ahelp history: Rows 6 -> 7 -->
+           <GridContainer Rows="7">
             <Button Name="NotesButton" Text="{Loc player-panel-show-notes}" SetWidth="136" Disabled="True"/>
             <Button Name="AhelpButton" Text="{Loc player-panel-help}" Disabled="True"/>
             <Button Name="FreezeButton" Text = "{Loc player-panel-freeze}" Disabled="True"/>
             <controls:ConfirmButton Name="KickButton" Text="{Loc player-panel-kick}" Disabled="True"/>
             <controls:ConfirmButton Name="DeleteButton" Text="{Loc player-panel-delete}" Disabled="True"/>
             <Button Name="FollowButton" Text="{Loc player-panel-follow}"/>
+            <!-- MAID ahelp history -->
+            <Button Name="AhelpHistoryButton" Text="{Loc ahelp-history-player-panel-button}" Disabled="True"/>
+            <!-- MAID ahelp history -->
             <Button Name="ShowBansButton" Text="{Loc player-panel-show-bans}" SetWidth="136" Disabled="True"/>
             <Button Name="LogsButton" Text="{Loc player-panel-logs}" Disabled="True"/>
             <Button Name="FreezeAndMuteToggleButton" Text="{Loc player-panel-freeze-and-mute}" Disabled="True"/>

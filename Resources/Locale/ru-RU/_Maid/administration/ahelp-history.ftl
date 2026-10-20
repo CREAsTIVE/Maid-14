@@ -1,0 +1,14 @@
+ahelp-history-window-title = История ахелпа: {$player}
+ahelp-history-window-title-loading = История ахелпа
+ahelp-history-load-older = Загрузить старые
+ahelp-history-filter-placeholder = Фильтр по тексту или отправителю...
+ahelp-history-count = Загружено сообщений: {$count}
+ahelp-history-count-filtered = {$shown} из {$count} сообщений
+ahelp-history-loading = Загрузка...
+ahelp-history-empty = Для этого игрока не записано сообщений ахелпа.
+ahelp-history-round-header = Раунд {$round} · {$server} · {$date}
+ahelp-history-no-round-header = Без раунда
+ahelp-history-discord-suffix = (Discord)
+ahelp-history-admin-only-prefix = (только админам)
+ahelp-history-button = История
+ahelp-history-player-panel-button = История ахелпа

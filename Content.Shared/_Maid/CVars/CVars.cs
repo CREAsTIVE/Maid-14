@@ -89,6 +89,12 @@ public sealed class MaidCVars
     public static readonly CVarDef<bool> ChatSlangFilter =
         CVarDef.Create("ic.slang_filter", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
+    /// <summary>
+    ///     Whether ahelp messages are stored in the database for the persistent ahelp history.
+    /// </summary>
+    public static readonly CVarDef<bool> AhelpHistoryEnabled =
+        CVarDef.Create("maid.ahelp_history_enabled", true, CVar.SERVERONLY);
+
     #endregion
 
     #region Economy
