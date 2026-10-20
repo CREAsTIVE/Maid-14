@@ -1,40 +1,69 @@
 # Controversial / needs-decision items (RT 266 -> 293.0.1)
 
-Status legend: OPEN = needs your decision, NOTE = done but please be aware.
+Legend: **OPEN** = needs your decision or playtest, **NOTE** = done, but please be aware.
+Everything here was found while updating; "mechanical" renames are not listed.
 
 ## Build / tooling
-- NOTE **C# 14 everywhere** (`MSBuild/Content.props`, copied from Goob). Was `LangVersion 12`. Needed because RT generated code
-  needs it (first-class span `Contains` etc). Possible subtle overload-resolution changes in hand-written code.
-- NOTE **Package bumps** (mirrors Goob): EF Core Design/Sqlite.Core 9.0.1 -> 10.0.0, Npgsql.EFCore 9.0.3 -> 10.0.0, OpenTK 4.7.2 -> 4.9.4, CsvHelper 33.1.0.
-  EF/Npgsql 10 touches the production DB layer (no migration changes made). Needs a DB smoke test on Postgres + SQLite.
-- NOTE NuGet audit warnings (NU1902/NU1903) on `Content.Server.Database` transitive System.Security.Cryptography.* 9.0.0.
-- NOTE `RA0049`/`RA0051` (`[Dependency]` fields should be `partial`/non-readonly) are suppressed in `Content.props` — RT says
-  they will become errors later. Hundreds of sites.
-- NOTE Pow3r restore shows OpenTK NU1608 warnings (tool project, not shipped).
+- **NOTE C# 14 everywhere** (`MSBuild/Content.props`, copied from Goob). Was `LangVersion 12`. RT generated code needs it.
+  Possible subtle overload-resolution changes (e.g. new first-class span conversions) in hand-written code.
+- **NOTE Package bumps (as Goob):** EF Core Design/Sqlite.Core 9.0.1 -> 10.0.0, Npgsql.EFCore 9.0.3 -> 10.0.0, OpenTK 4.9.4, CsvHelper 33.1.0.
+  **OPEN:** EF/Npgsql 10 touch the production DB layer. No migration/model files were edited. Needs a Postgres + SQLite smoke test.
+- **NOTE NuGet audit** warnings (NU1902/NU1903) on transitive `System.Security.Cryptography.*` 9.0.0 in `Content.Server.Database`.
+- **NOTE `RA0049`/`RA0051`** (`[Dependency]` fields should be `partial` / not `readonly`) are suppressed in `Content.props`;
+  RT says they become errors in the future. Hundreds of sites.
+- **NOTE** Explicit package refs added (RT no longer exposes its packages transitively): YamlDotNet, Serilog, SixLabors.ImageSharp,
+  Pidgin, Robust.Shared.AuthLib, prometheus-net, ObjectPool, Moq.
+- **OPEN CI:** `.github/workflows` edits (.NET 10) are in `RT_UPDATE/workflows-dotnet10.patch`; the bot token has no `workflow` scope, apply with `git apply`.
+- **NOTE** `Pow3r` shows OpenTK NU1608 warnings (tool project).
+- **NOTE** `.sln` -> `.slnx`; run `dotnet run --project RobustToolbox/Tools/Robust.SolutionGen -- update` after every RT feature update.
 
-## Silent behaviour changes in RT (please review / test)
-- OPEN **XAML `StyleClasses="..."` now *replaces* all classes** (RT 285). Stock `Button` is compat-patched, but custom controls that add
-  classes in their constructors and are then given `StyleClasses=` in XAML lose them. Needs a UI visual pass.
-- OPEN **Transform lerping** was reworked in 292 and reverted in 293 — net effect none, but any Maid/Goob code touching
-  `RenderTransform`/`GetRender*` (none found) would have been affected.
-- OPEN **Partial prototypes / `!CombineIndex`** (289): YAML that modifies existing list elements in prototypes using the old
-  partial syntax must be rewritten. Not scanned in YAML yet.
-- OPEN **`PredictedQueueDel` / spawn changes**, `StartCollide/EndCollide` buffered until end of substeps (268): physics-event
-  timing changed; gameplay relying on same-tick collide events should be playtested.
-- OPEN **ReallyBeIdle tick count 25 -> 5**, Box2/UIBox2i input validation (negative sizes now throw) — could surface as runtime exceptions.
-- OPEN **Server now serializes PVS asynchronously / EntityPrototype component interning** — memory/perf only, but test under load.
-- OPEN **`SpawnAtPosition(EntityCoordinates)` uses the attached entity's rotation** (279) — spawned entities may be rotated differently.
-- OPEN Replay system changed (288, lazy loading) — replays recorded on old versions are not guaranteed to load.
+## Silent behaviour changes in RT (playtest!)
+- **OPEN XAML `StyleClasses="..."` now replaces all classes** (RT 285). Stock `Button` is patched for compat, custom controls that add
+  classes in code and then get `StyleClasses=` in XAML lose them. Needs a UI visual pass.
+- **OPEN Physics events:** StartCollide/EndCollide are buffered until the end of the substep (268). Gameplay relying on same-tick collide events needs a playtest.
+- **OPEN `SpawnAtPosition(EntityCoordinates)`** uses the anchor entity's rotation (279). Entities spawned that way may rotate differently.
+- **OPEN `ReallyBeIdle` tick count 25 -> 5** (279).
+- **OPEN Box2/Box2i/UIBox2i validate their inputs** (279/286/280). Inverted/negative boxes now assert/throw at runtime: see "YAML data fixes".
+- **OPEN Partial prototypes:** `!CombineIndex` required to modify existing list elements (289). I found no usage, not exhaustively checked.
+- **OPEN Replay** changed to lazy loading (288); old replays are not guaranteed to load.
+- **OPEN Transform lerping** was reworked in 292 and reverted in 293; no content code touched the removed render API.
+- **OPEN `ReAnchorEvent` removed** (292). Subscriptions in Airtight, NodeContainer, ExtensionCable, RadiationBlocker, Docking and ContainmentFieldGenerator
+  were commented out (marked `MAID rt-update`); the existing `AnchorStateChangedEvent` handlers are now raised for grid splits too. Test grid splitting (explosions/shuttle damage) for pipes, cables, airlocks.
+- **OPEN `IMapManager.Restart()` removed:** the call in `GameTicker.RoundFlow` was dropped (`FlushEntities()` just above already deletes all maps; Goob does the same).
+- **NOTE Component interning / PVS async serialization / ReflectionManager rewrite:** perf/memory only, test under load.
+
+## YAML / data fixes required by the new engine
+- **Inverted Box2 fixture bounds** (assert in `Box2`) fixed by normalizing min/max in: railing, strobe/base/ground lighting, torch, flock light, RMC platform. Same as Goob. The collision shape of these entities changes from an inverted (degenerate) box to the intended one.
+- **Inverted Box2i item shapes** fixed in resomi and projectiles (`shape:` lists).
+- **`PaperVisuals` margins:** component fields are now `Thickness` (RT 271), 42 YAML lines reordered from Box2 order (l,b,r,t) to Thickness order (l,t,r,b); visual result should be identical.
+- **`Timer` component removed** (RT 275): 63 `- type: Timer` entries removed from prototypes and maps (maps: Chloris, gate, ScoupidiaMaid, etc.).
+- **`MultipleTool.behavior` and `Tool.qualities`** scalars -> lists (flags serializer removed).
+- **Action icons `x.rsi/state.png`** -> `{ sprite, state }` (RSI texture paths no longer allowed).
+- **`Occluder.boundingBox`** -> `polygon` (RT 287; two wall prototypes).
+- **`BodyPartAppearance` `iD:`** -> `id:` (field naming of acronyms changed).
+- **Locale:** removed duplicate `cmd-replay-toggleui-desc` (now in engine); `getreput/modifyreput/setrep` help strings no longer use unsupplied variables.
 
 ## Code decisions made by me that may deserve a second look
-- NOTE **`string` prototype-id fields became `ProtoId<T>`/`EntProtoId`** (dictionary keys, hash sets, lists too). Matches Goob.
-  Consumers that did `Dictionary<string,...>` lookups were adapted via implicit conversions / `.Id`.
-- NOTE `[ValidatePrototypeId<T>] const string X` -> `static readonly ProtoId<T> X` (no longer `const`). Matches Goob. Anything needing a compile-time const had to change.
-- NOTE `IWeightedRandomPrototype<T>` generic interface + `Pick<T>` added (copied from Goob); `WeightedRandom{Ore,Species,Entity}Prototype` now use `ProtoId<T>` keys.
-- NOTE `MergeComponentsExtensions` (Maid) used `ComponentRegistryEntry.Mapping`, which RT removed. Now re-serialises the registry component
-  (`WriteValue`), so fields equal to the type default are **not** applied over the existing component (old: only YAML-specified fields). OPEN: acceptable?
-- NOTE `HitscanBatteryAmmoProviderComponent.Prototype` name lookup in `SelectableAmmoSystem` keeps old behaviour (looks the *hitscan id* up as an *entity prototype*). Probably a pre-existing bug.
-- NOTE `OccluderComponent.BoundingBox` removed -> `LocalBounds` (occluders can be convex polygons now; examine-occlusion check uses bounds only).
-- NOTE Primary-constructor DoAfterEvents (`CarveRune`, `SmHalberdExecute`, `TeslaBlast`) rewritten with normal ctors (serialization generator requirement).
-- NOTE Prototype/`IdDataField` properties `{ get; }`/`private init` got `private set` (new serializer generator needs a setter).
-- NOTE Event classes with primary constructors: `[DataField]` removed from them (Goob does the same); `[DataDefinition]`/`partial` added where RT analyzers require.
+- **NOTE `string` prototype-id fields became `ProtoId<T>`/`EntProtoId`** (also dictionary keys, sets, lists). Matches Goob. Callers use `.Id`/implicit conversions.
+- **NOTE `PrototypeFlags<ToolQualityPrototype>` -> `HashSet<ProtoId<ToolQualityPrototype>>`** (flags serializer removed; would have failed only at runtime).
+- **NOTE `[ValidatePrototypeId]` consts -> `static readonly ProtoId<T>`**; no longer `const`.
+- **NOTE `IWeightedRandomPrototype<T>`** generic interface + `Pick<T>` copied from Goob; `WeightedRandom{Ore,Species,Entity}Prototype` use `ProtoId<T>` keys.
+- **NOTE Non-system classes** (console commands, overlays, UI controls, game states) cannot `[Dependency]`-inject entity systems; they now get `SharedMapSystem` via `IEntityManager.System<>()` (found via the YAML linter, not the compiler).
+- **NOTE `BoundUserInterfaceMessageAttempt` is by-ref** (292); `SharedZombieBlobSystem` handler updated (runtime-only error).
+- **OPEN `MergeComponentsExtensions` (Maid):** `ComponentRegistryEntry.Mapping` was removed. It now re-serializes the registry component, so fields equal to the type default are not applied over the existing component (old: only YAML-specified fields).
+- **NOTE `EntityUid.SpawnTimer/SpawnRepeatingTimer`** (removed with `TimerComponent`) replaced by `Content.Shared._Maid.Utils.EntityTimerExtensions` (callback skipped if the entity is gone). Used by Flammable, Matchstick, PoweredLight, Spawner. Upstream rewrote these into update loops; consider doing the same.
+- **NOTE `SelectableAmmoSystem`:** hitscan provider name lookup keeps old behaviour (hitscan id looked up as an *entity* prototype). Probably a pre-existing bug.
+- **NOTE `OccluderComponent.BoundingBox` -> `LocalBounds`** in the examine occlusion check (occluders can be convex polygons now).
+- **NOTE Primary-constructor DoAfterEvents** (`CarveRune`, `SmHalberdExecute`, `TeslaBlast`) rewritten with normal ctors (serialization generator).
+- **NOTE Events with primary ctors:** `[DataField]` removed (as Goob). `{ get; }` / `private init` on prototype/data properties -> `private set`.
+- **NOTE `BlobTypedStorage<T>` / `BlobChemTypedStorage<T>`:** DataFields moved to the concrete subclasses (generator cannot handle generic DataDefinition bases).
+- **NOTE `FindGridsIntersecting(MapId, Box2Rotated)`** enumerable replaced by callbacks (Salvage magnet, AmbientOcclusion overlay).
+- **NOTE `ConstructionSystem` copies `Anchored`** via `TransformSystem.TryAnchor`.
+- **NOTE Test fixes:** IntegrationTests/MapRenderer `IMapManager` -> `SharedMapSystem`; `PuddleTest` materializes tiles before editing them (new debug assert); Toolshed tests no longer reference the now-internal RT `LocTest`.
+
+## Verification status
+- Builds: all projects in `SpaceStation14.slnx` that I built compile (Shared, Server, Client, Goobstation.*, Replay, Packaging, Tools, Tests, IntegrationTests, MapRenderer, YAMLLinter, Benchmarks, Pow3r, PatreonParser) with the repo's warnings-as-errors.
+- YAML linter: **No errors found**.
+- `Content.Tests`: 368 passed, 0 failed, 1 skipped.
+- Integration tests run (one at a time, low RAM): EntityTest.SpawnAndDeleteAllEntitiesOnDifferentMaps, PrototypeSaveTest, PrototypeTests, GridJoinTest, Airlock/Doors, PowerTest (15), Construction (ActionValid + Interaction 24), PostMapInit GameMapsLoadable (8) + ShuttlesLoadable, Shuttle, DeviceLinking, InteractionSystem (5), Body, Storage, Tools, Fluids (one failure fixed, rerun pending). **The full suite has not been run** (RAM); run it on CI.
+- **Not done:** real client+server boot with a connected player, DB smoke test, UI visual pass.
