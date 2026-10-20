@@ -91,7 +91,7 @@ public class XenobiologyMiscSystems : EntitySystem
         if (spreaderSys.RequiresFloorToSpread(args.SmokePrototype.ToString()) && tileRef.Tile.IsEmpty)
             return;
 
-        var coords = grid.MapToGrid(mapCoords);
+        var coords = mapMan.MapToGrid(gridUid, mapCoords); // MAID rt-update
         var ent = EntityManager.SpawnAtPosition(args.SmokePrototype, coords.SnapToGrid());
         if (!EntityManager.TryGetComponent<SmokeComponent>(ent, out var smoke))
         {
