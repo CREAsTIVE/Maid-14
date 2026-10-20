@@ -19,7 +19,7 @@ namespace Content.Server.Atmos.Commands;
 public sealed class AddMapAtmosCommand : LocalizedCommands
 {
     [Dependency] private readonly IEntityManager _entities = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!; // MAID rt-update
+    private SharedMapSystem _mapSystem => _entities.System<SharedMapSystem>(); // MAID rt-update (entity systems cannot be [Dependency]-injected here)
 
     private const string _cmd = "cmd-set-map-atmos";
     public override string Command => "setmapatmos";

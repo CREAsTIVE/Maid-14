@@ -88,7 +88,8 @@ public sealed class DecalPlacementOverlay : Overlay
 {
     [Dependency] private readonly IEyeManager _eyeManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!; // MAID rt-update
+    [Dependency] private readonly IEntityManager _entManagerForMap = default!; // MAID rt-update
+    private SharedMapSystem _mapSystem => _entManagerForMap.System<SharedMapSystem>(); // MAID rt-update
     private readonly DecalPlacementSystem _placement;
     private readonly SharedTransformSystem _transform;
     private readonly SpriteSystem _sprite;

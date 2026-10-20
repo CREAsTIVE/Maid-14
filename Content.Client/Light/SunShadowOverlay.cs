@@ -22,7 +22,7 @@ public sealed class SunShadowOverlay : Overlay
 
     [Dependency] private readonly IClyde _clyde = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!; // MAID rt-update
+    private SharedMapSystem _mapSystem => _entManager.System<SharedMapSystem>(); // MAID rt-update (entity systems cannot be [Dependency]-injected here)
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     private readonly EntityLookupSystem _lookup;
     private readonly SharedTransformSystem _xformSys;

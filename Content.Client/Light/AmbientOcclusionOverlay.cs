@@ -23,7 +23,7 @@ public sealed class AmbientOcclusionOverlay : Overlay
     [Dependency] private readonly IClyde _clyde = default!;
     [Dependency] private readonly IConfigurationManager _cfgManager = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!; // MAID rt-update
+    private SharedMapSystem _mapSystem => _entManager.System<SharedMapSystem>(); // MAID rt-update (entity systems cannot be [Dependency]-injected here)
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowEntities;

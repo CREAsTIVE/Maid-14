@@ -131,7 +131,7 @@ namespace Content.Client.Gameplay
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly SharedMapSystem _mapSystem = default!; // MAID rt-update
+        private SharedMapSystem _mapSystem => _entityManager.System<SharedMapSystem>(); // MAID rt-update (entity systems cannot be [Dependency]-injected here)
         [Dependency] protected readonly IUserInterfaceManager UserInterfaceManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IViewVariablesManager _vvm = default!;

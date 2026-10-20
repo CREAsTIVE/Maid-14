@@ -26,7 +26,8 @@ namespace Content.Client.Shuttles.UI;
 public sealed partial class ShuttleDockControl : BaseShuttleControl
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!; // MAID rt-update
+    [Dependency] private readonly IEntityManager _entManagerForMap = default!; // MAID rt-update
+    private SharedMapSystem _mapSystem => _entManagerForMap.System<SharedMapSystem>(); // MAID rt-update
     private readonly DockingSystem _dockSystem;
     private readonly SharedShuttleSystem _shuttles;
     private readonly SharedTransformSystem _xformSystem;

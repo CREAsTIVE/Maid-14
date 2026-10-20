@@ -28,7 +28,8 @@ namespace Content.Client.Shuttles.UI;
 [GenerateTypedNameReferences]
 public sealed partial class ShuttleNavControl : BaseShuttleControl
 {
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!; // MAID rt-update
+    [Dependency] private readonly IEntityManager _entManagerForMap = default!; // MAID rt-update
+    private SharedMapSystem _mapSystem => _entManagerForMap.System<SharedMapSystem>(); // MAID rt-update
     private readonly SharedShuttleSystem _shuttles;
     private readonly SharedTransformSystem _transform;
 

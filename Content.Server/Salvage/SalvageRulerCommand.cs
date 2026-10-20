@@ -19,7 +19,7 @@ namespace Content.Server.Salvage;
 sealed class SalvageRulerCommand : IConsoleCommand
 {
     [Dependency] private readonly IEntityManager _entities = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!; // MAID rt-update
+    private SharedMapSystem _mapSystem => _entities.System<SharedMapSystem>(); // MAID rt-update (entity systems cannot be [Dependency]-injected here)
 
     public string Command => "salvageruler";
 
