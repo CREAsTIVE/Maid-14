@@ -309,19 +309,6 @@
     Biomass: 12
 
 - type: latheRecipe
-  id: BioGenEthanol
-  resultReagents:
-    Ethanol: 10
-  categories:
-  - Food
-  icon:
-    sprite: Objects/Consumable/Drinks/glass_clear.rsi
-    state: icon
-  completetime: 1
-  materials:
-    Biomass: 18
-
-- type: latheRecipe
   id: BioGenCream
   resultReagents:
     Cream: 10
