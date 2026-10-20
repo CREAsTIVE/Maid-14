@@ -1,5 +1,5 @@
 cmd-getreput-desc = Get player's reputation value.
-cmd-getreput-help = Usage: getreput {$ckey}
+cmd-getreput-help = Usage: getreput <ckey>
 cmd-getreput-not-enough-args = Not enough arguments.
 cmd-getreput-player-not-found = Couldn't find player: {$ckey}.
 cmd-getreput-failed = Couldn't get player's reputation.

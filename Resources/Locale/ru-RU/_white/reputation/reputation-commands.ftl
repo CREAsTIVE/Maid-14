@@ -1,5 +1,5 @@
 cmd-getreput-desc = Узнать значение репутации игрока.
-cmd-getreput-help = Использование: getreput {$ckey}
+cmd-getreput-help = Использование: getreput <ckey>
 cmd-getreput-not-enough-args = Недостаточно аргументов.
 cmd-getreput-player-not-found = Не удалось найти игрока: {$ckey}.
 cmd-getreput-failed = Не удалось получить репутацию игрока.
