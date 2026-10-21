@@ -474,7 +474,7 @@
         sound: /Audio/_Maid/Misc/ninja_greeting.ogg #MAID Sound porting
       components:
       - type: SpaceNinja
-      - type: Extractable # MAID antag extraction
+      - type: AntagExtractable # MAID antag extraction
         thresholdMode: Percent # MAID antag extraction
         threshold: 80 # MAID antag extraction
         optionalObjectives: # MAID antag extraction

@@ -68,17 +68,17 @@ public sealed class ExtractionSystem : EntitySystem
 
         SubscribeLocalEvent<AfterAntagEntitySelectedEvent>(OnAntagSelected);
 
-        SubscribeLocalEvent<ExtractableComponent, ComponentRemove>(OnRemove);
-        SubscribeLocalEvent<ExtractableComponent, RequestExtractionActionEvent>(OnRequest);
-        SubscribeLocalEvent<ExtractableComponent, ExtractionDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<AntagExtractableComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<AntagExtractableComponent, RequestExtractionActionEvent>(OnRequest);
+        SubscribeLocalEvent<AntagExtractableComponent, ExtractionDoAfterEvent>(OnDoAfter);
 
         // anything done by or to the extractee interrupts the extraction
-        SubscribeLocalEvent<ExtractableComponent, InteractHandEvent>(OnInteractedHand);
-        SubscribeLocalEvent<ExtractableComponent, InteractUsingEvent>(OnInteractedUsing);
-        SubscribeLocalEvent<ExtractableComponent, PullStartedMessage>(OnPullStarted);
-        SubscribeLocalEvent<ExtractableComponent, AttackAttemptEvent>(OnAttackAttempt);
-        SubscribeLocalEvent<ExtractableComponent, DisarmedEvent>(OnDisarmed);
-        SubscribeLocalEvent<ExtractableComponent, BeforeGettingStrippedEvent>(OnBeforeStripped);
+        SubscribeLocalEvent<AntagExtractableComponent, InteractHandEvent>(OnInteractedHand);
+        SubscribeLocalEvent<AntagExtractableComponent, InteractUsingEvent>(OnInteractedUsing);
+        SubscribeLocalEvent<AntagExtractableComponent, PullStartedMessage>(OnPullStarted);
+        SubscribeLocalEvent<AntagExtractableComponent, AttackAttemptEvent>(OnAttackAttempt);
+        SubscribeLocalEvent<AntagExtractableComponent, DisarmedEvent>(OnDisarmed);
+        SubscribeLocalEvent<AntagExtractableComponent, BeforeGettingStrippedEvent>(OnBeforeStripped);
         SubscribeLocalEvent<ActionComponent, ActionPerformedEvent>(OnActionPerformed);
 
         SubscribeLocalEvent<ExtractionZoneComponent, InteractHandEvent>(OnZoneInteractHand);
@@ -90,7 +90,7 @@ public sealed class ExtractionSystem : EntitySystem
         base.Update(frameTime);
 
         var now = _timing.CurTime;
-        var query = EntityQueryEnumerator<ExtractableComponent>();
+        var query = EntityQueryEnumerator<AntagExtractableComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (comp.Unlocked || now < comp.NextCheck)
@@ -107,7 +107,7 @@ public sealed class ExtractionSystem : EntitySystem
 
     private void OnAntagSelected(ref AfterAntagEntitySelectedEvent args)
     {
-        if (!HasComp<ExtractableComponent>(args.EntityUid))
+        if (!HasComp<AntagExtractableComponent>(args.EntityUid))
             return;
 
         foreach (var item in _inventory.GetHandOrInventoryEntities(args.EntityUid))
@@ -206,7 +206,7 @@ public sealed class ExtractionSystem : EntitySystem
     /// Checks required objectives and the threshold over required and optional ones.
     /// Objectives in neither list are not counted.
     /// </summary>
-    public bool ObjectivesMet(Entity<ExtractableComponent> ent, Entity<MindComponent> mind)
+    public bool ObjectivesMet(Entity<AntagExtractableComponent> ent, Entity<MindComponent> mind)
     {
         var total = 0;
         var completed = 0;
@@ -237,7 +237,7 @@ public sealed class ExtractionSystem : EntitySystem
         };
     }
 
-    private void Unlock(Entity<ExtractableComponent> ent, bool forced = false)
+    private void Unlock(Entity<AntagExtractableComponent> ent, bool forced = false)
     {
         ent.Comp.Unlocked = true;
         ent.Comp.ForceUnlocked |= forced;
@@ -252,7 +252,7 @@ public sealed class ExtractionSystem : EntitySystem
     /// </summary>
     public bool TryUnlock(EntityUid uid)
     {
-        if (!TryComp<ExtractableComponent>(uid, out var comp) || comp.Unlocked)
+        if (!TryComp<AntagExtractableComponent>(uid, out var comp) || comp.Unlocked)
             return false;
 
         Unlock((uid, comp), true);
@@ -263,7 +263,7 @@ public sealed class ExtractionSystem : EntitySystem
 
     #region Zone
 
-    private void OnRequest(Entity<ExtractableComponent> ent, ref RequestExtractionActionEvent args)
+    private void OnRequest(Entity<AntagExtractableComponent> ent, ref RequestExtractionActionEvent args)
     {
         if (args.Handled || !ent.Comp.Unlocked)
             return;
@@ -302,7 +302,7 @@ public sealed class ExtractionSystem : EntitySystem
     /// <summary>
     /// Places a zone marker at a random holopad on a station's main grid.
     /// </summary>
-    private EntityUid? SpawnZone(Entity<ExtractableComponent> ent, EntityUid? exclude)
+    private EntityUid? SpawnZone(Entity<AntagExtractableComponent> ent, EntityUid? exclude)
     {
         var stationGrids = new HashSet<EntityUid>();
         // only stations events can target, so no CentComm or other off-station bases
@@ -350,7 +350,7 @@ public sealed class ExtractionSystem : EntitySystem
     /// </summary>
     public bool ResetZone(EntityUid uid)
     {
-        if (!TryComp<ExtractableComponent>(uid, out var comp))
+        if (!TryComp<AntagExtractableComponent>(uid, out var comp))
             return false;
 
         CancelExtraction((uid, comp), false);
@@ -368,7 +368,7 @@ public sealed class ExtractionSystem : EntitySystem
         return true;
     }
 
-    private void OnRemove(Entity<ExtractableComponent> ent, ref ComponentRemove args)
+    private void OnRemove(Entity<AntagExtractableComponent> ent, ref ComponentRemove args)
     {
         if (ent.Comp.Zone is { } zone)
             QueueDel(zone);
@@ -382,7 +382,7 @@ public sealed class ExtractionSystem : EntitySystem
     {
         if (args.Handled
             || args.User != ent.Comp.Extractee
-            || !TryComp<ExtractableComponent>(args.User, out var extractable))
+            || !TryComp<AntagExtractableComponent>(args.User, out var extractable))
             return;
 
         args.Handled = true;
@@ -430,7 +430,7 @@ public sealed class ExtractionSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("extraction-need-empty-hand"), args.User, args.User, PopupType.SmallCaution);
     }
 
-    private void OnDoAfter(Entity<ExtractableComponent> ent, ref ExtractionDoAfterEvent args)
+    private void OnDoAfter(Entity<AntagExtractableComponent> ent, ref ExtractionDoAfterEvent args)
     {
         ent.Comp.DoAfter = null;
 
@@ -441,7 +441,7 @@ public sealed class ExtractionSystem : EntitySystem
         Extract(ent, (zone, zoneComp));
     }
 
-    private void Extract(Entity<ExtractableComponent> ent, Entity<ExtractionZoneComponent> zone)
+    private void Extract(Entity<AntagExtractableComponent> ent, Entity<ExtractionZoneComponent> zone)
     {
         var user = ent.Owner;
         var coords = Transform(zone).Coordinates;
@@ -475,7 +475,7 @@ public sealed class ExtractionSystem : EntitySystem
         QueueDel(user);
     }
 
-    private void CancelExtraction(Entity<ExtractableComponent> ent, bool popup = true)
+    private void CancelExtraction(Entity<AntagExtractableComponent> ent, bool popup = true)
     {
         if (ent.Comp.DoAfter is not { } id)
             return;
@@ -487,45 +487,45 @@ public sealed class ExtractionSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("extraction-interrupted"), ent.Owner, ent.Owner, PopupType.MediumCaution);
     }
 
-    private void OnInteractedHand(Entity<ExtractableComponent> ent, ref InteractHandEvent args)
+    private void OnInteractedHand(Entity<AntagExtractableComponent> ent, ref InteractHandEvent args)
     {
         CancelExtraction(ent);
     }
 
-    private void OnInteractedUsing(Entity<ExtractableComponent> ent, ref InteractUsingEvent args)
+    private void OnInteractedUsing(Entity<AntagExtractableComponent> ent, ref InteractUsingEvent args)
     {
         CancelExtraction(ent);
     }
 
-    private void OnPullStarted(Entity<ExtractableComponent> ent, ref PullStartedMessage args)
+    private void OnPullStarted(Entity<AntagExtractableComponent> ent, ref PullStartedMessage args)
     {
         CancelExtraction(ent);
     }
 
-    private void OnAttackAttempt(Entity<ExtractableComponent> ent, ref AttackAttemptEvent args)
+    private void OnAttackAttempt(Entity<AntagExtractableComponent> ent, ref AttackAttemptEvent args)
     {
         CancelExtraction(ent);
     }
 
-    private void OnDisarmed(Entity<ExtractableComponent> ent, ref DisarmedEvent args)
+    private void OnDisarmed(Entity<AntagExtractableComponent> ent, ref DisarmedEvent args)
     {
         CancelExtraction(ent);
     }
 
-    private void OnBeforeStripped(Entity<ExtractableComponent> ent, ref BeforeGettingStrippedEvent args)
+    private void OnBeforeStripped(Entity<AntagExtractableComponent> ent, ref BeforeGettingStrippedEvent args)
     {
         CancelExtraction(ent);
     }
 
     private void OnActionPerformed(Entity<ActionComponent> ent, ref ActionPerformedEvent args)
     {
-        if (TryComp<ExtractableComponent>(args.Performer, out var extractable))
+        if (TryComp<AntagExtractableComponent>(args.Performer, out var extractable))
             CancelExtraction((args.Performer, extractable));
     }
 
     #endregion
 
-    private void Notify(Entity<ExtractableComponent> ent, string message)
+    private void Notify(Entity<AntagExtractableComponent> ent, string message)
     {
         _popup.PopupEntity(Loc.GetString("extraction-notify-popup"), ent.Owner, ent.Owner, PopupType.Medium);
 

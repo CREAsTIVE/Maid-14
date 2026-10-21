@@ -10,7 +10,7 @@ namespace Content.Shared._Maid.Extraction;
 /// Station items they carry are left at the zone, their own gear leaves with them.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class ExtractableComponent : Component
+public sealed partial class AntagExtractableComponent : Component
 {
     public override bool SendOnlyToOwner => true;
 

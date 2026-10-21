@@ -19,29 +19,29 @@ public sealed class ExtractionZoneSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ExtractableComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<ExtractableComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<ExtractableComponent, GetVisMaskEvent>(OnGetVisMask);
-        SubscribeLocalEvent<ExtractableComponent, InRangeOverrideEvent>(OnInRangeOverride);
+        SubscribeLocalEvent<AntagExtractableComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<AntagExtractableComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<AntagExtractableComponent, GetVisMaskEvent>(OnGetVisMask);
+        SubscribeLocalEvent<AntagExtractableComponent, InRangeOverrideEvent>(OnInRangeOverride);
     }
 
-    private void OnStartup(Entity<ExtractableComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<AntagExtractableComponent> ent, ref ComponentStartup args)
     {
         _eye.RefreshVisibilityMask(ent.Owner);
     }
 
-    private void OnShutdown(Entity<ExtractableComponent> ent, ref ComponentShutdown args)
+    private void OnShutdown(Entity<AntagExtractableComponent> ent, ref ComponentShutdown args)
     {
         _eye.RefreshVisibilityMask(ent.Owner);
     }
 
-    private void OnGetVisMask(Entity<ExtractableComponent> ent, ref GetVisMaskEvent args)
+    private void OnGetVisMask(Entity<AntagExtractableComponent> ent, ref GetVisMaskEvent args)
     {
         if (ent.Comp.LifeStage <= ComponentLifeStage.Running)
             args.VisibilityMask |= (int) VisibilityFlags.MaidExtraction;
     }
 
-    private void OnInRangeOverride(Entity<ExtractableComponent> ent, ref InRangeOverrideEvent args)
+    private void OnInRangeOverride(Entity<AntagExtractableComponent> ent, ref InRangeOverrideEvent args)
     {
         if (!TryComp<ExtractionZoneComponent>(args.Target, out var zone) || zone.Extractee != ent.Owner)
             return;
