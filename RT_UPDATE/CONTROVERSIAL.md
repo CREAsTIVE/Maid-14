@@ -49,6 +49,7 @@ Everything here was found while updating; "mechanical" renames are not listed.
 - **NOTE `[ValidatePrototypeId]` consts -> `static readonly ProtoId<T>`**; no longer `const`.
 - **NOTE `IWeightedRandomPrototype<T>`** generic interface + `Pick<T>` copied from Goob; `WeightedRandom{Ore,Species,Entity}Prototype` use `ProtoId<T>` keys.
 - **NOTE Non-system classes** (console commands, overlays, UI controls, game states) cannot `[Dependency]`-inject entity systems; they now get `SharedMapSystem` via `IEntityManager.System<>()` (found via the YAML linter, not the compiler).
+- **NOTE (from your test report)** `MappingState` (a game `State`) also cannot inject `SharedMapSystem` -> `IEntityManager.System<>()`; `Task.WhenAll(a, b)` in `ParallaxManager` binds to the C# 13/14 `params ReadOnlySpan` overload and breaks the RT sandbox (ILVerify `InlineArrayAsReadOnlySpan`), now an explicit array like Goob; `EnchantVisualsSystem` set a legacy `PostShader` before the sprite was initialized (RT 286 warns, tests fail), now uses `SetPostShader` with an id on Startup/state. Re-check any new `params`/collection-expression calls in sandboxed assemblies (`Content.Client`, Shared, Goob*).
 - **NOTE `BoundUserInterfaceMessageAttempt` is by-ref** (292); `SharedZombieBlobSystem` handler updated (runtime-only error).
 - **OPEN `MergeComponentsExtensions` (Maid):** `ComponentRegistryEntry.Mapping` was removed. It now re-serializes the registry component, so fields equal to the type default are not applied over the existing component (old: only YAML-specified fields).
 - **NOTE `EntityUid.SpawnTimer/SpawnRepeatingTimer`** (removed with `TimerComponent`) replaced by `Content.Shared._Maid.Utils.EntityTimerExtensions` (callback skipped if the entity is gone). Used by Flammable, Matchstick, PoweredLight, Spawner. Upstream rewrote these into update loops; consider doing the same.
@@ -66,4 +67,5 @@ Everything here was found while updating; "mechanical" renames are not listed.
 - YAML linter: **No errors found**.
 - `Content.Tests`: 368 passed, 0 failed, 1 skipped.
 - Integration tests run (one at a time, low RAM): EntityTest.SpawnAndDeleteAllEntitiesOnDifferentMaps, PrototypeSaveTest, PrototypeTests, GridJoinTest, Airlock/Doors, PowerTest (15), Construction (ActionValid + Interaction 24), PostMapInit GameMapsLoadable (8) + ShuttlesLoadable, Shuttle, DeviceLinking, InteractionSystem (5), Body, Storage, Tools, Fluids (23, after fixing one test bug). **The full suite has not been run** (RAM); run it on CI.
+- Re-run after your report: MappingEditorTest, SandboxTest, WeldableTests, XenoArtifactTest, MappingTest, EntityTest.SpawnAndDeleteEntityCountTest all pass (Debug config).
 - **Not done:** real client+server boot with a connected player, DB smoke test, UI visual pass.
