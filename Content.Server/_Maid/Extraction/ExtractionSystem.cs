@@ -1,13 +1,18 @@
 using System.Linq;
+using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Ghost;
 using Content.Server.Pinpointer;
+using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._Maid.Extraction;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
+using Content.Shared.Actions.Events;
+using Content.Shared.CombatMode;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Holopad;
@@ -15,10 +20,12 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.Item;
 using Content.Shared.Mind;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Objectives.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Strip.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -70,6 +77,9 @@ public sealed class ExtractionSystem : EntitySystem
         SubscribeLocalEvent<ExtractableComponent, InteractUsingEvent>(OnInteractedUsing);
         SubscribeLocalEvent<ExtractableComponent, PullStartedMessage>(OnPullStarted);
         SubscribeLocalEvent<ExtractableComponent, AttackAttemptEvent>(OnAttackAttempt);
+        SubscribeLocalEvent<ExtractableComponent, DisarmedEvent>(OnDisarmed);
+        SubscribeLocalEvent<ExtractableComponent, BeforeGettingStrippedEvent>(OnBeforeStripped);
+        SubscribeLocalEvent<ActionComponent, ActionPerformedEvent>(OnActionPerformed);
 
         SubscribeLocalEvent<ExtractionZoneComponent, InteractHandEvent>(OnZoneInteractHand);
         SubscribeLocalEvent<ExtractionZoneComponent, InteractUsingEvent>(OnZoneInteractUsing);
@@ -123,25 +133,44 @@ public sealed class ExtractionSystem : EntitySystem
     /// Drops every station item found on or inside <paramref name="item"/> at the given coordinates.
     /// Gear stays where it is and leaves together with the extractee.
     /// </summary>
-    private void ReleaseStationItems(EntityUid item, EntityCoordinates coords)
+    private void ReleaseStationItems(EntityUid user, EntityUid item, EntityCoordinates coords)
     {
-        if (HasComp<VirtualItemComponent>(item))
+        // something released earlier may have pulled this one along, e.g. a hardsuit retracting its helmet
+        if (HasComp<VirtualItemComponent>(item) || !IsCarriedBy(item, user))
             return;
 
         if (HasComp<ExtractionGearComponent>(item))
         {
             foreach (var contained in GetContained(item))
             {
-                ReleaseStationItems(contained, coords);
+                ReleaseStationItems(user, contained, coords);
             }
 
             return;
         }
 
+        // actions, solutions and other non-item children stay where they are
+        if (!HasComp<ItemComponent>(item))
+            return;
+
         if (_container.TryGetContainingContainer(item, out var container))
             _container.Remove(item, container, force: true, destination: coords);
 
         DeleteNestedGear(item);
+    }
+
+    private bool IsCarriedBy(EntityUid item, EntityUid user)
+    {
+        var parent = Transform(item).ParentUid;
+        while (parent.IsValid())
+        {
+            if (parent == user)
+                return true;
+
+            parent = Transform(parent).ParentUid;
+        }
+
+        return false;
     }
 
     private void DeleteNestedGear(EntityUid item)
@@ -208,13 +237,14 @@ public sealed class ExtractionSystem : EntitySystem
         };
     }
 
-    private void Unlock(Entity<ExtractableComponent> ent)
+    private void Unlock(Entity<ExtractableComponent> ent, bool forced = false)
     {
         ent.Comp.Unlocked = true;
+        ent.Comp.ForceUnlocked |= forced;
         Dirty(ent);
 
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEntity, ent.Comp.Action);
-        Notify(ent, Loc.GetString("extraction-unlocked"));
+        Notify(ent, Loc.GetString(forced ? "extraction-unlocked-forced" : "extraction-unlocked"));
     }
 
     /// <summary>
@@ -225,7 +255,7 @@ public sealed class ExtractionSystem : EntitySystem
         if (!TryComp<ExtractableComponent>(uid, out var comp) || comp.Unlocked)
             return false;
 
-        Unlock((uid, comp));
+        Unlock((uid, comp), true);
         return true;
     }
 
@@ -275,7 +305,9 @@ public sealed class ExtractionSystem : EntitySystem
     private EntityUid? SpawnZone(Entity<ExtractableComponent> ent, EntityUid? exclude)
     {
         var stationGrids = new HashSet<EntityUid>();
-        foreach (var station in _station.GetStations())
+        // only stations events can target, so no CentComm or other off-station bases
+        var stations = EntityQueryEnumerator<StationEventEligibleComponent>();
+        while (stations.MoveNext(out var station, out _))
         {
             if (_station.GetLargestGrid(station) is { } grid)
                 stationGrids.Add(grid);
@@ -286,6 +318,9 @@ public sealed class ExtractionSystem : EntitySystem
         while (query.MoveNext(out var uid, out _, out var xform))
         {
             if (uid == exclude || !xform.Anchored || xform.GridUid is not { } grid || !stationGrids.Contains(grid))
+                continue;
+
+            if (MetaData(uid).EntityPrototype?.ID is { } protoId && ent.Comp.HolopadBlacklist.Contains(protoId))
                 continue;
 
             candidates.Add(uid);
@@ -304,6 +339,8 @@ public sealed class ExtractionSystem : EntitySystem
         zoneComp.Extractee = ent.Owner;
         zoneComp.Holopad = holopad;
         Dirty(zone, zoneComp);
+
+        SpawnAttachedTo(zoneComp.AreaPrototype, new EntityCoordinates(zone, Vector2.Zero));
 
         return zone;
     }
@@ -357,7 +394,8 @@ public sealed class ExtractionSystem : EntitySystem
             return;
         }
 
-        if (!_mind.TryGetMind(user, out var mindId, out var mind) || !ObjectivesMet((user, extractable), (mindId, mind)))
+        if (!extractable.ForceUnlocked
+            && (!_mind.TryGetMind(user, out var mindId, out var mind) || !ObjectivesMet((user, extractable), (mindId, mind))))
         {
             _popup.PopupEntity(Loc.GetString("extraction-not-ready"), user, user, PopupType.SmallCaution);
             return;
@@ -371,6 +409,9 @@ public sealed class ExtractionSystem : EntitySystem
             BreakOnDropItem = true,
             NeedHand = true,
             DistanceThreshold = null,
+            MultiplyDelay = false,
+            // a second click on the marker must not cancel the running extraction
+            CancelDuplicate = false,
         };
 
         if (!_doAfter.TryStartDoAfter(doAfter, out var id))
@@ -408,7 +449,7 @@ public sealed class ExtractionSystem : EntitySystem
 
         foreach (var item in _inventory.GetHandOrInventoryEntities(user).ToList())
         {
-            ReleaseStationItems(item, coords);
+            ReleaseStationItems(user, item, coords);
         }
 
         _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(user):player} was extracted from the round at {coords}");
@@ -429,6 +470,7 @@ public sealed class ExtractionSystem : EntitySystem
                 colorOverride: Color.Gold);
         }
 
+        ent.Comp.Zone = null;
         QueueDel(zone.Owner);
         QueueDel(user);
     }
@@ -463,6 +505,22 @@ public sealed class ExtractionSystem : EntitySystem
     private void OnAttackAttempt(Entity<ExtractableComponent> ent, ref AttackAttemptEvent args)
     {
         CancelExtraction(ent);
+    }
+
+    private void OnDisarmed(Entity<ExtractableComponent> ent, ref DisarmedEvent args)
+    {
+        CancelExtraction(ent);
+    }
+
+    private void OnBeforeStripped(Entity<ExtractableComponent> ent, ref BeforeGettingStrippedEvent args)
+    {
+        CancelExtraction(ent);
+    }
+
+    private void OnActionPerformed(Entity<ActionComponent> ent, ref ActionPerformedEvent args)
+    {
+        if (TryComp<ExtractableComponent>(args.Performer, out var extractable))
+            CancelExtraction((args.Performer, extractable));
     }
 
     #endregion

@@ -23,9 +23,6 @@
   - type: Sprite
     drawdepth: Effects
     layers:
-    - sprite: _Maid/Effects/extraction_zone.rsi
-      state: zone
-      shader: unshaded
     - sprite: Effects/portal.rsi
       state: portal-blue
       shader: unshaded
@@ -33,3 +30,20 @@
   - type: Visibility
     layer: 256 # VisibilityFlags.MaidExtraction
   - type: ExtractionZone
+
+# zone square, kept separate so it does not swallow clicks inside the zone
+- type: entity
+  id: ExtractionZoneArea
+  name: extraction zone
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    drawdepth: FloorObjects
+    layers:
+    - sprite: _Maid/Effects/extraction_zone.rsi
+      state: zone
+      shader: unshaded
+  - type: Visibility
+    layer: 256 # VisibilityFlags.MaidExtraction

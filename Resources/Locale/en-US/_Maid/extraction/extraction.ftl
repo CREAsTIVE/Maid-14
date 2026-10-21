@@ -1,5 +1,6 @@
 extraction-notify-popup = Your clan is on the line. Check the chat.
 extraction-unlocked = Your objectives are done. Use "Request extraction" to get an extraction point on the station.
+extraction-unlocked-forced = The clan is on the line early. Use "Request extraction" to get an extraction point on the station.
 extraction-zone-designated = Extraction point designated at a holopad { $location }. Stand inside the zone and touch the beacon with an empty hand. Re-requests left: { $left }.
 extraction-no-requests-zone = The clan will not move the point again. It is still at a holopad { $location }.
 extraction-no-requests = The clan does not answer anymore.

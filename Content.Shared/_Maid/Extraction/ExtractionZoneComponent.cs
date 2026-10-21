@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Maid.Extraction;
 
@@ -22,4 +23,10 @@ public sealed partial class ExtractionZoneComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? Holopad;
+
+    /// <summary>
+    /// Non-clickable visual of the zone square, attached to the marker.
+    /// </summary>
+    [DataField]
+    public EntProtoId AreaPrototype = "ExtractionZoneArea";
 }

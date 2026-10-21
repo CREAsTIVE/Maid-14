@@ -12,6 +12,8 @@ namespace Content.Shared._Maid.Extraction;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ExtractableComponent : Component
 {
+    public override bool SendOnlyToOwner => true;
+
     /// <summary>
     /// Whether <see cref="Threshold"/> is a percent of counted objectives or a flat number of them.
     /// </summary>
@@ -48,6 +50,12 @@ public sealed partial class ExtractableComponent : Component
     [DataField, AutoNetworkedField]
     public bool Unlocked;
 
+    /// <summary>
+    /// Unlocked by an admin: objectives are not re-checked when extraction starts.
+    /// </summary>
+    [DataField]
+    public bool ForceUnlocked;
+
     [DataField, AutoNetworkedField]
     public EntityUid? Zone;
 
@@ -56,6 +64,12 @@ public sealed partial class ExtractableComponent : Component
 
     [DataField]
     public EntProtoId ZonePrototype = "ExtractionZoneMarker";
+
+    /// <summary>
+    /// Holopads the zone never spawns at, e.g. inside the AI core.
+    /// </summary>
+    [DataField]
+    public List<EntProtoId> HolopadBlacklist = new() { "HolopadAiCore" };
 
     [DataField]
     public EntProtoId Action = "ActionRequestExtraction";

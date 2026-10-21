@@ -41,7 +41,7 @@ public sealed class ExtractionZoneSystem : EntitySystem
             args.VisibilityMask |= (int) VisibilityFlags.MaidExtraction;
     }
 
-    private void OnInRangeOverride(Entity<ExtractableComponent> ent, ref SharedInteractionSystem.InRangeOverrideEvent args)
+    private void OnInRangeOverride(Entity<ExtractableComponent> ent, ref InRangeOverrideEvent args)
     {
         if (!TryComp<ExtractionZoneComponent>(args.Target, out var zone) || zone.Extractee != ent.Owner)
             return;
