@@ -462,9 +462,16 @@ internal struct CustomRichTextEntry
 
         var boxPadding = (BoxPadding * uiScale);
 
+        // MAID BEGIN rt-update UIBox2 validates its input since RT 280/286, the computed box can be inverted
+        var boxLeft = drawBox.Left + (margin - boxPadding) - sPixelWidth;
+        var boxTop = baseLineBase.Y - boxPadding;
+        var boxRight = drawBox.Right - (margin - boxPadding) - sPixelWidth;
+        var boxBottom = baseLine.Y - GetLineHeight(defaultFont, uiScale, lineHeightScale) + boxPadding;
+
         return new UIBox2(
-                new Vector2(drawBox.Left + (margin - boxPadding) - sPixelWidth, baseLineBase.Y - boxPadding),
-                new Vector2(drawBox.Right - (margin - boxPadding) - sPixelWidth, baseLine.Y - GetLineHeight(defaultFont, uiScale, lineHeightScale) + boxPadding));
+                new Vector2(Math.Min(boxLeft, boxRight), Math.Min(boxTop, boxBottom)),
+                new Vector2(Math.Max(boxLeft, boxRight), Math.Max(boxTop, boxBottom)));
+        // MAID END rt-update
     }
 
     private readonly string ProcessNode(MarkupTagManager tagManager, MarkupNode node, MarkupDrawingContext context)
