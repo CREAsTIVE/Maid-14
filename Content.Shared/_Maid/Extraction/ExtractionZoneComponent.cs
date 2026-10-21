@@ -1,0 +1,25 @@
+using Robust.Shared.GameStates;
+
+namespace Content.Shared._Maid.Extraction;
+
+/// <summary>
+/// Extraction zone marker. Only <see cref="Extractee"/> can see and use it.
+/// </summary>
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class ExtractionZoneComponent : Component
+{
+    [DataField, AutoNetworkedField]
+    public EntityUid? Extractee;
+
+    /// <summary>
+    /// Half-size of the square zone in tiles, 2 makes a 5x5 square.
+    /// </summary>
+    [DataField]
+    public int Range = 2;
+
+    /// <summary>
+    /// Holopad the zone was placed at, skipped when the zone is re-rolled.
+    /// </summary>
+    [DataField]
+    public EntityUid? Holopad;
+}

@@ -1,0 +1,35 @@
+- type: entity
+  parent: BaseAction
+  id: ActionRequestExtraction
+  name: Request extraction
+  description: Ask your clan to designate an extraction point at a station holopad. The point can be moved only once.
+  components:
+  - type: Action
+    icon:
+      sprite: Effects/portal.rsi
+      state: portal-blue
+    useDelay: 5
+  - type: InstantAction
+    event: !type:RequestExtractionActionEvent
+
+- type: entity
+  id: ExtractionZoneMarker
+  name: extraction point
+  description: Your ride out. Stand inside the zone and touch the beacon with an empty hand to leave.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - sprite: _Maid/Effects/extraction_zone.rsi
+      state: zone
+      shader: unshaded
+    - sprite: Effects/portal.rsi
+      state: portal-blue
+      shader: unshaded
+  - type: Clickable
+  - type: Visibility
+    layer: 256 # VisibilityFlags.MaidExtraction
+  - type: ExtractionZone
