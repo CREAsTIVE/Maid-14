@@ -50,3 +50,14 @@ public class AhelpMessage
 
     public bool FromWebhook { get; set; }
 }
+
+/// <summary>
+/// Summary of one ahelp dialog: all messages of a player's ahelp thread within one round.
+/// </summary>
+public sealed record AhelpDialogSummary(
+    int? RoundId,
+    string? ServerName,
+    int MessageCount,
+    int TotalChars,
+    int LastId,
+    DateTime StartedAt);

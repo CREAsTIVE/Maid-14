@@ -2199,23 +2199,62 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             await db.DbContext.SaveChangesAsync();
         }
 
-        public async Task<List<AhelpMessage>> GetAhelpMessagesAsync(Guid player, int limit, int? beforeId)
+        public async Task<List<AhelpDialogSummary>> GetAhelpDialogsAsync(Guid player, int limit, int? beforeLastId)
         {
             await using var db = await GetDb();
 
             var query = db.DbContext.AhelpMessages
                 .AsNoTracking()
-                .Where(m => m.PlayerUserId == player);
+                .Where(m => m.PlayerUserId == player)
+                .GroupBy(m => m.RoundId)
+                .Select(g => new
+                {
+                    RoundId = g.Key,
+                    MessageCount = g.Count(),
+                    TotalChars = g.Sum(m => m.Message.Length),
+                    LastId = g.Max(m => m.Id),
+                    StartedAt = g.Min(m => m.SentAt),
+                });
 
-            if (beforeId is { } before)
-                query = query.Where(m => m.Id < before);
+            if (beforeLastId is { } before)
+                query = query.Where(d => d.LastId < before);
 
-            var messages = await query
-                .OrderByDescending(m => m.Id)
+            var dialogs = await query
+                .OrderByDescending(d => d.LastId)
                 .Take(limit)
-                .Include(m => m.Round)
-                .ThenInclude(r => r!.Server)
                 .ToListAsync();
+
+            var roundIds = dialogs.Where(d => d.RoundId != null).Select(d => d.RoundId!.Value).ToList();
+            var serverNames = await db.DbContext.Round
+                .AsNoTracking()
+                .Where(r => roundIds.Contains(r.Id))
+                .Select(r => new { r.Id, r.Server.Name })
+                .ToDictionaryAsync(r => r.Id, r => r.Name);
+
+            return dialogs
+                .Select(d => new AhelpDialogSummary(
+                    d.RoundId,
+                    d.RoundId is { } id ? serverNames.GetValueOrDefault(id) : null,
+                    d.MessageCount,
+                    d.TotalChars,
+                    d.LastId,
+                    NormalizeDatabaseTime(d.StartedAt)))
+                .ToList();
+        }
+
+        public async Task<List<AhelpMessage>> GetAhelpDialogMessagesAsync(Guid player, int? roundId, int? limit)
+        {
+            await using var db = await GetDb();
+
+            IQueryable<AhelpMessage> query = db.DbContext.AhelpMessages
+                .AsNoTracking()
+                .Where(m => m.PlayerUserId == player && m.RoundId == roundId)
+                .OrderBy(m => m.Id);
+
+            if (limit is { } take)
+                query = query.Take(take);
+
+            var messages = await query.ToListAsync();
 
             foreach (var message in messages)
             {

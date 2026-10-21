@@ -10,12 +10,12 @@ public sealed class AhelpHistoryEuiState : EuiStateBase
     public string PlayerName = string.Empty;
 
     /// <summary>
-    /// Loaded messages, oldest first.
+    /// Loaded dialogs, newest first.
     /// </summary>
-    public List<AhelpHistoryEntry> Entries = new();
+    public List<AhelpHistoryDialog> Dialogs = new();
 
     /// <summary>
-    /// True if older messages exist in the database.
+    /// True if older dialogs exist in the database.
     /// </summary>
     public bool HasMore;
 
@@ -25,12 +25,32 @@ public sealed class AhelpHistoryEuiState : EuiStateBase
     public bool Loading;
 }
 
+/// <summary>
+/// All ahelp messages of the player within one round.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class AhelpHistoryDialog
+{
+    public int? RoundId;
+    public string? ServerName;
+    public DateTime StartedAt;
+    public int MessageCount;
+
+    /// <summary>
+    /// The first messages of the dialog, oldest first. Shorter than the full dialog if <see cref="Truncated"/>.
+    /// </summary>
+    public List<AhelpHistoryEntry> Preview = new();
+
+    /// <summary>
+    /// True if the dialog is too long to be sent whole and has to be opened separately.
+    /// </summary>
+    public bool Truncated;
+}
+
 [Serializable, NetSerializable]
 public sealed class AhelpHistoryEntry
 {
     public int Id;
-    public int? RoundId;
-    public string? ServerName;
     public DateTime SentAt;
     public string SenderName = string.Empty;
     public bool SenderIsAdmin;
@@ -42,10 +62,31 @@ public sealed class AhelpHistoryEntry
 public static class AhelpHistoryEuiMsg
 {
     /// <summary>
-    /// Asks the server for the next page of older messages.
+    /// Asks the server for the next page of older dialogs.
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class LoadMoreRequest : EuiMessageBase
     {
+    }
+
+    /// <summary>
+    /// Asks the server for every message of one dialog.
+    /// </summary>
+    [Serializable, NetSerializable]
+    public sealed class FullDialogRequest : EuiMessageBase
+    {
+        public int? RoundId;
+    }
+
+    /// <summary>
+    /// Every message of one dialog, oldest first.
+    /// </summary>
+    [Serializable, NetSerializable]
+    public sealed class FullDialogResponse : EuiMessageBase
+    {
+        public string PlayerName = string.Empty;
+        public int? RoundId;
+        public string? ServerName;
+        public List<AhelpHistoryEntry> Entries = new();
     }
 }

@@ -1,0 +1,9 @@
+<ui:FancyWindow xmlns="https://spacestation14.io"
+                xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
+                Title="{Loc 'ahelp-history-full-dialog-title-loading'}"
+                MinSize="500 300"
+                SetSize="800 650">
+    <PanelContainer StyleClasses="BackgroundDark" VerticalExpand="True" HorizontalExpand="True" Margin="4">
+        <OutputPanel Name="Output" VerticalExpand="True" HorizontalExpand="True" Margin="4" />
+    </PanelContainer>
+</ui:FancyWindow>

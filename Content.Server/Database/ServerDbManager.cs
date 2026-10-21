@@ -503,12 +503,20 @@ namespace Content.Server.Database
         Task AddAhelpMessageAsync(AhelpMessage message);
 
         /// <summary>
-        /// Gets up to <paramref name="limit"/> ahelp messages of a player's thread, newest first.
+        /// Gets a page of a player's ahelp dialogs (one per round), newest first.
         /// </summary>
         /// <param name="player">The player whose ahelp thread to fetch.</param>
-        /// <param name="limit">Maximum amount of messages to return.</param>
-        /// <param name="beforeId">If set, only messages with an id lower than this are returned.</param>
-        Task<List<AhelpMessage>> GetAhelpMessagesAsync(Guid player, int limit, int? beforeId);
+        /// <param name="limit">Maximum amount of dialogs to return.</param>
+        /// <param name="beforeLastId">If set, only dialogs whose last message id is lower than this are returned.</param>
+        Task<List<AhelpDialogSummary>> GetAhelpDialogsAsync(Guid player, int limit, int? beforeLastId);
+
+        /// <summary>
+        /// Gets the messages of one ahelp dialog in chronological order.
+        /// </summary>
+        /// <param name="player">The player whose ahelp thread to fetch.</param>
+        /// <param name="roundId">Round of the dialog, null for messages sent outside of a round.</param>
+        /// <param name="limit">If set, only the first <paramref name="limit"/> messages are returned.</param>
+        Task<List<AhelpMessage>> GetAhelpDialogMessagesAsync(Guid player, int? roundId, int? limit);
         // MAID END ahelp history
     }
 
@@ -1327,10 +1335,16 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.AddAhelpMessageAsync(message));
         }
 
-        public Task<List<AhelpMessage>> GetAhelpMessagesAsync(Guid player, int limit, int? beforeId)
+        public Task<List<AhelpDialogSummary>> GetAhelpDialogsAsync(Guid player, int limit, int? beforeLastId)
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetAhelpMessagesAsync(player, limit, beforeId));
+            return RunDbCommand(() => _db.GetAhelpDialogsAsync(player, limit, beforeLastId));
+        }
+
+        public Task<List<AhelpMessage>> GetAhelpDialogMessagesAsync(Guid player, int? roundId, int? limit)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetAhelpDialogMessagesAsync(player, roundId, limit));
         }
         // MAID END ahelp history
 
