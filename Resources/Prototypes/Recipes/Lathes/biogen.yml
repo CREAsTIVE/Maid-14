@@ -375,14 +375,6 @@
 
 #Maid begin
 #Seeds 
-- type: latheRecipe 
-  abstract: false
-  id: BioGenSeedsRecipe
-  categories:
-  - Food
-  completetime: 1
-  materials:
-    Biomass: 5
 
 - type: latheRecipe
   id: BioGenAppleSeeds
@@ -391,6 +383,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/apple.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenBananaSeeds
@@ -399,6 +394,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/banana.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenBerrySeeds
@@ -407,6 +405,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/berries.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenBungoSeeds
@@ -415,6 +416,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/bungo.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenCarrotSeeds
@@ -423,6 +427,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/carrot.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenCabbageSeeds
@@ -431,6 +438,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/cabbage.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenChanterelleSeeds
@@ -439,6 +449,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/chanterelle.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenCherrySeeds
@@ -447,6 +460,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/cherry.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenChiliSeeds
@@ -455,6 +471,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/chili.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenCocoaSeeds
@@ -463,6 +482,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/cocoa.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenCornSeeds
@@ -471,6 +493,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/corn.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenCottonSeeds
@@ -479,6 +504,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/cotton.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenEggplantSeeds
@@ -487,6 +515,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/eggplant.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenEggySeeds
@@ -495,6 +526,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/eggy.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenGarlicSeeds
@@ -503,6 +537,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/garlic.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenGrapeSeeds
@@ -511,6 +548,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/grape.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenLemonSeeds
@@ -519,6 +559,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/lemon.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenLimeSeeds
@@ -527,6 +570,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/lime.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenPineappleSeeds
@@ -535,6 +581,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/pineapple.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenOatSeeds
@@ -543,6 +592,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/oat.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenOnionSeeds
@@ -551,6 +603,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/onion.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenOnionRedSeeds
@@ -559,6 +614,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/onion_red.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenOrangeSeeds
@@ -567,6 +625,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/orange.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenPeaSeeds
@@ -575,6 +636,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/pea.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenPotatoSeeds
@@ -583,6 +647,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/potato.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenPumpkinSeeds
@@ -591,6 +658,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/pumpkin.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenRiceSeeds
@@ -599,6 +669,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/rice.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenSoybeanSeeds
@@ -607,6 +680,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/soybeans.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenSugarcaneSeeds
@@ -615,6 +691,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/sugarcane.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenTeaPlantSeeds
@@ -623,6 +702,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/tea_plant.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenTomatoSeeds
@@ -631,6 +713,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/tomato.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenTowercapSeeds
@@ -639,6 +724,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/towercap.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenWheatSeeds
@@ -647,6 +735,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/wheat.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenWatermelonSeeds
@@ -655,6 +746,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/watermelon.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 # region Medical Seeds
 
@@ -665,6 +759,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/aloe.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenAmbrosiaVulgarisSeeds
@@ -673,6 +770,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/ambrosia_vulgaris.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenGalaxythistleSeeds
@@ -681,6 +781,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/galaxythistle.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenLingzhiSeeds
@@ -689,6 +792,9 @@
   icon:
     sprite: Objects/Specific/Hydroponics/lingzhi.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 
 - type: latheRecipe
   id: BioGenPoppySeeds
@@ -697,4 +803,7 @@
   icon:
     sprite: Objects/Specific/Hydroponics/poppy.rsi
     state: seed
+  completetime: 1
+  materials:
+    Biomass: 5
 #Maid end
