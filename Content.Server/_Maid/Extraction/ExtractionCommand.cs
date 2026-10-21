@@ -20,6 +20,12 @@ public sealed class ExtractionCommand : ToolshedCommand
         }
     }
 
+    [CommandImplementation("reset")]
+    public bool Reset(EntityUid target)
+    {
+        return Extraction.ResetZone(target);
+    }
+
     [CommandImplementation("unlock")]
     public IEnumerable<EntityUid> Unlock([PipedArgument] IEnumerable<EntityUid> input)
     {
@@ -28,5 +34,11 @@ public sealed class ExtractionCommand : ToolshedCommand
             if (Extraction.TryUnlock(uid))
                 yield return uid;
         }
+    }
+
+    [CommandImplementation("unlock")]
+    public bool Unlock(EntityUid target)
+    {
+        return Extraction.TryUnlock(target);
     }
 }
