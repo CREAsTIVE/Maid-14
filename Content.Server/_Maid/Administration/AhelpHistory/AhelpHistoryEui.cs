@@ -7,6 +7,7 @@ using Content.Server.EUI;
 using Content.Shared._Maid.Administration.AhelpHistory;
 using Content.Shared.Administration;
 using Content.Shared.Eui;
+using Robust.Server.Player;
 using Robust.Shared.Network;
 
 namespace Content.Server._Maid.Administration.AhelpHistory;
@@ -22,6 +23,7 @@ public sealed class AhelpHistoryEui : BaseEui
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly IPlayerLocator _locator = default!;
     [Dependency] private readonly ILogManager _log = default!;
+    [Dependency] private readonly IPlayerManager _players = default!;
 
     /// <summary>
     /// Dialogs loaded per page.
@@ -117,7 +119,9 @@ public sealed class AhelpHistoryEui : BaseEui
         try
         {
             var located = await _locator.LookupIdAsync(new NetUserId(player));
-            _playerName = located?.Username ?? player.ToString();
+            _playerName = located?.Username
+                          ?? (_players.TryGetSessionById(new NetUserId(player), out var session) ? session.Name : null)
+                          ?? player.ToString();
 
             if (IsShutDown || _playerId != player)
                 return;
