@@ -42,6 +42,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                           Text="{Loc 'ui-options-show-explosion-shockwave'}"
                           ToolTip="{Loc 'ui-options-show-explosion-shockwave-tooltip'}" />
                 <!-- WD-Tweak-End -->
+                <CheckBox Name="EnableLightsGlowingCheckBox" Text="{Loc 'ui-options-enable-lights-glowing'}" /> <!-- MAID settings port -->
                 <!-- Interface -->
                 <Label Text="{Loc 'ui-options-interface-label'}" StyleClasses="LabelKeyText"/>
                 <ui:OptionDropDown Name="DropDownUIScale" Title="{Loc 'ui-options-scale-label'}" />

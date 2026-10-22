@@ -118,4 +118,32 @@ public sealed class MaidCVars
         CVarDef.Create("maid.economy.vending_default_price", 67676767, CVar.SERVERONLY);
 
     #endregion
+
+    #region Client preferences
+
+    /// <summary>
+    ///     Show the give item indicator next to the cursor while offering an item.
+    /// </summary>
+    public static readonly CVarDef<bool> OfferModeIndicatorsPointShow =
+        CVarDef.Create("maid.offer_mode_indicators_point_show", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     Draw the glow around light fixtures.
+    /// </summary>
+    public static readonly CVarDef<bool> EnableLightsGlowing =
+        CVarDef.Create("maid.enable_lights_glowing", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     Automatically get up when the knockdown ends.
+    /// </summary>
+    public static readonly CVarDef<bool> AutoGetUp =
+        CVarDef.Create("maid.auto_get_up", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
+
+    /// <summary>
+    ///     If true, the look up key has to be held to aim through a telescope; otherwise it toggles.
+    /// </summary>
+    public static readonly CVarDef<bool> HoldLookUp =
+        CVarDef.Create("maid.hold_look_up", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    #endregion
 }

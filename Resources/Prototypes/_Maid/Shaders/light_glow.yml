@@ -1,0 +1,4 @@
+- type: shader
+  id: MaidLightGlow
+  kind: source
+  path: "/Textures/_Maid/Shaders/light_glow.swsl"
