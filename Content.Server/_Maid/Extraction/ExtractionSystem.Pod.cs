@@ -1,7 +1,9 @@
+using System.Linq;
 using Content.Shared._Maid.Extraction;
 using Content.Shared.Body.Components;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Shuttles.Components;
@@ -181,6 +183,7 @@ public sealed partial class ExtractionSystem
 
         // the pod comes only once
         _actions.RemoveAction(ent.Owner, ent.Comp.CallPodActionEntity);
+        QueueDel(ent.Comp.CallPodActionEntity);
         ent.Comp.CallPodActionEntity = null;
 
         Notify(ent, Loc.GetString("extraction-pod-landed", ("code", ent.Comp.Code)));
@@ -199,6 +202,7 @@ public sealed partial class ExtractionSystem
         {
             if (immune.Contains(victim)
                 || TerminatingOrDeleted(victim)
+                || EntityManager.IsQueuedForDeletion(victim)
                 || HasComp<GhostComponent>(victim)
                 || HasComp<ExtractionZoneComponent>(victim)
                 || HasComp<FTLSmashImmuneComponent>(victim))
@@ -206,9 +210,7 @@ public sealed partial class ExtractionSystem
 
             if (TryComp<BodyComponent>(victim, out var body))
             {
-                _adminLog.Add(LogType.Gib, LogImpact.High,
-                    $"{ToPrettyString(victim):player} was crushed by the extraction drop pod of {ToPrettyString(ent.Owner):player}");
-                immune.UnionWith(_body.GibBody(victim, body: body));
+                CrushBody(ent, victim, body, immune);
                 continue;
             }
 
@@ -221,8 +223,33 @@ public sealed partial class ExtractionSystem
                 continue;
             }
 
-            QueueDel(victim);
+            // lockers, mechs, cryo pods and the like: whoever is inside gets crushed too instead of silently deleted
+            var containers = TryComp<ContainerManagerComponent>(victim, out var manager)
+                ? _container.GetAllContainers(victim, manager).ToList()
+                : new List<BaseContainer>();
+
+            foreach (var container in containers)
+            {
+                foreach (var contained in container.ContainedEntities.ToList())
+                {
+                    if (!TryComp<BodyComponent>(contained, out var containedBody) || !HasComp<MindContainerComponent>(contained))
+                        continue;
+
+                    _container.Remove(contained, container, force: true, destination: Transform(victim).Coordinates);
+                    CrushBody(ent, contained, containedBody, immune);
+                }
+            }
+
+            // destruction lets storages, mechs and the like spill what is left inside
+            _destructible.DestroyEntity(victim);
         }
+    }
+
+    private void CrushBody(Entity<AntagExtractableComponent> ent, EntityUid victim, BodyComponent body, HashSet<EntityUid> immune)
+    {
+        _adminLog.Add(LogType.Gib, LogImpact.High,
+            $"{ToPrettyString(victim):player} was crushed by the extraction drop pod of {ToPrettyString(ent.Owner):player}");
+        immune.UnionWith(_body.GibBody(victim, body: body));
     }
 
     /// <summary>
