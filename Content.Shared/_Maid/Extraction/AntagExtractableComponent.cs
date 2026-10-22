@@ -2,6 +2,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Maid.Extraction;
 
@@ -79,7 +80,7 @@ public sealed partial class AntagExtractableComponent : Component
     /// <summary>
     /// Component name of the entities the zone is placed at, on a station's main grid.
     /// </summary>
-    [DataField]
+    [DataField(customTypeSerializer: typeof(ComponentNameSerializer))]
     public string ZoneAnchorComponent = "Holopad";
 
     /// <summary>

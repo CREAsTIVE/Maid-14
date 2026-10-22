@@ -212,7 +212,11 @@ public sealed partial class ExtractionSystem
                 continue;
             }
 
-            // body-less mobs like borgs break down properly instead of vanishing
+            // players without a body on the tile (pAI, MMI and the like) are not deleted
+            if (!HasComp<MobStateComponent>(victim) && HasPlayerMind(victim))
+                continue;
+
+            // body-less mobs break down properly instead of vanishing
             if (HasComp<MobStateComponent>(victim))
             {
                 _adminLog.Add(LogType.Gib, LogImpact.High,
@@ -230,17 +234,28 @@ public sealed partial class ExtractionSystem
             {
                 foreach (var contained in container.ContainedEntities.ToList())
                 {
-                    if (!TryComp<BodyComponent>(contained, out var containedBody) || !HasComp<MindContainerComponent>(contained))
-                        continue;
-
-                    _container.Remove(contained, container, force: true, destination: Transform(victim).Coordinates);
-                    CrushBody(ent, contained, containedBody, immune);
+                    if (TryComp<BodyComponent>(contained, out var containedBody) && HasComp<MindContainerComponent>(contained))
+                    {
+                        _container.Remove(contained, container, force: true, destination: Transform(victim).Coordinates);
+                        CrushBody(ent, contained, containedBody, immune);
+                    }
+                    else if (HasPlayerMind(contained))
+                    {
+                        // a brain in a core, a pAI in a locker: thrown out, not deleted with the holder
+                        _container.Remove(contained, container, force: true, destination: Transform(victim).Coordinates);
+                        immune.Add(contained);
+                    }
                 }
             }
 
             // destruction lets storages, mechs and the like spill what is left inside
             _destructible.DestroyEntity(victim);
         }
+    }
+
+    private bool HasPlayerMind(EntityUid uid)
+    {
+        return TryComp<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind;
     }
 
     private void CrushBody(Entity<AntagExtractableComponent> ent, EntityUid victim, BodyComponent body, HashSet<EntityUid> immune)
