@@ -78,7 +78,10 @@ public sealed partial class ExtractionSystem
             $"{ToPrettyString(user):player} called an extraction drop pod to {ent.Comp.PodTarget} ({GetLocation(user)})");
     }
 
-    private void UpdatePodCall(Entity<AntagExtractableComponent> ent, TimeSpan now)
+    /// <summary>
+    /// Handles the destroyed pod and the announcement, returns where to land once the pod arrives.
+    /// </summary>
+    private EntityCoordinates? UpdatePodCall(Entity<AntagExtractableComponent> ent, TimeSpan now)
     {
         // the pod was destroyed before launching, another one can be called
         if (ent.Comp.Pod is { } pod && TerminatingOrDeleted(pod))
@@ -89,7 +92,7 @@ public sealed partial class ExtractionSystem
         }
 
         if (ent.Comp.PodTarget is not { } target)
-            return;
+            return null;
 
         if (ent.Comp.PodAnnounceAt is { } announceAt && now >= announceAt)
         {
@@ -103,8 +106,11 @@ public sealed partial class ExtractionSystem
             }
         }
 
-        if (now >= ent.Comp.PodLandAt)
-            LandPod(ent, target);
+        if (now < ent.Comp.PodLandAt)
+            return null;
+
+        ent.Comp.PodTarget = null;
+        return target;
     }
 
     private void LandPod(Entity<AntagExtractableComponent> ent, EntityCoordinates target)

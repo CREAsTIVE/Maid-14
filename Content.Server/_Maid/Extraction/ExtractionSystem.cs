@@ -104,6 +104,11 @@ public sealed partial class ExtractionSystem : EntitySystem
     /// </summary>
     private readonly HashSet<EntityUid> _reghost = new();
 
+    /// <summary>
+    /// Pods landing this tick, handled after the query because landing can gib the extractee.
+    /// </summary>
+    private readonly List<(EntityUid Uid, EntityCoordinates Target)> _landing = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -146,7 +151,8 @@ public sealed partial class ExtractionSystem : EntitySystem
             if (comp.Zone is { } zone && TerminatingOrDeleted(zone))
                 ReplaceLostZone((uid, comp));
 
-            UpdatePodCall((uid, comp), now);
+            if (UpdatePodCall((uid, comp), now) is { } target)
+                _landing.Add((uid, target));
 
             if (comp.Unlocked || now < comp.NextCheck)
                 continue;
@@ -161,6 +167,14 @@ public sealed partial class ExtractionSystem : EntitySystem
                 $"{ToPrettyString(uid):player} unlocked extraction with {completed}/{total} counted objectives completed");
             Unlock((uid, comp));
         }
+
+        foreach (var (uid, target) in _landing)
+        {
+            if (TryComp<AntagExtractableComponent>(uid, out var comp))
+                LandPod((uid, comp), target);
+        }
+
+        _landing.Clear();
 
         UpdatePods(now);
     }
@@ -712,6 +726,7 @@ public sealed partial class ExtractionSystem : EntitySystem
     {
         _limboMap = null;
         _reghost.Clear();
+        _landing.Clear();
         _extracted.Clear();
     }
 
