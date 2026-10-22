@@ -145,5 +145,18 @@ public sealed class MaidCVars
     public static readonly CVarDef<bool> HoldLookUp =
         CVarDef.Create("maid.hold_look_up", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    /// <summary>
+    ///     If true, an admin's dead chat messages are sent as admin messages with their username;
+    ///     otherwise they are sent like a regular player's, with the current character name.
+    /// </summary>
+    public static readonly CVarDef<bool> DeadChatAdmin =
+        CVarDef.Create("maid.admin.dead_chat_admin", true, CVar.CLIENT | CVar.REPLICATED | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     Volume of the ahelp sound for admins, as a gain from 0 to 1.
+    /// </summary>
+    public static readonly CVarDef<float> AhelpVolume =
+        CVarDef.Create("maid.admin.ahelp_volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     #endregion
 }
