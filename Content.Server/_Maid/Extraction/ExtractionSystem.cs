@@ -615,6 +615,17 @@ public sealed class ExtractionSystem : EntitySystem
     {
         if (ent.Comp.Zone is { } zone)
             QueueDel(zone);
+
+        ent.Comp.Zone = null;
+
+        // the whole entity is going away, its do-afters and actions go with it
+        if (TerminatingOrDeleted(ent.Owner))
+            return;
+
+        // e.g. the ninja implant was removed: nothing must be left to use
+        CancelExtraction(ent, false);
+        _actions.RemoveAction(ent.Owner, ent.Comp.ActionEntity);
+        ent.Comp.ActionEntity = null;
     }
 
     #endregion
