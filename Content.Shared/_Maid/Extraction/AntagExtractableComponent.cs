@@ -1,13 +1,14 @@
-using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Maid.Extraction;
 
 /// <summary>
-/// Lets an antagonist leave the round through a personal extraction zone once enough objectives are done.
-/// Station items they carry are left at the zone, their own gear leaves with them.
+/// Lets an antagonist leave the round once enough objectives are done: they get an extraction zone,
+/// call a drop pod into it, unlock it with their code and launch it from inside.
+/// Station items they carry are left behind, their own gear leaves with them.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class AntagExtractableComponent : Component
@@ -34,6 +35,7 @@ public sealed partial class AntagExtractableComponent : Component
 
     /// <summary>
     /// Objectives that count toward <see cref="Threshold"/>. Objectives in neither list are ignored.
+    /// With both lists empty every objective except survival ones counts.
     /// </summary>
     [DataField]
     public List<EntProtoId> OptionalObjectives = new();
@@ -51,16 +53,13 @@ public sealed partial class AntagExtractableComponent : Component
     public bool Unlocked;
 
     /// <summary>
-    /// Unlocked by an admin: objectives are not re-checked when extraction starts.
+    /// Unlocked by an admin: objectives are not re-checked later.
     /// </summary>
     [DataField]
     public bool ForceUnlocked;
 
     [DataField, AutoNetworkedField]
     public EntityUid? Zone;
-
-    [DataField]
-    public TimeSpan ExtractionDelay = TimeSpan.FromSeconds(3);
 
     [DataField]
     public EntProtoId ZonePrototype = "ExtractionZoneMarker";
@@ -78,19 +77,52 @@ public sealed partial class AntagExtractableComponent : Component
     public EntityUid? ActionEntity;
 
     [DataField]
-    public LocId Announcement = "extraction-announcement";
+    public EntProtoId CallPodAction = "ActionCallDropPod";
 
     [DataField]
-    public SoundSpecifier ExtractSound = new SoundPathSpecifier("/Audio/Effects/teleport_departure.ogg");
+    public EntityUid? CallPodActionEntity;
 
     /// <summary>
-    /// Random delay range before the station hears about the extraction.
+    /// Code that unlocks the drop pod, given to the player on unlock. Server only.
     /// </summary>
     [DataField]
-    public TimeSpan AnnouncementDelayMin = TimeSpan.FromSeconds(10);
+    public string Code = string.Empty;
 
     [DataField]
-    public TimeSpan AnnouncementDelayMax = TimeSpan.FromSeconds(20);
+    public int CodeLength = 6;
+
+    [DataField]
+    public EntProtoId PodPrototype = "ExtractionDropPod";
+
+    /// <summary>
+    /// Pod that already landed for this antagonist.
+    /// </summary>
+    [DataField]
+    public EntityUid? Pod;
+
+    /// <summary>
+    /// Where the called pod is going to land, while it is on its way.
+    /// </summary>
+    [DataField]
+    public EntityCoordinates? PodTarget;
+
+    [DataField]
+    public TimeSpan PodLandAt;
+
+    [DataField]
+    public TimeSpan? PodAnnounceAt;
+
+    [DataField]
+    public TimeSpan PodFlightTime = TimeSpan.FromSeconds(15);
+
+    [DataField]
+    public TimeSpan PodAnnounceDelay = TimeSpan.FromSeconds(5);
+
+    [DataField]
+    public LocId PodAnnouncement = "extraction-pod-announcement";
+
+    [DataField]
+    public SoundSpecifier PodImpactSound = new SoundCollectionSpecifier("Explosion");
 
     /// <summary>
     /// When the antagonist arrived, for the round end summary.
@@ -103,9 +135,6 @@ public sealed partial class AntagExtractableComponent : Component
     /// </summary>
     [DataField]
     public bool Extracted;
-
-    [ViewVariables]
-    public DoAfterId? DoAfter;
 
     [ViewVariables]
     public TimeSpan NextCheck;

@@ -1,10 +1,9 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Maid.Extraction;
 
 /// <summary>
-/// Extraction zone marker. Only <see cref="Extractee"/> can see and use it.
+/// Extraction zone marker. Only <see cref="Extractee"/> and admins receive it.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ExtractionZoneComponent : Component
@@ -23,13 +22,4 @@ public sealed partial class ExtractionZoneComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? Holopad;
-
-    /// <summary>
-    /// Non-clickable visual of the zone square, attached to the marker.
-    /// </summary>
-    [DataField]
-    public EntProtoId AreaPrototype = "ExtractionZoneArea";
-
-    [DataField]
-    public EntityUid? Area;
 }

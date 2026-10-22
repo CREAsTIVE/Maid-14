@@ -13,28 +13,38 @@
     event: !type:RequestExtractionActionEvent
 
 - type: entity
+  parent: BaseAction
+  id: ActionCallDropPod
+  name: Call drop pod
+  description: Call a drop pod to the tile you are standing on. Only works inside your extraction zone. Step aside before it lands!
+  components:
+  - type: Action
+    icon:
+      sprite: _Maid/Structures/Storage/closet.rsi
+      state: generic
+    useDelay: 5
+  - type: InstantAction
+    event: !type:CallDropPodActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionLaunchDropPod
+  name: START
+  description: Seal the drop pod and launch it.
+  components:
+  - type: Action
+    icon:
+      sprite: _Maid/Structures/Storage/closet.rsi
+      state: generic_door
+    checkCanInteract: false
+    useDelay: 2
+  - type: InstantAction
+    event: !type:LaunchDropPodActionEvent
+
+- type: entity
   id: ExtractionZoneMarker
   name: extraction marker
   description: Extraction marker.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Transform
-    noRot: true
-  - type: Sprite
-    drawdepth: Effects
-    layers:
-    - sprite: Effects/portal.rsi
-      state: portal-blue
-      shader: unshaded
-  - type: Clickable
-  - type: Visibility
-    layer: 256 # VisibilityFlags.MaidExtraction
-  - type: ExtractionZone
-
-# zone square, kept separate so it does not swallow clicks inside the zone
-- type: entity
-  id: ExtractionZoneArea
-  name: extraction zone
   categories: [ HideSpawnMenu ]
   components:
   - type: Transform
@@ -45,5 +55,26 @@
     - sprite: _Maid/Effects/extraction_zone.rsi
       state: zone
       shader: unshaded
+  - type: Clickable
   - type: Visibility
     layer: 256 # VisibilityFlags.MaidExtraction
+  - type: ExtractionZone
+
+# placeholder sprites until the real pod art arrives
+- type: entity
+  parent: ClosetBase
+  id: ExtractionDropPod
+  name: drop pod
+  description: A small armoured pod. A code keypad blinks next to the hatch.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: DropPod
+  - type: UserInterface
+    interfaces:
+      enum.DropPodUiKey.Key:
+        type: DropPodBoundUserInterface

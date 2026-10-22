@@ -1,33 +1,13 @@
-using Content.Shared.Interaction;
 using Robust.Shared.Containers;
 using Robust.Shared.Map.Components;
 
 namespace Content.Shared._Maid.Extraction;
 
-/// <summary>
-/// Zone range for the extractee, so they can use the marker from anywhere inside the zone.
-/// </summary>
 public sealed class ExtractionZoneSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<AntagExtractableComponent, InRangeOverrideEvent>(OnInRangeOverride);
-    }
-
-    private void OnInRangeOverride(Entity<AntagExtractableComponent> ent, ref InRangeOverrideEvent args)
-    {
-        if (!TryComp<ExtractionZoneComponent>(args.Target, out var zone) || zone.Extractee != ent.Owner)
-            return;
-
-        args.Handled = true;
-        args.InRange = IsInZone((args.Target, zone), ent.Owner);
-    }
 
     /// <summary>
     /// Whether the user stands inside the square zone around the marker, on the same grid and not inside a container.

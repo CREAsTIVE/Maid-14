@@ -3,22 +3,22 @@ using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
+using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
+using Content.Server.Decals;
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
 using Content.Server.Objectives.Components;
 using Content.Server.Pinpointer;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Server.Storage.EntitySystems;
 using Content.Shared._DV.Carrying;
 using Content.Shared._Maid.Extraction;
 using Content.Shared.Actions;
-using Content.Shared.Actions.Components;
-using Content.Shared.Actions.Events;
-using Content.Shared.CombatMode;
 using Content.Shared.Database;
-using Content.Shared.DoAfter;
+using Content.Shared.Destructible;
 using Content.Shared.Eye;
 using Content.Shared.Follower;
 using Content.Shared.Follower.Components;
@@ -26,20 +26,18 @@ using Content.Shared.GameTicking;
 using Content.Shared.Ghost;
 using Content.Shared.Holopad;
 using Content.Shared.Implants.Components;
-using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Objectives.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
-using Content.Shared.Strip.Components;
+using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -52,11 +50,11 @@ using Robust.Shared.Utility;
 namespace Content.Server._Maid.Extraction;
 
 /// <summary>
-/// Unlocks extraction once objectives are done, places the zone at a station holopad on request
-/// and takes the antagonist out of the round, leaving station items behind.
-/// The body is kept alive on a paused map so the character counts as alive, not dead.
+/// Unlocks extraction once objectives are done and places the extraction zone at a station holopad on request.
+/// The pod part lives in ExtractionSystem.Pod.cs.
+/// Extracted bodies are kept alive on a paused map so the character counts as alive, not dead.
 /// </summary>
-public sealed class ExtractionSystem : EntitySystem
+public sealed partial class ExtractionSystem : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IAdminManager _admin = default!;
@@ -65,10 +63,14 @@ public sealed class ExtractionSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly CarryingSystem _carrying = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly DecalSystem _decals = default!;
+    [Dependency] private readonly SharedDestructibleSystem _destructible = default!;
+    [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly FollowerSystem _follower = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
@@ -76,6 +78,7 @@ public sealed class ExtractionSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -84,6 +87,7 @@ public sealed class ExtractionSystem : EntitySystem
     [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly ExtractionZoneSystem _zone = default!;
 
     private static readonly TimeSpan CheckInterval = TimeSpan.FromSeconds(5);
@@ -93,7 +97,6 @@ public sealed class ExtractionSystem : EntitySystem
     /// </summary>
     private EntityUid? _limboMap;
 
-    private readonly List<(TimeSpan Time, EntityUid Station, string Message)> _pendingAnnouncements = new();
     private readonly List<(string Name, int Minutes)> _extracted = new();
 
     /// <summary>
@@ -116,20 +119,8 @@ public sealed class ExtractionSystem : EntitySystem
         SubscribeLocalEvent<AntagExtractableComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<AntagExtractableComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<AntagExtractableComponent, RequestExtractionActionEvent>(OnRequest);
-        SubscribeLocalEvent<AntagExtractableComponent, ExtractionDoAfterEvent>(OnDoAfter);
 
-        // anything done by or to the extractee interrupts the extraction
-        SubscribeLocalEvent<AntagExtractableComponent, ContactInteractionEvent>(OnContactInteraction);
-        SubscribeLocalEvent<AntagExtractableComponent, InteractHandEvent>(OnInteractedHand);
-        SubscribeLocalEvent<AntagExtractableComponent, InteractUsingEvent>(OnInteractedUsing);
-        SubscribeLocalEvent<AntagExtractableComponent, PullStartedMessage>(OnPullStarted);
-        SubscribeLocalEvent<AntagExtractableComponent, AttackAttemptEvent>(OnAttackAttempt);
-        SubscribeLocalEvent<AntagExtractableComponent, DisarmedEvent>(OnDisarmed);
-        SubscribeLocalEvent<AntagExtractableComponent, BeforeGettingStrippedEvent>(OnBeforeStripped);
-        SubscribeLocalEvent<ActionComponent, ActionPerformedEvent>(OnActionPerformed);
-
-        SubscribeLocalEvent<ExtractionZoneComponent, InteractHandEvent>(OnZoneInteractHand);
-        SubscribeLocalEvent<ExtractionZoneComponent, InteractUsingEvent>(OnZoneInteractUsing);
+        InitializePod();
     }
 
     public override void Update(float frameTime)
@@ -137,17 +128,6 @@ public sealed class ExtractionSystem : EntitySystem
         base.Update(frameTime);
 
         var now = _timing.CurTime;
-
-        for (var i = _pendingAnnouncements.Count - 1; i >= 0; i--)
-        {
-            var (time, station, message) = _pendingAnnouncements[i];
-            if (now < time)
-                continue;
-
-            _pendingAnnouncements.RemoveAt(i);
-            if (Exists(station))
-                _chat.DispatchStationAnnouncement(station, message, Loc.GetString("extraction-announcement-sender"), colorOverride: Color.Gold);
-        }
 
         foreach (var body in _reghost)
         {
@@ -166,6 +146,8 @@ public sealed class ExtractionSystem : EntitySystem
             if (comp.Zone is { } zone && TerminatingOrDeleted(zone))
                 ReplaceLostZone((uid, comp));
 
+            UpdatePodCall((uid, comp), now);
+
             if (comp.Unlocked || now < comp.NextCheck)
                 continue;
 
@@ -179,6 +161,8 @@ public sealed class ExtractionSystem : EntitySystem
                 $"{ToPrettyString(uid):player} unlocked extraction with {completed}/{total} counted objectives completed");
             Unlock((uid, comp));
         }
+
+        UpdatePods(now);
     }
 
     #region Gear
@@ -392,10 +376,18 @@ public sealed class ExtractionSystem : EntitySystem
     {
         ent.Comp.Unlocked = true;
         ent.Comp.ForceUnlocked |= forced;
+
+        if (string.IsNullOrEmpty(ent.Comp.Code))
+        {
+            var max = (int) Math.Pow(10, ent.Comp.CodeLength);
+            ent.Comp.Code = _random.Next(max).ToString().PadLeft(ent.Comp.CodeLength, '0');
+        }
+
         Dirty(ent);
 
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEntity, ent.Comp.Action);
-        Notify(ent, Loc.GetString(forced ? "extraction-unlocked-forced" : "extraction-unlocked"));
+        _actions.AddAction(ent.Owner, ref ent.Comp.CallPodActionEntity, ent.Comp.CallPodAction);
+        Notify(ent, Loc.GetString(forced ? "extraction-unlocked-forced" : "extraction-unlocked", ("code", ent.Comp.Code)));
     }
 
     /// <summary>
@@ -454,7 +446,6 @@ public sealed class ExtractionSystem : EntitySystem
         if (current != null)
             QueueDel(current);
 
-        ent.Comp.Zone = newZone;
         ent.Comp.RequestsUsed++;
         Dirty(ent);
 
@@ -467,11 +458,11 @@ public sealed class ExtractionSystem : EntitySystem
     private void ReplaceLostZone(Entity<AntagExtractableComponent> ent)
     {
         var lost = ent.Comp.Zone;
-        ent.Comp.Zone = SpawnZone(ent, null);
-        Dirty(ent);
+        ent.Comp.Zone = null;
 
-        if (ent.Comp.Zone is not { } zone)
+        if (SpawnZone(ent, null) is not { } zone)
         {
+            Dirty(ent);
             Notify(ent, Loc.GetString("extraction-zone-lost-none"));
             _adminLog.Add(LogType.Action, LogImpact.Low, $"Extraction zone {lost} of {ToPrettyString(ent.Owner):player} was destroyed, no replacement found");
             return;
@@ -483,7 +474,7 @@ public sealed class ExtractionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Places a zone marker at a random holopad on a station's main grid.
+    /// Places a zone marker at a random holopad on a station's main grid and makes it the current zone.
     /// Only the extractee and admin ghosts receive it.
     /// </summary>
     private EntityUid? SpawnZone(Entity<AntagExtractableComponent> ent, EntityUid? exclude)
@@ -525,7 +516,6 @@ public sealed class ExtractionSystem : EntitySystem
         Dirty(zone, zoneComp);
 
         _metaData.SetEntityDescription(zone, Loc.GetString("extraction-zone-marker-desc", ("name", Name(ent.Owner))));
-        zoneComp.Area = SpawnAttachedTo(zoneComp.AreaPrototype, new EntityCoordinates(zone, Vector2.Zero));
 
         ent.Comp.Zone = zone;
         Dirty(ent);
@@ -535,14 +525,10 @@ public sealed class ExtractionSystem : EntitySystem
 
     private void SendZoneToOwner(Entity<AntagExtractableComponent> ent)
     {
-        if (ent.Comp.Zone is not { } zone
-            || !TryComp<ExtractionZoneComponent>(zone, out var zoneComp)
-            || !TryComp<ActorComponent>(ent, out var actor))
-            return;
-
-        _pvsOverride.AddForceSend(zone, actor.PlayerSession);
-        if (zoneComp.Area is { } area)
-            _pvsOverride.AddForceSend(area, actor.PlayerSession);
+        if (ent.Comp.Zone is { } zone
+            && !TerminatingOrDeleted(zone)
+            && TryComp<ActorComponent>(ent, out var actor))
+            _pvsOverride.AddForceSend(zone, actor.PlayerSession);
     }
 
     private void OnGetVisMask(ref GetVisMaskEvent args)
@@ -574,8 +560,8 @@ public sealed class ExtractionSystem : EntitySystem
         // force-sends are dropped on disconnect, and the player may have missed the messages
         SendZoneToOwner(ent);
         Notify(ent, ent.Comp.Zone is { } zone && !TerminatingOrDeleted(zone)
-            ? Loc.GetString("extraction-reminder-zone", ("location", GetLocation(zone)))
-            : Loc.GetString("extraction-reminder"));
+            ? Loc.GetString("extraction-reminder-zone", ("location", GetLocation(zone)), ("code", ent.Comp.Code))
+            : Loc.GetString("extraction-reminder", ("code", ent.Comp.Code)));
     }
 
     private string GetLocation(EntityUid uid)
@@ -594,8 +580,6 @@ public sealed class ExtractionSystem : EntitySystem
         var name = ToPrettyString(uid).ToString();
         if (!TryComp<AntagExtractableComponent>(uid, out var comp))
             return Loc.GetString("extraction-command-no-component", ("target", name));
-
-        CancelExtraction((uid, comp), false);
 
         if (comp.Zone is { } zone)
             QueueDel(zone);
@@ -617,100 +601,30 @@ public sealed class ExtractionSystem : EntitySystem
             QueueDel(zone);
 
         ent.Comp.Zone = null;
+        ent.Comp.PodTarget = null;
 
-        // the whole entity is going away, its do-afters and actions go with it
+        // the whole entity is going away, its actions go with it
         if (TerminatingOrDeleted(ent.Owner))
             return;
 
         // e.g. the ninja implant was removed: nothing must be left to use
-        CancelExtraction(ent, false);
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionEntity);
+        _actions.RemoveAction(ent.Owner, ent.Comp.CallPodActionEntity);
         ent.Comp.ActionEntity = null;
+        ent.Comp.CallPodActionEntity = null;
     }
 
     #endregion
 
-    #region Extraction
+    #region Leaving
 
-    private void OnZoneInteractHand(Entity<ExtractionZoneComponent> ent, ref InteractHandEvent args)
-    {
-        if (args.Handled
-            || args.User != ent.Comp.Extractee
-            || !TryComp<AntagExtractableComponent>(args.User, out var extractable))
-            return;
-
-        args.Handled = true;
-        var user = args.User;
-
-        if (!_zone.IsInZone(ent, user))
-        {
-            _popup.PopupEntity(Loc.GetString("extraction-not-in-zone"), user, user, PopupType.SmallCaution);
-            return;
-        }
-
-        if (!extractable.ForceUnlocked
-            && (!_mind.TryGetMind(user, out var mindId, out var mind) || !ObjectivesMet((user, extractable), (mindId, mind), out _, out _)))
-        {
-            _popup.PopupEntity(Loc.GetString("extraction-not-ready"), user, user, PopupType.SmallCaution);
-            return;
-        }
-
-        var zone = ent;
-        var doAfter = new DoAfterArgs(EntityManager, user, extractable.ExtractionDelay, new ExtractionDoAfterEvent(), user, target: ent.Owner)
-        {
-            BreakOnMove = true,
-            BreakOnDamage = true,
-            BreakOnHandChange = true,
-            BreakOnDropItem = true,
-            NeedHand = true,
-            DistanceThreshold = null,
-            MultiplyDelay = false,
-            // a second click on the marker must not cancel the running extraction
-            CancelDuplicate = false,
-            // checked every tick: the zone must still exist and the user must stay inside it
-            AttemptFrequency = AttemptFrequency.EveryTick,
-            ExtraCheck = () => !TerminatingOrDeleted(zone) && _zone.IsInZone(zone, user),
-        };
-
-        if (!_doAfter.TryStartDoAfter(doAfter, out var id))
-            return;
-
-        extractable.DoAfter = id;
-        _popup.PopupEntity(Loc.GetString("extraction-started"), user, user);
-        _adminLog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):player} started extraction at {ToPrettyString(ent.Owner)}");
-    }
-
-    private void OnZoneInteractUsing(Entity<ExtractionZoneComponent> ent, ref InteractUsingEvent args)
-    {
-        if (args.Handled || args.User != ent.Comp.Extractee)
-            return;
-
-        args.Handled = true;
-        _popup.PopupEntity(Loc.GetString("extraction-need-empty-hand"), args.User, args.User, PopupType.SmallCaution);
-    }
-
-    private void OnDoAfter(Entity<AntagExtractableComponent> ent, ref ExtractionDoAfterEvent args)
-    {
-        ent.Comp.DoAfter = null;
-
-        if (args.Cancelled)
-        {
-            _adminLog.Add(LogType.Action, LogImpact.Low, $"Extraction of {ToPrettyString(ent.Owner):player} was interrupted");
-            return;
-        }
-
-        if (args.Handled || args.Target is not { } zone || !TryComp<ExtractionZoneComponent>(zone, out var zoneComp))
-            return;
-
-        args.Handled = true;
-        Extract(ent, (zone, zoneComp));
-    }
-
-    private void Extract(Entity<AntagExtractableComponent> ent, Entity<ExtractionZoneComponent> zone)
+    /// <summary>
+    /// Takes the extractee out of the round: station items drop at <paramref name="coords"/>,
+    /// the player becomes a ghost and the body moves to the paused map.
+    /// </summary>
+    private void Extract(Entity<AntagExtractableComponent> ent, EntityCoordinates coords)
     {
         var user = ent.Owner;
-        var coords = Transform(zone).Coordinates;
-        var station = _station.GetOwningStation(zone.Owner);
         var released = new List<EntityUid>();
 
         foreach (var item in _inventory.GetHandOrInventoryEntities(user).ToList())
@@ -736,19 +650,13 @@ public sealed class ExtractionSystem : EntitySystem
         _adminLog.Add(LogType.Action, LogImpact.Medium,
             $"{ToPrettyString(user):player} was extracted from the round at {coords} after {minutes} min, left behind: {string.Join(", ", released.Select(e => ToPrettyString(e).ToString()))}");
 
-        _audio.PlayPvs(ent.Comp.ExtractSound, coords);
-
-        if (station != null)
-        {
-            var delay = _random.Next(ent.Comp.AnnouncementDelayMin, ent.Comp.AnnouncementDelayMax);
-            _pendingAnnouncements.Add((_timing.CurTime + delay, station.Value, Loc.GetString(ent.Comp.Announcement)));
-        }
-
         _extracted.Add((characterName, minutes));
+
+        if (ent.Comp.Zone is { } zone)
+            QueueDel(zone);
 
         ent.Comp.Extracted = true;
         ent.Comp.Zone = null;
-        QueueDel(zone.Owner);
         MoveToLimbo(user);
     }
 
@@ -764,6 +672,9 @@ public sealed class ExtractionSystem : EntitySystem
 
         if (TryComp<PullableComponent>(user, out var pullable) && pullable.BeingPulled)
             _pulling.TryStopPull(user, pullable);
+
+        if (_container.TryGetContainingContainer(user, out var container))
+            _container.Remove(user, container, force: true);
 
         if (_limboMap == null || TerminatingOrDeleted(_limboMap.Value))
         {
@@ -801,65 +712,7 @@ public sealed class ExtractionSystem : EntitySystem
     {
         _limboMap = null;
         _reghost.Clear();
-        _pendingAnnouncements.Clear();
         _extracted.Clear();
-    }
-
-    private void CancelExtraction(Entity<AntagExtractableComponent> ent, bool popup = true)
-    {
-        if (ent.Comp.DoAfter is not { } id)
-            return;
-
-        ent.Comp.DoAfter = null;
-        _doAfter.Cancel(id);
-
-        if (popup)
-            _popup.PopupEntity(Loc.GetString("extraction-interrupted"), ent.Owner, ent.Owner, PopupType.MediumCaution);
-    }
-
-    private void OnContactInteraction(Entity<AntagExtractableComponent> ent, ref ContactInteractionEvent args)
-    {
-        // touching the marker is what starts the extraction
-        if (HasComp<ExtractionZoneComponent>(args.Other))
-            return;
-
-        CancelExtraction(ent);
-    }
-
-    private void OnInteractedHand(Entity<AntagExtractableComponent> ent, ref InteractHandEvent args)
-    {
-        CancelExtraction(ent);
-    }
-
-    private void OnInteractedUsing(Entity<AntagExtractableComponent> ent, ref InteractUsingEvent args)
-    {
-        CancelExtraction(ent);
-    }
-
-    private void OnPullStarted(Entity<AntagExtractableComponent> ent, ref PullStartedMessage args)
-    {
-        CancelExtraction(ent);
-    }
-
-    private void OnAttackAttempt(Entity<AntagExtractableComponent> ent, ref AttackAttemptEvent args)
-    {
-        CancelExtraction(ent);
-    }
-
-    private void OnDisarmed(Entity<AntagExtractableComponent> ent, ref DisarmedEvent args)
-    {
-        CancelExtraction(ent);
-    }
-
-    private void OnBeforeStripped(Entity<AntagExtractableComponent> ent, ref BeforeGettingStrippedEvent args)
-    {
-        CancelExtraction(ent);
-    }
-
-    private void OnActionPerformed(Entity<ActionComponent> ent, ref ActionPerformedEvent args)
-    {
-        if (TryComp<AntagExtractableComponent>(args.Performer, out var extractable))
-            CancelExtraction((args.Performer, extractable));
     }
 
     #endregion
