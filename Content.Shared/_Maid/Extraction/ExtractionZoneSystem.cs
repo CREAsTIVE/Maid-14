@@ -1,4 +1,3 @@
-using Content.Shared.Eye;
 using Content.Shared.Interaction;
 using Robust.Shared.Containers;
 using Robust.Shared.Map.Components;
@@ -6,12 +5,11 @@ using Robust.Shared.Map.Components;
 namespace Content.Shared._Maid.Extraction;
 
 /// <summary>
-/// Zone visibility and range for the extractee, so they can use the marker from anywhere inside the zone.
+/// Zone range for the extractee, so they can use the marker from anywhere inside the zone.
 /// </summary>
 public sealed class ExtractionZoneSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
@@ -19,26 +17,7 @@ public sealed class ExtractionZoneSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AntagExtractableComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<AntagExtractableComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<AntagExtractableComponent, GetVisMaskEvent>(OnGetVisMask);
         SubscribeLocalEvent<AntagExtractableComponent, InRangeOverrideEvent>(OnInRangeOverride);
-    }
-
-    private void OnStartup(Entity<AntagExtractableComponent> ent, ref ComponentStartup args)
-    {
-        _eye.RefreshVisibilityMask(ent.Owner);
-    }
-
-    private void OnShutdown(Entity<AntagExtractableComponent> ent, ref ComponentShutdown args)
-    {
-        _eye.RefreshVisibilityMask(ent.Owner);
-    }
-
-    private void OnGetVisMask(Entity<AntagExtractableComponent> ent, ref GetVisMaskEvent args)
-    {
-        if (ent.Comp.LifeStage <= ComponentLifeStage.Running)
-            args.VisibilityMask |= (int) VisibilityFlags.MaidExtraction;
     }
 
     private void OnInRangeOverride(Entity<AntagExtractableComponent> ent, ref InRangeOverrideEvent args)

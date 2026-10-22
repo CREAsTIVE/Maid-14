@@ -476,7 +476,7 @@
       - type: SpaceNinja
       - type: AntagExtractable # MAID antag extraction
         thresholdMode: Percent # MAID antag extraction
-        threshold: 80 # MAID antag extraction
+        threshold: 50 # MAID antag extraction
         optionalObjectives: # MAID antag extraction
         - StealResearchObjective # MAID antag extraction
         - DoorjackObjective # MAID antag extraction

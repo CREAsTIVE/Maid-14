@@ -83,6 +83,27 @@ public sealed partial class AntagExtractableComponent : Component
     [DataField]
     public SoundSpecifier ExtractSound = new SoundPathSpecifier("/Audio/Effects/teleport_departure.ogg");
 
+    /// <summary>
+    /// Random delay range before the station hears about the extraction.
+    /// </summary>
+    [DataField]
+    public TimeSpan AnnouncementDelayMin = TimeSpan.FromSeconds(10);
+
+    [DataField]
+    public TimeSpan AnnouncementDelayMax = TimeSpan.FromSeconds(20);
+
+    /// <summary>
+    /// When the antagonist arrived, for the round end summary.
+    /// </summary>
+    [DataField]
+    public TimeSpan ArrivalTime;
+
+    /// <summary>
+    /// Already left the round, the body waits on the extraction map.
+    /// </summary>
+    [DataField]
+    public bool Extracted;
+
     [ViewVariables]
     public DoAfterId? DoAfter;
 

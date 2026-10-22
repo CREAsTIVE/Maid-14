@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseAction
   id: ActionRequestExtraction
-  name: Request extraction
+  name: Request early evacuation
   description: Ask your clan to designate an extraction point at a station holopad. The point can be moved only once.
   components:
   - type: Action
@@ -14,8 +14,8 @@
 
 - type: entity
   id: ExtractionZoneMarker
-  name: extraction point
-  description: Your ride out. Stand inside the zone and touch the beacon with an empty hand to leave.
+  name: extraction marker
+  description: Extraction marker.
   categories: [ HideSpawnMenu ]
   components:
   - type: Transform

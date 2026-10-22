@@ -13,10 +13,10 @@ public sealed partial class ExtractionZoneComponent : Component
     public EntityUid? Extractee;
 
     /// <summary>
-    /// Half-size of the square zone in tiles, 2 makes a 5x5 square.
+    /// Half-size of the square zone in tiles, 1 makes a 3x3 square.
     /// </summary>
     [DataField]
-    public int Range = 2;
+    public int Range = 1;
 
     /// <summary>
     /// Holopad the zone was placed at, skipped when the zone is re-rolled.
@@ -29,4 +29,7 @@ public sealed partial class ExtractionZoneComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId AreaPrototype = "ExtractionZoneArea";
+
+    [DataField]
+    public EntityUid? Area;
 }
