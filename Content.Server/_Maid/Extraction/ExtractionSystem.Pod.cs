@@ -1,8 +1,10 @@
 using Content.Shared._Maid.Extraction;
 using Content.Shared.Body.Components;
 using Content.Shared.Database;
+using Content.Shared.Ghost;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
+using Content.Shared.Shuttles.Components;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -26,6 +28,7 @@ public sealed partial class ExtractionSystem
 
         SubscribeLocalEvent<DropPodComponent, EntInsertedIntoContainerMessage>(OnPodInserted);
         SubscribeLocalEvent<DropPodComponent, EntRemovedFromContainerMessage>(OnPodRemoved);
+        SubscribeLocalEvent<DropPodComponent, ComponentShutdown>(OnPodShutdown);
         SubscribeLocalEvent<DropPodComponent, BoundUIOpenedEvent>(OnPodUiOpened);
         SubscribeLocalEvent<DropPodComponent, DropPodKeypadMessage>(OnKeypad);
         SubscribeLocalEvent<DropPodComponent, DropPodKeypadClearMessage>(OnKeypadClear);
@@ -34,29 +37,42 @@ public sealed partial class ExtractionSystem
 
     #region Calling and landing
 
+    /// <summary>
+    /// The pod can be called once, and only from inside the extraction zone.
+    /// </summary>
+    private bool CanCallPod(Entity<AntagExtractableComponent> ent, TimeSpan now)
+    {
+        return ent.Comp.Unlocked
+               && !ent.Comp.Extracted
+               && !ent.Comp.PodCalled
+               && now >= ent.Comp.PodRecallAt
+               && ent.Comp.Zone is { } zone
+               && TryComp<ExtractionZoneComponent>(zone, out var zoneComp)
+               && _zone.IsInZone((zone, zoneComp), ent.Owner);
+    }
+
+    private void UpdateCallPodAction(Entity<AntagExtractableComponent> ent, TimeSpan now)
+    {
+        if (ent.Comp.CallPodActionEntity is not { } action)
+            return;
+
+        var enabled = CanCallPod(ent, now);
+        if (enabled == ent.Comp.CallPodEnabled)
+            return;
+
+        ent.Comp.CallPodEnabled = enabled;
+        _actions.SetEnabled(action, enabled);
+    }
+
     private void OnCallPod(Entity<AntagExtractableComponent> ent, ref CallDropPodActionEvent args)
     {
-        if (args.Handled || !ent.Comp.Unlocked || ent.Comp.Extracted)
+        if (args.Handled)
             return;
 
-        args.Handled = true;
+        var now = _timing.CurTime;
         var user = ent.Owner;
 
-        if (ent.Comp.PodTarget != null)
-        {
-            _popup.PopupEntity(Loc.GetString("extraction-pod-already-called"), user, user, PopupType.SmallCaution);
-            return;
-        }
-
-        if (ent.Comp.Pod is { } pod && !TerminatingOrDeleted(pod))
-        {
-            _popup.PopupEntity(Loc.GetString("extraction-pod-already-landed"), user, user, PopupType.SmallCaution);
-            return;
-        }
-
-        if (ent.Comp.Zone is not { } zone
-            || !TryComp<ExtractionZoneComponent>(zone, out var zoneComp)
-            || !_zone.IsInZone((zone, zoneComp), user))
+        if (!CanCallPod(ent, now))
         {
             _popup.PopupEntity(Loc.GetString("extraction-not-in-zone"), user, user, PopupType.SmallCaution);
             return;
@@ -66,12 +82,15 @@ public sealed partial class ExtractionSystem
         if (xform.GridUid is not { } grid || !TryComp<MapGridComponent>(grid, out var gridComp))
             return;
 
+        args.Handled = true;
+
         // the pod lands on the tile the call was made from
         var tile = _map.TileIndicesFor(grid, gridComp, xform.Coordinates);
-        var now = _timing.CurTime;
+        ent.Comp.PodCalled = true;
         ent.Comp.PodTarget = _map.GridTileToLocal(grid, gridComp, tile);
         ent.Comp.PodLandAt = now + ent.Comp.PodFlightTime;
         ent.Comp.PodAnnounceAt = now + ent.Comp.PodAnnounceDelay;
+        UpdateCallPodAction(ent, now);
 
         Notify(ent, Loc.GetString("extraction-pod-called", ("seconds", (int) ent.Comp.PodFlightTime.TotalSeconds)));
         _adminLog.Add(LogType.Action, LogImpact.Medium,
@@ -83,16 +102,24 @@ public sealed partial class ExtractionSystem
     /// </summary>
     private EntityCoordinates? UpdatePodCall(Entity<AntagExtractableComponent> ent, TimeSpan now)
     {
-        // the pod was destroyed before launching, another one can be called
+        UpdateCallPodAction(ent, now);
+
         if (ent.Comp.Pod is { } pod && TerminatingOrDeleted(pod))
         {
             ent.Comp.Pod = null;
             Notify(ent, Loc.GetString("extraction-pod-destroyed"));
-            _adminLog.Add(LogType.Action, LogImpact.Low, $"Extraction drop pod of {ToPrettyString(ent.Owner):player} was destroyed");
+            _adminLog.Add(LogType.Action, LogImpact.Medium, $"Extraction drop pod of {ToPrettyString(ent.Owner):player} was destroyed");
         }
 
         if (ent.Comp.PodTarget is not { } target)
             return null;
+
+        // the target grid is gone while the pod is on its way
+        if (TerminatingOrDeleted(target.EntityId))
+        {
+            FailPodLanding(ent, now);
+            return null;
+        }
 
         if (ent.Comp.PodAnnounceAt is { } announceAt && now >= announceAt)
         {
@@ -113,50 +140,104 @@ public sealed partial class ExtractionSystem
         return target;
     }
 
-    private void LandPod(Entity<AntagExtractableComponent> ent, EntityCoordinates target)
+    /// <summary>
+    /// The call did not go through, it can be made again after a delay.
+    /// </summary>
+    private void FailPodLanding(Entity<AntagExtractableComponent> ent, TimeSpan now)
     {
         ent.Comp.PodTarget = null;
         ent.Comp.PodAnnounceAt = null;
+        ent.Comp.PodCalled = false;
+        ent.Comp.PodRecallAt = now + ent.Comp.PodRecallDelay;
 
+        Notify(ent, Loc.GetString("extraction-pod-lost", ("seconds", (int) ent.Comp.PodRecallDelay.TotalSeconds)));
+        _adminLog.Add(LogType.Action, LogImpact.Low, $"Extraction drop pod of {ToPrettyString(ent.Owner):player} lost its landing point");
+    }
+
+    private void LandPod(Entity<AntagExtractableComponent> ent, EntityCoordinates target)
+    {
         if (!target.IsValid(EntityManager)
             || TerminatingOrDeleted(target.EntityId)
             || !TryComp<MapGridComponent>(target.EntityId, out var gridComp))
         {
-            Notify(ent, Loc.GetString("extraction-pod-lost"));
+            FailPodLanding(ent, _timing.CurTime);
             return;
         }
 
         var grid = target.EntityId;
         var tile = _map.TileIndicesFor(grid, gridComp, target);
 
-        // whatever is alive on the landing tile gets crushed
-        foreach (var victim in _lookup.GetLocalEntitiesIntersecting(grid, tile, gridComp: gridComp))
-        {
-            if (!HasComp<MobStateComponent>(victim) || _mobState.IsDead(victim) || TerminatingOrDeleted(victim))
-                continue;
-
-            _adminLog.Add(LogType.Gib, LogImpact.High, $"{ToPrettyString(victim):player} was crushed by the extraction drop pod of {ToPrettyString(ent.Owner):player}");
-
-            if (HasComp<BodyComponent>(victim))
-                _body.GibBody(victim);
-            else
-                _destructible.DestroyEntity(victim);
-        }
+        ClearLandingTile(ent, grid, gridComp, tile);
 
         var pod = Spawn(ent.Comp.PodPrototype, target);
         var podComp = EnsureComp<DropPodComponent>(pod);
         podComp.Extractee = ent.Owner;
-        Dirty(pod, podComp);
         ent.Comp.Pod = pod;
 
-        // heard by everyone on the map, from the direction of the impact
-        var mapId = _transform.GetMapId(target);
-        var audioParams = ent.Comp.PodImpactSound.Params.WithMaxDistance(150f).WithVolume(5f);
-        _audio.PlayStatic(ent.Comp.PodImpactSound, Filter.BroadcastMap(mapId), target, true, audioParams);
+        // scorch mark where the pod hit, it stays even if the pod is destroyed
+        _decals.TryAddDecal(podComp.LandingDecal, new EntityCoordinates(grid, tile.X, tile.Y), out _, cleanable: true);
+
+        PlayImpactSound(ent, target);
+
+        // the pod comes only once
+        _actions.RemoveAction(ent.Owner, ent.Comp.CallPodActionEntity);
+        ent.Comp.CallPodActionEntity = null;
 
         Notify(ent, Loc.GetString("extraction-pod-landed", ("code", ent.Comp.Code)));
         _adminLog.Add(LogType.Action, LogImpact.Medium,
             $"Extraction drop pod {ToPrettyString(pod)} of {ToPrettyString(ent.Owner):player} landed at {target}");
+    }
+
+    /// <summary>
+    /// Everything on the landing tile is destroyed, walls included, the way an arriving shuttle flattens what is in its way.
+    /// Bodies are gibbed.
+    /// </summary>
+    private void ClearLandingTile(Entity<AntagExtractableComponent> ent, EntityUid grid, MapGridComponent gridComp, Vector2i tile)
+    {
+        var immune = new HashSet<EntityUid>();
+        foreach (var victim in _lookup.GetLocalEntitiesIntersecting(grid, tile, flags: LookupFlags.Uncontained, gridComp: gridComp))
+        {
+            if (immune.Contains(victim)
+                || TerminatingOrDeleted(victim)
+                || HasComp<GhostComponent>(victim)
+                || HasComp<ExtractionZoneComponent>(victim)
+                || HasComp<FTLSmashImmuneComponent>(victim))
+                continue;
+
+            if (TryComp<BodyComponent>(victim, out var body))
+            {
+                _adminLog.Add(LogType.Gib, LogImpact.High,
+                    $"{ToPrettyString(victim):player} was crushed by the extraction drop pod of {ToPrettyString(ent.Owner):player}");
+                immune.UnionWith(_body.GibBody(victim, body: body));
+                continue;
+            }
+
+            // body-less mobs like borgs break down properly instead of vanishing
+            if (HasComp<MobStateComponent>(victim))
+            {
+                _adminLog.Add(LogType.Gib, LogImpact.High,
+                    $"{ToPrettyString(victim):player} was crushed by the extraction drop pod of {ToPrettyString(ent.Owner):player}");
+                _destructible.DestroyEntity(victim);
+                continue;
+            }
+
+            QueueDel(victim);
+        }
+    }
+
+    /// <summary>
+    /// Near players hear the positional impact, everyone else on the map the distant one, like explosions and meteors.
+    /// </summary>
+    private void PlayImpactSound(Entity<AntagExtractableComponent> ent, EntityCoordinates target)
+    {
+        var mapCoords = _transform.ToMapCoordinates(target);
+        var nearRange = ent.Comp.PodImpactNearRange;
+
+        var nearFilter = Filter.Pvs(target).AddInRange(mapCoords, nearRange);
+        _audio.PlayStatic(ent.Comp.PodImpactSound, nearFilter, target, true, ent.Comp.PodImpactSound.Params);
+
+        var farFilter = Filter.Empty().AddInMap(mapCoords.MapId).RemoveInRange(mapCoords, nearRange);
+        _audio.PlayGlobal(ent.Comp.PodImpactSoundFar, farFilter, true, ent.Comp.PodImpactSoundFar.Params);
     }
 
     #endregion
@@ -208,6 +289,7 @@ public sealed partial class ExtractionSystem
         {
             ent.Comp.WrongCode = true;
             _audio.PlayPvs(ent.Comp.WrongCodeSound, ent.Owner);
+            _adminLog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.Actor):player} entered a wrong code on extraction drop pod {ToPrettyString(ent.Owner)}");
         }
 
         UpdatePodUi(ent);
@@ -237,6 +319,7 @@ public sealed partial class ExtractionSystem
         if (args.Container.ID != SharedEntityStorageSystem.ContainerName || args.Entity != ent.Comp.Extractee)
             return;
 
+        // the same action entity is reused on every entry
         _actions.AddAction(args.Entity, ref ent.Comp.LaunchActionEntity, ent.Comp.LaunchAction);
         _popup.PopupEntity(Loc.GetString("extraction-pod-inside"), args.Entity, args.Entity);
     }
@@ -247,7 +330,19 @@ public sealed partial class ExtractionSystem
             return;
 
         _actions.RemoveAction(args.Entity, ent.Comp.LaunchActionEntity);
-        ent.Comp.LaunchActionEntity = null;
+
+        if (!ent.Comp.Launching)
+            return;
+
+        // the extractee left the pod during the countdown: no launch without them
+        StopLaunch(ent);
+        _popup.PopupEntity(Loc.GetString("extraction-pod-launch-cancelled"), args.Entity, args.Entity, PopupType.MediumCaution);
+        _adminLog.Add(LogType.Action, LogImpact.Low, $"Launch of extraction drop pod {ToPrettyString(ent.Owner)} was cancelled, {ToPrettyString(args.Entity):player} left it");
+    }
+
+    private void OnPodShutdown(Entity<DropPodComponent> ent, ref ComponentShutdown args)
+    {
+        _audio.Stop(ent.Comp.EngineSoundStream);
     }
 
     private void OnLaunchPod(Entity<AntagExtractableComponent> ent, ref LaunchDropPodActionEvent args)
@@ -271,12 +366,23 @@ public sealed partial class ExtractionSystem
 
         pod.Launching = true;
         pod.LaunchAt = _timing.CurTime + pod.LaunchDelay;
-        pod.NextCountdownPopup = 0;
+        pod.LastCountdownSecond = 0;
         Dirty(container.Owner, pod);
         UpdatePodUi((container.Owner, pod));
 
+        if (pod.EngineSound != null)
+            pod.EngineSoundStream = _audio.PlayPvs(pod.EngineSound, container.Owner, pod.EngineSound.Params.WithLoop(true))?.Entity;
+
         _popup.PopupEntity(Loc.GetString("extraction-pod-launching", ("seconds", (int) pod.LaunchDelay.TotalSeconds)), user, user, PopupType.Medium);
         _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(user):player} started the launch of extraction drop pod {ToPrettyString(container.Owner)}");
+    }
+
+    private void StopLaunch(Entity<DropPodComponent> pod)
+    {
+        pod.Comp.Launching = false;
+        pod.Comp.EngineSoundStream = _audio.Stop(pod.Comp.EngineSoundStream);
+        Dirty(pod);
+        UpdatePodUi(pod);
     }
 
     private void UpdatePods(TimeSpan now)
@@ -288,27 +394,29 @@ public sealed partial class ExtractionSystem
                 continue;
 
             var remaining = (int) Math.Ceiling((pod.LaunchAt - now).TotalSeconds);
-            if (remaining > 0)
+            if (remaining <= 0)
             {
-                // countdown for whoever is inside
-                if (pod.NextCountdownPopup != remaining && Array.IndexOf(CountdownPopups, remaining) >= 0)
-                {
-                    pod.NextCountdownPopup = remaining;
-                    if (pod.Extractee is { } occupant)
-                        _popup.PopupEntity(remaining.ToString(), occupant, occupant, PopupType.Large);
-                }
-
+                LaunchPod((uid, pod));
                 continue;
             }
 
-            LaunchPod((uid, pod));
+            if (pod.LastCountdownSecond == remaining)
+                continue;
+
+            pod.LastCountdownSecond = remaining;
+
+            if (pod.CountdownSound != null)
+                _audio.PlayPvs(pod.CountdownSound, uid);
+
+            if (Array.IndexOf(CountdownPopups, remaining) >= 0 && pod.Extractee is { } occupant)
+                _popup.PopupEntity(remaining.ToString(), occupant, occupant, PopupType.Large);
         }
     }
 
     private void LaunchPod(Entity<DropPodComponent> pod)
     {
         var coords = Transform(pod).Coordinates;
-        pod.Comp.Launching = false;
+        StopLaunch(pod);
 
         if (pod.Comp.Extractee is { } extractee
             && TryComp<AntagExtractableComponent>(extractee, out var extractable)
@@ -325,13 +433,6 @@ public sealed partial class ExtractionSystem
         RaiseNetworkEvent(new DropPodLaunchAnimationEvent(GetNetCoordinates(coords), pod.Comp.LaunchAnimationDuration, pod.Comp.LaunchSprite),
             Filter.Pvs(pod.Owner));
         _audio.PlayPvs(pod.Comp.LaunchSound, coords);
-
-        // scorch mark where the pod stood
-        if (Transform(pod).GridUid is { } grid && TryComp<MapGridComponent>(grid, out var gridComp))
-        {
-            var tile = _map.TileIndicesFor(grid, gridComp, coords);
-            _decals.TryAddDecal(pod.Comp.LandingDecal, new EntityCoordinates(grid, tile.X, tile.Y), out _, cleanable: true);
-        }
 
         _adminLog.Add(LogType.Action, LogImpact.Medium, $"Extraction drop pod {ToPrettyString(pod.Owner)} launched from {coords}");
         QueueDel(pod.Owner);

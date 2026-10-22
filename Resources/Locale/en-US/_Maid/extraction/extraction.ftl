@@ -19,15 +19,16 @@ extraction-round-end = [color=gold]{ $name }[/color] was evacuated { $minutes } 
 } after arriving at the station.
 
 extraction-pod-announcement = An unknown small object is moving towards the station at high speed, impact is imminent.
-extraction-pod-called = The pod is called and lands in { $seconds } seconds on the tile you are standing on. Step aside or be crushed!
+extraction-pod-called = The pod is called and lands in { $seconds } seconds on the tile you are standing on. Everything on that tile will be destroyed, step aside!
 extraction-pod-already-called = The pod is already on its way.
 extraction-pod-already-landed = The pod is already on the station.
 extraction-pod-landed = The pod has landed. Open it with code { $code }, get inside, close it and press "START".
-extraction-pod-lost = The pod could not find its landing point. Call it again.
-extraction-pod-destroyed = The pod was destroyed. You can call a new one.
+extraction-pod-lost = The pod could not find its landing point. You can call it again in { $seconds } seconds.
+extraction-pod-destroyed = The pod was destroyed. There will be no other.
 extraction-pod-inside = Press "START" to lift off.
 extraction-pod-not-inside = You must be inside your pod.
 extraction-pod-launching = The pod is sealed. Lift-off in { $seconds } seconds.
+extraction-pod-launch-cancelled = You left the pod, the launch is cancelled.
 extraction-pod-sealed = The pod is sealed.
 extraction-pod-ui-title = Drop pod
 extraction-pod-ui-locked = Enter code

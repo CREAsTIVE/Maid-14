@@ -83,6 +83,27 @@ public sealed partial class AntagExtractableComponent : Component
     public EntityUid? CallPodActionEntity;
 
     /// <summary>
+    /// The pod can be called only once. Reset only when the landing failed, e.g. the grid was gone.
+    /// </summary>
+    [DataField]
+    public bool PodCalled;
+
+    /// <summary>
+    /// After a failed landing the pod can be called again from this time.
+    /// </summary>
+    [DataField]
+    public TimeSpan PodRecallAt;
+
+    [DataField]
+    public TimeSpan PodRecallDelay = TimeSpan.FromSeconds(30);
+
+    /// <summary>
+    /// Whether the call action is currently enabled, to avoid dirtying it every tick.
+    /// </summary>
+    [ViewVariables]
+    public bool CallPodEnabled = true;
+
+    /// <summary>
     /// Code that unlocks the drop pod, given to the player on unlock. Server only.
     /// </summary>
     [DataField]
@@ -121,8 +142,20 @@ public sealed partial class AntagExtractableComponent : Component
     [DataField]
     public LocId PodAnnouncement = "extraction-pod-announcement";
 
+    /// <summary>
+    /// Impact heard nearby, positional. Same split as explosions and meteors.
+    /// </summary>
     [DataField]
     public SoundSpecifier PodImpactSound = new SoundCollectionSpecifier("Explosion");
+
+    /// <summary>
+    /// Impact heard by everyone else on the map.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier PodImpactSoundFar = new SoundCollectionSpecifier("ExplosionFar", AudioParams.Default.WithVolume(2f));
+
+    [DataField]
+    public float PodImpactNearRange = 20f;
 
     /// <summary>
     /// When the antagonist arrived, for the round end summary.

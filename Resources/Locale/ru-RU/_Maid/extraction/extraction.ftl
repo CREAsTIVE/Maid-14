@@ -20,15 +20,28 @@ extraction-round-end = [color=gold]{ $name }[/color] эвакуирован че
 } после прибытия на станцию.
 
 extraction-pod-announcement = Неизвестный малый объект движется на большой скорости в сторону станции, столкновение неизбежно.
-extraction-pod-called = Капсула вызвана и приземлится через { $seconds } секунд на клетку, где вы стоите. Отойдите в сторону, иначе вас раздавит!
+extraction-pod-called = Капсула вызвана и приземлится через { $seconds } { $seconds ->
+    [one] секунду
+    [few] секунды
+   *[other] секунд
+} на клетку, где вы стоите. Всё на этой клетке будет уничтожено, отойдите в сторону!
 extraction-pod-already-called = Капсула уже в пути.
 extraction-pod-already-landed = Капсула уже на станции.
 extraction-pod-landed = Капсула приземлилась. Откройте её кодом { $code }, заберитесь внутрь, закройте и нажмите «СТАРТ».
-extraction-pod-lost = Капсула не смогла найти точку посадки. Вызовите её снова.
-extraction-pod-destroyed = Капсула уничтожена. Можно вызвать новую.
+extraction-pod-lost = Капсула не смогла найти точку посадки. Вызвать её снова можно через { $seconds } { $seconds ->
+    [one] секунду
+    [few] секунды
+   *[other] секунд
+}.
+extraction-pod-destroyed = Капсула уничтожена. Другой не будет.
 extraction-pod-inside = Нажмите «СТАРТ», чтобы взлететь.
 extraction-pod-not-inside = Нужно находиться внутри своей капсулы.
-extraction-pod-launching = Капсула загерметизирована. Взлёт через { $seconds } секунд.
+extraction-pod-launching = Капсула загерметизирована. Взлёт через { $seconds } { $seconds ->
+    [one] секунду
+    [few] секунды
+   *[other] секунд
+}.
+extraction-pod-launch-cancelled = Вы покинули капсулу, взлёт отменён.
 extraction-pod-sealed = Капсула загерметизирована.
 extraction-pod-ui-title = Десантная капсула
 extraction-pod-ui-locked = Введите код

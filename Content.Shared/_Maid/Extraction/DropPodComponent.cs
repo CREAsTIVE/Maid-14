@@ -12,7 +12,10 @@ namespace Content.Shared._Maid.Extraction;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class DropPodComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    /// <summary>
+    /// Not networked: the client never needs it, and it may point to an entity that is gone.
+    /// </summary>
+    [DataField]
     public EntityUid? Extractee;
 
     [DataField, AutoNetworkedField]
@@ -28,10 +31,10 @@ public sealed partial class DropPodComponent : Component
     public TimeSpan LaunchAt;
 
     /// <summary>
-    /// Next countdown popup shown to the occupant.
+    /// Last countdown second already announced to the occupant.
     /// </summary>
     [DataField]
-    public int NextCountdownPopup;
+    public int LastCountdownSecond;
 
     /// <summary>
     /// Length of the lift-off animation.
@@ -63,6 +66,21 @@ public sealed partial class DropPodComponent : Component
 
     [DataField]
     public SoundSpecifier LaunchSound = new SoundPathSpecifier("/Audio/Effects/teleport_departure.ogg");
+
+    /// <summary>
+    /// Played every second of the launch countdown. None yet, the sound is picked later.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? CountdownSound;
+
+    /// <summary>
+    /// Looped engine sound while the pod counts down. None yet, the sound is picked later.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? EngineSound;
+
+    [ViewVariables]
+    public EntityUid? EngineSoundStream;
 
     [DataField]
     public SoundSpecifier KeypadSound = new SoundPathSpecifier("/Audio/Machines/Nuke/general_beep.ogg");
