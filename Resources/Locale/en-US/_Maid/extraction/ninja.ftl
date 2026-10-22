@@ -1,0 +1,10 @@
+extraction-ninja-notify-popup = Your clan is on the line. Check the chat.
+extraction-ninja-unlocked = Your objectives are done, the clan is ready to pick you up. Use "Request early evacuation" to get an extraction point, then call a drop pod there. Pod code: { $code }.
+extraction-ninja-unlocked-forced = The clan is on the line early. Use "Request early evacuation" to get an extraction point, then call a drop pod there. Pod code: { $code }.
+extraction-ninja-zone-designated = The clan designated an extraction point: { $location }. Stand inside the zone and call the drop pod. Re-requests left: { $left }.
+extraction-ninja-no-requests-zone = The clan will not move the point again. It is still here: { $location }.
+extraction-ninja-no-requests = The clan does not answer anymore.
+extraction-ninja-zone-lost = Your extraction point was destroyed. The clan designated a new one: { $location }.
+extraction-ninja-zone-reset = The clan is back on the line: you can request a new extraction point.
+extraction-ninja-reminder = The clan is waiting. Use "Request early evacuation" to get an extraction point. Pod code: { $code }.
+extraction-ninja-reminder-zone = The clan is waiting here: { $location }. Pod code: { $code }.

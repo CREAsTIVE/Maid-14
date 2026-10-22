@@ -21,8 +21,6 @@ namespace Content.Server._Maid.Extraction;
 /// </summary>
 public sealed partial class ExtractionSystem
 {
-    private static readonly int[] CountdownPopups = { 10, 5, 4, 3, 2, 1 };
-
     private void InitializePod()
     {
         SubscribeLocalEvent<AntagExtractableComponent, CallDropPodActionEvent>(OnCallPod);
@@ -76,7 +74,7 @@ public sealed partial class ExtractionSystem
 
         if (!CanCallPod(ent, now))
         {
-            _popup.PopupEntity(Loc.GetString("extraction-not-in-zone"), user, user, PopupType.SmallCaution);
+            _popup.PopupEntity(Loc.GetString(ent.Comp.Messages.NotInZone), user, user, PopupType.SmallCaution);
             return;
         }
 
@@ -94,7 +92,7 @@ public sealed partial class ExtractionSystem
         ent.Comp.PodAnnounceAt = now + ent.Comp.PodAnnounceDelay;
         UpdateCallPodAction(ent, now);
 
-        Notify(ent, Loc.GetString("extraction-pod-called", ("seconds", (int) ent.Comp.PodFlightTime.TotalSeconds)));
+        Notify(ent, Loc.GetString(ent.Comp.Messages.PodCalled, ("seconds", (int) ent.Comp.PodFlightTime.TotalSeconds)));
         _adminLog.Add(LogType.Action, LogImpact.Medium,
             $"{ToPrettyString(user):player} called an extraction drop pod to {ent.Comp.PodTarget} ({GetLocation(user)})");
     }
@@ -109,7 +107,7 @@ public sealed partial class ExtractionSystem
         if (ent.Comp.Pod is { } pod && TerminatingOrDeleted(pod))
         {
             ent.Comp.Pod = null;
-            Notify(ent, Loc.GetString("extraction-pod-destroyed"));
+            Notify(ent, Loc.GetString(ent.Comp.Messages.PodDestroyed));
             _adminLog.Add(LogType.Action, LogImpact.Medium, $"Extraction drop pod of {ToPrettyString(ent.Owner):player} was destroyed");
         }
 
@@ -129,9 +127,9 @@ public sealed partial class ExtractionSystem
             if (_station.GetOwningStation(target.EntityId) is { } station)
             {
                 _chat.DispatchStationAnnouncement(station,
-                    Loc.GetString(ent.Comp.PodAnnouncement),
-                    Loc.GetString("extraction-announcement-sender"),
-                    colorOverride: Color.Gold);
+                    Loc.GetString(ent.Comp.Messages.PodAnnouncement),
+                    Loc.GetString(ent.Comp.Messages.AnnouncementSender),
+                    colorOverride: ent.Comp.Messages.AnnouncementColor);
             }
         }
 
@@ -152,7 +150,7 @@ public sealed partial class ExtractionSystem
         ent.Comp.PodCalled = false;
         ent.Comp.PodRecallAt = now + ent.Comp.PodRecallDelay;
 
-        Notify(ent, Loc.GetString("extraction-pod-lost", ("seconds", (int) ent.Comp.PodRecallDelay.TotalSeconds)));
+        Notify(ent, Loc.GetString(ent.Comp.Messages.PodLost, ("seconds", (int) ent.Comp.PodRecallDelay.TotalSeconds)));
         _adminLog.Add(LogType.Action, LogImpact.Low, $"Extraction drop pod of {ToPrettyString(ent.Owner):player} lost its landing point");
     }
 
@@ -186,7 +184,7 @@ public sealed partial class ExtractionSystem
         QueueDel(ent.Comp.CallPodActionEntity);
         ent.Comp.CallPodActionEntity = null;
 
-        Notify(ent, Loc.GetString("extraction-pod-landed", ("code", ent.Comp.Code)));
+        Notify(ent, Loc.GetString(ent.Comp.Messages.PodLanded, ("code", ent.Comp.Code)));
         _adminLog.Add(LogType.Action, LogImpact.Medium,
             $"Extraction drop pod {ToPrettyString(pod)} of {ToPrettyString(ent.Owner):player} landed at {target}");
     }
@@ -348,7 +346,7 @@ public sealed partial class ExtractionSystem
 
         // the same action entity is reused on every entry
         _actions.AddAction(args.Entity, ref ent.Comp.LaunchActionEntity, ent.Comp.LaunchAction);
-        _popup.PopupEntity(Loc.GetString("extraction-pod-inside"), args.Entity, args.Entity);
+        _popup.PopupEntity(Loc.GetString(ent.Comp.InsideMessage), args.Entity, args.Entity);
     }
 
     private void OnPodRemoved(Entity<DropPodComponent> ent, ref EntRemovedFromContainerMessage args)
@@ -363,7 +361,7 @@ public sealed partial class ExtractionSystem
 
         // the extractee left the pod during the countdown: no launch without them
         StopLaunch(ent);
-        _popup.PopupEntity(Loc.GetString("extraction-pod-launch-cancelled"), args.Entity, args.Entity, PopupType.MediumCaution);
+        _popup.PopupEntity(Loc.GetString(ent.Comp.LaunchCancelledMessage), args.Entity, args.Entity, PopupType.MediumCaution);
         _adminLog.Add(LogType.Action, LogImpact.Low, $"Launch of extraction drop pod {ToPrettyString(ent.Owner)} was cancelled, {ToPrettyString(args.Entity):player} left it");
     }
 
@@ -384,7 +382,8 @@ public sealed partial class ExtractionSystem
             || !TryComp<DropPodComponent>(container.Owner, out var pod)
             || pod.Extractee != user)
         {
-            _popup.PopupEntity(Loc.GetString("extraction-pod-not-inside"), user, user, PopupType.SmallCaution);
+            var notInside = CompOrNull<DropPodComponent>(ent.Comp.Pod)?.NotInsideMessage ?? "extraction-pod-not-inside";
+            _popup.PopupEntity(Loc.GetString(notInside), user, user, PopupType.SmallCaution);
             return;
         }
 
@@ -400,7 +399,7 @@ public sealed partial class ExtractionSystem
         if (pod.EngineSound != null)
             pod.EngineSoundStream = _audio.PlayPvs(pod.EngineSound, container.Owner, pod.EngineSound.Params.WithLoop(true))?.Entity;
 
-        _popup.PopupEntity(Loc.GetString("extraction-pod-launching", ("seconds", (int) pod.LaunchDelay.TotalSeconds)), user, user, PopupType.Medium);
+        _popup.PopupEntity(Loc.GetString(pod.LaunchingMessage, ("seconds", (int) pod.LaunchDelay.TotalSeconds)), user, user, PopupType.Medium);
         _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(user):player} started the launch of extraction drop pod {ToPrettyString(container.Owner)}");
     }
 
@@ -435,7 +434,7 @@ public sealed partial class ExtractionSystem
             if (pod.CountdownSound != null)
                 _audio.PlayPvs(pod.CountdownSound, uid);
 
-            if (Array.IndexOf(CountdownPopups, remaining) >= 0 && pod.Extractee is { } occupant)
+            if (pod.CountdownPopups.Contains(remaining) && pod.Extractee is { } occupant)
                 _popup.PopupEntity(remaining.ToString(), occupant, occupant, PopupType.Large);
         }
     }

@@ -1,19 +1,19 @@
-extraction-notify-popup = Клан на связи. Проверьте чат.
+extraction-notify-popup = Новое сообщение об эвакуации. Проверьте чат.
 extraction-unlocked = Задания выполнены. Используйте «Выполнить запрос на досрочную эвакуацию», чтобы получить точку отхода, затем вызовите в ней десантную капсулу. Код капсулы: { $code }.
-extraction-unlocked-forced = Клан вышел на связь досрочно. Используйте «Выполнить запрос на досрочную эвакуацию», чтобы получить точку отхода, затем вызовите в ней десантную капсулу. Код капсулы: { $code }.
-extraction-zone-designated = Точка отхода назначена у голопада: { $location }. Встаньте в зону и вызовите десантную капсулу. Осталось переносов: { $left }.
-extraction-no-requests-zone = Клан больше не перенесёт точку. Она всё ещё у голопада: { $location }.
-extraction-no-requests = Клан больше не выходит на связь.
+extraction-unlocked-forced = Эвакуация разрешена досрочно. Используйте «Выполнить запрос на досрочную эвакуацию», чтобы получить точку отхода, затем вызовите в ней десантную капсулу. Код капсулы: { $code }.
+extraction-zone-designated = Точка отхода назначена: { $location }. Встаньте в зону и вызовите десантную капсулу. Осталось переносов: { $left }.
+extraction-no-requests-zone = Точку отхода больше нельзя перенести. Она по-прежнему здесь: { $location }.
+extraction-no-requests = Запросов на эвакуацию больше не осталось.
 extraction-no-zone = Подходящая точка отхода на станции не найдена.
-extraction-zone-lost = Точка отхода уничтожена. Клан назначил новую у голопада: { $location }.
+extraction-zone-lost = Точка отхода уничтожена. Назначена новая: { $location }.
 extraction-zone-lost-none = Точка отхода уничтожена, а новую найти не удалось. Обратитесь к администрации.
-extraction-zone-reset = Клан снова на связи: можно запросить новую точку отхода.
-extraction-reminder = Клан ждёт вас. Используйте «Выполнить запрос на досрочную эвакуацию», чтобы получить точку отхода. Код капсулы: { $code }.
-extraction-reminder-zone = Клан ждёт вас у голопада: { $location }. Код капсулы: { $code }.
+extraction-zone-reset = Можно снова запросить точку отхода.
+extraction-reminder = Эвакуация разрешена. Используйте «Выполнить запрос на досрочную эвакуацию», чтобы получить точку отхода. Код капсулы: { $code }.
+extraction-reminder-zone = Точка отхода: { $location }. Код капсулы: { $code }.
 extraction-not-in-zone = Нужно находиться в зоне отхода.
-extraction-announcement-sender = Сенсоры станции
 extraction-zone-marker-desc = Маркер отхода «{ $name }».
-extraction-round-end = [color=gold]{ $name }[/color] эвакуирован через { $minutes } { $minutes ->
+extraction-announcement-sender = Сенсоры станции
+extraction-round-end = [color=gold]{ $name }[/color]: эвакуация через { $minutes } { $minutes ->
     [one] минуту
     [few] минуты
    *[other] минут
@@ -25,8 +25,6 @@ extraction-pod-called = Капсула вызвана и приземлится 
     [few] секунды
    *[other] секунд
 } на клетку, где вы стоите. Всё на этой клетке будет уничтожено, отойдите в сторону!
-extraction-pod-already-called = Капсула уже в пути.
-extraction-pod-already-landed = Капсула уже на станции.
 extraction-pod-landed = Капсула приземлилась. Откройте её кодом { $code }, заберитесь внутрь, закройте и нажмите «СТАРТ».
 extraction-pod-lost = Капсула не смогла найти точку посадки. Вызвать её снова можно через { $seconds } { $seconds ->
     [one] секунду

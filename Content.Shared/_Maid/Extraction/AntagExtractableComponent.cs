@@ -16,6 +16,18 @@ public sealed partial class AntagExtractableComponent : Component
     public override bool SendOnlyToOwner => true;
 
     /// <summary>
+    /// Texts for this antagonist, override them in the prototype for its own flavour.
+    /// </summary>
+    [DataField]
+    public ExtractionMessages Messages = new();
+
+    /// <summary>
+    /// How often objectives are checked for unlocking.
+    /// </summary>
+    [DataField]
+    public TimeSpan CheckInterval = TimeSpan.FromSeconds(5);
+
+    /// <summary>
     /// Whether <see cref="Threshold"/> is a percent of counted objectives or a flat number of them.
     /// </summary>
     [DataField]
@@ -65,10 +77,16 @@ public sealed partial class AntagExtractableComponent : Component
     public EntProtoId ZonePrototype = "ExtractionZoneMarker";
 
     /// <summary>
-    /// Holopads the zone never spawns at, e.g. inside the AI core.
+    /// Component name of the entities the zone is placed at, on a station's main grid.
     /// </summary>
     [DataField]
-    public List<EntProtoId> HolopadBlacklist = new() { "HolopadAiCore" };
+    public string ZoneAnchorComponent = "Holopad";
+
+    /// <summary>
+    /// Anchor prototypes the zone never spawns at, e.g. the holopad inside the AI core.
+    /// </summary>
+    [DataField]
+    public List<EntProtoId> ZoneAnchorBlacklist = new() { "HolopadAiCore" };
 
     [DataField]
     public EntProtoId Action = "ActionRequestExtraction";
@@ -109,6 +127,9 @@ public sealed partial class AntagExtractableComponent : Component
     [DataField]
     public string Code = string.Empty;
 
+    /// <summary>
+    /// Digits in the pod code, 1 to 9.
+    /// </summary>
     [DataField]
     public int CodeLength = 6;
 
@@ -138,9 +159,6 @@ public sealed partial class AntagExtractableComponent : Component
 
     [DataField]
     public TimeSpan PodAnnounceDelay = TimeSpan.FromSeconds(5);
-
-    [DataField]
-    public LocId PodAnnouncement = "extraction-pod-announcement";
 
     /// <summary>
     /// Impact heard nearby, positional. Same split as explosions and meteors.

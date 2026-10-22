@@ -18,8 +18,8 @@ public sealed partial class ExtractionZoneComponent : Component
     public int Range = 1;
 
     /// <summary>
-    /// Holopad the zone was placed at, skipped when the zone is re-rolled.
+    /// Entity the zone was placed at, skipped when the zone is re-rolled.
     /// </summary>
     [DataField]
-    public EntityUid? Holopad;
+    public EntityUid? Anchor;
 }

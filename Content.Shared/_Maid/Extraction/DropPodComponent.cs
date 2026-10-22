@@ -31,6 +31,12 @@ public sealed partial class DropPodComponent : Component
     public TimeSpan LaunchAt;
 
     /// <summary>
+    /// Seconds of the countdown shown to the occupant as a popup.
+    /// </summary>
+    [DataField]
+    public List<int> CountdownPopups = new() { 10, 5, 4, 3, 2, 1 };
+
+    /// <summary>
     /// Last countdown second already announced to the occupant.
     /// </summary>
     [DataField]
@@ -99,4 +105,22 @@ public sealed partial class DropPodComponent : Component
 
     [ViewVariables]
     public bool WrongCode;
+
+    [DataField]
+    public LocId InsideMessage = "extraction-pod-inside";
+
+    [DataField]
+    public LocId NotInsideMessage = "extraction-pod-not-inside";
+
+    /// <summary>
+    /// Gets <c>$seconds</c>.
+    /// </summary>
+    [DataField]
+    public LocId LaunchingMessage = "extraction-pod-launching";
+
+    [DataField]
+    public LocId LaunchCancelledMessage = "extraction-pod-launch-cancelled";
+
+    [DataField]
+    public LocId SealedMessage = "extraction-pod-sealed";
 }

@@ -32,7 +32,7 @@ public sealed class SharedDropPodSystem : EntitySystem
 
         if (ent.Comp.Launching)
         {
-            _popup.PopupEntity(Loc.GetString("extraction-pod-sealed"), ent.Owner, args.User);
+            _popup.PopupEntity(Loc.GetString(ent.Comp.SealedMessage), ent.Owner, args.User);
             return;
         }
 

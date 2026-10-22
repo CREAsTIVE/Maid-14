@@ -24,7 +24,6 @@ using Content.Shared.Follower;
 using Content.Shared.Follower.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Ghost;
-using Content.Shared.Holopad;
 using Content.Shared.Implants.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
@@ -59,6 +58,7 @@ public sealed partial class ExtractionSystem : EntitySystem
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IAdminManager _admin = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
@@ -90,14 +90,12 @@ public sealed partial class ExtractionSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly ExtractionZoneSystem _zone = default!;
 
-    private static readonly TimeSpan CheckInterval = TimeSpan.FromSeconds(5);
-
     /// <summary>
     /// Paused map holding the bodies of extracted antagonists.
     /// </summary>
     private EntityUid? _limboMap;
 
-    private readonly List<(string Name, int Minutes)> _extracted = new();
+    private readonly List<(string Name, int Minutes, LocId Message)> _extracted = new();
 
     /// <summary>
     /// Extracted bodies whose player came back into them, e.g. after a reconnect deleted their ghost.
@@ -147,7 +145,7 @@ public sealed partial class ExtractionSystem : EntitySystem
             if (comp.Extracted)
                 continue;
 
-            // the zone got destroyed (singularity, grid deletion...), the clan sends a new one for free
+            // the zone got destroyed (singularity, grid deletion...), a new one is given for free
             if (comp.Zone is { } zone && TerminatingOrDeleted(zone))
                 ReplaceLostZone((uid, comp));
 
@@ -157,7 +155,7 @@ public sealed partial class ExtractionSystem : EntitySystem
             if (comp.Unlocked || now < comp.NextCheck)
                 continue;
 
-            comp.NextCheck = now + CheckInterval;
+            comp.NextCheck = now + comp.CheckInterval;
 
             if (!_mind.TryGetMind(uid, out var mindId, out var mind)
                 || !ObjectivesMet((uid, comp), (mindId, mind), out var completed, out var total))
@@ -393,15 +391,16 @@ public sealed partial class ExtractionSystem : EntitySystem
 
         if (string.IsNullOrEmpty(ent.Comp.Code))
         {
-            var max = (int) Math.Pow(10, ent.Comp.CodeLength);
-            ent.Comp.Code = _random.Next(max).ToString().PadLeft(ent.Comp.CodeLength, '0');
+            var length = Math.Clamp(ent.Comp.CodeLength, 1, 9);
+            ent.Comp.CodeLength = length;
+            ent.Comp.Code = _random.Next((int) Math.Pow(10, length)).ToString().PadLeft(length, '0');
         }
 
         Dirty(ent);
 
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEntity, ent.Comp.Action);
         _actions.AddAction(ent.Owner, ref ent.Comp.CallPodActionEntity, ent.Comp.CallPodAction);
-        Notify(ent, Loc.GetString(forced ? "extraction-unlocked-forced" : "extraction-unlocked", ("code", ent.Comp.Code)));
+        Notify(ent, Loc.GetString(forced ? ent.Comp.Messages.UnlockedForced : ent.Comp.Messages.Unlocked, ("code", ent.Comp.Code)));
     }
 
     /// <summary>
@@ -445,15 +444,15 @@ public sealed partial class ExtractionSystem : EntitySystem
         if (ent.Comp.RequestsUsed >= ent.Comp.MaxRequests)
         {
             Notify(ent, current is { } existing
-                ? Loc.GetString("extraction-no-requests-zone", ("location", GetLocation(existing)))
-                : Loc.GetString("extraction-no-requests"));
+                ? Loc.GetString(ent.Comp.Messages.NoRequestsZone, ("location", GetLocation(existing)))
+                : Loc.GetString(ent.Comp.Messages.NoRequests));
             return;
         }
 
-        var exclude = CompOrNull<ExtractionZoneComponent>(current)?.Holopad;
+        var exclude = CompOrNull<ExtractionZoneComponent>(current)?.Anchor;
         if (SpawnZone(ent, exclude) is not { } newZone)
         {
-            Notify(ent, Loc.GetString("extraction-no-zone"));
+            Notify(ent, Loc.GetString(ent.Comp.Messages.NoZone));
             return;
         }
 
@@ -464,7 +463,7 @@ public sealed partial class ExtractionSystem : EntitySystem
         Dirty(ent);
 
         var left = ent.Comp.MaxRequests - ent.Comp.RequestsUsed;
-        Notify(ent, Loc.GetString("extraction-zone-designated", ("location", GetLocation(newZone)), ("left", left)));
+        Notify(ent, Loc.GetString(ent.Comp.Messages.ZoneDesignated, ("location", GetLocation(newZone)), ("left", left)));
         _adminLog.Add(LogType.Action, LogImpact.Low,
             $"{ToPrettyString(ent.Owner):player} requested extraction zone {ToPrettyString(newZone)} at {GetLocation(newZone)} ({ent.Comp.RequestsUsed}/{ent.Comp.MaxRequests})");
     }
@@ -477,12 +476,12 @@ public sealed partial class ExtractionSystem : EntitySystem
         if (SpawnZone(ent, null) is not { } zone)
         {
             Dirty(ent);
-            Notify(ent, Loc.GetString("extraction-zone-lost-none"));
+            Notify(ent, Loc.GetString(ent.Comp.Messages.ZoneLostNone));
             _adminLog.Add(LogType.Action, LogImpact.Low, $"Extraction zone {lost} of {ToPrettyString(ent.Owner):player} was destroyed, no replacement found");
             return;
         }
 
-        Notify(ent, Loc.GetString("extraction-zone-lost", ("location", GetLocation(zone))));
+        Notify(ent, Loc.GetString(ent.Comp.Messages.ZoneLost, ("location", GetLocation(zone))));
         _adminLog.Add(LogType.Action, LogImpact.Low,
             $"Extraction zone {lost} of {ToPrettyString(ent.Owner):player} was destroyed, replaced by {ToPrettyString(zone)} at {GetLocation(zone)}");
     }
@@ -502,34 +501,40 @@ public sealed partial class ExtractionSystem : EntitySystem
                 stationGrids.Add(grid);
         }
 
-        var candidates = new List<EntityUid>();
-        var query = EntityQueryEnumerator<HolopadComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out _, out var xform))
+        if (!_componentFactory.TryGetRegistration(ent.Comp.ZoneAnchorComponent, out var anchorRegistration))
         {
+            Log.Error($"Unknown extraction zone anchor component {ent.Comp.ZoneAnchorComponent} on {ToPrettyString(ent.Owner)}");
+            return null;
+        }
+
+        var candidates = new List<EntityUid>();
+        foreach (var (uid, _) in EntityManager.GetAllComponents(anchorRegistration.Type))
+        {
+            var xform = Transform(uid);
             if (uid == exclude || !xform.Anchored || xform.GridUid is not { } grid || !stationGrids.Contains(grid))
                 continue;
 
-            if (MetaData(uid).EntityPrototype?.ID is { } protoId && ent.Comp.HolopadBlacklist.Contains(protoId))
+            if (MetaData(uid).EntityPrototype?.ID is { } protoId && ent.Comp.ZoneAnchorBlacklist.Contains(protoId))
                 continue;
 
             candidates.Add(uid);
         }
 
-        // only one holopad on the station, keep it rather than failing the re-roll
+        // only one anchor on the station, keep it rather than failing the re-roll
         if (candidates.Count == 0 && exclude is { } previous && Exists(previous))
             candidates.Add(previous);
 
         if (candidates.Count == 0)
             return null;
 
-        var holopad = _random.Pick(candidates);
-        var zone = Spawn(ent.Comp.ZonePrototype, Transform(holopad).Coordinates);
+        var anchor = _random.Pick(candidates);
+        var zone = Spawn(ent.Comp.ZonePrototype, Transform(anchor).Coordinates);
         var zoneComp = EnsureComp<ExtractionZoneComponent>(zone);
         zoneComp.Extractee = ent.Owner;
-        zoneComp.Holopad = holopad;
+        zoneComp.Anchor = anchor;
         Dirty(zone, zoneComp);
 
-        _metaData.SetEntityDescription(zone, Loc.GetString("extraction-zone-marker-desc", ("name", Name(ent.Owner))));
+        _metaData.SetEntityDescription(zone, Loc.GetString(ent.Comp.Messages.ZoneMarkerDescription, ("name", Name(ent.Owner))));
 
         ent.Comp.Zone = zone;
         Dirty(ent);
@@ -574,8 +579,8 @@ public sealed partial class ExtractionSystem : EntitySystem
         // force-sends are dropped on disconnect, and the player may have missed the messages
         SendZoneToOwner(ent);
         Notify(ent, ent.Comp.Zone is { } zone && !TerminatingOrDeleted(zone)
-            ? Loc.GetString("extraction-reminder-zone", ("location", GetLocation(zone)), ("code", ent.Comp.Code))
-            : Loc.GetString("extraction-reminder", ("code", ent.Comp.Code)));
+            ? Loc.GetString(ent.Comp.Messages.ReminderZone, ("location", GetLocation(zone)), ("code", ent.Comp.Code))
+            : Loc.GetString(ent.Comp.Messages.Reminder, ("code", ent.Comp.Code)));
     }
 
     private string GetLocation(EntityUid uid)
@@ -603,7 +608,7 @@ public sealed partial class ExtractionSystem : EntitySystem
         Dirty(uid, comp);
 
         if (comp.Unlocked)
-            Notify((uid, comp), Loc.GetString("extraction-zone-reset"));
+            Notify((uid, comp), Loc.GetString(comp.Messages.ZoneReset));
 
         _adminLog.Add(LogType.Action, LogImpact.Low, $"Extraction zone of {ToPrettyString(uid):player} was reset by an admin command");
         return Loc.GetString("extraction-command-reset", ("target", name));
@@ -621,7 +626,7 @@ public sealed partial class ExtractionSystem : EntitySystem
         if (TerminatingOrDeleted(ent.Owner))
             return;
 
-        // e.g. the ninja implant was removed: nothing must be left to use
+        // e.g. an antag implant was removed: nothing must be left to use
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionEntity);
         _actions.RemoveAction(ent.Owner, ent.Comp.CallPodActionEntity);
         ent.Comp.ActionEntity = null;
@@ -664,7 +669,7 @@ public sealed partial class ExtractionSystem : EntitySystem
         _adminLog.Add(LogType.Action, LogImpact.Medium,
             $"{ToPrettyString(user):player} was extracted from the round at {coords} after {minutes} min, left behind: {string.Join(", ", released.Select(e => ToPrettyString(e).ToString()))}");
 
-        _extracted.Add((characterName, minutes));
+        _extracted.Add((characterName, minutes, ent.Comp.Messages.RoundEnd));
 
         if (ent.Comp.Zone is { } zone)
             QueueDel(zone);
@@ -716,9 +721,9 @@ public sealed partial class ExtractionSystem : EntitySystem
 
     private void OnRoundEndText(RoundEndTextAppendEvent ev)
     {
-        foreach (var (name, minutes) in _extracted)
+        foreach (var (name, minutes, message) in _extracted)
         {
-            ev.AddLine(Loc.GetString("extraction-round-end", ("name", name), ("minutes", minutes)));
+            ev.AddLine(Loc.GetString(message, ("name", name), ("minutes", minutes)));
         }
     }
 
@@ -734,7 +739,7 @@ public sealed partial class ExtractionSystem : EntitySystem
 
     private void Notify(Entity<AntagExtractableComponent> ent, string message)
     {
-        _popup.PopupEntity(Loc.GetString("extraction-notify-popup"), ent.Owner, ent.Owner, PopupType.Medium);
+        _popup.PopupEntity(Loc.GetString(ent.Comp.Messages.NotifyPopup), ent.Owner, ent.Owner, PopupType.Medium);
 
         if (TryComp<ActorComponent>(ent, out var actor))
             _chatManager.DispatchServerMessage(actor.PlayerSession, message);

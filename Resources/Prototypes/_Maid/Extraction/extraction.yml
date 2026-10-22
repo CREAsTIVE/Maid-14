@@ -2,7 +2,7 @@
   parent: BaseAction
   id: ActionRequestExtraction
   name: Request early evacuation
-  description: Ask your clan to designate an extraction point at a station holopad. The point can be moved only once.
+  description: Request an extraction point on the station. The point can be moved only once.
   components:
   - type: Action
     icon:
