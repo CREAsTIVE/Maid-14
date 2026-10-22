@@ -11,34 +11,32 @@ public sealed class ExtractionCommand : ToolshedCommand
     private ExtractionSystem Extraction => _extractionField ??= GetSys<ExtractionSystem>();
 
     [CommandImplementation("reset")]
-    public IEnumerable<EntityUid> Reset([PipedArgument] IEnumerable<EntityUid> input)
+    public IEnumerable<string> Reset([PipedArgument] IEnumerable<EntityUid> input)
     {
         foreach (var uid in input)
         {
-            if (Extraction.ResetZone(uid))
-                yield return uid;
+            yield return Extraction.ResetCommand(uid);
         }
     }
 
     [CommandImplementation("reset")]
-    public bool Reset(EntityUid target)
+    public string Reset(EntityUid target)
     {
-        return Extraction.ResetZone(target);
+        return Extraction.ResetCommand(target);
     }
 
     [CommandImplementation("unlock")]
-    public IEnumerable<EntityUid> Unlock([PipedArgument] IEnumerable<EntityUid> input)
+    public IEnumerable<string> Unlock([PipedArgument] IEnumerable<EntityUid> input)
     {
         foreach (var uid in input)
         {
-            if (Extraction.TryUnlock(uid))
-                yield return uid;
+            yield return Extraction.UnlockCommand(uid);
         }
     }
 
     [CommandImplementation("unlock")]
-    public bool Unlock(EntityUid target)
+    public string Unlock(EntityUid target)
     {
-        return Extraction.TryUnlock(target);
+        return Extraction.UnlockCommand(target);
     }
 }

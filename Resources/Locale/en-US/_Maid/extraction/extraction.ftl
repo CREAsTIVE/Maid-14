@@ -16,3 +16,10 @@ extraction-announcement-sender = Station sensors
 
 command-description-extraction-reset = Removes the extraction zone of the piped antagonists and lets them request it again.
 command-description-extraction-unlock = Unlocks extraction for the piped antagonists regardless of their objectives.
+
+extraction-command-no-entity = Entity not found.
+extraction-command-no-component = { $target } has no AntagExtractable component.
+extraction-command-already-unlocked = { $target }: extraction is already unlocked.
+extraction-command-unlocked = { $target }: extraction unlocked.
+extraction-command-unlocked-added = { $target }: AntagExtractable added (everything carried now counts as own gear), extraction unlocked.
+extraction-command-reset = { $target }: extraction zone reset.

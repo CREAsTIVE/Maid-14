@@ -28,6 +28,8 @@
         sound: /Audio/_Maid/Misc/ninja_greeting.ogg # MAID sound-porting
       components:
       - type: SpaceNinja
+      - type: AntagExtractable # MAID antag extraction
+        threshold: 80 # MAID antag extraction
       - type: NpcFactionMember
         factions:
         - Syndicate

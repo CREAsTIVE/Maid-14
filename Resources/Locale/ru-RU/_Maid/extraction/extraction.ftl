@@ -16,3 +16,10 @@ extraction-announcement-sender = Сенсоры станции
 
 command-description-extraction-reset = Удаляет зону отхода у переданных антагонистов и позволяет запросить её заново.
 command-description-extraction-unlock = Открывает отход переданным антагонистам независимо от их целей.
+
+extraction-command-no-entity = Сущность не найдена.
+extraction-command-no-component = У { $target } нет компонента AntagExtractable.
+extraction-command-already-unlocked = { $target }: отход уже открыт.
+extraction-command-unlocked = { $target }: отход открыт.
+extraction-command-unlocked-added = { $target }: добавлен AntagExtractable (всё, что сейчас при себе, считается своим снаряжением), отход открыт.
+extraction-command-reset = { $target }: зона отхода сброшена.

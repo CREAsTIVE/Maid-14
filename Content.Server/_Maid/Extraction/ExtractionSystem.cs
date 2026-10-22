@@ -5,6 +5,7 @@ using Content.Server.Antag;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Ghost;
+using Content.Server.Objectives.Components;
 using Content.Server.Pinpointer;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
@@ -110,7 +111,12 @@ public sealed class ExtractionSystem : EntitySystem
         if (!HasComp<AntagExtractableComponent>(args.EntityUid))
             return;
 
-        foreach (var item in _inventory.GetHandOrInventoryEntities(args.EntityUid))
+        MarkCarriedGear(args.EntityUid);
+    }
+
+    private void MarkCarriedGear(EntityUid uid)
+    {
+        foreach (var item in _inventory.GetHandOrInventoryEntities(uid))
         {
             MarkGear(item);
         }
@@ -204,12 +210,14 @@ public sealed class ExtractionSystem : EntitySystem
 
     /// <summary>
     /// Checks required objectives and the threshold over required and optional ones.
-    /// Objectives in neither list are not counted.
+    /// Objectives in neither list are not counted. With both lists empty every objective
+    /// counts except survival ones.
     /// </summary>
     public bool ObjectivesMet(Entity<AntagExtractableComponent> ent, Entity<MindComponent> mind)
     {
         var total = 0;
         var completed = 0;
+        var countAll = ent.Comp.RequiredObjectives.Count == 0 && ent.Comp.OptionalObjectives.Count == 0;
 
         foreach (var objective in mind.Comp.Objectives)
         {
@@ -217,7 +225,7 @@ public sealed class ExtractionSystem : EntitySystem
                 continue;
 
             var required = ent.Comp.RequiredObjectives.Contains(id);
-            if (!required && !ent.Comp.OptionalObjectives.Contains(id))
+            if (countAll ? HasComp<SurviveConditionComponent>(objective) : !required && !ent.Comp.OptionalObjectives.Contains(id))
                 continue;
 
             total++;
@@ -248,15 +256,28 @@ public sealed class ExtractionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Admin shortcut: unlocks extraction regardless of objectives.
+    /// Admin command: unlocks extraction regardless of objectives.
+    /// Entities without <see cref="AntagExtractableComponent"/> get it, with what they carry now counted as their gear.
     /// </summary>
-    public bool TryUnlock(EntityUid uid)
+    public string UnlockCommand(EntityUid uid)
     {
-        if (!TryComp<AntagExtractableComponent>(uid, out var comp) || comp.Unlocked)
-            return false;
+        if (!Exists(uid))
+            return Loc.GetString("extraction-command-no-entity");
+
+        var name = ToPrettyString(uid).ToString();
+        var added = false;
+        if (!TryComp<AntagExtractableComponent>(uid, out var comp))
+        {
+            comp = AddComp<AntagExtractableComponent>(uid);
+            MarkCarriedGear(uid);
+            added = true;
+        }
+
+        if (comp.Unlocked)
+            return Loc.GetString("extraction-command-already-unlocked", ("target", name));
 
         Unlock((uid, comp), true);
-        return true;
+        return Loc.GetString(added ? "extraction-command-unlocked-added" : "extraction-command-unlocked", ("target", name));
     }
 
     #endregion
@@ -348,10 +369,14 @@ public sealed class ExtractionSystem : EntitySystem
     /// <summary>
     /// Admin command: removes the zone and lets the extractee request it again.
     /// </summary>
-    public bool ResetZone(EntityUid uid)
+    public string ResetCommand(EntityUid uid)
     {
+        if (!Exists(uid))
+            return Loc.GetString("extraction-command-no-entity");
+
+        var name = ToPrettyString(uid).ToString();
         if (!TryComp<AntagExtractableComponent>(uid, out var comp))
-            return false;
+            return Loc.GetString("extraction-command-no-component", ("target", name));
 
         CancelExtraction((uid, comp), false);
 
@@ -365,7 +390,7 @@ public sealed class ExtractionSystem : EntitySystem
         if (comp.Unlocked)
             Notify((uid, comp), Loc.GetString("extraction-zone-reset"));
 
-        return true;
+        return Loc.GetString("extraction-command-reset", ("target", name));
     }
 
     private void OnRemove(Entity<AntagExtractableComponent> ent, ref ComponentRemove args)
