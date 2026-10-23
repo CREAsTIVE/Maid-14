@@ -22,4 +22,10 @@ public sealed partial class ExtractionZoneComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? Anchor;
+
+    /// <summary>
+    /// Placed at a random tile because the station had no anchors: messages give exact coordinates.
+    /// </summary>
+    [DataField]
+    public bool ShowCoordinates;
 }

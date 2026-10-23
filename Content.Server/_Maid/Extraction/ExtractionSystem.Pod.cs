@@ -173,7 +173,9 @@ public sealed partial class ExtractionSystem
         QueueDel(ent.Comp.CallPodActionEntity);
         ent.Comp.CallPodActionEntity = null;
 
-        Notify(ent, Loc.GetString(ent.Comp.Messages.PodLanded, ("code", ent.Comp.Code)));
+        Notify(ent, Loc.GetString(ent.Comp.Messages.PodLanded,
+            ("code", ent.Comp.Code),
+            ("minutes", (int) Math.Ceiling(podComp.AutoLaunchDelay.TotalMinutes))));
         _adminLog.Add(LogType.Action, LogImpact.Medium,
             $"Extraction drop pod {ToPrettyString(pod)} of {ToPrettyString(ent.Owner):player} landed at {target}");
     }
@@ -198,6 +200,9 @@ public sealed partial class ExtractionSystem
 
         var pod = Spawn(landing.PodPrototype, center);
         var podComp = EnsureComp<DropPodComponent>(pod);
+
+        if (podComp.AutoLaunchDelay > TimeSpan.Zero)
+            podComp.AutoLaunchAt = _timing.CurTime + podComp.AutoLaunchDelay;
 
         // rubble where the pod hit, it stays even if the pod is gone
         var decalPos = new Vector2(tile.X, tile.Y) + podComp.LandingDecalOffset;
@@ -496,7 +501,10 @@ public sealed partial class ExtractionSystem
         while (query.MoveNext(out var uid, out var pod))
         {
             if (!pod.Launching)
+            {
+                UpdateAutoLaunch((uid, pod), now);
                 continue;
+            }
 
             var remaining = (int) Math.Ceiling((pod.LaunchAt - now).TotalSeconds);
             if (remaining <= 0)
@@ -518,18 +526,46 @@ public sealed partial class ExtractionSystem
         }
     }
 
+    /// <summary>
+    /// A pod left standing too long leaves the station on its own, with or without anyone inside.
+    /// </summary>
+    private void UpdateAutoLaunch(Entity<DropPodComponent> pod, TimeSpan now)
+    {
+        if (pod.Comp.AutoLaunchAt is not { } autoLaunchAt)
+            return;
+
+        if (now >= autoLaunchAt)
+        {
+            _adminLog.Add(LogType.Action, LogImpact.Medium, $"Extraction drop pod {ToPrettyString(pod.Owner)} left the station on its own");
+            LaunchPod(pod);
+            return;
+        }
+
+        if (pod.Comp.AutoLaunchWarned
+            || autoLaunchAt - now > pod.Comp.AutoLaunchWarning
+            || !TryComp<AntagExtractableComponent>(pod.Comp.Extractee, out var extractable))
+            return;
+
+        pod.Comp.AutoLaunchWarned = true;
+        Notify((pod.Comp.Extractee.Value, extractable),
+            Loc.GetString(extractable.Messages.PodLeavingSoon, ("seconds", (int) Math.Ceiling((autoLaunchAt - now).TotalSeconds))));
+    }
+
     private void LaunchPod(Entity<DropPodComponent> pod)
     {
         var coords = Transform(pod).Coordinates;
         StopLaunch(pod);
+        pod.Comp.AutoLaunchAt = null;
 
         if (pod.Comp.Extractee is { } extractee
-            && TryComp<AntagExtractableComponent>(extractee, out var extractable)
-            && _container.TryGetContainingContainer(extractee, out var container)
-            && container.Owner == pod.Owner)
+            && TryComp<AntagExtractableComponent>(extractee, out var extractable))
         {
             extractable.Pod = null;
-            Extract((extractee, extractable), coords);
+
+            if (_container.TryGetContainingContainer(extractee, out var container) && container.Owner == pod.Owner)
+                Extract((extractee, extractable), coords);
+            else
+                Notify((extractee, extractable), Loc.GetString(extractable.Messages.PodLeftWithout));
         }
 
         // anyone and anything else stuffed inside stays on the station

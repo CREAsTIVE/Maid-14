@@ -10,7 +10,7 @@ namespace Content.Shared._Maid.Extraction;
 /// Extraction drop pod: an entity storage locked with the extractee's code.
 /// Once the extractee is inside, they can launch it and leave the round.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class DropPodComponent : Component
 {
     /// <summary>
@@ -28,8 +28,27 @@ public sealed partial class DropPodComponent : Component
     [DataField]
     public TimeSpan LaunchDelay = TimeSpan.FromSeconds(15);
 
-    [DataField]
+    [DataField, AutoPausedField]
     public TimeSpan LaunchAt;
+
+    /// <summary>
+    /// A landed pod leaves the station on its own after this long, with or without anyone inside.
+    /// Zero keeps it forever.
+    /// </summary>
+    [DataField]
+    public TimeSpan AutoLaunchDelay = TimeSpan.FromMinutes(5);
+
+    /// <summary>
+    /// How long before leaving on its own the extractee is warned.
+    /// </summary>
+    [DataField]
+    public TimeSpan AutoLaunchWarning = TimeSpan.FromMinutes(1);
+
+    [DataField, AutoPausedField]
+    public TimeSpan? AutoLaunchAt;
+
+    [DataField]
+    public bool AutoLaunchWarned;
 
     /// <summary>
     /// Seconds of the countdown shown to the occupant as a popup.

@@ -11,6 +11,7 @@ extraction-zone-reset = Можно снова запросить точку от
 extraction-reminder = Эвакуация разрешена. Используйте «Выполнить запрос на досрочную эвакуацию», чтобы получить точку отхода. Код капсулы: { $code }.
 extraction-reminder-zone = Точка отхода: { $location }. Код капсулы: { $code }.
 extraction-not-in-zone = Нужно находиться в зоне отхода.
+extraction-zone-coordinates = { $location }, координаты: { $x }, { $y }
 extraction-zone-marker-desc = Маркер отхода «{ $name }».
 extraction-announcement-sender = Сенсоры станции
 extraction-round-end = [color=gold]{ $name }[/color]: эвакуация через { $minutes } { $minutes ->
@@ -25,7 +26,17 @@ extraction-pod-called = Капсула вызвана и приземлится 
     [few] секунды
    *[other] секунд
 } на клетку, где вы стоите. Всё на этой клетке будет уничтожено, отойдите в сторону!
-extraction-pod-landed = Капсула приземлилась. Откройте её кодом { $code }, заберитесь внутрь, закройте и нажмите «СТАРТ».
+extraction-pod-landed = Капсула приземлилась. Откройте её кодом { $code }, заберитесь внутрь, закройте и нажмите «СТАРТ». Через { $minutes } { $minutes ->
+    [one] минуту
+    [few] минуты
+   *[other] минут
+} капсула сама покинет станцию, с вами или без вас.
+extraction-pod-leaving-soon = Капсула покинет станцию через { $seconds } { $seconds ->
+    [one] секунду
+    [few] секунды
+   *[other] секунд
+}, с вами или без вас!
+extraction-pod-left-without = Капсула покинула станцию без вас. Другой не будет.
 extraction-pod-lost = Капсула не смогла найти точку посадки. Вызвать её снова можно через { $seconds } { $seconds ->
     [one] секунду
     [few] секунды

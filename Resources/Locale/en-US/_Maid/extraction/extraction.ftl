@@ -11,6 +11,7 @@ extraction-zone-reset = You can request an extraction point again.
 extraction-reminder = Evacuation is allowed. Use "Request early evacuation" to get an extraction point. Pod code: { $code }.
 extraction-reminder-zone = Extraction point: { $location }. Pod code: { $code }.
 extraction-not-in-zone = You must stand inside the extraction zone.
+extraction-zone-coordinates = { $location }, coordinates: { $x }, { $y }
 extraction-zone-marker-desc = Extraction marker of "{ $name }".
 extraction-announcement-sender = Station sensors
 extraction-round-end = [color=gold]{ $name }[/color]: evacuated { $minutes } { $minutes ->
@@ -23,7 +24,15 @@ extraction-pod-called = The pod is called and lands in { $seconds } { $seconds -
     [one] second
    *[other] seconds
 } on the tile you are standing on. Everything on that tile will be destroyed, step aside!
-extraction-pod-landed = The pod has landed. Open it with code { $code }, get inside, close it and press "START".
+extraction-pod-landed = The pod has landed. Open it with code { $code }, get inside, close it and press "START". In { $minutes } { $minutes ->
+    [one] minute
+   *[other] minutes
+} the pod leaves the station on its own, with or without you.
+extraction-pod-leaving-soon = The pod leaves the station in { $seconds } { $seconds ->
+    [one] second
+   *[other] seconds
+}, with or without you!
+extraction-pod-left-without = The pod left the station without you. There will be no other.
 extraction-pod-lost = The pod could not find its landing point. You can call it again in { $seconds } { $seconds ->
     [one] second
    *[other] seconds

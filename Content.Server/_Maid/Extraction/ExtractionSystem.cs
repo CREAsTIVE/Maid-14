@@ -29,6 +29,8 @@ using Content.Shared.Implants.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
+using Content.Shared.Maps;
+using Content.Shared.Physics;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
@@ -42,6 +44,7 @@ using Robust.Server.GameStates;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -91,6 +94,7 @@ public sealed partial class ExtractionSystem : EntitySystem
     [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly ExtractionZoneSystem _zone = default!;
 
@@ -252,10 +256,10 @@ public sealed partial class ExtractionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Drops what is attached to the body outside of inventory: carried people, embedded projectiles,
-    /// contents of storage implants.
+    /// Drops what is attached to the body outside of inventory: carried people always,
+    /// embedded projectiles and contents of storage implants when station items are left behind.
     /// </summary>
-    private void ReleaseAttached(EntityUid user, EntityCoordinates coords, List<EntityUid> released)
+    private void ReleaseAttached(EntityUid user, EntityCoordinates coords, List<EntityUid> released, bool releaseItems)
     {
         if (TryComp<CarryingComponent>(user, out var carrying))
         {
@@ -282,13 +286,17 @@ public sealed partial class ExtractionSystem : EntitySystem
                 || HasComp<ExtractionGearComponent>(child))
                 continue;
 
+            var isPerson = HasComp<MindContainerComponent>(child);
+            if (!isPerson && !releaseItems)
+                continue;
+
             if (TryComp<EmbeddableProjectileComponent>(child, out var embed))
             {
                 _projectile.EmbedDetach(child, embed);
                 if (TerminatingOrDeleted(child) || EntityManager.IsQueuedForDeletion(child))
                     continue;
             }
-            else if (!HasComp<ItemComponent>(child) && !HasComp<MindContainerComponent>(child))
+            else if (!isPerson && !HasComp<ItemComponent>(child))
             {
                 continue;
             }
@@ -297,7 +305,7 @@ public sealed partial class ExtractionSystem : EntitySystem
             released.Add(child);
         }
 
-        if (TryComp<ImplantedComponent>(user, out var implanted))
+        if (releaseItems && TryComp<ImplantedComponent>(user, out var implanted))
         {
             foreach (var implant in implanted.ImplantContainer.ContainedEntities.ToList())
             {
@@ -450,7 +458,7 @@ public sealed partial class ExtractionSystem : EntitySystem
         if (ent.Comp.RequestsUsed >= ent.Comp.MaxRequests)
         {
             Notify(ent, current is { } existing
-                ? Loc.GetString(ent.Comp.Messages.NoRequestsZone, ("location", GetLocation(existing)))
+                ? Loc.GetString(ent.Comp.Messages.NoRequestsZone, ("location", GetZoneLocation(ent, existing)))
                 : Loc.GetString(ent.Comp.Messages.NoRequests));
             return;
         }
@@ -469,7 +477,7 @@ public sealed partial class ExtractionSystem : EntitySystem
         Dirty(ent);
 
         var left = ent.Comp.MaxRequests - ent.Comp.RequestsUsed;
-        Notify(ent, Loc.GetString(ent.Comp.Messages.ZoneDesignated, ("location", GetLocation(newZone)), ("left", left)));
+        Notify(ent, Loc.GetString(ent.Comp.Messages.ZoneDesignated, ("location", GetZoneLocation(ent, newZone)), ("left", left)));
         _adminLog.Add(LogType.Action, LogImpact.Low,
             $"{ToPrettyString(ent.Owner):player} requested extraction zone {ToPrettyString(newZone)} at {GetLocation(newZone)} ({ent.Comp.RequestsUsed}/{ent.Comp.MaxRequests})");
     }
@@ -487,7 +495,7 @@ public sealed partial class ExtractionSystem : EntitySystem
             return;
         }
 
-        Notify(ent, Loc.GetString(ent.Comp.Messages.ZoneLost, ("location", GetLocation(zone))));
+        Notify(ent, Loc.GetString(ent.Comp.Messages.ZoneLost, ("location", GetZoneLocation(ent, zone))));
         _adminLog.Add(LogType.Action, LogImpact.Low,
             $"Extraction zone {lost} of {ToPrettyString(ent.Owner):player} was destroyed, replaced by {ToPrettyString(zone)} at {GetLocation(zone)}");
     }
@@ -530,14 +538,24 @@ public sealed partial class ExtractionSystem : EntitySystem
         if (candidates.Count == 0 && exclude is { } previous && Exists(previous))
             candidates.Add(previous);
 
-        if (candidates.Count == 0)
+        EntityUid? anchor = null;
+        EntityCoordinates position;
+        if (candidates.Count > 0)
+        {
+            anchor = _random.Pick(candidates);
+            position = Transform(anchor.Value).Coordinates;
+        }
+        else if (!TryPickRandomTile(stationGrids, out position))
+        {
             return null;
+        }
 
-        var anchor = _random.Pick(candidates);
-        var zone = Spawn(ent.Comp.ZonePrototype, Transform(anchor).Coordinates);
+        var zone = Spawn(ent.Comp.ZonePrototype, position);
         var zoneComp = EnsureComp<ExtractionZoneComponent>(zone);
         zoneComp.Extractee = ent.Owner;
         zoneComp.Anchor = anchor;
+        // no anchors on the station: the zone is somewhere random, so the player gets exact coordinates
+        zoneComp.ShowCoordinates = anchor == null;
         Dirty(zone, zoneComp);
 
         _metaData.SetEntityDescription(zone, Loc.GetString(ent.Comp.Messages.ZoneMarkerDescription, ("name", Name(ent.Owner))));
@@ -546,6 +564,50 @@ public sealed partial class ExtractionSystem : EntitySystem
         Dirty(ent);
         SendZoneToOwner(ent);
         return zone;
+    }
+
+    /// <summary>
+    /// A random free floor tile on one of the station grids, for stations without zone anchors.
+    /// </summary>
+    private bool TryPickRandomTile(HashSet<EntityUid> grids, out EntityCoordinates coords)
+    {
+        coords = default;
+        var tiles = new List<(EntityUid Grid, Vector2i Tile)>();
+
+        foreach (var grid in grids)
+        {
+            if (!TryComp<MapGridComponent>(grid, out var gridComp))
+                continue;
+
+            foreach (var tileRef in _map.GetAllTiles(grid, gridComp))
+            {
+                if (!_turf.IsTileBlocked(grid, tileRef.GridIndices, CollisionGroup.Impassable, gridComp))
+                    tiles.Add((grid, tileRef.GridIndices));
+            }
+        }
+
+        if (tiles.Count == 0)
+            return false;
+
+        var (pickedGrid, pickedTile) = _random.Pick(tiles);
+        coords = _map.GridTileToLocal(pickedGrid, Comp<MapGridComponent>(pickedGrid), pickedTile);
+        return true;
+    }
+
+    /// <summary>
+    /// Where the zone is, for messages: the nearest beacon, plus exact coordinates for a zone at a random tile.
+    /// </summary>
+    private string GetZoneLocation(Entity<AntagExtractableComponent> ent, EntityUid zone)
+    {
+        var location = GetLocation(zone);
+        if (!TryComp<ExtractionZoneComponent>(zone, out var zoneComp) || !zoneComp.ShowCoordinates)
+            return location;
+
+        var pos = _transform.GetMapCoordinates(zone).Position;
+        return Loc.GetString(ent.Comp.Messages.ZoneCoordinates,
+            ("location", location),
+            ("x", (int) MathF.Round(pos.X)),
+            ("y", (int) MathF.Round(pos.Y)));
     }
 
     private void SendZoneToOwner(Entity<AntagExtractableComponent> ent)
@@ -585,7 +647,7 @@ public sealed partial class ExtractionSystem : EntitySystem
         // force-sends are dropped on disconnect, and the player may have missed the messages
         SendZoneToOwner(ent);
         Notify(ent, ent.Comp.Zone is { } zone && !TerminatingOrDeleted(zone)
-            ? Loc.GetString(ent.Comp.Messages.ReminderZone, ("location", GetLocation(zone)), ("code", ent.Comp.Code))
+            ? Loc.GetString(ent.Comp.Messages.ReminderZone, ("location", GetZoneLocation(ent, zone)), ("code", ent.Comp.Code))
             : Loc.GetString(ent.Comp.Messages.Reminder, ("code", ent.Comp.Code)));
     }
 
@@ -652,12 +714,15 @@ public sealed partial class ExtractionSystem : EntitySystem
         var user = ent.Owner;
         var released = new List<EntityUid>();
 
-        foreach (var item in _inventory.GetHandOrInventoryEntities(user).ToList())
+        if (ent.Comp.LeaveStationItems)
         {
-            ReleaseStationItems(user, item, coords, released);
+            foreach (var item in _inventory.GetHandOrInventoryEntities(user).ToList())
+            {
+                ReleaseStationItems(user, item, coords, released);
+            }
         }
 
-        ReleaseAttached(user, coords, released);
+        ReleaseAttached(user, coords, released, ent.Comp.LeaveStationItems);
 
         var minutes = (int) Math.Round((_timing.CurTime - ent.Comp.ArrivalTime).TotalMinutes);
         var characterName = Name(user);
@@ -687,6 +752,8 @@ public sealed partial class ExtractionSystem : EntitySystem
 
     /// <summary>
     /// Moves the body to a paused map: nothing can reach or hurt it there, and it stays alive.
+    /// TODO MAID: exclude this map from antag and population counts (dynamic and adaptive game modes),
+    /// extracted bodies still count as living antagonists there.
     /// </summary>
     private void MoveToLimbo(EntityUid user)
     {

@@ -477,6 +477,7 @@
       - type: AntagExtractable # MAID antag extraction
         thresholdMode: Percent # MAID antag extraction
         threshold: 50 # MAID antag extraction
+        leaveStationItems: true # MAID antag extraction
         messages: # MAID antag extraction
           notifyPopup: extraction-ninja-notify-popup # MAID antag extraction
           unlocked: extraction-ninja-unlocked # MAID antag extraction

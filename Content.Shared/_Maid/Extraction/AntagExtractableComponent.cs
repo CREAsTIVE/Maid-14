@@ -22,6 +22,13 @@ public sealed partial class AntagExtractableComponent : Component
     public ExtractionMessages Messages = new();
 
     /// <summary>
+    /// Items the antagonist carries that are not their own gear drop at the pod instead of leaving with them.
+    /// Off by default: the antagonist can take anything. People they carry always stay on the station.
+    /// </summary>
+    [DataField]
+    public bool LeaveStationItems;
+
+    /// <summary>
     /// How often objectives are checked for unlocking.
     /// </summary>
     [DataField]

@@ -71,6 +71,13 @@ public sealed partial class ExtractionMessages
     public LocId NotInZone = "extraction-not-in-zone";
 
     /// <summary>
+    /// Location of a zone placed at a random tile because the station has no anchors.
+    /// Gets <c>$location</c> (nearest beacon), <c>$x</c> and <c>$y</c>.
+    /// </summary>
+    [DataField]
+    public LocId ZoneCoordinates = "extraction-zone-coordinates";
+
+    /// <summary>
     /// Description of the zone marker. Gets <c>$name</c>.
     /// </summary>
     [DataField]
@@ -83,10 +90,22 @@ public sealed partial class ExtractionMessages
     public LocId PodCalled = "extraction-pod-called";
 
     /// <summary>
-    /// Gets <c>$code</c>.
+    /// Gets <c>$code</c> and <c>$minutes</c> until the pod leaves on its own.
     /// </summary>
     [DataField]
     public LocId PodLanded = "extraction-pod-landed";
+
+    /// <summary>
+    /// The pod is about to leave on its own. Gets <c>$seconds</c>.
+    /// </summary>
+    [DataField]
+    public LocId PodLeavingSoon = "extraction-pod-leaving-soon";
+
+    /// <summary>
+    /// The pod left on its own without the antagonist.
+    /// </summary>
+    [DataField]
+    public LocId PodLeftWithout = "extraction-pod-left-without";
 
     /// <summary>
     /// The landing failed, the pod can be called again. Gets <c>$seconds</c>.
