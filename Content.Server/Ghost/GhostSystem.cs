@@ -143,6 +143,7 @@ using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Warps;
+using Content.Shared._Maid.Administration;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Ghost
@@ -501,6 +502,9 @@ namespace Content.Server.Ghost
                 if (uid == except)
                     continue;
 
+                if (TryComp<AdminInvisibilityComponent>(uid, out var adminInvisibility) && adminInvisibility.Invisible) // MAID admin invisibility
+                    continue;
+
                 var mind = mindContainer.Mind;
                 var isDead = _mobState.IsDead(uid);
 
@@ -617,6 +621,9 @@ namespace Content.Server.Ghost
             while (entityQuery.MoveNext(out var uid, out var _, out var vis))
             {
                 if (!_tag.HasTag(uid, AllowGhostShownByEventTag))
+                    continue;
+
+                if (TryComp<AdminInvisibilityComponent>(uid, out var adminInvisibility) && adminInvisibility.Invisible) // MAID admin invisibility
                     continue;
 
                 if (visible)
