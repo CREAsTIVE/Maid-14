@@ -3,6 +3,7 @@ using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
@@ -68,6 +69,7 @@ public sealed partial class ExtractionSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly CarryingSystem _carrying = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
@@ -567,7 +569,18 @@ public sealed partial class ExtractionSystem : EntitySystem
     }
 
     /// <summary>
-    /// A random free floor tile on one of the station grids, for stations without zone anchors.
+    /// How many random tiles are tried when looking for a zone spot on a station without anchors.
+    /// </summary>
+    private const int RandomTileAttempts = 200;
+
+    /// <summary>
+    /// Air pressure a tile needs to count as inside the station, so the zone never ends up on outer lattice.
+    /// </summary>
+    private const float RandomTileMinPressure = 50f;
+
+    /// <summary>
+    /// A random free, pressurised floor tile on one of the station grids, for stations without zone anchors.
+    /// Only a bounded number of random tiles is checked so big stations do not stall the tick.
     /// </summary>
     private bool TryPickRandomTile(HashSet<EntityUid> grids, out EntityCoordinates coords)
     {
@@ -581,17 +594,29 @@ public sealed partial class ExtractionSystem : EntitySystem
 
             foreach (var tileRef in _map.GetAllTiles(grid, gridComp))
             {
-                if (!_turf.IsTileBlocked(grid, tileRef.GridIndices, CollisionGroup.Impassable, gridComp))
-                    tiles.Add((grid, tileRef.GridIndices));
+                tiles.Add((grid, tileRef.GridIndices));
             }
         }
 
-        if (tiles.Count == 0)
-            return false;
+        for (var i = 0; i < RandomTileAttempts && tiles.Count > 0; i++)
+        {
+            var index = _random.Next(tiles.Count);
+            var (grid, tile) = tiles[index];
+            tiles[index] = tiles[^1];
+            tiles.RemoveAt(tiles.Count - 1);
 
-        var (pickedGrid, pickedTile) = _random.Pick(tiles);
-        coords = _map.GridTileToLocal(pickedGrid, Comp<MapGridComponent>(pickedGrid), pickedTile);
-        return true;
+            var gridComp = Comp<MapGridComponent>(grid);
+            if (_turf.IsTileBlocked(grid, tile, CollisionGroup.Impassable, gridComp))
+                continue;
+
+            if (_atmosphere.GetTileMixture(grid, null, tile) is not { } air || air.Pressure < RandomTileMinPressure)
+                continue;
+
+            coords = _map.GridTileToLocal(grid, gridComp, tile);
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -606,8 +631,8 @@ public sealed partial class ExtractionSystem : EntitySystem
         var pos = _transform.GetMapCoordinates(zone).Position;
         return Loc.GetString(ent.Comp.Messages.ZoneCoordinates,
             ("location", location),
-            ("x", (int) MathF.Round(pos.X)),
-            ("y", (int) MathF.Round(pos.Y)));
+            ("x", ((int) MathF.Round(pos.X)).ToString()),
+            ("y", ((int) MathF.Round(pos.Y)).ToString()));
     }
 
     private void SendZoneToOwner(Entity<AntagExtractableComponent> ent)
