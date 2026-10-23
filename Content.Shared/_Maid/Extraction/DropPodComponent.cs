@@ -85,10 +85,17 @@ public sealed partial class DropPodComponent : Component
     public EntityUid? LaunchActionEntity;
 
     /// <summary>
-    /// Scorch mark left where the pod stood.
+    /// Rubble decal left where the pod hit.
     /// </summary>
     [DataField]
-    public string LandingDecal = "burnt1";
+    public string LandingDecal = "DropPodRubble";
+
+    /// <summary>
+    /// Decal position from the corner of the landing tile. Decals are drawn from their bottom left corner,
+    /// so a 64x64 decal is moved half a tile back to sit centered, and up like the pod sprite.
+    /// </summary>
+    [DataField]
+    public Vector2 LandingDecalOffset = new(-0.5f, -0.25f);
 
     [DataField]
     public SoundSpecifier LaunchSound = new SoundPathSpecifier("/Audio/Effects/teleport_departure.ogg");

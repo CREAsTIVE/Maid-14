@@ -1,4 +1,3 @@
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -134,8 +133,11 @@ public sealed partial class AntagExtractableComponent : Component
     [DataField]
     public int CodeLength = 6;
 
+    /// <summary>
+    /// How the pod lands.
+    /// </summary>
     [DataField]
-    public EntProtoId PodPrototype = "ExtractionDropPod";
+    public DropPodLanding Landing = new();
 
     /// <summary>
     /// Pod that already landed for this antagonist.
@@ -160,33 +162,6 @@ public sealed partial class AntagExtractableComponent : Component
 
     [DataField]
     public TimeSpan PodAnnounceDelay = TimeSpan.FromSeconds(5);
-
-    /// <summary>
-    /// Impact heard nearby, positional. Same split as explosions and meteors.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier PodImpactSound = new SoundCollectionSpecifier("Explosion");
-
-    /// <summary>
-    /// Impact heard by everyone else on the map.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier PodImpactSoundFar = new SoundCollectionSpecifier("ExplosionFar", AudioParams.Default.WithVolume(2f));
-
-    [DataField]
-    public float PodImpactNearRange = 20f;
-
-    /// <summary>
-    /// Screens shake within this range of the landing, stronger closer to it.
-    /// </summary>
-    [DataField]
-    public float PodShakeRange = 10f;
-
-    /// <summary>
-    /// Camera kick at the landing point, fading out to the edge of <see cref="PodShakeRange"/>.
-    /// </summary>
-    [DataField]
-    public float PodShakeStrength = 15f;
 
     /// <summary>
     /// When the antagonist arrived, for the round end summary.

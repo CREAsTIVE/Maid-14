@@ -158,29 +158,15 @@ public sealed partial class ExtractionSystem
 
     private void LandPod(Entity<AntagExtractableComponent> ent, EntityCoordinates target)
     {
-        if (!target.IsValid(EntityManager)
-            || TerminatingOrDeleted(target.EntityId)
-            || !TryComp<MapGridComponent>(target.EntityId, out var gridComp))
+        if (LandDropPod(target, ent.Comp.Landing, ent.Owner) is not { } pod)
         {
             FailPodLanding(ent, _timing.CurTime);
             return;
         }
 
-        var grid = target.EntityId;
-        var tile = _map.TileIndicesFor(grid, gridComp, target);
-
-        ClearLandingTile(ent, grid, gridComp, tile);
-
-        var pod = Spawn(ent.Comp.PodPrototype, target);
-        var podComp = EnsureComp<DropPodComponent>(pod);
+        var podComp = Comp<DropPodComponent>(pod);
         podComp.Extractee = ent.Owner;
         ent.Comp.Pod = pod;
-
-        // scorch mark where the pod hit, it stays even if the pod is destroyed
-        _decals.TryAddDecal(podComp.LandingDecal, new EntityCoordinates(grid, tile.X, tile.Y), out _, cleanable: true);
-
-        PlayImpactSound(ent, target);
-        ShakeScreens(ent, target);
 
         // the pod comes only once
         _actions.RemoveAction(ent.Owner, ent.Comp.CallPodActionEntity);
@@ -193,10 +179,40 @@ public sealed partial class ExtractionSystem
     }
 
     /// <summary>
+    /// Drops a pod onto the tile at <paramref name="target"/>: clears the tile if asked, leaves the rubble decal,
+    /// plays the impact and shakes nearby screens. Returns null when there is no grid to land on.
+    /// </summary>
+    public EntityUid? LandDropPod(EntityCoordinates target, DropPodLanding landing, EntityUid? cause = null)
+    {
+        if (!target.IsValid(EntityManager)
+            || TerminatingOrDeleted(target.EntityId)
+            || !TryComp<MapGridComponent>(target.EntityId, out var gridComp))
+            return null;
+
+        var grid = target.EntityId;
+        var tile = _map.TileIndicesFor(grid, gridComp, target);
+        var center = _map.GridTileToLocal(grid, gridComp, tile);
+
+        if (landing.ClearTile)
+            ClearLandingTile(cause, grid, gridComp, tile);
+
+        var pod = Spawn(landing.PodPrototype, center);
+        var podComp = EnsureComp<DropPodComponent>(pod);
+
+        // rubble where the pod hit, it stays even if the pod is gone
+        var decalPos = new Vector2(tile.X, tile.Y) + podComp.LandingDecalOffset;
+        _decals.TryAddDecal(podComp.LandingDecal, new EntityCoordinates(grid, decalPos), out _, cleanable: true);
+
+        PlayImpactSound(landing, center);
+        ShakeScreens(landing, center);
+        return pod;
+    }
+
+    /// <summary>
     /// Everything on the landing tile is destroyed, walls included, the way an arriving shuttle flattens what is in its way.
     /// Bodies are gibbed.
     /// </summary>
-    private void ClearLandingTile(Entity<AntagExtractableComponent> ent, EntityUid grid, MapGridComponent gridComp, Vector2i tile)
+    private void ClearLandingTile(EntityUid? cause, EntityUid grid, MapGridComponent gridComp, Vector2i tile)
     {
         var immune = new HashSet<EntityUid>();
         foreach (var victim in _lookup.GetLocalEntitiesIntersecting(grid, tile, flags: LookupFlags.Uncontained, gridComp: gridComp))
@@ -211,7 +227,7 @@ public sealed partial class ExtractionSystem
 
             if (TryComp<BodyComponent>(victim, out var body))
             {
-                CrushBody(ent, victim, body, immune);
+                CrushBody(cause, victim, body, immune);
                 continue;
             }
 
@@ -223,7 +239,7 @@ public sealed partial class ExtractionSystem
             if (HasComp<MobStateComponent>(victim))
             {
                 _adminLog.Add(LogType.Gib, LogImpact.High,
-                    $"{ToPrettyString(victim):player} was crushed by the extraction drop pod of {ToPrettyString(ent.Owner):player}");
+                    $"{ToPrettyString(victim):player} was crushed by the extraction drop pod of {ToPrettyString(cause):player}");
                 _destructible.DestroyEntity(victim);
                 continue;
             }
@@ -240,7 +256,7 @@ public sealed partial class ExtractionSystem
                     if (TryComp<BodyComponent>(contained, out var containedBody) && HasComp<MindContainerComponent>(contained))
                     {
                         _container.Remove(contained, container, force: true, destination: Transform(victim).Coordinates);
-                        CrushBody(ent, contained, containedBody, immune);
+                        CrushBody(cause, contained, containedBody, immune);
                     }
                     else if (HasPlayerMind(contained))
                     {
@@ -261,35 +277,35 @@ public sealed partial class ExtractionSystem
         return TryComp<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind;
     }
 
-    private void CrushBody(Entity<AntagExtractableComponent> ent, EntityUid victim, BodyComponent body, HashSet<EntityUid> immune)
+    private void CrushBody(EntityUid? cause, EntityUid victim, BodyComponent body, HashSet<EntityUid> immune)
     {
         _adminLog.Add(LogType.Gib, LogImpact.High,
-            $"{ToPrettyString(victim):player} was crushed by the extraction drop pod of {ToPrettyString(ent.Owner):player}");
+            $"{ToPrettyString(victim):player} was crushed by the extraction drop pod of {ToPrettyString(cause):player}");
         immune.UnionWith(_body.GibBody(victim, body: body));
     }
 
     /// <summary>
     /// Near players hear the positional impact, everyone else on the map the distant one, like explosions and meteors.
     /// </summary>
-    private void PlayImpactSound(Entity<AntagExtractableComponent> ent, EntityCoordinates target)
+    private void PlayImpactSound(DropPodLanding landing, EntityCoordinates target)
     {
         var mapCoords = _transform.ToMapCoordinates(target);
-        var nearRange = ent.Comp.PodImpactNearRange;
+        var nearRange = landing.ImpactNearRange;
 
         var nearFilter = Filter.Pvs(target).AddInRange(mapCoords, nearRange);
-        _audio.PlayStatic(ent.Comp.PodImpactSound, nearFilter, target, true, ent.Comp.PodImpactSound.Params);
+        _audio.PlayStatic(landing.ImpactSound, nearFilter, target, true, landing.ImpactSound.Params);
 
         var farFilter = Filter.Empty().AddInMap(mapCoords.MapId).RemoveInRange(mapCoords, nearRange);
-        _audio.PlayGlobal(ent.Comp.PodImpactSoundFar, farFilter, true, ent.Comp.PodImpactSoundFar.Params);
+        _audio.PlayGlobal(landing.ImpactSoundFar, farFilter, true, landing.ImpactSoundFar.Params);
     }
 
     /// <summary>
     /// Screens shake near the landing, stronger closer to it, like with explosions.
     /// </summary>
-    private void ShakeScreens(Entity<AntagExtractableComponent> ent, EntityCoordinates target)
+    private void ShakeScreens(DropPodLanding landing, EntityCoordinates target)
     {
         var epicenter = _transform.ToMapCoordinates(target);
-        var range = ent.Comp.PodShakeRange;
+        var range = landing.ShakeRange;
         if (range <= 0f)
             return;
 
@@ -302,7 +318,7 @@ public sealed partial class ExtractionSystem
             if (delta.EqualsApprox(Vector2.Zero))
                 delta = new Vector2(0.01f, 0f);
 
-            var effect = ent.Comp.PodShakeStrength * (1f - delta.Length() / range);
+            var effect = landing.ShakeStrength * (1f - delta.Length() / range);
             if (effect > 0.01f)
                 _recoil.KickCamera(uid, -delta.Normalized() * effect);
         }

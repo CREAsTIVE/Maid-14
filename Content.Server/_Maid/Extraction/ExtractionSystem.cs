@@ -128,6 +128,7 @@ public sealed partial class ExtractionSystem : EntitySystem
         SubscribeLocalEvent<AntagExtractableComponent, RequestExtractionActionEvent>(OnRequest);
 
         InitializePod();
+        InitializeTest();
     }
 
     public override void Update(float frameTime)
@@ -179,6 +180,7 @@ public sealed partial class ExtractionSystem : EntitySystem
         _landing.Clear();
 
         UpdatePods(now);
+        UpdateLandingTests(now);
     }
 
     #region Gear

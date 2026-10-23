@@ -127,3 +127,23 @@
     interfaces:
       enum.DropPodUiKey.Key:
         type: DropPodBoundUserInterface
+
+- type: decal
+  id: DropPodRubble
+  defaultCleanable: true
+  sprite:
+    sprite: _Maid/Decals/drop_pod.rsi
+    state: rubble
+
+# testing: drops an empty, unlocked pod on its tile a few seconds after being spawned
+- type: entity
+  parent: MarkerBase
+  id: ExtractionDropPodLandingTest
+  name: drop pod landing test
+  description: Drops an empty drop pod here a few seconds after spawning. Does not clear the tile.
+  suffix: Testing
+  components:
+  - type: Sprite
+    sprite: _Maid/Structures/Storage/drop_pod.rsi
+    state: icon
+  - type: DropPodLandingTest
