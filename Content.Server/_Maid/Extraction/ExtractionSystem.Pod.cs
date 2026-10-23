@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Numerics;
 using Content.Shared._Maid.Extraction;
 using Content.Shared.Body.Components;
 using Content.Shared.Database;
@@ -26,6 +27,7 @@ public sealed partial class ExtractionSystem
         SubscribeLocalEvent<AntagExtractableComponent, CallDropPodActionEvent>(OnCallPod);
         SubscribeLocalEvent<AntagExtractableComponent, LaunchDropPodActionEvent>(OnLaunchPod);
 
+        SubscribeLocalEvent<DropPodComponent, MapInitEvent>(OnPodMapInit);
         SubscribeLocalEvent<DropPodComponent, EntInsertedIntoContainerMessage>(OnPodInserted);
         SubscribeLocalEvent<DropPodComponent, EntRemovedFromContainerMessage>(OnPodRemoved);
         SubscribeLocalEvent<DropPodComponent, ComponentShutdown>(OnPodShutdown);
@@ -178,6 +180,7 @@ public sealed partial class ExtractionSystem
         _decals.TryAddDecal(podComp.LandingDecal, new EntityCoordinates(grid, tile.X, tile.Y), out _, cleanable: true);
 
         PlayImpactSound(ent, target);
+        ShakeScreens(ent, target);
 
         // the pod comes only once
         _actions.RemoveAction(ent.Owner, ent.Comp.CallPodActionEntity);
@@ -280,6 +283,48 @@ public sealed partial class ExtractionSystem
         _audio.PlayGlobal(ent.Comp.PodImpactSoundFar, farFilter, true, ent.Comp.PodImpactSoundFar.Params);
     }
 
+    /// <summary>
+    /// Screens shake near the landing, stronger closer to it, like with explosions.
+    /// </summary>
+    private void ShakeScreens(Entity<AntagExtractableComponent> ent, EntityCoordinates target)
+    {
+        var epicenter = _transform.ToMapCoordinates(target);
+        var range = ent.Comp.PodShakeRange;
+        if (range <= 0f)
+            return;
+
+        foreach (var player in Filter.Empty().AddInRange(epicenter, range).Recipients)
+        {
+            if (player.AttachedEntity is not { } uid)
+                continue;
+
+            var delta = epicenter.Position - _transform.GetWorldPosition(uid);
+            if (delta.EqualsApprox(Vector2.Zero))
+                delta = new Vector2(0.01f, 0f);
+
+            var effect = ent.Comp.PodShakeStrength * (1f - delta.Length() / range);
+            if (effect > 0.01f)
+                _recoil.KickCamera(uid, -delta.Normalized() * effect);
+        }
+    }
+
+    #endregion
+
+    #region Glow
+
+    private void OnPodMapInit(Entity<DropPodComponent> ent, ref MapInitEvent args)
+    {
+        SetGlow(ent, ent.Comp.Locked ? DropPodGlow.Locked : DropPodGlow.Unlocked);
+    }
+
+    private void SetGlow(Entity<DropPodComponent> ent, DropPodGlow glow)
+    {
+        _appearance.SetData(ent.Owner, DropPodVisuals.Glow, glow);
+
+        if (ent.Comp.GlowColors.TryGetValue(glow, out var color))
+            _pointLight.SetColor(ent.Owner, color);
+    }
+
     #endregion
 
     #region Keypad
@@ -322,6 +367,7 @@ public sealed partial class ExtractionSystem
             ent.Comp.Locked = false;
             ent.Comp.WrongCode = false;
             Dirty(ent);
+            SetGlow(ent, DropPodGlow.Unlocked);
             _audio.PlayPvs(ent.Comp.UnlockSound, ent.Owner);
             _adminLog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.Actor):player} unlocked extraction drop pod {ToPrettyString(ent.Owner)}");
         }
@@ -410,6 +456,7 @@ public sealed partial class ExtractionSystem
         pod.LastCountdownSecond = 0;
         Dirty(container.Owner, pod);
         UpdatePodUi((container.Owner, pod));
+        SetGlow((container.Owner, pod), DropPodGlow.Sealed);
 
         if (pod.EngineSound != null)
             pod.EngineSoundStream = _audio.PlayPvs(pod.EngineSound, container.Owner, pod.EngineSound.Params.WithLoop(true))?.Entity;
@@ -424,6 +471,7 @@ public sealed partial class ExtractionSystem
         pod.Comp.EngineSoundStream = _audio.Stop(pod.Comp.EngineSoundStream);
         Dirty(pod);
         UpdatePodUi(pod);
+        SetGlow(pod, pod.Comp.Locked ? DropPodGlow.Locked : DropPodGlow.Unlocked);
     }
 
     private void UpdatePods(TimeSpan now)
@@ -471,7 +519,7 @@ public sealed partial class ExtractionSystem
         // anyone and anything else stuffed inside stays on the station
         _entityStorage.EmptyContents(pod.Owner);
 
-        RaiseNetworkEvent(new DropPodLaunchAnimationEvent(GetNetCoordinates(coords), pod.Comp.LaunchAnimationDuration, pod.Comp.LaunchSprite),
+        RaiseNetworkEvent(new DropPodLaunchAnimationEvent(GetNetCoordinates(coords), pod.Comp.LaunchAnimationDuration, pod.Comp.LaunchSprite, pod.Comp.LaunchSpriteOffset),
             Filter.Pvs(pod.Owner));
         _audio.PlayPvs(pod.Comp.LaunchSound, coords);
 

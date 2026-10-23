@@ -17,6 +17,7 @@ using Content.Server.Storage.EntitySystems;
 using Content.Shared._DV.Carrying;
 using Content.Shared._Maid.Extraction;
 using Content.Shared.Actions;
+using Content.Shared.Camera;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.Eye;
@@ -62,6 +63,7 @@ public sealed partial class ExtractionSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly CarryingSystem _carrying = default!;
@@ -81,9 +83,11 @@ public sealed partial class ExtractionSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
+    [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedProjectileSystem _projectile = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;

@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared.Actions;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
@@ -15,11 +16,40 @@ public sealed partial class LaunchDropPodActionEvent : InstantActionEvent;
 /// Tells clients to play the lift-off animation of a drop pod that is being deleted.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed class DropPodLaunchAnimationEvent(NetCoordinates coordinates, float duration, List<SpriteSpecifier> layers) : EntityEventArgs
+public sealed class DropPodLaunchAnimationEvent(NetCoordinates coordinates, float duration, List<SpriteSpecifier> layers, Vector2 offset) : EntityEventArgs
 {
     public readonly NetCoordinates Coordinates = coordinates;
     public readonly float Duration = duration;
     public readonly List<SpriteSpecifier> Layers = layers;
+
+    /// <summary>
+    /// Sprite offset of the pod, the lift-off starts from it.
+    /// </summary>
+    public readonly Vector2 Offset = offset;
+}
+
+[Serializable, NetSerializable]
+public enum DropPodVisuals : byte
+{
+    Glow,
+}
+
+[Serializable, NetSerializable]
+public enum DropPodVisualLayers : byte
+{
+    Glow,
+}
+
+/// <summary>
+/// Glow of the pod: red while locked, green once the code is entered, blue when sealed for launch, yellow on lift-off.
+/// </summary>
+[Serializable, NetSerializable]
+public enum DropPodGlow : byte
+{
+    Locked,
+    Unlocked,
+    Sealed,
+    Launching,
 }
 
 [Serializable, NetSerializable]

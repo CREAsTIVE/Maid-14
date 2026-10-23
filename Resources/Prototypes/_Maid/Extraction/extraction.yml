@@ -20,8 +20,8 @@
   components:
   - type: Action
     icon:
-      sprite: _Maid/Structures/Storage/closet.rsi
-      state: generic
+      sprite: _Maid/Structures/Storage/drop_pod.rsi
+      state: icon
     useDelay: 5
   - type: InstantAction
     event: !type:CallDropPodActionEvent
@@ -34,8 +34,8 @@
   components:
   - type: Action
     icon:
-      sprite: _Maid/Structures/Storage/closet.rsi
-      state: generic_door
+      sprite: _Maid/Structures/Storage/drop_pod.rsi
+      state: icon
     checkCanInteract: false
     useDelay: 2
   - type: InstantAction
@@ -60,19 +60,68 @@
     layer: 256 # VisibilityFlags.MaidExtraction
   - type: ExtractionZone
 
-# placeholder sprites until the real pod art arrives
 - type: entity
-  parent: ClosetBase
   id: ExtractionDropPod
   name: drop pod
   description: A small armoured pod. A code keypad blinks next to the hatch.
   categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Transform
     anchored: true
     noRot: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Maid/Structures/Storage/drop_pod.rsi
+    noRot: true
+    # the pod is drawn low in its 64x64 frame, lift it onto the middle of its tile
+    offset: 0,0.25
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: glow_red
+      shader: unshaded
+      map: ["enum.DropPodVisualLayers.Glow"]
   - type: Physics
     bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: EntityStorage
+    # Goob: allow walking into the open pod
+    masksToRemove: 84
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+  - type: Appearance
+  # no open door sprite: the door is hidden while the pod is open
+  - type: EntityStorageVisuals
+    stateBaseClosed: base
+    stateDoorClosed: door
+  - type: GenericVisualizer
+    visuals:
+      enum.DropPodVisuals.Glow:
+        enum.DropPodVisualLayers.Glow:
+          Locked: { state: glow_red }
+          Unlocked: { state: glow_green }
+          Sealed: { state: glow_blue }
+          Launching: { state: glow_yellow }
+  - type: PointLight
+    radius: 1.5
+    energy: 0.6
+    color: "#ff3b3b"
   - type: DropPod
   - type: UserInterface
     interfaces:

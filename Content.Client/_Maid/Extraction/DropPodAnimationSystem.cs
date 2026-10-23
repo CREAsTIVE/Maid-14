@@ -43,13 +43,13 @@ public sealed class DropPodAnimationSystem : EntitySystem
         var despawn = AddComp<TimedDespawnComponent>(animationEnt);
         despawn.Lifetime = ev.Duration + 0.1f;
 
-        _player.Play(animationEnt, CreateAnimation(ev.Duration), AnimationKey);
+        _player.Play(animationEnt, CreateAnimation(ev.Duration, ev.Offset), AnimationKey);
     }
 
     /// <summary>
     /// Slow start, then quickly gone upwards. Key frame times are deltas from the previous frame.
     /// </summary>
-    private static Animation CreateAnimation(float duration)
+    private static Animation CreateAnimation(float duration, Vector2 offset)
     {
         return new Animation
         {
@@ -63,11 +63,11 @@ public sealed class DropPodAnimationSystem : EntitySystem
                     InterpolationMode = AnimationInterpolationMode.Linear,
                     KeyFrames =
                     {
-                        new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0f),
-                        new AnimationTrackProperty.KeyFrame(new Vector2(0f, 0.2f), duration * 0.4f),
-                        new AnimationTrackProperty.KeyFrame(new Vector2(0f, 1.2f), duration * 0.25f),
-                        new AnimationTrackProperty.KeyFrame(new Vector2(0f, 4f), duration * 0.2f),
-                        new AnimationTrackProperty.KeyFrame(new Vector2(0f, 16f), duration * 0.15f),
+                        new AnimationTrackProperty.KeyFrame(offset, 0f),
+                        new AnimationTrackProperty.KeyFrame(offset + new Vector2(0f, 0.2f), duration * 0.4f),
+                        new AnimationTrackProperty.KeyFrame(offset + new Vector2(0f, 1.2f), duration * 0.25f),
+                        new AnimationTrackProperty.KeyFrame(offset + new Vector2(0f, 4f), duration * 0.2f),
+                        new AnimationTrackProperty.KeyFrame(offset + new Vector2(0f, 16f), duration * 0.15f),
                     },
                 },
             },

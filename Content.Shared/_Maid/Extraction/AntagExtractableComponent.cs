@@ -177,6 +177,18 @@ public sealed partial class AntagExtractableComponent : Component
     public float PodImpactNearRange = 20f;
 
     /// <summary>
+    /// Screens shake within this range of the landing, stronger closer to it.
+    /// </summary>
+    [DataField]
+    public float PodShakeRange = 10f;
+
+    /// <summary>
+    /// Camera kick at the landing point, fading out to the edge of <see cref="PodShakeRange"/>.
+    /// </summary>
+    [DataField]
+    public float PodShakeStrength = 15f;
+
+    /// <summary>
     /// When the antagonist arrived, for the round end summary.
     /// </summary>
     [DataField]

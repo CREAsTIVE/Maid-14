@@ -1,3 +1,4 @@
+using System.Numerics;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -54,8 +55,27 @@ public sealed partial class DropPodComponent : Component
     [DataField]
     public List<SpriteSpecifier> LaunchSprite = new()
     {
-        new SpriteSpecifier.Rsi(new ResPath("_Maid/Structures/Storage/closet.rsi"), "generic"),
-        new SpriteSpecifier.Rsi(new ResPath("_Maid/Structures/Storage/closet.rsi"), "generic_door"),
+        new SpriteSpecifier.Rsi(new ResPath("_Maid/Structures/Storage/drop_pod.rsi"), "base"),
+        new SpriteSpecifier.Rsi(new ResPath("_Maid/Structures/Storage/drop_pod.rsi"), "door"),
+        new SpriteSpecifier.Rsi(new ResPath("_Maid/Structures/Storage/drop_pod.rsi"), "glow_yellow"),
+    };
+
+    /// <summary>
+    /// Sprite offset of the pod, so the lift-off starts where the pod is drawn.
+    /// </summary>
+    [DataField]
+    public Vector2 LaunchSpriteOffset = new(0f, 0.25f);
+
+    /// <summary>
+    /// Point light colour for each glow state.
+    /// </summary>
+    [DataField]
+    public Dictionary<DropPodGlow, Color> GlowColors = new()
+    {
+        { DropPodGlow.Locked, Color.FromHex("#ff3b3b") },
+        { DropPodGlow.Unlocked, Color.FromHex("#3bff6b") },
+        { DropPodGlow.Sealed, Color.FromHex("#3b8bff") },
+        { DropPodGlow.Launching, Color.FromHex("#ffd23b") },
     };
 
     [DataField]
