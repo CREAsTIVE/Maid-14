@@ -113,6 +113,8 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Mind.Components;
+using Content.Server._Maid.Stalin;
+using Content.Shared._Maid.CVars;
 
 namespace Content.Server.GameTicking
 {
@@ -122,6 +124,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
         [Dependency] private readonly ReputationSystem _repSys = default!; // WD
+        [Dependency] private readonly StalinManager _stalin = default!; // MAID stalin bunker
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -463,10 +466,23 @@ namespace Content.Server.GameTicking
             var readyPlayers = new List<ICommonSession>();
             var readyPlayerProfiles = new Dictionary<NetUserId, HumanoidCharacterProfile>();
             var autoDeAdmin = _cfg.GetCVar(CCVars.AdminDeadminOnJoin);
+            var stalinBunker = _cfg.GetCVar(MaidCVars.StalinEnabled); // MAID stalin bunker
             foreach (var (userId, status) in _playerGameStatuses)
             {
                 if (LobbyEnabled && status != PlayerGameStatus.ReadyToPlay) continue;
                 if (!_playerManager.TryGetSessionById(userId, out var session)) continue;
+
+                // MAID BEGIN stalin bunker
+                if (stalinBunker)
+                {
+                    var (allow, errorMessage) = _stalin.AllowEnterCached(session);
+                    if (!allow)
+                    {
+                        _chatManager.DispatchServerMessage(session, errorMessage);
+                        continue;
+                    }
+                }
+                // MAID END stalin bunker
 
                 if (autoDeAdmin && _adminManager.IsAdmin(session))
                 {

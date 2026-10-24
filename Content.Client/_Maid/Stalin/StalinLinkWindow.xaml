@@ -1,0 +1,11 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'stalin-link-window-title'}"
+                      Resizable="False"
+                      SetWidth="900">
+    <BoxContainer Orientation="Vertical" Margin="10" HorizontalExpand="True" VerticalAlignment="Center">
+        <Label Text="{Loc 'stalin-link-window-hint'}" HorizontalAlignment="Center" />
+        <LineEdit Name="LinkText" Editable="False" HorizontalExpand="True" Margin="5" MinHeight="25" />
+        <Button Name="OpenInBrowserButton" Text="{Loc 'stalin-link-window-open'}" HorizontalExpand="True" />
+    </BoxContainer>
+</controls:FancyWindow>

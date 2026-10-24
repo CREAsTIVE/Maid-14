@@ -16,7 +16,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._Maid.Stalin;
 using Content.Server.Administration.Managers;
+using Content.Server.Chat.Managers;
+using Content.Shared._Maid.CVars;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -35,6 +38,8 @@ namespace Content.Server.GameTicking.Commands
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private readonly StalinManager _stalin = default!; // MAID stalin bunker
+        [Dependency] private readonly IChatManager _chat = default!; // MAID stalin bunker
 
         public string Command => "joingame";
         public string Description => "";
@@ -44,7 +49,7 @@ namespace Content.Server.GameTicking.Commands
         {
             IoCManager.InjectDependencies(this);
         }
-        public void Execute(IConsoleShell shell, string argStr, string[] args)
+        public async void Execute(IConsoleShell shell, string argStr, string[] args) // MAID stalin bunker - async
         {
             if (args.Length != 2)
             {
@@ -68,6 +73,18 @@ namespace Content.Server.GameTicking.Commands
                 shell.WriteError($"{player.Name} is not in the lobby.   This incident will be reported.");
                 return;
             }
+
+            // MAID BEGIN stalin bunker
+            if (_cfg.GetCVar(MaidCVars.StalinEnabled))
+            {
+                var (allow, errorMessage) = await _stalin.AllowEnter(player);
+                if (!allow)
+                {
+                    _chat.DispatchServerMessage(player, errorMessage);
+                    return;
+                }
+            }
+            // MAID END stalin bunker
 
             if (ticker.RunLevel == GameRunLevel.PreRoundLobby)
             {

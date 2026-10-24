@@ -119,6 +119,40 @@ public sealed class MaidCVars
 
     #endregion
 
+    #region Stalin bunker
+
+    /// <summary>
+    ///     Only players with a linked Discord account old enough can join the round.
+    /// </summary>
+    public static readonly CVarDef<bool> StalinEnabled =
+        CVarDef.Create("stalin.enabled", false, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     Salt for the Discord linking link hash, shared with the linking service.
+    /// </summary>
+    public static readonly CVarDef<string> StalinSalt =
+        CVarDef.Create("stalin.salt", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     Base URL of the linking service API, e.g. <c>https://example.com/api/</c>.
+    /// </summary>
+    public static readonly CVarDef<string> StalinApiUrl =
+        CVarDef.Create("stalin.api_url", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     URL of the linking page, the link payload is appended to it.
+    /// </summary>
+    public static readonly CVarDef<string> StalinAuthUrl =
+        CVarDef.Create("stalin.auth_url", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     Minimum Discord account age, in seconds. Default is one week.
+    /// </summary>
+    public static readonly CVarDef<float> StalinDiscordMinimumAge =
+        CVarDef.Create("stalin.minimal_discord_age_minutes", 604800.0f, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    #endregion
+
     #region Client preferences
 
     /// <summary>
