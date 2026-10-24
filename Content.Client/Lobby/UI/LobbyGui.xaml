@@ -56,7 +56,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                             <Button Name="AHelpButton" Access="Public" Text="{Loc 'ui-lobby-ahelp-button'}" />
                             <vote:VoteCallMenuButton Name="CallVoteButton" />
                             <Button Name="OptionsButton" Access="Public" Text="{Loc 'ui-lobby-options-button'}" />
-                            <Button Name="DiscordLinkButton" Text="{Loc 'ui-lobby-stalin-link-button'}" /> <!-- MAID stalin bunker -->
+                            <!-- MAID stalin bunker: hidden for now, the RMC14 "link Discord account" button already exists in the lobby -->
+                            <!-- <Button Name="DiscordLinkButton" Text="{Loc 'ui-lobby-stalin-link-button'}" /> -->
                             <whiteButtons:CustomGhostsMenuOpenButton Name="CustomGhostsButton" Text="{Loc 'ui-lobby-custom-ghosts-button'}" />
                             <Button Name="LeaveButton" Access="Public" Text="{Loc 'ui-lobby-leave-button'}" />
                         </BoxContainer>
