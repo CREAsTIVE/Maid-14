@@ -478,17 +478,6 @@
         thresholdMode: Percent # MAID antag extraction
         threshold: 50 # MAID antag extraction
         leaveStationItems: true # MAID antag extraction
-        messages: # MAID antag extraction
-          notifyPopup: extraction-ninja-notify-popup # MAID antag extraction
-          unlocked: extraction-ninja-unlocked # MAID antag extraction
-          unlockedForced: extraction-ninja-unlocked-forced # MAID antag extraction
-          zoneDesignated: extraction-ninja-zone-designated # MAID antag extraction
-          noRequestsZone: extraction-ninja-no-requests-zone # MAID antag extraction
-          noRequests: extraction-ninja-no-requests # MAID antag extraction
-          zoneLost: extraction-ninja-zone-lost # MAID antag extraction
-          zoneReset: extraction-ninja-zone-reset # MAID antag extraction
-          reminder: extraction-ninja-reminder # MAID antag extraction
-          reminderZone: extraction-ninja-reminder-zone # MAID antag extraction
         optionalObjectives: # MAID antag extraction
         - StealResearchObjective # MAID antag extraction
         - DoorjackObjective # MAID antag extraction
