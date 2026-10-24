@@ -138,6 +138,8 @@ public sealed partial class GraphicsTab : Control
         Control.AddOptionCheckBox(WhiteCVars.ShowExplosionShockWave, ShowShockWaveCheckBox);
         // WD-Tweak-End
         Control.AddOptionCheckBox(MaidCVars.EnableLightsGlowing, EnableLightsGlowingCheckBox); // MAID settings port
+        Control.AddOptionCheckBox(MaidCVars.GrainEnabled, GrainEnabledCheckBox); // MAID grain
+        Control.AddOptionPercentSlider(MaidCVars.GrainStrength, GrainStrengthSlider, 0.5f, 2.5f); // MAID grain
 
         Control.Initialize();
 

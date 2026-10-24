@@ -134,6 +134,18 @@ public sealed class MaidCVars
         CVarDef.Create("maid.enable_lights_glowing", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
+    ///     Draw a film grain effect over the screen.
+    /// </summary>
+    public static readonly CVarDef<bool> GrainEnabled =
+        CVarDef.Create("maid.grain_enabled", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     Film grain strength multiplier, 1 is the default look.
+    /// </summary>
+    public static readonly CVarDef<float> GrainStrength =
+        CVarDef.Create("maid.grain_strength", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
     ///     Automatically get up when the knockdown ends.
     /// </summary>
     public static readonly CVarDef<bool> AutoGetUp =

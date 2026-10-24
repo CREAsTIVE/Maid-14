@@ -2,3 +2,8 @@
   id: MaidLightGlow
   kind: source
   path: "/Textures/_Maid/Shaders/light_glow.swsl"
+
+- type: shader
+  id: MaidGrain
+  kind: source
+  path: "/Textures/_Maid/Shaders/grain.swsl"
