@@ -6,10 +6,6 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._Maid.Extraction;
 
-public sealed partial class RequestExtractionActionEvent : InstantActionEvent;
-
-public sealed partial class CallDropPodActionEvent : InstantActionEvent;
-
 public sealed partial class LaunchDropPodActionEvent : InstantActionEvent;
 
 /// <summary>
@@ -86,3 +82,52 @@ public sealed class DropPodKeypadClearMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
 public sealed class DropPodKeypadEnterMessage : BoundUserInterfaceMessage;
+
+[Serializable, NetSerializable]
+public enum ExtractionDeviceUiKey : byte
+{
+    Key,
+}
+
+[Serializable, NetSerializable]
+public sealed class ExtractionObjectiveEntry(string title, bool completed, bool required)
+{
+    public readonly string Title = title;
+    public readonly bool Completed = completed;
+    public readonly bool Required = required;
+}
+
+/// <summary>
+/// Everything the extraction device shows. Texts that depend on server-only data come already localized.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class ExtractionDeviceUiState(
+    bool unlocked,
+    List<ExtractionObjectiveEntry> objectives,
+    string progress,
+    int rerollsLeft,
+    string? code,
+    string zone,
+    string pod,
+    bool canRequestZone,
+    bool canCallPod) : BoundUserInterfaceState
+{
+    public readonly bool Unlocked = unlocked;
+    public readonly List<ExtractionObjectiveEntry> Objectives = objectives;
+    public readonly string Progress = progress;
+    public readonly int RerollsLeft = rerollsLeft;
+    public readonly string? Code = code;
+    public readonly string Zone = zone;
+    public readonly string Pod = pod;
+    public readonly bool CanRequestZone = canRequestZone;
+    public readonly bool CanCallPod = canCallPod;
+}
+
+[Serializable, NetSerializable]
+public sealed class ExtractionDeviceRefreshMessage : BoundUserInterfaceMessage;
+
+[Serializable, NetSerializable]
+public sealed class ExtractionDeviceRequestZoneMessage : BoundUserInterfaceMessage;
+
+[Serializable, NetSerializable]
+public sealed class ExtractionDeviceCallPodMessage : BoundUserInterfaceMessage;

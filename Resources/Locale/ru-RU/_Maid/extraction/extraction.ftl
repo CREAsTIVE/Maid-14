@@ -1,14 +1,14 @@
 extraction-notify-popup = Новое сообщение об эвакуации. Проверьте чат.
-extraction-unlocked = Задания выполнены. Используйте «Выполнить запрос на досрочную эвакуацию», чтобы получить точку отхода, затем вызовите в ней десантную капсулу. Код капсулы: { $code }.
-extraction-unlocked-forced = Эвакуация разрешена досрочно. Используйте «Выполнить запрос на досрочную эвакуацию», чтобы получить точку отхода, затем вызовите в ней десантную капсулу. Код капсулы: { $code }.
-extraction-zone-designated = Точка отхода назначена: { $location }. Встаньте в зону и вызовите десантную капсулу. Осталось переносов: { $left }.
+extraction-unlocked = Задания выполнены. Откройте устройство, нажмите «Обозначить зону для отхода», а находясь в зоне — «Подготовить капсулу». Код капсулы: { $code }.
+extraction-unlocked-forced = Эвакуация разрешена досрочно. Откройте устройство, нажмите «Обозначить зону для отхода», а находясь в зоне — «Подготовить капсулу». Код капсулы: { $code }.
+extraction-zone-designated = Точка отхода назначена: { $location }. Встаньте в зону и нажмите «Подготовить капсулу» в устройстве. Осталось переносов: { $left }.
 extraction-no-requests-zone = Точку отхода больше нельзя перенести. Она по-прежнему здесь: { $location }.
 extraction-no-requests = Запросов на эвакуацию больше не осталось.
 extraction-no-zone = Подходящая точка отхода на станции не найдена.
 extraction-zone-lost = Точка отхода уничтожена. Назначена новая: { $location }.
 extraction-zone-lost-none = Точка отхода уничтожена, а новую найти не удалось. Обратитесь к администрации.
 extraction-zone-reset = Можно снова запросить точку отхода.
-extraction-reminder = Эвакуация разрешена. Используйте «Выполнить запрос на досрочную эвакуацию», чтобы получить точку отхода. Код капсулы: { $code }.
+extraction-reminder = Эвакуация разрешена. Откройте устройство и нажмите «Обозначить зону для отхода». Код капсулы: { $code }.
 extraction-reminder-zone = Точка отхода: { $location }. Код капсулы: { $code }.
 extraction-not-in-zone = Нужно находиться в зоне отхода.
 extraction-zone-coordinates = { $location }, координаты: { $x }, { $y }
@@ -20,7 +20,7 @@ extraction-round-end = [color=gold]{ $name }[/color]: эвакуация чер�
    *[other] минут
 } после прибытия на станцию.
 
-extraction-pod-announcement = Неизвестный малый объект движется на большой скорости в сторону станции, столкновение неизбежно.
+extraction-pod-announcement = Неизвестный малый объект движется на большой скорости в сторону станции, столкновение неизбежно. Предполагаемое место столкновения: { $location }.
 extraction-pod-called = Капсула вызвана и приземлится через { $seconds } { $seconds ->
     [one] секунду
     [few] секунды
@@ -67,3 +67,28 @@ extraction-command-already-unlocked = { $target }: отход уже откры�
 extraction-command-unlocked = { $target }: отход открыт.
 extraction-command-unlocked-added = { $target }: добавлен AntagExtractable (всё, что сейчас при себе, считается своим снаряжением), отход открыт.
 extraction-command-reset = { $target }: зона отхода сброшена.
+
+extraction-device-unrecognized = Мы вас не распознали.
+extraction-device-ui-title = Устройство неизвестного назначения
+extraction-device-ui-done = Задания для досрочного отхода выполнены
+extraction-device-ui-not-done = Задания для досрочного отхода не выполнены
+extraction-device-progress-percent = Выполнено { $completed } из { $total } — { $percent }% (нужно { $needed }%)
+extraction-device-progress-count = Выполнено { $completed } из { $total } (нужно { $needed })
+extraction-device-ui-objective = { $mark } { $title }
+extraction-device-ui-objective-required = { $mark } { $title } (обязательно)
+extraction-device-ui-zone-status = Зона отхода: { $zone }
+extraction-device-ui-pod-status = Капсула: { $pod }
+extraction-device-ui-rerolls = Количество попыток для переназначения зоны: { $count }
+extraction-device-ui-code = Ваш код для капсулы: { $code }
+extraction-device-ui-code-none = Код ещё не получен
+extraction-device-ui-refresh = Обновить
+extraction-device-ui-zone = Обозначить зону для отхода
+extraction-device-ui-pod = Подготовить капсулу
+extraction-device-zone-none = не обозначена
+extraction-device-pod-none = не вызвана
+extraction-device-pod-flying = в пути, посадка через { $seconds } с
+extraction-device-pod-landed = на станции, улетит через { $time }
+extraction-device-pod-landed-forever = на станции
+extraction-device-pod-launching = взлёт через { $seconds } с
+extraction-device-pod-gone = больше недоступна
+extraction-device-pod-recall = повторный вызов через { $seconds } с

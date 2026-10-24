@@ -1,14 +1,14 @@
 extraction-notify-popup = New evacuation message. Check the chat.
-extraction-unlocked = Your objectives are done. Use "Request early evacuation" to get an extraction point, then call a drop pod there. Pod code: { $code }.
-extraction-unlocked-forced = Evacuation was allowed early. Use "Request early evacuation" to get an extraction point, then call a drop pod there. Pod code: { $code }.
-extraction-zone-designated = Extraction point designated: { $location }. Stand inside the zone and call the drop pod. Re-requests left: { $left }.
+extraction-unlocked = Your objectives are done. Open your device, press "Mark extraction zone", then "Prepare pod" while inside the zone. Pod code: { $code }.
+extraction-unlocked-forced = Evacuation was allowed early. Open your device, press "Mark extraction zone", then "Prepare pod" while inside the zone. Pod code: { $code }.
+extraction-zone-designated = Extraction point designated: { $location }. Stand inside the zone and press "Prepare pod" on your device. Re-requests left: { $left }.
 extraction-no-requests-zone = The extraction point cannot be moved again. It is still here: { $location }.
 extraction-no-requests = No evacuation requests left.
 extraction-no-zone = No suitable extraction point was found on the station.
 extraction-zone-lost = Your extraction point was destroyed. A new one is designated: { $location }.
 extraction-zone-lost-none = Your extraction point was destroyed and no new one could be found. Contact the admins.
 extraction-zone-reset = You can request an extraction point again.
-extraction-reminder = Evacuation is allowed. Use "Request early evacuation" to get an extraction point. Pod code: { $code }.
+extraction-reminder = Evacuation is allowed. Open your device and press "Mark extraction zone". Pod code: { $code }.
 extraction-reminder-zone = Extraction point: { $location }. Pod code: { $code }.
 extraction-not-in-zone = You must stand inside the extraction zone.
 extraction-zone-coordinates = { $location }, coordinates: { $x }, { $y }
@@ -19,7 +19,7 @@ extraction-round-end = [color=gold]{ $name }[/color]: evacuated { $minutes } { $
    *[other] minutes
 } after arriving at the station.
 
-extraction-pod-announcement = An unknown small object is moving towards the station at high speed, impact is imminent.
+extraction-pod-announcement = An unknown small object is moving towards the station at high speed, impact is imminent. Expected impact point: { $location }.
 extraction-pod-called = The pod is called and lands in { $seconds } { $seconds ->
     [one] second
    *[other] seconds
@@ -61,3 +61,28 @@ extraction-command-already-unlocked = { $target }: extraction is already unlocke
 extraction-command-unlocked = { $target }: extraction unlocked.
 extraction-command-unlocked-added = { $target }: AntagExtractable added (everything carried now counts as own gear), extraction unlocked.
 extraction-command-reset = { $target }: extraction zone reset.
+
+extraction-device-unrecognized = We do not recognise you.
+extraction-device-ui-title = Device of unknown purpose
+extraction-device-ui-done = Early extraction objectives are done
+extraction-device-ui-not-done = Early extraction objectives are not done
+extraction-device-progress-percent = Done { $completed } of { $total } — { $percent }% (need { $needed }%)
+extraction-device-progress-count = Done { $completed } of { $total } (need { $needed })
+extraction-device-ui-objective = { $mark } { $title }
+extraction-device-ui-objective-required = { $mark } { $title } (required)
+extraction-device-ui-zone-status = Extraction zone: { $zone }
+extraction-device-ui-pod-status = Pod: { $pod }
+extraction-device-ui-rerolls = Zone re-assignments left: { $count }
+extraction-device-ui-code = Your pod code: { $code }
+extraction-device-ui-code-none = No code received yet
+extraction-device-ui-refresh = Refresh
+extraction-device-ui-zone = Mark extraction zone
+extraction-device-ui-pod = Prepare pod
+extraction-device-zone-none = not marked
+extraction-device-pod-none = not called
+extraction-device-pod-flying = on its way, lands in { $seconds } s
+extraction-device-pod-landed = on the station, leaves in { $time }
+extraction-device-pod-landed-forever = on the station
+extraction-device-pod-launching = lifting off in { $seconds } s
+extraction-device-pod-gone = no longer available
+extraction-device-pod-recall = can be called again in { $seconds } s

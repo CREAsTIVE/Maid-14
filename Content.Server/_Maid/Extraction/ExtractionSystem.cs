@@ -23,6 +23,7 @@ using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.Eye;
 using Content.Shared.Follower;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Follower.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Ghost;
@@ -40,6 +41,7 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Objectives.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Storage.EntitySystems;
 using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
 using Robust.Shared.Audio.Systems;
@@ -81,6 +83,7 @@ public sealed partial class ExtractionSystem : EntitySystem
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly FollowerSystem _follower = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
@@ -95,6 +98,7 @@ public sealed partial class ExtractionSystem : EntitySystem
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
@@ -131,10 +135,10 @@ public sealed partial class ExtractionSystem : EntitySystem
         SubscribeLocalEvent<AntagExtractableComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<AntagExtractableComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<AntagExtractableComponent, PlayerAttachedEvent>(OnPlayerAttached);
-        SubscribeLocalEvent<AntagExtractableComponent, RequestExtractionActionEvent>(OnRequest);
 
         InitializePod();
         InitializeTest();
+        InitializeDevice();
     }
 
     public override void Update(float frameTime)
@@ -155,6 +159,9 @@ public sealed partial class ExtractionSystem : EntitySystem
         {
             if (comp.Extracted)
                 continue;
+
+            if (!comp.DeviceGiven)
+                GiveDevice((uid, comp));
 
             // the zone got destroyed (singularity, grid deletion...), a new one is given for free
             if (comp.Zone is { } zone && TerminatingOrDeleted(zone))
@@ -369,9 +376,28 @@ public sealed partial class ExtractionSystem : EntitySystem
     /// </summary>
     public bool ObjectivesMet(Entity<AntagExtractableComponent> ent, Entity<MindComponent> mind, out int completed, out int total)
     {
-        total = 0;
-        completed = 0;
-        var requiredMissing = false;
+        var counted = GetCountedObjectives(ent, mind);
+        total = counted.Count;
+        completed = counted.Count(o => o.Completed);
+
+        if (total == 0 || counted.Any(o => o.Required && !o.Completed))
+            return false;
+
+        return ent.Comp.ThresholdMode switch
+        {
+            ExtractionThresholdMode.Count => completed >= Math.Min(ent.Comp.Threshold, total),
+            _ => completed * 100f / total >= ent.Comp.Threshold - 0.01f,
+        };
+    }
+
+    /// <summary>
+    /// Objectives of the mind that count for extraction, with their state.
+    /// </summary>
+    public List<(EntityUid Objective, bool Completed, bool Required)> GetCountedObjectives(
+        Entity<AntagExtractableComponent> ent,
+        Entity<MindComponent> mind)
+    {
+        var result = new List<(EntityUid, bool, bool)>();
         var countAll = ent.Comp.RequiredObjectives.Count == 0 && ent.Comp.OptionalObjectives.Count == 0;
 
         foreach (var objective in mind.Comp.Objectives)
@@ -383,21 +409,10 @@ public sealed partial class ExtractionSystem : EntitySystem
             if (countAll ? HasComp<SurviveConditionComponent>(objective) : !required && !ent.Comp.OptionalObjectives.Contains(id))
                 continue;
 
-            total++;
-            if (_objectives.IsCompleted(objective, mind))
-                completed++;
-            else if (required)
-                requiredMissing = true;
+            result.Add((objective, _objectives.IsCompleted(objective, mind), required));
         }
 
-        if (total == 0 || requiredMissing)
-            return false;
-
-        return ent.Comp.ThresholdMode switch
-        {
-            ExtractionThresholdMode.Count => completed >= Math.Min(ent.Comp.Threshold, total),
-            _ => completed * 100f / total >= ent.Comp.Threshold - 0.01f,
-        };
+        return result;
     }
 
     private void Unlock(Entity<AntagExtractableComponent> ent, bool forced = false)
@@ -414,8 +429,6 @@ public sealed partial class ExtractionSystem : EntitySystem
 
         Dirty(ent);
 
-        _actions.AddAction(ent.Owner, ref ent.Comp.ActionEntity, ent.Comp.Action);
-        _actions.AddAction(ent.Owner, ref ent.Comp.CallPodActionEntity, ent.Comp.CallPodAction);
         Notify(ent, Loc.GetString(forced ? ent.Comp.Messages.UnlockedForced : ent.Comp.Messages.Unlocked, ("code", ent.Comp.Code)));
     }
 
@@ -449,12 +462,13 @@ public sealed partial class ExtractionSystem : EntitySystem
 
     #region Zone
 
-    private void OnRequest(Entity<AntagExtractableComponent> ent, ref RequestExtractionActionEvent args)
+    /// <summary>
+    /// Designates the extraction zone, or moves it while re-requests are left.
+    /// </summary>
+    public void TryRequestZone(Entity<AntagExtractableComponent> ent)
     {
-        if (args.Handled || !ent.Comp.Unlocked || ent.Comp.Extracted)
+        if (!ent.Comp.Unlocked || ent.Comp.Extracted)
             return;
-
-        args.Handled = true;
 
         var current = ent.Comp.Zone is { } zone && !TerminatingOrDeleted(zone) ? zone : (EntityUid?) null;
         if (ent.Comp.RequestsUsed >= ent.Comp.MaxRequests)
@@ -681,6 +695,11 @@ public sealed partial class ExtractionSystem : EntitySystem
         return FormattedMessage.RemoveMarkupPermissive(_navMap.GetNearestBeaconString((uid, null)));
     }
 
+    private string GetLocation(EntityCoordinates coords)
+    {
+        return FormattedMessage.RemoveMarkupPermissive(_navMap.GetNearestBeaconString(_transform.ToMapCoordinates(coords)));
+    }
+
     /// <summary>
     /// Admin command: removes the zone and lets the extractee request it again.
     /// </summary>
@@ -714,16 +733,6 @@ public sealed partial class ExtractionSystem : EntitySystem
 
         ent.Comp.Zone = null;
         ent.Comp.PodTarget = null;
-
-        // the whole entity is going away, its actions go with it
-        if (TerminatingOrDeleted(ent.Owner))
-            return;
-
-        // e.g. an antag implant was removed: nothing must be left to use
-        _actions.RemoveAction(ent.Owner, ent.Comp.ActionEntity);
-        _actions.RemoveAction(ent.Owner, ent.Comp.CallPodActionEntity);
-        ent.Comp.ActionEntity = null;
-        ent.Comp.CallPodActionEntity = null;
     }
 
     #endregion

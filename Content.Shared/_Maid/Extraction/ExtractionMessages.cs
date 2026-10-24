@@ -117,7 +117,7 @@ public sealed partial class ExtractionMessages
     public LocId PodDestroyed = "extraction-pod-destroyed";
 
     /// <summary>
-    /// Station announcement while the pod is on its way.
+    /// Station announcement while the pod is on its way. Gets <c>$location</c> of the landing point.
     /// </summary>
     [DataField]
     public LocId PodAnnouncement = "extraction-pod-announcement";

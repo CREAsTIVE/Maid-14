@@ -1,13 +1,9 @@
-using System.Linq;
 using System.Numerics;
 using Content.Shared._Maid.Extraction;
 using Content.Shared.Body.Components;
 using Content.Shared.Database;
-using Content.Shared.Ghost;
-using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
-using Content.Shared.Shuttles.Components;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -24,7 +20,6 @@ public sealed partial class ExtractionSystem
 {
     private void InitializePod()
     {
-        SubscribeLocalEvent<AntagExtractableComponent, CallDropPodActionEvent>(OnCallPod);
         SubscribeLocalEvent<AntagExtractableComponent, LaunchDropPodActionEvent>(OnLaunchPod);
 
         SubscribeLocalEvent<DropPodComponent, MapInitEvent>(OnPodMapInit);
@@ -53,24 +48,11 @@ public sealed partial class ExtractionSystem
                && _zone.IsInZone((zone, zoneComp), ent.Owner);
     }
 
-    private void UpdateCallPodAction(Entity<AntagExtractableComponent> ent, TimeSpan now)
+    /// <summary>
+    /// Calls the pod to the tile the extractee stands on, once, from inside their zone.
+    /// </summary>
+    public void TryCallPod(Entity<AntagExtractableComponent> ent)
     {
-        if (ent.Comp.CallPodActionEntity is not { } action)
-            return;
-
-        var enabled = CanCallPod(ent, now);
-        if (enabled == ent.Comp.CallPodEnabled)
-            return;
-
-        ent.Comp.CallPodEnabled = enabled;
-        _actions.SetEnabled(action, enabled);
-    }
-
-    private void OnCallPod(Entity<AntagExtractableComponent> ent, ref CallDropPodActionEvent args)
-    {
-        if (args.Handled)
-            return;
-
         var now = _timing.CurTime;
         var user = ent.Owner;
 
@@ -84,15 +66,12 @@ public sealed partial class ExtractionSystem
         if (xform.GridUid is not { } grid || !TryComp<MapGridComponent>(grid, out var gridComp))
             return;
 
-        args.Handled = true;
-
         // the pod lands on the tile the call was made from
         var tile = _map.TileIndicesFor(grid, gridComp, xform.Coordinates);
         ent.Comp.PodCalled = true;
         ent.Comp.PodTarget = _map.GridTileToLocal(grid, gridComp, tile);
         ent.Comp.PodLandAt = now + ent.Comp.PodFlightTime;
-        ent.Comp.PodAnnounceAt = now + ent.Comp.PodAnnounceDelay;
-        UpdateCallPodAction(ent, now);
+        ent.Comp.PodAnnounceAt = now + _random.Next(ent.Comp.PodAnnounceDelayMin, ent.Comp.PodAnnounceDelayMax);
 
         Notify(ent, Loc.GetString(ent.Comp.Messages.PodCalled, ("seconds", (int) ent.Comp.PodFlightTime.TotalSeconds)));
         _adminLog.Add(LogType.Action, LogImpact.Medium,
@@ -104,8 +83,6 @@ public sealed partial class ExtractionSystem
     /// </summary>
     private EntityCoordinates? UpdatePodCall(Entity<AntagExtractableComponent> ent, TimeSpan now)
     {
-        UpdateCallPodAction(ent, now);
-
         if (ent.Comp.Pod is { } pod && TerminatingOrDeleted(pod))
         {
             ent.Comp.Pod = null;
@@ -129,7 +106,7 @@ public sealed partial class ExtractionSystem
             if (_station.GetOwningStation(target.EntityId) is { } station)
             {
                 _chat.DispatchStationAnnouncement(station,
-                    Loc.GetString(ent.Comp.Messages.PodAnnouncement),
+                    Loc.GetString(ent.Comp.Messages.PodAnnouncement, ("location", GetLocation(target))),
                     Loc.GetString(ent.Comp.Messages.AnnouncementSender),
                     colorOverride: ent.Comp.Messages.AnnouncementColor);
             }
@@ -168,11 +145,6 @@ public sealed partial class ExtractionSystem
         podComp.Extractee = ent.Owner;
         ent.Comp.Pod = pod;
 
-        // the pod comes only once
-        _actions.RemoveAction(ent.Owner, ent.Comp.CallPodActionEntity);
-        QueueDel(ent.Comp.CallPodActionEntity);
-        ent.Comp.CallPodActionEntity = null;
-
         Notify(ent, Loc.GetString(ent.Comp.Messages.PodLanded,
             ("code", ent.Comp.Code),
             ("minutes", (int) Math.Ceiling(podComp.AutoLaunchDelay.TotalMinutes))));
@@ -195,8 +167,8 @@ public sealed partial class ExtractionSystem
         var tile = _map.TileIndicesFor(grid, gridComp, target);
         var center = _map.GridTileToLocal(grid, gridComp, tile);
 
-        if (landing.ClearTile)
-            ClearLandingTile(cause, grid, gridComp, tile);
+        if (landing.CrushLiving)
+            CrushLiving(cause, grid, gridComp, tile);
 
         var pod = Spawn(landing.PodPrototype, center);
         var podComp = EnsureComp<DropPodComponent>(pod);
@@ -214,10 +186,10 @@ public sealed partial class ExtractionSystem
     }
 
     /// <summary>
-    /// Everything on the landing tile is destroyed, walls included, the way an arriving shuttle flattens what is in its way.
-    /// Bodies are gibbed.
+    /// Whatever is alive and standing on the landing tile gets gibbed. Objects, the dead and
+    /// anyone inside lockers or other containers are left alone.
     /// </summary>
-    private void ClearLandingTile(EntityUid? cause, EntityUid grid, MapGridComponent gridComp, Vector2i tile)
+    private void CrushLiving(EntityUid? cause, EntityUid grid, MapGridComponent gridComp, Vector2i tile)
     {
         var immune = new HashSet<EntityUid>();
         foreach (var victim in _lookup.GetLocalEntitiesIntersecting(grid, tile, flags: LookupFlags.Uncontained, gridComp: gridComp))
@@ -225,68 +197,18 @@ public sealed partial class ExtractionSystem
             if (immune.Contains(victim)
                 || TerminatingOrDeleted(victim)
                 || EntityManager.IsQueuedForDeletion(victim)
-                || HasComp<GhostComponent>(victim)
-                || HasComp<ExtractionZoneComponent>(victim)
-                || HasComp<FTLSmashImmuneComponent>(victim))
+                || !TryComp<MobStateComponent>(victim, out var mobState)
+                || _mobState.IsDead(victim, mobState))
                 continue;
+
+            _adminLog.Add(LogType.Gib, LogImpact.High,
+                $"{ToPrettyString(victim):player} was crushed by the extraction drop pod of {ToPrettyString(cause):player}");
 
             if (TryComp<BodyComponent>(victim, out var body))
-            {
-                CrushBody(cause, victim, body, immune);
-                continue;
-            }
-
-            // players without a body on the tile (pAI, MMI and the like) are not deleted
-            if (!HasComp<MobStateComponent>(victim) && HasPlayerMind(victim))
-                continue;
-
-            // body-less mobs break down properly instead of vanishing
-            if (HasComp<MobStateComponent>(victim))
-            {
-                _adminLog.Add(LogType.Gib, LogImpact.High,
-                    $"{ToPrettyString(victim):player} was crushed by the extraction drop pod of {ToPrettyString(cause):player}");
+                immune.UnionWith(_body.GibBody(victim, body: body));
+            else
                 _destructible.DestroyEntity(victim);
-                continue;
-            }
-
-            // lockers, mechs, cryo pods and the like: whoever is inside gets crushed too instead of silently deleted
-            var containers = TryComp<ContainerManagerComponent>(victim, out var manager)
-                ? _container.GetAllContainers(victim, manager).ToList()
-                : new List<BaseContainer>();
-
-            foreach (var container in containers)
-            {
-                foreach (var contained in container.ContainedEntities.ToList())
-                {
-                    if (TryComp<BodyComponent>(contained, out var containedBody) && HasComp<MindContainerComponent>(contained))
-                    {
-                        _container.Remove(contained, container, force: true, destination: Transform(victim).Coordinates);
-                        CrushBody(cause, contained, containedBody, immune);
-                    }
-                    else if (HasPlayerMind(contained))
-                    {
-                        // a brain in a core, a pAI in a locker: thrown out, not deleted with the holder
-                        _container.Remove(contained, container, force: true, destination: Transform(victim).Coordinates);
-                        immune.Add(contained);
-                    }
-                }
-            }
-
-            // destruction lets storages, mechs and the like spill what is left inside
-            _destructible.DestroyEntity(victim);
         }
-    }
-
-    private bool HasPlayerMind(EntityUid uid)
-    {
-        return TryComp<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind;
-    }
-
-    private void CrushBody(EntityUid? cause, EntityUid victim, BodyComponent body, HashSet<EntityUid> immune)
-    {
-        _adminLog.Add(LogType.Gib, LogImpact.High,
-            $"{ToPrettyString(victim):player} was crushed by the extraction drop pod of {ToPrettyString(cause):player}");
-        immune.UnionWith(_body.GibBody(victim, body: body));
     }
 
     /// <summary>

@@ -10,7 +10,7 @@ namespace Content.Server._Maid.Extraction;
 public sealed partial class DropPodLandingTestComponent : Component
 {
     [DataField]
-    public DropPodLanding Landing = new() { ClearTile = false };
+    public DropPodLanding Landing = new() { CrushLiving = false };
 
     /// <summary>
     /// Time to step back after spawning the marker.

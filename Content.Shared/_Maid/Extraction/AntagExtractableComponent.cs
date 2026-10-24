@@ -95,17 +95,20 @@ public sealed partial class AntagExtractableComponent : Component
     [DataField]
     public List<EntProtoId> ZoneAnchorBlacklist = new() { "HolopadAiCore" };
 
+    /// <summary>
+    /// Device with the extraction controls, put into the backpack or a free pocket. Null gives none.
+    /// </summary>
     [DataField]
-    public EntProtoId Action = "ActionRequestExtraction";
+    public EntProtoId? DevicePrototype = "ExtractionDevice";
 
     [DataField]
-    public EntityUid? ActionEntity;
+    public EntityUid? Device;
 
+    /// <summary>
+    /// The device was handed out once already, a lost one is not replaced.
+    /// </summary>
     [DataField]
-    public EntProtoId CallPodAction = "ActionCallDropPod";
-
-    [DataField]
-    public EntityUid? CallPodActionEntity;
+    public bool DeviceGiven;
 
     /// <summary>
     /// The pod can be called only once. Reset only when the landing failed, e.g. the grid was gone.
@@ -121,12 +124,6 @@ public sealed partial class AntagExtractableComponent : Component
 
     [DataField]
     public TimeSpan PodRecallDelay = TimeSpan.FromSeconds(30);
-
-    /// <summary>
-    /// Whether the call action is currently enabled, to avoid dirtying it every tick.
-    /// </summary>
-    [ViewVariables]
-    public bool CallPodEnabled = true;
 
     /// <summary>
     /// Code that unlocks the drop pod, given to the player on unlock. Server only.
@@ -168,7 +165,13 @@ public sealed partial class AntagExtractableComponent : Component
     public TimeSpan PodFlightTime = TimeSpan.FromSeconds(15);
 
     [DataField]
-    public TimeSpan PodAnnounceDelay = TimeSpan.FromSeconds(5);
+    public TimeSpan PodAnnounceDelayMin = TimeSpan.FromSeconds(5);
+
+    /// <summary>
+    /// The station hears about the incoming pod at a random moment between the min and max delay after the call.
+    /// </summary>
+    [DataField]
+    public TimeSpan PodAnnounceDelayMax = TimeSpan.FromSeconds(20);
 
     /// <summary>
     /// When the antagonist arrived, for the round end summary.

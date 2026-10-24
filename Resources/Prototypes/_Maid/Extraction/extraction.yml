@@ -1,30 +1,23 @@
 - type: entity
-  parent: BaseAction
-  id: ActionRequestExtraction
-  name: Request early evacuation
-  description: Request an extraction point on the station. The point can be moved only once.
+  parent: BaseItem
+  id: ExtractionDevice
+  name: device of unknown purpose
+  description: A device of unknown purpose.
   components:
-  - type: Action
-    icon:
-      sprite: Effects/portal.rsi
-      state: portal-blue
-    useDelay: 5
-  - type: InstantAction
-    event: !type:RequestExtractionActionEvent
-
-- type: entity
-  parent: BaseAction
-  id: ActionCallDropPod
-  name: Call drop pod
-  description: Call a drop pod to the tile you are standing on. Only works inside your extraction zone. Step aside before it lands!
-  components:
-  - type: Action
-    icon:
-      sprite: _Maid/Structures/Storage/drop_pod.rsi
-      state: icon
-    useDelay: 5
-  - type: InstantAction
-    event: !type:CallDropPodActionEvent
+  - type: Sprite
+    sprite: _Maid/Objects/Devices/extraction_device.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ExtractionDevice
+  - type: ActivatableUI
+    inHandsOnly: true
+    singleUser: true
+    key: enum.ExtractionDeviceUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ExtractionDeviceUiKey.Key:
+        type: ExtractionDeviceBoundUserInterface
 
 - type: entity
   parent: BaseAction

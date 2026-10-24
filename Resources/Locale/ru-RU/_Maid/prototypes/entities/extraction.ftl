@@ -1,3 +1,5 @@
+ent-ExtractionDevice = устройство неизвестного назначения
+    .desc = Устройство неизвестного назначения.
 ent-ExtractionZoneMarker = Маркер отхода
     .desc = Маркер отхода.
 ent-ExtractionDropPod = десантная капсула

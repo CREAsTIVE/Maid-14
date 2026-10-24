@@ -13,10 +13,10 @@ public sealed partial class DropPodLanding
     public EntProtoId PodPrototype = "ExtractionDropPod";
 
     /// <summary>
-    /// Destroy everything on the landing tile, walls included, and gib bodies.
+    /// Gib whatever is alive and standing on the landing tile. Objects are left alone.
     /// </summary>
     [DataField]
-    public bool ClearTile = true;
+    public bool CrushLiving = true;
 
     /// <summary>
     /// Impact heard nearby, positional. Same split as explosions and meteors.
