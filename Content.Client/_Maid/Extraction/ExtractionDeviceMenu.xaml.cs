@@ -23,13 +23,11 @@ public sealed partial class ExtractionDeviceMenu : DefaultWindow
 
     public void UpdateState(ExtractionDeviceUiState state)
     {
-        var status = new FormattedMessage();
-        status.PushColor(state.Unlocked ? DoneColor : NotDoneColor);
-        status.AddText(Loc.GetString(state.Unlocked ? "extraction-device-ui-done" : "extraction-device-ui-not-done"));
-        status.Pop();
-        StatusLabel.SetMessage(status);
+        SetColored(StatusLabel,
+            Loc.GetString(state.Unlocked ? "extraction-device-ui-done" : "extraction-device-ui-not-done"),
+            state.Unlocked ? DoneColor : NotDoneColor);
 
-        ProgressLabel.Text = state.Progress;
+        SetText(ProgressLabel, state.Progress);
 
         ObjectivesList.RemoveAllChildren();
         foreach (var objective in state.Objectives)
@@ -38,21 +36,36 @@ public sealed partial class ExtractionDeviceMenu : DefaultWindow
                 ("mark", objective.Completed ? "✔" : "✘"),
                 ("title", objective.Title));
 
-            ObjectivesList.AddChild(new Label
-            {
-                Text = text,
-                FontColorOverride = objective.Completed ? DoneColor : NotDoneColor,
-            });
+            var label = new RichTextLabel { HorizontalExpand = true };
+            SetColored(label, text, objective.Completed ? DoneColor : NotDoneColor);
+            ObjectivesList.AddChild(label);
         }
 
-        ZoneLabel.Text = Loc.GetString("extraction-device-ui-zone-status", ("zone", state.Zone));
-        PodLabel.Text = Loc.GetString("extraction-device-ui-pod-status", ("pod", state.Pod));
-        RerollsLabel.Text = Loc.GetString("extraction-device-ui-rerolls", ("count", state.RerollsLeft));
-        CodeLabel.Text = state.Code is { } code
+        SetText(ZoneLabel, Loc.GetString("extraction-device-ui-zone-status", ("zone", state.Zone)));
+        SetText(PodLabel, Loc.GetString("extraction-device-ui-pod-status", ("pod", state.Pod)));
+        SetText(CodeLabel, state.Code is { } code
             ? Loc.GetString("extraction-device-ui-code", ("code", code))
-            : Loc.GetString("extraction-device-ui-code-none");
+            : Loc.GetString("extraction-device-ui-code-none"));
+        SetText(RerollsLabel, Loc.GetString("extraction-device-ui-rerolls", ("count", state.RerollsLeft)));
 
         ZoneButton.Disabled = !state.CanRequestZone;
         PodButton.Disabled = !state.CanCallPod;
+    }
+
+    /// <summary>
+    /// Rich text labels wrap long lines instead of stretching the window.
+    /// </summary>
+    private static void SetText(RichTextLabel label, string text)
+    {
+        label.SetMessage(FormattedMessage.FromUnformatted(text));
+    }
+
+    private static void SetColored(RichTextLabel label, string text, Color color)
+    {
+        var message = new FormattedMessage();
+        message.PushColor(color);
+        message.AddText(text);
+        message.Pop();
+        label.SetMessage(message);
     }
 }
