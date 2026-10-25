@@ -1,3 +1,4 @@
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
@@ -24,11 +25,13 @@ public sealed class SharedDropPodSystem : EntitySystem
     }
 
     /// <summary>
-    /// Only the extractee fits inside: no items, no other people.
+    /// Only living creatures fit inside, items stay out.
     /// </summary>
     private void OnInsertAttempt(Entity<DropPodComponent> ent, ref ContainerIsInsertingAttemptEvent args)
     {
-        if (args.Container.ID != SharedEntityStorageSystem.ContainerName || args.EntityUid == ent.Comp.Extractee)
+        if (args.Container.ID != SharedEntityStorageSystem.ContainerName
+            || args.EntityUid == ent.Comp.Extractee
+            || HasComp<MobStateComponent>(args.EntityUid))
             return;
 
         args.Cancel();
