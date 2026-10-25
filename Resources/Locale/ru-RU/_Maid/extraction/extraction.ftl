@@ -1,15 +1,21 @@
 extraction-notify-popup = Новое сообщение об эвакуации. Проверьте чат.
 extraction-unlocked = Задания выполнены. Откройте устройство, нажмите «Обозначить зону для отхода», а находясь в зоне — «Подготовить капсулу». Код капсулы: { $code }.
 extraction-unlocked-forced = Эвакуация разрешена досрочно. Откройте устройство, нажмите «Обозначить зону для отхода», а находясь в зоне — «Подготовить капсулу». Код капсулы: { $code }.
-extraction-zone-designated = Точка отхода назначена: { $location }. Встаньте в зону и нажмите «Подготовить капсулу» в устройстве. Осталось переносов: { $left }.
-extraction-no-requests-zone = Точку отхода больше нельзя перенести. Она по-прежнему здесь: { $location }.
+extraction-zone-designated = Назначены точки отхода:
+    { $location }
+    Встаньте в любую из зон и нажмите «Подготовить капсулу» в устройстве. Осталось переносов: { $left }.
+extraction-no-requests-zone = Точки отхода больше нельзя перенести. Они по-прежнему здесь:
+    { $location }
 extraction-no-requests = Запросов на эвакуацию больше не осталось.
 extraction-no-zone = Подходящая точка отхода на станции не найдена.
-extraction-zone-lost = Точка отхода уничтожена. Назначена новая: { $location }.
-extraction-zone-lost-none = Точка отхода уничтожена, а новую найти не удалось. Обратитесь к администрации.
-extraction-zone-reset = Можно снова запросить точку отхода.
+extraction-zone-lost = Все точки отхода уничтожены. Назначены новые:
+    { $location }
+extraction-zone-lost-none = Все точки отхода уничтожены, а новые найти не удалось. Обратитесь к администрации.
+extraction-zone-reset = Можно снова запросить точки отхода и вызвать капсулу.
 extraction-reminder = Эвакуация разрешена. Откройте устройство и нажмите «Обозначить зону для отхода». Код капсулы: { $code }.
-extraction-reminder-zone = Точка отхода: { $location }. Код капсулы: { $code }.
+extraction-reminder-zone = Точки отхода:
+    { $location }
+    Код капсулы: { $code }.
 extraction-not-in-zone = Нужно находиться в зоне отхода.
 extraction-zone-coordinates = { $location }, координаты: { $x }, { $y }
 extraction-zone-marker-desc = Маркер отхода «{ $name }».
@@ -37,10 +43,7 @@ extraction-pod-leaving-soon = Капсула покинет станцию че�
    *[other] секунд
 }, с вами или без вас!
 extraction-pod-left-without = Капсула покинула станцию без вас. Другой не будет.
-extraction-pod-lost = Капсула не смогла найти точку посадки. Вызвать её снова можно через { $seconds } { $seconds ->
-    [one] секунду
-    [few] секунды
-   *[other] секунд
+extraction-pod-lost = Капсула не смогла приземлиться: места посадки больше нет. Вызов потрачен, другого не будет.
 }.
 extraction-pod-destroyed = Капсула уничтожена. Другой не будет.
 extraction-pod-inside = Нажмите «СТАРТ», чтобы взлететь.
@@ -76,7 +79,7 @@ extraction-device-progress-percent = Выполнено { $completed } из { $t
 extraction-device-progress-count = Выполнено { $completed } из { $total } (нужно { $needed })
 extraction-device-ui-objective = { $mark } { $title }
 extraction-device-ui-objective-required = { $mark } { $title } (обязательно)
-extraction-device-ui-zone-status = Зона отхода: { $zone }.
+extraction-device-ui-zone-status = Зоны отхода: { $zone }
 extraction-device-ui-pod-status = Капсула: { $pod }.
 extraction-device-ui-rerolls = Количество попыток для переназначения зоны: { $count }
 extraction-device-ui-code = Код доступа: { $code }.
@@ -91,5 +94,4 @@ extraction-device-pod-landed = на станции, улетит через { $t
 extraction-device-pod-landed-forever = на станции
 extraction-device-pod-launching = взлёт через { $seconds } с
 extraction-device-pod-gone = больше недоступна
-extraction-device-pod-recall = повторный вызов через { $seconds } с
 extraction-device-ui-objectives-header = Цели

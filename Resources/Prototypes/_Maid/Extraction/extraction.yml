@@ -76,9 +76,6 @@
       map: ["enum.StorageVisualLayers.Base"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
-    - state: glow_red
-      shader: unshaded
-      map: ["enum.DropPodVisualLayers.Glow"]
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -103,14 +100,6 @@
   - type: EntityStorageVisuals
     stateBaseClosed: base
     stateDoorClosed: door
-  - type: GenericVisualizer
-    visuals:
-      enum.DropPodVisuals.Glow:
-        enum.DropPodVisualLayers.Glow:
-          Locked: { state: glow_red }
-          Unlocked: { state: glow_green }
-          Sealed: { state: glow_blue }
-          Launching: { state: glow_yellow }
   - type: PointLight
     radius: 1.5
     energy: 0.6

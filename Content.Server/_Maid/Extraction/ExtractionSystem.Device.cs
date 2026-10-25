@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared._Maid.Extraction;
 using Content.Shared.Database;
 using Content.Shared.Mind;
@@ -119,8 +120,8 @@ public sealed partial class ExtractionSystem
         // the first request is not a re-roll
         var rerollsLeft = Math.Max(0, comp.MaxRequests - Math.Max(comp.RequestsUsed, 1));
 
-        var zone = comp.Zone is { } zoneUid && !TerminatingOrDeleted(zoneUid)
-            ? GetZoneLocation(ent, zoneUid)
+        var zone = comp.Zones.Any(z => !TerminatingOrDeleted(z))
+            ? "\n" + GetZonesLocation(ent)
             : Loc.GetString("extraction-device-zone-none");
 
         var state = new ExtractionDeviceUiState(
@@ -159,9 +160,6 @@ public sealed partial class ExtractionSystem
 
         if (ent.Comp.PodCalled)
             return Loc.GetString("extraction-device-pod-gone");
-
-        if (now < ent.Comp.PodRecallAt)
-            return Loc.GetString("extraction-device-pod-recall", ("seconds", SecondsLeft(ent.Comp.PodRecallAt, now)));
 
         return Loc.GetString("extraction-device-pod-none");
     }

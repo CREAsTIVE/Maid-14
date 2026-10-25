@@ -24,20 +24,8 @@ public sealed class DropPodLaunchAnimationEvent(NetCoordinates coordinates, floa
     public readonly Vector2 Offset = offset;
 }
 
-[Serializable, NetSerializable]
-public enum DropPodVisuals : byte
-{
-    Glow,
-}
-
-[Serializable, NetSerializable]
-public enum DropPodVisualLayers : byte
-{
-    Glow,
-}
-
 /// <summary>
-/// Glow of the pod: red while locked, green once the code is entered, blue when sealed for launch, yellow on lift-off.
+/// Light of the pod: red while locked, green once the code is entered, blue when sealed for launch, yellow on lift-off.
 /// </summary>
 [Serializable, NetSerializable]
 public enum DropPodGlow : byte

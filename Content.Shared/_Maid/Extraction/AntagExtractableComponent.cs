@@ -1,7 +1,6 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Maid.Extraction;
 
@@ -77,17 +76,27 @@ public sealed partial class AntagExtractableComponent : Component
     [DataField]
     public bool ForceUnlocked;
 
+    /// <summary>
+    /// Current extraction zones. A new set is given only when all of them are destroyed.
+    /// </summary>
     [DataField, AutoNetworkedField]
-    public EntityUid? Zone;
+    public List<EntityUid> Zones = new();
+
+    /// <summary>
+    /// How many zones one request designates.
+    /// </summary>
+    [DataField]
+    public int ZoneCount = 3;
 
     [DataField]
     public EntProtoId ZonePrototype = "ExtractionZoneMarker";
 
     /// <summary>
-    /// Component name of the entities the zone is placed at, on a station's main grid.
+    /// Component names of the entities zones are placed at, on the largest grid of the station, in order of preference.
+    /// When there are not enough of the first kind the next one is used, then random tiles inside the station.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(ComponentNameSerializer))]
-    public string ZoneAnchorComponent = "Holopad";
+    [DataField]
+    public List<string> ZoneAnchorComponents = new() { "Holopad", "NavMapBeacon" };
 
     /// <summary>
     /// Anchor prototypes the zone never spawns at, e.g. the holopad inside the AI core.
@@ -111,19 +120,10 @@ public sealed partial class AntagExtractableComponent : Component
     public bool DeviceGiven;
 
     /// <summary>
-    /// The pod can be called only once. Reset only when the landing failed, e.g. the grid was gone.
+    /// The pod can be called only once. Only the admin reset command allows another call.
     /// </summary>
     [DataField]
     public bool PodCalled;
-
-    /// <summary>
-    /// After a failed landing the pod can be called again from this time.
-    /// </summary>
-    [DataField]
-    public TimeSpan PodRecallAt;
-
-    [DataField]
-    public TimeSpan PodRecallDelay = TimeSpan.FromSeconds(30);
 
     /// <summary>
     /// Code that unlocks the drop pod, given to the player on unlock. Server only.

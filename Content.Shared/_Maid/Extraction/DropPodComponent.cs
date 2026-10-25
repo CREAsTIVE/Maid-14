@@ -76,7 +76,6 @@ public sealed partial class DropPodComponent : Component
     {
         new SpriteSpecifier.Rsi(new ResPath("_Maid/Structures/Storage/drop_pod.rsi"), "base"),
         new SpriteSpecifier.Rsi(new ResPath("_Maid/Structures/Storage/drop_pod.rsi"), "door"),
-        new SpriteSpecifier.Rsi(new ResPath("_Maid/Structures/Storage/drop_pod.rsi"), "glow_yellow"),
     };
 
     /// <summary>

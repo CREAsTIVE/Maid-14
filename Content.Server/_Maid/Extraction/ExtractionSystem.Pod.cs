@@ -35,17 +35,21 @@ public sealed partial class ExtractionSystem
     #region Calling and landing
 
     /// <summary>
-    /// The pod can be called once, and only from inside the extraction zone.
+    /// The pod can be called once, and only from inside one of the extraction zones.
+    /// After the call the extractee may leave, the pod still lands where it was called.
     /// </summary>
     private bool CanCallPod(Entity<AntagExtractableComponent> ent, TimeSpan now)
     {
-        return ent.Comp.Unlocked
-               && !ent.Comp.Extracted
-               && !ent.Comp.PodCalled
-               && now >= ent.Comp.PodRecallAt
-               && ent.Comp.Zone is { } zone
-               && TryComp<ExtractionZoneComponent>(zone, out var zoneComp)
-               && _zone.IsInZone((zone, zoneComp), ent.Owner);
+        if (!ent.Comp.Unlocked || ent.Comp.Extracted || ent.Comp.PodCalled)
+            return false;
+
+        foreach (var zone in ent.Comp.Zones)
+        {
+            if (TryComp<ExtractionZoneComponent>(zone, out var zoneComp) && _zone.IsInZone((zone, zoneComp), ent.Owner))
+                return true;
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -120,16 +124,14 @@ public sealed partial class ExtractionSystem
     }
 
     /// <summary>
-    /// The call did not go through, it can be made again after a delay.
+    /// The pod could not land. The call is spent all the same, only the admin reset command gives another one.
     /// </summary>
     private void FailPodLanding(Entity<AntagExtractableComponent> ent, TimeSpan now)
     {
         ent.Comp.PodTarget = null;
         ent.Comp.PodAnnounceAt = null;
-        ent.Comp.PodCalled = false;
-        ent.Comp.PodRecallAt = now + ent.Comp.PodRecallDelay;
 
-        Notify(ent, Loc.GetString(ent.Comp.Messages.PodLost, ("seconds", (int) ent.Comp.PodRecallDelay.TotalSeconds)));
+        Notify(ent, Loc.GetString(ent.Comp.Messages.PodLost));
         _adminLog.Add(LogType.Action, LogImpact.Low, $"Extraction drop pod of {ToPrettyString(ent.Owner):player} lost its landing point");
     }
 
@@ -262,8 +264,6 @@ public sealed partial class ExtractionSystem
 
     private void SetGlow(Entity<DropPodComponent> ent, DropPodGlow glow)
     {
-        _appearance.SetData(ent.Owner, DropPodVisuals.Glow, glow);
-
         if (ent.Comp.GlowColors.TryGetValue(glow, out var color))
             _pointLight.SetColor(ent.Owner, color);
     }
