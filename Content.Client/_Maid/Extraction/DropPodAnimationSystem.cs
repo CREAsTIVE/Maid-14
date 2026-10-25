@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Client.Storage.Visualizers;
 using Content.Shared._Maid.Extraction;
+using Content.Shared.Storage;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -17,6 +18,7 @@ namespace Content.Client._Maid.Extraction;
 public sealed class DropPodAnimationSystem : EntitySystem
 {
     [Dependency] private readonly AnimationPlayerSystem _player = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -30,6 +32,26 @@ public sealed class DropPodAnimationSystem : EntitySystem
         SubscribeNetworkEvent<DropPodLaunchAnimationEvent>(OnLaunchAnimation);
         SubscribeLocalEvent<DropPodComponent, ComponentStartup>(OnPodStartup);
         SubscribeLocalEvent<DropPodComponent, AnimationCompletedEvent>(OnPodAnimationCompleted);
+        // the storage visualizer shows the closed door on every appearance update, hide it again while landing
+        SubscribeLocalEvent<DropPodComponent, AppearanceChangeEvent>(OnPodAppearanceChange,
+            after: new[] { typeof(EntityStorageVisualizerSystem) });
+    }
+
+    private bool IsLanding(DropPodComponent pod)
+    {
+        return _timing.CurTime - pod.LandedAt <= pod.LandingAnimationLength;
+    }
+
+    private void SetDoorVisible(EntityUid uid, SpriteComponent sprite, bool visible)
+    {
+        if (_sprite.LayerMapTryGet((uid, sprite), StorageVisualLayers.Door, out var door, false))
+            _sprite.LayerSetVisible((uid, sprite), door, visible);
+    }
+
+    private void OnPodAppearanceChange(Entity<DropPodComponent> ent, ref AppearanceChangeEvent args)
+    {
+        if (args.Sprite != null && IsLanding(ent.Comp))
+            SetDoorVisible(ent.Owner, args.Sprite, false);
     }
 
     /// <summary>
@@ -38,12 +60,11 @@ public sealed class DropPodAnimationSystem : EntitySystem
     private void OnPodStartup(Entity<DropPodComponent> ent, ref ComponentStartup args)
     {
         var length = ent.Comp.LandingAnimationLength;
-        if (_timing.CurTime - ent.Comp.LandedAt > length || !TryComp<SpriteComponent>(ent, out var sprite))
+        if (!IsLanding(ent.Comp) || !TryComp<SpriteComponent>(ent, out var sprite))
             return;
 
         // the door is drawn by the storage visualizer on top, hide it until the pod has risen
-        if (_sprite.LayerMapTryGet((ent.Owner, sprite), StorageVisualLayers.Door, out var door, false))
-            _sprite.LayerSetVisible((ent.Owner, sprite), door, false);
+        SetDoorVisible(ent.Owner, sprite, false);
 
         var animation = new Animation
         {
@@ -70,8 +91,9 @@ public sealed class DropPodAnimationSystem : EntitySystem
         if (args.Key != LandingKey || !TryComp<SpriteComponent>(ent, out var sprite))
             return;
 
-        if (_sprite.LayerMapTryGet((ent.Owner, sprite), StorageVisualLayers.Door, out var door, false))
-            _sprite.LayerSetVisible((ent.Owner, sprite), door, true);
+        // back to what the storage visualizer would show: the door only while closed
+        _appearance.TryGetData<bool>(ent.Owner, StorageVisuals.Open, out var open);
+        SetDoorVisible(ent.Owner, sprite, !open);
     }
 
     private void OnLaunchAnimation(DropPodLaunchAnimationEvent ev)
