@@ -91,12 +91,13 @@ public sealed class StalinManager
 
         _nextAllowedCheck[userId] = DateTime.Now.AddSeconds(_random.NextDouble(3, 8));
 
-        if (!_registeredCache.TryGetValue(userId, out var data))
-        {
-            data = await RequestDiscordUserDataAsync(session);
-            if (data != null)
-                _registeredCache[userId] = data;
-        }
+        // Always ask the service, so an account unlinked since it was cached doesn't keep passing.
+        // The cache is only a fallback when the service can't be reached.
+        var (succeeded, data) = await RequestDiscordUserDataAsync(session);
+        if (succeeded)
+            UpdateCache(userId, data);
+        else
+            _registeredCache.TryGetValue(userId, out data);
 
         return Verify(data);
     }
@@ -112,10 +113,10 @@ public sealed class StalinManager
 
     private (bool Allow, string ErrorMessage) Verify(DiscordUserData? data)
     {
-        if (data == null)
+        if (data is not { IsValidRegistration: true, DiscordCreatedAt: { } createdAt })
             return (false, Loc.GetString("stalin-discord-doesnt-link"));
 
-        var age = (DateTime.UtcNow - data.DiscordCreatedAt).TotalSeconds;
+        var age = (DateTime.UtcNow - createdAt).TotalSeconds;
         if (age < _minimalDiscordAge)
         {
             var neededMinutes = (long) Math.Ceiling((_minimalDiscordAge - age) / 60);
@@ -136,9 +137,20 @@ public sealed class StalinManager
             return;
         }
 
-        var data = await RequestDiscordUserDataAsync(e.Session);
-        if (data != null)
-            _registeredCache[e.Session.UserId] = data;
+        var (succeeded, data) = await RequestDiscordUserDataAsync(e.Session);
+        if (succeeded)
+            UpdateCache(e.Session.UserId, data);
+    }
+
+    /// <summary>
+    ///     Stores a confirmed registration, or drops the player if the service no longer confirms one.
+    /// </summary>
+    private void UpdateCache(NetUserId userId, DiscordUserData? data)
+    {
+        if (data is { IsValidRegistration: true })
+            _registeredCache[userId] = data;
+        else
+            _registeredCache.Remove(userId);
     }
 
     /// <summary>
@@ -175,17 +187,20 @@ public sealed class StalinManager
         if (response == null)
             return;
 
-        foreach (var (uid, data) in response)
+        // Reconcile everyone we asked about: missing or unconfirmed entries are dropped from the cache.
+        foreach (var session in sessions)
         {
-            if (data.Registered && Guid.TryParse(uid, out var guid))
-                _registeredCache[new NetUserId(guid)] = data;
+            response.TryGetValue(session.UserId.ToString(), out var data);
+            UpdateCache(session.UserId, data);
         }
     }
 
     /// <summary>
-    ///     Asks the service whether the player's account is linked. Returns null if it is not or the request failed.
+    ///     Asks the service whether the player's account is linked.
+    ///     <c>Succeeded</c> is false if the service couldn't be asked; then <c>Data</c> says nothing about the player.
+    ///     On success <c>Data</c> is the confirmed registration, or null if the account isn't (validly) linked.
     /// </summary>
-    private async Task<DiscordUserData?> RequestDiscordUserDataAsync(ICommonSession session)
+    private async Task<(bool Succeeded, DiscordUserData? Data)> RequestDiscordUserDataAsync(ICommonSession session)
     {
         HttpResponseMessage response;
         try
@@ -196,13 +211,13 @@ public sealed class StalinManager
         {
             _sawmill.Warning($"Stalin API request failed: {e.Message}");
             _chat.DispatchServerMessage(session, Loc.GetString("stalin-request-failed", ("error", e.Message)));
-            return null;
+            return (false, null);
         }
 
         if (!response.IsSuccessStatusCode)
         {
             _chat.DispatchServerMessage(session, Loc.GetString("stalin-request-failed", ("error", response.StatusCode)));
-            return null;
+            return (false, null);
         }
 
         DiscordUserData? result;
@@ -213,10 +228,10 @@ public sealed class StalinManager
         catch (Exception e)
         {
             _sawmill.Warning($"Stalin API returned malformed data: {e.Message}");
-            return null;
+            return (false, null);
         }
 
-        return result is { Registered: true } ? result : null;
+        return (true, result is { IsValidRegistration: true } ? result : null);
     }
 
     private void OnDiscordAuthRequest(DiscordAuthRequest message)

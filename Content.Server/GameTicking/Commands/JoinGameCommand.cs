@@ -27,6 +27,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Roles;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
+using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Commands
@@ -49,7 +50,38 @@ namespace Content.Server.GameTicking.Commands
         {
             IoCManager.InjectDependencies(this);
         }
-        public async void Execute(IConsoleShell shell, string argStr, string[] args) // MAID stalin bunker - async
+        // MAID BEGIN stalin bunker
+        public async void Execute(IConsoleShell shell, string argStr, string[] args)
+        {
+            // async void: exceptions would not reach the console host, so report them here.
+            try
+            {
+                if (shell.Player is { } player && _cfg.GetCVar(MaidCVars.StalinEnabled))
+                {
+                    var (allow, errorMessage) = await _stalin.AllowEnter(player);
+                    if (!allow)
+                    {
+                        _chat.DispatchServerMessage(player, errorMessage);
+                        return;
+                    }
+
+                    // The player may have left while we waited for the service.
+                    if (player.Status != SessionStatus.InGame)
+                        return;
+                }
+
+                // Runs all the original checks (lobby/in-game state, slots) after the await.
+                ExecuteJoin(shell, args);
+            }
+            catch (Exception e)
+            {
+                Logger.GetSawmill("joingame").Error($"joingame failed for {shell.Player?.Name}: {e}");
+                shell.WriteError(Loc.GetString("cmd-joingame-error"));
+            }
+        }
+
+        private void ExecuteJoin(IConsoleShell shell, string[] args) // was Execute before the stalin bunker
+        // MAID END stalin bunker
         {
             if (args.Length != 2)
             {
@@ -73,18 +105,6 @@ namespace Content.Server.GameTicking.Commands
                 shell.WriteError($"{player.Name} is not in the lobby.   This incident will be reported.");
                 return;
             }
-
-            // MAID BEGIN stalin bunker
-            if (_cfg.GetCVar(MaidCVars.StalinEnabled))
-            {
-                var (allow, errorMessage) = await _stalin.AllowEnter(player);
-                if (!allow)
-                {
-                    _chat.DispatchServerMessage(player, errorMessage);
-                    return;
-                }
-            }
-            // MAID END stalin bunker
 
             if (ticker.RunLevel == GameRunLevel.PreRoundLobby)
             {

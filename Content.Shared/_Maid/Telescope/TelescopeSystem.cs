@@ -51,6 +51,10 @@ public sealed class TelescopeSystem : EntitySystem
     /// </summary>
     public void SetOffset(Entity<TelescopeComponent> telescope, EntityUid user, Vector2 offset)
     {
+        // The offset may come from a client: NaN would slip past the length check below and infinity would turn into NaN.
+        if (!float.IsFinite(offset.X) || !float.IsFinite(offset.Y))
+            offset = Vector2.Zero;
+
         var maxOffset = 1f / MathF.Max(telescope.Comp.Divisor, 0.01f);
         if (offset.LengthSquared() > maxOffset * maxOffset)
             offset = Vector2.Normalize(offset) * maxOffset;

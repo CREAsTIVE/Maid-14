@@ -11,12 +11,18 @@ public sealed class DiscordUserData
     public bool Registered { get; set; }
 
     /// <summary>
-    ///     Discord account creation time, unix seconds.
+    ///     Discord account creation time, unix seconds. Null if the service didn't send it.
     /// </summary>
     [JsonPropertyName("created_at")]
-    public double UnixTimestamp { get; set; }
+    public double? UnixTimestamp { get; set; }
 
-    public DateTime DiscordCreatedAt => DateTime.UnixEpoch.AddSeconds(UnixTimestamp);
+    public DateTime? DiscordCreatedAt => UnixTimestamp is { } ts ? DateTime.UnixEpoch.AddSeconds(ts) : null;
+
+    /// <summary>
+    ///     A linked account with a known creation time. Anything else must not let the player in:
+    ///     a missing timestamp would otherwise read as 1970 and pass any age check.
+    /// </summary>
+    public bool IsValidRegistration => Registered && UnixTimestamp is > 0;
 }
 
 public sealed class DiscordUsersDataRequest

@@ -467,6 +467,7 @@ namespace Content.Server.GameTicking
             var readyPlayerProfiles = new Dictionary<NetUserId, HumanoidCharacterProfile>();
             var autoDeAdmin = _cfg.GetCVar(CCVars.AdminDeadminOnJoin);
             var stalinBunker = _cfg.GetCVar(MaidCVars.StalinEnabled); // MAID stalin bunker
+            var stalinDenied = 0; // MAID stalin bunker
             foreach (var (userId, status) in _playerGameStatuses)
             {
                 if (LobbyEnabled && status != PlayerGameStatus.ReadyToPlay) continue;
@@ -479,6 +480,7 @@ namespace Content.Server.GameTicking
                     if (!allow)
                     {
                         _chatManager.DispatchServerMessage(session, errorMessage);
+                        stalinDenied++;
                         continue;
                     }
                 }
@@ -505,7 +507,11 @@ namespace Content.Server.GameTicking
                 readyPlayerProfiles.Add(userId, profile);
             }
 
-            DebugTools.AssertEqual(readyPlayers.Count, ReadyPlayerCount());
+            // MAID BEGIN stalin bunker
+            /* DebugTools.AssertEqual(readyPlayers.Count, ReadyPlayerCount()); */
+            // Players kept out by the bunker are still counted as ready.
+            DebugTools.AssertEqual(readyPlayers.Count + stalinDenied, ReadyPlayerCount());
+            // MAID END stalin bunker
 
             // Just in case it hasn't been loaded previously we'll try loading it.
             LoadMaps();
