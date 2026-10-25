@@ -162,7 +162,6 @@ using Robust.Shared.Timing;
 using Content.Client._White.Explosion;
 using Content.Client._White.ItemSlotRenderer;
 using Content.Client._White.Reputation;
-using Content.Client._Maid.Stalin;
 
 namespace Content.Client.Entry
 {
@@ -268,7 +267,6 @@ namespace Content.Client.Entry
             _jobRequirements.Initialize();
             _playbackMan.Initialize();
             _clientsidePlaytimeManager.Initialize();
-            IoCManager.Resolve<StalinManager>().Initialize(); // MAID stalin bunker
 
             //AUTOSCALING default Setup!
             _configManager.SetCVar("interface.resolutionAutoScaleUpperCutoffX", 1080);

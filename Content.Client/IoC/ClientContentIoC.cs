@@ -148,7 +148,6 @@ using Content.Shared.Administration.Managers;
 using Content.Shared.Chat;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
-using Content.Client._Maid.Stalin;
 
 namespace Content.Client.IoC
 {
@@ -189,7 +188,6 @@ namespace Content.Client.IoC
             collection.Register<ClientsidePlaytimeTrackingManager>();
             collection.Register<ITrailLineManager, TrailSplineManager>(); // WD bullet trails
             collection.Register<ReputationManager>(); // WD OOC reputation
-            collection.Register<StalinManager>(); // MAID stalin bunker
         }
     }
 }

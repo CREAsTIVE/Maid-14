@@ -133,7 +133,6 @@
 
 using Content.Server._Goobstation.Antag;
 using Content.Server._Maid.TTS;
-using Content.Server._Maid.Stalin;
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -247,7 +246,6 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<ServerInfoManager>().Initialize();
                 IoCManager.Resolve<ServerApi>().Initialize();
                 IoCManager.Resolve<TTSManager>().Initialize(); //Maid edit
-                IoCManager.Resolve<StalinManager>().Initialize(); // MAID stalin bunker
 
                 _voteManager.Initialize();
                 _updateManager.Initialize();

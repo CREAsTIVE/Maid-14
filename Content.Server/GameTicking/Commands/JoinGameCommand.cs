@@ -16,10 +16,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Maid.Stalin;
 using Content.Server.Administration.Managers;
-using Content.Server.Chat.Managers;
-using Content.Shared._Maid.CVars;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -27,7 +24,6 @@ using Content.Shared.GameTicking;
 using Content.Shared.Roles;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
-using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Commands
@@ -39,8 +35,6 @@ namespace Content.Server.GameTicking.Commands
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly StalinManager _stalin = default!; // MAID stalin bunker
-        [Dependency] private readonly IChatManager _chat = default!; // MAID stalin bunker
 
         public string Command => "joingame";
         public string Description => "";
@@ -50,38 +44,7 @@ namespace Content.Server.GameTicking.Commands
         {
             IoCManager.InjectDependencies(this);
         }
-        // MAID BEGIN stalin bunker
-        public async void Execute(IConsoleShell shell, string argStr, string[] args)
-        {
-            // async void: exceptions would not reach the console host, so report them here.
-            try
-            {
-                if (shell.Player is { } player && _cfg.GetCVar(MaidCVars.StalinEnabled))
-                {
-                    var (allow, errorMessage) = await _stalin.AllowEnter(player);
-                    if (!allow)
-                    {
-                        _chat.DispatchServerMessage(player, errorMessage);
-                        return;
-                    }
-
-                    // The player may have left while we waited for the service.
-                    if (player.Status != SessionStatus.InGame)
-                        return;
-                }
-
-                // Runs all the original checks (lobby/in-game state, slots) after the await.
-                ExecuteJoin(shell, args);
-            }
-            catch (Exception e)
-            {
-                Logger.GetSawmill("joingame").Error($"joingame failed for {shell.Player?.Name}: {e}");
-                shell.WriteError(Loc.GetString("cmd-joingame-error"));
-            }
-        }
-
-        private void ExecuteJoin(IConsoleShell shell, string[] args) // was Execute before the stalin bunker
-        // MAID END stalin bunker
+        public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             if (args.Length != 2)
             {
