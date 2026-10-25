@@ -145,6 +145,7 @@ public sealed partial class ExtractionSystem
 
         var podComp = Comp<DropPodComponent>(pod);
         podComp.Extractee = ent.Owner;
+        Dirty(pod, podComp);
         ent.Comp.Pod = pod;
 
         Notify(ent, Loc.GetString(ent.Comp.Messages.PodLanded,
@@ -174,6 +175,8 @@ public sealed partial class ExtractionSystem
 
         var pod = Spawn(landing.PodPrototype, center);
         var podComp = EnsureComp<DropPodComponent>(pod);
+        podComp.LandedAt = _timing.CurTime;
+        Dirty(pod, podComp);
 
         if (podComp.AutoLaunchDelay > TimeSpan.Zero)
             podComp.AutoLaunchAt = _timing.CurTime + podComp.AutoLaunchDelay;

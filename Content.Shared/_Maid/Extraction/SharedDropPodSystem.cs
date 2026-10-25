@@ -1,5 +1,7 @@
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
+using Content.Shared.Storage.EntitySystems;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 
 namespace Content.Shared._Maid.Extraction;
@@ -18,6 +20,18 @@ public sealed class SharedDropPodSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<DropPodComponent, StorageOpenAttemptEvent>(OnOpenAttempt);
+        SubscribeLocalEvent<DropPodComponent, ContainerIsInsertingAttemptEvent>(OnInsertAttempt);
+    }
+
+    /// <summary>
+    /// Only the extractee fits inside: no items, no other people.
+    /// </summary>
+    private void OnInsertAttempt(Entity<DropPodComponent> ent, ref ContainerIsInsertingAttemptEvent args)
+    {
+        if (args.Container.ID != SharedEntityStorageSystem.ContainerName || args.EntityUid == ent.Comp.Extractee)
+            return;
+
+        args.Cancel();
     }
 
     private void OnOpenAttempt(Entity<DropPodComponent> ent, ref StorageOpenAttemptEvent args)

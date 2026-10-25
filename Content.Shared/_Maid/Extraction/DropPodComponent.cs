@@ -14,10 +14,29 @@ namespace Content.Shared._Maid.Extraction;
 public sealed partial class DropPodComponent : Component
 {
     /// <summary>
-    /// Not networked: the client never needs it, and it may point to an entity that is gone.
+    /// The only one allowed inside. Networked so the client predicts insertion the same way;
+    /// cleared when the extractee goes away so it never points to a deleted entity.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? Extractee;
+
+    /// <summary>
+    /// When the pod hit the station, the client plays the landing animation right after it.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan LandedAt;
+
+    [DataField]
+    public string LandingState = "landing";
+
+    [DataField]
+    public string BaseState = "base";
+
+    /// <summary>
+    /// Length of the landing animation: 0.5 s first frame, then 8 frames of 0.05 s.
     /// </summary>
     [DataField]
-    public EntityUid? Extractee;
+    public TimeSpan LandingAnimationLength = TimeSpan.FromSeconds(0.9);
 
     [DataField, AutoNetworkedField]
     public bool Locked = true;

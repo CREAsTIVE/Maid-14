@@ -807,11 +807,17 @@ public sealed partial class ExtractionSystem : EntitySystem
         ent.Comp.Zones.Clear();
         ent.Comp.PodTarget = null;
 
-        // the device must not keep pointing at a gone owner, it is networked
+        // the device and the pod must not keep pointing at a gone owner, they are networked
         if (ent.Comp.Device is { } device && TryComp<ExtractionDeviceComponent>(device, out var deviceComp))
         {
             deviceComp.Owner = null;
             Dirty(device, deviceComp);
+        }
+
+        if (ent.Comp.Pod is { } pod && TryComp<DropPodComponent>(pod, out var podComp) && podComp.Extractee == ent.Owner)
+        {
+            podComp.Extractee = null;
+            Dirty(pod, podComp);
         }
     }
 
