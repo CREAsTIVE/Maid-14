@@ -22,4 +22,6 @@
   contrabandInventory:
     FoodBakedDumplings: 2
     FoodSoupMiso: 2
+    FoodSoupMisoHot: 1 #Maid
+    FoodBakedDumplings: 1 #Maid
 # rice?

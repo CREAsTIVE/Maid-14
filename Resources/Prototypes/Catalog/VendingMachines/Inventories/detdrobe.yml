@@ -86,5 +86,8 @@
     SmokingPipeFilledTobacco: 1
     Matchbox: 2
 # Maid edit end
+  contrabandInventory: #Maid
+  ToyFigurineDetective: 1 #Maid
+  DrinkPremiumWhiskeyBottleFull: 1 #Maid
   emaggedInventory: # Goobstation
     CameraBug: 1
