@@ -105,6 +105,12 @@
     energy: 0.6
     color: "#ff3b3b"
   - type: DropPod
+    keypadSound:
+      path: /Audio/_Maid/Machines/DropPod/button_beep.ogg
+    unlockSound:
+      path: /Audio/_Maid/Machines/DropPod/success_sound.ogg
+    wrongCodeSound:
+      path: /Audio/_Maid/Machines/DropPod/failure_sound.ogg
   - type: UserInterface
     interfaces:
       enum.DropPodUiKey.Key:
