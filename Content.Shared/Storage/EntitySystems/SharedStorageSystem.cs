@@ -331,19 +331,23 @@ public abstract class SharedStorageSystem : EntitySystem
             !TryGetStorageLocation((uid, item), out var container, out var storage, out var loc))
             return true;
 
-        var storageEnt = new Entity<StorageComponent>(container.Owner, storage);
         var newSize = ItemSystem.GetSizePrototype(size ?? item.Size);
-        if (newSize > GetMaxItemSize((storageEnt.Owner, storageEnt.Comp)))
+        if (newSize > GetMaxItemSize((container.Owner, storage)))
             return false;
 
         IReadOnlyList<Box2i> baseShape = shape ?? item.Shape ?? newSize.DefaultShape;
 
-        // Check against the grid without the item itself.
-        storage.StoredItems.Remove(uid);
-        UpdateOccupied(storageEnt);
+        // Check against a scratch grid without the item itself, so the storage state isn't touched.
+        var occupied = new Dictionary<Vector2i, ulong>();
+        RemoveOccupied(storage.Grid, occupied);
+        foreach (var (stored, storedLoc) in storage.StoredItems)
+        {
+            if (stored != uid && _itemQuery.TryComp(stored, out var storedItem))
+                AddOccupied((stored, storedItem), storedLoc, occupied);
+        }
 
         var noIgnored = new Dictionary<Vector2i, ulong>();
-        var fits = ItemFitsInGridLocation(storage.OccupiedGrid, AdjustShape(baseShape, loc.Rotation, loc.Position), noIgnored);
+        var fits = ItemFitsInGridLocation(occupied, AdjustShape(baseShape, loc.Rotation, loc.Position), noIgnored);
 
         if (!fits)
         {
@@ -355,14 +359,11 @@ public abstract class SharedStorageSystem : EntitySystem
                     for (var turn = 0; turn < 4 && !fits; turn++)
                     {
                         var angle = Angle.FromDegrees(90 * turn);
-                        fits = ItemFitsInGridLocation(storage.OccupiedGrid, AdjustShape(baseShape, angle, new Vector2i(x, y)), noIgnored);
+                        fits = ItemFitsInGridLocation(occupied, AdjustShape(baseShape, angle, new Vector2i(x, y)), noIgnored);
                     }
                 }
             }
         }
-
-        storage.StoredItems[uid] = loc;
-        UpdateOccupied(storageEnt);
 
         return fits;
     }

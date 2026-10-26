@@ -415,7 +415,7 @@ public abstract class SharedItemSystem : EntitySystem
             // MAID END storage resize overflow
         }
         // MAID BEGIN storage resize overflow
-        else if (oldContainer != null && HasComp<StorageComponent>(oldContainer.Owner))
+        else if (oldContainer?.ID == StorageComponent.ContainerId)
         {
             // Storage ejected the item because it no longer fits, so hand it to whoever toggled it.
             _handsSystem.PickupOrDrop(args.User, uid, animate: false);
