@@ -288,12 +288,36 @@ public abstract class SharedStorageSystem : EntitySystem
             return;
         }
 
+        // MAID BEGIN storage resize overflow
+        /*
         UpdateOccupied((container.Owner, storage));
 
         if (!ItemFitsInGridLocation((itemEnt.Owner, itemEnt.Comp), (container.Owner, storage), loc))
         {
             ContainerSystem.Remove(itemEnt.Owner, container, force: true);
         }
+        */
+        // Rebuild the occupied grid without the resized item. Otherwise the fit check ignores the
+        // item's own (already resized) cells, so it always passes and the item overflows the grid.
+        storage.StoredItems.Remove(itemEnt.Owner);
+        UpdateOccupied((container.Owner, storage));
+
+        if (!ItemFitsInGridLocation((itemEnt.Owner, itemEnt.Comp), (container.Owner, storage), loc))
+        {
+            if (!TryGetAvailableGridSpace((container.Owner, storage), itemEnt, out var newLoc))
+            {
+                // Not in StoredItems anymore, so removal won't clear cells using the new shape.
+                ContainerSystem.Remove(itemEnt.Owner, container, force: true);
+                return;
+            }
+
+            loc = newLoc.Value;
+        }
+
+        storage.StoredItems[itemEnt.Owner] = loc;
+        AddOccupiedEntity((container.Owner, storage), itemEnt, loc);
+        UpdateUI((container.Owner, storage));
+        // MAID END storage resize overflow
     }
 
     private void OnNestedStorageCvar(bool obj)
