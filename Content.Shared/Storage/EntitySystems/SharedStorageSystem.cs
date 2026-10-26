@@ -320,6 +320,76 @@ public abstract class SharedStorageSystem : EntitySystem
         // MAID END storage resize overflow
     }
 
+    // MAID BEGIN storage resize overflow
+    /// <summary>
+    /// Checks whether an item stored in a storage grid would still fit in it with a different size or shape.
+    /// Unset values keep the item's current ones. Returns true if the item isn't in a storage grid.
+    /// </summary>
+    public bool StoredItemFitsResized(EntityUid uid, ProtoId<ItemSizePrototype>? size, List<Box2i>? shape)
+    {
+        if (!_itemQuery.TryComp(uid, out var item) ||
+            !TryGetStorageLocation((uid, item), out var container, out var storage, out var loc))
+            return true;
+
+        var storageEnt = new Entity<StorageComponent>(container.Owner, storage);
+        var newSize = ItemSystem.GetSizePrototype(size ?? item.Size);
+        if (newSize > GetMaxItemSize((storageEnt.Owner, storageEnt.Comp)))
+            return false;
+
+        IReadOnlyList<Box2i> baseShape = shape ?? item.Shape ?? newSize.DefaultShape;
+
+        // Check against the grid without the item itself.
+        storage.StoredItems.Remove(uid);
+        UpdateOccupied(storageEnt);
+
+        var noIgnored = new Dictionary<Vector2i, ulong>();
+        var fits = ItemFitsInGridLocation(storage.OccupiedGrid, AdjustShape(baseShape, loc.Rotation, loc.Position), noIgnored);
+
+        if (!fits)
+        {
+            var bounds = storage.Grid.GetBoundingBox();
+            for (var y = bounds.Bottom; y <= bounds.Top && !fits; y++)
+            {
+                for (var x = bounds.Left; x <= bounds.Right && !fits; x++)
+                {
+                    for (var turn = 0; turn < 4 && !fits; turn++)
+                    {
+                        var angle = Angle.FromDegrees(90 * turn);
+                        fits = ItemFitsInGridLocation(storage.OccupiedGrid, AdjustShape(baseShape, angle, new Vector2i(x, y)), noIgnored);
+                    }
+                }
+            }
+        }
+
+        storage.StoredItems[uid] = loc;
+        UpdateOccupied(storageEnt);
+
+        return fits;
+    }
+
+    /// <summary>
+    /// Same as <see cref="SharedItemSystem.GetAdjustedItemShape(List{Box2i}, Entity{ItemComponent?}, Angle, Vector2i)"/>
+    /// but for an arbitrary shape.
+    /// </summary>
+    private static List<Box2i> AdjustShape(IReadOnlyList<Box2i> shapes, Angle rotation, Vector2i position)
+    {
+        var boundingShape = shapes.GetBoundingBox();
+        var boundingCenter = ((Box2) boundingShape).Center;
+        var matty = Matrix3Helpers.CreateTransform(boundingCenter, rotation);
+        var drift = boundingShape.BottomLeft - matty.TransformBox(boundingShape).BottomLeft;
+
+        var adjusted = new List<Box2i>(shapes.Count);
+        foreach (var shape in shapes)
+        {
+            var transformed = matty.TransformBox(shape).Translated(drift);
+            var floored = new Box2i(transformed.BottomLeft.Floored(), transformed.TopRight.Floored());
+            adjusted.Add(floored.Translated(position));
+        }
+
+        return adjusted;
+    }
+    // MAID END storage resize overflow
+
     private void OnNestedStorageCvar(bool obj)
     {
         NestedStorage = obj;
