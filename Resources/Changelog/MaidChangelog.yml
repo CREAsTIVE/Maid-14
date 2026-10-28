@@ -1705,3 +1705,9 @@ Entries:
       message: Вернул возможность смотреть монитор экипажа с кармана
   id: 163
   time: '2026-10-27T20:13:08.0000000+00:00'
+- author: antiWAFG1
+  changes:
+    - type: Add
+      message: Добавлен VendingMachineSodaRed в рандомные спавны по станции.
+  id: 164
+  time: '2026-10-28T21:10:26.0000000+00:00'
