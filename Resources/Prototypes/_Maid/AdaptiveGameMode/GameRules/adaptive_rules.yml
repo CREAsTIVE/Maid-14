@@ -25,19 +25,19 @@
         chaos: 50
         combat: 100
     roundstartRules:
-    - id: Zombie
+    - id: AdaptiveZombie
       baseWeight: 10
-    - id: Changeling
+    - id: AdaptiveChangeling
       baseWeight: 10
-    - id: CorporateAgent
+    - id: AdaptiveCorporateAgent
       baseWeight: 10
-    - id: Nukeops
+    - id: AdaptiveNukeops
       baseWeight: 10
-    - id: Wizard
+    - id: AdaptiveWizard
       baseWeight: 10
-    - id: Revolutionary
+    - id: AdaptiveRevolutionary
       baseWeight: 10
-    - id: Traitor
+    - id: AdaptiveTraitor
       baseWeight: 10
 
     midroundSpawnTimer: # How often we spawn rules
@@ -63,15 +63,13 @@
         amount: 2
     - id: AnomalySpawn
       baseWeight: 10
-    - id: BingleSpawn
-      baseWeight: 10
     - id: BluespaceArtifact
       baseWeight: 10
     - id: BluespaceLocker
       baseWeight: 10
     - id: BureaucraticError
       baseWeight: 10
-    - id: ChangelingMidround
+    - id: AdaptiveChangelingMidround
       baseWeight: 10
     - id: DragonSpawn
       baseWeight: 10

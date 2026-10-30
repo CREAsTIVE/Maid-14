@@ -1,0 +1,63 @@
+- type: entity
+  parent: Zombie
+  id: AdaptiveZombie
+  components:
+  - type: GameRule
+    minPlayers: 0
+    cancelPresetOnTooFewPlayers: false
+
+- type: entity
+  parent: Changeling
+  id: AdaptiveChangeling
+  components:
+  - type: GameRule
+    minPlayers: 0
+    cancelPresetOnTooFewPlayers: false
+
+- type: entity
+  parent: CorporateAgent
+  id: AdaptiveCorporateAgent
+  components:
+  - type: GameRule
+    minPlayers: 0
+    cancelPresetOnTooFewPlayers: false
+
+- type: entity
+  parent: Nukeops
+  id: AdaptiveNukeops
+  components:
+  - type: GameRule
+    minPlayers: 0
+    cancelPresetOnTooFewPlayers: false
+
+- type: entity
+  parent: Wizard
+  id: AdaptiveWizard
+  components:
+  - type: GameRule
+    minPlayers: 0
+    cancelPresetOnTooFewPlayers: false
+
+- type: entity
+  parent: Revolutionary
+  id: AdaptiveRevolutionary
+  components:
+  - type: GameRule
+    minPlayers: 0
+    cancelPresetOnTooFewPlayers: false
+
+- type: entity
+  parent: Traitor
+  id: AdaptiveTraitor
+  components:
+  - type: GameRule
+    minPlayers: 0
+    cancelPresetOnTooFewPlayers: false
+
+- type: entity
+  parent: ChangelingMidround
+  id: AdaptiveChangelingMidround
+  components:
+  - type: GameRule
+    minPlayers: 0
+    cancelPresetOnTooFewPlayers: false
