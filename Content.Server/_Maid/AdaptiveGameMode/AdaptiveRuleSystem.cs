@@ -78,7 +78,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
         Log($"Spawning roundstart rules with budget {roundstartTargetBudget} (of {readyPlayersCount} players)...");
 
-        for (var i = 0; i < 5; i++) // for now - hardcoded limit. TODO
+        for (var i = 0; i < component.RoundstartMaxRules; i++)
         {
             // TODO: Also temporary. Probably should do probability for spawning next rule based on distance to target score
             if (accumulatedScore.Average >= roundstartTargetBudget.Average)
@@ -138,25 +138,28 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
     private void TrySpawnRandomRule(EntityUid uid, AdaptiveRuleComponent component)
     {
-        if (component.MidroundRules.Count == 0)
-            return;
-
         // Evaluate conditions for candidate rules
-        var candidateRules = new List<AdaptiveRuleParam>();
-        foreach (var ruleParam in component.MidroundRules)
+        var candidateRules = component.MidroundRules
+            .Where(rule =>
+                rule.Conditions.All(c => c.Condition(rule, component, EntityManager)))
+            .ToList();
+
+        var currentScore = CalculateChaosScore();
+        var targetBudget = GetTargetBudget(component, _gameTicker.RoundDuration());
+        var scoreBudget = targetBudget - currentScore.Score;
+
+        if (currentScore.Score.Average < targetBudget.Average * component.MajorMidroundRulesMaxScorePercentage)
         {
-            if (ruleParam.Conditions.All(c => c.Condition(ruleParam, component, EntityManager)))
-            {
-                candidateRules.Add(ruleParam);
-            }
+            candidateRules
+                .AddRange(
+                    component.MajorMidroundRules
+                        .Where(rule => rule.Conditions.All(c => c.Condition(rule, component, EntityManager))
+                )
+            );
         }
 
         if (candidateRules.Count == 0)
             return;
-
-        var currentScore = CalculateChaosScore();
-        var targetBudget = GetTargetBudget(component, _gameTicker.RoundDuration());
-        var scoreBudget = targetBudget - new AdaptiveScore { Chaos = currentScore.ChaosScore, Combat = currentScore.CombatScore };
 
         var chosenRule = ChooseRandomRule(component, candidateRules, scoreBudget);
         if (chosenRule == null)
@@ -307,7 +310,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
         // Kinda gross but it is what it is
         // TODO: Rewrite whole tracking system and make it pretty and not that shit
-        _balancing.SaveCalculationRun(ev.ChaosScore, ev.CombatScore, targetBudget.Chaos, targetBudget.Combat, ev.Records);
+        _balancing.SaveCalculationRun(ev.Score.Chaos, ev.Score.Combat, targetBudget.Chaos, targetBudget.Combat, ev.Records);
 
         return ev;
     }
