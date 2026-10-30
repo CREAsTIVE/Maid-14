@@ -98,9 +98,17 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
             if (chosenRule == null)
                 break;
 
+            var possibleScore = CalculatePossibleScoreForPrototype(chosenRule.Id, readyPlayersCount);
+
+            // <Current score> -- <target score> -- <current score + this event>
+            // If current score is closer to target score, then skip this rule (this is too much)
+            if (MathF.Abs(accumulatedScore.Average - roundstartTargetBudget.Average) <
+                MathF.Abs((accumulatedScore+possibleScore).Average - roundstartTargetBudget.Average))
+                break;
+
             if (SpawnRule(uid, component, chosenRule.Id) != null)
             {
-                accumulatedScore += CalculatePossibleScoreForPrototype(chosenRule.Id, readyPlayersCount);
+                accumulatedScore += possibleScore;
             }
 
             candidateRules.Remove(chosenRule); // can't spawn same rule multiple times
