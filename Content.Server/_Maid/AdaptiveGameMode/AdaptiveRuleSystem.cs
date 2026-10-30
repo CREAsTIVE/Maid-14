@@ -260,11 +260,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
     public AdaptiveScore CalculatePossibleScoreForPrototype(string ruleId, int? playerCount = null)
     {
-        // TODO: Move entire logic into GetPrototypeStaticScore. I don't see reason to keep those separate
-
-        var score = GetPrototypeStaticScore(ruleId, playerCount);
-
-        return score;
+        return GetPrototypeStaticScore(ruleId, playerCount);
     }
 
     public EntityUid? SpawnRule(EntityUid uid, AdaptiveRuleComponent component, string ruleId)
@@ -330,7 +326,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
         // We can't check everything (like some complex entity table shit) to estimate it properly
         // So we need a way to define score manually
-        if (proto.TryGetComponent(out AdaptiveScoreStaticGameruleEntityComponent? gameruleEntity, _compFactory))
+        if (proto.TryGetComponent(out AdaptivePotentialScoreEntityComponent? gameruleEntity, _compFactory))
         {
             score += GetPrototypeStaticScore(gameruleEntity.Prototype, playerCount, depth + 1) * gameruleEntity.Count;
         }
