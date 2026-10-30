@@ -93,7 +93,10 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
             }
 
             var remainingBudget = roundstartTargetBudget - accumulatedScore;
-            var chosenRule = ChooseRandomRule(component, candidateRules, remainingBudget, readyPlayersCount);
+
+            var chosenRule = component.RoundstartUsePotentialScore
+                ? ChooseRandomRule(component, candidateRules, remainingBudget, readyPlayersCount)
+                : _random.Pick(candidateRules);
 
             if (chosenRule == null)
                 break;
@@ -213,6 +216,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
         if (_balancing.TrackingEnabled)
             _balancing.AppendRandomRuleSelectionData(weightedRules, null);
+
         return weightedRules.Last().Rule;
     }
 

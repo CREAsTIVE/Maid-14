@@ -25,6 +25,7 @@
         chaos: 50
         combat: 100
     roundstartMaxRules: 1
+    roundstartUsePotentialScore: false
     roundstartRules:
     - id: AdaptiveZombie
       baseWeight: 10

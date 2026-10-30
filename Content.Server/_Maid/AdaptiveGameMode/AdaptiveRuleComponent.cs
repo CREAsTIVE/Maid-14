@@ -23,6 +23,9 @@ public sealed partial class AdaptiveRuleComponent : Component
     [DataField]
     public int RoundstartMaxRules = 5;
 
+    [DataField]
+    public bool RoundstartUsePotentialScore = true;
+
     /// <summary>
     /// Gamerules that get added at round start.
     /// </summary>

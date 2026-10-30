@@ -102,10 +102,12 @@
   - type: AdaptiveScoreStatic
     chaosScore: 5
     conditions:
+    - !type:HasNotComponent
+      components:
+      - PowerGridCheckRule
     - !type:HasComponent
-      component: PowerGridCheckRule
-      invert: true
-    - !type:ActiveGameRule
+      components:
+      - ActiveGameRule
 
 - type: entity
   parent: SolarFlare
