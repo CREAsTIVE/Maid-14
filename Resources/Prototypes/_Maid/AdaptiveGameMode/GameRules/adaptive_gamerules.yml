@@ -102,9 +102,6 @@
   - type: AdaptiveScoreStatic
     chaosScore: 5
     conditions:
-    - !type:HasNotComponent
-      components:
-      - PowerGridCheckRule
     - !type:HasComponent
       components:
       - ActiveGameRule
