@@ -64,7 +64,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
     {
         var readyPlayersCount = _playerManager.Sessions
             .Count(session => GameTicker.PlayerGameStatuses.TryGetValue(session.UserId, out var status)
-                              && (status == PlayerGameStatus.ReadyToPlay || status == PlayerGameStatus.JoinedGame)
+                              && status is PlayerGameStatus.ReadyToPlay or PlayerGameStatus.JoinedGame
             );
 
         var candidateRules = component.RoundstartRules
@@ -98,7 +98,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
             if (chosenRule == null)
                 break;
 
-            var possibleScore = CalculatePossibleScoreForPrototype(chosenRule.Id, readyPlayersCount);
+            var possibleScore = CalculatePrototypePotentialScore(chosenRule.Id, readyPlayersCount);
 
             // <Current score> -- <target score> -- <current score + this event>
             // If current score is closer to target score, then skip this rule (this is too much)
@@ -161,7 +161,12 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         if (candidateRules.Count == 0)
             return;
 
-        var chosenRule = ChooseRandomRule(component, candidateRules, scoreBudget);
+        var playerCount = _playerManager.Sessions
+            .Count(session => GameTicker.PlayerGameStatuses.TryGetValue(session.UserId, out var status)
+                              && status is PlayerGameStatus.ReadyToPlay or PlayerGameStatus.JoinedGame
+            );
+
+        var chosenRule = ChooseRandomRule(component, candidateRules, scoreBudget, playerCount);
         if (chosenRule == null)
             return;
 
@@ -224,7 +229,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
         foreach (var rule in rules)
         {
-            var expectedBudget = CalculatePossibleScoreForPrototype(rule.Id, playerCount);
+            var expectedBudget = CalculatePrototypePotentialScore(rule.Id, playerCount);
 
             var multiplierChaos = GetMultiplier(scoreBudget.Chaos, expectedBudget.Chaos);
             var multiplierCombat = GetMultiplier(scoreBudget.Combat, expectedBudget.Combat);
@@ -256,11 +261,6 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
             return MathF.Exp(-x * k2 - MathF.Pow(x / s2, p2));
         }
-    }
-
-    public AdaptiveScore CalculatePossibleScoreForPrototype(string ruleId, int? playerCount = null)
-    {
-        return CalculatePrototypePotentialScore(ruleId, playerCount);
     }
 
     public EntityUid? SpawnRule(EntityUid uid, AdaptiveRuleComponent component, string ruleId)
@@ -311,7 +311,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         return ev;
     }
 
-    private AdaptiveScore CalculatePrototypePotentialScore(string protoId, int? playerCount = null, int depth = 0)
+    public AdaptiveScore CalculatePrototypePotentialScore(string protoId, int? playerCount = null, int depth = 0)
     {
         if (depth > 20)
         {
@@ -328,7 +328,8 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         // So we need a way to define score manually
         if (proto.TryGetComponent(out AdaptivePotentialScoreEntityComponent? gameruleEntity, _compFactory))
         {
-            score += CalculatePrototypePotentialScore(gameruleEntity.Prototype, playerCount, depth + 1) * gameruleEntity.Count;
+            score += CalculatePrototypePotentialScore(gameruleEntity.Prototype, playerCount, depth + 1) *
+                     (gameruleEntity.Count + gameruleEntity.CountPerPlayer * playerCount ?? 0);
         }
 
         if (proto.TryGetComponent(out AdaptivePotentialScoreComponent? gameruleScore, _compFactory))
