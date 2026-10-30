@@ -260,7 +260,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
     public AdaptiveScore CalculatePossibleScoreForPrototype(string ruleId, int? playerCount = null)
     {
-        return GetPrototypeStaticScore(ruleId, playerCount);
+        return CalculatePrototypePotentialScore(ruleId, playerCount);
     }
 
     public EntityUid? SpawnRule(EntityUid uid, AdaptiveRuleComponent component, string ruleId)
@@ -311,7 +311,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         return ev;
     }
 
-    private AdaptiveScore GetPrototypeStaticScore(string protoId, int? playerCount = null, int depth = 0)
+    private AdaptiveScore CalculatePrototypePotentialScore(string protoId, int? playerCount = null, int depth = 0)
     {
         if (depth > 20)
         {
@@ -328,7 +328,12 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         // So we need a way to define score manually
         if (proto.TryGetComponent(out AdaptivePotentialScoreEntityComponent? gameruleEntity, _compFactory))
         {
-            score += GetPrototypeStaticScore(gameruleEntity.Prototype, playerCount, depth + 1) * gameruleEntity.Count;
+            score += CalculatePrototypePotentialScore(gameruleEntity.Prototype, playerCount, depth + 1) * gameruleEntity.Count;
+        }
+
+        if (proto.TryGetComponent(out AdaptivePotentialScoreComponent? gameruleScore, _compFactory))
+        {
+            score += gameruleScore.Score;
         }
 
         // Score was explicitly defined on this entity
@@ -340,7 +345,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         // Some random spawner
         if (proto.TryGetComponent(out RandomEntityStorageSpawnRuleComponent? storageSpawnRule, _compFactory))
         {
-            score += GetPrototypeStaticScore(storageSpawnRule.Prototype, playerCount, depth + 1);
+            score += CalculatePrototypePotentialScore(storageSpawnRule.Prototype, playerCount, depth + 1);
         }
 
         // Has ghost role, and since ghost roles have mind roles we need to check those
@@ -348,7 +353,7 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         {
             foreach (var role in ghostComp.MindRoles)
             {
-                score += GetPrototypeStaticScore(role, playerCount, depth + 1);
+                score += CalculatePrototypePotentialScore(role, playerCount, depth + 1);
             }
         }
 
@@ -357,26 +362,26 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
         {
             if (spawnerComp.Prototype != null)
             {
-                score += GetPrototypeStaticScore(spawnerComp.Prototype, playerCount, depth + 1);
+                score += CalculatePrototypePotentialScore(spawnerComp.Prototype, playerCount, depth + 1);
             }
 
             foreach (var selectable in spawnerComp.SelectablePrototypes)
             {
-                score += GetPrototypeStaticScore(selectable, playerCount, depth + 1);
+                score += CalculatePrototypePotentialScore(selectable, playerCount, depth + 1);
             }
         }
 
         // Is antag spawner
         if (proto.TryGetComponent(out AntagSpawnerComponent? antagSpawner, _compFactory))
         {
-            score += GetPrototypeStaticScore(antagSpawner.Prototype, playerCount, depth + 1);
+            score += CalculatePrototypePotentialScore(antagSpawner.Prototype, playerCount, depth + 1);
         }
 
         if (proto.TryGetComponent(out Spawners.Components.ConditionalSpawnerComponent? condSpawner, _compFactory))
         {
             foreach (var spawnerProto in condSpawner.Prototypes)
             {
-                score += GetPrototypeStaticScore(spawnerProto, playerCount, depth + 1);
+                score += CalculatePrototypePotentialScore(spawnerProto, playerCount, depth + 1);
             }
         }
 
@@ -391,13 +396,13 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
 
             if (speciesId != null && _protoManager.TryIndex<SpeciesPrototype>(speciesId.Value, out var species))
             {
-                score += GetPrototypeStaticScore(species.Prototype, playerCount, depth + 1);
+                score += CalculatePrototypePotentialScore(species.Prototype, playerCount, depth + 1);
             }
         }
 
         if (proto.TryGetComponent(out RandomSpawnRuleComponent? randomSpawnRule, _compFactory))
         {
-            score += GetPrototypeStaticScore(randomSpawnRule.Prototype, playerCount, depth + 1);
+            score += CalculatePrototypePotentialScore(randomSpawnRule.Prototype, playerCount, depth + 1);
         }
 
         if (proto.TryGetComponent(out AntagSelectionComponent? antagComp, _compFactory))
@@ -422,14 +427,14 @@ public sealed class AdaptiveRuleSystem : GameRuleSystem<AdaptiveRuleComponent>
                 {
                     foreach (var role in def.MindRoles)
                     {
-                        score += GetPrototypeStaticScore(role, playerCount, depth + 1) * antagCount;
+                        score += CalculatePrototypePotentialScore(role, playerCount, depth + 1) * antagCount;
                     }
                 }
 
                 // Spawners
                 if (def.SpawnerPrototype != null)
                 {
-                    score += GetPrototypeStaticScore(def.SpawnerPrototype, playerCount, depth + 1) * antagCount;
+                    score += CalculatePrototypePotentialScore(def.SpawnerPrototype, playerCount, depth + 1) * antagCount;
                 }
 
                 // Added components
